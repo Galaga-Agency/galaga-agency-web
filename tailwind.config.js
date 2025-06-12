@@ -19,7 +19,6 @@
  * - Styles that absolutely cannot be achieved through Tailwind
  */
 
-const { heroui } = require("@heroui/theme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // Enable dark mode using class strategy instead of media queries
@@ -44,9 +43,6 @@ module.exports = {
 
   // Tailwind plugins
   plugins: [
-    // Enable basic animation utilities
-    require("tailwindcss-animate"),
-    
     // Custom utility to remove tap highlight on mobile
     function ({ addUtilities }) {
       addUtilities({
