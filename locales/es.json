@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Quiénes somos",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "cta": "Hablemos"
+  },
+  "hero": {
+    "transformamos": "Transformamos",
+    "negocios": "negocios",
+    "sinComplicaciones": "sin complicaciones",
+    "subtitle": "Transformamos negocios a través de soluciones digitales que funcionan, con estrategia, creatividad y un enfoque 100% humano.",
+    "weHelp": "Ayudamos a empresas que quieren crecer sin perder el control:",
+    "organize": "Organizar",
+    "automate": "Automatizar",
+    "connect": "Conectar",
+    "startTransformation": "Inicia tu transformación",
+    "learnMore": "Conoce más",
+    "trustedBy": "Confían en nosotros"
+  },
+  "about": {
+    "whoWeAre": "¿Quiénes somos?",
+    "description": "Galaga es una agencia de innovación empresarial que acompaña a empresas en su transformación digital.",
+    "ourOrigin": "Nuestro origen",
+    "originsText1": "Galaga nace de la intersección entre la experiencia empresarial tradicional y el universo creativo del gaming.",
+    "originsText2": "Con más de 35 años de experiencia familiar en espacios comerciales y la creación de Team Galaga en 2018.",
+    "todayWeIntegrate": "Hoy integramos",
+    "integrationText": "esa doble visión: la solidez empresarial tradicional y la creatividad del mundo gaming.",
+    "ourValues": "Nuestros valores",
+    "clarity": "Claridad",
+    "clarityText": "Hacemos fácil lo complejo",
+    "humanity": "Humanidad",
+    "humanityText": "Innovamos contigo, no por ti",
+    "action": "Acción",
+    "actionText": "No solo planificamos, hacemos que pase",
+    "simplicity": "Sencillez",
+    "simplicityText": "Sin jerga, sin adornos innecesarios",
+    "usefulCreativity": "Creatividad útil",
+    "usefulCreativityText": "Ideas que resuelven, no solo decoran",
+    "yearsExperience": "Años de experiencia",
+    "humanApproach": "Enfoque humano",
+    "sinceTeamGalaga": "Desde Team Galaga"
+  },
+  "services": {
+    "title": "Nuestros servicios",
+    "subtitle": "Soluciones integrales que combinan estrategia, tecnología y creatividad para transformar tu negocio.",
+    "strategy": {
+      "title": "Consultoría estratégica",
+      "description": "Analizamos tu negocio y diseñamos un plan de transformación personalizado.",
+      "feature1": "Análisis de procesos",
+      "feature2": "Plan de digitalización",
+      "feature3": "Acompañamiento continuo"
+    },
+    "automation": {
+      "title": "Automatización",
+      "description": "Implementamos sistemas que organizan y automatizan tus procesos.",
+      "feature1": "CRM y ERP",
+      "feature2": "Automatización de tareas",
+      "feature3": "Integración de sistemas"
+    },
+    "innovation": {
+      "title": "Innovación tecnológica",
+      "description": "Aplicamos las últimas tecnologías para mejorar tu negocio.",
+      "feature1": "Inteligencia artificial",
+      "feature2": "IoT y sensores",
+      "feature3": "Soluciones personalizadas"
+    },
+    "immersive": {
+      "title": "Marketing inmersivo",
+      "description": "Creamos experiencias digitales que conectan con tus clientes.",
+      "feature1": "Realidad aumentada",
+      "feature2": "Experiencias interactivas",
+      "feature3": "Gamificación"
+    },
+    "training": {
+      "title": "Formación y soporte",
+      "description": "Capacitamos a tu equipo para trabajar con autonomía.",
+      "feature1": "Formación personalizada",
+      "feature2": "Manuales visuales",
+      "feature3": "Seguimiento continuo"
+    },
+    "grants": {
+      "title": "Gestión de subvenciones",
+      "description": "Identificamos y gestionamos ayudas públicas para tu proyecto.",
+      "feature1": "Kit Digital",
+      "feature2": "Subvenciones públicas",
+      "feature3": "Tramitación completa"
+    },
+    "cta": {
+      "title": "¿Listo para transformar tu negocio?",
+      "description": "Agenda una consulta gratuita y descubre cómo podemos ayudarte.",
+      "contact": "Contacta con nosotros",
+      "learnMore": "Ver todos los servicios"
+    }
+  },
+  "cta": {
+    "readyToTransform": "¿Listo para transformar tu negocio?",
+    "subtitle": "No esperes más. El momento del cambio es ahora.",
+    "benefit1": {
+      "title": "Resultados desde el primer mes",
+      "description": "Mejoras operativas visibles desde el inicio"
+    },
+    "benefit2": {
+      "title": "Acompañamiento real",
+      "description": "Estamos contigo durante todo el proceso"
+    },
+    "benefit3": {
+      "title": "Tecnología útil",
+      "description": "Soluciones prácticas, no complejas"
+    },
+    "scheduleCall": "Agenda una llamada",
+    "knowMore": "Conoce más",
+    "directContact": "Contacto directo:",
+    "getInTouch": "Ponte en contacto"
+  },
+  "contact": {
+    "title": "Hablemos de tu proyecto",
+    "subtitle": "Estamos aquí para ayudarte a transformar tu negocio. Cuéntanos qué necesitas.",
+    "form": {
+      "title": "Envíanos un mensaje",
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "email": "Email",
+      "emailPlaceholder": "tu@email.com",
+      "company": "Empresa",
+      "companyPlaceholder": "Nombre de tu empresa",
+      "phone": "Teléfono",
+      "phonePlaceholder": "+34 600 000 000",
+      "serviceInterest": "Servicio de interés",
+      "selectService": "Selecciona un servicio",
+      "services": {
+        "strategy": "Consultoría estratégica",
+        "automation": "Automatización",
+        "innovation": "Innovación tecnológica",
+        "immersive": "Marketing inmersivo",
+        "training": "Formación y soporte",
+        "grants": "Gestión de subvenciones",
+        "other": "Otro"
+      },
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntanos más sobre tu proyecto...",
+      "send": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": {
+        "title": "¡Mensaje enviado!",
+        "description": "Te responderemos en menos de 24 horas."
+      },
+      "privacy": "Al enviar este formulario, aceptas nuestra política de privacidad."
+    },
+    "info": {
+      "title": "Información de contacto"
+    },
+    "email": "Email",
+    "location": "Ubicación",
+    "locationText": "Las Palmas de Gran Canaria, España",
+    "schedule": "Horario",
+    "scheduleText": "Lunes a Viernes, 9:00 - 18:00",
+    "social": {
+      "title": "Síguenos"
+    },
+    "promise": {
+      "title": "Respuesta garantizada en 24h",
+      "description": "Nos comprometemos a responder tu consulta en menos de 24 horas."
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+    "goHome": "Volver al inicio",
+    "contactUs": "Contacta con nosotros",
+    "helpfulLinks": "Enlaces útiles",
+    "links": {
+      "about": "Sobre nosotros",
+      "aboutDesc": "Conoce nuestra historia",
+      "services": "Servicios",
+      "servicesDesc": "Descubre qué podemos hacer",
+      "contact": "Contacto",
+      "contactDesc": "Ponte en contacto",
+      "email": "Email directo"
+    }
+  },
+  "footer": {
+    "description": "Transformamos negocios a través de soluciones digitales que funcionan.",
+    "services": "Servicios",
+    "digitalConsulting": "Consultoría digital",
+    "automation": "Automatización",
+    "immersiveMarketing": "Marketing inmersivo",
+    "training": "Formación",
+    "contact": "Contacto",
+    "getInTouch": "Ponte en contacto",
+    "location": "Las Palmas de Gran Canaria, España",
+    "allRightsReserved": "Todos los derechos reservados",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  }
+}

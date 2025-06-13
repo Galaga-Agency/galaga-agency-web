@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "cta": "Let's Talk"
+  },
+  "hero": {
+    "transformamos": "We Transform",
+    "negocios": "Businesses",
+    "sinComplicaciones": "Without Complications",
+    "subtitle": "We transform businesses through digital solutions that work, with strategy, creativity and a 100% human approach.",
+    "weHelp": "We help companies that want to grow without losing control:",
+    "organize": "Organize",
+    "automate": "Automate",
+    "connect": "Connect",
+    "startTransformation": "Start Your Transformation",
+    "learnMore": "Learn More",
+    "trustedBy": "Trusted by"
+  },
+  "about": {
+    "whoWeAre": "Who we are",
+    "description": "Galaga is a business innovation agency that accompanies companies in their digital transformation.",
+    "ourOrigin": "Our origin",
+    "originsText1": "Galaga was born from the intersection between traditional business experience and the creative universe of gaming.",
+    "originsText2": "With more than 35 years of family experience in commercial spaces and the creation of Team Galaga in 2018.",
+    "todayWeIntegrate": "Today we integrate",
+    "integrationText": "that dual vision: traditional business solidity and the creativity of the gaming world.",
+    "ourValues": "Our values",
+    "clarity": "Clarity",
+    "clarityText": "We make complex things simple",
+    "humanity": "Humanity",
+    "humanityText": "We innovate with you, not for you",
+    "action": "Action",
+    "actionText": "We don't just plan, we make it happen",
+    "simplicity": "Simplicity",
+    "simplicityText": "No jargon, no unnecessary frills",
+    "usefulCreativity": "Useful creativity",
+    "usefulCreativityText": "Ideas that solve, not just decorate",
+    "yearsExperience": "Years of experience",
+    "humanApproach": "Human approach",
+    "sinceTeamGalaga": "Since Team Galaga"
+  },
+  "services": {
+    "title": "Our services",
+    "subtitle": "Comprehensive solutions that combine strategy, technology and creativity to transform your business.",
+    "strategy": {
+      "title": "Strategic consulting",
+      "description": "We analyze your business and design a personalized transformation plan.",
+      "feature1": "Process analysis",
+      "feature2": "Digitalization plan",
+      "feature3": "Continuous support"
+    },
+    "automation": {
+      "title": "Automation",
+      "description": "We implement systems that organize and automate your processes.",
+      "feature1": "CRM and ERP",
+      "feature2": "Task automation",
+      "feature3": "System integration"
+    },
+    "innovation": {
+      "title": "Technological innovation",
+      "description": "We apply the latest technologies to improve your business.",
+      "feature1": "Artificial intelligence",
+      "feature2": "IoT and sensors",
+      "feature3": "Custom solutions"
+    },
+    "immersive": {
+      "title": "Immersive marketing",
+      "description": "We create digital experiences that connect with your customers.",
+      "feature1": "Augmented reality",
+      "feature2": "Interactive experiences",
+      "feature3": "Gamification"
+    },
+    "training": {
+      "title": "Training and support",
+      "description": "We train your team to work autonomously.",
+      "feature1": "Personalized training",
+      "feature2": "Visual manuals",
+      "feature3": "Continuous monitoring"
+    },
+    "grants": {
+      "title": "Grant management",
+      "description": "We identify and manage public aid for your project.",
+      "feature1": "Digital Kit",
+      "feature2": "Public subsidies",
+      "feature3": "Complete processing"
+    },
+    "cta": {
+      "title": "Ready to transform your business?",
+      "description": "Schedule a free consultation and discover how we can help you.",
+      "contact": "Contact us",
+      "learnMore": "View all services"
+    }
+  },
+  "cta": {
+    "readyToTransform": "Ready to transform your business?",
+    "subtitle": "Don't wait any longer. The time for change is now.",
+    "benefit1": {
+      "title": "Results from the first month",
+      "description": "Visible operational improvements from the start"
+    },
+    "benefit2": {
+      "title": "Real support",
+      "description": "We're with you throughout the process"
+    },
+    "benefit3": {
+      "title": "Useful technology",
+      "description": "Practical solutions, not complex"
+    },
+    "scheduleCall": "Schedule a call",
+    "knowMore": "Learn more",
+    "directContact": "Direct contact:",
+    "getInTouch": "Get in touch"
+  },
+  "contact": {
+    "title": "Let's talk about your project",
+    "subtitle": "We're here to help you transform your business. Tell us what you need.",
+    "form": {
+      "title": "Send us a message",
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "phone": "Phone",
+      "phonePlaceholder": "+34 600 000 000",
+      "serviceInterest": "Service of interest",
+      "selectService": "Select a service",
+      "services": {
+        "strategy": "Strategic consulting",
+        "automation": "Automation",
+        "innovation": "Technological innovation",
+        "immersive": "Immersive marketing",
+        "training": "Training and support",
+        "grants": "Grant management",
+        "other": "Other"
+      },
+      "message": "Message",
+      "messagePlaceholder": "Tell us more about your project...",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": {
+        "title": "Message sent!",
+        "description": "We'll respond to you in less than 24 hours."
+      },
+      "privacy": "By submitting this form, you accept our privacy policy."
+    },
+    "info": {
+      "title": "Contact information"
+    },
+    "email": "Email",
+    "location": "Location",
+    "locationText": "Las Palmas de Gran Canaria, Spain",
+    "schedule": "Schedule",
+    "scheduleText": "Monday to Friday, 9:00 - 18:00",
+    "social": {
+      "title": "Follow us"
+    },
+    "promise": {
+      "title": "24h response guaranteed",
+      "description": "We commit to responding to your inquiry in less than 24 hours."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go home",
+    "contactUs": "Contact us",
+    "helpfulLinks": "Helpful links",
+    "links": {
+      "about": "About us",
+      "aboutDesc": "Learn our story",
+      "services": "Services",
+      "servicesDesc": "Discover what we can do",
+      "contact": "Contact",
+      "contactDesc": "Get in touch",
+      "email": "Direct email"
+    }
+  },
+  "footer": {
+    "description": "We transform businesses through digital solutions that work.",
+    "services": "Services",
+    "digitalConsulting": "Digital consulting",
+    "automation": "Automation",
+    "immersiveMarketing": "Immersive marketing",
+    "training": "Training",
+    "contact": "Contact",
+    "getInTouch": "Get in touch",
+    "location": "Las Palmas de Gran Canaria, Spain",
+    "allRightsReserved": "All rights reserved",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  }
+}
