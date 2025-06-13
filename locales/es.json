@@ -17,7 +17,15 @@
     "connect": "Conectar",
     "startTransformation": "Inicia tu transformación",
     "learnMore": "Conoce más",
-    "trustedBy": "Confían en nosotros"
+    "trustedBy": "Confían en nosotros",
+    "organizeDesc": "Sistemas que organizan tu caos",
+    "automateDesc": "IA que trabaja mientras duermes",
+    "connectDesc": "Clientes que no te olvidan",
+    "companies": "empresas",
+    "companiesTransformed": "Empresas transformadas",
+    "yearsExperience": "Años de experiencia",
+    "guaranteedResponse": "Respuesta garantizada",
+    "humanApproach": "Enfoque humano"
   },
   "about": {
     "whoWeAre": "¿Quiénes somos?",
