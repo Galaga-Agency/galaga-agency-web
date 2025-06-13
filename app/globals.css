@@ -1,12 +1,104 @@
 @import "tailwindcss";
 
-* {
+@theme {
+  --color-primary: #14b8a6;
+  --color-primary-dark: #0f766e;
+  --color-primary-light: #5eead4;
+
+  --color-accent: #f97316;
+  --color-accent-dark: #c2410c;
+  --color-accent-light: #fdba74;
+
+  --color-creative: #a855f7;
+  --color-creative-dark: #7c3aed;
+  --color-creative-light: #d8b4fe;
+
+  /* Typography */
+  --font-family-primary: "Aileron", "Inter", system-ui, sans-serif;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
+}
+
+* {
   margin: 0;
 }
 
-html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-family-primary);
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Font loading */
+@font-face {
+  font-family: "Aileron";
+  src: url("/fonts/aileron-regular.woff2") format("woff2"),
+    url("/fonts/aileron-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/fonts/aileron-semibold.woff2") format("woff2"),
+    url("/fonts/aileron-semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Aileron";
+  src: url("/fonts/aileron-bold.woff2") format("woff2"),
+    url("/fonts/aileron-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }
