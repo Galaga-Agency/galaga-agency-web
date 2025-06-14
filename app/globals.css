@@ -13,7 +13,6 @@
   --color-creative-dark: #7c3aed;
   --color-creative-light: #d8b4fe;
 
-  /* Typography */
   --font-family-primary: "Aileron", "Inter", system-ui, sans-serif;
 }
 
@@ -101,4 +100,46 @@ h6 {
 
 :focus:not(:focus-visible) {
   outline: none;
+}
+
+/* ============================================================================
+   SECTION UTILITIES
+   ============================================================================ */
+
+.section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  
+  @media (min-width: 640px) {
+    padding-left: 1.5rem; 
+    padding-right: 1.5rem; 
+    padding-top: 5rem; 
+    padding-bottom: 5rem;
+  }
+  
+  @media (min-width: 768px) {
+    padding-left: 2rem; 
+    padding-right: 2rem; 
+    padding-top: 6rem; 
+    padding-bottom: 6rem;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-left: 3rem; 
+    padding-right: 3rem; 
+    padding-top: 8rem; 
+    padding-bottom: 8rem;
+  }
+  
+  @media (min-width: 1280px) {
+    padding-left: 4rem; 
+    padding-right: 4rem;
+  }
+  
+  @media (min-width: 1536px) {
+    padding-left: 5rem; 
+    padding-right: 5rem;
+  }
 }
