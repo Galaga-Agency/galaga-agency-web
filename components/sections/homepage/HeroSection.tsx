@@ -34,15 +34,11 @@ export default function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-primary to-accent overflow-hidden">
-
-      {/* Main Content */}
-      <div className="relative z-10 flex flex-col justify-center min-h-screen py-24 px-16">
-        
+    <section className="section relative min-h-screen bg-gradient-to-br from-primary to-accent overflow-hidden">        
         {/* Trust Badge */}
-        <div className="text-center mb-24">
+        <div className="text-center pb-8">
           <span className="inline-block bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full text-lg font-semibold border border-white/30">
-            🚀 {t("hero.trustedBy")} 100+ {t("hero.companies")}
+            🚀  {t("hero.trustedBy")} 100+ {t("hero.companies")}
           </span>
         </div>
 
@@ -107,15 +103,6 @@ export default function HeroSection() {
             />
           ))}
         </div>
-
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-        </div>
-      </div>
     </section>
   );
 }

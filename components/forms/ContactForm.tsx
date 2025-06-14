@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface FormData {
   name: string;
@@ -12,6 +13,7 @@ interface FormData {
 }
 
 export default function ContactForm() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -63,10 +65,10 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="text-center py-12">
-        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="text-center py-16">
+        <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
           <svg
-            className="w-8 h-8 text-primary"
+            className="w-10 h-10 text-primary"
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -77,24 +79,26 @@ export default function ContactForm() {
             />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
-          key.contact.form.success.title
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          {t("contact.form.success.title")}
         </h3>
-        <p className="text-gray-600">key.contact.form.success.description</p>
+        <p className="text-gray-600 text-lg">
+          {t("contact.form.success.description")}
+        </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-8">
       {/* Name and Email */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-lg font-medium text-gray-700 mb-3"
           >
-            key.contact.form.name <span className="text-red-500">*</span>
+            {t("contact.form.name")} <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -103,17 +107,17 @@ export default function ContactForm() {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
-            placeholder="key.contact.form.namePlaceholder"
+            className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 text-lg"
+            placeholder={t("contact.form.namePlaceholder")}
           />
         </div>
 
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-lg font-medium text-gray-700 mb-3"
           >
-            key.contact.form.email <span className="text-red-500">*</span>
+            {t("contact.form.email")} <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
@@ -122,20 +126,20 @@ export default function ContactForm() {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
-            placeholder="key.contact.form.emailPlaceholder"
+            className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 text-lg"
+            placeholder={t("contact.form.emailPlaceholder")}
           />
         </div>
       </div>
 
       {/* Company and Phone */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <label
             htmlFor="company"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-lg font-medium text-gray-700 mb-3"
           >
-            key.contact.form.company
+            {t("contact.form.company")}
           </label>
           <input
             type="text"
@@ -143,17 +147,17 @@ export default function ContactForm() {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
-            placeholder="key.contact.form.companyPlaceholder"
+            className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 text-lg"
+            placeholder={t("contact.form.companyPlaceholder")}
           />
         </div>
 
         <div>
           <label
             htmlFor="phone"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-lg font-medium text-gray-700 mb-3"
           >
-            key.contact.form.phone
+            {t("contact.form.phone")}
           </label>
           <input
             type="tel"
@@ -161,8 +165,8 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
-            placeholder="key.contact.form.phonePlaceholder"
+            className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 text-lg"
+            placeholder={t("contact.form.phonePlaceholder")}
           />
         </div>
       </div>
@@ -171,29 +175,29 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="service"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="block text-lg font-medium text-gray-700 mb-3"
         >
-          key.contact.form.serviceInterest
+          {t("contact.form.serviceInterest")}
         </label>
         <select
           id="service"
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200"
+          className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 text-lg"
         >
-          <option value="">key.contact.form.selectService</option>
-          <option value="strategy">key.contact.form.services.strategy</option>
+          <option value="">{t("contact.form.selectService")}</option>
+          <option value="strategy">{t("contact.form.services.strategy")}</option>
           <option value="automation">
-            key.contact.form.services.automation
+            {t("contact.form.services.automation")}
           </option>
           <option value="innovation">
-            key.contact.form.services.innovation
+            {t("contact.form.services.innovation")}
           </option>
-          <option value="immersive">key.contact.form.services.immersive</option>
-          <option value="training">key.contact.form.services.training</option>
-          <option value="grants">key.contact.form.services.grants</option>
-          <option value="other">key.contact.form.services.other</option>
+          <option value="immersive">{t("contact.form.services.immersive")}</option>
+          <option value="training">{t("contact.form.services.training")}</option>
+          <option value="grants">{t("contact.form.services.grants")}</option>
+          <option value="other">{t("contact.form.services.other")}</option>
         </select>
       </div>
 
@@ -201,19 +205,19 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-sm font-medium text-gray-700 mb-2"
+          className="block text-lg font-medium text-gray-700 mb-3"
         >
-          key.contact.form.message <span className="text-red-500">*</span>
+          {t("contact.form.message")} <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
           name="message"
-          rows={5}
+          rows={6}
           required
           value={formData.message}
           onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 resize-vertical"
-          placeholder="key.contact.form.messagePlaceholder"
+          className="w-full px-5 py-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-200 resize-vertical text-lg"
+          placeholder={t("contact.form.messagePlaceholder")}
         />
       </div>
 
@@ -221,12 +225,12 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-primary text-white py-4 px-6 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+        className="w-full bg-primary text-white py-5 px-8 rounded-xl text-xl font-bold hover:bg-primary-dark transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
       >
         {isSubmitting ? (
-          <>
+          <div className="flex items-center">
             <svg
-              className="animate-spin w-5 h-5"
+              className="animate-spin w-6 h-6 mr-3"
               fill="none"
               viewBox="0 0 24 24"
             >
@@ -244,16 +248,16 @@ export default function ContactForm() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
               />
             </svg>
-            <span>key.contact.form.sending</span>
-          </>
+            <span>{t("contact.form.sending")}</span>
+          </div>
         ) : (
-          <span>key.contact.form.send</span>
+          <span>{t("contact.form.send")}</span>
         )}
       </button>
 
       {/* Privacy notice */}
-      <p className="text-xs text-gray-500 text-center">
-        key.contact.form.privacy
+      <p className="text-sm text-gray-500 text-center">
+        {t("contact.form.privacy")}
       </p>
     </form>
   );
