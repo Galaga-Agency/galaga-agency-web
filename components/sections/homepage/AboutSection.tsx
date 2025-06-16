@@ -1,5 +1,7 @@
 "use client";
 
+import StatCard from "@/components/StatCard";
+import ValueCard from "@/components/ValueCard";
 import { useTranslation } from "@/hooks/useTranslation";
 
 export default function AboutSection() {
@@ -7,117 +9,94 @@ export default function AboutSection() {
 
   return (
     <section className="section bg-white">
-        <div className=" mx-auto">
-          {/* Section header */}
-          <div className="text-center mb-16 lg:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight">
-              {t("about.whoWeAre")}
-            </h2>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              {t("about.description")}
-            </p>
-          </div>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="text-center mb-20 lg:mb-28">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
+            {t("about.whoWeAre")}
+          </h2>
+          <p className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mx-auto py-6 leading-relaxed font-light">
+            {t("about.description")}
+          </p>
+        </div>
 
-          {/* Two column layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 lg:mb-20">
-            {/* Left content */}
-            <div>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                {t("about.ourOrigin")}
-              </h3>
-              <div className="space-y-6 text-gray-600 text-base sm:text-lg leading-relaxed">
-                <p>{t("about.originsText1")}</p>
-                <p>{t("about.originsText2")}</p>
-                <p>
-                  <strong className="text-primary font-semibold">
-                    {t("about.todayWeIntegrate")}
-                  </strong>{" "}
-                  {t("about.integrationText")}
-                </p>
-              </div>
-            </div>
-
-            {/* Right content - Values */}
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 lg:p-10 rounded-2xl shadow-sm">
-              <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-8">
-                {t("about.ourValues")}
-              </h4>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-primary rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2 text-lg">
-                      {t("about.clarity")}
-                    </h5>
-                    <p className="text-gray-600">
-                      {t("about.clarityText")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-accent rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2 text-lg">
-                      {t("about.humanity")}
-                    </h5>
-                    <p className="text-gray-600">
-                      {t("about.humanityText")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-creative rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2 text-lg">
-                      {t("about.action")}
-                    </h5>
-                    <p className="text-gray-600">
-                      {t("about.actionText")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-primary rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2 text-lg">
-                      {t("about.simplicity")}
-                    </h5>
-                    <p className="text-gray-600">
-                      {t("about.simplicityText")}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-4 h-4 bg-accent rounded-full mt-1.5 flex-shrink-0 shadow-sm"></div>
-                  <div>
-                    <h5 className="font-semibold text-gray-900 mb-2 text-lg">
-                      {t("about.usefulCreativity")}
-                    </h5>
-                    <p className="text-gray-600">
-                      {t("about.usefulCreativityText")}
-                    </p>
-                  </div>
-                </div>
-              </div>
+        {/* Two column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 items-start mb-20 lg:mb-28">
+          {/* Left content */}
+          <div className="space-y-8">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
+              {t("about.ourOrigin")}
+            </h3>
+            <div className="space-y-6 text-gray-700">
+              <p className="text-lg sm:text-xl leading-relaxed">
+                {t("about.originsText1")}
+              </p>
+              <p className="text-lg sm:text-xl leading-relaxed">
+                {t("about.originsText2")}
+              </p>
+              <p className="text-lg sm:text-xl leading-relaxed">
+                <strong className="text-primary font-semibold">
+                  {t("about.todayWeIntegrate")}
+                </strong>{" "}
+                {t("about.integrationText")}
+              </p>
             </div>
           </div>
 
-          {/* Stats or highlights */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 lg:p-10 rounded-2xl text-center border border-primary/10 hover:shadow-lg transition-all duration-300">
-              <div className="text-4xl lg:text-5xl font-black text-primary mb-3">35+</div>
-              <p className="text-gray-700 font-medium">{t("about.yearsExperience")}</p>
-            </div>
-            <div className="bg-gradient-to-br from-accent/5 to-accent/10 p-8 lg:p-10 rounded-2xl text-center border border-accent/10 hover:shadow-lg transition-all duration-300">
-              <div className="text-4xl lg:text-5xl font-black text-accent mb-3">100%</div>
-              <p className="text-gray-700 font-medium">{t("about.humanApproach")}</p>
-            </div>
-            <div className="bg-gradient-to-br from-creative/5 to-creative/10 p-8 lg:p-10 rounded-2xl text-center border border-creative/10 hover:shadow-lg transition-all duration-300">
-              <div className="text-4xl lg:text-5xl font-black text-creative mb-3">2018</div>
-              <p className="text-gray-700 font-medium">{t("about.sinceTeamGalaga")}</p>
+          {/* Right content - Values */}
+          <div className="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 p-8 sm:p-10 lg:p-12 rounded-3xl shadow-sm border border-gray-100">
+            <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10 text-center lg:text-left">
+              {t("about.ourValues")}
+            </h4>
+            <div className="space-y-8">
+              <ValueCard
+                title={t("about.clarity")}
+                description={t("about.clarityText")}
+                color="primary"
+              />
+              <ValueCard 
+                title={t("about.humanity")}
+                description={t("about.humanityText")}
+                color="accent"
+              />
+              <ValueCard 
+                title={t("about.action")}
+                description={t("about.actionText")}
+                color="creative"
+              />
+              <ValueCard 
+                title={t("about.simplicity")}
+                description={t("about.simplicityText")}
+                color="primary"
+              />
+              <ValueCard 
+                title={t("about.usefulCreativity")}
+                description={t("about.usefulCreativityText")}
+                color="accent"
+              />
             </div>
           </div>
         </div>
+
+        {/* Stats section */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10">
+          <StatCard 
+            value="35+"
+            label={t("about.yearsExperience")}
+            color="primary"
+          />
+          <StatCard 
+            value="100%"
+            label={t("about.humanApproach")}
+            color="accent"
+          />
+          <StatCard
+            value="2018"
+            label={t("about.sinceTeamGalaga")}
+            color="creative"
+          />
+        </div>
+      </div>
     </section>
   );
 }

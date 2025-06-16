@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 type Language = "es" | "en";
 
@@ -28,9 +28,9 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
   };
 
   // Load initial translations
-  useState(() => {
+  useEffect(() => {
     loadTranslations(language);
-  });
+  }, [language]);
 
   const t = (key: string): string => {
     const keys = key.split(".");
@@ -50,12 +50,12 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
 
   const changeLanguage = async (newLanguage: Language) => {
     setLanguage(newLanguage);
-    await loadTranslations(newLanguage);
+    // The useEffect will handle loading translations when language changes
   };
 
   const toggleLanguage = async () => {
     const newLang = language === "es" ? "en" : "es";
-    await changeLanguage(newLang);
+    changeLanguage(newLang);
   };
 
   return (

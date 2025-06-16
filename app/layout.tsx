@@ -48,10 +48,8 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
+        {/* Adobe Fonts - Aileron */}
+        <link rel="stylesheet" href="https://use.typekit.net/nzy8bvv.css" />
       </head>
       <TranslationProvider>
         <body className="font-primary antialiased bg-white text-gray-900 no-tap-highlight">

@@ -1,20 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useGSAP } from "@gsap/react";
 import { navigationItems, ctaButtonKey } from "@/data/menu";
 import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LanguageSelector from "@/components/LanguageSelector";
+import { initScrollNavbar } from "@/utils/scroll-navbar";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { t, language, toggleLanguage } = useTranslation();
+  const navRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    if (!navRef.current) return;
+
+    const cleanup = initScrollNavbar({
+      element: navRef.current,
+      threshold: 100, // Start hiding after 100px scroll
+      hideDistance: -100 // Move navbar 100px up when hiding
+    });
+
+    return cleanup;
+  }, []);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav ref={navRef} className="bg-white shadow-md sticky top-0 z-50">
       <div className="px-8 flex items-center h-20">
         {/* Logo - LEFT */}
         <div className="flex-shrink-0">
