@@ -3,27 +3,34 @@
 import { useTranslation } from "@/hooks/useTranslation";
 
 interface ValuePropCardProps {
-  icon: string;
+  icon: any;
   titleKey: string;
   descriptionKey: string;
+  index?: number;
+  delay?: number;
 }
 
-export default function ValuePropCard({ icon, titleKey, descriptionKey }: ValuePropCardProps) {
+export default function ValuePropCard({ icon, titleKey, descriptionKey, index = 0, delay = 0 }: ValuePropCardProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="group relative">
+    <div 
+      className="group relative" 
+      data-slide-up={index} 
+      data-delay={delay}
+      style={{ transform: 'scale(0.8)', opacity: 0 }}
+    >
       {/* Glow effect behind card */}
       <div className="absolute -inset-1 bg-gradient-to-br from-white/40 to-white/10 rounded-3xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      
+             
       {/* Main card */}
       <div className="relative bg-white/15 backdrop-blur-xl p-10 lg:p-12 rounded-3xl border border-white/30 hover:bg-white/25 hover:border-white/50 transition-all duration-500 transform hover:scale-110 hover:-translate-y-6 shadow-2xl hover:shadow-white/20">
-        
+                 
         {/* Icon container with animated background */}
         <div className="relative mb-8 flex justify-center">
           <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-white/10 rounded-2xl blur-md group-hover:blur-lg transition-all duration-500"></div>
           <div className="relative w-20 h-20 lg:w-24 lg:h-24 bg-white/25 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/40 group-hover:border-white/60 transition-all duration-500 transform group-hover:rotate-6 group-hover:scale-110">
-            <span className="text-4xl lg:text-5xl filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500">{icon}</span>
+            <span className="text-4xl lg:text-5xl filter drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500 text-primary">{icon}</span>
           </div>
         </div>
 
