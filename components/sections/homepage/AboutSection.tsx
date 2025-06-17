@@ -1,101 +1,101 @@
 "use client";
 
-import StatCard from "@/components/StatCard";
-import ValueCard from "@/components/ValueCard";
+import ValuePropCard from "@/components/ValuePropCard";
 import { useTranslation } from "@/hooks/useTranslation";
+import { FaRobot, FaHandshake } from "react-icons/fa";
+import { FaShuffle } from "react-icons/fa6";
 
 export default function AboutSection() {
   const { t } = useTranslation();
 
+  const valueProps = [
+    {
+      icon: <FaShuffle />,
+      titleKey: "hero.organize",
+      descriptionKey: "hero.organizeDesc",
+    },
+    {
+      icon: <FaRobot />,
+      titleKey: "hero.automate",
+      descriptionKey: "hero.automateDesc",
+    },
+    {
+      icon: <FaHandshake />,
+      titleKey: "hero.connect",
+      descriptionKey: "hero.connectDesc",
+    },
+  ];
+
   return (
-    <section className="section bg-white">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-20 lg:mb-28">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
-            {t("about.whoWeAre")}
-          </h2>
-          <p className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mx-auto py-6 leading-relaxed font-light">
-            {t("about.description")}
-          </p>
-        </div>
-
-        {/* Two column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 xl:gap-24 items-start mb-20 lg:mb-28">
-          {/* Left content */}
-          <div className="space-y-8">
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
-              {t("about.ourOrigin")}
-            </h3>
-            <div className="space-y-6 text-gray-700">
-              <p className="text-lg sm:text-xl leading-relaxed">
-                {t("about.originsText1")}
-              </p>
-              <p className="text-lg sm:text-xl leading-relaxed">
-                {t("about.originsText2")}
-              </p>
-              <p className="text-lg sm:text-xl leading-relaxed">
-                <strong className="text-primary font-semibold">
-                  {t("about.todayWeIntegrate")}
-                </strong>{" "}
-                {t("about.integrationText")}
-              </p>
-            </div>
-          </div>
-
-          {/* Right content - Values */}
-          <div className="bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100 p-8 sm:p-10 lg:p-12 rounded-3xl shadow-sm border border-gray-100">
-            <h4 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-10 text-center lg:text-left">
-              {t("about.ourValues")}
-            </h4>
-            <div className="space-y-8">
-              <ValueCard
-                title={t("about.clarity")}
-                description={t("about.clarityText")}
-                color="primary"
-              />
-              <ValueCard 
-                title={t("about.humanity")}
-                description={t("about.humanityText")}
-                color="accent"
-              />
-              <ValueCard 
-                title={t("about.action")}
-                description={t("about.actionText")}
-                color="creative"
-              />
-              <ValueCard 
-                title={t("about.simplicity")}
-                description={t("about.simplicityText")}
-                color="primary"
-              />
-              <ValueCard 
-                title={t("about.usefulCreativity")}
-                description={t("about.usefulCreativityText")}
-                color="accent"
-              />
+    <section className="about-section  relative bg-gradient-to-br from-neutral-50 to-neutral-100">
+      <div className="section-container">
+        {/* Overflowing cards at the top - properly centered */}
+        <div className="absolute top-0 left-0 right-0 -translate-y-1/4 -translatex-1/2 z-30">
+          <div className=" px-4 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+              {valueProps.map((item, idx) => (
+                <ValuePropCard
+                  key={idx}
+                  icon={item.icon}
+                  titleKey={item.titleKey}
+                  descriptionKey={item.descriptionKey}
+                  index={idx}
+                />
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Stats section */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-10">
-          <StatCard 
-            value="35+"
-            label={t("about.yearsExperience")}
-            color="primary"
-          />
-          <StatCard 
-            value="100%"
-            label={t("about.humanApproach")}
-            color="accent"
-          />
-          <StatCard
-            value="2018"
-            label={t("about.sinceTeamGalaga")}
-            color="creative"
-          />
+        {/* Main content - now properly centered */}
+        <div className="w-full pt-48 pb-24 ">
+          {/* Hero heading section */}
+          <div className="text-center mb-20 lg:mb-28">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-primary-600 leading-tight tracking-tight mb-8">
+              {t("about.poeticHeading")}
+            </h2>
+
+            {/* Description with proper centering */}
+            <div className="max-w-5xl mx-auto">
+              <p className="text-lg sm:text-xl lg:text-2xl text-secondary-600 leading-relaxed">
+                <span className="font-semibold text-secondary-900">
+                  {t("about.galagaAgency")}
+                </span>{" "}
+                <span className="text-secondary-700">
+                  {t("about.mainDescription")}
+                </span>
+              </p>
+            </div>
+          </div>
+
+          {/* Two-column content section */}
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+              {/* Left column - Our Focus */}
+              <div className="space-y-6 text-left">
+                <h3 className="text-2xl lg:text-3xl font-bold text-primary-600 leading-tight">
+                  {t("about.focusTitle")}
+                </h3>
+                <p className="text-base lg:text-lg text-secondary-700 leading-relaxed">
+                  {t("about.ourFocus")}
+                </p>
+              </div>
+
+              {/* Right column - Our Offer */}
+              <div className="space-y-6 text-left">
+                <h3 className="text-2xl lg:text-3xl font-bold text-primary-600 leading-tight">
+                  {t("about.offerTitle")}
+                </h3>
+                <p className="text-base lg:text-lg text-secondary-700 leading-relaxed">
+                  {t("about.whatWeOffer")}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Subtle decorative elements */}
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-primary-100 rounded-full opacity-30 blur-xl hidden lg:block"></div>
+        <div className="absolute top-1/2 left-10 w-24 h-24 bg-secondary-200 rounded-full opacity-40 blur-lg hidden lg:block"></div>
       </div>
     </section>
   );
