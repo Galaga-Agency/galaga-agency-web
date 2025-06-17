@@ -15,16 +15,14 @@ export default function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="hero-section relative min-h-[110vh] bg-hero-gradient">
-      <div className="section-container">
-        {/* Background overlay for image blend */}
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/70 via-primary-800/60 to-primary-600/50 z-10"></div>
-
-        {/* <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url("/your-hero-image.jpg")'}}></div> */}
-
-        <div className="hero-content h-full flex flex-col justify-center mx-auto relative z-20 px-4">
+    <section className="hero-section section relative min-h-[110vh] bg-hero-gradient">
+      {/* Background overlay for image blend */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/70 via-primary-800/60 to-primary-600/50 z-10"></div>
+      
+      <div className="container relative z-20">
+        <div className="hero-content h-full flex flex-col justify-center mx-auto">
           {/* Main Headline */}
-          <div className="text-center pb-12">
+          <div className="flex flex-col text-center pb-12">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] tracking-tight drop-shadow-2xl overflow-visible">
               <span className="block mb-8">
                 <span data-anim="transformamos" className="text-primary-100">
@@ -53,7 +51,7 @@ export default function HeroSection() {
           </div>
 
           {/* Success Metrics */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
+          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
             {metrics.map((metric, index) => (
               <MetricCard
                 key={index}
@@ -61,7 +59,7 @@ export default function HeroSection() {
                 labelKey={metric.labelKey}
               />
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

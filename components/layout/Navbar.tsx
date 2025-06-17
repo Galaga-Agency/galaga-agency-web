@@ -70,7 +70,7 @@ export default function Navbar() {
                       : "/assets/img/logos/logo-full.webp"
                   }
                   alt="Galaga Agency Logo"
-                  className="h-8 lg:h-10 w-auto"
+                  className="h-8 lg:h-14 w-auto"
                 />
               </Link>
             </div>
