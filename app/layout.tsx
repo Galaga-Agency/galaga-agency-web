@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { TranslationProvider } from "@/hooks/useTranslation";
+import Navbar from "@/components/layout/Navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -53,6 +54,7 @@ export default function RootLayout({
       </head>
       <TranslationProvider>
         <body className="font-primary antialiased bg-white text-gray-900 no-tap-highlight">
+          <Navbar />
           <div className="min-h-screen flex flex-col">{children}</div>
         </body>
       </TranslationProvider>

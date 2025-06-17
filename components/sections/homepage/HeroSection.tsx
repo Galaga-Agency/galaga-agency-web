@@ -2,116 +2,67 @@
 
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
-import ValuePropCard from "@/components/ValuePropCard";
 import MetricCard from "@/components/MetricCard";
-import { FaRobot } from "react-icons/fa";
-import { FaHandshake } from "react-icons/fa";
-import { FaShuffle } from "react-icons/fa6";
-
-const valueProps = [
-  {
-    icon: <FaShuffle/>,
-    titleKey: "hero.organize",
-    descriptionKey: "hero.organizeDesc",
-    delay: 0.4 // Left - third
-  },
-  {
-    icon: <FaRobot/>, 
-    titleKey: "hero.automate",
-    descriptionKey: "hero.automateDesc",
-    delay: 0 // Middle - first
-  },
-  {
-    icon: <FaHandshake/>,
-    titleKey: "hero.connect", 
-    descriptionKey: "hero.connectDesc",
-    delay: 0.2 // Right - second
-  }
-];
 
 const metrics = [
   { value: "100+", labelKey: "hero.companiesTransformed" },
   { value: "35+", labelKey: "hero.yearsExperience" },
   { value: "24h", labelKey: "hero.guaranteedResponse" },
-  { value: "100%", labelKey: "hero.humanApproach" }
+  { value: "100%", labelKey: "hero.humanApproach" },
 ];
 
 export default function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="section relative min-h-screen bg-gradient-to-br from-primary to-accent overflow-hidden">
-                     
-      {/* Trust Badge */}
-      <div className="text-center pb-8">
-        <span className="inline-block bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full text-lg font-semibold border border-white/30">
-          🚀  {t("hero.trustedBy")} 100+ {t("hero.companies")}
-        </span>
-      </div>
+    <section className="hero-section relative min-h-[110vh] bg-hero-gradient">
+      <div className="section-container">
+        {/* Background overlay for image blend */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/70 via-primary-800/60 to-primary-600/50 z-10"></div>
 
-      {/* Main Headline */}
-      <div className="text-center pb-20">
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-[0.85] tracking-tighter">
-          <span className="block mb-8">
-            <span data-anim="transformamos">{t("hero.transformamos")}</span>{" "}
-            <span data-anim="negocios">{t("hero.negocios")}</span>
-          </span>
-          <span className="block">
-            <span data-anim="sinComplicaciones">{t("hero.sinComplicaciones")}</span>
-          </span>
-        </h1>
-      </div>
+        {/* <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{backgroundImage: 'url("/your-hero-image.jpg")'}}></div> */}
 
-      {/* Subtitle */}
-      <div className="text-center pb-16">
-        <p className="text-2xl md:text-3xl lg:text-4xl text-white/90 leading-relaxed font-medium">
-          {t("hero.subtitle")}
-        </p>
-      </div>
+        <div className="hero-content h-full flex flex-col justify-center mx-auto relative z-20 px-4">
+          {/* Main Headline */}
+          <div className="text-center pb-12">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-[0.9] tracking-tight drop-shadow-2xl overflow-visible">
+              <span className="block mb-8">
+                <span data-anim="transformamos" className="text-primary-100">
+                  {t("hero.transformamos")}
+                </span>{" "}
+                <span data-anim="negocios" className="text-white">
+                  {t("hero.negocios")}
+                </span>
+              </span>
+              <span className="block">
+                <span
+                  data-anim="sinComplicaciones"
+                  className="bg-gradient-to-r from-accent to-primary-400 bg-clip-text text-transparent"
+                >
+                  {t("hero.sinComplicaciones")}
+                </span>
+              </span>
+            </h1>
+          </div>
 
-      {/* Value Proposition Cards */}
-      <div className="pb-16 mx-auto py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-8">
-          {valueProps.map((item, index) => (
-            <ValuePropCard 
-              key={index}
-              icon={item.icon}
-              titleKey={item.titleKey}
-              descriptionKey={item.descriptionKey}
-              index={index}
-              delay={item.delay}
-            />
-          ))}
+          {/* Subtitle */}
+          <div className="text-center pb-12">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-primary-50/95 leading-relaxed font-medium drop-shadow-lg">
+              {t("hero.subtitle")}
+            </p>
+          </div>
+
+          {/* Success Metrics */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
+            {metrics.map((metric, index) => (
+              <MetricCard
+                key={index}
+                value={metric.value}
+                labelKey={metric.labelKey}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-
-      {/* CTA Buttons */}
-      <div className="text-center pb-16">
-        <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
-          <Link
-            href="/contact"
-            className="bg-white text-primary px-16 py-6 rounded-2xl text-2xl font-black hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 hover:scale-110 shadow-xl"
-          >
-            🚀 {t("hero.startTransformation")}
-          </Link>
-          <Link
-            href="/about"
-            className="border-4 border-white/50 text-white px-16 py-6 rounded-2xl text-2xl font-black hover:bg-white hover:text-primary transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-md"
-          >
-            {t("hero.learnMore")} →
-          </Link>
-        </div>
-      </div>
-
-      {/* Success Metrics */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 px-8">
-        {metrics.map((metric, index) => (
-          <MetricCard 
-            key={index}
-            value={metric.value}
-            labelKey={metric.labelKey}
-          />
-        ))}
       </div>
     </section>
   );

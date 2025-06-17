@@ -8,128 +8,207 @@ import { navigationItems, ctaButtonKey } from "@/data/menu";
 import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LanguageSelector from "@/components/LanguageSelector";
+import HamburgerToggle from "@/components/HamburgerToggle";
 import { initScrollNavbar } from "@/utils/scroll-navbar";
+import { initNavbarAnimations } from "@/utils/navbar-animation";
+import { FaLinkedin, FaTwitter } from "react-icons/fa";
+import useDeviceDetect from "@/hooks/useDeviceDetect";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const { t, language, toggleLanguage } = useTranslation();
+  const { isMobile } = useDeviceDetect();
   const navRef = useRef<HTMLElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!navRef.current) return;
 
-    const cleanup = initScrollNavbar({
+    // Initialize scroll behavior
+    const scrollCleanup = initScrollNavbar({
       element: navRef.current,
-      threshold: 100, // Start hiding after 100px scroll
-      hideDistance: -100 // Move navbar 100px up when hiding
+      threshold: 100,
+      hideDistance: -100,
     });
 
-    return cleanup;
-  }, []);
+    // Initialize navbar animations
+    const animationCleanup = initNavbarAnimations({
+      navElement: navRef.current,
+      mobileMenuElement: mobileMenuRef.current,
+      isMenuOpen: isOpen,
+    });
+
+    return () => {
+      scrollCleanup();
+      animationCleanup();
+    };
+  }, [isOpen]);
+
+  const toggleMenu = () => setIsOpen(prev => !prev);
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav ref={navRef} className="bg-white shadow-md sticky top-0 z-50">
-      <div className="px-8 flex items-center h-20">
-        {/* Logo - LEFT */}
-        <div className="flex-shrink-0">
-          <Link href="/">
+    <>
+      {isMobile && (
+        <HamburgerToggle isOpen={isOpen} onClick={toggleMenu} />
+      )}
+
+      <nav
+        ref={navRef}
+        className="sticky top-0 inset-x-0 bg-white/95 backdrop-blur-md border-b border-gray-100 z-[100]"
+      >
+        <div className="px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <div className="flex-shrink-0 logo-container">
+              <Link href="/" className="block">
+                <img
+                  src={
+                    isMobile
+                      ? "/assets/img/logos/logo-mobile.webp"
+                      : "/assets/img/logos/logo-full.webp"
+                  }
+                  alt="Galaga Agency Logo"
+                  className="h-8 lg:h-10 w-auto"
+                />
+              </Link>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center justify-center flex-1">
+              <ul className="flex items-center space-x-12 nav-links">
+                {navigationItems.map((item, index) => (
+                  <li key={item.href} className="nav-item" data-index={index}>
+                    <Link
+                      href={item.href}
+                      className={`relative text-base font-semibold py-3 px-4 transition-colors duration-300 nav-link ${
+                        pathname === item.href
+                          ? "text-primary"
+                          : "text-gray-800 hover:text-primary"
+                      }`}
+                    >
+                      <span className="relative z-10">{t(item.labelKey)}</span>
+
+                      {/* Hover background */}
+                      <span className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg transform scale-0 hover-bg"></span>
+
+                      {/* Active indicator */}
+                      {pathname === item.href && (
+                        <span className="absolute bottom-0 left-1/2 w-8 h-0.5 bg-primary rounded-full transform -translate-x-1/2 active-indicator"></span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center space-x-4 desktop-actions">
+              <div className="action-item" data-delay="0">
+                <LanguageSelector
+                  language={language}
+                  onToggle={toggleLanguage}
+                />
+              </div>
+              <div className="action-item" data-delay="100">
+                <PrimaryButton href="/contact" size="md">
+                  {t(ctaButtonKey)}
+                </PrimaryButton>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Backdrop */}
+      <div
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-[99] lg:hidden mobile-backdrop ${
+          isOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
+        onClick={closeMenu}
+      />
+
+      {/* Mobile Menu */}
+      <div
+        ref={mobileMenuRef}
+        className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-[101] lg:hidden mobile-menu"
+      >
+        {/* Mobile Header */}
+        <div className="flex items-center px-6 py-5 border-b border-gray-100 mobile-header">
+          <Link href="/" onClick={closeMenu}>
             <img
-              src="/assets/img/logos/logo-full.png"
-              alt="Galaga Agency Logo"
-              className="h-16 w-auto"
+              src="/assets/img/logos/logo-mobile.webp"
+              alt="Galaga Logo"
+              className="h-8 w-auto"
             />
           </Link>
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex-1 flex justify-center">
-          <ul className="hidden lg:flex items-center space-x-32">
-            {navigationItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
-                <li key={item.href} className="relative">
-                  <Link
-                    href={item.href}
-                    className={`text-base font-semibold py-2 px-5 transition-colors duration-200 inline-block ${
-                      isActive ? 'text-primary' : 'text-gray-900 hover:text-primary'
-                    }`}
-                  >
-                    {t(item.labelKey)}
-                    {isActive && (
-                      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 bg-primary rounded-full whitespace-nowrap"
-                            style={{ width: 'calc(100% - 2.5rem)' }} />
-                    )}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-
-        {/* Right Actions - ACTUALLY ON THE RIGHT */}
-        <div className="flex items-center space-x-6 flex-shrink-0">
-          {/* Language - SUBTLE */}
-          <LanguageSelector language={language} onToggle={toggleLanguage} />
-
-          <PrimaryButton href="/contact" size="md" className="hidden lg:inline-flex">
-            {t(ctaButtonKey)}
-          </PrimaryButton>
-
-          {/* Mobile Menu */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-primary"
-          >
-            {isOpen ? (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg">
-          <div className="flex flex-col px-6 py-6 space-y-4">
-            {navigationItems.map((item) => {
-              const isActive = pathname === item.href;
-              return (
+        {/* Mobile Navigation */}
+        <nav className="px-6 py-8 mobile-nav">
+          <ul className="space-y-2">
+            {navigationItems.map((item, index) => (
+              <li
+                key={item.href}
+                className="mobile-nav-item"
+                data-index={index}
+              >
                 <Link
-                  key={item.href}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`py-3 px-4 text-center font-semibold rounded-xl transition-all duration-200 ${
-                    isActive ? 'bg-primary text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-primary'
+                  onClick={closeMenu}
+                  className={`block px-4 py-4 text-lg font-medium rounded-xl transition-colors duration-300 relative overflow-hidden ${
+                    pathname === item.href
+                      ? "text-primary bg-primary/10 border-l-4 border-primary"
+                      : "text-gray-700 hover:text-primary hover:bg-gray-50"
                   }`}
                 >
-                  {t(item.labelKey)}
+                  <span className="relative z-10">{t(item.labelKey)}</span>
                 </Link>
-              );
-            })}
-            
-            {/* Mobile Language Selector */}
-            <div className="flex justify-center py-2">
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Mobile Footer */}
+        <div className="absolute bottom-0 left-0 right-0 px-6 py-6 border-t border-gray-100 bg-gray-50/50 mobile-footer">
+          <div className="space-y-4">
+            <div className="flex justify-center mobile-lang">
               <LanguageSelector language={language} onToggle={toggleLanguage} />
             </div>
-            
-            {/* Mobile CTA */}
-            <PrimaryButton
-              href="/contact"
-              size="md"
-              className="w-full mt-4"
-            >
-              {t(ctaButtonKey)}
-            </PrimaryButton>
+
+            <div className="mobile-cta">
+              <PrimaryButton
+                href="/contact"
+                size="lg"
+                className="w-full justify-center"
+                onClick={closeMenu}
+              >
+                {t(ctaButtonKey)}
+              </PrimaryButton>
+            </div>
+
+            <div className="flex justify-center space-x-6 pt-2 mobile-social">
+              <Link
+                href="https://linkedin.com/company/galaga"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-gray-600 hover:text-primary transition-colors duration-300 rounded-xl hover:bg-white social-link"
+              >
+                <FaLinkedin className="w-6 h-6" />
+              </Link>
+              <Link
+                href="https://twitter.com/galaga"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 text-gray-600 hover:text-primary transition-colors duration-300 rounded-xl hover:bg-white social-link"
+              >
+                <FaTwitter className="w-6 h-6" />
+              </Link>
+            </div>
           </div>
         </div>
-      )}
-    </nav>
+      </div>
+    </>
   );
 }

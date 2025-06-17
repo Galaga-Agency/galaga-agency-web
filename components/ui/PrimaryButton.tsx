@@ -10,7 +10,7 @@ interface BaseButtonProps {
 
 interface LinkButtonProps extends BaseButtonProps {
   href: string;
-  onClick?: never;
+  onClick?: () => void; // Allow onClick for links too
 }
 
 interface ActionButtonProps extends BaseButtonProps {
@@ -61,6 +61,7 @@ export default function PrimaryButton({
       <Link 
         href={props.href} 
         className={combinedClassName}
+        onClick={props.onClick} // Support onClick for links
       >
         {children}
       </Link>
