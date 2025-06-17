@@ -149,34 +149,57 @@ h6 {
   outline: none;
 }
 
-/* Section utility */
-.section-container {
+/* Break out of section padding utility */
+.break-section {
+  margin-left: calc(-1 * clamp(1rem, 5vw, 4rem));
+  margin-right: calc(-1 * clamp(1rem, 5vw, 4rem));
+}
+
+/* Typography Classes */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.secondary-title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.text-large {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.6;
+}
+
+.text-base {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+}
+
+/* Section utility - using clamp for responsive padding, no max-width */
+.section {
   width: 100%;
-  max-width: 80rem; /* 1280px */
-  margin-inline: auto;
-  padding-inline: 1rem;
-  padding-block: 4rem;
+  padding-left: clamp(1rem, 5vw, 4rem);
+  padding-right: clamp(1rem, 5vw, 4rem);
+  padding-top: clamp(4rem, 8vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 8rem);
 }
 
-@media (min-width: 640px) {
-  .section {
-    padding-inline: 1.5rem;
-    padding-block: 5rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding-inline: 2rem;
-    padding-block: 6rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding-inline: 3rem;
-    padding-block: 8rem;
-  }
+/* Container for content centering */
+.container {
+  width: clamp(280px, 90vw, 1280px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bg-hero-gradient {
