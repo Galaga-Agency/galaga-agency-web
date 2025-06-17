@@ -45,7 +45,7 @@ export const initHeroScrollAnimation = () => {
     gsap.timeline({
       scrollTrigger: {
         trigger: aboutSection,
-        start: "top 20%",
+        start: "top top",
         end: "top 20%", // End earlier for faster animation
         scrub: 3, // More responsive
         pin: ".about-wrapper",
