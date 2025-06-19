@@ -17,7 +17,7 @@ export default function HeroSection() {
   return (
     <section className="hero-section section relative min-h-[110vh] bg-hero-gradient">
       {/* Background overlay for image blend */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/70 via-primary-800/60 to-primary-600/50 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-900/70 via-primary-800/60 to-accent-warm z-10"></div>
       
       <div className="container relative z-20">
         <div className="hero-content h-full flex flex-col justify-center mx-auto">

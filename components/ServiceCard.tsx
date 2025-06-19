@@ -13,22 +13,22 @@ interface ServiceCardProps {
 export default function ServiceCard({ icon: IconComponent, title, description, features, theme, size }: ServiceCardProps) {
   const { t } = useTranslation();
 
-  const getThemeClasses = (theme: string) => {
+const getThemeClasses = (theme: string) => {
     switch (theme) {
       case "primary":
-        return "bg-gradient-to-br from-primary-700 via-primary-800 to-secondary-800";
+        return "bg-gradient-to-br from-primary-500/80 via-primary-600/70 to-white/30";
       case "creative":
-        return "bg-gradient-to-br from-primary-800 via-secondary-700 to-accent-warm/20";
+        return "bg-gradient-to-br from-primary-600/70 via-white/40 to-accent-warm/50";
       case "accent":
-        return "bg-gradient-to-br from-secondary-700 via-primary-800 to-secondary-800";
+        return "bg-gradient-to-br from-white/35 via-primary-500/60 to-secondary-600/70";
       case "warm":
-        return "bg-gradient-to-br from-primary-700 via-accent-warm/30 to-secondary-800";
+        return "bg-gradient-to-br from-primary-500/70 via-accent-warm/60 to-white/45";
       case "secondary":
-        return "bg-gradient-to-br from-creative-800 via-secondary-800 to-primary-800";
+        return "bg-gradient-to-br from-white/40 via-secondary-600/70 to-primary-500/80";
       case "electric":
-        return "bg-gradient-to-br from-primary-800 via-secondary-700 to-accent-warm/25";
+        return "bg-gradient-to-br from-primary-600/75 via-white/50 to-accent-warm/60";
       default:
-        return "bg-gradient-to-br from-primary-700 to-secondary-800";
+        return "bg-gradient-to-br from-primary-500/70 via-white/30 to-secondary-600/70";
     }
   };
 
