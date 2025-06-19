@@ -90,7 +90,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="relative section overflow-hidden bg-gradient-to-br from-secondary-950 via-secondary-900 to-primary-950">
+    <section className="relative section overflow-hidden bg-gradient-to-br from-teal-900 via-slate-800 to-slate-900">
       <div className="relative z-10">
         {/* Section header */}
         <div className="text-center pb-16">
