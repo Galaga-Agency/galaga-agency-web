@@ -34,8 +34,40 @@
     "focusTitle": "¿Quiénes somos?",
     "ourFocus": "Nos centramos en la innovación empresarial y el marketing interactivo, acompañando a aquellos clientes que necesitan digitalizar sus negocios pero carecen de las herramientas o el tiempo para hacerlo.",
     "offerTitle": "Nuestra propuesta",
-    "whatWeOffer": "Les damos claridad, les ayudamos a organizarse, automatizar procesos, comunicar mejor y ofrecer experiencias memorables a sus clientes. Nuestro enfoque es humano, cercano y 100 % orientado a resultados. Hoy, Galaga Agency integra la solidez del tejido empresarial tradicional con la creatividad del mundo gaming para unir estrategia, tecnología y emoción."
+    "whatWeOffer": "Les damos claridad, les ayudamos a organizarse, automatizar procesos, comunicar mejor y ofrecer experiencias memorables a sus clientes. Nuestro enfoque es humano, cercano y 100 % orientado a resultados. Hoy, Galaga Agency integra la solidez del tejido empresarial tradicional con la creatividad del mundo gaming para unir estrategia, tecnología y emoción.",
+    "stats": {
+      "projects": "Proyectos Completados",
+      "clients": "Clientes Satisfechos",
+      "satisfaction": "Satisfacción del Cliente",
+      "support": "Soporte Disponible"
+    },
+    "whyChooseUs": "¿Por qué elegirnos?",
+    "whyChooseUsDesc": "Combinamos experiencia técnica con creatividad para entregar resultados que superan las expectativas.",
+    "features": {
+      "innovation": {
+        "title": "Innovación Constante",
+        "description": "Nos mantenemos a la vanguardia de las tendencias tecnológicas para ofrecerte soluciones innovadoras que te den ventaja competitiva."
+      },
+      "expertise": {
+        "title": "Equipo Experto",
+        "description": "Nuestro equipo multidisciplinario combina años de experiencia en estrategia, tecnología y diseño creativo."
+      },
+      "results": {
+        "title": "Resultados Comprobados",
+        "description": "Nos enfocamos en resultados medibles que impactan directamente el crecimiento y éxito de tu negocio."
+      }
+    },
+    "process": {
+      "analyze": "Analizar",
+      "analyzeDesc": "Estudiamos tu negocio e identificamos oportunidades de mejora.",
+      "implement": "Implementar",
+      "implementDesc": "Ejecutamos soluciones con precisión y atención al detalle."
+    }
   },
+  "partners": {
+  "title": "Nuestros partners",
+  "subtitle": "Trabajamos junto a los mejores para ofrecerte resultados excepcionales"
+},
   "services": {
     "title": "Nuestros servicios",
     "subtitle": "Soluciones integrales que combinan estrategia, tecnología y creatividad para transformar tu negocio.",

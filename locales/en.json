@@ -34,7 +34,39 @@
     "focusTitle": "¿Quiénes somos?",
     "ourFocus": "We focus on business innovation and interactive marketing—guiding clients who need to digitize their operations but lack the tools or time.",
     "offerTitle": "Nuestra Propuesta",
-    "whatWeOffer": "We bring clarity, organize workflows, automate processes, improve communication, and create memorable customer experiences with a human-centered, results-driven approach."
+    "whatWeOffer": "We bring clarity, organize workflows, automate processes, improve communication, and create memorable customer experiences with a human-centered, results-driven approach.",
+    "stats": {
+      "projects": "Completed Projects",
+      "clients": "Happy Clients",
+      "satisfaction": "Client Satisfaction",
+      "support": "Support Available"
+    },
+    "whyChooseUs": "Why Choose Us?",
+    "whyChooseUsDesc": "We combine technical expertise with creativity to deliver results that exceed expectations.",
+    "features": {
+      "innovation": {
+        "title": "Constant Innovation",
+        "description": "We stay ahead of technology trends to bring you cutting-edge solutions that give you a competitive advantage."
+      },
+      "expertise": {
+        "title": "Expert Team",
+        "description": "Our multidisciplinary team combines years of experience in strategy, technology, and creative design."
+      },
+      "results": {
+        "title": "Proven Results",
+        "description": "We focus on measurable outcomes that directly impact your business growth and success."
+      }
+    },
+    "process": {
+      "analyze": "Analyze",
+      "analyzeDesc": "We study your business and identify opportunities for improvement.",
+      "implement": "Implement",
+      "implementDesc": "We execute solutions with precision and attention to detail."
+    }
+  },
+  "partners": {
+    "title": "Our partners",
+    "subtitle": "We work with the best to offer you exceptional results"
   },
   "services": {
     "title": "Our services",
