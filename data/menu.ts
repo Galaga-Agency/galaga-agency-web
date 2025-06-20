@@ -6,7 +6,8 @@ export interface MenuItem {
 export const navigationItems: MenuItem[] = [
   { href: "/", labelKey: "nav.home" },
   { href: "/sobre-nosotros", labelKey: "nav.about" },
-  { href: "/services", labelKey: "nav.services" },
+  { href: "/servicios", labelKey: "nav.services" },
+  { href: "/casos-de-exito", labelKey: "nav.cases" }, // Add this line
   { href: "/contact", labelKey: "nav.contact" },
 ];
 

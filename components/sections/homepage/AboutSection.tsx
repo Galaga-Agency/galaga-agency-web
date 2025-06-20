@@ -6,7 +6,7 @@ import { FaRobot, FaHandshake, FaLightbulb } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
 import Image from "next/image";
 
-export default function AboutSection() {
+export default function HomepageAboutSection() {
   const { t } = useTranslation();
 
   const valueProps = [
@@ -31,7 +31,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section className="about-section section relative bg-gradient-to-br from-blanco to-hielo ">
+    <section className="homepage-about-section section relative bg-gradient-to-br from-blanco to-hielo ">
       {/* Diagonal background layers */}
       <div className="absolute inset-0">
         {/* Top diagonal - Subtle teal light */}
@@ -70,25 +70,25 @@ export default function AboutSection() {
 
       {/* Main content */}
       <div className="container pt-[660px] md:pt-56 lg:pt-48 relative z-10">
-        {/* Main heading section - on top diagonal */}
+        {/* Main heading section */}
         <div className="text-center pb-16 md:pb-20 lg:pb-24">
           <h2 className="section-title text-teal tracking-tight py-8">
-            {t("about.poeticHeading")}
+            {t("homepage.about.poeticHeading")}
           </h2>
 
           <div className="px-4 md:px-8">
             <p className="text-large text-azul-profundo font-light leading-relaxed">
               <span className="font-semibold text-negro text-2xl">
-                {t("about.galagaAgency")}
+                {t("homepage.about.galagaAgency")}
               </span>{" "}
               <span className="text-grafito text-xl">
-                {t("about.mainDescription")}
+                {t("homepage.about.mainDescription")}
               </span>
             </p>
           </div>
         </div>
 
-        {/* Content blocks - crossing diagonal lines */}
+        {/* Content blocks */}
         <div className="relative">
           {/* Huge background double chevron */}
           <div className="absolute -top-32 md:-top-48 lg:-top-84 right-0 md:right-8 lg:right-16 pointer-events-none z-0">
@@ -109,11 +109,11 @@ export default function AboutSection() {
                   <FaLightbulb className="lightbulb-icon text-3xl md:text-4xl lg:text-5xl text-teal" />
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-teal leading-tight">
-                  {t("about.focusTitle")}
+                  {t("homepage.about.focusTitle")}
                 </h3>
               </div>
               <p className="text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
-                {t("about.ourFocus")}
+                {t("homepage.about.ourFocus")}
               </p>
             </div>
             <div className="hidden md:block"></div>
@@ -142,11 +142,11 @@ export default function AboutSection() {
                   <FaHandshake className="handshake-icon text-3xl md:text-4xl lg:text-5xl text-naranja-tostado" />
                 </div>
                 <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-teal leading-tight">
-                  {t("about.offerTitle")}
+                  {t("homepage.about.offerTitle")}
                 </h3>
               </div>
               <p className="text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
-                {t("about.whatWeOffer")}
+                {t("homepage.about.whatWeOffer")}
               </p>
             </div>
           </div>
