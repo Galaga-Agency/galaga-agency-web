@@ -1,6 +1,5 @@
 "use client";
 
-import { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import ContactForm from "@/components/forms/ContactForm";
 import Footer from "@/components/layout/Footer";
