@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { TranslationProvider } from "@/hooks/useTranslation";
+import LoadingWrapper from "@/components/LoadingWrapper";
 import Navbar from "@/components/layout/Navbar";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     "We transform businesses through digital solutions that work, with strategy, creativity and a 100% human approach.",
   keywords: [
     "digital transformation",
-    "business innovation",
+    "business innovation", 
     "automation",
     "Canarias",
     "marketing",
@@ -47,17 +48,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es">
       <head>
         {/* Adobe Fonts - Aileron */}
-        <link rel="stylesheet" href="https://use.typekit.net/nzy8bvv.css" />
+        <link rel="stylesheet" href="https://use.typekit.net/your-font-id.css" />
       </head>
-      <TranslationProvider>
-        <body className="font-primary antialiased bg-white text-gray-900 no-tap-highlight">
-          <Navbar />
-          <div className="min-h-screen flex flex-col">{children}</div>
-        </body>
-      </TranslationProvider>
+      <body className="antialiased">
+        <TranslationProvider>
+          <Navbar/>
+          <LoadingWrapper>
+            {children}
+          </LoadingWrapper>
+        </TranslationProvider>
+      </body>
     </html>
   );
 }

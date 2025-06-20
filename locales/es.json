@@ -4,7 +4,8 @@
     "about": "Quiénes somos",
     "services": "Servicios",
     "contact": "Contacto",
-    "cta": "Hablemos"
+    "cta": "Hablemos",
+    "cases": "Casos de éxito"
   },
   "hero": {
     "transformamos": "Transformamos",
@@ -27,41 +28,15 @@
     "guaranteedResponse": "Respuesta garantizada",
     "humanApproach": "Enfoque humano"
   },
-  "about": {
-    "poeticHeading": "Somos el puente entre ideas y realidad",
-    "galagaAgency": "Galaga Agency",
-    "mainDescription": "gestiona tu proyecto tecnológico empresarial desde el diseño de la estrategia hasta el desarrollo de soluciones y el seguimiento de la implantación.",
-    "focusTitle": "¿Quiénes somos?",
-    "ourFocus": "Nos centramos en la innovación empresarial y el marketing interactivo, acompañando a aquellos clientes que necesitan digitalizar sus negocios pero carecen de las herramientas o el tiempo para hacerlo.",
-    "offerTitle": "Nuestra propuesta",
-    "whatWeOffer": "Les damos claridad, les ayudamos a organizarse, automatizar procesos, comunicar mejor y ofrecer experiencias memorables a sus clientes. Nuestro enfoque es humano, cercano y 100 % orientado a resultados. Hoy, Galaga Agency integra la solidez del tejido empresarial tradicional con la creatividad del mundo gaming para unir estrategia, tecnología y emoción.",
-    "stats": {
-      "projects": "Proyectos Completados",
-      "clients": "Clientes Satisfechos",
-      "satisfaction": "Satisfacción del Cliente",
-      "support": "Soporte Disponible"
-    },
-    "whyChooseUs": "¿Por qué elegirnos?",
-    "whyChooseUsDesc": "Combinamos experiencia técnica con creatividad para entregar resultados que superan las expectativas.",
-    "features": {
-      "innovation": {
-        "title": "Innovación Constante",
-        "description": "Nos mantenemos a la vanguardia de las tendencias tecnológicas para ofrecerte soluciones innovadoras que te den ventaja competitiva."
-      },
-      "expertise": {
-        "title": "Equipo Experto",
-        "description": "Nuestro equipo multidisciplinario combina años de experiencia en estrategia, tecnología y diseño creativo."
-      },
-      "results": {
-        "title": "Resultados Comprobados",
-        "description": "Nos enfocamos en resultados medibles que impactan directamente el crecimiento y éxito de tu negocio."
-      }
-    },
-    "process": {
-      "analyze": "Analizar",
-      "analyzeDesc": "Estudiamos tu negocio e identificamos oportunidades de mejora.",
-      "implement": "Implementar",
-      "implementDesc": "Ejecutamos soluciones con precisión y atención al detalle."
+  "homepage": {
+    "about": {
+      "poeticHeading": "Somos el puente entre ideas y realidad",
+      "galagaAgency": "Galaga Agency",
+      "mainDescription": "gestiona tu proyecto tecnológico empresarial desde el diseño de la estrategia hasta el desarrollo de soluciones y el seguimiento de la implantación.",
+      "focusTitle": "¿Quiénes somos?",
+      "ourFocus": "Nos centramos en la innovación empresarial y el marketing interactivo, acompañando a aquellos clientes que necesitan digitalizar sus negocios pero carecen de las herramientas o el tiempo para hacerlo.",
+      "offerTitle": "Nuestra propuesta",
+      "whatWeOffer": "Les damos claridad, les ayudamos a organizarse, automatizar procesos, comunicar mejor y ofrecer experiencias memorables a sus clientes. Nuestro enfoque es humano, cercano y 100 % orientado a resultados. Hoy, Galaga Agency integra la solidez del tejido empresarial tradicional con la creatividad del mundo gaming para unir estrategia, tecnología y emoción."
     }
   },
   "partners": {
@@ -290,5 +265,281 @@
     "allRightsReserved": "Todos los derechos reservados",
     "privacy": "Privacidad",
     "terms": "Términos"
+  },
+  "about": {
+    "eyebrow": "Quiénes somos",
+    "hero": {
+      "innovamos": "Innovamos",
+      "contigo": "contigo",
+      "subtitle": "Transformamos negocios a través de soluciones digitales que funcionan, combinando estrategia empresarial, automatización, diseño de experiencias y creatividad tecnológica.",
+      "scroll": "Descubrir",
+      "stats": {
+        "yearsExperience": "Años de experiencia",
+        "projectsCompleted": "Proyectos completados",
+        "humanApproach": "Enfoque humano"
+      }
+    },
+    "story": {
+      "eyebrow": "Nuestra historia",
+      "title": "Nuestra historia",
+      "subtitle": "Su trayectoria une dos universos: más de 35 años de experiencia familiar en diseño y montaje de espacios comerciales, y la creación en 2020 de Team Galaga, evolucionando hacia una agencia que une estrategia, tecnología y emoción.",
+      "traditional": {
+        "title": "Tradición empresarial",
+        "description": "Más de 35 años de experiencia familiar en diseño y montaje de espacios comerciales a través de dos x dos Grupo Imagen, construyendo la solidez del tejido empresarial tradicional."
+      },
+      "gaming": {
+        "title": "Innovación gaming",
+        "description": "En 2020 nace Team Galaga, un club de esports que evolucionó hacia Galaga Gaming, especializado en activaciones de marca con experiencias inmersivas y simuladores virtuales."
+      },
+      "today": {
+        "year": "2025",
+        "title": "Galaga Agency hoy",
+        "description": "Integramos esa doble visión: la solidez del tejido empresarial tradicional y la creatividad del mundo gaming, para convertirnos en una agencia que une estrategia, tecnología y emoción."
+      },
+      "values": {
+        "strategy": "Estrategia",
+        "technology": "Tecnología",
+        "emotion": "Emoción"
+      }
+    },
+    "approach": {
+      "eyebrow": "Cómo trabajamos",
+      "title": "¿Cómo trabajamos?",
+      "subtitle": "Cada cliente es único. Por eso escuchamos, analizamos y diseñamos estrategias de transformación personalizadas, con tres principios clave:",
+      "human": {
+        "title": "Acompañamiento real",
+        "description": "Estamos presentes durante todo el proceso, asesorando y formando para que tu equipo gane autonomía."
+      },
+      "practical": {
+        "title": "Soluciones prácticas",
+        "description": "Tecnología útil, que se adapta a tu negocio y no al revés. Implementamos herramientas que realmente funcionan."
+      },
+      "longterm": {
+        "title": "Visión a largo plazo",
+        "description": "Digitalización pensando en el futuro del negocio y en las personas que lo hacen posible."
+      },
+      "quote": "Nuestro enfoque es humano, cercano y 100% orientado a resultados."
+    },
+    "clients": {
+      "eyebrow": "Nuestros clientes",
+      "title": "Nuestros clientes",
+      "subtitle": "Trabajamos con empresas que buscan crecer de manera organizada y eficiente, sin perder el foco en lo que realmente importa.",
+      "retail": {
+        "title": "PYMEs retail",
+        "description": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos con experiencias memorables."
+      },
+      "growing": {
+        "title": "Empresas en crecimiento",
+        "description": "Necesitan ordenar procesos, liberar tiempo de gestión y tomar decisiones basadas en datos reales."
+      },
+      "innovative": {
+        "title": "Marcas innovadoras",
+        "description": "Quieren diferenciarse con tecnología avanzada y crear conexiones emocionales duraderas con sus clientes."
+      },
+      "success": {
+        "title": "Ya hemos ayudado a empresas como:",
+        "energiaSolar": {
+          "metric": "100%",
+          "description": "Energía Solar Canarias - Gestión totalmente personalizada"
+        },
+        "toyota": {
+          "metric": "375K+",
+          "description": "Toyota Canarias - Impresiones con experiencias inmersivas"
+        },
+        "summary": "Mejoramos la gestión mediante herramientas personalizadas y activamos marcas con experiencias inmersivas que generan resultados medibles."
+      }
+    },
+    "valueProposition": {
+      "eyebrow": "Nuestra propuesta de valor",
+      "title": "¿Por qué Galaga Agency?",
+      "subtitle": "No somos una consultora al uso, ni una agencia más. Galaga Agency combina estrategia empresarial, automatización, diseño de experiencias y creatividad tecnológica.",
+      "comparison": {
+        "consultingIT": "Consultora IT",
+        "creativeAgency": "Agencia creativa",
+        "galagaAgency": "Galaga Agency",
+        "crmErp": "Implantación CRM/ERP",
+        "dataCulture": "Cultura del dato",
+        "interactiveActivations": "Activaciones interactivas",
+        "trainingSupport": "Formación y soporte",
+        "grants": "Subvenciones",
+        "vision360": "Visión 360° negocio"
+      },
+      "dataTransformation": {
+        "title": "Cultura del Dato: del caos a la inteligencia empresarial",
+        "subtitle": "Convertimos los datos dispersos en decisiones inteligentes.",
+        "description": "Implementamos sistemas que unifican la información (CRM, ERP, IoT...), automatizamos tareas, y creamos cuadros de mando para que tomes decisiones basadas en datos, no en suposiciones.",
+        "process": {
+          "step1": "Centralizamos la información",
+          "step2": "Automatizamos procesos y alertas",
+          "step3": "Creamos dashboards inteligentes",
+          "step4": "Damos soporte para crear un ecosistema de datos maduro y escalable"
+        }
+      }
+    }
+  },
+  "servicesPage": {
+    "eyebrow": "Nuestros servicios",
+    "hero": {
+      "nuestros": "Nuestros",
+      "servicios": "servicios",
+      "subtitle": "Soluciones integrales que combinan estrategia, tecnología y creatividad para transformar tu negocio.",
+      "scroll": "Explorar",
+      "areas": {
+        "strategy": "Estrategia",
+        "strategyDesc": "Consultoría y transformación digital",
+        "automation": "Automatización",
+        "automationDesc": "Sistemas y procesos inteligentes",
+        "innovation": "Innovación",
+        "innovationDesc": "Tecnología aplicada al negocio"
+      }
+    },
+    "overview": {
+      "eyebrow": "Qué ofrecemos",
+      "title": "Servicios completos",
+      "subtitle": "Desde la estrategia hasta la implementación, te acompañamos en cada paso de tu transformación digital.",
+      "learnMore": "Saber más",
+      "strategy": {
+        "title": "Consultoría estratégica",
+        "description": "Analizamos tu negocio y diseñamos un plan de transformación personalizado.",
+        "feature1": "Análisis de procesos",
+        "feature2": "Plan de digitalización",
+        "feature3": "Acompañamiento continuo"
+      },
+      "automation": {
+        "title": "Automatización",
+        "description": "Implementamos sistemas que organizan y automatizan tus procesos.",
+        "feature1": "CRM y ERP",
+        "feature2": "Automatización de tareas",
+        "feature3": "Integración de sistemas"
+      },
+      "innovation": {
+        "title": "Innovación tecnológica",
+        "description": "Aplicamos las últimas tecnologías para mejorar tu negocio.",
+        "feature1": "Inteligencia artificial",
+        "feature2": "IoT y sensores",
+        "feature3": "Soluciones personalizadas"
+      },
+      "immersive": {
+        "title": "Marketing inmersivo",
+        "description": "Creamos experiencias digitales que conectan con tus clientes.",
+        "feature1": "Realidad aumentada",
+        "feature2": "Experiencias interactivas",
+        "feature3": "Gamificación"
+      },
+      "training": {
+        "title": "Formación y soporte",
+        "description": "Capacitamos a tu equipo para trabajar con autonomía.",
+        "feature1": "Formación personalizada",
+        "feature2": "Manuales visuales",
+        "feature3": "Seguimiento continuo"
+      },
+      "grants": {
+        "title": "Gestión de subvenciones",
+        "description": "Identificamos y gestionamos ayudas públicas para tu proyecto.",
+        "feature1": "Kit Digital",
+        "feature2": "Subvenciones públicas",
+        "feature3": "Tramitación completa"
+      }
+    },
+    "process": {
+      "eyebrow": "Nuestro proceso",
+      "title": "Cómo trabajamos",
+      "subtitle": "Un proceso probado que garantiza resultados excepcionales en cada proyecto.",
+      "discovery": {
+        "title": "Descubrimiento",
+        "description": "Analizamos tu negocio, objetivos y desafíos actuales."
+      },
+      "strategy": {
+        "title": "Estrategia",
+        "description": "Diseñamos un plan personalizado con objetivos claros."
+      },
+      "implementation": {
+        "title": "Implementación",
+        "description": "Ejecutamos las soluciones con precisión y calidad."
+      },
+      "optimization": {
+        "title": "Optimización",
+        "description": "Mejoramos continuamente y garantizamos el éxito."
+      },
+      "cta": {
+        "title": "¿Listo para empezar?",
+        "description": "Hablemos de tu proyecto y veamos cómo podemos ayudarte.",
+        "startProject": "Iniciar proyecto",
+        "learnMore": "Conocer más"
+      }
+    }
+  },
+  "contactPage": {
+    "eyebrow": "Contacto",
+    "hero": {
+      "hablemos": "Hablemos de tu",
+      "proyecto": "proyecto",
+      "subtitle": "Estamos aquí para ayudarte a transformar tu negocio. Cuéntanos qué necesitas y empecemos a crear algo increíble juntos.",
+      "scroll": "Contactar",
+      "methods": {
+        "email": "Email directo",
+        "location": "Ubicación",
+        "response": "Respuesta rápida"
+      }
+    },
+    "form": {
+      "eyebrow": "Envíanos un mensaje",
+      "title": "¿Hablamos?",
+      "subtitle": "Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas."
+    },
+    "info": {
+      "title": "Información de contacto",
+      "email": "Email",
+      "location": "Ubicación",
+      "locationText": "Las Palmas de Gran Canaria, España",
+      "schedule": "Horario",
+      "scheduleText": "Lunes a Viernes, 9:00 - 18:00"
+    },
+    "social": {
+      "title": "Síguenos"
+    },
+    "promise": {
+      "title": "Respuesta garantizada en 24h",
+      "description": "Nos comprometemos a responder tu consulta en menos de 24 horas laborables."
+    }
+  },
+  "caseStudiesPage": {
+    "eyebrow": "Casos de éxito",
+    "hero": {
+      "casos": "Casos de",
+      "exito": "éxito",
+      "subtitle": "Descubre cómo hemos transformado negocios reales con soluciones tecnológicas innovadoras y estrategias personalizadas que generan resultados medibles.",
+      "scroll": "Explorar casos",
+      "stats": {
+        "projectsCompleted": "Proyectos completados",
+        "totalImpressions": "Impresiones totales",
+        "clientSatisfaction": "Satisfacción cliente",
+        "responseTime": "Tiempo respuesta"
+      }
+    },
+    "grid": {
+      "eyebrow": "Nuestros proyectos",
+      "title": "Proyectos destacados",
+      "subtitle": "Cada proyecto es único y diseñado para resolver desafíos específicos. Aquí tienes algunos ejemplos de nuestro trabajo.",
+      "readMore": "Leer caso completo"
+    },
+    "categories": {
+      "eyebrow": "Áreas de expertise",
+      "title": "Nuestras especialidades",
+      "subtitle": "Trabajamos en diferentes áreas para cubrir todas las necesidades de transformación digital de nuestros clientes.",
+      "projects": "proyectos",
+      "digital": "Digitalización",
+      "digitalDesc": "Transformación digital completa con CRM, ERP, automatización y desarrollo web.",
+      "marketing": "Marketing inmersivo",
+      "marketingDesc": "Experiencias interactivas con realidad aumentada, gamificación y activaciones de marca.",
+      "events": "Eventos",
+      "eventsDesc": "Organización de eventos tecnológicos, ferias gaming y experiencias presenciales.",
+      "cta": {
+        "title": "¿Tienes un proyecto en mente?",
+        "description": "Cuéntanos tu desafío y veamos cómo podemos ayudarte a conseguir resultados similares.",
+        "startProject": "Iniciar proyecto",
+        "viewServices": "Ver servicios"
+      }
+    }
   }
 }
