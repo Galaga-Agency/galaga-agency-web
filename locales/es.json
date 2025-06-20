@@ -65,9 +65,9 @@
     }
   },
   "partners": {
-  "title": "Nuestros partners",
-  "subtitle": "Trabajamos junto a los mejores para ofrecerte resultados excepcionales"
-},
+    "title": "Nuestros partners",
+    "subtitle": "Trabajamos junto a los mejores para ofrecerte resultados excepcionales"
+  },
   "services": {
     "title": "Nuestros servicios",
     "subtitle": "Soluciones integrales que combinan estrategia, tecnología y creatividad para transformar tu negocio.",
@@ -120,6 +120,66 @@
       "learnMore": "Ver todos los servicios"
     }
   },
+  "caseStudies": {
+    "title": "Casos de Éxito",
+    "subtitle": "Descubre cómo hemos transformado negocios reales con soluciones tecnológicas innovadoras y estrategias personalizadas.",
+    "challenge": "Desafío",
+    "solution": "Solución",
+    "result": "Resultado",
+    "readMore": "Leer más",
+    "categories": {
+      "digital": "Digitalización",
+      "marketing": "Marketing Inmersivo",
+      "events": "Eventos"
+    },
+    "stats": {
+      "projectsCompleted": "Proyectos Completados",
+      "totalImpressions": "Impresiones Totales",
+      "clientSatisfaction": "Satisfacción Cliente",
+      "responseTime": "Tiempo Respuesta"
+    },
+    "metrics": {
+      "processReduction": "Reducción Procesos",
+      "seoImprovement": "Mejora SEO",
+      "dataUnification": "Unificación Datos",
+      "realTimeMonitoring": "Monitoreo Tiempo Real",
+      "impressions": "Impresiones",
+      "qualifiedLeads": "Leads Calificados",
+      "attendees": "Asistentes",
+      "cities": "Ciudades"
+    },
+    "dosxdos": {
+      "title": "Dos x Dos Grupo Imagen",
+      "challenge": "Procesos manuales dispersos, ERP sin integrar, ausencia de CRM y web estática que limitaba la eficiencia operativa y visibilidad comercial.",
+      "solution": "Implementamos Zoho CRM, migramos a A3 ERP, creamos integración con Notion y desarrollamos nueva web optimizada con Next.js.",
+      "result": "Atención al cliente ágil, procesos internos fluidos, autonomía en contenidos y salto inmediato en visibilidad orgánica."
+    },
+    "energiaSolar": {
+      "title": "Energía Solar Canarias",
+      "challenge": "Múltiples herramientas no conectadas, falta de plataforma unificada y ausencia de CRM para organizar usuarios y alertas.",
+      "solution": "Desarrollamos aplicación web progresiva unificada y CRM conectado al ERP con dashboards y sincronización automática.",
+      "result": "Monitoreo en tiempo real, alertas personalizadas, reducción de trabajo manual y mejora en eficiencia energética."
+    },
+    "toyota": {
+      "title": "Toyota Canarias",
+      "challenge": "Necesidad de renovar imagen y conectar con nuevos públicos (Gen Z y Millennials) alejados del marketing automovilístico tradicional.",
+      "solution": "Diseñamos circuito de activaciones con simuladores y realidad virtual en rallies y ferias, combinando acciones presenciales con comunidad online.",
+      "result": "Circuito que superó las 375.000 impresiones, captó más de 4.000 leads cualificados y sentó bases para edición ampliada."
+    },
+    "canariasGameShow": {
+      "title": "Canarias Game Show",
+      "challenge": "Posicionar Canarias como sede de evento internacional de videojuegos en mercado dominado por grandes ferias europeas.",
+      "solution": "Organizamos feria en doble sede (Tenerife y Gran Canaria) con torneos, exposiciones, influencers y experiencias interactivas.",
+      "result": "Evento que reunió a 30.000 personas, amplia difusión en redes y medios, posicionando a Canarias como nuevo polo de atracción gamer."
+    },
+    "cta": {
+      "title": "¿Listo para tu próximo éxito?",
+      "description": "Cada proyecto es único. Descubre cómo podemos transformar tu negocio con soluciones personalizadas.",
+      "viewAll": "Ver Todos los Casos",
+      "startProject": "Iniciar Proyecto"
+    }
+  },
+
   "cta": {
     "readyToTransform": "¿Listo para transformar tu negocio?",
     "subtitle": "No esperes más. El momento del cambio es ahora.",
@@ -138,7 +198,18 @@
     "scheduleCall": "Agenda una llamada",
     "knowMore": "Conoce más",
     "directContact": "Contacto directo:",
-    "getInTouch": "Ponte en contacto"
+    "getInTouch": "Ponte en contacto",
+    "eyebrow": "Momento de actuar",
+    "massive": {
+      "line1": "Deja de esperar",
+      "line2": "Empieza a crecer",
+      "subtitle": "Tu transformación empresarial comienza con una conversación"
+    },
+    "island": {
+      "badge": "Consulta gratuita",
+      "title": "Construyamos algo increíble",
+      "description": "Agenda tu sesión estratégica y ve resultados inmediatos"
+    }
   },
   "contact": {
     "title": "Hablemos de tu proyecto",

@@ -120,6 +120,65 @@
       "learnMore": "View all services"
     }
   },
+  "caseStudies": {
+    "title": "Success Stories",
+    "subtitle": "Discover how we've transformed real businesses with innovative technological solutions and personalized strategies.",
+    "challenge": "Challenge",
+    "solution": "Solution",
+    "result": "Result",
+    "readMore": "Read more",
+    "categories": {
+      "digital": "Digitalization",
+      "marketing": "Immersive Marketing",
+      "events": "Events"
+    },
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "totalImpressions": "Total Impressions",
+      "clientSatisfaction": "Client Satisfaction",
+      "responseTime": "Response Time"
+    },
+    "metrics": {
+      "processReduction": "Process Reduction",
+      "seoImprovement": "SEO Improvement",
+      "dataUnification": "Data Unification",
+      "realTimeMonitoring": "Real-time Monitoring",
+      "impressions": "Impressions",
+      "qualifiedLeads": "Qualified Leads",
+      "attendees": "Attendees",
+      "cities": "Cities"
+    },
+    "dosxdos": {
+      "title": "Dos x Dos Grupo Imagen",
+      "challenge": "Scattered manual processes, unintegrated ERP, no CRM and static website limiting operational efficiency and commercial visibility.",
+      "solution": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js.",
+      "result": "Agile customer service, smooth internal processes, content autonomy and immediate jump in organic visibility."
+    },
+    "energiaSolar": {
+      "title": "Energía Solar Canarias",
+      "challenge": "Multiple unconnected tools, lack of unified platform and absence of CRM to organize users and alerts.",
+      "solution": "We developed unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization.",
+      "result": "Real-time monitoring, personalized alerts, reduced manual work and improved energy efficiency."
+    },
+    "toyota": {
+      "title": "Toyota Canarias",
+      "challenge": "Need to renew image and connect with new audiences (Gen Z and Millennials) distant from traditional automotive marketing.",
+      "solution": "We designed activation circuit with simulators and virtual reality at rallies and fairs, combining face-to-face actions with online community.",
+      "result": "Circuit that exceeded 375,000 impressions, captured over 4,000 qualified leads and set foundation for expanded edition."
+    },
+    "canariasGameShow": {
+      "title": "Canarias Game Show",
+      "challenge": "Position Canarias as host of international video game event in market dominated by major European fairs.",
+      "solution": "We organized dual-venue fair (Tenerife and Gran Canaria) with tournaments, exhibitions, influencers and interactive experiences.",
+      "result": "Event that brought together 30,000 people, wide dissemination on networks and media, positioning Canarias as new gaming attraction hub."
+    },
+    "cta": {
+      "title": "Ready for your next success?",
+      "description": "Every project is unique. Discover how we can transform your business with personalized solutions.",
+      "viewAll": "View All Cases",
+      "startProject": "Start Project"
+    }
+  },
   "cta": {
     "readyToTransform": "Ready to transform your business?",
     "subtitle": "Don't wait any longer. The time for change is now.",
@@ -138,7 +197,18 @@
     "scheduleCall": "Schedule a call",
     "knowMore": "Learn more",
     "directContact": "Direct contact:",
-    "getInTouch": "Get in touch"
+    "getInTouch": "Get in touch",
+    "eyebrow": "Time to act",
+    "massive": {
+      "line1": "Stop waiting",
+      "line2": "Start growing",
+      "subtitle": "Your business transformation begins with one conversation"
+    },
+    "island": {
+      "badge": "Free consultation",
+      "title": "Let's build something amazing",
+      "description": "Schedule your strategy session and see immediate results"
+    }
   },
   "contact": {
     "title": "Let's talk about your project",
