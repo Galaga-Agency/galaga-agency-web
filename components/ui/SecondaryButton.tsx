@@ -38,20 +38,20 @@ export default function SecondaryButton({
   // Conditional styles based on darkBg prop
   const colorStyles = darkBg
     ? `
-      text-white
-      border-white/30
-      hover:border-white
-      hover:text-white
-      hover:bg-white/10
-      focus:ring-white/30
+      text-blanco
+      border-blanco/30
+      hover:border-blanco
+      hover:text-blanco
+      hover:bg-blanco/10
+      focus:ring-blanco/30
     `
     : `
-      text-gray-700
-      border-gray-300
-      hover:border-primary
-      hover:text-primary
-      hover:bg-primary/5
-      focus:ring-primary/30
+      text-grafito
+      border-hielo
+      hover:border-teal
+      hover:text-teal
+      hover:bg-teal/5
+      focus:ring-teal/30
     `;
 
   const baseStyles = `

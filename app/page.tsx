@@ -6,18 +6,25 @@ import AboutSection from "@/components/sections/homepage/AboutSection";
 import CTASection from "@/components/sections/homepage/CTASection";
 import HeroSection from "@/components/sections/homepage/HeroSection";
 import ServicesSection from "@/components/sections/homepage/ServicesSection";
+import CaseStudiesSection from "@/components/sections/homepage/CaseStudiesSection";
+import PartnersSection from "@/components/sections/homepage/PartnersSection";
 import { initHeroTitleAnimation } from "@/utils/hero-title-animation";
 import { initHeroScrollAnimation } from "@/utils/hero-scroll-animation";
 import { initCTAAnimations } from "@/utils/homepage-cta-animation";
 import { animatePartnersSection } from "@/utils/partners-animation";
-import PartnersSection from "@/components/sections/homepage/PartnersSection";
+import { initChevronAnimations } from "@/utils/chevron-animation";
+import { initCaseStudiesAnimations } from "@/utils/case-studies-animation";
+import { initAboutAnimations } from "@/utils/about-animations";
 
 export default function HomePage() {
   useGSAP(() => {
     const timer = setTimeout(() => {
       initHeroTitleAnimation();
       initHeroScrollAnimation();
-          animatePartnersSection();
+      initAboutAnimations();
+      initChevronAnimations();
+      initCaseStudiesAnimations();
+      animatePartnersSection();
       initCTAAnimations();
     }, 100);
 
@@ -30,6 +37,7 @@ export default function HomePage() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <CaseStudiesSection />
         <PartnersSection />
         <CTASection />
       </main>

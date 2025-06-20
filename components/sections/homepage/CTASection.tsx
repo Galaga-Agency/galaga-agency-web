@@ -2,101 +2,154 @@
 
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
+import { FaRocket, FaArrowRight, FaPlay, FaEnvelope, FaLinkedinIn } from "react-icons/fa";
+import { HiSparkles } from "react-icons/hi";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import SecondaryButton from "@/components/ui/SecondaryButton";
 
 export default function CTASection() {
   const { t } = useTranslation();
-  
+
   return (
-    <section className="section relative bg-gradient-to-br from-neutral-50 to-neutral-100">
-      {/* Background elements */}
+    <section className="section relative overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-10 w-64 h-64 bg-primary-100/50 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-16 w-80 h-80 bg-secondary-100/50 rounded-full blur-3xl"></div>
+        {/* Top diagonal - Subtle teal light */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-hielo/40 via-turquesa/10 to-white"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 50%)"
+          }}
+        ></div>
+        
+        {/* Bottom diagonal - Pure white */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-br from-white via-hielo/20 to-white"
+          style={{
+            clipPath: "polygon(0 50%, 100% 70%, 100% 100%, 0 100%)"
+          }}
+        ></div>
       </div>
 
-      <div className="container relative z-10 text-center">
-        
-        {/* Main content */}
-        <div className="pb-20">
-          <h2 className="section-title text-primary-600 pb-8">
-            {t("cta.readyToTransform")}
+      <div className="container relative z-10">
+        {/* HEADLINE - Dark text on light diagonal */}
+        <div className="text-center pb-8 md:pb-12 lg:pb-16">
+          <div className="inline-flex items-center gap-2 md:gap-3 pb-4 md:pb-6">
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-teal rounded-full animate-pulse"></div>
+            <span className="text-teal font-semibold tracking-wider uppercase text-xs md:text-sm">
+              {t("cta.eyebrow")}
+            </span>
+            <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-mandarina rounded-full animate-pulse delay-300"></div>
+          </div>
+
+          <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.9] tracking-tight pb-4 md:pb-6">
+            <span className="block text-negro pb-1 md:pb-2">
+              {t("cta.massive.line1")}
+            </span>
+            <span className="block bg-gradient-to-r from-teal via-turquesa to-verde-azulado bg-clip-text text-transparent p-2">
+              {t("cta.massive.line2")}
+            </span>
           </h2>
-          <p className="text-xl text-secondary-700 leading-relaxed">
-            {t("cta.subtitle")}
+
+          <p className="text-lg md:text-xl lg:text-2xl text-grafito font-light leading-relaxed px-4 md:px-0">
+            {t("cta.massive.subtitle")}
           </p>
         </div>
 
-        {/* Simple benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pb-20">
-          <div className="bg-white border-2 border-primary-200 rounded-2xl p-8 shadow-lg">
-            <h3 className="text-lg font-bold text-primary-700 pb-4">
-              {t("cta.benefit1.title")}
-            </h3>
-            <p className="text-secondary-600">
-              {t("cta.benefit1.description")}
-            </p>
-          </div>
+        {/* FLOATING ACTION CARD - Crosses the diagonal line */}
+        <div className="relative pb-8 md:pb-12 lg:pb-16">
+          <div className="flex justify-center px-4 md:px-0">
+            <div className="relative w-full max-w-2xl">
+              {/* Epic glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-teal/20 to-turquesa/20 rounded-2xl md:rounded-3xl blur-xl md:blur-2xl scale-105 md:scale-110"></div>
+              
+              {/* Main card - White with epic shadow */}
+              <div className="relative bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-12 shadow-xl md:shadow-2xl border border-hielo/30">
 
-          <div className="bg-white border-2 border-primary-200 rounded-2xl p-8 shadow-lg">
-            <h3 className="text-lg font-bold text-primary-700 pb-4">
-              {t("cta.benefit2.title")}
-            </h3>
-            <p className="text-secondary-600">
-              {t("cta.benefit2.description")}
-            </p>
-          </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 md:gap-3 pb-3 md:pb-4">
+                    <HiSparkles className="text-xl md:text-2xl text-teal animate-spin-slow" />
+                    <span className="text-base md:text-lg font-semibold text-teal">
+                      {t("cta.island.badge")}
+                    </span>
+                    <HiSparkles className="text-xl md:text-2xl text-mandarina animate-spin-slow" style={{animationDirection: "reverse"}} />
+                  </div>
 
-          <div className="bg-white border-2 border-primary-200 rounded-2xl p-8 shadow-lg">
-            <h3 className="text-lg font-bold text-primary-700 pb-4">
-              {t("cta.benefit3.title")}
-            </h3>
-            <p className="text-secondary-600">
-              {t("cta.benefit3.description")}
-            </p>
-          </div>
-        </div>
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-negro pb-2 md:pb-3">
+                    {t("cta.island.title")}
+                  </h3>
+                  
+                  <p className="text-base md:text-lg text-grafito pb-6 md:pb-8 font-light">
+                    {t("cta.island.description")}
+                  </p>
 
-        {/* Clean CTA buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pb-20">
-          <Link
-            href="/contact"
-            className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            {t("cta.scheduleCall")}
-          </Link>
-          
-          <Link
-            href="/about"
-            className="border-2 border-primary-600 hover:border-primary-700 text-primary-600 hover:bg-primary-600 hover:text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300"
-          >
-            {t("cta.knowMore")}
-          </Link>
-        </div>
+                  {/* EXPLOSIVE BUTTON PAIR */}
+                  <div className="flex flex-col gap-3 md:gap-4 md:flex-row justify-center">
+                    
+                    <div className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-teal to-turquesa rounded-xl md:rounded-2xl blur opacity-40 group-hover:opacity-70 transition-all duration-300"></div>
+                      <PrimaryButton 
+                        href="/contact"
+                        className="relative group-hover:scale-105 md:group-hover:scale-110 group-hover:-translate-y-1 md:group-hover:-translate-y-2 transition-all duration-300 px-6 py-3 md:px-8 md:py-4 w-full md:w-auto"
+                      >
+                        <span className="flex items-center justify-center gap-2 md:gap-3">
+                          <FaRocket className="text-base md:text-lg group-hover:animate-bounce" />
+                          <span className="text-sm md:text-base">{t("cta.scheduleCall")}</span>
+                          <FaArrowRight className="text-xs md:text-sm group-hover:translate-x-1 transition-transform duration-300" />
+                        </span>
+                      </PrimaryButton>
+                    </div>
 
-        {/* Contact info */}
-        <div className="border-t border-secondary-200 pt-12">
-          <p className="text-secondary-600 mb-6">
-            {t("cta.directContact")}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a
-              href="mailto:info@galagaagency.com"
-              className="text-primary-600 hover:text-primary-700 transition-colors duration-300 text-lg"
-            >
-              info@galagaagency.com
-            </a>
-            
-            <a
-              href="https://linkedin.com/company/galagaagency"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-600 hover:text-primary-700 transition-colors duration-300 text-lg"
-            >
-              LinkedIn
-            </a>
+                    <div className="group">
+                      <SecondaryButton 
+                        href="/about"
+                        className="group-hover:scale-105 md:group-hover:scale-110 group-hover:-translate-y-1 md:group-hover:-translate-y-2 transition-all duration-300 px-6 py-3 md:px-8 md:py-4 w-full md:w-auto"
+                      >
+                        <span className="flex items-center justify-center gap-2 md:gap-3">
+                          <div className="w-5 h-5 md:w-6 md:h-6 bg-gradient-to-r from-violeta to-azul-profundo rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                            <FaPlay className="text-white text-xs ml-0.5" />
+                          </div>
+                          <span className="text-sm md:text-base">{t("cta.knowMore")}</span>
+                        </span>
+                      </SecondaryButton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        
+
+        {/* CONTACT BAR - Light glass on light background */}
+        <div className="relative z-10 pt-4 md:pt-6 lg:pt-8">
+          <div className="text-center px-4 md:px-0">
+            <div className="inline-flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8 bg-white/80 backdrop-blur-sm rounded-xl md:rounded-2xl px-6 py-4 md:px-8 md:py-5 lg:px-10 lg:py-6 border border-hielo/50 shadow-lg max-w-full">
+              
+              <span className="text-grafito font-medium text-sm md:text-base">
+                {t("cta.directContact")}
+              </span>
+
+              <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 lg:gap-8">
+                <a
+                  href="mailto:info@galagaagency.com"
+                  className="group flex items-center gap-2 md:gap-3 text-teal hover:text-azul-profundo transition-all duration-300 font-semibold hover:scale-105 text-sm md:text-base"
+                >
+                  <FaEnvelope className="text-base md:text-lg flex-shrink-0" />
+                  <span className="break-all md:break-normal">info@galagaagency.com</span>
+                </a>
+
+                <a
+                  href="https://linkedin.com/company/galagaagency"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2 md:gap-3 text-azul-profundo hover:text-teal transition-all duration-300 font-semibold hover:scale-105 text-sm md:text-base"
+                >
+                  <FaLinkedinIn className="text-base md:text-lg flex-shrink-0" />
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

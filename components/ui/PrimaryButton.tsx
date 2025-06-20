@@ -37,11 +37,11 @@ export default function PrimaryButton({
     ${sizeStyles[size]}
     font-bold
     rounded-lg
-    bg-primary
-    text-white 
+    bg-teal
+    text-blanco 
     shadow-md
     hover:shadow-lg
-    hover:bg-primary/90
+    hover:bg-teal/90
     focus:outline-none
     transition-all
     duration-200
