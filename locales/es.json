@@ -5,7 +5,8 @@
     "services": "Servicios",
     "contact": "Contacto",
     "cta": "Hablemos",
-    "cases": "Casos de éxito"
+    "cases": "Casos de éxito",
+    "language": "Idioma"
   },
   "hero": {
     "transformamos": "Transformamos",
@@ -264,7 +265,8 @@
     "location": "Las Palmas de Gran Canaria, España",
     "allRightsReserved": "Todos los derechos reservados",
     "privacy": "Privacidad",
-    "terms": "Términos"
+    "terms": "Términos",
+    "followUs": "Síguenos"
   },
   "about": {
     "eyebrow": "Quiénes somos",

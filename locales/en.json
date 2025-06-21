@@ -5,7 +5,8 @@
     "services": "Services",
     "contact": "Contact",
     "cta": "Let's Talk",
-    "cases": "Success Stories"
+    "cases": "Success Stories",
+    "language": "Language"
   },
   "hero": {
     "transformamos": "We Transform",
@@ -263,7 +264,7 @@
     "location": "Las Palmas de Gran Canaria, Spain",
     "allRightsReserved": "All rights reserved",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms", "followUs": "Follow us"
   },
   "about": {
     "eyebrow": "About us",

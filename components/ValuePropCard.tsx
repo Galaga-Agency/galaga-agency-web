@@ -15,12 +15,12 @@ export default function ValuePropCard({ icon, titleKey, descriptionKey, index = 
 
   return (
     <div 
-      className="group relative"
+      className="group relative h-full"
     >
       {/* Glow effect behind card */}
       <div className="absolute -inset-1 bg-gradient-to-br from-teal/20 to-turquesa/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
              
-      <div className="relative bg-blanco p-10 lg:p-12 rounded-3xl border border-hielo hover:border-teal/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 shadow-2xl hover:shadow-3xl">
+      <div className="relative bg-blanco p-10 lg:p-12 rounded-3xl border border-hielo hover:border-teal/30 transition-all duration-500 transform hover:scale-105 hover:-translate-y-3 shadow-2xl hover:shadow-3xl h-full flex flex-col">
                  
         {/* Icon container with animated background */}
         <div className="relative mb-8 flex justify-center">
@@ -30,8 +30,8 @@ export default function ValuePropCard({ icon, titleKey, descriptionKey, index = 
           </div>
         </div>
 
-        {/* Content */}
-        <div className="text-center flex flex-col gap-6 items-center pt-8">
+        {/* Content - flex-1 to take remaining space */}
+        <div className="text-center flex flex-col gap-6 items-center pt-8 flex-1">
           <h3 className="text-2xl lg:text-3xl font-black text-negro leading-tight tracking-tight group-hover:text-teal transition-all duration-300">
             {t(titleKey)}
           </h3>
