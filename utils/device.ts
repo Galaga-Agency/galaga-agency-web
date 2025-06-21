@@ -50,25 +50,53 @@ export const isTablet = (): boolean => {
     userAgent.includes(keyword)
   );
 
-  // iPad detection (even when requesting desktop site)
-  const isIPad = /macintosh/.test(userAgent) && isTouch;
+  // Enhanced iPad detection (including iPad Pro)
+  const isIPad = 
+    /macintosh/.test(userAgent) && isTouch ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+    /ipad/.test(userAgent);
+
+  // Aggressive iPad Pro detection for simulators
+  const isIPadPro = (
+    navigator.platform === 'MacIntel' ||
+    /macintosh/.test(userAgent) ||
+    userAgent.includes('mac os x')
+  ) && (
+    width >= 1024 || // iPad Pro sizes
+    navigator.maxTouchPoints > 1 ||
+    // Simulator fallback - assume large "Mac" screens are iPad Pro
+    (width >= 1024 && width <= 1366)
+  );
 
   // Size-based detection for touch devices
   const isTabletSize = width >= 768 && width <= 1024 && isTouch;
 
-  return hasTabletKeyword || isIPad || isTabletSize;
+  // Large tablet detection (including iPad Pro) - even without proper touch detection
+  const isLargeTablet = width >= 1024 && width <= 1366;
+
+  // Force tablet detection for common tablet resolutions
+  const commonTabletSizes = [
+    1024, 1080, 1112, 1194, 1366 // Common tablet widths
+  ];
+  const isCommonTabletSize = commonTabletSizes.some(size => 
+    Math.abs(width - size) <= 50 // Allow some tolerance
+  );
+
+  return hasTabletKeyword || isIPad || isIPadPro || isTabletSize || isLargeTablet || isCommonTabletSize;
 };
 
 export const isDesktop = (): boolean => {
   if (typeof window === "undefined") return true;
 
-  // If it's not mobile and not tablet, it's desktop
-  return !isMobile() && !isTablet();
+  // Only desktop if screen is massive (typical desktop monitor)
+  return window.innerWidth >= 1440;
 };
 
 export const isTouchDevice = (): boolean => {
   if (typeof window === "undefined") return false;
-  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  
+  // Everything under 1440px is touch
+  return window.innerWidth < 1440;
 };
 
 // NEW: Create external store for instant updates

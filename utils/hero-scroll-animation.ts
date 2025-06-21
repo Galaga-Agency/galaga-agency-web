@@ -1,4 +1,3 @@
-// utils/hero-scroll-animation.ts
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -16,7 +15,7 @@ export const initHeroScrollAnimation = () => {
     // Pin the entire hero section
     ScrollTrigger.create({
       trigger: heroSection,
-      start: "top top",
+      start: "top -200px", // Start earlier to allow for smooth transition
       end: "50% top",
       pin: true,
       pinSpacing: false,

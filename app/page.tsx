@@ -33,7 +33,7 @@ export default function HomePage() {
 
   return (
     <>
-      <main className="w-full">
+      <main>
         <HeroSection />
         <AboutSection />
         <ServicesSection />

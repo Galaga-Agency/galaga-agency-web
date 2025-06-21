@@ -52,7 +52,7 @@ export default function HomepageAboutSection() {
       </div>
 
       {/* Overflowing cards at the top */}
-      <div className="absolute top-0 left-0 right-0 -translate-y-1/4 md:-translate-y-1/3 z-30">
+      <div className="absolute top-32 md:top-0 left-0 right-0 -translate-y-1/4 md:-translate-y-1/3 z-30">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {valueProps.map((item, idx) => (
@@ -69,7 +69,7 @@ export default function HomepageAboutSection() {
       </div>
 
       {/* Main content */}
-      <div className="container pt-[660px] md:pt-56 lg:pt-48 relative z-10">
+      <div className="container pt-[750px] md:pt-56 lg:pt-48 relative z-10">
         {/* Main heading section */}
         <div className="text-center pb-16 md:pb-20 lg:pb-24">
           <h2 className="section-title text-teal tracking-tight py-8">
@@ -104,7 +104,7 @@ export default function HomepageAboutSection() {
           {/* First block content */}
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-start py-0">
             <div className="px-4 md:px-0">
-              <div className="flex items-center gap-6 pb-10">
+              <div className="flex items-center gap-6 pb-6">
                 <div className="p-5 bg-turquesa/20 rounded-2xl flex-shrink-0">
                   <FaLightbulb className="lightbulb-icon text-3xl md:text-4xl lg:text-5xl text-teal" />
                 </div>

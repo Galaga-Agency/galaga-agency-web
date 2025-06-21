@@ -13,16 +13,26 @@ export default function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="hero-section relative min-h-screen bg-hero-gradient flex items-center">
+    <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] bg-hero-gradient flex items-center">
       {/* Background overlay for image blend */}
       <div className="absolute inset-0 bg-gradient-to-br from-azul-profundo/70 via-teal/60 to-mandarina z-10"></div>
       
       <div className="container relative z-20 w-full py-20">
         <div className="hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
+          
+          {/* Mobile Logo - Only visible on portrait orientation */}
+          <div className="block portrait:block landscape:hidden lg:hidden pb-8 md:pb-12">
+            <img 
+              src="/assets/img/logos/logo-mobile.webp" 
+              alt="Galaga Agency" 
+              className="w-20 h-auto md:w-24 opacity-90 drop-shadow-2xl"
+            />
+          </div>
+
           {/* Main Headline */}
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-blanco leading-[0.9] tracking-tight drop-shadow-2xl overflow-visible px-4">
-              <span className="block mb-4 md:mb-8">
+            <h1 className="text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
+              <span className="block md:pb-4">
                 <span data-anim="transformamos" className="text-turquesa block md:inline">
                   {t("hero.transformamos")}
                 </span>{" "}

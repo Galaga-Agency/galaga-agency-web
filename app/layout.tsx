@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "We transform businesses through digital solutions that work, with strategy, creativity and a 100% human approach.",
   keywords: [
     "digital transformation",
-    "business innovation", 
+    "business innovation",
     "automation",
     "Canarias",
     "marketing",
@@ -51,12 +51,15 @@ export default function RootLayout({
     <html lang="es">
       <head>
         {/* Adobe Fonts - Aileron */}
-        <link rel="stylesheet" href="https://use.typekit.net/your-font-id.css" />
+        <link
+          rel="stylesheet"
+          href="https://use.typekit.net/your-font-id.css"
+        />
       </head>
       <body className="antialiased">
         <TranslationProvider>
-          <Navbar/>
           <LoadingWrapper>
+            <Navbar />
             {children}
           </LoadingWrapper>
         </TranslationProvider>
