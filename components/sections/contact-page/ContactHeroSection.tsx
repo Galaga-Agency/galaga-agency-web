@@ -44,13 +44,13 @@ export default function ContactHeroSection() {
 
           {/* Subtitle */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="contact-hero-subtitle text-lg md:text-2xl lg:text-3xl text-hielo leading-relaxed font-light drop-shadow-lg max-w-4xl mx-auto">
+            <p className="contact-hero-subtitle text-lg md:text-2xl lg:text-3xl text-hielo leading-relaxed font-light drop-shadow-lg">
               {t("contactPage.hero.subtitle")}
             </p>
           </div>
 
           {/* Contact Methods Preview */}
-          <div className="contact-hero-methods grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full max-w-6xl">
+          <div className="contact-hero-methods grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 w-full">
             <div className="text-center contact-hero-method" data-index="0">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-teal to-azul-profundo rounded-2xl flex items-center justify-center mx-auto pb-4 shadow-xl">
                 <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -95,17 +95,6 @@ export default function ContactHeroSection() {
             </div>
           </div>
 
-          {/* Scroll indicator */}
-          <div className="contact-hero-scroll absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-70">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-hielo text-xs uppercase tracking-wider">
-                {t("contactPage.hero.scroll")}
-              </span>
-              <div className="w-6 h-10 border-2 border-hielo rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-hielo rounded-full mt-2 animate-bounce"></div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

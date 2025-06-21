@@ -31,7 +31,7 @@ export default function HeroSection() {
 
           {/* Main Headline */}
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl xl:text-9xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
+            <h1 className="text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
               <span className="block md:pb-4">
                 <span data-anim="transformamos" className="text-turquesa block md:inline">
                   {t("hero.transformamos")}
@@ -53,7 +53,7 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <div className="text-center pb-8 md:pb-12 w-full px-4">
-            <p className="text-lg md:text-2xl lg:text-3xl xl:text-4xl text-hielo leading-relaxed font-medium drop-shadow-lg">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-hielo leading-relaxed font-medium drop-shadow-lg">
               {t("hero.subtitle")}
             </p>
           </div>
