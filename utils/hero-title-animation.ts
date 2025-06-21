@@ -49,11 +49,11 @@ export function initHeroTitleAnimation() {
     // Dramatic pause with pulse (smoother pulse effect)
     .to([transformamosEl, negociosEl], {
       textShadow: "0 0 50px rgba(255,255,255,0.8)",
-      duration: 0.6,
+      duration: 0.3,
       ease: "power2.inOut",
       yoyo: true,
       repeat: 1
-    }, "+=0.4")
+    }, "+=0.2")
     
     // "sin complicaciones" appears (slight reduction with smoother easing)
     .to(sinComplicacionesEl, {
@@ -68,7 +68,7 @@ export function initHeroTitleAnimation() {
     // Final glow on text (smoother finish)
     .to(sinComplicacionesEl, {
       scale: 1,
-      textShadow: "0 0 40px rgba(20, 184, 166, 0.9)",
+      textShadow: "0 0 30px rgba(20, 184, 166, 0.9)",
       duration: 0.9,
       ease: "power2.out"
     });
