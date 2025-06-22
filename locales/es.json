@@ -543,5 +543,62 @@
         "viewServices": "Ver servicios"
       }
     }
+  },
+  "about-page": {
+    "clients": {
+      "eyebrow": "Nuestros clientes",
+      "title": "Nuestros clientes",
+      "subtitle": "Trabajamos con empresas que buscan crecer de manera organizada y eficiente, sin perder el foco en lo que realmente importa.",
+      "retail": {
+        "title": "PYMEs retail",
+        "description": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos con experiencias memorables."
+      },
+      "growing": {
+        "title": "Empresas en crecimiento",
+        "description": "Necesitan ordenar procesos, liberar tiempo de gestión y tomar decisiones basadas en datos reales."
+      },
+      "innovative": {
+        "title": "Marcas innovadoras",
+        "description": "Quieren diferenciarse con tecnología avanzada y crear conexiones emocionales duraderas con sus clientes."
+      },
+      "featured": {
+        "title": "Casos de éxito destacados",
+        "subtitle": "Resultados reales con empresas que confiaron en nuestra visión"
+      },
+      "impact": {
+        "title": "Impacto global conseguido",
+        "projects": "Proyectos completados",
+        "impressions": "Impresiones totales",
+        "attendees": "Asistentes a eventos",
+        "satisfaction": "Satisfacción cliente",
+        "summary": "Mejoramos la gestión mediante herramientas personalizadas y activamos marcas con experiencias inmersivas que generan resultados medibles."
+      }
+    }
+  },
+  "clients": {
+    "energiaSolar": {
+      "category": "Transformación Digital",
+      "description": "Desarrollamos aplicación web progresiva unificada y CRM conectado al ERP con dashboards y sincronización automática para gestión energética completa.",
+      "results": {
+        "efficiency": "Eficiencia del sistema",
+        "monitoring": "Monitoreo tiempo real"
+      }
+    },
+    "toyota": {
+      "category": "Marketing Inmersivo",
+      "description": "Diseñamos circuito de activaciones con simuladores y realidad virtual en rallies y ferias, combinando acciones presenciales con comunidad online activa.",
+      "results": {
+        "impressions": "Impresiones totales",
+        "leads": "Leads cualificados"
+      }
+    },
+    "dosxdos": {
+      "category": "Transformación Digital",
+      "description": "Implementamos Zoho CRM, migramos a A3 ERP, creamos integración con Notion y desarrollamos nueva web optimizada con Next.js y panel de contenidos propio.",
+      "results": {
+        "integration": "Integración sistemas",
+        "seo": "Mejora SEO"
+      }
+    }
   }
 }

@@ -42,7 +42,7 @@ export default function AboutStorySection() {
             {t("about.story.title")}
           </h2>
           
-          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
             {t("about.story.subtitle")}
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function AboutStorySection() {
           </div>
 
           {/* Timeline Content */}
-          <div className="relative z-10 space-y-16 md:space-y-20 lg:space-y-24">
+          <div className="relative z-10 flex flex-col gap-16 md:gap-20 lg:gap-24">
             
             {/* First Story Block - Traditional Business */}
             <div className="story-block grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center" data-story="1">
@@ -79,12 +79,15 @@ export default function AboutStorySection() {
               </div>
               
               <div className="relative lg:order-2">
-                <div className="aspect-video bg-gradient-to-br from-teal/20 to-azul-profundo/20 rounded-2xl border border-teal/20 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-teal/30 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-teal" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                    </svg>
-                  </div>
+                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-teal/20 group hover:scale-105 transition-transform duration-500">
+                  <Image
+                    src="/assets/img/sobre-nosotros/dosxdos.webp"
+                    alt="dos x dos Grupo Imagen - Traditional Business"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Subtle overlay for brand consistency */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal/10 to-azul-profundo/10"></div>
                 </div>
               </div>
             </div>
@@ -92,12 +95,15 @@ export default function AboutStorySection() {
             {/* Second Story Block - Gaming Evolution */}
             <div className="story-block grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center" data-story="2">
               <div className="relative lg:order-1">
-                <div className="aspect-video bg-gradient-to-br from-mandarina/20 to-naranja-tostado/20 rounded-2xl border border-mandarina/20 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-mandarina/30 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-mandarina" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
-                    </svg>
-                  </div>
+                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-mandarina/20 group hover:scale-105 transition-transform duration-500">
+                  <Image
+                    src="/assets/img/sobre-nosotros/galaga-gaming.png"
+                    alt="Galaga Gaming - Gaming Innovation"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Subtle overlay for brand consistency */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-mandarina/10 to-naranja-tostado/10"></div>
                 </div>
               </div>
               
@@ -156,12 +162,15 @@ export default function AboutStorySection() {
               </div>
               
               <div className="relative lg:order-2">
-                <div className="aspect-video bg-gradient-to-br from-violeta/20 to-azul-profundo/20 rounded-2xl border border-violeta/20 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-violeta/30 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-violeta" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </div>
+                <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl border border-violeta/20 group hover:scale-105 transition-transform duration-500">
+                  <Image
+                    src="/assets/img/sobre-nosotros/gaming.jpg"
+                    alt="Galaga Agency Today - Digital Dashboard"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  {/* Subtle overlay for brand consistency */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-violeta/10 to-azul-profundo/10"></div>
                 </div>
               </div>
             </div>
