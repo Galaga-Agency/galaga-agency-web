@@ -139,7 +139,7 @@ export default function ServicesOverviewSection() {
             {t("servicesPage.overview.title")}
           </h2>
           
-          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed max-w-4xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
             {t("servicesPage.overview.subtitle")}
           </p>
         </div>

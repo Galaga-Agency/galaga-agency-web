@@ -114,7 +114,7 @@ export default function CaseStudiesGridSection() {
             {t("caseStudiesPage.grid.title")}
           </h2>
           
-          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed max-w-4xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
             {t("caseStudiesPage.grid.subtitle")}
           </p>
         </div>

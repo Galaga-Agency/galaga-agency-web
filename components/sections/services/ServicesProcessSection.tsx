@@ -60,7 +60,7 @@ export default function ServicesProcessSection() {
             {t("servicesPage.process.title")}
           </h2>
           
-          <p className="text-lg md:text-xl text-hielo/90 font-light leading-relaxed max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-hielo/90 font-light leading-relaxed px-4">
             {t("servicesPage.process.subtitle")}
           </p>
         </div>
@@ -106,7 +106,7 @@ export default function ServicesProcessSection() {
 
         {/* Bottom CTA */}
         <div className="text-center pt-16 md:pt-20">
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl md:rounded-3xl p-8 md:p-12 border border-white/10 max-w-4xl mx-auto">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl md:rounded-3xl p-8 md:p-12 border border-white/10">
             <h3 className="services-process-cta-title text-2xl md:text-3xl font-bold text-blanco pb-4">
               {t("servicesPage.process.cta.title")}
             </h3>

@@ -62,7 +62,7 @@ export default function AboutApproachSection() {
             {t("about.approach.title")}
           </h2>
           
-          <p className="text-lg md:text-xl text-hielo/90 font-light leading-relaxed max-w-3xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-hielo/90 font-light leading-relaxed px-4">
             {t("about.approach.subtitle")}
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function AboutApproachSection() {
 
         {/* Bottom Statement */}
         <div className="text-center pt-16 md:pt-20">
-          <div className="max-w-4xl mx-auto">
+          <div>
             <blockquote className="about-approach-quote text-2xl md:text-3xl lg:text-4xl font-light text-hielo leading-relaxed italic px-4">
               <span className="text-turquesa font-semibold">"</span>
               {t("about.approach.quote")}

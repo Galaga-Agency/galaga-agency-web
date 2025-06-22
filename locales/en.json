@@ -186,6 +186,7 @@
       "description": "Schedule your strategy session and see immediate results"
     }
   },
+
   "contact": {
     "title": "Let's talk about your project",
     "subtitle": "We're here to help you transform your business. Tell us what you need.",
@@ -264,9 +265,10 @@
     "location": "Las Palmas de Gran Canaria, Spain",
     "allRightsReserved": "All rights reserved",
     "privacy": "Privacy",
-    "terms": "Terms", "followUs": "Follow us"
+    "terms": "Terms",
+    "followUs": "Follow us"
   },
-  "about": {
+  "about-page": {
     "eyebrow": "About us",
     "hero": {
       "innovamos": "We innovate",
@@ -539,6 +541,63 @@
         "description": "Tell us your challenge and let's see how we can help you achieve similar results.",
         "startProject": "Start project",
         "viewServices": "View services"
+      }
+    }
+  },
+  "about": {
+    "clients": {
+      "eyebrow": "Our clients",
+      "title": "Our clients",
+      "subtitle": "We work with companies that seek to grow in an organized and efficient way, without losing focus on what really matters.",
+      "retail": {
+        "title": "Retail SMEs",
+        "description": "They seek better operational management, modernize their stores and attract new audiences with memorable experiences."
+      },
+      "growing": {
+        "title": "Growing companies",
+        "description": "They need to organize processes, free up management time and make decisions based on real data."
+      },
+      "innovative": {
+        "title": "Innovative brands",
+        "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
+      },
+      "featured": {
+        "title": "Featured success stories",
+        "subtitle": "Real results with companies that trusted our vision"
+      },
+      "impact": {
+        "title": "Global impact achieved",
+        "projects": "Projects completed",
+        "impressions": "Total impressions",
+        "attendees": "Event attendees",
+        "satisfaction": "Client satisfaction",
+        "summary": "We improve management through personalized tools and activate brands with immersive experiences that generate measurable results."
+      }
+    }
+  },
+  "clients": {
+    "energiaSolar": {
+      "category": "Digital Transformation",
+      "description": "We developed a unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization for complete energy management.",
+      "results": {
+        "efficiency": "System efficiency",
+        "monitoring": "Real-time monitoring"
+      }
+    },
+    "toyota": {
+      "category": "Immersive Marketing",
+      "description": "We designed an activation circuit with simulators and virtual reality at rallies and fairs, combining face-to-face actions with an active online community.",
+      "results": {
+        "impressions": "Total impressions",
+        "leads": "Qualified leads"
+      }
+    },
+    "dosxdos": {
+      "category": "Digital Transformation",
+      "description": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js and custom content panel.",
+      "results": {
+        "integration": "System integration",
+        "seo": "SEO improvement"
       }
     }
   }

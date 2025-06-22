@@ -13,9 +13,20 @@ export default function HeroSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] bg-hero-gradient flex items-center">
-      {/* Background overlay for image blend */}
-      <div className="absolute inset-0 bg-gradient-to-br from-azul-profundo/70 via-teal/60 to-mandarina z-10"></div>
+    <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] flex items-center overflow-hidden">
+      {/* Office Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/assets/img/homepage/despacho.webp')",
+          backgroundPosition: "center center"
+        }}
+      ></div>
+      
+      {/* Multi-layer gradient overlay for perfect blend */}
+      <div className="absolute inset-0 bg-gradient-to-br from-azul-profundo/85 via-teal/75 to-mandarina/80 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-negro/60 via-transparent to-azul-profundo/40 z-15"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-teal/30 via-transparent to-turquesa/20 z-15"></div>
       
       <div className="container relative z-20 w-full py-20">
         <div className="hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
@@ -33,17 +44,17 @@ export default function HeroSection() {
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
             <h1 className="text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
               <span className="block md:pb-4">
-                <span data-anim="transformamos" className="text-turquesa block md:inline">
+                <span data-anim="transformamos" className="text-turquesa block md:inline drop-shadow-xl">
                   {t("hero.transformamos")}
                 </span>{" "}
-                <span data-anim="negocios" className="text-blanco block md:inline">
+                <span data-anim="negocios" className="text-blanco block md:inline drop-shadow-xl">
                   {t("hero.negocios")}
                 </span>
               </span>
               <span className="block">
                 <span
                   data-anim="sinComplicaciones"
-                  className="bg-gradient-to-r from-turquesa to-verde-azulado bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-turquesa to-verde-azulado bg-clip-text text-transparent drop-shadow-xl"
                 >
                   {t("hero.sinComplicaciones")}
                 </span>
@@ -53,7 +64,7 @@ export default function HeroSection() {
 
           {/* Subtitle */}
           <div className="text-center pb-8 md:pb-12 w-full px-4">
-            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-hielo leading-relaxed font-medium drop-shadow-lg">
+            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-hielo leading-relaxed font-medium drop-shadow-xl">
               {t("hero.subtitle")}
             </p>
           </div>
