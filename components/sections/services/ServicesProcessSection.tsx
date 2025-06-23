@@ -83,7 +83,7 @@ export default function ServicesProcessSection() {
                 {t("service-page.process.cta.startProject")}
               </a>
               <a
-                href="/about"
+                href="/sobre-nosotros"
                 className="services-process-cta-secondary inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border border-white/20 hover:bg-white/20 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
               >
                 {t("service-page.process.cta.learnMore")}
