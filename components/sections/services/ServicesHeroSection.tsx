@@ -103,11 +103,6 @@ export default function ServicesHeroSection() {
               </div>
             ))}
           </div>
-
-          {/* Scroll indicator */}
-          <div className="services-hero-scroll pt-12">
-            <FiChevronDown className="w-6 h-6 animate-bounce text-hielo/70" />
-          </div>
         </div>
       </div>
     </section>

@@ -240,6 +240,7 @@
     "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
     "goHome": "Volver al inicio",
+    "goBack": "Volver atrás",
     "contactUs": "Contacta con nosotros",
     "helpfulLinks": "Enlaces útiles",
     "links": {
@@ -577,41 +578,39 @@
     }
   },
   "proyecto-detalle": {
-    "back-to-projects": "Volver a Proyectos",
-    "client": "Cliente",
-    "year": "Año",
-    "duration": "Duración",
-    "status": "Estado",
-    "view-live": "Ver en Vivo",
+    "volverProyectos": "Volver a Proyectos",
+    "desafio": {
+      "titulo": "Desafío"
+    },
+    "solucion": {
+      "titulo": "Solución"
+    },
+    "resultados": {
+      "titulo": "Resultados"
+    },
+    "metricas": {
+      "subtitulo": "Resultados",
+      "titulo": "Impacto Medible",
+      "descripcion": "Resultados reales obtenidos para nuestro cliente"
+    },
     "challenge": {
-      "title": "El Desafío"
+      "title": "Desafío"
     },
     "solution": {
-      "title": "Nuestra Solución"
-    },
-    "technologies": {
-      "title": "Tecnologías Utilizadas"
-    },
-    "features": {
-      "title": "Características Principales"
+      "title": "Solución"
     },
     "results": {
+      "title": "Resultados"
+    },
+    "metrics": {
       "eyebrow": "Resultados",
-      "title": "Impacto y Resultados",
-      "subtitle": "Resultados medibles que impulsan el crecimiento empresarial"
+      "title": "Impacto Medible",
+      "subtitle": "Resultados reales obtenidos para nuestro cliente"
     },
-    "gallery": {
-      "title": "Galería del Proyecto",
-      "subtitle": "Explora el viaje visual de esta transformación",
-      "modules": "Módulos Desarrollados",
-      "responsive": "Diseño Responsivo",
-      "availability": "Disponibilidad del Sistema"
-    },
-    "related": {
-      "title": "Proyectos Relacionados",
-      "subtitle": "Descubre más historias de éxito de nuestro portafolio",
-      "view-project": "Ver Proyecto",
-      "view-all": "Ver Todos los Proyectos"
+    "backToProjects": "Volver a Proyectos",
+    "notFound": {
+      "title": "Caso de Estudio No Encontrado",
+      "backToProjects": "Volver a Casos de Éxito"
     }
   }
 }

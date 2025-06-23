@@ -79,11 +79,12 @@ export default function AboutStorySection() {
               </div>
               
               <div className="story-block-image-container relative lg:order-2">
-                <div className="story-block-image aspect-video rounded-2xl overflow-hidden shadow-2xl border border-teal/20 group hover:scale-105 transition-transform duration-500">
+                <div className="story-block-image relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-teal/20 group hover:scale-105 transition-transform duration-500">
                   <Image
                     src="/assets/img/sobre-nosotros/dosxdos.webp"
                     alt="dos x dos Grupo Imagen - Traditional Business"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   {/* Subtle overlay for brand consistency */}
@@ -95,11 +96,12 @@ export default function AboutStorySection() {
             {/* Second Story Block - Gaming Evolution */}
             <div className="story-block story-block-2 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center" data-story="2">
               <div className="story-block-image-container relative lg:order-1">
-                <div className="story-block-image aspect-video rounded-2xl overflow-hidden shadow-2xl border border-mandarina/20 group hover:scale-105 transition-transform duration-500">
+                <div className="story-block-image relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-mandarina/20 group hover:scale-105 transition-transform duration-500">
                   <Image
                     src="/assets/img/sobre-nosotros/galaga-gaming.png"
                     alt="Galaga Gaming - Gaming Innovation"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   {/* Subtle overlay for brand consistency */}
@@ -162,11 +164,12 @@ export default function AboutStorySection() {
               </div>
               
               <div className="story-block-image-container relative lg:order-2">
-                <div className="story-block-image aspect-video rounded-2xl overflow-hidden shadow-2xl border border-violeta/20 group hover:scale-105 transition-transform duration-500">
+                <div className="story-block-image relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-violeta/20 group hover:scale-105 transition-transform duration-500">
                   <Image
                     src="/assets/img/sobre-nosotros/gaming.jpg"
                     alt="Galaga Agency Today - Digital Dashboard"
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   {/* Subtle overlay for brand consistency */}

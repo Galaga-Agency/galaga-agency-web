@@ -40,7 +40,6 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
       if (value && typeof value === "object" && k in value) {
         value = value[k];
       } else {
-        console.warn(`Translation key "${key}" not found for language "${language}"`);
         return key;
       }
     }
@@ -50,7 +49,6 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
 
   const changeLanguage = async (newLanguage: Language) => {
     setLanguage(newLanguage);
-    // The useEffect will handle loading translations when language changes
   };
 
   const toggleLanguage = async () => {

@@ -55,13 +55,14 @@ export default function FeaturedClientCard({ client, index }: FeaturedClientCard
         </div>
       </div>
 
-      {/* Image */}
+      {/* Image - Fixed with proper relative positioning */}
       <div className={`featured-client-image-container relative ${isReversed ? 'lg:col-start-1' : ''}`}>
         <div className="featured-client-image relative aspect-video rounded-2xl overflow-hidden shadow-xl">
           <Image
             src={client.image}
             alt={client.name}
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
           />
         </div>

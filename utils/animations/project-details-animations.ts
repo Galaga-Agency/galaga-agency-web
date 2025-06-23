@@ -4,50 +4,50 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const initProyectoDetalleAnimations = () => {
-  // Hero section animations
+  // Hero section animations (0 → 1 opacity, slide in)
   const heroElements = [
-    { selector: ".proyecto-detalle-breadcrumb", y: 20, opacity: 0, delay: 0 },
-    { selector: ".proyecto-detalle-category", y: 30, opacity: 0, delay: 0.1 },
-    { selector: ".proyecto-detalle-title", y: 50, opacity: 0, delay: 0.2 },
-    { selector: ".proyecto-detalle-subtitle", y: 30, opacity: 0, delay: 0.3 },
-    { selector: ".proyecto-detalle-meta", y: 20, opacity: 0, delay: 0.4 },
-    { selector: ".proyecto-detalle-tags", y: 20, opacity: 0, delay: 0.5 },
-    { selector: ".proyecto-detalle-cta", y: 20, opacity: 0, delay: 0.6 },
+    { selector: ".proyecto-detalle-breadcrumb", y: 20, delay: 0 },
+    { selector: ".proyecto-detalle-category",   y: 30, delay: 0.1 },
+    { selector: ".proyecto-detalle-title",      y: 50, delay: 0.2 },
+    { selector: ".proyecto-detalle-subtitle",   y: 30, delay: 0.3 },
+    { selector: ".proyecto-detalle-metrics",    y: 20, delay: 0.4 },
   ];
 
-  heroElements.forEach(({ selector, y, opacity, delay }) => {
-    gsap.from(selector, {
-      duration: 0.8,
-      y,
-      opacity,
-      ease: "power2.out",
-      delay,
-    });
+  heroElements.forEach(({ selector, y, delay }) => {
+    gsap.fromTo(
+      selector,
+      { y, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.8, ease: "power2.out", delay }
+    );
   });
 
   // Hero image animation
-  gsap.from(".proyecto-detalle-image", {
-    duration: 1.2,
-    scale: 0.8,
-    opacity: 0,
-    ease: "back.out(1.7)",
-    delay: 0.3,
-  });
+  gsap.fromTo(
+    ".proyecto-detalle-image",
+    { scale: 0.8, opacity: 0 },
+    { scale: 1,   opacity: 1, duration: 1.2, ease: "back.out(1.7)", delay: 0.3 }
+  );
 
-  // Background elements
-  gsap.from(".proyecto-hero-bg-element-1, .proyecto-hero-bg-element-2", {
-    duration: 2,
-    scale: 0,
-    opacity: 0,
-    ease: "power2.out",
-    stagger: 0.3,
-  });
+  // Metrics items
+  gsap.fromTo(
+    ".proyecto-metric-item",
+    { scale: 0.8, opacity: 0 },
+    { scale: 1,   opacity: 1, duration: 0.6, ease: "back.out(1.7)", stagger: 0.2, delay: 0.5 }
+  );
+
+  // Background circles in hero
+  gsap.fromTo(
+    ".proyecto-hero-bg-element-1, .proyecto-hero-bg-element-2",
+    { scale: 0, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 2, ease: "power2.out", stagger: 0.3 }
+  );
 
   // Content section - Challenge block
-  gsap.from(".challenge-icon", {
+  gsap.to(".challenge-icon", {
     duration: 0.6,
-    scale: 0.5,
-    rotation: -15,
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
     ease: "back.out(1.7)",
     scrollTrigger: {
       trigger: ".challenge-icon",
@@ -56,10 +56,10 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  gsap.from(".proyecto-content-challenge h2", {
+  gsap.to(".proyecto-content-challenge-title", {
     duration: 0.6,
-    x: -30,
-    opacity: 0,
+    x: 0,
+    opacity: 1,
     ease: "power2.out",
     delay: 0.2,
     scrollTrigger: {
@@ -69,10 +69,10 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  gsap.from(".proyecto-content-challenge p", {
+  gsap.to(".proyecto-content-challenge-text", {
     duration: 0.6,
-    y: 20,
-    opacity: 0,
+    y: 0,
+    opacity: 1,
     ease: "power2.out",
     delay: 0.4,
     scrollTrigger: {
@@ -83,10 +83,11 @@ export const initProyectoDetalleAnimations = () => {
   });
 
   // Content section - Solution block
-  gsap.from(".solution-icon", {
+  gsap.to(".solution-icon", {
     duration: 0.6,
-    scale: 0.5,
-    rotation: 15,
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
     ease: "back.out(1.7)",
     scrollTrigger: {
       trigger: ".solution-icon",
@@ -95,10 +96,10 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  gsap.from(".proyecto-content-solution h2", {
+  gsap.to(".proyecto-content-solution-title", {
     duration: 0.6,
-    x: 30,
-    opacity: 0,
+    x: 0,
+    opacity: 1,
     ease: "power2.out",
     delay: 0.2,
     scrollTrigger: {
@@ -108,10 +109,10 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  gsap.from(".proyecto-content-solution p", {
+  gsap.to(".proyecto-content-solution-text", {
     duration: 0.6,
-    y: 20,
-    opacity: 0,
+    y: 0,
+    opacity: 1,
     ease: "power2.out",
     delay: 0.4,
     scrollTrigger: {
@@ -121,46 +122,58 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  // Technologies tags
-  gsap.from(".proyecto-tech-tag", {
-    duration: 0.4,
-    scale: 0.8,
-    opacity: 0,
-    stagger: 0.1,
+  // Content section - Results block
+  gsap.to(".results-icon", {
+    duration: 0.6,
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
     ease: "back.out(1.7)",
     scrollTrigger: {
-      trigger: ".proyecto-technologies",
-      start: "top 85%",
+      trigger: ".results-icon",
+      start: "top 80%",
       toggleActions: "play none none none",
     },
   });
 
-  // Features list
-  gsap.from(".proyecto-feature-item", {
-    duration: 0.5,
-    x: -20,
-    opacity: 0,
-    stagger: 0.1,
+  gsap.to(".proyecto-content-results-title", {
+    duration: 0.6,
+    x: 0,
+    opacity: 1,
     ease: "power2.out",
+    delay: 0.2,
     scrollTrigger: {
-      trigger: ".proyecto-features",
-      start: "top 85%",
+      trigger: ".results-icon",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.to(".proyecto-content-results-text", {
+    duration: 0.6,
+    y: 0,
+    opacity: 1,
+    ease: "power2.out",
+    delay: 0.4,
+    scrollTrigger: {
+      trigger: ".results-icon",
+      start: "top 80%",
       toggleActions: "play none none none",
     },
   });
 
   // Results section header
   const resultsHeaderElements = [
-    { selector: ".results-eyebrow", y: 30, opacity: 0, delay: 0 },
-    { selector: ".results-title", y: 50, opacity: 0, delay: 0.2 },
-    { selector: ".results-subtitle", y: 30, opacity: 0, delay: 0.4 },
+    { selector: ".results-eyebrow",   y: 30, delay: 0 },
+    { selector: ".results-title",     y: 50, delay: 0.2 },
+    { selector: ".results-subtitle",  y: 30, delay: 0.4 },
   ];
 
-  resultsHeaderElements.forEach(({ selector, y, opacity, delay }) => {
-    gsap.from(selector, {
+  resultsHeaderElements.forEach(({ selector, y, delay }) => {
+    gsap.to(selector, {
       duration: 0.8,
-      y,
-      opacity,
+      y: 0,
+      opacity: 1,
       ease: "power2.out",
       delay,
       scrollTrigger: {
@@ -172,13 +185,13 @@ export const initProyectoDetalleAnimations = () => {
   });
 
   // Results cards
-  gsap.utils.toArray(".result-card").forEach((card: any, i) => {
-    gsap.from(card, {
+  gsap.utils.toArray(".result-card").forEach((card: any, i: number) => {
+    gsap.to(card, {
       duration: 1,
-      opacity: 0,
-      y: 60,
+      opacity: 1,
+      y: 0,
       ease: "back.out(1.7)",
-      delay: i * 0.1,
+      delay: i * 0.2,
       scrollTrigger: {
         trigger: card,
         start: "top 90%",
@@ -186,24 +199,6 @@ export const initProyectoDetalleAnimations = () => {
       },
     });
 
-    // Icon animation
-    const icon = card.querySelector(".result-card-icon");
-    if (icon) {
-      gsap.from(icon, {
-        duration: 0.6,
-        opacity: 0,
-        scale: 0.5,
-        ease: "back.out(1.7)",
-        delay: i * 0.1 + 0.3,
-        scrollTrigger: {
-          trigger: card,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      });
-    }
-
-    // Value animation
     const value = card.querySelector(".result-card-value");
     if (value) {
       gsap.from(value, {
@@ -211,7 +206,7 @@ export const initProyectoDetalleAnimations = () => {
         opacity: 0,
         scale: 0.8,
         ease: "power2.out",
-        delay: i * 0.1 + 0.5,
+        delay: i * 0.2 + 0.3,
         scrollTrigger: {
           trigger: card,
           start: "top 90%",
@@ -220,7 +215,6 @@ export const initProyectoDetalleAnimations = () => {
       });
     }
 
-    // Label animation
     const label = card.querySelector(".result-card-label");
     if (label) {
       gsap.from(label, {
@@ -228,7 +222,7 @@ export const initProyectoDetalleAnimations = () => {
         opacity: 0,
         y: 15,
         ease: "power2.out",
-        delay: i * 0.1 + 0.7,
+        delay: i * 0.2 + 0.5,
         scrollTrigger: {
           trigger: card,
           start: "top 90%",
@@ -237,7 +231,6 @@ export const initProyectoDetalleAnimations = () => {
       });
     }
 
-    // Accent dot animation
     const accent = card.querySelector(".result-card-accent");
     if (accent) {
       gsap.from(accent, {
@@ -245,7 +238,7 @@ export const initProyectoDetalleAnimations = () => {
         opacity: 0,
         scale: 0,
         ease: "back.out(1.7)",
-        delay: i * 0.1 + 0.9,
+        delay: i * 0.2 + 0.7,
         scrollTrigger: {
           trigger: card,
           start: "top 90%",
@@ -255,50 +248,11 @@ export const initProyectoDetalleAnimations = () => {
     }
   });
 
-  // Testimonial animation
-  gsap.from(".results-testimonial", {
-    duration: 1,
-    opacity: 0,
-    y: 40,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".results-testimonial",
-      start: "top 85%",
-      toggleActions: "play none none none",
-    },
-  });
-
-  gsap.from(".testimonial-quote", {
-    duration: 0.8,
-    opacity: 0,
-    y: 20,
-    ease: "power2.out",
-    delay: 0.3,
-    scrollTrigger: {
-      trigger: ".results-testimonial",
-      start: "top 85%",
-      toggleActions: "play none none none",
-    },
-  });
-
-  gsap.from(".testimonial-author", {
-    duration: 0.6,
-    opacity: 0,
-    scale: 0.9,
-    ease: "back.out(1.7)",
-    delay: 0.5,
-    scrollTrigger: {
-      trigger: ".results-testimonial",
-      start: "top 85%",
-      toggleActions: "play none none none",
-    },
-  });
-
   // Background elements for results section
-  gsap.from(".results-bg-element-1, .results-bg-element-2", {
+  gsap.to(".results-bg-element-1, .results-bg-element-2", {
     duration: 2,
-    scale: 0,
-    opacity: 0,
+    scale: 1,
+    opacity: 1,
     ease: "power2.out",
     stagger: 0.3,
     scrollTrigger: {
@@ -308,6 +262,6 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  // Cleanup function
+  // Cleanup on unmount
   return () => ScrollTrigger.getAll().forEach((t) => t.kill());
 };

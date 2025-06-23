@@ -2,6 +2,7 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { FiTarget, FiZap, FiCheckCircle } from "react-icons/fi";
+import { getCaseStudyBySlug } from "@/data/case-studies";
 
 interface ProyectoDetalleContentSectionProps {
   slug: string;
@@ -9,21 +10,12 @@ interface ProyectoDetalleContentSectionProps {
 
 export default function ProyectoDetalleContentSection({ slug }: ProyectoDetalleContentSectionProps) {
   const { t } = useTranslation();
-
-  // Mock content data
-  const contentData = {
-    challenge: "La empresa necesitaba modernizar completamente sus procesos internos, implementar un sistema CRM robusto y automatizar flujos de trabajo para mejorar la eficiencia operacional.",
-    solution: "Desarrollamos una solución integral que incluye un CRM personalizado, sistema ERP integrado y herramientas de automatización que transformaron por completo la manera en que la empresa gestiona sus operaciones.",
-    technologies: ["React", "Next.js", "Node.js", "PostgreSQL", "AWS", "Docker"],
-    features: [
-      "Sistema CRM con gestión avanzada de clientes",
-      "ERP integrado para gestión de recursos",
-      "Automatización de procesos repetitivos",
-      "Dashboard de analíticas en tiempo real",
-      "Integración con sistemas existentes",
-      "Mobile-first responsive design"
-    ]
-  };
+  
+  const caseStudy = getCaseStudyBySlug(slug);
+  
+  if (!caseStudy) {
+    return null;
+  }
 
   return (
     <section className="proyecto-detalle-content-section section relative bg-gradient-to-br from-blanco to-hielo">
@@ -35,19 +27,19 @@ export default function ProyectoDetalleContentSection({ slug }: ProyectoDetalleC
 
       <div className="container relative z-10">
         {/* Challenge Section */}
-        <div className="proyecto-content-challenge pb-20 md:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="proyecto-content-challenge pb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-6 pb-8">
                 <div className="p-5 bg-teal/20 rounded-2xl flex-shrink-0">
-                  <FiTarget className="challenge-icon text-4xl lg:text-5xl text-teal" />
+                  <FiTarget className="challenge-icon opacity-0 text-4xl lg:text-5xl text-teal" />
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-teal leading-tight">
+                <h2 className="proyecto-content-challenge-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-black text-teal leading-tight">
                   {t("proyecto-detalle.challenge.title")}
                 </h2>
               </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
-                {contentData.challenge}
+              <p className="proyecto-content-challenge-text opacity-0 text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
+                {t(caseStudy.challengeKey)}
               </p>
             </div>
             <div className="hidden lg:block"></div>
@@ -55,60 +47,42 @@ export default function ProyectoDetalleContentSection({ slug }: ProyectoDetalleC
         </div>
 
         {/* Solution Section */}
-        <div className="proyecto-content-solution pb-20 md:pb-24">
+        <div className="proyecto-content-solution pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="hidden lg:block lg:order-1"></div>
             <div className="lg:order-2">
               <div className="flex items-center gap-6 pb-8">
                 <div className="p-5 bg-mandarina/20 rounded-2xl flex-shrink-0">
-                  <FiZap className="solution-icon text-4xl lg:text-5xl text-naranja-tostado" />
+                  <FiZap className="solution-icon opacity-0 text-4xl lg:text-5xl text-naranja-tostado" />
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-teal leading-tight">
+                <h2 className="proyecto-content-solution-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-black text-teal leading-tight">
                   {t("proyecto-detalle.solution.title")}
                 </h2>
               </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
-                {contentData.solution}
+              <p className="proyecto-content-solution-text opacity-0 text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
+                {t(caseStudy.solutionKey)}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Technologies & Features */}
-        <div className="proyecto-content-details grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Technologies */}
-          <div className="proyecto-technologies">
-            <h3 className="text-2xl md:text-3xl font-bold text-teal pb-8">
-              {t("proyecto-detalle.technologies.title")}
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {contentData.technologies.map((tech, index) => (
-                <span 
-                  key={index}
-                  className="proyecto-tech-tag bg-gradient-to-r from-teal to-turquesa text-white font-semibold px-6 py-3 rounded-xl shadow-lg"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Features */}
-          <div className="proyecto-features">
-            <h3 className="text-2xl md:text-3xl font-bold text-teal pb-8">
-              {t("proyecto-detalle.features.title")}
-            </h3>
-            <div className="space-y-4">
-              {contentData.features.map((feature, index) => (
-                <div 
-                  key={index}
-                  className="proyecto-feature-item flex items-start gap-4"
-                >
-                  <FiCheckCircle className="text-teal text-xl flex-shrink-0 mt-1" />
-                  <span className="text-lg text-grafito leading-relaxed">{feature}</span>
+        {/* Results Section */}
+        <div className="proyecto-content-results">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <div className="flex items-center gap-6 pb-8">
+                <div className="p-5 bg-verde-azulado/20 rounded-2xl flex-shrink-0">
+                  <FiCheckCircle className="results-icon opacity-0 text-4xl lg:text-5xl text-verde-azulado" />
                 </div>
-              ))}
+                <h2 className="proyecto-content-results-title opacity-0 text-3xl md:text-4xl lg:text-5xl font-black text-teal leading-tight">
+                  {t("proyecto-detalle.results.title")}
+                </h2>
+              </div>
+              <p className="proyecto-content-results-text opacity-0 text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
+                {t(caseStudy.resultKey)}
+              </p>
             </div>
+            <div className="hidden lg:block"></div>
           </div>
         </div>
       </div>

@@ -55,12 +55,13 @@ export default function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) 
           className={`case-study-grid-overlay absolute inset-0 bg-gradient-to-br from-${colors.main}/80 to-${colors.accent}/60 z-10 group-hover:opacity-50 transition-all duration-500`}
         ></div>
 
-        {/* Image */}
+        {/* Image - Fixed with sizes prop */}
         <div className="case-study-grid-image relative w-full h-full">
           <Image
             src={caseStudy.image}
             alt={t(caseStudy.titleKey)}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover"
           />
         </div>
