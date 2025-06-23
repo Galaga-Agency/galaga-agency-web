@@ -63,7 +63,7 @@ export default function CaseStudyCarouselCard({
 
   return (
     <div className="carousel-slide absolute w-[90vw] md:w-[50vw] lg:w-[35vw] h-[700px] cursor-pointer group" data-index={index}>
-      <Link href={`/cases/${slug}`} className="block h-full">
+      <Link href={`/casos-de-exito/${slug}`} className="block h-full">
         <div className={`relative bg-white rounded-3xl shadow-2xl ${colors.glow} h-full overflow-hidden group-hover:scale-[1.05] group-hover:shadow-3xl transition-all duration-700 border border-white/20`}>
           
           {/* MASSIVE Hero Image - Adjusted for taller card */}

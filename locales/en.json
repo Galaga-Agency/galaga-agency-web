@@ -526,5 +526,92 @@
         "seo": "SEO improvement"
       }
     }
+  },
+  "caseStudiesDetails": {
+    "categories": {
+      "digital": "Digital Transformation",
+      "marketing": "Immersive Marketing",
+      "events": "Events"
+    },
+    "metrics": {
+      "processReduction": "Process Reduction",
+      "seoImprovement": "SEO Improvement",
+      "dataUnification": "Data Unification",
+      "realTimeMonitoring": "Real-time Monitoring",
+      "eventDays": "Event Days",
+      "recurringEvent": "Recurring Event",
+      "impressions": "Impressions",
+      "qualifiedLeads": "Qualified Leads",
+      "attendees": "Attendees",
+      "cities": "Cities"
+    },
+    "dosxdos": {
+      "title": "Dos x Dos Grupo Imagen",
+      "challenge": "Dos x Dos started from a scattered landscape — manual processes, an unintegrated ERP (Navision), absence of CRM and a static website that didn't reflect the brand's sophistication or help position it in search engines. This lack of digitalization limited operational efficiency, commercial visibility and the ability to make data-driven decisions, hampering competitiveness in an increasingly demanding market.",
+      "solution": "To reverse this we implemented Zoho CRM, migrated to A3 ERP and connected them to a Notion space that orchestrates projects and automations; all of this is integrated through a unified API. In parallel, we developed a new website with Next.js and its own content panel, optimized for SEO and Core Web Vitals.",
+      "result": "The result: agile customer service, smoother internal processes, autonomy to publish content, immediate jump in organic visibility and a data ecosystem prepared for the next challenge: creating a data warehouse that converts that information into dynamic business intelligence."
+    },
+    "energiaSolar": {
+      "title": "Energía Solar Canarias",
+      "challenge": "Energía Solar Canarias started from multiple unconnected tools: clients had to consult different energy providers separately on independent platforms. There was no proprietary platform that consolidated data or a CRM that organized users, plants or alerts. This fragmentation prevented controlling prices and calculating savings accurately, complicated mobile access and overwhelmed the team with manual tasks, eroding the brand's digital experience.",
+      "solution": "To reverse this, a progressive web application was developed that unifies all providers in a single responsive interface and a CRM connected to the ERP was created, with dashboards, workflows and automatic data synchronization.",
+      "result": "Now clients monitor production, consumption and savings in real time, receive personalized alerts, and the company reduces manual work, makes data-driven decisions and improves energy efficiency, generating economic savings and lower carbon footprint."
+    },
+    "alisiosLive": {
+      "title": "Alisios Live Gaming",
+      "challenge": "One of the biggest challenges was transforming the Alisios shopping center into an interactive experience space, connecting with young and family audiences during the Christmas campaign. Additionally, it was necessary to give visibility to gamer culture in a non-specialized environment and generate real traffic to stores and restaurants.",
+      "solution": "Galaga conceived and produced a free event with tournaments, simulators, VR, influencers and continuous dynamization during three days.",
+      "result": "The result was a high volume of participation, notable media impact and the consolidation of the event as an annual event, positioning Alisios as a reference in digital entertainment."
+    },
+    "toyota": {
+      "title": "Toyota Canarias",
+      "challenge": "Toyota needed to renew its image and connect with new audiences (Gen Z and Millennials), away from traditional automotive marketing. The challenge was to create memorable experiences in unconventional environments and build community around the brand.",
+      "solution": "Galaga designed an activation circuit with simulators and virtual reality at rallies and fairs. The strategy combined face-to-face actions with an active online community.",
+      "result": "The circuit exceeded 375,000 impressions, captured more than 4,000 qualified leads and laid the foundations for an expanded edition in 2024."
+    },
+    "canariasGameShow": {
+      "title": "Canarias Game Show",
+      "challenge": "The main challenge was positioning the Canary Islands as the venue for an international video game event, in a market dominated by large European fairs. Additionally, it was necessary to attract gamers, brands and media, in a context of great logistical complexity.",
+      "solution": "Galaga organized a fair in double venue (Tenerife and Gran Canaria) with tournaments, exhibitions, influencers and interactive experiences.",
+      "result": "The event brought together 30,000 people, had wide diffusion in networks and media, and positioned the Canary Islands as a new pole of attraction for the gaming industry."
+    }
+  },
+  "proyecto-detalle": {
+    "back-to-projects": "Back to Projects",
+    "client": "Client",
+    "year": "Year",
+    "duration": "Duration",
+    "status": "Status",
+    "view-live": "View Live",
+    "challenge": {
+      "title": "The Challenge"
+    },
+    "solution": {
+      "title": "Our Solution"
+    },
+    "technologies": {
+      "title": "Technologies Used"
+    },
+    "features": {
+      "title": "Key Features"
+    },
+    "results": {
+      "eyebrow": "Results",
+      "title": "Impact & Results",
+      "subtitle": "Measurable outcomes that drive business growth"
+    },
+    "gallery": {
+      "title": "Project Gallery",
+      "subtitle": "Explore the visual journey of this transformation",
+      "modules": "Modules Developed",
+      "responsive": "Mobile Responsive",
+      "availability": "System Availability"
+    },
+    "related": {
+      "title": "Related Projects",
+      "subtitle": "Discover more success stories from our portfolio",
+      "view-project": "View Project",
+      "view-all": "View All Projects"
+    }
   }
 }

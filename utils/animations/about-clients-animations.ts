@@ -53,7 +53,6 @@ export const initAboutClientsAnimations = () => {
     // Main card animation
     gsap.from(card, {
       duration: 1,
-      y: 60,
       opacity: 0,
       ease: "back.out(1.7)",
       delay: index * 0.2,
@@ -380,13 +379,6 @@ const setupClientCardHovers = () => {
     if (!card) return;
 
     card.addEventListener("mouseenter", () => {
-      gsap.to(card, {
-        duration: 0.3,
-        scale: 1.05,
-        y: -10,
-        ease: "power2.out",
-      });
-
       const glowElement = card.querySelector(".client-category-glow");
       if (glowElement) {
         gsap.to(glowElement, {
@@ -417,13 +409,6 @@ const setupClientCardHovers = () => {
     });
 
     card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        duration: 0.3,
-        scale: 1,
-        y: 0,
-        ease: "power2.out",
-      });
-
       const glowElement = card.querySelector(".client-category-glow");
       if (glowElement) {
         gsap.to(glowElement, {
@@ -496,34 +481,5 @@ const setupClientCardHovers = () => {
         }
       });
     }
-  });
-
-  // Impact metrics hover animations
-  gsap.utils.toArray(".impact-metric").forEach((metric: any) => {
-    if (!metric) return;
-
-    const valueElement = metric.querySelector(".impact-metric-value");
-
-    metric.addEventListener("mouseenter", () => {
-      if (valueElement) {
-        gsap.to(valueElement, {
-          duration: 0.3,
-          scale: 1.1,
-          color: "#14b8a6", // teal color
-          ease: "power2.out",
-        });
-      }
-    });
-
-    metric.addEventListener("mouseleave", () => {
-      if (valueElement) {
-        gsap.to(valueElement, {
-          duration: 0.3,
-          scale: 1,
-          color: "#14b8a6", // back to original teal
-          ease: "power2.out",
-        });
-      }
-    });
   });
 };

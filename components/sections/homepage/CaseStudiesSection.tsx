@@ -95,7 +95,7 @@ export default function CaseStudiesSection() {
               <PrimaryButton href="/case-studies">
                 {t("caseStudies.cta.viewAll")}
               </PrimaryButton>
-              <SecondaryButton href="/contact">
+              <SecondaryButton href="/contacto">
                 {t("caseStudies.cta.startProject")}
               </SecondaryButton>
             </div>

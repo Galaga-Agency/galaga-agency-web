@@ -40,7 +40,7 @@ export default function NotFound() {
             </Link>
 
             <Link
-              href="/contact"
+              href="/contacto"
               className="border-2 md:border-4 border-gray-300 text-gray-700 px-10 md:px-12 py-4 md:py-5 rounded-xl text-lg md:text-xl font-black hover:border-primary hover:text-primary hover:bg-primary/5 transition-all duration-300 transform hover:-translate-y-1"
             >
               📞 {t("notFound.contactUs")}
@@ -105,7 +105,7 @@ export default function NotFound() {
               </Link>
 
               <Link
-                href="/contact"
+                href="/contacto"
                 className="flex items-center p-6 rounded-xl hover:bg-gray-50 transition-all duration-300 group transform hover:-translate-y-1 hover:shadow-md"
               >
                 <div className="w-14 h-14 bg-creative/10 rounded-xl flex items-center justify-center group-hover:bg-creative/20 transition-colors duration-300 mr-5 flex-shrink-0">
