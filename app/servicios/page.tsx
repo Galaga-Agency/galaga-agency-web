@@ -1,37 +1,32 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import Footer from "@/components/layout/Footer";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import ServicesHeroSection from "@/components/sections/services/ServicesHeroSection";
 import ServicesOverviewSection from "@/components/sections/services/ServicesOverviewSection";
 import ServicesProcessSection from "@/components/sections/services/ServicesProcessSection";
 import CTASection from "@/components/sections/homepage/CTASection";
-import { initServicesHeroAnimations } from "@/utils/services-hero-animations";
-import { initServicesOverviewAnimations } from "@/utils/services-overview-animations";
-import { initServicesProcessAnimations } from "@/utils/services-process-animations";
-import { initCTAAnimations } from "@/utils/homepage-cta-animation";
+import { initServicesHeroAnimations } from "@/utils/animations/services-hero-animations";
+import { initServicesOverviewAnimations } from "@/utils/animations/services-overview-animations";
+import { initServicesProcessAnimations } from "@/utils/animations/services-process-animations";
+import { initCTAAnimations } from "@/utils/animations/homepage-cta-animation";
 
-export default function ServicesPage() {
-  useGSAP(() => {
-    const timer = setTimeout(() => {
-      initServicesHeroAnimations();
-      initServicesOverviewAnimations();
-      initServicesProcessAnimations();
-      initCTAAnimations();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, []);
+export default function services() {
+  useGSAPAnimations({
+    animations: [
+      initServicesHeroAnimations,
+      initServicesOverviewAnimations,
+      initServicesProcessAnimations,
+      initCTAAnimations,
+    ],
+    delay: 100,
+  });
 
   return (
     <>
-      <main className="w-full">
-        <ServicesHeroSection />
-        <ServicesOverviewSection />
-        <ServicesProcessSection />
-        <CTASection />
-      </main>
-      <Footer />
+      <ServicesHeroSection />
+      <ServicesOverviewSection />
+      <ServicesProcessSection />
+      <CTASection />
     </>
   );
 }

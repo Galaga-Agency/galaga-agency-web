@@ -9,7 +9,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LanguageSelector from "@/components/LanguageSelector";
 import HamburgerToggle from "@/components/HamburgerToggle";
-import { initNavbarAnimations } from "@/utils/navbar-animation";
+import { initNavbarAnimations } from "@/utils/animations/navbar-animation";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import SecondaryButton from "../ui/SecondaryButton";
 

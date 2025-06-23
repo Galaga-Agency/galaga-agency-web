@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import { initHamburgerAnimation } from "@/utils/hamburger-animation";
+import { initHamburgerAnimation } from "@/utils/animations/hamburger-animation";
 
 interface HamburgerToggleProps {
   isOpen: boolean;

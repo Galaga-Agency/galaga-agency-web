@@ -30,7 +30,7 @@ export default function AboutClientsSection() {
       <div className="container relative z-10">
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
-          <div className="inline-flex items-center gap-3 pb-6">
+          <div className="about-clients-eyebrow inline-flex items-center gap-3 pb-6">
             <div className="w-2 h-2 bg-teal rounded-full animate-pulse"></div>
             <span className="text-teal font-semibold tracking-wider uppercase text-sm">
               {t("about-page.clients.eyebrow")}
@@ -42,13 +42,13 @@ export default function AboutClientsSection() {
             {t("about-page.clients.title")}
           </h2>
           
-          <p className="text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
+          <p className="about-clients-subtitle text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
             {t("about-page.clients.subtitle")}
           </p>
         </div>
 
         {/* Client Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pb-20 md:pb-24">
+        <div className="about-clients-grid grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pb-20 md:pb-24">
           {clientCategories.map((category, index) => (
             <ClientCategoryCard
               key={index}
@@ -59,17 +59,17 @@ export default function AboutClientsSection() {
         </div>
 
         {/* Featured Success Stories */}
-        <div className="pb-16 md:pb-20">
+        <div className="about-clients-featured pb-16 md:pb-20">
           <div className="text-center pb-12 md:pb-16">
-            <h3 className="text-3xl md:text-4xl font-bold text-negro pb-4">
+            <h3 className="about-clients-featured-title text-3xl md:text-4xl font-bold text-negro pb-4">
               {t("about-page.clients.featured.title")}
             </h3>
-            <p className="text-lg text-grafito">
+            <p className="about-clients-featured-subtitle text-lg text-grafito">
               {t("about-page.clients.featured.subtitle")}
             </p>
           </div>
 
-          <div className="flex flex-col gap-12 md:gap-16">
+          <div className="about-clients-featured-list flex flex-col gap-12 md:gap-16">
             {featuredClients.map((client, index) => (
               <FeaturedClientCard
                 key={index}
@@ -81,7 +81,9 @@ export default function AboutClientsSection() {
         </div>
 
         {/* Overall Impact Summary */}
-        <ImpactMetricsGrid metrics={impactMetrics} />
+        <div className="about-clients-impact">
+          <ImpactMetricsGrid metrics={impactMetrics} />
+        </div>
       </div>
     </section>
   );

@@ -34,9 +34,9 @@
       "poeticHeading": "We're the bridge between ideas and reality",
       "galagaAgency": "Galaga Agency",
       "mainDescription": "manages your enterprise tech project from strategy design through solution development and implementation follow-up.",
-      "focusTitle": "¿Quiénes somos?",
+      "focusTitle": "Who we are?",
       "ourFocus": "We focus on business innovation and interactive marketing—guiding clients who need to digitize their operations but lack the tools or time.",
-      "offerTitle": "Nuestra Propuesta",
+      "offerTitle": "Our Proposal",
       "whatWeOffer": "We bring clarity, organize workflows, automate processes, improve communication, and create memorable customer experiences with a human-centered, results-driven approach."
     }
   },
@@ -186,7 +186,6 @@
       "description": "Schedule your strategy session and see immediate results"
     }
   },
-
   "contact": {
     "title": "Let's talk about your project",
     "subtitle": "We're here to help you transform your business. Tell us what you need.",
@@ -338,16 +337,16 @@
         "title": "Innovative brands",
         "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
       },
-      "success": {
-        "title": "We have already helped companies like:",
-        "energiaSolar": {
-          "metric": "100%",
-          "description": "Energía Solar Canarias - Fully personalized management"
-        },
-        "toyota": {
-          "metric": "375K+",
-          "description": "Toyota Canarias - Impressions with immersive experiences"
-        },
+      "featured": {
+        "title": "Featured success stories",
+        "subtitle": "Real results with companies that trusted our vision"
+      },
+      "impact": {
+        "title": "Global impact achieved",
+        "projects": "Projects completed",
+        "impressions": "Total impressions",
+        "attendees": "Event attendees",
+        "satisfaction": "Client satisfaction",
         "summary": "We improve management through personalized tools and activate brands with immersive experiences that generate measurable results."
       }
     },
@@ -379,7 +378,7 @@
       }
     }
   },
-  "servicesPage": {
+  "services-page": {
     "eyebrow": "Our services",
     "hero": {
       "nuestros": "Our",
@@ -399,49 +398,7 @@
       "eyebrow": "What we offer",
       "title": "Complete services",
       "subtitle": "From strategy to implementation, we accompany you in every step of your digital transformation.",
-      "learnMore": "Learn more",
-      "strategy": {
-        "title": "Strategic consulting",
-        "description": "We analyze your business and design a personalized transformation plan.",
-        "feature1": "Process analysis",
-        "feature2": "Digitalization plan",
-        "feature3": "Continuous support"
-      },
-      "automation": {
-        "title": "Automation",
-        "description": "We implement systems that organize and automate your processes.",
-        "feature1": "CRM and ERP",
-        "feature2": "Task automation",
-        "feature3": "System integration"
-      },
-      "innovation": {
-        "title": "Technological innovation",
-        "description": "We apply the latest technologies to improve your business.",
-        "feature1": "Artificial intelligence",
-        "feature2": "IoT and sensors",
-        "feature3": "Custom solutions"
-      },
-      "immersive": {
-        "title": "Immersive marketing",
-        "description": "We create digital experiences that connect with your customers.",
-        "feature1": "Augmented reality",
-        "feature2": "Interactive experiences",
-        "feature3": "Gamification"
-      },
-      "training": {
-        "title": "Training and support",
-        "description": "We train your team to work autonomously.",
-        "feature1": "Personalized training",
-        "feature2": "Visual manuals",
-        "feature3": "Continuous monitoring"
-      },
-      "grants": {
-        "title": "Grant management",
-        "description": "We identify and manage public aid for your project.",
-        "feature1": "Digital Kit",
-        "feature2": "Public subsidies",
-        "feature3": "Complete processing"
-      }
+      "learnMore": "Learn more"
     },
     "process": {
       "eyebrow": "Our process",
@@ -471,7 +428,7 @@
       }
     }
   },
-  "contactPage": {
+  "contact-page": {
     "eyebrow": "Contact",
     "hero": {
       "hablemos": "Let's talk about your",
@@ -505,7 +462,7 @@
       "description": "We commit to responding to your inquiry in less than 24 business hours."
     }
   },
-  "caseStudiesPage": {
+  "case-studies-page": {
     "eyebrow": "Success stories",
     "hero": {
       "casos": "Success",
@@ -541,37 +498,6 @@
         "description": "Tell us your challenge and let's see how we can help you achieve similar results.",
         "startProject": "Start project",
         "viewServices": "View services"
-      }
-    }
-  },
-  "about": {
-    "clients": {
-      "eyebrow": "Our clients",
-      "title": "Our clients",
-      "subtitle": "We work with companies that seek to grow in an organized and efficient way, without losing focus on what really matters.",
-      "retail": {
-        "title": "Retail SMEs",
-        "description": "They seek better operational management, modernize their stores and attract new audiences with memorable experiences."
-      },
-      "growing": {
-        "title": "Growing companies",
-        "description": "They need to organize processes, free up management time and make decisions based on real data."
-      },
-      "innovative": {
-        "title": "Innovative brands",
-        "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
-      },
-      "featured": {
-        "title": "Featured success stories",
-        "subtitle": "Real results with companies that trusted our vision"
-      },
-      "impact": {
-        "title": "Global impact achieved",
-        "projects": "Projects completed",
-        "impressions": "Total impressions",
-        "attendees": "Event attendees",
-        "satisfaction": "Client satisfaction",
-        "summary": "We improve management through personalized tools and activate brands with immersive experiences that generate measurable results."
       }
     }
   },

@@ -34,8 +34,8 @@ export default function HeroSection() {
           {/* Mobile Logo - Only visible on portrait orientation */}
           <div className="block portrait:block landscape:hidden lg:hidden pb-8 md:pb-12">
             <img 
-              src="/assets/img/logos/logo-mobile.webp" 
-              alt="Galaga Agency" 
+              src="/assets/img/logos/logo-mobile.webp"
+              alt="Galaga Agency"
               className="w-20 h-auto md:w-24 opacity-90 drop-shadow-2xl"
             />
           </div>
@@ -44,17 +44,23 @@ export default function HeroSection() {
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
             <h1 className="text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
               <span className="block md:pb-4">
-                <span data-anim="transformamos" className="text-turquesa block md:inline drop-shadow-xl">
+                <span 
+                  data-anim="transformamos" 
+                  className="text-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                >
                   {t("hero.transformamos")}
                 </span>{" "}
-                <span data-anim="negocios" className="text-blanco block md:inline drop-shadow-xl">
+                <span 
+                  data-anim="negocios" 
+                  className="text-blanco block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                >
                   {t("hero.negocios")}
                 </span>
               </span>
               <span className="block">
                 <span
                   data-anim="sinComplicaciones"
-                  className="bg-gradient-to-r from-turquesa to-verde-azulado bg-clip-text text-transparent drop-shadow-xl"
+                  className="bg-gradient-to-r from-mandarina via-naranja-tostado to-verde-azulado bg-clip-text text-transparent drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
                 >
                   {t("hero.sinComplicaciones")}
                 </span>

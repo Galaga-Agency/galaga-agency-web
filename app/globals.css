@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Your 13 base colors */
+  /* base colors */
   --color-blanco: #ffffff;
   --color-negro: #000000;
   --color-grafito: #2c2c2c;
@@ -122,12 +122,6 @@ h6 {
   outline: none;
 }
 
-/* Break out of section padding utility */
-.break-section {
-  margin-left: calc(-1 * clamp(1rem, 5vw, 4rem));
-  margin-right: calc(-1 * clamp(1rem, 5vw, 4rem));
-}
-
 /* Typography Classes */
 .hero-title {
   font-size: clamp(3rem, 8vw, 8rem);
@@ -159,7 +153,6 @@ h6 {
   line-height: 1.7;
 }
 
-/* Section utility - using clamp for responsive padding, no max-width */
 .section {
   width: 100%;
   padding-left: clamp(1rem, 5vw, 4rem);
@@ -168,23 +161,44 @@ h6 {
   padding-bottom: clamp(4rem, 8vw, 8rem);
 }
 
-/* Container for content centering */
 .container {
   width: clamp(280px, 90vw, 1280px);
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Break out of section padding utility */
+.break-section {
+  margin-left: calc(-1 * clamp(1rem, 5vw, 4rem));
+  margin-right: calc(-1 * clamp(1rem, 5vw, 4rem));
+}
+
 .bg-hero-gradient {
-  background: linear-gradient(135deg, var(--color-azul-profundo) 0%, var(--color-teal) 25%, var(--color-verde-azulado) 50%, var(--color-turquesa) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-azul-profundo) 0%,
+    var(--color-teal) 25%,
+    var(--color-verde-azulado) 50%,
+    var(--color-turquesa) 100%
+  );
 }
 
 .bg-primary-gradient {
-  background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-verde-azulado) 50%, var(--color-turquesa) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-teal) 0%,
+    var(--color-verde-azulado) 50%,
+    var(--color-turquesa) 100%
+  );
 }
 
 .bg-dark-gradient {
-  background: linear-gradient(135deg, var(--color-negro) 0%, var(--color-azul-profundo) 50%, var(--color-grafito) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--color-negro) 0%,
+    var(--color-azul-profundo) 50%,
+    var(--color-grafito) 100%
+  );
 }
 
 .glass-effect {

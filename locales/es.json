@@ -155,7 +155,6 @@
       "startProject": "Iniciar Proyecto"
     }
   },
-
   "cta": {
     "readyToTransform": "¿Listo para transformar tu negocio?",
     "subtitle": "No esperes más. El momento del cambio es ahora.",
@@ -268,7 +267,7 @@
     "terms": "Términos",
     "followUs": "Síguenos"
   },
-  "about": {
+  "about-page": {
     "eyebrow": "Quiénes somos",
     "hero": {
       "innovamos": "Innovamos",
@@ -338,16 +337,16 @@
         "title": "Marcas innovadoras",
         "description": "Quieren diferenciarse con tecnología avanzada y crear conexiones emocionales duraderas con sus clientes."
       },
-      "success": {
-        "title": "Ya hemos ayudado a empresas como:",
-        "energiaSolar": {
-          "metric": "100%",
-          "description": "Energía Solar Canarias - Gestión totalmente personalizada"
-        },
-        "toyota": {
-          "metric": "375K+",
-          "description": "Toyota Canarias - Impresiones con experiencias inmersivas"
-        },
+      "featured": {
+        "title": "Casos de éxito destacados",
+        "subtitle": "Resultados reales con empresas que confiaron en nuestra visión"
+      },
+      "impact": {
+        "title": "Impacto global conseguido",
+        "projects": "Proyectos completados",
+        "impressions": "Impresiones totales",
+        "attendees": "Asistentes a eventos",
+        "satisfaction": "Satisfacción cliente",
         "summary": "Mejoramos la gestión mediante herramientas personalizadas y activamos marcas con experiencias inmersivas que generan resultados medibles."
       }
     },
@@ -379,7 +378,7 @@
       }
     }
   },
-  "servicesPage": {
+  "service-page": {
     "eyebrow": "Nuestros servicios",
     "hero": {
       "nuestros": "Nuestros",
@@ -399,49 +398,7 @@
       "eyebrow": "Qué ofrecemos",
       "title": "Servicios completos",
       "subtitle": "Desde la estrategia hasta la implementación, te acompañamos en cada paso de tu transformación digital.",
-      "learnMore": "Saber más",
-      "strategy": {
-        "title": "Consultoría estratégica",
-        "description": "Analizamos tu negocio y diseñamos un plan de transformación personalizado.",
-        "feature1": "Análisis de procesos",
-        "feature2": "Plan de digitalización",
-        "feature3": "Acompañamiento continuo"
-      },
-      "automation": {
-        "title": "Automatización",
-        "description": "Implementamos sistemas que organizan y automatizan tus procesos.",
-        "feature1": "CRM y ERP",
-        "feature2": "Automatización de tareas",
-        "feature3": "Integración de sistemas"
-      },
-      "innovation": {
-        "title": "Innovación tecnológica",
-        "description": "Aplicamos las últimas tecnologías para mejorar tu negocio.",
-        "feature1": "Inteligencia artificial",
-        "feature2": "IoT y sensores",
-        "feature3": "Soluciones personalizadas"
-      },
-      "immersive": {
-        "title": "Marketing inmersivo",
-        "description": "Creamos experiencias digitales que conectan con tus clientes.",
-        "feature1": "Realidad aumentada",
-        "feature2": "Experiencias interactivas",
-        "feature3": "Gamificación"
-      },
-      "training": {
-        "title": "Formación y soporte",
-        "description": "Capacitamos a tu equipo para trabajar con autonomía.",
-        "feature1": "Formación personalizada",
-        "feature2": "Manuales visuales",
-        "feature3": "Seguimiento continuo"
-      },
-      "grants": {
-        "title": "Gestión de subvenciones",
-        "description": "Identificamos y gestionamos ayudas públicas para tu proyecto.",
-        "feature1": "Kit Digital",
-        "feature2": "Subvenciones públicas",
-        "feature3": "Tramitación completa"
-      }
+      "learnMore": "Saber más"
     },
     "process": {
       "eyebrow": "Nuestro proceso",
@@ -471,7 +428,7 @@
       }
     }
   },
-  "contactPage": {
+  "contact-page": {
     "eyebrow": "Contacto",
     "hero": {
       "hablemos": "Hablemos de tu",
@@ -505,7 +462,7 @@
       "description": "Nos comprometemos a responder tu consulta en menos de 24 horas laborables."
     }
   },
-  "caseStudiesPage": {
+  "case-studies-page": {
     "eyebrow": "Casos de éxito",
     "hero": {
       "casos": "Casos de",
@@ -541,37 +498,6 @@
         "description": "Cuéntanos tu desafío y veamos cómo podemos ayudarte a conseguir resultados similares.",
         "startProject": "Iniciar proyecto",
         "viewServices": "Ver servicios"
-      }
-    }
-  },
-  "about-page": {
-    "clients": {
-      "eyebrow": "Nuestros clientes",
-      "title": "Nuestros clientes",
-      "subtitle": "Trabajamos con empresas que buscan crecer de manera organizada y eficiente, sin perder el foco en lo que realmente importa.",
-      "retail": {
-        "title": "PYMEs retail",
-        "description": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos con experiencias memorables."
-      },
-      "growing": {
-        "title": "Empresas en crecimiento",
-        "description": "Necesitan ordenar procesos, liberar tiempo de gestión y tomar decisiones basadas en datos reales."
-      },
-      "innovative": {
-        "title": "Marcas innovadoras",
-        "description": "Quieren diferenciarse con tecnología avanzada y crear conexiones emocionales duraderas con sus clientes."
-      },
-      "featured": {
-        "title": "Casos de éxito destacados",
-        "subtitle": "Resultados reales con empresas que confiaron en nuestra visión"
-      },
-      "impact": {
-        "title": "Impacto global conseguido",
-        "projects": "Proyectos completados",
-        "impressions": "Impresiones totales",
-        "attendees": "Asistentes a eventos",
-        "satisfaction": "Satisfacción cliente",
-        "summary": "Mejoramos la gestión mediante herramientas personalizadas y activamos marcas con experiencias inmersivas que generan resultados medibles."
       }
     }
   },

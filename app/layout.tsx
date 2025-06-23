@@ -3,6 +3,7 @@ import "./globals.css";
 import { TranslationProvider } from "@/hooks/useTranslation";
 import LoadingWrapper from "@/components/LoadingWrapper";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -53,7 +54,7 @@ export default function RootLayout({
         {/* Adobe Fonts - Aileron */}
         <link
           rel="stylesheet"
-          href="https://use.typekit.net/your-font-id.css"
+          href="https://use.typekit.net/nzy8bvv.css"
         />
       </head>
       <body className="antialiased">
@@ -61,6 +62,7 @@ export default function RootLayout({
           <LoadingWrapper>
             <Navbar />
             {children}
+            <Footer />
           </LoadingWrapper>
         </TranslationProvider>
       </body>
