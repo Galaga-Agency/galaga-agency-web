@@ -133,11 +133,11 @@ export default function Navbar() {
               </div>
               <div className="action-item" data-delay="100">
                 {isScrolled ? (
-                  <PrimaryButton href="/contact" size="md">
+                  <PrimaryButton href="/contacto" size="md">
                     {t(ctaButtonKey)}
                   </PrimaryButton>
                 ) : (
-                  <SecondaryButton href="/contact" size="md" className="text-white/80 hover:text-white hover:border-white">
+                  <SecondaryButton href="/contacto" size="md" className="text-white/80 hover:text-white hover:border-white">
                     {t(ctaButtonKey)}
                   </SecondaryButton>
                 )}
@@ -271,7 +271,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <PrimaryButton
-              href="/contact"
+              href="/contacto"
               size="md"
               className="w-full justify-center text-sm md:text-base py-2.5 md:py-3"
               onClick={closeMenu}

@@ -81,7 +81,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form space-y-6">
+    <form onSubmit={handleSubmit} className="contact-form flex flex-col gap-8">
       {/* Name and Email */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="form-field">

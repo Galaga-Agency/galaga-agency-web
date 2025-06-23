@@ -66,7 +66,7 @@ export default function Footer() {
                 <p className="text-teal-300 font-medium pb-4 text-base md:text-lg">Ready to transform your business?</p>
                 <p className="text-gray-400 pb-6 text-sm md:text-base">Let's discuss your next project</p>
                 <PrimaryButton
-                  href="/contact"
+                  href="/contacto"
                   className="w-full"
                 >
                   {t("footer.getInTouch")}

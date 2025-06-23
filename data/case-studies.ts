@@ -1,17 +1,19 @@
-export const caseStudies = [
+import { CaseStudy } from "@/types/case-study";
+
+export const caseStudies: CaseStudy[] = [
   {
     titleKey: "caseStudies.dosxdos.title",
-    categoryKey: "caseStudies.categories.digital",
+    categoryKey: "caseStudies.categories.digital", 
     challengeKey: "caseStudies.dosxdos.challenge",
     solutionKey: "caseStudies.dosxdos.solution",
     resultKey: "caseStudies.dosxdos.result",
     metrics: [
       {
-        value: "90%",
+        value: "100%",
         labelKey: "caseStudies.metrics.processReduction"
       },
       {
-        value: "300%",
+        value: "300%", 
         labelKey: "caseStudies.metrics.seoImprovement"
       }
     ],
@@ -22,7 +24,7 @@ export const caseStudies = [
   {
     titleKey: "caseStudies.energiaSolar.title",
     categoryKey: "caseStudies.categories.digital",
-    challengeKey: "caseStudies.energiaSolar.challenge",
+    challengeKey: "caseStudies.energiaSolar.challenge", 
     solutionKey: "caseStudies.energiaSolar.solution",
     resultKey: "caseStudies.energiaSolar.result",
     metrics: [
@@ -44,14 +46,14 @@ export const caseStudies = [
     categoryKey: "caseStudies.categories.marketing",
     challengeKey: "caseStudies.toyota.challenge",
     solutionKey: "caseStudies.toyota.solution",
-    resultKey: "caseStudies.toyota.result",
+    resultKey: "caseStudies.toyota.result", 
     metrics: [
       {
         value: "375K+",
         labelKey: "caseStudies.metrics.impressions"
       },
       {
-        value: "4K+",
+        value: "4K+", 
         labelKey: "caseStudies.metrics.qualifiedLeads"
       }
     ],
@@ -80,3 +82,28 @@ export const caseStudies = [
     slug: "canarias-game-show"
   }
 ];
+
+// Helper functions
+export const getCaseStudyBySlug = (slug: string): CaseStudy | undefined => {
+  return caseStudies.find(caseStudy => caseStudy.slug === slug);
+};
+
+export const getCaseStudiesByCategory = (category: 'digital' | 'marketing' | 'events'): CaseStudy[] => {
+  return caseStudies.filter(caseStudy => caseStudy.theme === category);
+};
+
+export const getFeaturedCaseStudies = (limit: number = 4): CaseStudy[] => {
+  return caseStudies.slice(0, limit);
+};
+
+export const getRelatedCaseStudies = (currentSlug: string, limit: number = 3): CaseStudy[] => {
+  const currentCase = getCaseStudyBySlug(currentSlug);
+  if (!currentCase) return [];
+  
+  return caseStudies
+    .filter(caseStudy => 
+      caseStudy.slug !== currentSlug && 
+      caseStudy.theme === currentCase.theme
+    )
+    .slice(0, limit);
+};

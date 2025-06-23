@@ -90,16 +90,6 @@ export default function HomepageAboutSection() {
 
         {/* Content blocks */}
         <div className="relative">
-          {/* Huge background double chevron */}
-          <div className="absolute -top-32 md:-top-48 lg:-top-84 right-0 md:right-8 lg:right-16 pointer-events-none z-0">
-            <Image
-              src="/assets/img/symbols/double-chevron.png"
-              alt="Double Chevron"
-              width={800}
-              height={800}
-              className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] lg:w-[900px] lg:h-[900px]"
-            />
-          </div>
 
           {/* First block content */}
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-start py-0">

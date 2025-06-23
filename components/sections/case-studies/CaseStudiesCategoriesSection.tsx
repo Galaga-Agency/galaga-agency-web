@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import CategoryCard from "@/components/CategoryCard";
 
 export default function CaseStudiesCategoriesSection() {
   const { t } = useTranslation();
@@ -103,59 +104,11 @@ export default function CaseStudiesCategoriesSection() {
         {/* Categories Grid */}
         <div className="categories-grid grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {categories.map((category, index) => (
-            <div
+            <CategoryCard
               key={category.id}
-              className="category-card group relative bg-white/5 backdrop-blur-sm rounded-2xl md:rounded-3xl p-8 md:p-10 border border-white/10 hover:border-white/20 hover:bg-white/10 transition-all duration-500"
-              data-index={index}
-            >
-              {/* Background glow effect */}
-              <div
-                className={`category-card-glow absolute inset-0 bg-gradient-to-br from-${category.color}/20 to-${category.accent}/10 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500`}
-              ></div>
-
-              {/* Content */}
-              <div className="relative text-center">
-                {/* Icon */}
-                <div
-                  className={`category-card-icon w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-${category.color} to-${category.accent} rounded-2xl flex items-center justify-center text-white mx-auto pb-6 shadow-xl group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500`}
-                >
-                  {category.icon}
-                </div>
-
-                {/* Title */}
-                <h3
-                  className={`category-card-title text-xl md:text-2xl font-bold text-${category.color} pb-4 group-hover:text-white transition-colors duration-300`}
-                >
-                  {t(category.titleKey)}
-                </h3>
-
-                {/* Description */}
-                <p className="category-card-description text-base md:text-lg text-hielo/80 leading-relaxed pb-6 group-hover:text-hielo transition-colors duration-300">
-                  {t(category.descriptionKey)}
-                </p>
-
-                {/* Count */}
-                <div className="category-card-count flex items-center justify-center gap-3">
-                  <div
-                    className={`category-count-badge w-8 h-8 bg-${category.color}/20 rounded-full flex items-center justify-center`}
-                  >
-                    <span
-                      className={`category-count-number text-sm font-bold text-${category.color} group-hover:text-white transition-colors duration-300`}
-                    >
-                      {category.count}
-                    </span>
-                  </div>
-                  <span className="category-count-label text-hielo/60 text-sm font-medium group-hover:text-hielo/80 transition-colors duration-300">
-                    {t("case-studies-page.categories.projects")}
-                  </span>
-                </div>
-              </div>
-
-              {/* Floating accent */}
-              <div
-                className={`category-card-accent absolute top-4 right-4 w-3 h-3 bg-${category.accent} rounded-full opacity-50 group-hover:opacity-100 group-hover:scale-150 transition-all duration-500`}
-              ></div>
-            </div>
+              category={category}
+              index={index}
+            />
           ))}
         </div>
 
@@ -170,7 +123,7 @@ export default function CaseStudiesCategoriesSection() {
             </p>
             <div className="categories-cta-buttons flex flex-col md:flex-row gap-4 justify-center">
               <a
-                href="/contact"
+                href="/contacto"
                 className="categories-cta-primary inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal to-turquesa text-white font-semibold px-8 py-4 rounded-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-xl"
               >
                 <span>

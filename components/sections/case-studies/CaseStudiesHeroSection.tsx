@@ -21,17 +21,17 @@ export default function CaseStudiesHeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-negro/60 via-transparent to-azul-profundo/40 z-15"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-teal/30 via-transparent to-mandarina/20 z-15"></div>
 
-      {/* Background decorative elements - kept but more subtle */}
+      {/* Background decorative elements */}
       <div className="absolute inset-0 z-18">
-        <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-turquesa/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-mandarina/8 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/3 rounded-full blur-3xl"></div>
+        <div className="case-studies-hero-bg-1 absolute top-1/4 right-1/3 w-96 h-96 bg-turquesa/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="case-studies-hero-bg-2 absolute bottom-1/3 left-1/4 w-80 h-80 bg-mandarina/8 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="case-studies-hero-bg-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-white/3 rounded-full blur-3xl"></div>
       </div>
 
       <div className="container relative z-20 w-full py-20">
         <div className="case-studies-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
+          <div className="case-studies-hero-eyebrow inline-flex items-center gap-3 pb-8 md:pb-12">
             <div className="w-2 h-2 bg-turquesa rounded-full animate-pulse"></div>
             <span className="text-hielo font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
               {t("case-studies-page.eyebrow")}
@@ -64,50 +64,38 @@ export default function CaseStudiesHeroSection() {
 
           {/* Key Stats */}
           <div className="case-studies-hero-stats grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 w-full max-w-6xl">
-            <div
-              className="text-center case-studies-hero-stat opacity-0 translate-y-12"
-              data-index="0"
-            >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-turquesa pb-2 drop-shadow-xl">
+            <div className="text-center case-studies-hero-stat opacity-0 translate-y-12" data-index="0">
+              <div className="case-studies-hero-stat-value text-3xl md:text-4xl lg:text-5xl font-black text-turquesa pb-2 drop-shadow-xl">
                 100+
               </div>
-              <div className="text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
+              <div className="case-studies-hero-stat-label text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
                 {t("case-studies-page.hero.stats.projectsCompleted")}
               </div>
             </div>
 
-            <div
-              className="text-center case-studies-hero-stat opacity-0 translate-y-12"
-              data-index="1"
-            >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-mandarina pb-2 drop-shadow-xl">
+            <div className="text-center case-studies-hero-stat opacity-0 translate-y-12" data-index="1">
+              <div className="case-studies-hero-stat-value text-3xl md:text-4xl lg:text-5xl font-black text-mandarina pb-2 drop-shadow-xl">
                 500K+
               </div>
-              <div className="text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
+              <div className="case-studies-hero-stat-label text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
                 {t("case-studies-page.hero.stats.totalImpressions")}
               </div>
             </div>
 
-            <div
-              className="text-center case-studies-hero-stat opacity-0 translate-y-12"
-              data-index="2"
-            >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-verde-azulado pb-2 drop-shadow-xl">
+            <div className="text-center case-studies-hero-stat opacity-0 translate-y-12" data-index="2">
+              <div className="case-studies-hero-stat-value text-3xl md:text-4xl lg:text-5xl font-black text-verde-azulado pb-2 drop-shadow-xl">
                 98%
               </div>
-              <div className="text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
+              <div className="case-studies-hero-stat-label text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
                 {t("case-studies-page.hero.stats.clientSatisfaction")}
               </div>
             </div>
 
-            <div
-              className="text-center case-studies-hero-stat opacity-0 translate-y-12"
-              data-index="3"
-            >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-black text-violeta pb-2 drop-shadow-xl">
+            <div className="text-center case-studies-hero-stat opacity-0 translate-y-12" data-index="3">
+              <div className="case-studies-hero-stat-value text-3xl md:text-4xl lg:text-5xl font-black text-violeta pb-2 drop-shadow-xl">
                 24h
               </div>
-              <div className="text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
+              <div className="case-studies-hero-stat-label text-sm md:text-base text-hielo/90 font-medium drop-shadow-lg">
                 {t("case-studies-page.hero.stats.responseTime")}
               </div>
             </div>

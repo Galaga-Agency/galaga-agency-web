@@ -526,5 +526,92 @@
         "seo": "Mejora SEO"
       }
     }
+  },
+  "caseStudiesDetails": {
+    "categories": {
+      "digital": "Digitalización",
+      "marketing": "Marketing Inmersivo",
+      "events": "Eventos"
+    },
+    "metrics": {
+      "processReduction": "Reducción Procesos",
+      "seoImprovement": "Mejora SEO",
+      "dataUnification": "Unificación Datos",
+      "realTimeMonitoring": "Monitoreo Tiempo Real",
+      "eventDays": "Días de Evento",
+      "recurringEvent": "Evento Recurrente",
+      "impressions": "Impresiones",
+      "qualifiedLeads": "Leads Cualificados",
+      "attendees": "Asistentes",
+      "cities": "Ciudades"
+    },
+    "dosxdos": {
+      "title": "Dos x Dos Grupo Imagen",
+      "challenge": "Dos x Dos partía de un panorama disperso — procesos manuales, un ERP (Navision) sin integrar, ausencia de CRM y una web estática que no reflejaba la sofisticación de la marca ni ayudaba a posicionarla en buscadores. Esta falta de digitalización limitaba la eficiencia operativa, la visibilidad comercial y la capacidad de tomar decisiones basadas en datos, frenando su competitividad en un mercado cada vez más exigente.",
+      "solution": "Para revertirlo implantamos Zoho CRM, migramos a A3 ERP y los conectamos a un espacio Notion que orquesta proyectos y automatizaciones; todo ello se integra mediante una API unificada. En paralelo, desarrollamos una nueva web con Next.js y panel de contenidos propio, optimizada para SEO y Core Web Vitals.",
+      "result": "El resultado: atención al cliente ágil, procesos internos más fluidos, autonomía para publicar contenidos, salto inmediato en visibilidad orgánica y un ecosistema de datos preparado para el siguiente reto: crear un data warehouse que convierta esa información en inteligencia de negocio dinámica."
+    },
+    "energiaSolar": {
+      "title": "Energía Solar Canarias",
+      "challenge": "Energía Solar Canarias partía de múltiples herramientas no conectadas: los clientes debían consultar los distintos proveedores de energía por separado en plataformas independientes. No existía una plataforma propia que consolidara los datos ni un CRM que organizara usuarios, plantas o alertas. Esta fragmentación impedía controlar precios y calcular ahorros con precisión, complicaba el acceso móvil y sobrecargaba al equipo con tareas manuales, erosionando la experiencia digital de la marca.",
+      "solution": "Para revertirlo, se desarrolló una aplicación web progresiva que unifica todos los proveedores en una sola interfaz responsiva y se creó un CRM conectado al ERP, con dashboards, workflows y sincronización automática de datos.",
+      "result": "Ahora los clientes monitorizan producción, consumo y ahorro en tiempo real, reciben alertas personalizadas, y la compañía reduce trabajo manual, toma decisiones basadas en datos y mejora la eficiencia energética, generando ahorros económicos y menor huella de carbono."
+    },
+    "alisiosLive": {
+      "title": "Alisios Live Gaming",
+      "challenge": "Uno de los mayores retos era transformar el centro comercial Alisios en un espacio de experiencia interactiva, conectando con público joven y familiar durante la campaña navideña. Además, era necesario dar visibilidad a la cultura gamer en un entorno no especializado y generar tráfico real hacia tiendas y restauración.",
+      "solution": "Galaga ideó y produjo un evento gratuito con torneos, simuladores, VR, influencers y dinamización continua durante tres días.",
+      "result": "El resultado fue un alto volumen de participación, notable impacto mediático y la consolidación del evento como cita anual, posicionando a Alisios como referente en entretenimiento digital."
+    },
+    "toyota": {
+      "title": "Toyota Canarias",
+      "challenge": "Toyota necesitaba renovar su imagen y conectar con nuevos públicos (Gen Z y Millennials), alejados del tradicional marketing automovilístico. El desafío era crear experiencias memorables en entornos no convencionales y construir comunidad en torno a la marca.",
+      "solution": "Galaga diseñó un circuito de activaciones con simuladores y realidad virtual en rallies y ferias. La estrategia combinó acciones presenciales con una comunidad online activa.",
+      "result": "El circuito superó las 375.000 impresiones, captó más de 4.000 leads cualificados y sentó las bases para una edición ampliada en 2024."
+    },
+    "canariasGameShow": {
+      "title": "Canarias Game Show",
+      "challenge": "El principal reto era posicionar Canarias como sede de un evento internacional de videojuegos, en un mercado dominado por grandes ferias europeas. Además, era necesario atraer tanto a gamers como a marcas y medios, en un contexto de gran complejidad logística.",
+      "solution": "Galaga organizó una feria en doble sede (Tenerife y Gran Canaria) con torneos, exposiciones, influencers y experiencias interactivas.",
+      "result": "El evento reunió a 30.000 personas, tuvo amplia difusión en redes y medios, y posicionó a Canarias como nuevo polo de atracción para la industria gamer."
+    }
+  },
+  "proyecto-detalle": {
+    "back-to-projects": "Volver a Proyectos",
+    "client": "Cliente",
+    "year": "Año",
+    "duration": "Duración",
+    "status": "Estado",
+    "view-live": "Ver en Vivo",
+    "challenge": {
+      "title": "El Desafío"
+    },
+    "solution": {
+      "title": "Nuestra Solución"
+    },
+    "technologies": {
+      "title": "Tecnologías Utilizadas"
+    },
+    "features": {
+      "title": "Características Principales"
+    },
+    "results": {
+      "eyebrow": "Resultados",
+      "title": "Impacto y Resultados",
+      "subtitle": "Resultados medibles que impulsan el crecimiento empresarial"
+    },
+    "gallery": {
+      "title": "Galería del Proyecto",
+      "subtitle": "Explora el viaje visual de esta transformación",
+      "modules": "Módulos Desarrollados",
+      "responsive": "Diseño Responsivo",
+      "availability": "Disponibilidad del Sistema"
+    },
+    "related": {
+      "title": "Proyectos Relacionados",
+      "subtitle": "Descubre más historias de éxito de nuestro portafolio",
+      "view-project": "Ver Proyecto",
+      "view-all": "Ver Todos los Proyectos"
+    }
   }
 }

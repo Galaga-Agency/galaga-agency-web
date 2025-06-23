@@ -26,7 +26,7 @@ export const initServicesOverviewAnimations = () => {
 
   // Animate each card individually
   gsap.utils.toArray(".services-overview-card").forEach((card: any, i) => {
-    // main card container
+    // Main card container
     gsap.from(card, {
       duration: 1,
       opacity: 0,
@@ -39,20 +39,23 @@ export const initServicesOverviewAnimations = () => {
       },
     });
 
-    // icon
+    // Icon - simplified to just fade in
     const icon = card.querySelector(".services-overview-card-icon");
     if (icon) {
       gsap.from(icon, {
-        duration: 0.8,
-        scale: 0,
-        rotation: 180,
-        ease: "back.out(1.7)",
+        duration: 0.6,
+        opacity: 0,
+        ease: "power2.out",
         delay: i * 0.2 + 0.3,
-        scrollTrigger: { trigger: card, start: "top 90%" },
+        scrollTrigger: { 
+          trigger: card, 
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
       });
     }
 
-    // title
+    // Title
     const title = card.querySelector(".services-overview-card-title");
     if (title) {
       gsap.from(title, {
@@ -61,11 +64,15 @@ export const initServicesOverviewAnimations = () => {
         opacity: 0,
         ease: "power2.out",
         delay: i * 0.2 + 0.5,
-        scrollTrigger: { trigger: card, start: "top 90%" },
+        scrollTrigger: { 
+          trigger: card, 
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
       });
     }
 
-    // description
+    // Description
     const desc = card.querySelector(".services-overview-card-description");
     if (desc) {
       gsap.from(desc, {
@@ -74,11 +81,15 @@ export const initServicesOverviewAnimations = () => {
         opacity: 0,
         ease: "power2.out",
         delay: i * 0.2 + 0.7,
-        scrollTrigger: { trigger: card, start: "top 90%" },
+        scrollTrigger: { 
+          trigger: card, 
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
       });
     }
 
-    // features
+    // Features
     const features = card.querySelectorAll(".services-overview-card-feature");
     if (features.length) {
       gsap.from(features, {
@@ -88,11 +99,15 @@ export const initServicesOverviewAnimations = () => {
         stagger: 0.1,
         ease: "power2.out",
         delay: i * 0.2 + 0.9,
-        scrollTrigger: { trigger: card, start: "top 90%" },
+        scrollTrigger: { 
+          trigger: card, 
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
       });
     }
 
-    // accent
+    // Accent
     const accent = card.querySelector(".services-overview-card-accent");
     if (accent) {
       gsap.from(accent, {
@@ -100,7 +115,11 @@ export const initServicesOverviewAnimations = () => {
         scale: 0,
         ease: "back.out(1.7)",
         delay: i * 0.2 + 1.1,
-        scrollTrigger: { trigger: card, start: "top 90%" },
+        scrollTrigger: { 
+          trigger: card, 
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
       });
     }
   });

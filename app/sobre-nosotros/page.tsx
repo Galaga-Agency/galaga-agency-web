@@ -8,7 +8,6 @@ import AboutClientsSection from "@/components/sections/about-us-page/AboutClient
 import { initAboutHeroAnimations } from "@/utils/animations/about-hero-animations";
 import { initAboutStoryAnimations } from "@/utils/animations/about-story-animations";
 import { initAboutClientsAnimations } from "@/utils/animations/about-clients-animations";
-import { initAboutApproachAnimations } from "@/utils/animations/about-approach-animations";
 
 export default function AboutPage() {
   useGSAPAnimations({
@@ -16,7 +15,6 @@ export default function AboutPage() {
       initAboutHeroAnimations,
       initAboutStoryAnimations,
       initAboutClientsAnimations,
-      initAboutApproachAnimations
     ],
     delay: 100
   });

@@ -4,13 +4,11 @@ import { createAnimationManager } from "@/utils/animations/gsap-utils";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Contact Hero Animations
 export const initContactHeroAnimations = () => {
   const manager = createAnimationManager();
 
-  // Hero title animation timeline - animate TO visible state
+  // Hero title words timeline
   const tl = gsap.timeline();
-
   tl.to(".contact-hero-word-1", {
     duration: 1,
     y: 0,
@@ -38,7 +36,7 @@ export const initContactHeroAnimations = () => {
       "-=0.5"
     );
 
-  // Contact methods animation - animate TO visible state
+  // Methods animation with stagger (analogous to stats)
   gsap.to(".contact-hero-method", {
     duration: 0.8,
     y: 0,
@@ -48,21 +46,7 @@ export const initContactHeroAnimations = () => {
     delay: 1.5,
   });
 
-  // Method icons animation - animate TO visible state
-  gsap.utils.toArray(".contact-hero-method").forEach((method: any, index) => {
-    const iconElement = method.querySelector(".w-16, .w-20");
-    if (iconElement) {
-      gsap.to(iconElement, {
-        duration: 0.8,
-        scale: 1,
-        rotation: 0,
-        ease: "back.out(1.7)",
-        delay: index * 0.2 + 1.8,
-      });
-    }
-  });
-
-  // Floating scroll indicator (if it exists)
+  // Floating scroll indicator
   const scrollIndicator = document.querySelector(".contact-hero-scroll");
   if (scrollIndicator) {
     gsap.to(scrollIndicator, {
@@ -71,18 +55,29 @@ export const initContactHeroAnimations = () => {
       repeat: -1,
       yoyo: true,
       ease: "power2.inOut",
-      delay: 2.5,
+      delay: 2,
     });
   }
 
-  // Background elements animation (if they exist)
-  const topElement = document.querySelector(
+  // Background orbs rotation
+  const topOrb = document.querySelector(
     ".contact-hero-section .absolute.top-1\\/4"
   );
-  if (topElement) {
-    gsap.to(topElement, {
+  if (topOrb) {
+    gsap.to(topOrb, {
       duration: 8,
       rotation: 360,
+      repeat: -1,
+      ease: "none",
+    });
+  }
+  const bottomOrb = document.querySelector(
+    ".contact-hero-section .absolute.bottom-1\\/3"
+  );
+  if (bottomOrb) {
+    gsap.to(bottomOrb, {
+      duration: 12,
+      rotation: -360,
       repeat: -1,
       ease: "none",
     });
@@ -92,110 +87,74 @@ export const initContactHeroAnimations = () => {
   return manager.cleanup;
 };
 
-// Contact Form Section Animations
 export const initContactFormAnimations = () => {
   const manager = createAnimationManager();
+  const S = ".contact-form-section";
 
-  // Form container animation
-  manager.addAnimation(".contact-form-container", {
-    duration: 1.2,
-    x: -100,
-    opacity: 0,
-    ease: "power3.out",
-  });
-
-  // Info container animation
-  manager.addAnimation(".contact-info-container", {
-    duration: 1.2,
-    x: 100,
-    opacity: 0,
-    ease: "power3.out",
-  });
-
-  // Form title animation
+  // Slide in form and info containers
   manager.addAnimation(
-    ".contact-form-title",
-    {
-      duration: 0.8,
-      y: 30,
-      opacity: 0,
-      ease: "power2.out",
-    },
-    { start: "top 85%", end: "bottom 15%" }
+    `${S} .contact-form-container`,
+    { x: -100, opacity: 0, duration: 1.2, ease: "power3.out" },
+    { trigger: `${S} .contact-form-container` }
+  );
+  manager.addAnimation(
+    `${S} .contact-info-container`,
+    { x: 100, opacity: 0, duration: 1.2, ease: "power3.out" },
+    { trigger: `${S} .contact-info-container` }
   );
 
-  // Form fields staggered animation
+  // Form title reveal
   manager.addAnimation(
-    ".form-field",
-    {
-      duration: 0.6,
-      y: 30,
-      opacity: 0,
-      stagger: 0.1,
-      ease: "power2.out",
-    },
-    { trigger: ".contact-form" }
+    `${S} .contact-form-title`,
+    { y: 30, opacity: 0, duration: 0.8, ease: "power2.out" },
+    { trigger: `${S} .contact-form-title`, start: "top 85%" }
   );
 
-  // Submit button animation
+  // Stagger each field (requires each input wrapper to have class "contact-field")
+  gsap.utils.toArray(`${S} .contact-field`).forEach((fieldEl: any, i) => {
+    manager.addAnimation(
+      fieldEl,
+      { y: 30, opacity: 0, duration: 0.6, ease: "power2.out", delay: i * 0.1 },
+      { trigger: `${S} .contact-form`, start: "top 80%" }
+    );
+  });
+
+  // Submit button pop
   manager.addAnimation(
-    ".contact-form-submit",
+    `${S} .contact-form-submit`,
     {
-      duration: 0.8,
       scale: 0.8,
       opacity: 0,
+      duration: 0.8,
       ease: "back.out(1.7)",
       delay: 0.5,
     },
-    { start: "top 85%", end: "bottom 15%" }
+    { trigger: `${S} .contact-form-submit`, start: "top 85%" }
   );
 
-  // Info cards animation
-  manager.addAnimation(".contact-info-card", {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: "back.out(1.7)",
-  });
+  // Info cards fade in
+  manager.addAnimation(
+    `${S} .contact-info-card`,
+    { y: 50, opacity: 0, duration: 1, ease: "back.out(1.7)" },
+    { trigger: `${S} .contact-info-card` }
+  );
+  // Info items stagger
+  manager.addAnimation(
+    `${S} .contact-info-item`,
+    { x: -30, opacity: 0, duration: 0.6, ease: "power2.out", stagger: 0.2 },
+    { trigger: `${S} .contact-info-card` }
+  );
+  // Social card & promise card
+  manager.addAnimation(
+    `${S} .contact-social-card`,
+    { y: 50, opacity: 0, duration: 1, ease: "back.out(1.7)", delay: 0.2 },
+    { trigger: `${S} .contact-social-card` }
+  );
+  manager.addAnimation(
+    `${S} .contact-promise-card`,
+    { y: 50, opacity: 0, duration: 1, ease: "back.out(1.7)", delay: 0.4 },
+    { trigger: `${S} .contact-promise-card` }
+  );
 
-  // Info items animation
-  manager.addAnimation(".contact-info-item", {
-    duration: 0.6,
-    x: -30,
-    opacity: 0,
-    stagger: 0.2,
-    ease: "power2.out",
-  });
-
-  // Social card animation
-  manager.addAnimation(".contact-social-card", {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: "back.out(1.7)",
-    delay: 0.2,
-  });
-
-  // Promise card animation
-  manager.addAnimation(".contact-promise-card", {
-    duration: 1,
-    y: 50,
-    opacity: 0,
-    ease: "back.out(1.7)",
-    delay: 0.4,
-  });
-
-  // Success message animation
-  const successElement = document.querySelector(".contact-form-success");
-  if (successElement) {
-    gsap.from(successElement, {
-      duration: 1,
-      scale: 0.8,
-      opacity: 0,
-      ease: "back.out(1.7)",
-    });
-  }
-
-  // Return cleanup function
   return manager.cleanup;
 };
