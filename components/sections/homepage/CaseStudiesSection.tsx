@@ -92,7 +92,7 @@ export default function CaseStudiesSection() {
               {t("caseStudies.cta.description")}
             </p>
             <div className="flex gap-4 justify-center">
-              <PrimaryButton href="/case-studies">
+              <PrimaryButton href="/casos-de-exito">
                 {t("caseStudies.cta.viewAll")}
               </PrimaryButton>
               <SecondaryButton href="/contacto">

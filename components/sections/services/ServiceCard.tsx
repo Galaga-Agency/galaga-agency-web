@@ -67,12 +67,12 @@ export default function ServiceCard({
       </ul>
 
       {/* CTA Link */}
-      <Link
+      {/* <Link
         href={`/services/${linkSlug}`}
         className={`services-overview-card-cta inline-flex items-center gap-2 text-${color} font-semibold hover:text-negro transition-transform duration-300 transform group-hover:translate-x-1`}
       >
         Learn more →
-      </Link>
+      </Link> */}
 
       {/* Accent Dot */}
       <div

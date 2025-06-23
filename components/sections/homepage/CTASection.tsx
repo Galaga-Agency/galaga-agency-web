@@ -100,7 +100,7 @@ export default function CTASection() {
 
                     <div className="cta-secondary-wrapper group">
                       <SecondaryButton 
-                        href="/about"
+                        href="/sobre-nosotros"
                         className="cta-secondary-button group-hover:scale-105 md:group-hover:scale-110 group-hover:-translate-y-1 md:group-hover:-translate-y-2 transition-all duration-300 px-6 py-3 md:px-8 md:py-4 w-full md:w-auto"
                       >
                         <span className="flex items-center justify-center gap-2 md:gap-3">

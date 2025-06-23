@@ -144,7 +144,7 @@ export default function CaseStudiesCategoriesSection() {
                 </svg>
               </a>
               <a
-                href="/services"
+                href="/servicios"
                 className="categories-cta-secondary inline-flex items-center justify-center gap-3 bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border border-white/20 hover:bg-white/20 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
               >
                 <span>
