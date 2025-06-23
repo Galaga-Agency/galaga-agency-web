@@ -5,7 +5,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const initAboutAnimations = () => {
   // Animate FaLightbulb icon
-  gsap.fromTo(".lightbulb-icon", 
+  gsap.fromTo(
+    ".lightbulb-icon",
     { scale: 1, rotation: 0 },
     {
       scale: 2,
@@ -15,13 +16,14 @@ export const initAboutAnimations = () => {
       scrollTrigger: {
         trigger: ".lightbulb-icon",
         start: "top 50%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
     }
   );
 
   // Animate FaHandshake icon
-  gsap.fromTo(".handshake-icon", 
+  gsap.fromTo(
+    ".handshake-icon",
     { scale: 1, rotation: 0 },
     {
       scale: 2,
@@ -31,7 +33,7 @@ export const initAboutAnimations = () => {
       scrollTrigger: {
         trigger: ".handshake-icon",
         start: "top 50%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play none none none",
       },
     }
   );

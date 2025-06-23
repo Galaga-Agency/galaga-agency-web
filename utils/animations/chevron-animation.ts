@@ -5,9 +5,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function initChevronAnimations() {
-  const doubleChevron = document.querySelector('img[alt="Double Chevron"]') as HTMLImageElement;
-  const singleChevron = document.querySelector('img[alt="Single Chevron"]') as HTMLImageElement;
-  
+  const doubleChevron = document.querySelector(
+    'img[alt="Double Chevron"]'
+  ) as HTMLImageElement;
+  const singleChevron = document.querySelector(
+    'img[alt="Single Chevron"]'
+  ) as HTMLImageElement;
+
   if (!doubleChevron || !singleChevron) {
     return;
   }
@@ -15,7 +19,7 @@ export function initChevronAnimations() {
   // Get screen size for responsive animation values
   const isMobile = window.innerWidth < 768;
   const isTablet = window.innerWidth < 1024;
-  
+
   // Responsive animation values
   const doubleChevronX = isMobile ? -80 : isTablet ? -120 : -150;
   const doubleChevronY = isMobile ? 80 : isTablet ? 120 : 150;
@@ -28,7 +32,7 @@ export function initChevronAnimations() {
     scale: isMobile ? 0.6 : 0.7,
     x: doubleChevronX,
     y: doubleChevronY,
-    rotation: -20
+    rotation: -20,
   });
 
   gsap.set(singleChevron, {
@@ -36,7 +40,7 @@ export function initChevronAnimations() {
     scale: isMobile ? 0.6 : 0.7,
     x: singleChevronX,
     y: singleChevronY,
-    rotation: 25
+    rotation: 25,
   });
 
   // Create timeline for coordinated animations
@@ -44,8 +48,8 @@ export function initChevronAnimations() {
     scrollTrigger: {
       trigger: ".about-section",
       start: "top 60%",
-      toggleActions: "play none none reverse"
-    }
+      toggleActions: "play none none none",
+    },
   });
 
   // Animate double chevron first - slides to background position
@@ -56,18 +60,22 @@ export function initChevronAnimations() {
     rotation: 0,
     opacity: isMobile ? 0.3 : 0.2, // More visible on mobile for better contrast
     scale: 1,
-    ease: "power3.out"
+    ease: "power3.out",
   })
-  // Then animate single chevron with stagger
-  .to(singleChevron, {
-    duration: 1.8,
-    x: 0,
-    y: 0,
-    rotation: 0,
-    opacity: isMobile ? 0.6 : 0.4, // More visible on mobile
-    scale: 1,
-    ease: "power2.out"
-  }, "-=0.8");
+    // Then animate single chevron with stagger
+    .to(
+      singleChevron,
+      {
+        duration: 1.8,
+        x: 0,
+        y: 0,
+        rotation: 0,
+        opacity: isMobile ? 0.6 : 0.4, // More visible on mobile
+        scale: 1,
+        ease: "power2.out",
+      },
+      "-=0.8"
+    );
 
   // Add subtle continuous animation for visual interest
   gsap.to([doubleChevron, singleChevron], {
@@ -77,17 +85,17 @@ export function initChevronAnimations() {
     repeat: -1,
     ease: "sine.inOut",
     stagger: 0.5,
-    delay: 2 // Start after entrance animation
+    delay: 2, // Start after entrance animation
   });
 }
 
 export function cleanupChevronAnimations() {
-  ScrollTrigger.getAll().forEach(trigger => {
+  ScrollTrigger.getAll().forEach((trigger) => {
     if (trigger.vars.trigger === ".about-section") {
       trigger.kill();
     }
   });
-  
+
   // Kill any ongoing animations
   gsap.killTweensOf('img[alt="Double Chevron"]');
   gsap.killTweensOf('img[alt="Single Chevron"]');

@@ -15,44 +15,39 @@ export default function FeaturedClientCard({ client, index }: FeaturedClientCard
   const isReversed = index % 2 === 1;
 
   return (
-    <div 
-      className={`featured-client-card grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}
-      data-index={index}
-    >
+    <div className={`featured-client-card grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center ${isReversed ? 'lg:grid-flow-dense' : ''}`}>
       {/* Content */}
-      <div className={`${isReversed ? 'lg:col-start-2' : ''} px-4 lg:px-0`}>
+      <div className={`featured-client-content ${isReversed ? 'lg:col-start-2' : ''}`}>
         {/* Client Logo */}
-        <div className="flex items-center gap-4 pb-6">
-          <div className="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center p-3">
+        <div className="featured-client-logo-container pb-6">
+          <div className="featured-client-logo inline-flex items-center gap-4 p-6 bg-blanco rounded-xl shadow-md">
             <Image
               src={client.logo}
-              alt={`${client.name} logo`}
+              alt={client.name}
               width={60}
               height={60}
               className="object-contain"
             />
-          </div>
-          <div>
-            <h4 className="text-xl font-bold text-negro">{client.name}</h4>
-            <span className={`text-sm font-semibold text-${client.color} uppercase tracking-wider`}>
-              {t(client.category)}
-            </span>
+            <div>
+              <h4 className="featured-client-name text-xl font-bold text-negro">{client.name}</h4>
+              <span className="featured-client-category text-sm text-grafito">{t(client.category)}</span>
+            </div>
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-lg text-grafito leading-relaxed pb-8">
+        <p className="featured-client-description text-lg text-grafito leading-relaxed pb-8">
           {t(client.description)}
         </p>
 
         {/* Results Grid */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="featured-client-results grid grid-cols-2 gap-6">
           {client.results.map((result, idx) => (
-            <div key={idx} className={`p-4 bg-${client.color}/5 rounded-xl border border-${client.color}/20`}>
-              <div className={`text-2xl font-black text-${client.color} pb-1`}>
+            <div key={idx} className="featured-client-result text-center p-4 bg-hielo/50 rounded-lg">
+              <div className="featured-client-result-value text-2xl md:text-3xl font-black text-teal pb-2">
                 {result.value}
               </div>
-              <div className="text-sm text-grafito font-medium">
+              <div className="featured-client-result-metric text-sm text-grafito font-medium uppercase tracking-wider">
                 {t(result.metric)}
               </div>
             </div>
@@ -61,23 +56,22 @@ export default function FeaturedClientCard({ client, index }: FeaturedClientCard
       </div>
 
       {/* Image */}
-      <div className={`${isReversed ? 'lg:col-start-1 lg:row-start-1' : ''} relative`}>
-        <div className="aspect-video bg-gradient-to-br from-hielo to-white rounded-2xl overflow-hidden shadow-2xl border border-hielo/50">
+      <div className={`featured-client-image-container relative ${isReversed ? 'lg:col-start-1' : ''}`}>
+        <div className="featured-client-image relative aspect-video rounded-2xl overflow-hidden shadow-xl">
           <Image
             src={client.image}
-            alt={`${client.name} case study`}
+            alt={client.name}
             fill
-            className="object-cover hover:scale-105 transition-transform duration-700"
+            className="object-cover"
           />
-          <div className={`absolute inset-0 bg-gradient-to-br from-${client.color}/20 to-transparent`}></div>
         </div>
         
         {/* Floating metric badge */}
-        <div className="absolute -bottom-4 -right-4 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-xl border border-hielo/50">
-          <div className={`text-lg font-black text-${client.color}`}>
+        <div className="featured-client-badge absolute -top-4 -right-4 p-4 bg-mandarina rounded-xl shadow-lg text-blanco text-center">
+          <div className="featured-client-badge-value text-xl font-black">
             {client.results[0].value}
           </div>
-          <div className="text-xs text-grafito font-medium">
+          <div className="featured-client-badge-metric text-xs font-medium uppercase tracking-wider opacity-90">
             {t(client.results[0].metric)}
           </div>
         </div>

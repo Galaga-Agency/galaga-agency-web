@@ -26,7 +26,7 @@ export function initHeroTitleAnimation() {
 
   // Animation sequence
   tl
-    // Main title appears (slight reduction from 1.5s to 1.3s)
+    // Main title appears
     .to(transformamosEl, {
       opacity: 1,
       scale: 1,
@@ -36,7 +36,7 @@ export function initHeroTitleAnimation() {
       ease: "power3.out",
     })
     
-    // Second title (smoother easing, slight reduction)
+    // Second title
     .to(negociosEl, {
       opacity: 1,
       scale: 1,
@@ -46,16 +46,16 @@ export function initHeroTitleAnimation() {
       ease: "power3.out",
     }, "-=0.8")
     
-    // Dramatic pause with pulse (smoother pulse effect)
+    // Subtle pulse effect without glow (just scale)
     .to([transformamosEl, negociosEl], {
-      textShadow: "0 0 50px rgba(255,255,255,0.8)",
+      scale: 1.02,
       duration: 0.3,
       ease: "power2.inOut",
       yoyo: true,
       repeat: 1
     }, "+=0.2")
     
-    // "sin complicaciones" appears (slight reduction with smoother easing)
+    // "sin complicaciones" appears with dramatic scale
     .to(sinComplicacionesEl, {
       opacity: 1,
       scale: 1.3,
@@ -65,10 +65,9 @@ export function initHeroTitleAnimation() {
       ease: "back.out(1.5)",
     })
     
-    // Final glow on text (smoother finish)
+    // Final settle to normal scale (no glow)
     .to(sinComplicacionesEl, {
       scale: 1,
-      textShadow: "0 0 30px rgba(20, 184, 166, 0.9)",
       duration: 0.9,
       ease: "power2.out"
     });

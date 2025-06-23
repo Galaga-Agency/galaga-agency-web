@@ -1,12 +1,13 @@
 // utils/partnersAnimations.ts
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const animatePartnersSection = () => {
   // Title dramatic entrance
-  gsap.fromTo(".partners-title",
+  gsap.fromTo(
+    ".partners-title",
     {
       y: 100,
       opacity: 0,
@@ -22,13 +23,14 @@ export const animatePartnersSection = () => {
         trigger: ".partners-title",
         start: "top 80%",
         end: "bottom 20%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none none",
+      },
     }
   );
 
   // Subtitle slide in
-  gsap.fromTo(".partners-subtitle",
+  gsap.fromTo(
+    ".partners-subtitle",
     {
       y: 50,
       opacity: 0,
@@ -42,13 +44,14 @@ export const animatePartnersSection = () => {
       scrollTrigger: {
         trigger: ".partners-subtitle",
         start: "top 85%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none none",
+      },
     }
   );
 
   // Partner logos dramatic wave entrance
-  gsap.fromTo(".partner-logo",
+  gsap.fromTo(
+    ".partner-logo",
     {
       y: 120,
       opacity: 0,
@@ -65,18 +68,19 @@ export const animatePartnersSection = () => {
       stagger: {
         amount: 2,
         from: "start",
-        ease: "power2.inOut"
+        ease: "power2.inOut",
       },
       scrollTrigger: {
         trigger: ".partners-container",
         start: "top 75%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none none",
+      },
     }
   );
 
   // Flowing connection lines animation
-  gsap.fromTo(".connection-line-1, .connection-line-2",
+  gsap.fromTo(
+    ".connection-line-1, .connection-line-2",
     {
       strokeDasharray: "0 1000",
       opacity: 0,
@@ -90,8 +94,8 @@ export const animatePartnersSection = () => {
       scrollTrigger: {
         trigger: ".partners-container",
         start: "top 70%",
-        toggleActions: "play none none reverse"
-      }
+        toggleActions: "play none none none",
+      },
     }
   );
 };
