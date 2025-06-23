@@ -240,6 +240,7 @@
     "title": "Page not found",
     "description": "Sorry, the page you're looking for doesn't exist or has been moved.",
     "goHome": "Go home",
+    "goBack": "Go back",
     "contactUs": "Contact us",
     "helpfulLinks": "Helpful links",
     "links": {
@@ -577,41 +578,39 @@
     }
   },
   "proyecto-detalle": {
-    "back-to-projects": "Back to Projects",
-    "client": "Client",
-    "year": "Year",
-    "duration": "Duration",
-    "status": "Status",
-    "view-live": "View Live",
+    "volverProyectos": "Back to Projects",
+    "desafio": {
+      "titulo": "Challenge"
+    },
+    "solucion": {
+      "titulo": "Solution"
+    },
+    "resultados": {
+      "titulo": "Results"
+    },
+    "metricas": {
+      "subtitulo": "Results",
+      "titulo": "Measurable Impact",
+      "descripcion": "Real results achieved for our client"
+    },
     "challenge": {
-      "title": "The Challenge"
+      "title": "Challenge"
     },
     "solution": {
-      "title": "Our Solution"
-    },
-    "technologies": {
-      "title": "Technologies Used"
-    },
-    "features": {
-      "title": "Key Features"
+      "title": "Solution"
     },
     "results": {
+      "title": "Results"
+    },
+    "metrics": {
       "eyebrow": "Results",
-      "title": "Impact & Results",
-      "subtitle": "Measurable outcomes that drive business growth"
+      "title": "Measurable Impact",
+      "subtitle": "Real results achieved for our client"
     },
-    "gallery": {
-      "title": "Project Gallery",
-      "subtitle": "Explore the visual journey of this transformation",
-      "modules": "Modules Developed",
-      "responsive": "Mobile Responsive",
-      "availability": "System Availability"
-    },
-    "related": {
-      "title": "Related Projects",
-      "subtitle": "Discover more success stories from our portfolio",
-      "view-project": "View Project",
-      "view-all": "View All Projects"
+    "backToProjects": "Back to Projects",
+    "notFound": {
+      "title": "Case Study Not Found",
+      "backToProjects": "Back to Case Studies"
     }
   }
 }

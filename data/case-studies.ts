@@ -17,7 +17,7 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.seoImprovement"
       }
     ],
-    image: "/assets/img/homepage/dosxdos.jpg",
+    image: "/assets/img/clients/dosxdos-cover.png",
     theme: 'digital' as const,
     slug: "dos-x-dos-grupo-imagen"
   },
@@ -37,7 +37,7 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.realTimeMonitoring"
       }
     ],
-    image: "/assets/img/homepage/energia-solar-canarias.webp",
+    image: "/assets/img/clients/energia-solar-canarias-cover.png",
     theme: 'digital' as const,
     slug: "energia-solar-canarias"
   },
@@ -57,7 +57,7 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.qualifiedLeads"
       }
     ],
-    image: "/assets/img/homepage/toyota.png",
+    image: "/assets/img/clients/toyota-cover.png",
     theme: 'marketing' as const,
     slug: "toyota-canarias"
   },

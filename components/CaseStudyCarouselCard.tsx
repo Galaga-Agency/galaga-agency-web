@@ -66,15 +66,17 @@ export default function CaseStudyCarouselCard({
       <Link href={`/casos-de-exito/${slug}`} className="block h-full">
         <div className={`relative bg-white rounded-3xl shadow-2xl ${colors.glow} h-full overflow-hidden group-hover:scale-[1.05] group-hover:shadow-3xl transition-all duration-700 border border-white/20`}>
           
-          {/* MASSIVE Hero Image - Adjusted for taller card */}
+          {/* MASSIVE Hero Image - Fixed with relative positioning and sizes */}
           <div className="relative h-[480px] overflow-hidden">
             {/* Dynamic Gradient Overlay */}
             <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-70 z-10 group-hover:opacity-50 transition-all duration-700`}></div>
             
+            {/* Fixed Image with sizes prop */}
             <Image
               src={image}
               alt={t(titleKey)}
               fill
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 50vw, 35vw"
               className="object-cover group-hover:scale-125 transition-transform duration-1200 ease-out"
             />
             
