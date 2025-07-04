@@ -31,7 +31,7 @@ export default function HomepageAboutSection() {
   ];
 
   return (
-    <section className="homepage-about-section section relative bg-gradient-to-br from-blanco to-hielo ">
+    <section className="homepage-about-section section relative bg-gradient-to-br from-blanco to-hielo overflow-visible">
       {/* Diagonal background layers */}
       <div className="absolute inset-0">
         {/* Top diagonal - Subtle teal light */}
@@ -52,9 +52,9 @@ export default function HomepageAboutSection() {
       </div>
 
       {/* Overflowing cards at the top */}
-      <div className="absolute top-32 md:top-0 left-0 right-0 -translate-y-1/4 md:-translate-y-1/3 z-30">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <div className="absolute top-32 md:top-0 left-0 right-0 -translate-y-1/4 md:-translate-y-1/3 z-30 overflow-visible">
+        <div className="container overflow-visible">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8 overflow-visible">
             {valueProps.map((item, idx) => (
               <ValuePropCard
                 key={idx}

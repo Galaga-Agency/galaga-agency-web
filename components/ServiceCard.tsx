@@ -8,38 +8,91 @@ interface ServiceCardProps {
   features: string[];
   theme: string;
   size: string;
+  isHovered?: boolean;
+  isNeighborHovered?: boolean;
+  onHover?: (isHovered: boolean) => void;
 }
 
-export default function ServiceCard({ icon: IconComponent, title, description, features, theme, size }: ServiceCardProps) {
+export default function ServiceCard({ 
+  icon: IconComponent, 
+  title, 
+  description, 
+  features, 
+  theme, 
+  size,
+  isHovered = false,
+  isNeighborHovered = false,
+  onHover
+}: ServiceCardProps) {
   const { t } = useTranslation();
 
-const getThemeClasses = (theme: string) => {
+  const getThemeClasses = (theme: string) => {
     switch (theme) {
-      case "primary":
-        return "bg-gradient-to-br from-primary-500/80 via-primary-600/70 to-white/30";
-      case "creative":
-        return "bg-gradient-to-br from-primary-600/70 via-white/40 to-accent-warm/50";
-      case "accent":
-        return "bg-gradient-to-br from-white/35 via-primary-500/60 to-secondary-600/70";
-      case "warm":
-        return "bg-gradient-to-br from-primary-500/70 via-accent-warm/60 to-white/45";
-      case "secondary":
-        return "bg-gradient-to-br from-white/40 via-secondary-600/70 to-primary-500/80";
-      case "electric":
-        return "bg-gradient-to-br from-primary-600/75 via-white/50 to-accent-warm/60";
+      case "teal":
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-teal/10 border-teal/40";
+      case "violeta":
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-violeta/10 border-violeta/40";
+      case "turquesa":
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-turquesa/10 border-turquesa/40";
+      case "mandarina":
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-mandarina/10 border-mandarina/40";
+      case "azul-profundo":
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-azul-profundo/10 border-azul-profundo/40";
+      case "verde-azulado":
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-verde-azulado/10 border-verde-azulado/40";
       default:
-        return "bg-gradient-to-br from-primary-500/70 via-white/30 to-secondary-600/70";
+        return "bg-gradient-to-br from-blanco/25 via-blanco/20 to-teal/10 border-teal/40";
+    }
+  };
+
+  const getIconColor = (theme: string) => {
+    switch (theme) {
+      case "teal":
+        return "text-teal";
+      case "violeta":
+        return "text-violeta";
+      case "turquesa":
+        return "text-turquesa";
+      case "mandarina":
+        return "text-mandarina";
+      case "azul-profundo":
+        return "text-azul-profundo";
+      case "verde-azulado":
+        return "text-verde-azulado";
+      default:
+        return "text-teal";
+    }
+  };
+
+  const getFeatureDotColor = (theme: string, isHovered: boolean) => {
+    if (!isHovered) return 'bg-hielo/60 scale-100';
+    
+    switch (theme) {
+      case "teal":
+        return "bg-teal scale-125 shadow-lg";
+      case "violeta":
+        return "bg-violeta scale-125 shadow-lg";
+      case "turquesa":
+        return "bg-turquesa scale-125 shadow-lg";
+      case "mandarina":
+        return "bg-mandarina scale-125 shadow-lg";
+      case "azul-profundo":
+        return "bg-azul-profundo scale-125 shadow-lg";
+      case "verde-azulado":
+        return "bg-verde-azulado scale-125 shadow-lg";
+      default:
+        return "bg-teal scale-125 shadow-lg";
     }
   };
 
   const getSizeClasses = (size: string) => {
     switch (size) {
       case "small":
-        return "col-span-1"; // 1/3 width in 3-column grid
+        return "col-span-1";
       case "large":  
-        return "col-span-2"; // 2/3 width in 3-column grid
+        return "col-span-2";
       case "mobile":
-        return ""; // No grid classes for mobile
+        return "";
       default:
         return "col-span-1";
     }
@@ -80,64 +133,87 @@ const getThemeClasses = (theme: string) => {
 
   const contentSize = getContentSize(size);
 
+  // Dynamic classes based on hover states
+  const getCardState = () => {
+    if (isHovered) {
+      return "scale-105 -translate-y-2 shadow-2xl z-20";
+    } else if (isNeighborHovered) {
+      return "scale-95 translate-y-1 opacity-75";
+    }
+    return "scale-100";
+  };
+
+  const getBackgroundState = () => {
+    if (isHovered) {
+      return "opacity-100 scale-110";
+    }
+    return "opacity-0 scale-100";
+  };
+
+  const handleMouseEnter = () => {
+    onHover?.(true);
+  };
+
+  const handleMouseLeave = () => {
+    onHover?.(false);
+  };
+
   return (
     <div
-      className={`${getSizeClasses(size)} ${getThemeClasses(theme)} 
-        rounded-3xl p-6 lg:p-8 relative overflow-hidden group h-full
-        hover:scale-[1.03] hover:-rotate-1 transition-all duration-700 cursor-pointer
-        border border-white/20 backdrop-blur-sm shadow-2xl
-        before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/20 before:to-transparent before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100`}
+      className={`${getSizeClasses(size)} ${getThemeClasses(theme)} ${getCardState()}
+        rounded-3xl p-6 lg:p-8 relative overflow-hidden group h-full cursor-pointer
+        backdrop-blur-md shadow-lg border-2 transition-all duration-500 ease-out`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Animated background particles */}
+      {/* Dynamic glow background */}
+      <div className={`absolute inset-0 bg-gradient-to-br from-blanco/30 via-blanco/15 to-transparent rounded-3xl transition-all duration-500 ${getBackgroundState()}`}></div>
+      
+      {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-10 -right-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute -bottom-5 -left-5 w-16 h-16 bg-white/20 rounded-full blur-lg animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/4 w-8 h-8 bg-white/15 rounded-full blur-md animate-pulse delay-500"></div>
+        <div className={`absolute top-4 right-4 w-8 h-8 bg-blanco/20 rounded-full blur-lg transition-all duration-700 ${isHovered ? 'opacity-100 scale-150 animate-pulse' : 'opacity-0 scale-100'}`}></div>
+        <div className={`absolute bottom-6 left-6 w-6 h-6 bg-blanco/30 rounded-full blur-md transition-all duration-700 delay-200 ${isHovered ? 'opacity-100 scale-125 animate-pulse' : 'opacity-0 scale-100'}`}></div>
+        <div className={`absolute top-1/2 left-1/4 w-4 h-4 bg-blanco/15 rounded-full blur-sm transition-all duration-700 delay-400 ${isHovered ? 'opacity-100 scale-110 animate-pulse' : 'opacity-0 scale-100'}`}></div>
       </div>
 
-      {/* Floating icon background */}
-      <div className={`z-20 absolute top-4 right-4 ${size === 'large' ? 'text-7xl lg:text-8xl' : 'text-5xl lg:text-6xl'} text-white/10 group-hover:text-white/20 group-hover:scale-110 group-hover:rotate-12 transition-all duration-700`}>
+      {/* Large floating icon background */}
+      <div className={`absolute -top-4 -right-4 ${size === 'large' ? 'text-8xl lg:text-9xl' : 'text-6xl lg:text-7xl'} transition-all duration-500 ${isHovered ? 'text-blanco/25 rotate-12 scale-110' : 'text-blanco/8 rotate-6 scale-100'}`}>
         <IconComponent />
       </div>
       
       {/* Content */}
       <div className="relative z-10 flex flex-col h-full">
-        {/* Animated header */}
-        <div className="flex items-center space-x-4 pb-6 group-hover:translate-x-2 transition-transform duration-500">
-          <div className={`${contentSize.iconBgSize} bg-white/25 rounded-2xl backdrop-blur-md group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-xl`}>
-            <IconComponent className={`${contentSize.iconSize} text-white drop-shadow-lg`} />
+        {/* Header with enhanced icon */}
+        <div className={`flex items-center pb-6 transition-all duration-300 ${isHovered ? 'translate-x-2' : 'translate-x-0'}`}>
+          <div className={`${contentSize.iconBgSize} bg-blanco/40 rounded-2xl backdrop-blur-sm shadow-lg border border-blanco/20 transition-all duration-300 ${isHovered ? 'scale-110 bg-blanco/60 shadow-xl' : 'scale-100'}`}>
+            <IconComponent className={`${contentSize.iconSize} ${getIconColor(theme)} drop-shadow-md transition-all duration-300 ${isHovered ? 'scale-110' : 'scale-100'}`} />
           </div>
         </div>
         
-        {/* Animated title */}
-        <h3 className={`${contentSize.titleSize} font-black text-white pb-4 leading-tight drop-shadow-lg
-          group-hover:translate-x-1 transition-transform duration-300`}>
+        {/* Enhanced title */}
+        <h3 className={`${contentSize.titleSize} font-black text-blanco pb-4 leading-tight transition-all duration-300 ${isHovered ? 'translate-x-1 text-shadow-lg' : 'translate-x-0'}`}>
           {t(title)}
         </h3>
         
-        {/* Animated description */}
-        <p className="text-sm lg:text-base text-white/95 pb-6 leading-relaxed flex-1 drop-shadow-sm
-          group-hover:text-white transition-colors duration-300">
+        {/* Enhanced description */}
+        <p className={`text-sm lg:text-base text-hielo pb-6 leading-relaxed flex-1 transition-all duration-300 ${isHovered ? 'text-blanco/90' : 'text-hielo'}`}>
           {t(description)}
         </p>
         
-        {/* Animated features */}
+        {/* Enhanced features with staggered animation */}
         <div className="mt-auto flex flex-col gap-3">
           {features.slice(0, contentSize.maxFeatures).map((feature, index) => (
             <div
               key={index}
-              className="flex items-center space-x-3 text-white/90 text-sm
-                group-hover:translate-x-2 transition-all duration-300"
+              className={`flex items-center gap-3 text-sm transition-all duration-300 ${isHovered ? 'translate-x-2 text-blanco/95' : 'translate-x-0 text-hielo'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-2 h-2 bg-white/80 rounded-full flex-shrink-0 group-hover:scale-150 group-hover:bg-white transition-all duration-300 shadow-lg"></div>
-              <span className="leading-relaxed group-hover:text-white transition-colors duration-300 pl-2">{t(feature)}</span>
+              <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 shadow-sm transition-all duration-300 ${getFeatureDotColor(theme, isHovered)}`}></div>
+              <span className="leading-relaxed">{t(feature)}</span>
             </div>
           ))}
         </div>
 
-        {/* Pulsing border effect */}
-        <div className="absolute inset-0 rounded-3xl border-2 border-white/10 opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-500 z-10"></div>
       </div>
     </div>
   );

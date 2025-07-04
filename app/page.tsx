@@ -14,12 +14,14 @@ import { animatePartnersSection } from "@/utils/animations/partners-animation";
 import { initChevronAnimations } from "@/utils/animations/chevron-animation";
 import { initCaseStudiesAnimations } from "@/utils/animations/case-studies-animation";
 import { initAboutAnimations } from "@/utils/animations/about-animations";
+import { fadeAnimations } from "@/utils/animations/fade-animations";
 
 export default function HomePage() {
   useGSAPAnimations({
     animations: [
       initHeroTitleAnimation,
       initHeroScrollAnimation,
+      fadeAnimations,
       initAboutAnimations,
       initChevronAnimations,
       initCaseStudiesAnimations,
