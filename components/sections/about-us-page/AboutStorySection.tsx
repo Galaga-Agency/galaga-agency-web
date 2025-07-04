@@ -166,7 +166,7 @@ export default function AboutStorySection() {
               <div className="story-block-image-container relative lg:order-2">
                 <div className="story-block-image relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-violeta/20 group hover:scale-105 transition-transform duration-500">
                   <Image
-                    src="/assets/img/sobre-nosotros/gaming.jpg"
+                    src="/assets/img/sobre-nosotros/galaga-hoy-1.jpg"
                     alt="Galaga Agency Today - Digital Dashboard"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"

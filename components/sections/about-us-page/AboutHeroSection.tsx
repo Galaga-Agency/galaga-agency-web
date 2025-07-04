@@ -22,7 +22,9 @@ export default function AboutHeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-teal/30 via-transparent to-turquesa/20 z-15"></div>
 
       <div className="container relative z-20 w-full py-20">
-        <div className="about-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
+        <div className="about-hero-content w-full flex flex-col ju
+        
+        .stify-center items-center min-h-[70vh]">
           
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">

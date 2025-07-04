@@ -35,26 +35,26 @@ export default function HomepageAboutSection() {
       {/* Diagonal background layers */}
       <div className="absolute inset-0">
         {/* Top diagonal - Subtle teal light */}
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-br from-hielo/40 via-turquesa/10 to-white"
           style={{
-            clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 50%)"
+            clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 50%)",
           }}
         ></div>
-        
+
         {/* Bottom diagonal - Pure white */}
-        <div 
+        <div
           className="absolute inset-0 bg-gradient-to-br from-white via-hielo/20 to-white"
           style={{
-            clipPath: "polygon(0 50%, 100% 70%, 100% 100%, 0 100%)"
+            clipPath: "polygon(0 50%, 100% 70%, 100% 100%, 0 100%)",
           }}
         ></div>
       </div>
 
       {/* Overflowing cards at the top */}
       <div className="absolute top-32 md:top-0 left-0 right-0 -translate-y-1/4 md:-translate-y-1/3 z-30 overflow-visible">
-        <div className="container overflow-visible">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-8 overflow-visible">
+        <div className="px-32 overflow-visible">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-visible ">
             {valueProps.map((item, idx) => (
               <ValuePropCard
                 key={idx}
@@ -90,7 +90,6 @@ export default function HomepageAboutSection() {
 
         {/* Content blocks */}
         <div className="relative">
-
           {/* First block content */}
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-start py-0">
             <div className="px-4 md:px-0">
@@ -125,7 +124,7 @@ export default function HomepageAboutSection() {
 
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-start">
             <div className="hidden md:block md:order-1"></div>
-            
+
             <div className="md:order-2 px-4 md:px-0">
               <div className="flex items-center gap-6 pb-10">
                 <div className="p-5 bg-mandarina/20 rounded-2xl flex-shrink-0">

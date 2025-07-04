@@ -1,164 +1,141 @@
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const initCTAAnimations = () => {
-  // Simplified section header animations - just fade up
-  gsap.from([".cta-eyebrow", ".cta-title", ".cta-subtitle"], {
-    duration: 1,
-    y: 40,
+  // Hero text - powerful entrance
+  gsap.from(".cta-title", {
+    duration: 1.2,
+    y: 50,
     opacity: 0,
     ease: "power2.out",
-    stagger: 0.2,
     scrollTrigger: {
-      trigger: ".cta-eyebrow",
+      trigger: ".cta-title",
       start: "top 80%",
       end: "bottom 20%",
-      toggleActions: "play none none reverse"
-    }
+      toggleActions: "play none none reverse",
+    },
   });
 
-  // CTA Card - simple entrance
+  gsap.from(".cta-subtitle", {
+    duration: 1,
+    y: 30,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.3,
+    scrollTrigger: {
+      trigger: ".cta-title",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none none reverse",
+    },
+  });
+
+  // CTA Card - clean entrance
   gsap.from(".cta-card", {
     duration: 1.2,
     y: 60,
     opacity: 0,
+    scale: 0.95,
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".cta-card",
       start: "top 80%",
       end: "bottom 20%",
-      toggleActions: "play none none reverse"
-    }
+      toggleActions: "play none none reverse",
+    },
   });
 
-  // Card content - subtle stagger
-  gsap.from([".cta-card-badge", ".cta-card-title", ".cta-card-description", ".cta-card-buttons"], {
+  // Card content - subtle reveal
+  gsap.from([".cta-card-title", ".cta-card-description", ".cta-card-buttons"], {
     duration: 0.8,
     y: 20,
     opacity: 0,
     ease: "power2.out",
     stagger: 0.15,
-    delay: 0.3,
+    delay: 0.4,
     scrollTrigger: {
       trigger: ".cta-card",
       start: "top 80%",
       end: "bottom 20%",
-      toggleActions: "play none none reverse"
-    }
+      toggleActions: "play none none reverse",
+    },
   });
 
-  // Contact section - simple fade up
-  gsap.from(".cta-contact-bar", {
-    duration: 1,
-    y: 30,
-    opacity: 0,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".cta-contact-section",
-      start: "top 80%",
-      end: "bottom 20%",
-      toggleActions: "play none none reverse"
-    }
-  });
-
-  // Setup minimal hover animations
+  // Setup hover animations
   setupCTAHoverAnimations();
-
-  // Setup only essential continuous animations
-  setupCTAContinuousAnimations();
 
   // Return cleanup function
   return () => {
-    ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
   };
 };
 
 const setupCTAHoverAnimations = () => {
-  // Primary button - simple lift
-  const primaryWrapper = document.querySelector(".cta-primary-wrapper");
-  if (primaryWrapper) {
-    primaryWrapper.addEventListener("mouseenter", () => {
-      gsap.to(".cta-primary-button", {
+  // Primary button - subtle lift
+  const primaryButton = document.querySelector(".cta-primary-button");
+  if (primaryButton) {
+    primaryButton.addEventListener("mouseenter", () => {
+      gsap.to(primaryButton, {
         duration: 0.3,
-        y: -3,
+        y: -4,
+        scale: 1.02,
         ease: "power2.out",
       });
     });
 
-    primaryWrapper.addEventListener("mouseleave", () => {
-      gsap.to(".cta-primary-button", {
+    primaryButton.addEventListener("mouseleave", () => {
+      gsap.to(primaryButton, {
         duration: 0.3,
         y: 0,
+        scale: 1,
         ease: "power2.out",
       });
     });
   }
 
-  // Secondary button - simple lift
-  const secondaryWrapper = document.querySelector(".cta-secondary-wrapper");
-  if (secondaryWrapper) {
-    secondaryWrapper.addEventListener("mouseenter", () => {
-      gsap.to(".cta-secondary-button", {
+  // Secondary button - subtle lift
+  const secondaryButton = document.querySelector(".cta-secondary-button");
+  if (secondaryButton) {
+    secondaryButton.addEventListener("mouseenter", () => {
+      gsap.to(secondaryButton, {
         duration: 0.3,
-        y: -3,
+        y: -4,
+        scale: 1.02,
         ease: "power2.out",
       });
     });
 
-    secondaryWrapper.addEventListener("mouseleave", () => {
-      gsap.to(".cta-secondary-button", {
+    secondaryButton.addEventListener("mouseleave", () => {
+      gsap.to(secondaryButton, {
         duration: 0.3,
         y: 0,
+        scale: 1,
         ease: "power2.out",
       });
     });
   }
 
-  // CTA Card - subtle lift on hover
+  // CTA Card - gentle lift on hover
   const ctaCard = document.querySelector(".cta-card");
   if (ctaCard) {
     ctaCard.addEventListener("mouseenter", () => {
-      gsap.to(".cta-card", {
+      gsap.to(ctaCard, {
         duration: 0.4,
         y: -8,
+        scale: 1.02,
         ease: "power2.out",
       });
     });
 
     ctaCard.addEventListener("mouseleave", () => {
-      gsap.to(".cta-card", {
+      gsap.to(ctaCard, {
         duration: 0.4,
         y: 0,
+        scale: 1,
         ease: "power2.out",
       });
     });
   }
-};
-
-const setupCTAContinuousAnimations = () => {
-  // Only keep the essential badge icon rotation - slower and subtler
-  gsap.to(".cta-card-icon-left", {
-    rotation: 360,
-    duration: 20,
-    repeat: -1,
-    ease: "none"
-  });
-
-  gsap.to(".cta-card-icon-right", {
-    rotation: -360,
-    duration: 25,
-    repeat: -1,
-    ease: "none"
-  });
-
-  // Very subtle glow pulse on the main card
-  gsap.to(".cta-card-glow", {
-    opacity: 0.3,
-    duration: 4,
-    repeat: -1,
-    yoyo: true,
-    ease: "power2.inOut"
-  });
 };
