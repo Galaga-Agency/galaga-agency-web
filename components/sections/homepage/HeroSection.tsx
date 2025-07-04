@@ -24,9 +24,9 @@ export default function HeroSection() {
       ></div>
       
       {/* Multi-layer gradient overlay for perfect blend */}
-      <div className="absolute inset-0 bg-gradient-to-br from-azul-profundo/85 via-teal/75 to-mandarina/80 z-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-negro/60 via-transparent to-azul-profundo/40 z-15"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-teal/30 via-transparent to-turquesa/20 z-15"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-azul-profundo/95 to-teal/85 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-negro/80 via-transparent to-azul-profundo/60 z-15"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-teal/50 via-transparent to-turquesa/40 z-15"></div>
       
       <div className="container relative z-20 w-full py-20">
         <div className="hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
@@ -45,14 +45,14 @@ export default function HeroSection() {
             <h1 className="text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
               <span className="block md:pb-4">
                 <span 
-                  data-anim="transformamos" 
+                  data-anim="transformamos"
                   className="text-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
                 >
                   {t("hero.transformamos")}
                 </span>{" "}
                 <span 
-                  data-anim="negocios" 
-                  className="text-blanco block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                  data-anim="negocios"
+                  className="text-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
                 >
                   {t("hero.negocios")}
                 </span>
@@ -60,7 +60,7 @@ export default function HeroSection() {
               <span className="block">
                 <span
                   data-anim="sinComplicaciones"
-                  className="bg-gradient-to-r from-mandarina via-naranja-tostado to-verde-azulado bg-clip-text text-transparent drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
+                  className="text-blanco drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
                 >
                   {t("hero.sinComplicaciones")}
                 </span>
@@ -78,7 +78,7 @@ export default function HeroSection() {
           {/* Success Metrics */}
           {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
             {metrics.map((metric, index) => (
-              <MetricCard
+              <MetricCard 
                 key={index}
                 value={metric.value}
                 labelKey={metric.labelKey}
