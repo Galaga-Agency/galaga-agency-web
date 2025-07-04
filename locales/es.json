@@ -456,7 +456,8 @@
       "scheduleText": "Lunes a Viernes, 9:00 - 18:00"
     },
     "social": {
-      "title": "Síguenos"
+      "title": "Síguenos",
+      "description": "Síguenos para actualizaciones y contenido"
     },
     "promise": {
       "title": "Respuesta garantizada en 24h",

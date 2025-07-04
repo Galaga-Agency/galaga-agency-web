@@ -456,7 +456,8 @@
       "scheduleText": "Monday to Friday, 9:00 - 18:00"
     },
     "social": {
-      "title": "Follow us"
+      "title": "Follow us",
+      "description": "Follow us for updates and insights"
     },
     "promise": {
       "title": "24h response guaranteed",
