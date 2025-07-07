@@ -70,7 +70,17 @@ export function initHeroTitleAnimation() {
       scale: 1,
       duration: 0.9,
       ease: "power2.out"
-    });
+    })
+    .to(
+      ".homepage-hero-subtitle",
+      {
+        duration: 0.8,
+        y: 0,
+        opacity: 1,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
 
   return tl;
 }
