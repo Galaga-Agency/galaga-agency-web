@@ -14,35 +14,31 @@ export default function HeroSection() {
 
   return (
     <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] flex items-center overflow-hidden">
-      {/* Office Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/img/homepage/hero-2.png')",
-          backgroundPosition: "center center"
-        }}
-      ></div>
+      {/* Background following brand book gradient style */}
+      <div className="absolute inset-0 bg-hero-gradient"></div>
       
-      {/* Multi-layer gradient overlay for perfect blend */}
-      <div className="absolute inset-0 bg-gradient-to-br from-azul-profundo/95 to-teal/85 z-10"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-negro/80 via-transparent to-azul-profundo/60 z-15"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-teal/50 via-transparent to-turquesa/40 z-15"></div>
+      {/* Subtle overlay maintaining brand book transparency */}
+      <div className="absolute inset-0 bg-gradient-to-b from-azul-profundo/20 via-transparent to-negro/30"></div>
+      
+      {/* Geometric elements inspired by brand book circles */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-turquesa/10 circle-element blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-hielo/15 circle-element blur-2xl"></div>
       
       <div className="container relative z-20 w-full py-20">
         <div className="hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
           
-          {/* Mobile Logo - Only visible on portrait orientation */}
+          {/* Mobile Logo following brand book guidelines */}
           <div className="block portrait:block landscape:hidden lg:hidden pb-8 md:pb-12">
             <img 
               src="/assets/img/logos/logo-mobile.webp"
               alt="Galaga Agency"
-              className="w-20 h-auto md:w-24 opacity-90 drop-shadow-2xl"
+              className="w-20 h-auto md:w-24 opacity-95 drop-shadow-2xl"
             />
           </div>
 
-          {/* Main Headline */}
+          {/* Main Headline - Following brand book typography */}
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
-            <h1 className="text-4xl md:text-6xl lg:text-6xl xl:text-8xl font-black text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
+            <h1 className="hero-title text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
               <span className="block md:pb-4">
                 <span 
                   data-anim="transformamos"
@@ -52,13 +48,13 @@ export default function HeroSection() {
                 </span>{" "}
                 <span 
                   data-anim="negocios"
-                  className="text-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                  className="text-hielo block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
                 >
                   {t("hero.negocios")}
                 </span>
               </span>
               <span className="block">
-                <span
+                <span 
                   data-anim="sinComplicaciones"
                   className="text-blanco drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
                 >
@@ -68,21 +64,27 @@ export default function HeroSection() {
             </h1>
           </div>
 
-          {/* Subtitle */}
-          <div className="text-center pb-8 md:pb-12 w-full px-4">
-            <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-hielo leading-relaxed font-medium drop-shadow-xl">
+          {/* Subtitle with brand book typography */}
+          <div className="text-center pb-12 md:pb-16 w-full px-4">
+            <p className="homepage-hero-subtitle  text-large text-hielo leading-relaxed drop-shadow-lg opacity-0">
               {t("hero.subtitle")}
             </p>
           </div>
 
-          {/* Success Metrics */}
-          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
+          {/* Brand book inspired metrics display */}
+          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
             {metrics.map((metric, index) => (
-              <MetricCard 
+              <div 
                 key={index}
-                value={metric.value}
-                labelKey={metric.labelKey}
-              />
+                className="brand-card text-center glass-effect px-6 py-8 hover:glass-effect-dark group transition-all duration-300"
+              >
+                <div className="text-3xl lg:text-4xl font-bold text-teal group-hover:text-turquesa transition-colors">
+                  {metric.value}
+                </div>
+                <div className="text-sm lg:text-base text-grafito group-hover:text-hielo transition-colors pt-2">
+                  {t(metric.labelKey)}
+                </div>
+              </div>
             ))}
           </div> */}
         </div>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* base colors */
+  /* Brand Book Colors */
   --color-blanco: #ffffff;
   --color-negro: #000000;
   --color-grafito: #2c2c2c;
@@ -16,52 +16,76 @@
   --color-lavanda: #b680b5;
   --color-violeta: #4e3a73;
 
-  /* Primary color scale (using teal/turquesa palette) */
+  /* Primary color scale (Teal/Verde system from brand book) */
   --color-primary-50: #c3e5ef;
   --color-primary-100: #4cbcc5;
-  --color-primary-200: #4cbcc5;
-  --color-primary-300: #079494;
-  --color-primary-400: #079494;
+  --color-primary-200: #079494;
+  --color-primary-300: #176161;
+  --color-primary-400: #176161;
   --color-primary-500: #176161;
-  --color-primary-600: #176161;
+  --color-primary-600: #121c30;
   --color-primary-700: #121c30;
-  --color-primary-800: #121c30;
+  --color-primary-800: #000000;
   --color-primary-900: #000000;
   --color-primary-950: #000000;
 
-  /* Secondary color scale (using deep blue/gray palette) */
-  --color-secondary-50: #c3e5ef;
-  --color-secondary-100: #4cbcc5;
-  --color-secondary-200: #079494;
-  --color-secondary-300: #176161;
-  --color-secondary-400: #2c2c2c;
-  --color-secondary-500: #2c2c2c;
-  --color-secondary-600: #121c30;
-  --color-secondary-700: #121c30;
-  --color-secondary-800: #000000;
+  /* Secondary color scale (Orange system from brand book) */
+  --color-secondary-50: #f7b69f;
+  --color-secondary-100: #ee6f45;
+  --color-secondary-200: #b03c18;
+  --color-secondary-300: #b03c18;
+  --color-secondary-400: #b03c18;
+  --color-secondary-500: #b03c18;
+  --color-secondary-600: #4e3a73;
+  --color-secondary-700: #4e3a73;
+  --color-secondary-800: #121c30;
   --color-secondary-900: #000000;
   --color-secondary-950: #000000;
 
-  /* Neutral color scale (using your grays) */
+  /* Neutral color scale (Monochrome from brand book) */
   --color-neutral-50: #ffffff;
   --color-neutral-100: #c3e5ef;
-  --color-neutral-200: #4cbcc5;
-  --color-neutral-300: #079494;
-  --color-neutral-400: #176161;
+  --color-neutral-200: #2c2c2c;
+  --color-neutral-300: #2c2c2c;
+  --color-neutral-400: #2c2c2c;
   --color-neutral-500: #2c2c2c;
-  --color-neutral-600: #2c2c2c;
+  --color-neutral-600: #121c30;
   --color-neutral-700: #121c30;
   --color-neutral-800: #000000;
   --color-neutral-900: #000000;
   --color-neutral-950: #000000;
 
-  /* Accent colors */
-  --color-accent: #4cbcc5;
-  --color-accent-warm: #ee6f45;
-
-  /* Typography */
+  /* Typography - Aileron font family */
   --font-family-primary: "aileron", "Inter", system-ui, sans-serif;
   --font-family-heading: "aileron", "Inter", system-ui, sans-serif;
+
+  /* Brand gradients based on brand book examples */
+  --gradient-primary: linear-gradient(135deg, var(--color-teal) 0%, var(--color-verde-azulado) 50%, var(--color-turquesa) 100%);
+  --gradient-hero: linear-gradient(135deg, var(--color-azul-profundo) 0%, var(--color-teal) 50%, var(--color-turquesa) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--color-negro) 0%, var(--color-azul-profundo) 100%);
+  --gradient-orange: linear-gradient(135deg, var(--color-mandarina) 0%, var(--color-naranja-tostado) 100%);
+  --gradient-purple: linear-gradient(135deg, var(--color-lavanda) 0%, var(--color-violeta) 100%);
+
+  /* Spacing system */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 2.5rem;
+  --spacing-xxl: 3rem;
+
+  /* Border radius - following brand book rounded corners */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-xxl: 32px;
+
+  /* Shadows for cards and elements */
+  --shadow-sm: 0 2px 8px rgba(18, 28, 48, 0.08);
+  --shadow-md: 0 4px 16px rgba(18, 28, 48, 0.12);
+  --shadow-lg: 0 8px 32px rgba(18, 28, 48, 0.16);
+  --shadow-xl: 0 16px 64px rgba(18, 28, 48, 0.20);
 }
 
 /* Reset */
@@ -85,6 +109,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-family-primary);
   background-color: var(--color-blanco);
+  color: var(--color-negro);
 }
 
 img,
@@ -122,12 +147,13 @@ h6 {
   outline: none;
 }
 
-/* Typography Classes */
+/* Typography Classes - Based on brand book hierarchy */
 .hero-title {
   font-size: clamp(3rem, 8vw, 8rem);
   font-weight: 900;
   line-height: 0.9;
   letter-spacing: -0.025em;
+  font-family: var(--font-family-heading);
 }
 
 .section-title {
@@ -135,24 +161,29 @@ h6 {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.025em;
+  font-family: var(--font-family-heading);
 }
 
 .secondary-title {
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   font-weight: 600;
   line-height: 1.2;
+  font-family: var(--font-family-heading);
 }
 
 .text-large {
   font-size: clamp(1.125rem, 2.5vw, 1.5rem);
   line-height: 1.6;
+  font-weight: 300; /* Light weight as shown in brand book */
 }
 
 .text-base {
   font-size: clamp(1rem, 2vw, 1.125rem);
   line-height: 1.7;
+  font-weight: 400; /* Regular weight */
 }
 
+/* Layout utilities */
 .section {
   width: 100%;
   padding-left: clamp(1rem, 5vw, 4rem);
@@ -173,44 +204,111 @@ h6 {
   margin-right: calc(-1 * clamp(1rem, 5vw, 4rem));
 }
 
+/* Brand gradients from brand book */
 .bg-hero-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--color-azul-profundo) 0%,
-    var(--color-teal) 25%,
-    var(--color-verde-azulado) 50%,
-    var(--color-turquesa) 100%
-  );
+  background: var(--gradient-hero);
 }
 
 .bg-primary-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--color-teal) 0%,
-    var(--color-verde-azulado) 50%,
-    var(--color-turquesa) 100%
-  );
+  background: var(--gradient-primary);
 }
 
 .bg-dark-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--color-negro) 0%,
-    var(--color-azul-profundo) 50%,
-    var(--color-grafito) 100%
-  );
+  background: var(--gradient-dark);
 }
 
+.bg-orange-gradient {
+  background: var(--gradient-orange);
+}
+
+.bg-purple-gradient {
+  background: var(--gradient-purple);
+}
+
+/* Glass effects following brand book translucent boxes */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(23, 97, 97, 0.2);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
 }
 
 .glass-effect-dark {
-  background: rgba(18, 28, 48, 0.8);
+  background: rgba(18, 28, 48, 0.85);
   border: 1px solid rgba(76, 188, 197, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-lg);
+}
+
+/* Card styles following brand book designs */
+.brand-card {
+  background: var(--color-blanco);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-hielo);
+  padding: var(--spacing-lg);
+  transition: all 300ms ease-in-out;
+}
+
+.brand-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Circular elements following brand book style */
+.circle-element {
+  border-radius: 50%;
+  aspect-ratio: 1;
+}
+
+/* Rounded forms following brand book */
+.rounded-form {
+  border-radius: var(--radius-xxl);
+  background: var(--color-blanco);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Text on colored backgrounds - ensuring proper contrast */
+.text-on-primary {
+  color: var(--color-blanco);
+}
+
+.text-on-secondary {
+  color: var(--color-blanco);
+}
+
+.text-on-light {
+  color: var(--color-negro);
+}
+
+/* Minimalist design elements following brand book */
+.clean-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-hielo), transparent);
+  margin: var(--spacing-lg) 0;
+}
+
+/* Icon circles from brand book */
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-hielo);
+  border: 2px solid var(--color-turquesa);
+}
+
+.icon-circle-primary {
+  background: var(--color-teal);
+  color: var(--color-blanco);
+}
+
+.icon-circle-secondary {
+  background: var(--color-mandarina);
+  color: var(--color-blanco);
 }

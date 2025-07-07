@@ -4,7 +4,6 @@ import ValuePropCard from "@/components/ValuePropCard";
 import { useTranslation } from "@/hooks/useTranslation";
 import { FaRobot, FaHandshake, FaLightbulb } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
-import Image from "next/image";
 
 export default function HomepageAboutSection() {
   const { t } = useTranslation();
@@ -88,55 +87,52 @@ export default function HomepageAboutSection() {
           </div>
         </div>
 
-        {/* Content blocks */}
-        <div className="relative">
-          {/* First block content */}
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-start py-0">
-            <div className="px-4 md:px-0">
-              <div className="flex items-center gap-6 pb-6">
-                <div className="p-5 bg-turquesa/20 rounded-2xl flex-shrink-0">
-                  <FaLightbulb className="lightbulb-icon text-3xl md:text-4xl lg:text-5xl text-teal" />
-                </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-teal leading-tight">
-                  {t("homepage.about.focusTitle")}
-                </h3>
-              </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
+        {/* Two circles side by side like in screenshot */}
+        <div className="relative h-96 lg:h-[500px] flex justify-center items-center gap-8 lg:gap-16">
+          
+          {/* Left circle with question */}
+          <div className="relative">
+            <div className="w-80 h-80 lg:w-96 lg:h-96 bg-turquesa rounded-full flex items-center justify-center text-center">
+              <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-white px-8">
+                {t("homepage.about.focusTitle")}
+              </h3>
+            </div>
+            {/* Small icon circle positioned outside */}
+            <div className="absolute -top-4 -left-4 w-16 h-16 bg-azul-profundo rounded-full flex items-center justify-center">
+              <FaHandshake className="text-turquesa text-lg" />
+            </div>
+          </div>
+
+          {/* Right circle with description */}
+          <div className="relative">
+            <div className="w-80 h-80 lg:w-96 lg:h-96 bg-verde-azulado rounded-full flex items-center justify-center text-center">
+              <p className="text-lg lg:text-xl text-white leading-relaxed px-8">
                 {t("homepage.about.ourFocus")}
               </p>
             </div>
-            <div className="hidden md:block"></div>
+            {/* Small white circle positioned outside */}
+            <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-3 h-3 bg-turquesa rounded-full"></div>
+            </div>
           </div>
         </div>
 
-        {/* Second block */}
-        <div className="relative pt-16 md:pt-20 lg:pt-24">
-          {/* Background single chevron */}
-          <div className="absolute top-8 md:top-12 lg:top-4 -left-24 pointer-events-none z-0">
-            <Image
-              src="/assets/img/symbols/single-chevron.png"
-              alt="Single Chevron"
-              width={500}
-              height={500}
-              className="w-[350px] h-[350px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px]"
-            />
-          </div>
-
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-start">
-            <div className="hidden md:block md:order-1"></div>
-
-            <div className="md:order-2 px-4 md:px-0">
-              <div className="flex items-center gap-6 pb-10">
-                <div className="p-5 bg-mandarina/20 rounded-2xl flex-shrink-0">
-                  <FaHandshake className="handshake-icon text-3xl md:text-4xl lg:text-5xl text-naranja-tostado" />
-                </div>
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-teal leading-tight">
+        {/* Second bubble for the offer content */}
+        <div className="relative pt-16 md:pt-20 lg:pt-24 flex justify-center">
+          <div className="relative">
+            <div className="w-80 h-80 lg:w-120 lg:h-120 bg-teal rounded-full flex items-center justify-center text-center">
+              <div className="px-8">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white pb-4">
                   {t("homepage.about.offerTitle")}
                 </h3>
+                <p className="text-lg text-white leading-relaxed">
+                  {t("homepage.about.whatWeOffer")}
+                </p>
               </div>
-              <p className="text-lg md:text-xl lg:text-2xl text-grafito leading-relaxed">
-                {t("homepage.about.whatWeOffer")}
-              </p>
+            </div>
+            {/* Small icon circle for this bubble */}
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-azul-profundo rounded-full flex items-center justify-center">
+              <FaLightbulb className="text-turquesa text-lg" />
             </div>
           </div>
         </div>
