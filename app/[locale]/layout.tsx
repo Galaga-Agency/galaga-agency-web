@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "theme-color": "#0d9488", // Your teal color
+    "theme-color": "#0d9488",
     "msapplication-TileColor": "#0d9488",
     "google-site-verification": "5kSZQdEf21csyU2equoyVFc4nYSU0Mrk2t-FLpigFwE",
     "msvalidate.01": "F7F24C858CE116145F087D2242CD996B",
@@ -104,68 +104,34 @@ export default function LocaleLayout({
   const localBusinessSchema = getLocalBusinessSchema();
 
   return (
-    <html lang={params.locale}>
-      <head>
-        {/* Adobe Fonts */}
-        <link rel="stylesheet" href="https://use.typekit.net/nzy8bvv.css" />
+    <>
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(websiteSchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
+      />
 
-        {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://use.typekit.net" />
-        <link rel="preconnect" href="https://www.google-analytics.com" />
-
-        {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-
-        {/* Preload critical images */}
-        <link
-          rel="preload"
-          href="/hero-image.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
-
-        {/* Geographic meta tags for local SEO */}
-        <meta name="geo.region" content="ES-CN" />
-        <meta
-          name="geo.placename"
-          content="Las Palmas de Gran Canaria, Canarias"
-        />
-        <meta name="geo.position" content="28.1248;-15.4300" />
-        <meta name="ICBM" content="28.1248, -15.4300" />
-
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
-        />
-      </head>
-      <body className="antialiased">
-        <TranslationProvider>
-          <LoadingWrapper>
-            <Navbar />
-            {children}
-            <Footer />
-          </LoadingWrapper>
-        </TranslationProvider>
-      </body>
-    </html>
+      <TranslationProvider>
+        <LoadingWrapper>
+          <Navbar />
+          {children}
+          <Footer />
+        </LoadingWrapper>
+      </TranslationProvider>
+    </>
   );
 }
