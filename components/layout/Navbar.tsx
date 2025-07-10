@@ -4,7 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
-import { navigationItems, ctaButtonKey } from "@/data/menu";
+import { getLocalizedNavigationItems, ctaButtonKey } from "@/data/menu";
+import { getLocalizedRoute } from "@/utils/navigation";
 import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -21,6 +22,9 @@ export default function Navbar() {
   const { isMobile } = useDeviceDetect();
   const navRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  // Get localized navigation items
+  const localizedNavItems = getLocalizedNavigationItems(language);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -65,7 +69,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-18 md:h-16 lg:h-20">
             {/* Logo */}
             <div className="flex-shrink-0 logo-container min-w-0">
-              <Link href="/" className="block">
+              <Link href={getLocalizedRoute("", language)} className="block">
                 <img
                   src={
                     isScrolled
@@ -85,7 +89,7 @@ export default function Navbar() {
             {/* Desktop Navigation - Only show on xl+ screens */}
             <div className="hidden xl:flex items-center justify-center flex-1">
               <ul className="flex items-center gap-1 nav-links">
-                {navigationItems.map((item, index) => (
+                {localizedNavItems.map((item, index) => (
                   <li key={item.href} className="nav-item" data-index={index}>
                     <Link
                       href={item.href}
@@ -133,11 +137,18 @@ export default function Navbar() {
               </div>
               <div className="action-item" data-delay="100">
                 {isScrolled ? (
-                  <PrimaryButton href="/contacto" size="md">
+                  <PrimaryButton
+                    href={getLocalizedRoute("contacto", language)}
+                    size="md"
+                  >
                     {t(ctaButtonKey)}
                   </PrimaryButton>
                 ) : (
-                  <SecondaryButton href="/contacto" size="md" className="text-white/80 hover:text-white hover:border-white">
+                  <SecondaryButton
+                    href={getLocalizedRoute("contacto", language)}
+                    size="md"
+                    className="text-white/80 hover:text-white hover:border-white"
+                  >
                     {t(ctaButtonKey)}
                   </SecondaryButton>
                 )}
@@ -179,7 +190,7 @@ export default function Navbar() {
           {/* Navigation */}
           <nav className="flex-1">
             <ul className="flex flex-col gap-1 md:gap-2">
-              {navigationItems.map((item, index) => (
+              {localizedNavItems.map((item, index) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
@@ -271,7 +282,7 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <PrimaryButton
-              href="/contacto"
+              href={getLocalizedRoute("contacto", language)}
               size="md"
               className="w-full justify-center text-sm md:text-base py-2.5 md:py-3"
               onClick={closeMenu}
