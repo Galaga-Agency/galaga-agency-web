@@ -1,44 +1,45 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Disable ESLint during builds
+  // Skip ESLint errors during production builds
   eslint: {
     ignoreDuringBuilds: true,
   },
 
-  // Disable TypeScript errors during builds
+  // Skip TypeScript errors during production builds
   typescript: {
     ignoreBuildErrors: true,
   },
 
-  // Suppress hydration warnings and other React warnings
+  // Code optimization settings
   compiler: {
-    // Remove console.log in production
+    // Remove console.log statements in production builds
     removeConsole: process.env.NODE_ENV === "production",
   },
 
-  // Disable source maps in production to reduce bundle size and warnings
+  // Disable source maps in production for faster builds
   productionBrowserSourceMaps: false,
 
-  // Webpack configuration to suppress specific warnings
+  // Webpack configuration to suppress build warnings
   webpack: (config, { dev, isServer }) => {
-    // Suppress specific webpack warnings
+    // Only show error-level infrastructure logs
     config.infrastructureLogging = {
       level: "error",
     };
 
-    // Suppress node modules warnings
+    // Preserve existing resolve aliases
     config.resolve.alias = {
       ...config.resolve.alias,
     };
 
-    // Ignore specific warnings in production
+    // Production-only optimizations
     if (!dev) {
+      // Hide webpack warnings in production
       config.stats = {
         warnings: false,
       };
 
-      // Suppress chunk size warnings
+      // Increase bundle size limits to prevent warnings
       config.performance = {
         hints: false,
         maxEntrypointSize: 512000,
@@ -49,31 +50,37 @@ const nextConfig: NextConfig = {
     return config;
   },
 
-  // Experimental features that might cause warnings
+  // Experimental Next.js features
   experimental: {
-    // Suppress specific Next.js experimental warnings
+    // Package import optimizations
     optimizePackageImports: [],
   },
 
-  // Suppress image optimization warnings
+  // Image optimization settings
   images: {
-    unoptimized: false, // Set to true if you want to disable image optimization warnings
-    remotePatterns: [
-      // Add your remote image patterns here to avoid warnings
-    ],
+    unoptimized: false,
+    remotePatterns: [],
   },
 
-  // Environment variables (suppress env warnings)
+  // Environment variables
   env: {
-    NEXT_TELEMETRY_DISABLED: "1", // Disable Next.js telemetry
+    // Disable Next.js telemetry data collection
+    NEXT_TELEMETRY_DISABLED: "1",
   },
 
-  // Suppress redirect warnings
+  // URL redirects - handles old or missing routes
   async redirects() {
-    return [];
+    return [
+      {
+        // Redirect /terms to homepage (fixes 404 issue)
+        source: "/terms",
+        destination: "/",
+        permanent: false,
+      },
+    ];
   },
 
-  // Suppress rewrite warnings
+  // URL rewrites - currently empty but available for future use
   async rewrites() {
     return [];
   },
