@@ -73,7 +73,7 @@ export default function ValuePropCard({ icon, titleKey, descriptionKey, index = 
   const variation = getCardVariation();
 
   return (
-    <div className={`group relative h-full ${variation.rotation} ${variation.translation} ${variation.scale} ${variation.animationClass} opacity-0`}>
+    <div className={`group relative w-full h-full ${variation.rotation} ${variation.translation} ${variation.scale} ${variation.animationClass} opacity-0`}>
              
       {/* Professional glassmorphism background */}
       <div className="relative backdrop-blur-lg bg-white/80 border border-white/30 rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:bg-white/90 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
