@@ -16,20 +16,19 @@ export default function HeroSection() {
     <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] flex items-center overflow-hidden">
       {/* Background following brand book gradient style */}
       <div className="absolute inset-0 bg-hero-gradient"></div>
-      
+
       {/* Subtle overlay maintaining brand book transparency */}
-      <div className="absolute inset-0 bg-gradient-to-b from-azul-profundo/20 via-transparent to-negro/30"></div>
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-azul-profundo/20 via-transparent to-brand-negro/30"></div>
+
       {/* Geometric elements inspired by brand book circles */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-turquesa/10 circle-element blur-3xl"></div>
-      <div className="absolute bottom-20 left-20 w-80 h-80 bg-hielo/15 circle-element blur-2xl"></div>
-      
+      <div className="absolute top-20 right-20 w-96 h-96 bg-brand-turquesa/10 circle-element blur-3xl"></div>
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-brand-hielo/15 circle-element blur-2xl"></div>
+
       <div className="container relative z-20 w-full py-20">
         <div className="hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
-          
           {/* Mobile Logo following brand book guidelines */}
           <div className="block portrait:block landscape:hidden lg:hidden pb-8 md:pb-12">
-            <img 
+            <img
               src="/assets/img/logos/logo-mobile.webp"
               alt="Galaga Agency"
               className="w-20 h-auto md:w-24 opacity-95 drop-shadow-2xl"
@@ -38,25 +37,25 @@ export default function HeroSection() {
 
           {/* Main Headline - Following brand book typography */}
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
-            <h1 className="hero-title text-blanco tracking-tight drop-shadow-2xl overflow-visible px-4">
+            <h1 className="hero-title text-brand-blanco drop-shadow-2xl overflow-visible px-4">
               <span className="block md:pb-4">
-                <span 
+                <span
                   data-anim="transformamos"
-                  className="text-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                  className="text-brand-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
                 >
                   {t("hero.transformamos")}
                 </span>{" "}
-                <span 
+                <span
                   data-anim="negocios"
-                  className="text-hielo block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                  className="text-brand-hielo block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
                 >
                   {t("hero.negocios")}
                 </span>
               </span>
               <span className="block">
-                <span 
+                <span
                   data-anim="sinComplicaciones"
-                  className="text-blanco drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
+                  className="text-brand-blanco drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
                 >
                   {t("hero.sinComplicaciones")}
                 </span>
@@ -66,7 +65,7 @@ export default function HeroSection() {
 
           {/* Subtitle with brand book typography */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="homepage-hero-subtitle  text-large text-hielo leading-relaxed drop-shadow-lg opacity-0">
+            <p className="homepage-hero-subtitle text-lg md:text-2xl text-brand-hielo leading-relaxed drop-shadow-lg opacity-0">
               {t("hero.subtitle")}
             </p>
           </div>

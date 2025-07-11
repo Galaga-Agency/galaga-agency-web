@@ -4,6 +4,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import {
   routeTranslations,
+  routeMapping,
   defaultLocale,
   type Language,
 } from "@/utils/routeTranslations";
@@ -92,12 +93,12 @@ export function TranslationProvider({
     }
 
     const mainRoute = segments[0];
-    const translations = routeTranslations[targetLang];
-    const translatedRoute =
-      translations[mainRoute as keyof typeof translations] || mainRoute;
+    // Use the new mapping function
+    const mappedRoute =
+      routeMapping[mainRoute as keyof typeof routeMapping] || mainRoute;
 
     const remainingSegments = segments.slice(1);
-    const newPath = `/${targetLang}/${translatedRoute}${
+    const newPath = `/${targetLang}/${mappedRoute}${
       remainingSegments.length > 0 ? "/" + remainingSegments.join("/") : ""
     }`;
 
