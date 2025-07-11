@@ -8,10 +8,10 @@ export interface MenuItem {
 
 export const navigationItems: MenuItem[] = [
   { route: "", labelKey: "nav.home" }, // Empty string for home
-  { route: "sobre-nosotros", labelKey: "nav.about" },
-  { route: "servicios", labelKey: "nav.services" },
-  { route: "casos-de-exito", labelKey: "nav.cases" },
-  { route: "contacto", labelKey: "nav.contact" },
+  { route: "about-us", labelKey: "nav.about" }, // Use English as base
+  { route: "services", labelKey: "nav.services" }, // Use English as base
+  { route: "use-cases", labelKey: "nav.cases" }, // Use English as base
+  { route: "contact", labelKey: "nav.contact" }, // Use English as base
 ];
 
 export const ctaButtonKey = "nav.cta";
