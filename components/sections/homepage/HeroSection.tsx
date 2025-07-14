@@ -38,26 +38,39 @@ export default function HeroSection() {
           {/* Main Headline - Following brand book typography */}
           <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
             <h1 className="hero-title text-brand-blanco drop-shadow-2xl overflow-visible px-4">
-              <span className="block md:pb-4">
+              {/* Always two lines - mobile and desktop */}
+              <span className="flex flex-col items-center gap-2">
                 <span
-                  data-anim="transformamos"
-                  className="text-brand-turquesa block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
+                  data-anim="innovamos"
+                  className="text-brand-turquesa inline-block drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
                 >
-                  {t("hero.transformamos")}
-                </span>{" "}
-                <span
-                  data-anim="negocios"
-                  className="text-brand-hielo block md:inline drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
-                >
-                  {t("hero.negocios")}
+                  {t("homepage.hero.innovamos")}
                 </span>
-              </span>
-              <span className="block">
-                <span
-                  data-anim="sinComplicaciones"
-                  className="text-brand-blanco drop-shadow-xl opacity-0 scale-0 rotate-180 blur-[10px]"
-                >
-                  {t("hero.sinComplicaciones")}
+
+                {/* Rolling text container - CENTERED ON SCREEN */}
+                <span className="relative w-full flex justify-center">
+                  {/* First text: "for you" with strike line INSIDE */}
+                  <span
+                    data-anim="for-you"
+                    className="text-brand-hielo inline-block drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px] whitespace-nowrap relative"
+                  >
+                    {t("homepage.hero.forYou")}
+                    {/* Strike-through line - ONLY CROSSES THE TEXT */}
+                    <span
+                      data-anim="strike-line"
+                      className="absolute top-[55%] left-0 w-full h-2 md:h-4 bg-brand-hielo opacity-0 scale-x-0 origin-left z-10"
+                      style={{ transform: "translateY(-50%)" }}
+                    ></span>
+                  </span>
+
+                  {/* Second text: "with you" / "contigo" - ABSOLUTELY CENTERED */}
+                  <span
+                    data-anim="with-you"
+                    className="text-brand-hielo absolute top-0 left-1/2 inline-block drop-shadow-xl opacity-0 whitespace-nowrap"
+                    style={{ transform: "translateX(-50%) translateY(100%)" }}
+                  >
+                    {t("homepage.hero.contigo")}
+                  </span>
                 </span>
               </span>
             </h1>
@@ -65,27 +78,10 @@ export default function HeroSection() {
 
           {/* Subtitle with brand book typography */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="homepage-hero-subtitle text-lg md:text-2xl text-brand-hielo leading-relaxed drop-shadow-lg opacity-0">
-              {t("hero.subtitle")}
+            <p className=" text-lg md:text-2xl text-brand-hielo leading-relaxed drop-shadow-lg">
+              {t("homepage.hero.subtitle")}
             </p>
           </div>
-
-          {/* Brand book inspired metrics display */}
-          {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
-            {metrics.map((metric, index) => (
-              <div 
-                key={index}
-                className="brand-card text-center glass-effect px-6 py-8 hover:glass-effect-dark group transition-all duration-300"
-              >
-                <div className="text-3xl lg:text-4xl font-bold text-teal group-hover:text-turquesa transition-colors">
-                  {metric.value}
-                </div>
-                <div className="text-sm lg:text-base text-grafito group-hover:text-hielo transition-colors pt-2">
-                  {t(metric.labelKey)}
-                </div>
-              </div>
-            ))}
-          </div> */}
         </div>
       </div>
     </section>

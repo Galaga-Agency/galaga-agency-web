@@ -30,6 +30,12 @@
     "humanApproach": "Enfoque humano"
   },
   "homepage": {
+    "hero": {
+      "innovamos": "Innovamos",
+      "forYou": "por ti",
+      "contigo": "contigo",
+      "subtitle": "Transformamos negocios a través de soluciones digitales que funcionan, con estrategia, creatividad y un enfoque 100% humano."
+    },
     "about": {
       "poeticHeading": "Somos el puente entre ideas y realidad",
       "galagaAgency": "Galaga Agency",

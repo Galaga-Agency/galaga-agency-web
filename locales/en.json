@@ -30,6 +30,12 @@
     "humanApproach": "Human approach"
   },
   "homepage": {
+    "hero": {
+      "innovamos": "We innovate",
+      "forYou": "for you",
+      "contigo": "with you",
+      "subtitle": "We transform businesses through digital solutions that work, with strategy, creativity and a 100% human approach."
+    },
     "about": {
       "poeticHeading": "We're the bridge between ideas and reality",
       "galagaAgency": "Galaga Agency",
