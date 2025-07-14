@@ -88,7 +88,7 @@ export default function HomepageAboutSection() {
         </div>
 
         {/* First Block - Focus - Horizontal layout */}
-        <div className="relative h-120 md:h-96 mb-32 md:mb-40 lg:mb-48">
+        <div className="relative h-[500px] md:h-96 mb-32 md:mb-40 lg:mb-48">
           {/* Icon bubble */}
           <div className="absolute -top-4 left-4 md:left-8 z-30">
             <div className="shadow-lg w-20 h-20 md:w-24 md:h-24 bg-azul-profundo rounded-full flex items-center justify-center">
@@ -97,8 +97,8 @@ export default function HomepageAboutSection() {
           </div>
 
           {/* Title bubble - center, overlapping with icon */}
-          <div className="absolute top-2 left-[30vw] md:left-[20vw] lg:left-[15vw] -translate-x-1/2 md:top-8 z-20">
-            <div className="shadow-lg w-36 h-36 md:w-48 md:h-48 bg-turquesa rounded-full flex items-center justify-center text-center">
+          <div className="absolute top-2 left-[30vw] md:left-[20vw] lg:left-[13vw] lg:-top-4 -translate-x-1/2 md:top-8 z-20">
+            <div className="shadow-lg w-36 h-36 md:w-48 md:h-48 lg:w-72 lg:h-72 bg-turquesa rounded-full flex items-center justify-center text-center">
               <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white px-8">
                 {t("homepage.about.focusTitle")}
               </h3>
@@ -106,8 +106,8 @@ export default function HomepageAboutSection() {
           </div>
 
           {/* Description bubble - right side, overlapping with title */}
-          <div className="absolute top-28 -right-6 md:-right-12 md:top-16 z-10">
-            <div className="shadow-lg w-auto h-80 md:w-[70vw] md:h-80 lg:w-[78vw] lg:h-72 bg-white/20 backdrop-blur-md border border-white/30 rounded-l-full flex items-center justify-center text-center">
+          <div className="absolute top-28 -right-6 md:-right-12 lg:-right-48 md:top-16 z-10">
+            <div className="shadow-lg w-auto h-80 md:w-[70vw] md:h-80 lg:w-[78vw] lg:h-72 bg-white/20 backdrop-blur-md border border-white/30 rounded-l-3xl flex items-center justify-center text-center">
               <p className="text-xl lg:text-2xl text-azul-profundo text-right lg:max-w-[85%] leading-relaxed px-8">
                 {t("homepage.about.ourFocus")}
               </p>
@@ -116,10 +116,10 @@ export default function HomepageAboutSection() {
         </div>
 
         {/* Second Block - Offer - Horizontal layout (mirrored) */}
-        <div className="relative h-80 md:h-96">
+        <div className="relative h-[500px] md:h-96 mb-32 md:mb-40 lg:mb-48">
           {/* Description bubble - left side */}
-          <div className="absolute top-28 -left-6 md:-left-12 md:top-16 z-10">
-            <div className="shadow-lg w-auto h-80 md:w-[70vw] md:h-80 lg:w-[78vw] lg:h-72 bg-white/20 backdrop-blur-md border border-white/30 rounded-r-full flex items-center justify-center text-center">
+          <div className="absolute top-28 -left-6 md:-left-12 lg:-left-48 md:top-16 z-10">
+            <div className="shadow-lg w-auto h-80 md:w-[70vw] md:h-80 lg:w-[78vw] lg:h-72 bg-white/20 backdrop-blur-md border border-white/30 rounded-r-3xl flex items-center justify-center text-center">
               <p className="text-xl lg:text-2xl text-azul-profundo text-left lg:max-w-[85%] leading-relaxed px-8">
                 {t("homepage.about.whatWeOffer")}
               </p>
@@ -127,8 +127,8 @@ export default function HomepageAboutSection() {
           </div>
 
           {/* Title bubble - center, overlapping with description */}
-          <div className="absolute top-2 right-[30vw] md:right-[20vw] lg:right-[15vw] translate-x-1/2 md:top-8 z-20">
-             <div className="shadow-lg w-36 h-36 md:w-48 md:h-48 bg-teal rounded-full flex items-center justify-center text-center">
+          <div className="absolute top-2 right-[30vw] md:right-[20vw] lg:right-[13vw] lg:-top-4 translate-x-1/2 md:top-8 z-20">
+            <div className="shadow-lg w-36 h-36 md:w-48 md:h-48 lg:w-72 lg:h-72 bg-teal rounded-full flex items-center justify-center text-center">
               <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white px-8">
                 {t("homepage.about.offerTitle")}
               </h3>

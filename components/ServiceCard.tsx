@@ -185,7 +185,7 @@ export default function ServiceCard({
       <div className="relative z-10 flex flex-col h-full">
         {/* Header with enhanced icon */}
         <div className={`flex items-center pb-6 transition-all duration-300 ${isHovered ? 'translate-x-2' : 'translate-x-0'}`}>
-          <div className={`${contentSize.iconBgSize} bg-blanco/40 rounded-2xl backdrop-blur-sm shadow-lg border border-blanco/20 transition-all duration-300 ${isHovered ? 'scale-110 bg-blanco/60 shadow-xl' : 'scale-100'}`}>
+          <div className={`${contentSize.iconBgSize} bg-blanco/40 rounded-full backdrop-blur-sm shadow-lg border border-blanco/20 transition-all duration-300 ${isHovered ? 'scale-110 bg-blanco/60 shadow-xl' : 'scale-100'}`}>
             <IconComponent className={`${contentSize.iconSize} ${getIconColor(theme)} drop-shadow-md transition-all duration-300 ${isHovered ? 'scale-110' : 'scale-100'}`} />
           </div>
         </div>

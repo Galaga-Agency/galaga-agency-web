@@ -108,14 +108,14 @@ export default function CaseStudyCarouselCard({
               </div>
             </div>
 
-            {/* Magnetic Hover Effect */}
+            {/* Magnetic Hover Effect
             <div className="absolute top-6 right-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0 group-hover:rotate-12">
               <div className="bg-white/20 backdrop-blur-2xl rounded-full p-4 border-2 border-white/50 shadow-2xl">
                 <svg className="w-7 h-7 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>
-            </div>
+            </div> */}
 
             {/* Gradient Overlay for Better Text Contrast */}
             <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-15"></div>

@@ -36,44 +36,8 @@ export default function ValuePropCard({ icon, titleKey, descriptionKey, index = 
 
   const scheme = colorSchemes[index] || colorSchemes[0];
 
-  // Better distribution variations
-  const getCardVariation = () => {
-    switch(index) {
-      case 0:
-        return {
-          rotation: 'rotate-1',
-          translation: 'translate-y-6 translate-x-4',
-          scale: 'scale-105',
-          animationClass: 'fade-up'
-        };
-      case 1:
-        return {
-          rotation: '-rotate-1',
-          translation: '-translate-y-2',
-          scale: 'scale-110',
-          animationClass: 'fade-down'
-        };
-      case 2:
-        return {
-          rotation: 'rotate-2',
-          translation: 'translate-y-4 -translate-x-4',
-          scale: 'scale-105',
-          animationClass: 'fade-up'
-        };
-      default:
-        return {
-          rotation: '',
-          translation: '',
-          scale: '',
-          animationClass: 'fade-up'
-        };
-    }
-  };
-
-  const variation = getCardVariation();
-
   return (
-    <div className={`group relative w-full h-full ${variation.rotation} ${variation.translation} ${variation.scale} ${variation.animationClass} opacity-0`}>
+    <div className="group relative w-full h-full opacity-0 fade-up">
              
       {/* Professional glassmorphism background */}
       <div className="relative backdrop-blur-lg bg-white/80 border border-white/30 rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:bg-white/90 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2">
