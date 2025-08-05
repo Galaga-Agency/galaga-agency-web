@@ -73,20 +73,33 @@ export default function HeroSection() {
           <img
             src="/assets/img/logos/logo-full-white.webp"
             alt="Galaga Agency"
-            className="opacity-95 drop-shadow-2xl mb-8"
+            className="opacity-95 drop-shadow-2xl"
             style={{
               width: "clamp(250px, 45vw, 600px)",
-              height: "auto"
+              height: "auto",
+              marginBottom: "clamp(2rem, 8vw, 3rem)"
             }}
           />
-          <p 
-            className="hero-cta-text text-brand-hielo text-center opacity-0 max-w-[80vw] mx-auto"
+          <div 
             style={{
-              fontSize: "clamp(1.25rem, 4vw, 2rem)"
+              height: "clamp(4rem, 12vw, 6rem)",
+              width: "clamp(300px, 80vw, 800px)",
+              display: "flex",
+              alignItems: "flex-start",
+              justifyContent: "center",
+              position: "relative"
             }}
           >
-            {t("homepage.hero.subtitle")}
-          </p>
+            <p 
+              className="hero-cta-text text-brand-hielo text-center opacity-0"
+              style={{
+                fontSize: "clamp(1.25rem, 4vw, 2rem)",
+                lineHeight: "1.4"
+              }}
+            >
+              {t("homepage.hero.subtitle")}
+            </p>
+          </div>
         </div>
       </div>
 
