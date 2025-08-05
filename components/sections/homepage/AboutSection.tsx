@@ -33,7 +33,6 @@ export default function HomepageAboutSection() {
     <section className="homepage-about-section section relative bg-gradient-to-br from-blanco to-hielo overflow-y-visible">
       {/* Diagonal background layers */}
       <div className="absolute inset-0">
-        {/* Top diagonal - Subtle teal light */}
         <div
           className="absolute inset-0 bg-gradient-to-br from-hielo/40 via-turquesa/10 to-white"
           style={{
@@ -41,7 +40,6 @@ export default function HomepageAboutSection() {
           }}
         ></div>
 
-        {/* Bottom diagonal - Pure white */}
         <div
           className="absolute inset-0 bg-gradient-to-br from-white via-hielo/20 to-white"
           style={{
@@ -50,10 +48,10 @@ export default function HomepageAboutSection() {
         ></div>
       </div>
 
-      {/* Overflowing cards at the top */}
+      {/* Overflowing cards */}
       <div className="absolute top-32 md:top-0 left-0 right-0 -translate-y-1/4 md:-translate-y-1/3 z-30 overflow-visible w-full">
         <div className="px-12 overflow-visible">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-visible ">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 overflow-visible">
             {valueProps.map((item, idx) => (
               <ValuePropCard
                 key={idx}
@@ -69,7 +67,6 @@ export default function HomepageAboutSection() {
 
       {/* Main content */}
       <div className="container pt-[850px] md:pt-56 lg:pt-48 relative z-10">
-        {/* Main heading section */}
         <div className="text-center pb-12">
           <h2 className="section-title text-teal tracking-tight py-8">
             {t("homepage.about.poeticHeading")}
@@ -87,58 +84,58 @@ export default function HomepageAboutSection() {
           </div>
         </div>
 
-        {/* First Block - Focus - Horizontal layout */}
-        <div className="relative h-[500px] md:h-96 mb-32 md:mb-40 lg:mb-48">
+        {/* First Block - Focus */}
+        <div className="relative h-[500px] md:h-[450px] mb-32 md:mb-40 lg:mb-48">
           {/* Icon bubble */}
-          <div className="absolute -top-4 left-4 md:left-8 z-30">
-            <div className="shadow-lg w-20 h-20 md:w-24 md:h-24 bg-azul-profundo rounded-full flex items-center justify-center">
-              <FaHandshake className="text-turquesa text-3xl -rotate-12 md:text-5xl" />
+          <div className="absolute -top-6 left-4 md:left-0 z-30">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg border-2 border-turquesa bg-gradient-to-br from-hielo via-white to-hielo">
+              <FaHandshake className="text-turquesa text-2xl md:text-4xl -rotate-12" />
             </div>
           </div>
 
-          {/* Title bubble - center, overlapping with icon */}
-          <div className="absolute top-2 left-[30vw] md:left-[20vw] lg:left-[13vw] lg:-top-4 -translate-x-1/2 md:top-8 z-20">
-            <div className="shadow-lg w-36 h-36 md:w-48 md:h-48 lg:w-72 lg:h-72 bg-turquesa rounded-full flex items-center justify-center text-center">
-              <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white px-8">
+          {/* Title bubble */}
+          <div className="absolute top-4 left-[30vw] md:left-[14vw] lg:left-[13vw] -translate-x-1/2 z-20">
+            <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-gradient-to-br from-teal to-turquesa text-white p-6">
+              <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
                 {t("homepage.about.focusTitle")}
               </h3>
             </div>
           </div>
 
-          {/* Description bubble - right side, overlapping with title */}
-          <div className="absolute top-28 -right-6 md:-right-12 lg:-right-48 md:top-16 z-10">
-            <div className="shadow-lg w-auto h-80 md:w-[70vw] md:h-80 lg:w-[78vw] lg:h-72 bg-white/20 backdrop-blur-md border border-white/30 rounded-l-3xl flex items-center justify-center text-center">
-              <p className="text-xl lg:text-2xl text-azul-profundo text-right lg:max-w-[85%] leading-relaxed px-8">
+          {/* Description bubble */}
+          <div className="absolute top-36 -right-6 md:-right-12 lg:-right-48 md:top-16 z-10">
+            <div className="h-80 md:h-80 lg:h-72 w-auto md:w-[70vw] lg:w-[78vw] glass-effect border border-white/30 rounded-l-[3rem] shadow-xl px-8 flex items-center justify-center text-center">
+              <p className="text-xl lg:text-2xl text-azul-profundo leading-relaxed max-w-4xl mx-auto">
                 {t("homepage.about.ourFocus")}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Second Block - Offer - Horizontal layout (mirrored) */}
-        <div className="relative h-[500px] md:h-96 mb-32 md:mb-40 lg:mb-48">
-          {/* Description bubble - left side */}
-          <div className="absolute top-28 -left-6 md:-left-12 lg:-left-48 md:top-16 z-10">
-            <div className="shadow-lg w-auto h-80 md:w-[70vw] md:h-80 lg:w-[78vw] lg:h-72 bg-white/20 backdrop-blur-md border border-white/30 rounded-r-3xl flex items-center justify-center text-center">
-              <p className="text-xl lg:text-2xl text-azul-profundo text-left lg:max-w-[85%] leading-relaxed px-8">
+        {/* Second Block - Offer */}
+        <div className="relative h-[540px] md:h-[480px] mb-32 md:mb-40 lg:mb-48">
+          {/* Description bubble */}
+          <div className="absolute top-36 -left-6 md:-left-12 lg:-left-48 md:top-16 z-10">
+            <div className="h-80 md:h-80 lg:h-72 w-auto md:w-[70vw] lg:w-[78vw] glass-effect border border-white/30 rounded-r-[3rem] shadow-xl px-8 flex items-center justify-center text-center">
+              <p className="text-xl lg:text-2xl text-azul-profundo leading-relaxed max-w-4xl mx-auto text-left">
                 {t("homepage.about.whatWeOffer")}
               </p>
             </div>
           </div>
 
-          {/* Title bubble - center, overlapping with description */}
-          <div className="absolute top-2 right-[30vw] md:right-[20vw] lg:right-[13vw] lg:-top-4 translate-x-1/2 md:top-8 z-20">
-            <div className="shadow-lg w-36 h-36 md:w-48 md:h-48 lg:w-72 lg:h-72 bg-teal rounded-full flex items-center justify-center text-center">
-              <h3 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white px-8">
+          {/* Title bubble */}
+          <div className="absolute top-4 right-[30vw] md:right-[16vw] lg:right-[13vw] translate-x-1/2 z-20">
+            <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-gradient-to-br from-teal to-turquesa text-white p-6">
+              <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
                 {t("homepage.about.offerTitle")}
               </h3>
             </div>
           </div>
 
-          {/* Icon bubble - right side, overlapping with title */}
-          <div className="absolute -top-4 right-4 md:right-8 z-30">
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-azul-profundo rounded-full flex items-center justify-center">
-              <FaLightbulb className="text-turquesa text-2xl md:text-3xl" />
+          {/* Icon bubble */}
+          <div className="absolute -top-6 right-4 md:right-8 z-30">
+            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg border-2 border-turquesa bg-gradient-to-br from-hielo via-white to-hielo">
+              <FaLightbulb className="text-turquesa text-2xl md:text-4xl" />
             </div>
           </div>
         </div>

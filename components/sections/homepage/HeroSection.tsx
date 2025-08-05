@@ -71,7 +71,7 @@ export default function HeroSection() {
 
         <div className="hero-final-logo absolute opacity-0 flex flex-col items-center">
           <img
-            src="/assets/img/logos/logo-full-white.webp"
+            src="/assets/img/logos/logo-full.svg"
             alt="Galaga Agency"
             className="opacity-95 drop-shadow-2xl"
             style={{
