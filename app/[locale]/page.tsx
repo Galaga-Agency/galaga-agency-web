@@ -15,12 +15,23 @@ import { initChevronAnimations } from "@/utils/animations/chevron-animation";
 import { initCaseStudiesAnimations } from "@/utils/animations/case-studies-animation";
 import { initAboutAnimations } from "@/utils/animations/about-animations";
 import { fadeAnimations } from "@/utils/animations/fade-animations";
+import { initVideoHeroAnimations, initFallbackHeroAnimations } from "@/utils/animations/video-hero-animations";
 
 export default function HomePage() {
   useGSAPAnimations({
     animations: [
-      initHeroTitleAnimation,
       initHeroScrollAnimation,
+      // Dynamic hero animation based on video support
+      () => {
+        const videoElement = document.querySelector('.video-hero');
+        const fallbackElements = document.querySelector('[data-anim="innovamos"]');
+        
+        if (videoElement) {
+          return initVideoHeroAnimations();
+        } else if (fallbackElements) {
+          return initFallbackHeroAnimations();
+        }
+      },
       fadeAnimations,
       initAboutAnimations,
       initChevronAnimations,
