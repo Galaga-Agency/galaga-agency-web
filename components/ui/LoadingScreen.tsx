@@ -30,12 +30,12 @@ export default function LoadingScreen() {
             </div>
           </div>
 
-          {/* Loading animation */}
+          {/* Fixed Loading animation with corporate blues */}
           <div className="loading-spinner">
             <div className="flex items-center justify-center gap-3">
-              <div className="w-3 h-3 bg-brand-turquesa rounded-full animate-bounce"></div>
-              <div className="w-3 h-3 bg-brand-mandarina rounded-full animate-bounce delay-150"></div>
-              <div className="w-3 h-3 bg-brand-teal rounded-full animate-bounce delay-300"></div>
+              <div className="loading-dot-1 w-3 h-3 bg-brand-azul-profundo rounded-full"></div>
+              <div className="loading-dot-2 w-3 h-3 bg-brand-teal rounded-full"></div>
+              <div className="loading-dot-3 w-3 h-3 bg-brand-turquesa rounded-full"></div>
             </div>
           </div>
         </div>

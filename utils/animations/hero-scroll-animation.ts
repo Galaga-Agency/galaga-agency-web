@@ -4,24 +4,43 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const initHeroScrollAnimation = () => {
-  // Kill any existing ScrollTriggers to prevent conflicts
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
 
-  // Hero section scale and fade animation
   const heroSection = document.querySelector(".hero-section");
   const heroContent = document.querySelector(".hero-content");
   
   if (heroSection && heroContent) {
-    // Pin the entire hero section
     ScrollTrigger.create({
       trigger: heroSection,
-      start: "top -200px", // Start earlier to allow for smooth transition
+      start: "top -200px",
       end: "50% top",
       pin: true,
       pinSpacing: false,
     });
 
-    // Only fade the hero-content, NOT the cards
+    const aboutSectionCards = document.querySelector(".homepage-about-section .absolute");
+    if (aboutSectionCards) {
+      ScrollTrigger.create({
+        trigger: heroSection,
+        start: "top bottom",
+        end: "bottom top",
+        onEnterBack: () => {
+          gsap.to(aboutSectionCards, {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        },
+        onLeave: () => {
+          gsap.to(aboutSectionCards, {
+            opacity: 1,
+            duration: 0.3,
+            ease: "power2.out"
+          });
+        }
+      });
+    }
+
     gsap.to(heroContent, {
       scale: 0.8,
       opacity: 0,
@@ -31,22 +50,25 @@ export const initHeroScrollAnimation = () => {
         start: "top top",
         end: "50% top",
         scrub: 0.5,
+        onUpdate: (self) => {
+          if (self.progress === 0) {
+            gsap.set(heroContent, { scale: 1, opacity: 1 });
+          }
+        }
       }
     });
   }
 
-  // About section reveal with pin
   const aboutSection = document.querySelector(".about-section");
   const aboutContent = document.querySelector(".about-content");
   
   if (aboutSection && aboutContent) {
-    // Pin the about section and reveal content
     gsap.timeline({
       scrollTrigger: {
         trigger: aboutSection,
         start: "top top",
-        end: "top 20%", // End earlier for faster animation
-        scrub: 3, // More responsive
+        end: "top 20%",
+        scrub: 3,
         pin: ".about-wrapper",
         pinSpacing: true,
         anticipatePin: 1,
@@ -67,7 +89,6 @@ export const initHeroScrollAnimation = () => {
       }
     );
 
-    // Add parallax effect to about section elements
     const aboutElements = aboutSection.querySelectorAll("[data-speed]");
     aboutElements.forEach((element) => {
       const speed = element.getAttribute("data-speed") || "1";
@@ -85,7 +106,6 @@ export const initHeroScrollAnimation = () => {
     });
   }
 
-  // Services section fade in
   const servicesSection = document.querySelector(".services-section");
   
   if (servicesSection) {
@@ -109,11 +129,19 @@ export const initHeroScrollAnimation = () => {
     );
   }
 
-  // Refresh ScrollTrigger to recalculate positions
   ScrollTrigger.refresh();
 };
 
-// Cleanup function
 export const cleanupHeroScrollAnimation = () => {
   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  
+  const heroSection = document.querySelector(".hero-section");
+  const heroContent = document.querySelector(".hero-content");
+  
+  if (heroSection) {
+    gsap.set(heroSection, { height: "100vh", minHeight: "100vh", clearProps: "all" });
+  }
+  if (heroContent) {
+    gsap.set(heroContent, { scale: 1, opacity: 1, clearProps: "all" });
+  }
 };

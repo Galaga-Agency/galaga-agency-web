@@ -1,121 +1,192 @@
 import { gsap } from "gsap";
 
-export function initHeroTitleAnimation() {
-  const innovamosEl = document.querySelector('[data-anim="innovamos"]') as HTMLElement;
-  const forYouEl = document.querySelector('[data-anim="for-you"]') as HTMLElement;
-  const strikeLineEl = document.querySelector('[data-anim="strike-line"]') as HTMLElement;
-  const withYouEl = document.querySelector('[data-anim="with-you"]') as HTMLElement;
-
-  if (!innovamosEl || !forYouEl || !strikeLineEl || !withYouEl) {
-    console.error('Missing animation elements');
-    return;
-  }
-
+export const initHeroTitleAnimation = () => {
   const tl = gsap.timeline();
 
-  // Set initial states
-  gsap.set(innovamosEl, {
+  // Set up 3D properties
+  tl.set('.hero-logo', {
+    perspective: 1000,
+  }, 0);
+
+  tl.set('.hero-logo-img', {
+    transformStyle: "preserve-3d",
+    rotationX: -90,
+    transformOrigin: "center center -100px",
+    backfaceVisibility: "hidden",
+  }, 0);
+
+  // Logo roll down
+  tl.to('.hero-logo', {
+    opacity: 1,
+    duration: 0.1,
+    ease: "none"
+  }, 0);
+
+  tl.to('.hero-logo-img', {
+    rotationX: 0,
+    duration: 1.5,
+    ease: "power3.out",
+    transformOrigin: "center center -100px"
+  }, 0.3);
+
+  // Logo fades away
+  tl.to('.hero-logo', {
     opacity: 0,
-    scale: 2,
-    filter: "blur(20px)",
-    y: -100
+    duration: 0.8,
+    ease: "power2.out"
+  }, "+=0.8");
+
+  // Innovamos slides up
+  tl.to('.hero-title', {
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out"
+  }, "+=0.3");
+
+  // Para ti fades in
+  tl.to('.hero-para-ti', {
+    opacity: 1,
+    duration: 0.8,
+    ease: "power2.out"
+  }, "+=0.5");
+
+  // Strike through
+  tl.to('.hero-strike-line', {
+    opacity: 1,
+    scaleX: 1,
+    duration: 0.6,
+    ease: "power2.out"
+  }, "+=0.8");
+
+  // Tube rolling setup (reversed direction)
+  tl.set('.hero-subtitle-container', {
+    perspective: 1000,
+  }, "+=0.5");
+
+  tl.set('.hero-para-ti, .hero-contigo', {
+    transformStyle: "preserve-3d",
+    transformOrigin: "center center -50px",
   });
 
-  gsap.set(forYouEl, {
-    opacity: 0,
-    scale: 2,
-    filter: "blur(20px)",
-    y: -100
+  // Set contigo to start from the opposite side (90 instead of -90)
+  tl.set('.hero-contigo', {
+    rotationY: 90,
+    opacity: 1,
   });
 
-  gsap.set(strikeLineEl, {
-    opacity: 0,
-    scaleX: 0,
-    transformOrigin: "left center"
+  // Roll para ti out to the left (-90), contigo in from the right
+  tl.to('.hero-para-ti', {
+    opacity: 0, 
+    rotationY: -90,
+    duration: 0.6,
+    ease: "power2.inOut",
+    transformOrigin: "center center -50px"
   });
 
-  gsap.set(withYouEl, {
-    opacity: 0,
-    y: "100%"
-  });
+  tl.to('.hero-contigo', {
+    rotationY: 0,
+    duration: 0.6,
+    ease: "power2.inOut",
+    transformOrigin: "center center -50px"
+  }, "-=0.6");
 
-  // Animation sequence
-  tl
-    // 1. "innovamos" appears
-    .to(innovamosEl, {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-      y: 0,
-      duration: 1.3,
-      ease: "power3.out",
-    })
+  // Everything fades out
+  tl.to('.hero-title, .hero-contigo', {
+    opacity: 0,
+    duration: 0.8,
+    ease: "power2.out"
+  }, "+=1.5");
+
+  // Final logo fades in
+  tl.to('.hero-final-logo', {
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out"
+  }, "+=0.5");
+  
+  // But keep the CTA text hidden for typewriter
+  tl.set('.hero-cta-text', { opacity: 0 }, "-=1");
+
+  // TYPEWRITER ANIMATION RIGHT HERE IN THIS FILE
+  tl.call(() => {
+    const element = document.querySelector('.hero-cta-text') as HTMLElement;
+    if (!element) return;
     
-    // 2. "for you" appears
-    .to(forYouEl, {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
-      y: 0,
-      duration: 1.1,
-      ease: "power3.out",
-    }, "-=0.6")
+    const text = element.textContent || "";
+    element.style.opacity = '1';
+    element.innerHTML = '';
     
-    // 3. Wait a moment to let it settle
-    .to({}, { duration: 1.5 })
+    // Add cursor
+    const cursor = document.createElement('span');
+    cursor.textContent = '|';
+    element.appendChild(cursor);
     
-    // 4. Strike through "for you"
-    .to(strikeLineEl, {
-      opacity: 1,
-      scaleX: 1,
+    // GSAP cursor blink
+    gsap.to(cursor, {
+      opacity: 0,
       duration: 0.6,
-      ease: "power2.out"
-    })
+      repeat: -1,
+      yoyo: true
+    });
     
-    // 5. Wait for strike effect to be seen
-    .to({}, { duration: 0.5 })
+    // Add text container
+    const textSpan = document.createElement('span');
+    element.insertBefore(textSpan, cursor);
     
-    // 6. Rolling transition - move "for you" up and "with you" in
-    .to(forYouEl, {
-      y: "-100%",
-      opacity: 0,
-      duration: 0.8,
-      ease: "power2.inOut"
-    })
-    .to(withYouEl, {
-      y: "0%",
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.inOut"
-    }, "-=0.5")
-    
-    // 7. Hide strike line after transition
-    .to(strikeLineEl, {
-      opacity: 0,
-      duration: 0.4,
-      ease: "power2.out"
-    }, "-=0.3")
-    
-    // 8. Final settling effect
-    .to([innovamosEl, withYouEl], {
-      scale: 1.02,
-      duration: 0.3,
-      ease: "power2.inOut",
-      yoyo: true,
-      repeat: 1
-    }, "+=0.3")
-    
-    // 9. Show subtitle
-    .to(
-      ".homepage-hero-subtitle",
-      {
-        duration: 0.8,
-        y: 0,
-        opacity: 1,
-        ease: "power2.out",
-      },
-      "-=0.5"
-    );
+    // Type each letter
+    let i = 0;
+    const typeInterval = setInterval(() => {
+      if (i < text.length) {
+        textSpan.textContent += text[i];
+        i++;
+      } else {
+        clearInterval(typeInterval);
+        setTimeout(() => {
+          gsap.to(cursor, { opacity: 0, duration: 0.3 });
+        }, 1000);
+      }
+    }, 80);
+  }, [], "+=0.5");
+
+  // Animate ScrollIndicator (replaces the old scroll-indicator)
+  tl.to('.scroll-indicator', {
+    opacity: 1,
+    duration: 0.8,
+    ease: "power2.out"
+  }, "-=0.3");
+
+  // Floating animation for the entire ScrollIndicator
+  tl.to('.scroll-indicator-wrapper', {
+    y: 8,
+    duration: 1.5,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  }, "+=0.5");
+
+  // Add scroll detection for fade out
+  tl.call(() => {
+    let hasScrolled = false;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      // Only fade out once
+      if (!hasScrolled && window.scrollY > 50) {
+        hasScrolled = true;
+        
+        gsap.to('.scroll-indicator', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
+    };
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }, [], "+=0.3");
 
   return tl;
-}
+};
