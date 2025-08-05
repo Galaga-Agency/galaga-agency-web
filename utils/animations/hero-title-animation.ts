@@ -77,8 +77,8 @@ export const initHeroTitleAnimation = () => {
 
   // Roll para ti out to the left (-90), contigo in from the right
   tl.to('.hero-para-ti', {
-    opacity: 0, 
     rotationY: -90,
+    opacity: 0,
     duration: 0.6,
     ease: "power2.inOut",
     transformOrigin: "center center -50px"
@@ -181,6 +181,20 @@ export const initHeroTitleAnimation = () => {
           duration: 0.6,
           ease: "power2.out"
         });
+      }
+      
+      // Optional: Show again if user scrolls back to top after some time
+      if (hasScrolled && window.scrollY <= 10) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          hasScrolled = false;
+          gsap.to('.scroll-indicator', {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        }, 1000);
       }
     };
 

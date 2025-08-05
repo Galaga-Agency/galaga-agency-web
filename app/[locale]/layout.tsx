@@ -15,7 +15,7 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://galagaagency.com";
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Galaga Agency - Transformación Digital y Marketing Inmersivo",
+    default: "Galaga Agency - Innovación empresarial y marketing experiencial",
     template: "%s | Galaga Agency",
   },
   description:
