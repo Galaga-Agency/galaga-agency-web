@@ -29,16 +29,17 @@ export function TranslationProvider({
   const pathname = usePathname();
 
   // Get current language from URL and persist it
-  const currentLocale = pathname.split("/")[1] as Language;
+  const pathSegment = pathname.split("/")[1];
+  const currentLocale = (pathSegment === "es" || pathSegment === "en") ? pathSegment : null;
+  
   const [language, setLanguage] = useState<Language>(() => {
-    // Try to get from localStorage first, then URL, then default
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("preferred-language") as Language;
-      if (saved && (saved === "es" || saved === "en")) {
-        return saved;
-      }
+    // If URL has valid locale, use it
+    if (currentLocale) {
+      return currentLocale;
     }
-    return currentLocale || defaultLocale;
+    
+    // Default to Spanish for root path or invalid locales
+    return "es";
   });
   const [translations, setTranslations] = useState<any>({});
 
@@ -58,6 +59,12 @@ export function TranslationProvider({
       // Save to localStorage for persistence
       if (typeof window !== "undefined") {
         localStorage.setItem("preferred-language", urlLocale);
+      }
+    } else {
+      // No locale in URL, default to Spanish
+      setLanguage("es");
+      if (typeof window !== "undefined") {
+        localStorage.setItem("preferred-language", "es");
       }
     }
   }, [pathname]);

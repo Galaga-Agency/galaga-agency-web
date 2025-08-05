@@ -1,139 +1,99 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useTranslation } from "@/hooks/useTranslation";
-
-const metrics = [
-  { value: "100+", labelKey: "hero.companiesTransformed" },
-  { value: "35+", labelKey: "hero.yearsExperience" },
-  { value: "24h", labelKey: "hero.guaranteedResponse" },
-  { value: "100%", labelKey: "hero.humanApproach" },
-];
+import { useDeviceDetect } from "@/hooks/useDeviceDetect";
+import ScrollIndicator from "@/components/ui/ScrollIndicator";
 
 export default function HeroSection() {
   const { t } = useTranslation();
-  const [videoSupported, setVideoSupported] = useState(true);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+  const { isTouchDevice } = useDeviceDetect();
 
-  useEffect(() => {
-    // Check if browser supports video
-    const video = document.createElement('video');
-    const canPlayMP4 = video.canPlayType('video/mp4');
-    const canPlayWebm = video.canPlayType('video/webm');
-    
-    if (!canPlayMP4 && !canPlayWebm) {
-      setVideoSupported(false);
-    }
-  }, []);
+  return (
+    <section className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 bg-hero-gradient"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-azul-profundo/20 via-transparent to-brand-negro/30"></div>
 
-  const handleVideoLoad = () => {
-    setVideoLoaded(true);
-  };
+      <div className="hero-content relative z-40 w-full h-full flex items-center justify-center">
+        <div className="hero-logo absolute opacity-0">
+          <img
+            className="hero-logo-img opacity-95 drop-shadow-2xl"
+            src="/assets/img/logos/logo-full-white.webp"
+            alt="Galaga Agency"
+            style={{
+              width: "clamp(300px, 50vw, 600px)",
+              height: "auto"
+            }}
+          />
+        </div>
 
-  const handleVideoError = () => {
-    setVideoSupported(false);
-  };
+        <div className="absolute">
+          <div className="relative">
+            <h1
+              className="hero-title text-brand-blanco font-bold drop-shadow-2xl opacity-0 mb-6"
+              style={{ 
+                transform: "translateY(100px)",
+                fontSize: "clamp(3rem, 15vw, 10rem)",
+                lineHeight: "0.9"
+              }}
+            >
+              {t("homepage.hero.innovamos")}
+            </h1>
 
-  if (!videoSupported) {
-    // FALLBACK: Original Hero Section
-    return (
-      <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] flex items-center overflow-hidden">
-        {/* Background following brand book gradient style */}
-        <div className="absolute inset-0 bg-hero-gradient"></div>
+            <div
+              className="hero-subtitle-container absolute top-full mt-4"
+              style={{ right: "0" }}
+            >
+              <span 
+                className="hero-para-ti text-brand-hielo opacity-0 whitespace-nowrap relative inline-block"
+                style={{ 
+                  fontSize: "clamp(1.5rem, 8vw, 4rem)"
+                }}
+              >
+                {t("homepage.hero.forYou")}
+                <span
+                  className="hero-strike-line absolute top-[52%] left-0 w-full h-1 lg:h-[6px] bg-brand-hielo opacity-0 scale-x-0 origin-left"
+                  style={{ transform: "translateY(-50%)" }}
+                ></span>
+              </span>
 
-        {/* Subtle overlay maintaining brand book transparency */}
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-azul-profundo/20 via-transparent to-brand-negro/30"></div>
-
-        {/* Geometric elements inspired by brand book circles */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-brand-turquesa/10 circle-element blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-brand-hielo/15 circle-element blur-2xl"></div>
-
-        <div className="container relative z-20 w-full py-20">
-          <div className="hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
-            {/* Mobile Logo following brand book guidelines */}
-            <div className="block portrait:block landscape:hidden lg:hidden pb-8 md:pb-12">
-              <img
-                src="/assets/img/logos/logo-mobile.webp"
-                alt="Galaga Agency"
-                className="w-20 h-auto md:w-24 opacity-95 drop-shadow-2xl"
-              />
-            </div>
-
-            {/* Main Headline - Following brand book typography */}
-            <div className="flex flex-col text-center pb-8 md:pb-12 w-full">
-              <h1 className="hero-title text-brand-blanco drop-shadow-2xl overflow-visible px-4">
-                {/* Always two lines - mobile and desktop */}
-                <span className="flex flex-col items-center gap-2">
-                  <span
-                    data-anim="innovamos"
-                    className="text-brand-turquesa inline-block drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px]"
-                  >
-                    {t("homepage.hero.innovamos")}
-                  </span>
-
-                  {/* Rolling text container - CENTERED ON SCREEN */}
-                  <span className="relative w-full flex justify-center">
-                    {/* First text: "for you" with strike line INSIDE */}
-                    <span
-                      data-anim="for-you"
-                      className="text-brand-hielo inline-block drop-shadow-xl opacity-0 scale-[2] -translate-y-24 blur-[20px] whitespace-nowrap relative"
-                    >
-                      {t("homepage.hero.forYou")}
-                      {/* Strike-through line - ONLY CROSSES THE TEXT */}
-                      <span
-                        data-anim="strike-line"
-                        className="absolute top-[55%] left-0 w-full h-2 md:h-4 bg-brand-hielo opacity-0 scale-x-0 origin-left z-10"
-                        style={{ transform: "translateY(-50%)" }}
-                      ></span>
-                    </span>
-
-                    {/* Second text: "with you" / "contigo" - ABSOLUTELY CENTERED */}
-                    <span
-                      data-anim="with-you"
-                      className="text-brand-hielo absolute top-0 left-1/2 inline-block drop-shadow-xl opacity-0 whitespace-nowrap"
-                      style={{ transform: "translateX(-50%) translateY(100%)" }}
-                    >
-                      {t("homepage.hero.contigo")}
-                    </span>
-                  </span>
-                </span>
-              </h1>
-            </div>
-
-            {/* Subtitle with brand book typography */}
-            <div className="text-center pb-12 md:pb-16 w-full px-4">
-              <p className=" text-lg md:text-2xl text-brand-hielo leading-relaxed drop-shadow-lg">
-                {t("homepage.hero.subtitle")}
-              </p>
+              <span
+                className="hero-contigo absolute top-0 text-brand-hielo opacity-0 whitespace-nowrap inline-block"
+                style={{ 
+                  right: "0",
+                  fontSize: "clamp(1.5rem, 8vw, 4rem)"
+                }}
+              >
+                {t("homepage.hero.contigo")}
+              </span>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
 
-  // VIDEO VERSION
-  return (
-    <section className="hero-section relative min-h-[110vh] xl:min-h-[120vh] overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-        <video
-          className="video-hero w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          onLoadedData={handleVideoLoad}
-          onError={handleVideoError}
-        >
-          <source src="/assets/videos/galaga-intro.mp4" type="video/mp4" />
-        </video>
-        
-        {/* Loading state while video loads */}
-        {!videoLoaded && (
-          <div className="absolute inset-0 bg-hero-gradient"></div>
-        )}
+        <div className="hero-final-logo absolute opacity-0 flex flex-col items-center">
+          <img
+            src="/assets/img/logos/logo-full-white.webp"
+            alt="Galaga Agency"
+            className="opacity-95 drop-shadow-2xl mb-8"
+            style={{
+              width: "clamp(250px, 45vw, 600px)",
+              height: "auto"
+            }}
+          />
+          <p 
+            className="hero-cta-text text-brand-hielo text-center opacity-0 max-w-[80vw] mx-auto"
+            style={{
+              fontSize: "clamp(1.25rem, 4vw, 2rem)"
+            }}
+          >
+            {t("homepage.hero.subtitle")}
+          </p>
+        </div>
       </div>
+
+      {/* Custom Scroll Indicator */}
+      <ScrollIndicator 
+        className="scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" 
+      />
     </section>
   );
 }
