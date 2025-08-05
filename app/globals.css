@@ -561,3 +561,51 @@ h6 {
     width: var(--container-wide);
   }
 }
+
+:root {
+  /* Video Hero Animations */
+  --animate-video-fade-in: video-fade-in 2s ease-out forwards;
+  --animate-text-overlay-fade: text-overlay-fade 1.5s ease-out 1s forwards;
+
+  /* Video Hero Typography */
+  --font-size-hero-video: clamp(2rem, 8vw, 4rem);
+  --line-height-hero-video: 1.1;
+  --font-size-hero-video-mobile: clamp(1.75rem, 6vw, 2.5rem);
+  --line-height-hero-video-mobile: 1.2;
+}
+
+/* Keyframes for video hero */
+@keyframes video-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes text-overlay-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes for video hero */
+.hero-title-video {
+  font-size: var(--font-size-hero-video);
+  line-height: var(--line-height-hero-video);
+}
+
+@media (max-width: 768px) {
+  .hero-title-video {
+    font-size: var(--font-size-hero-video-mobile);
+    line-height: var(--line-height-hero-video-mobile);
+  }
+}
