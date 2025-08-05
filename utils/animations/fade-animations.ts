@@ -1,4 +1,3 @@
-// utils/animations/fade-animations.ts
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 

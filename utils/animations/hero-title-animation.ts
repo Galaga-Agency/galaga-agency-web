@@ -98,12 +98,47 @@ export const initHeroTitleAnimation = () => {
     ease: "power2.out"
   }, "+=1.5");
 
-  // Final logo fades in
+  // NEW: Enhanced final logo animation with SVG parts
   tl.to('.hero-final-logo', {
     opacity: 1,
-    duration: 1,
+    duration: 0.8,
     ease: "power2.out"
   }, "+=0.5");
+
+  // Set initial states for SVG elements
+  tl.set('.logo-icon', {
+    scale: 1.5,
+    transformOrigin: "center center"
+  }, "-=0.8");
+
+  tl.set('.logo-text', {
+    opacity: 0,
+    y: 20
+  }, "-=0.8");
+
+  // Icon scales down to make room for text
+  tl.to('.logo-icon', {
+    scale: 1,
+    duration: 0.8,
+    ease: "back.out(1.2)"
+  }, "+=0.6");
+
+  // Text fades in with a slight slide up
+  tl.to('.logo-text', {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "power2.out"
+  }, "-=0.4");
+
+  // Optional: Add a subtle bounce to the entire logo
+  tl.to('.hero-final-logo svg', {
+    scale: 1.05,
+    duration: 0.3,
+    ease: "power2.out",
+    yoyo: true,
+    repeat: 1
+  }, "-=0.2");
   
   // But keep the CTA text hidden for typewriter
   tl.set('.hero-cta-text', { opacity: 0 }, "-=1");
