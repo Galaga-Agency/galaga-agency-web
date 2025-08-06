@@ -20,7 +20,7 @@ export default function CTASection() {
             <span className="block text-negro pb-2">
               {t("cta.massive.line1")}
             </span>
-            <span className="block bg-gradient-to-r from-teal to-turquesa bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal to-turquesa bg-clip-text text-transparent pb-4">
               {t("cta.massive.line2")}
             </span>
           </h2>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { partners } from '@/data/partners';
+import React from "react";
+import { partners } from "@/data/partners";
 import { useTranslation } from "@/hooks/useTranslation";
 
 const PartnersSection: React.FC = () => {
@@ -36,8 +36,8 @@ const PartnersSection: React.FC = () => {
                   className={`partner-logo partner-logo-${index} group cursor-pointer flex justify-center`}
                 >
                   <div className="relative">
-                    <img 
-                      src={partner.logo} 
+                    <img
+                      src={partner.logo}
                       alt={partner.name}
                       className="h-28 md:h-32 lg:h-36 xl:h-48 w-auto object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"
                     />
@@ -61,11 +61,13 @@ const PartnersSection: React.FC = () => {
               {partners.slice(4, 8).map((partner, index) => (
                 <div
                   key={partner.id}
-                  className={`partner-logo partner-logo-${index + 4} group cursor-pointer flex justify-center`}
+                  className={`partner-logo partner-logo-${
+                    index + 4
+                  } group cursor-pointer flex justify-center`}
                 >
                   <div className="relative">
-                    <img 
-                      src={partner.logo} 
+                    <img
+                      src={partner.logo}
                       alt={partner.name}
                       className="h-28 md:h-32 lg:h-36 xl:h-48 w-auto object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110"
                     />
@@ -83,45 +85,6 @@ const PartnersSection: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Animated connecting lines */}
-        <div className="absolute inset-0 pointer-events-none">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgba(255,255,255,0)" />
-                <stop offset="50%" stopColor="rgba(255,255,255,0.1)" />
-                <stop offset="100%" stopColor="rgba(255,255,255,0)" />
-              </linearGradient>
-            </defs>
-            {/* Flowing connection lines */}
-            <path 
-              className="connection-line-1" 
-              d="M 200 300 Q 400 200 600 300 T 1000 300" 
-              stroke="url(#lineGradient)" 
-              strokeWidth="1" 
-              fill="none"
-              opacity="0"
-            />
-            <path 
-              className="connection-line-2" 
-              d="M 300 500 Q 500 400 700 500 T 1100 500" 
-              stroke="url(#lineGradient)" 
-              strokeWidth="1" 
-              fill="none"
-              opacity="0"
-            />
-          </svg>
-        </div>
-      </div>
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="particle particle-1 absolute w-1 h-1 bg-white/20 rounded-full"></div>
-        <div className="particle particle-2 absolute w-1 h-1 bg-white/20 rounded-full"></div>
-        <div className="particle particle-3 absolute w-1 h-1 bg-white/20 rounded-full"></div>
-        <div className="particle particle-4 absolute w-1 h-1 bg-white/20 rounded-full"></div>
-        <div className="particle particle-5 absolute w-1 h-1 bg-white/20 rounded-full"></div>
       </div>
     </section>
   );

@@ -10,10 +10,23 @@ export default function HeroSection() {
 
   return (
     <section className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-hero-gradient"></div>
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-azul-profundo/20 via-transparent to-brand-negro/30"></div>
+      {/* Hero gradient background */}
+      <div 
+        className="absolute inset-0" 
+        style={{
+          background: "linear-gradient(135deg, #121c30 0%, #176161 50%, #4cbcc5 100%)"
+        }}
+      ></div>
+      
+      {/* Overlay gradient */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(to bottom, rgba(18, 28, 48, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%)"
+        }}
+      ></div>
 
-      <div className="hero-content relative z-40 w-full h-full flex items-center justify-center">
+      <div className="hero-content relative z-40 w-full h-full flex items-center justify-center -pt-18 md:-pt-16 lg:-pt-20">
         <div className="hero-logo absolute opacity-0">
           <img
             className="hero-logo-img opacity-95 drop-shadow-2xl"
@@ -29,8 +42,9 @@ export default function HeroSection() {
         <div className="absolute">
           <div className="relative">
             <h1
-              className="hero-title text-brand-blanco font-bold drop-shadow-2xl opacity-0 mb-6"
+              className="hero-title font-bold drop-shadow-2xl opacity-0 mb-6"
               style={{ 
+                color: "#ffffff",
                 transform: "translateY(100px)",
                 fontSize: "clamp(3rem, 15vw, 10rem)",
                 lineHeight: "0.9"
@@ -44,21 +58,26 @@ export default function HeroSection() {
               style={{ right: "0" }}
             >
               <span 
-                className="hero-para-ti text-brand-hielo opacity-0 whitespace-nowrap relative inline-block"
+                className="hero-para-ti opacity-0 whitespace-nowrap relative inline-block"
                 style={{ 
+                  color: "#c3e5ef",
                   fontSize: "clamp(1.5rem, 8vw, 4rem)"
                 }}
               >
                 {t("homepage.hero.forYou")}
                 <span
-                  className="hero-strike-line absolute top-[52%] left-0 w-full h-1 lg:h-[6px] bg-brand-hielo opacity-0 scale-x-0 origin-left"
-                  style={{ transform: "translateY(-50%)" }}
+                  className="hero-strike-line absolute top-[52%] left-0 w-full h-1 lg:h-[6px] opacity-0 scale-x-0 origin-left"
+                  style={{ 
+                    backgroundColor: "#c3e5ef",
+                    transform: "translateY(-50%)" 
+                  }}
                 ></span>
               </span>
 
               <span
-                className="hero-contigo absolute top-0 text-brand-hielo opacity-0 whitespace-nowrap inline-block"
+                className="hero-contigo absolute top-0 opacity-0 whitespace-nowrap inline-block"
                 style={{ 
+                  color: "#c3e5ef",
                   right: "0",
                   fontSize: "clamp(1.5rem, 8vw, 4rem)"
                 }}
@@ -71,13 +90,13 @@ export default function HeroSection() {
 
         <div className="hero-final-logo absolute opacity-0 flex flex-col items-center">
           <img
-            src="/assets/img/logos/logo-full.svg"
+            src="/assets/img/logos/logo-mobile-white.webp"
             alt="Galaga Agency"
             className="opacity-95 drop-shadow-2xl"
             style={{
-              width: "clamp(250px, 45vw, 600px)",
+              width: "clamp(150px, 20vw, 250px)",
               height: "auto",
-              marginBottom: "clamp(2rem, 8vw, 3rem)"
+              marginBottom: "clamp(2rem, 5vw, 2rem)"
             }}
           />
           <div 
@@ -91,8 +110,9 @@ export default function HeroSection() {
             }}
           >
             <p 
-              className="hero-cta-text text-brand-hielo text-center opacity-0"
+              className="hero-cta-text text-center opacity-0"
               style={{
+                color: "#c3e5ef",
                 fontSize: "clamp(1.25rem, 4vw, 2rem)",
                 lineHeight: "1.4"
               }}
