@@ -8,7 +8,6 @@ export default function ServicesSection() {
   const { t } = useTranslation();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  // Map old theme names to your new color system
   const getUpdatedTheme = (oldTheme: string) => {
     const themeMap = {
       'primary': 'teal',
@@ -43,12 +42,6 @@ export default function ServicesSection() {
 
   return (
     <section className="relative section overflow-hidden bg-gradient-to-br from-azul-profundo via-teal to-negro">
-      {/* Enhanced background with subtle patterns */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-teal/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-violeta/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-turquesa/5 rounded-full blur-2xl"></div>
-      </div>
 
       <div className="relative z-10">
         {/* Enhanced section header */}
@@ -63,9 +56,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* ENHANCED BENTO LAYOUT */}
         <div className="section-break mx-auto px-4">
-          {/* Mobile: Enhanced single column */}
           <div className="grid grid-cols-1 gap-6 md:hidden">
             {services.map((service, index) => (
               <ServiceCard
@@ -83,7 +74,6 @@ export default function ServicesSection() {
             ))}
           </div>
 
-          {/* Desktop: Enhanced neighbor-aware bento layout */}
           <div className="hidden md:grid grid-cols-3 gap-6 lg:gap-8 auto-rows-[auto]">
             {/* Row 1: Small + Large with neighbor interaction */}
             <ServiceCard

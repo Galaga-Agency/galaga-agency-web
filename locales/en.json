@@ -95,7 +95,8 @@
       "description": "We identify and manage public aid for your project.",
       "feature1": "Digital Kit",
       "feature2": "Public subsidies",
-      "feature3": "Complete processing"
+      "feature3": "Complete processing",
+      "feature4": "Complete management"
     },
     "cta": {
       "title": "Ready to transform your business?",
@@ -130,7 +131,9 @@
       "impressions": "Impressions",
       "qualifiedLeads": "Qualified Leads",
       "attendees": "Attendees",
-      "cities": "Cities"
+      "cities": "Cities",
+      "eventDays": "Event Days",
+      "recurringEvent": "Recurring Event"
     },
     "dosxdos": {
       "title": "Dos x Dos Grupo Imagen",
@@ -155,6 +158,36 @@
       "challenge": "Position Canarias as host of international video game event in market dominated by major European fairs.",
       "solution": "We organized dual-venue fair (Tenerife and Gran Canaria) with tournaments, exhibitions, influencers and interactive experiences.",
       "result": "Event that brought together 30,000 people, wide dissemination on networks and media, positioning Canarias as new gaming attraction hub."
+    },
+    "tlpTenerife": {
+      "title": "TLP Tenerife",
+      "challenge": "After two years of pause, relaunching the largest tech event in the Canary Islands involved an organizational and trust challenge from both the public and sponsors. It was necessary to recover TLP's prestige and evolve its format.",
+      "solution": "Galaga collaborated in the design and production of a renovated edition, with four specialized zones (LAN, Summer-Con, Innova and eSports). In 2024, TLP exceeded 62,000 attendees, professionalized its proposal and returned to position itself as a key space for technology, gaming and training in the islands.",
+      "result": "Successful event relaunch with record attendance, enhanced professional reputation, and established foundation as the premier technology and gaming event in the Canary Islands."
+    },
+    "foroCanaryIslands": {
+      "title": "Foro Canary Islands Games",
+      "challenge": "The video game sector in the Canary Islands lacked professional spaces for networking and reflection. Galaga proposed creating the first institutional forum of the sector, with active participation of companies, administration and local talent.",
+      "solution": "The event brought together experts, institutions and key agents, with presentations and discussion tables on industry, employment and transversality. It was inaugurated by the President of the Government of the Canary Islands, had high visibility and laid the foundations for its continuity as an annual reference event.",
+      "result": "Successful creation of the first institutional gaming forum, government endorsement, and establishment of annual industry networking event."
+    },
+    "holidayWorld": {
+      "title": "Holiday World Gaming",
+      "challenge": "In an eminently tourist area like Maspalomas, the challenge was to introduce an attractive digital experience that would capture both local audiences and visitors. Additionally, it had to demonstrate the viability of a gaming space as a stable proposal.",
+      "solution": "Galaga led the creation of a pop-up gaming with simulators, consoles, VR and tournaments at the Holiday World center. The activation obtained high user rotation, excellent reception from family audiences and clear validation of the model for its expansion to other spaces or seasons.",
+      "result": "Successful gaming activation with high user engagement, family audience approval, and validated model for future expansion."
+    },
+    "baseEleague": {
+      "title": "Base eLeague",
+      "challenge": "Base Deportes Canarias sought to connect with young audiences, digitize its image and increase brand visibility in relevant online environments. The challenge was to integrate gaming into a brand associated with traditional physical sports.",
+      "solution": "Galaga developed an integral strategy: FIFA online league, store activations, presence at events and face-to-face final at a shopping center. The project generated more than 5 million impressions, hundreds of participants, high lead conversion and consolidated Base as a current and innovative brand.",
+      "result": "Over 5 million impressions, successful digital transformation, and positioned Base as an innovative sports brand connecting with younger demographics."
+    },
+    "alisiosLive": {
+      "title": "Alisios Live Gaming",
+      "challenge": "One of the biggest challenges was transforming the Alisios shopping center into an interactive experience space, connecting with young and family audiences during the Christmas campaign. Additionally, it was necessary to give visibility to gamer culture in a non-specialized environment and generate real traffic to stores and restaurants.",
+      "solution": "Galaga conceived and produced a free event with tournaments, simulators, VR, influencers and continuous dynamization during three days. The result was a high volume of participation, notable media impact and the consolidation of the event as an annual event, positioning Alisios as a reference in digital entertainment.",
+      "result": "High participation volume, significant media impact, and establishment as annual event, positioning Alisios as digital entertainment reference."
     },
     "cta": {
       "title": "Ready for your next success?",

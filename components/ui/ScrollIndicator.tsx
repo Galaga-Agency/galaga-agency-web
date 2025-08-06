@@ -14,7 +14,7 @@ export default function ScrollIndicator({ className = "" }: ScrollIndicatorProps
 
   return (
     <div className={`${!isTouchDevice && 'hidden'} scroll-indicator-wrapper flex flex-col items-center gap-3 ${className}`}>
-      <span className="text-brand-hielo text-sm font-medium tracking-wider">
+      <span className="text-hielo text-sm font-medium tracking-wider">
         {t("homepage.hero.scrollDown")}
       </span>
       <div className="scroll-mouse-container">
