@@ -28,7 +28,7 @@ export default function ValuePropCard({
       titleColor: "#121c30",
       textColor: "#2c2c2c",
       position:
-        "absolute z-30 -top-32 md:-top-6 lg:-top-2 left-6 lg:relative lg:-mr-8 lg:mt-4",
+        "absolute z-30 -top-32 md:-top-6 lg:-top-2 xl:-top-18 left-6 xl:left-0 lg:relative lg:-mr-8 lg:mt-4",
       iconSize: "text-4xl lg:text-5xl xl:text-6xl",
       textSize: "text-base lg:text-lg xl:text-xl",
       descSize: "text-sm lg:text-base xl:text-lg",
@@ -54,7 +54,7 @@ export default function ValuePropCard({
       titleColor: "#ffffff",
       textColor: "#4cbcc5",
       position:
-        "absolute z-20 top-82 md:-top-16 right-24 md:right-6 lg:relative lg:top-auto lg:-mt-16 lg:-ml-8",
+        "absolute z-20 top-82 md:-top-16 right-24 md:right-6 xl:right-0 xl:-top-20 lg:relative lg:top-auto lg:-mt-16 lg:-ml-8",
       iconSize: "text-4xl lg:text-5xl xl:text-6xl",
       textSize: "text-base lg:text-lg xl:text-xl",
       descSize: "text-sm lg:text-base xl:text-lg",
