@@ -1,11 +1,9 @@
 import { gsap } from "gsap";
-import { createAnimationManager } from "@/utils/animations/gsap-utils";
 
 export const initAboutHeroAnimations = () => {
-  const manager = createAnimationManager();
-
   const tl = gsap.timeline();
 
+  // Main title words animate up
   tl.to(".about-hero-word-1", {
     duration: 1,
     y: 0,
@@ -33,54 +31,58 @@ export const initAboutHeroAnimations = () => {
       "-=0.5"
     );
 
-  // Stats animation with stagger - animate to visible state
-  gsap.to(".about-hero-stat", {
-    duration: 0.8,
-    y: 0,
+  // Scroll indicator fades in
+  tl.to('.about-hero-scroll-indicator', {
     opacity: 1,
-    stagger: 0.2,
-    ease: "back.out(1.7)",
-    delay: 1.5,
-  });
+    duration: 0.8,
+    ease: "power2.out"
+  }, "-=0.5");
 
-  // Floating scroll indicator (if it exists)
-  const scrollIndicator = document.querySelector(".about-hero-scroll");
-  if (scrollIndicator) {
-    gsap.to(scrollIndicator, {
-      duration: 2,
-      y: 10,
-      repeat: -1,
-      yoyo: true,
-      ease: "power2.inOut",
-      delay: 2,
-    });
-  }
+  // Floating scroll indicator animation
+  tl.to('.about-hero-scroll-indicator .scroll-indicator-wrapper', {
+    y: 8,
+    duration: 1.5,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  }, "+=0.5");
 
-  // Background elements subtle animation (if they exist)
-  const topElement = document.querySelector(
-    ".about-hero-section .absolute.top-1\\/4"
-  );
-  if (topElement) {
-    gsap.to(topElement, {
-      duration: 8,
-      rotation: 360,
-      repeat: -1,
-      ease: "none",
-    });
-  }
+  // Add scroll detection for fade out
+  tl.call(() => {
+    let hasScrolled = false;
+    let scrollTimeout: NodeJS.Timeout;
 
-  const bottomElement = document.querySelector(
-    ".about-hero-section .absolute.bottom-1\\/3"
-  );
-  if (bottomElement) {
-    gsap.to(bottomElement, {
-      duration: 12,
-      rotation: -360,
-      repeat: -1,
-      ease: "none",
-    });
-  }
+    const handleScroll = () => {
+      if (!hasScrolled && window.scrollY > 50) {
+        hasScrolled = true;
+        
+        gsap.to('.about-hero-scroll-indicator', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
+      
+      if (hasScrolled && window.scrollY <= 10) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          hasScrolled = false;
+          gsap.to('.about-hero-scroll-indicator', {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        }, 1000);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }, [], "+=0.3");
 
   // Return cleanup function
-  return manager.cleanup;
+  return () => {
+    tl.kill();
+  };
 };

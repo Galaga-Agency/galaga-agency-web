@@ -15,6 +15,7 @@ import { initChevronAnimations } from "@/utils/animations/chevron-animation";
 import { initCaseStudiesAnimations } from "@/utils/animations/case-studies-animation";
 import { initAboutAnimations } from "@/utils/animations/about-animations";
 import { fadeAnimations } from "@/utils/animations/fade-animations";
+import { initWhyChooseAnimations } from "@/utils/animations/why-choose-us-animations";
 
 export default function HomePage() {
   useGSAPAnimations({
@@ -24,6 +25,7 @@ export default function HomePage() {
       fadeAnimations,
       initAboutAnimations,
       initChevronAnimations,
+      initWhyChooseAnimations,
       initCaseStudiesAnimations,
       animatePartnersSection,
       initCTAAnimations,
