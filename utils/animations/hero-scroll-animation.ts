@@ -59,6 +59,55 @@ export const initHeroScrollAnimation = () => {
     });
   }
 
+  // Value cards animation
+  const valueCard1 = document.querySelector(".value-card-1");
+  const valueCard2 = document.querySelector(".value-card-2");
+  const valueCard3 = document.querySelector(".value-card-3");
+
+  if (valueCard1 || valueCard2 || valueCard3) {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".homepage-about-section",
+        start: "top 80%",
+        end: "top 30%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    if (valueCard1) {
+      tl.to(valueCard1, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      }, 0.1);
+    }
+
+    if (valueCard2) {
+      tl.to(valueCard2, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      }, 0.3);
+    }
+
+    if (valueCard3) {
+      tl.to(valueCard3, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)"
+      }, 0.5);
+    }
+  }
+
   const aboutSection = document.querySelector(".about-section");
   const aboutContent = document.querySelector(".about-content");
   
@@ -144,4 +193,10 @@ export const cleanupHeroScrollAnimation = () => {
   if (heroContent) {
     gsap.set(heroContent, { scale: 1, opacity: 1, clearProps: "all" });
   }
+
+  // Reset value cards
+  const valueCards = document.querySelectorAll(".value-card-1, .value-card-2, .value-card-3");
+  valueCards.forEach(card => {
+    gsap.set(card, { opacity: 0, clearProps: "all" });
+  });
 };

@@ -6,7 +6,7 @@ export default function WhyChooseUsSection() {
   const { t } = useTranslation();
 
   return (
-    <div className="container relative z-10 pb-36 md:pb-12 lg:pb-20 overflow-hidden">
+    <div className="container relative z-10 pb-36 md:pb-12 lg:pb-32 overflow-hidden">
       {/* Main question - centered like screenshot */}
       <div className="text-center pb-16">
         <h2 className="section-title text-teal pb-8">

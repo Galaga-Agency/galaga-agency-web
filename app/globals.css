@@ -227,28 +227,6 @@ h6 {
 }
 
 /* animation for the scroll mouse on homepage hero */
-.scroll-mouse {
-  width: 30px;
-  height: 60px;
-  border: 3px solid var(--color-hielo);
-  border-radius: 60px;
-  position: relative;
-}
-
-.scroll-mouse::before {
-  content: "";
-  width: 12px;
-  height: 12px;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--color-hielo);
-  border-radius: 50%;
-  opacity: 1;
-  animation: scroll-wheel 2s infinite;
-}
-
 @keyframes bounce-smooth {
   0%,
   80%,
