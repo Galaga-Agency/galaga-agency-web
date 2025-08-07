@@ -25,7 +25,7 @@ export default function WhyChooseUsSection() {
       {/* Circles layout matching AboutSection floating cards */}
       <div className="relative min-h-[600px] md:min-h-[500px]">
         <img
-          src="/assets/img/symbols/double-chevron.webp"
+          src="/assets/img/symbols/double-chevron-teal.webp"
           alt="Double Chevron"
           className="absolute left-1/2 top-[45%] -translate-x-2/3 -translate-y-1/2 opacity-10 hidden md:block w-[55vw] xl:w-[40vw] z-0 pointer-events-none select-none"
           aria-hidden="true"
