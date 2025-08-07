@@ -124,7 +124,7 @@ export default function Footer() {
                   </a>
 
                   <a
-                    href="https://maps.google.com/?q=Las+Palmas+de+Gran+Canaria,+Spain"
+                    href="https://maps.google.com/?q=C.+Arado%2C+35200+Telde%2C+Las+Palmas+de+Gran+Canaria%2C+Spain"
                     className="group flex items-center text-gray-300 hover:text-white transition-all duration-300"
                     target="_blank"
                     rel="noopener noreferrer"

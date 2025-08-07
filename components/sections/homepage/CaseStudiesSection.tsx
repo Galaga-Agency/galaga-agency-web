@@ -75,7 +75,7 @@ export default function CaseStudiesSection() {
           <h2 className="case-studies-title section-title text-teal pb-6">
             {t("caseStudies.title")}
           </h2>
-          <p className="case-studies-subtitle text-large text-grafito leading-relaxed">
+          <p className="case-studies-subtitle text-xl text-grafito leading-relaxed">
             {t("caseStudies.subtitle")}
           </p>
         </div>

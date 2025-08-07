@@ -1,55 +1,21 @@
 "use client";
 
-import ValuePropCard from "@/components/ValuePropCard";
 import { useTranslation } from "@/hooks/useTranslation";
-import { FaRobot, FaHandshake, FaLightbulb } from "react-icons/fa";
-import { FaShuffle } from "react-icons/fa6";
+import { FaHandshake, FaLightbulb } from "react-icons/fa";
+import ValueBubbles from "@/components/ValueBubbles";
 
 export default function HomepageAboutSection() {
   const { t } = useTranslation();
 
-  const valueProps = [
-    {
-      icon: <FaShuffle />,
-      titleKey: "hero.organize",
-      descriptionKey: "hero.organizeDesc",
-      use3DRobot: false,
-    },
-    {
-      icon: <FaRobot />,
-      titleKey: "hero.automate",
-      descriptionKey: "hero.automateDesc",
-      use3DRobot: true,
-    },
-    {
-      icon: <FaHandshake />,
-      titleKey: "hero.connect",
-      descriptionKey: "hero.connectDesc",
-      use3DRobot: false,
-    },
-  ];
-
   return (
     <div className="relative">
-      {/* Overflowing cards - Now outside the section */}
-      <div className="absolute top-16 md:top-4 lg:top-10 left-0 right-0 -translate-y-1/4 z-30 w-full pointer-events-none">
-        <div className="px-4 lg:px-12 pointer-events-auto">
-          <div className="relative h-96 flex justify-center lg:h-auto lg:flex-row lg:items-start lg:gap-4 overflow-visible">
-            {valueProps.map((item, idx) => (
-              <ValuePropCard
-                key={idx}
-                icon={item.icon}
-                titleKey={item.titleKey}
-                descriptionKey={item.descriptionKey}
-                index={idx}
-              />
-            ))}
-          </div>
-        </div>
+      {/* Overflowing cards at the top */}
+      <div className="absolute top-16 md:top-4 lg:top-10 left-0 right-0 -translate-y-1/3 z-30 w-full pointer-events-none">
+        <ValueBubbles />
       </div>
 
-      {/* Main section with overflow-x hidden */}
-      <section
+      {/* Main section */}
+           <section
         className="homepage-about-section section relative overflow-x-hidden overflow-y-visible"
         style={{
           background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",

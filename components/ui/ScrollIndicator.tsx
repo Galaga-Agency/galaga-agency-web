@@ -2,6 +2,7 @@
 
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import { useTranslation } from "@/hooks/useTranslation";
+import { ChevronDownIcon } from "@heroicons/react/16/solid";
 
 interface ScrollIndicatorProps {
   className?: string;
@@ -9,17 +10,17 @@ interface ScrollIndicatorProps {
 
 export default function ScrollIndicator({ className = "" }: ScrollIndicatorProps) {
   const { t } = useTranslation();
-    const { isTouchDevice } = useDeviceDetect();
-
+  const { isTouchDevice } = useDeviceDetect();
 
   return (
     <div className={`${!isTouchDevice && 'hidden'} scroll-indicator-wrapper flex flex-col items-center gap-3 ${className}`}>
       <span className="text-hielo text-sm font-medium tracking-wider">
         {t("homepage.hero.scrollDown")}
       </span>
-      <div className="scroll-mouse-container">
-        <div className="scroll-mouse"></div>
-      </div>
+      <ChevronDownIcon 
+        className="text-hielo w-8 h-8 animate-bounce"
+        aria-hidden="true"
+      />
     </div>
   );
 }

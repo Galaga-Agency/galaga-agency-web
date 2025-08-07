@@ -16,8 +16,8 @@ export default function CTASection() {
       <div className="container relative z-10">
         {/* Main headline - clean and powerful */}
         <div className="text-center pb-16 lg:pb-20">
-          <h2 className="cta-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.85] tracking-tight pb-8">
-            <span className="block text-negro pb-2">
+          <h2 className="cta-title text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.85] tracking-tight pb-8">
+            <span className="block text-azul-profundo pb-2">
               {t("cta.massive.line1")}
             </span>
             <span className="block bg-gradient-to-r from-teal to-turquesa bg-clip-text text-transparent pb-4">

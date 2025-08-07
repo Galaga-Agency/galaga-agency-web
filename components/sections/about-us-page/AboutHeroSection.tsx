@@ -11,23 +11,31 @@ export default function AboutHeroSection() {
   return (
     <section className="about-hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Same background gradients as homepage */}
-      <div 
-        className="absolute inset-0" 
-        style={{
-          background: "linear-gradient(135deg, #121c30 0%, #176161 50%, #4cbcc5 100%)"
-        }}
-      ></div>
-      
-      <div 
+      <div
         className="absolute inset-0"
         style={{
-          background: "linear-gradient(to bottom, rgba(18, 28, 48, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%)"
+          background:
+            "linear-gradient(135deg, #121c30 0%, #176161 50%, #4cbcc5 100%)",
+        }}
+      ></div>
+
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(18, 28, 48, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%)",
         }}
       ></div>
 
       <div className="container relative z-20 w-full py-20">
         <div className="about-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
-          
+          <img
+            src="/assets/img/symbols/double-chevron-white.webp"
+            alt="Double Chevron"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 hidden md:block w-[55vw] xl:w-[40vw] z-0 pointer-events-none select-none"
+            aria-hidden="true"
+          />
+
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
             <div className="w-2 h-2 bg-turquesa rounded-full animate-pulse"></div>
@@ -62,9 +70,7 @@ export default function AboutHeroSection() {
         </div>
       </div>
 
-      <ScrollIndicator 
-        className="about-hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" 
-      />
+      <ScrollIndicator className="about-hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
     </section>
   );
 }

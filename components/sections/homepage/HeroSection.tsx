@@ -9,7 +9,7 @@ export default function HeroSection() {
   const { isTouchDevice } = useDeviceDetect();
 
   return (
-    <section className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="hero-section relative min-h-screen w-screen flex items-center justify-center overflow-hidden">
       {/* Hero gradient background */}
       <div
         className="absolute inset-0"
@@ -32,7 +32,7 @@ export default function HeroSection() {
         <img
           src="/assets/img/symbols/double-chevron-white.webp"
           alt="Double Chevron"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 hidden md:block w-[55vw] xl:w-[40vw] z-0 pointer-events-none select-none"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 hidden md:block w-[85vw] lg:w-[50vw] xl:w-[40vw] z-0 pointer-events-none select-none"
           aria-hidden="true"
         />
 

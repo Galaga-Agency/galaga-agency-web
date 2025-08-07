@@ -81,7 +81,6 @@ export const caseStudies: CaseStudy[] = [
     theme: "events" as const,
     slug: "canarias-game-show",
   },
-  // NEW CASE STUDIES FROM SCREENSHOTS
   {
     titleKey: "caseStudies.tlpTenerife.title",
     categoryKey: "caseStudies.categories.events",
@@ -123,26 +122,26 @@ export const caseStudies: CaseStudy[] = [
     theme: "events" as const,
     slug: "foro-canary-islands-games",
   },
-  {
-    titleKey: "caseStudies.holidayWorld.title",
-    categoryKey: "caseStudies.categories.marketing",
-    challengeKey: "caseStudies.holidayWorld.challenge",
-    solutionKey: "caseStudies.holidayWorld.solution",
-    resultKey: "caseStudies.holidayWorld.result",
-    metrics: [
-      {
-        value: "10K+",
-        labelKey: "caseStudies.metrics.attendees",
-      },
-      {
-        value: "3",
-        labelKey: "caseStudies.metrics.eventDays",
-      },
-    ],
-    image: "/assets/img/homepage/gaming.png",
-    theme: "marketing" as const,
-    slug: "holiday-world",
-  },
+  // {
+  //   titleKey: "caseStudies.holidayWorld.title",
+  //   categoryKey: "caseStudies.categories.marketing",
+  //   challengeKey: "caseStudies.holidayWorld.challenge",
+  //   solutionKey: "caseStudies.holidayWorld.solution",
+  //   resultKey: "caseStudies.holidayWorld.result",
+  //   metrics: [
+  //     {
+  //       value: "10K+",
+  //       labelKey: "caseStudies.metrics.attendees",
+  //     },
+  //     {
+  //       value: "3",
+  //       labelKey: "caseStudies.metrics.eventDays",
+  //     },
+  //   ],
+  //   image: "/assets/img/homepage/gaming.png",
+  //   theme: "marketing" as const,
+  //   slug: "holiday-world",
+  // },
   {
     titleKey: "caseStudies.baseEleague.title",
     categoryKey: "caseStudies.categories.marketing",
