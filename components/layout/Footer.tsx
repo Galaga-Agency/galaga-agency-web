@@ -51,7 +51,7 @@ export default function Footer() {
                 
                 <Link
                   href="https://instagram.com/galagaagency"
-                  className="group w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-gradient-to-br hover:from-purple-500 hover:to-pink-500 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 border border-white/10 hover:border-pink-500"
+                  className="group w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-teal-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 border border-white/10 hover:border-teal-500"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -123,8 +123,13 @@ export default function Footer() {
                     </div>
                   </a>
 
-                  <div className="flex items-center text-gray-300">
-                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-lg flex items-center justify-center">
+                  <a
+                    href="https://maps.google.com/?q=Las+Palmas+de+Gran+Canaria,+Spain"
+                    className="group flex items-center text-gray-300 hover:text-white transition-all duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-lg flex items-center justify-center group-hover:bg-teal-600 transition-colors duration-300">
                       <svg className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                       </svg>
@@ -133,7 +138,7 @@ export default function Footer() {
                       <p className="text-sm text-gray-400">Location</p>
                       <p className="font-medium text-base md:text-lg">{t("footer.location")}</p>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

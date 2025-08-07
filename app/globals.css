@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Colors - Only the exact ones you actually use */
+  /* Brand Colors */
   --color-negro: #000000;
   --color-blanco: #ffffff;
   --color-azul-profundo: #121c30;
@@ -14,17 +14,16 @@
   --color-violeta: #4e3a73;
   --color-lavanda: #b880b5;
 
-  /* Typography - Your custom font */
+  /* Typography  */
   --font-family-primary: "aileron", "Inter", system-ui, sans-serif;
   --font-family-heading: "aileron", "Inter", system-ui, sans-serif;
 
-  /* Custom font sizes that don't exist in Tailwind */
   --font-size-headline: clamp(2.5rem, 6vw, 4.5rem);
   --font-size-subheading: clamp(1.25rem, 3vw, 1.875rem);
   --font-size-body: clamp(1rem, 2vw, 1.125rem);
   --font-size-hero: clamp(2.5rem, 8vw, 8rem);
 
-  /* Container widths - Your custom responsive containers */
+  /* Container widths */
   --container-mobile: clamp(280px, 90vw, 540px);
   --container-tablet: clamp(540px, 85vw, 768px);
   --container-desktop: clamp(768px, 80vw, 1200px);
@@ -227,6 +226,7 @@ h6 {
   }
 }
 
+/* animation for the scroll mouse on homepage hero */
 .scroll-mouse {
   width: 30px;
   height: 60px;
@@ -262,6 +262,7 @@ h6 {
   }
 }
 
+/* animation for the loading component */
 .loading-dot-1 {
   animation: bounce-smooth 1.4s ease-in-out infinite both;
   animation-delay: -0.32s;

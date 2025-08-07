@@ -26,7 +26,7 @@ export default function HeroSection() {
         }}
       ></div>
 
-      <div className="hero-content relative z-40 w-full h-full flex items-center justify-center -pt-18 md:-pt-16 lg:-pt-20">
+      <div className="hero-content relative z-40 w-full h-full flex items-center justify-center -pt-18 md:-pt-16 lg:-pt-20 overflow-hidden">
         <div className="hero-logo absolute opacity-0">
           <img
             className="hero-logo-img opacity-95 drop-shadow-2xl"

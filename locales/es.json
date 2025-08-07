@@ -46,6 +46,23 @@
       "ourFocus": "Nos centramos en la innovación empresarial y el marketing interactivo, acompañando a aquellos clientes que necesitan digitalizar sus negocios pero carecen de las herramientas o el tiempo para hacerlo.",
       "offerTitle": "Nuestra propuesta",
       "whatWeOffer": "Les damos claridad, les ayudamos a organizarse, automatizar procesos, comunicar mejor y ofrecer experiencias memorables a sus clientes. Nuestro enfoque es humano, cercano y 100 % orientado a resultados."
+    },
+    "whyChoose": {
+      "title": "¿Por qué elegirnos?",
+      "intro": "No nos dedicamos a la digitalización",
+      "mainMessage": "Nos dedicamos a ofrecer soluciones para que tu negocio sea más competitivo, eficiente y relevante.",
+      "transparency": {
+        "title": "Porque somos transparentes",
+        "description": "Hablamos sin tecnicismos, sin complicaciones."
+      },
+      "involvement": {
+        "title": "Porque nos implicamos",
+        "description": "No somos una agencia externa, somos parte del equipo."
+      },
+      "strategy": {
+        "title": "Estrategia + Tecnología + Emoción",
+        "description": "Entendemos que el objetivo de todos los negocios es ayudar a personas, y el nuestro no es excepción."
+      }
     }
   },
   "partners": {
@@ -53,7 +70,7 @@
     "subtitle": "Trabajamos junto a los mejores para ofrecerte resultados excepcionales"
   },
   "services": {
-    "title": "Nuestros servicios",
+    "title": "Servicios que transforman negocios",
     "subtitle": "Soluciones integrales que combinan estrategia, tecnología y creatividad para transformar tu negocio.",
     "strategy": {
       "title": "Consultoría estratégica",
@@ -106,7 +123,7 @@
     }
   },
   "caseStudies": {
-    "title": "Casos de Éxito",
+    "title": "De necesidades específicas a soluciones personalizadas: así creamos cada proyecto",
     "subtitle": "Descubre cómo hemos transformado negocios reales con soluciones tecnológicas innovadoras y estrategias personalizadas.",
     "challenge": "Desafío",
     "solution": "Solución",
@@ -312,8 +329,8 @@
   "about-page": {
     "eyebrow": "Quiénes somos",
     "hero": {
-      "innovamos": "Innovamos",
-      "contigo": "contigo",
+      "encendemos": "Encendemos",
+      "tuExito": "tu éxito",
       "subtitle": "Transformamos negocios a través de soluciones digitales que funcionan, combinando estrategia empresarial, automatización, diseño de experiencias y creatividad tecnológica.",
       "scroll": "Descubrir",
       "stats": {

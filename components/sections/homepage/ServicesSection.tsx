@@ -47,11 +47,11 @@ export default function ServicesSection() {
         {/* Enhanced section header */}
         <div className="text-center pb-16">
           <div className="inline-block p-3 mb-6">
-            <h2 className="section-title text-blanco pb-0 mb-0">
+            <h2 className="section-title text-blanco pb-8 mb-0">
               {t("services.title")}
             </h2>
           </div>
-          <p className="text-large text-hielo leading-relaxed">
+          <p className="text-lg md:text-xl text-hielo leading-relaxed">
             {t("services.subtitle")}
           </p>
         </div>

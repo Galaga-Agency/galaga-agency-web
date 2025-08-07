@@ -46,6 +46,23 @@
       "ourFocus": "We focus on business innovation and interactive marketing—guiding clients who need to digitize their operations but lack the tools or time.",
       "offerTitle": "Our Proposal",
       "whatWeOffer": "We bring clarity, organize workflows, automate processes, improve communication, and create memorable customer experiences with a human-centered, results-driven approach."
+    },
+    "whyChoose": {
+      "title": "Why choose us?",
+      "intro": "We don't focus on digitalization",
+      "mainMessage": "We focus on offering solutions to make your business more competitive, efficient and relevant.",
+      "transparency": {
+        "title": "Because we are transparent",
+        "description": "We speak without technicalities, without complications."
+      },
+      "involvement": {
+        "title": "Because we get involved",
+        "description": "We are not an external agency, we are part of the team."
+      },
+      "strategy": {
+        "title": "Strategy + Technology + Emotion",
+        "description": "We understand that the goal of all businesses is to help people, and ours is no exception."
+      }
     }
   },
   "partners": {
@@ -53,7 +70,7 @@
     "subtitle": "We work with the best to offer you exceptional results"
   },
   "services": {
-    "title": "Our services",
+    "title": "Services that transform businesses",
     "subtitle": "Comprehensive solutions that combine strategy, technology and creativity to transform your business.",
     "strategy": {
       "title": "Strategic consulting",
@@ -106,7 +123,7 @@
     }
   },
   "caseStudies": {
-    "title": "Success Stories",
+    "title": "From specific needs to custom solutions: this is how we create each project",
     "subtitle": "Discover how we've transformed real businesses with innovative technological solutions and personalized strategies.",
     "challenge": "Challenge",
     "solution": "Solution",
@@ -312,8 +329,8 @@
   "about-page": {
     "eyebrow": "About us",
     "hero": {
-      "innovamos": "We innovate",
-      "contigo": "with you",
+      "encendemos": "We ignite",
+      "tuExito": "your success",
       "subtitle": "We transform businesses through digital solutions that work, combining business strategy, automation, experience design and technological creativity.",
       "scroll": "Discover",
       "stats": {

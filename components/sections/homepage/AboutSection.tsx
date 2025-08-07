@@ -99,15 +99,15 @@ export default function HomepageAboutSection() {
             <div className="relative h-[500px] md:h-[300px] lg:h-[360px] xxl:h-[400px] mb-32 md:mb-40 lg:mb-48">
               {/* Icon */}
               <div className="absolute -top-6 left-4 md:left-0 xl:left-32 xl:top-0 z-30">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95%">
-                  <FaHandshake className="text-hielo text-2xl md:text-4xl -rotate-12" />
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% border border-white/40 backdrop-blur-sm">
+                  <FaHandshake className="text-hielo text-2xl md:text-4xl -rotate-12 drop-shadow-sm" />
                 </div>
               </div>
 
               {/* Title */}
               <div className="absolute top-4 left-[30vw] md:left-[14vw] lg:left-[13vw] xl:left-[18vw] xxl:left-[26vw] -translate-x-1/2 z-20">
-                <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-gradient-to-br from-teal to-turquesa text-white p-6">
-                  <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+                <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-gradient-to-br from-teal to-turquesa text-white p-6 border border-white/40 backdrop-blur-sm">
+                  <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight drop-shadow-sm">
                     {t("homepage.about.focusTitle")}
                   </h3>
                 </div>
@@ -138,8 +138,8 @@ export default function HomepageAboutSection() {
 
               {/* Title */}
               <div className="absolute top-4 right-[30vw] md:right-[24vw] lg:right-[20vw] xl:right-[20vw] translate-x-1/2 z-20">
-                <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% text-white p-6">
-                  <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+                <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% text-white p-6 border border-white/40 backdrop-blur-sm">
+                  <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight drop-shadow-sm">
                     {t("homepage.about.offerTitle")}
                   </h3>
                 </div>
@@ -147,8 +147,8 @@ export default function HomepageAboutSection() {
 
               {/* Icon */}
               <div className="absolute -top-6 right-4 md:right-12 lg:right-16 xl:right-40 xl:top-0 z-30">
-                <div className="rotate-4 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-hielo via-white to-hielo">
-                  <FaLightbulb className="text-teal text-2xl md:text-4xl" />
+                <div className="rotate-4 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-hielo via-white to-hielo border border-white/40 backdrop-blur-sm">
+                  <FaLightbulb className="text-teal text-2xl md:text-4xl drop-shadow-sm" />
                 </div>
               </div>
             </div>
