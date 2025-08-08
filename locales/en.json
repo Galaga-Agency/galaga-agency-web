@@ -38,38 +38,38 @@
       "ctaText": "Schedule a call at www.galagaagency.com",
       "scrollDown": "Swipe to continue"
     },
- "about": {
+    "about": {
       "eyebrow": "What we do",
       "mainTitle": "Your Partner in Digitalization, Interactive Experiences and Business Growth",
       "subtitle": "At Galaga we help companies grow without losing control and focus on what really matters. We offer a practical approach that combines strategy, digital tools and creativity.",
-      
+
       "services": {
         "title": "Business technology projects",
         "description": "Galaga Agency manages your business technology project from strategy design to solution development and implementation follow-up.",
         "highlight": "We take care of the entire process so you don't have to worry about anything.",
         "cardTitle": "Complete Process"
       },
-      
+
       "digitalization": {
         "title": "Digitalization",
         "shortDescription": "We accompany companies in their digital transformation with a practical and personalized approach. We implement tools like CRM, ERP and automations, offering complete training and support.",
         "cardTitle": "Digital Tools"
       },
-      
+
       "clients": {
         "title": "Our Clients",
         "shortDescription": "We work with companies that need to digitize their businesses but don't have the knowledge, tools or time to do it. We give them clarity and help them organize.",
-        
+
         "retail": {
           "title": "Retail SMEs",
           "need": "Looking for better operational management, modernize their stores and attract new audiences."
         },
-        
+
         "growing": {
           "title": "Growing companies",
           "need": "Need to organize processes and free up management time."
         },
-        
+
         "innovative": {
           "title": "Innovative brands",
           "need": "Looking for better operational management, modernize their stores and attract new audiences."

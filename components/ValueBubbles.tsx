@@ -12,7 +12,7 @@ export default function ValueBubbles() {
       {/* Circles layout exactly like WhyChooseUs */}
       <div className="relative min-h-[600px] md:min-h-[500px]">
         {/* Top left - Organizar */}
-        <div className="value-card-1 absolute top-0 left-[10%] md:left-[5%] lg:left-[15%] opacity-0">
+        <div className="value-card-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%] opacity-0">
           <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-white from-20% via-neutral-50 via-60% to-neutral-200 to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
             <div className="text-center flex flex-col items-center">
               <div className="pb-4">
@@ -29,7 +29,7 @@ export default function ValueBubbles() {
         </div>
 
         {/* Top right - Conectar */}
-        <div className="value-card-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-[15%] opacity-0">
+        <div className="value-card-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-8 xl:right-[15%] opacity-0">
           <div className="w-60 h-60 lg:w-68 lg:h-68 xl:w-76 xl:h-76 rounded-full bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
             <div className="text-center flex flex-col items-center">
               <div className="pb-4">
