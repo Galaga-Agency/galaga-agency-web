@@ -39,7 +39,7 @@ export default function HomepageAboutSection() {
           ></div>
         </div>
 
-        <div className="pt-[400px] md:pt-32 lg:pt-72 relative z-10">
+        <div className="pt-[530px] md:pt-72 lg:pt-72 relative z-10">
           <div className="container">
             {/* Section Header */}
             <div className="text-center pb-16 md:pb-20">
@@ -54,11 +54,6 @@ export default function HomepageAboutSection() {
 
             {/* Story Timeline */}
             <div className="relative">
-              {/* Background decorative element */}
-              <div className="absolute top-0 right-0 md:right-8 lg:right-16 pointer-events-none z-0 opacity-20">
-                <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-br from-teal/30 to-turquesa/30 rounded-full blur-3xl"></div>
-              </div>
-
               {/* Timeline Content */}
               <div className="relative z-10 flex flex-col gap-12 md:gap-16 lg:gap-12">
                 {/* First Block - Services that Transform */}
