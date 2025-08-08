@@ -1,8 +1,9 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { FaHandshake, FaLightbulb } from "react-icons/fa";
+import { FaRocket, FaCogs, FaUsers } from "react-icons/fa";
 import ValueBubbles from "@/components/ValueBubbles";
+import Image from "next/image";
 
 export default function HomepageAboutSection() {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export default function HomepageAboutSection() {
       </div>
 
       {/* Main section */}
-           <section
+      <section
         className="homepage-about-section section relative overflow-x-hidden overflow-y-visible"
         style={{
           background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
@@ -24,97 +25,199 @@ export default function HomepageAboutSection() {
         {/* Diagonal background layers */}
         <div className="absolute inset-0">
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/20 to-blanco"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(195,229,239,0.4) 0%, rgba(76,188,197,0.1) 50%, rgba(255,255,255,1) 100%)",
-              clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 50%)",
+              clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 45%)",
             }}
           ></div>
+
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(195,229,239,0.2) 50%, rgba(255,255,255,1) 100%)",
-              clipPath: "polygon(0 50%, 100% 70%, 100% 100%, 0 100%)",
+              clipPath: "polygon(0 45%, 100% 65%, 100% 100%, 0 100%)",
             }}
           ></div>
         </div>
 
-        {/* Main content */}
-        <div className="pt-[500px] md:pt-40 lg:pt-48 xl:pt-64 xxl:pt-56 relative z-10 !px-0">
-          <div className="text-center pb-8 md:pb-0 lg:pb-8">
-            <h2 className="section-title text-teal tracking-tight py-8">
-              {t("homepage.about.poeticHeading")}
-            </h2>
+        <div className="pt-[400px] md:pt-32 lg:pt-72 relative z-10">
+          <div className="container">
+            {/* Section Header */}
+            <div className="text-center pb-16 md:pb-20">
+              <h2 className="section-title text-teal leading-tight tracking-tight pb-6">
+                {t("homepage.about.mainTitle")}
+              </h2>
 
-            <div className="px-4 md:px-8">
-              <p className="text-large text-azul-profundo font-light leading-relaxed">
-                <span className="font-semibold text-negro text-xl">
-                  {t("homepage.about.galagaAgency")}
-                </span>{" "}
-                <span className="text-grafito text-xl">
-                  {t("homepage.about.mainDescription")}
-                </span>
+              <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
+                {t("homepage.about.subtitle")}
               </p>
             </div>
-          </div>
 
-          {/* First Block - Focus */}
-          <div className="w-screen relative break-padding-x pt-8">
-            <div className="relative h-[500px] md:h-[300px] lg:h-[360px] xxl:h-[400px] mb-32 md:mb-40 lg:mb-48">
-              {/* Icon */}
-              <div className="absolute -top-6 left-4 md:left-0 xl:left-32 xl:top-0 z-30">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% border border-white/40 backdrop-blur-sm">
-                  <FaHandshake className="text-hielo text-2xl md:text-4xl -rotate-12 drop-shadow-sm" />
-                </div>
+            {/* Story Timeline */}
+            <div className="relative">
+              {/* Background decorative element */}
+              <div className="absolute top-0 right-0 md:right-8 lg:right-16 pointer-events-none z-0 opacity-20">
+                <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-gradient-to-br from-teal/30 to-turquesa/30 rounded-full blur-3xl"></div>
               </div>
 
-              {/* Title */}
-              <div className="absolute top-4 left-[30vw] md:left-[14vw] lg:left-[13vw] xl:left-[18vw] xxl:left-[26vw] -translate-x-1/2 z-20">
-                <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-gradient-to-br from-teal to-turquesa text-white p-6 border border-white/40 backdrop-blur-sm">
-                  <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight drop-shadow-sm">
-                    {t("homepage.about.focusTitle")}
-                  </h3>
-                </div>
-              </div>
+              {/* Timeline Content */}
+              <div className="relative z-10 flex flex-col gap-12 md:gap-16 lg:gap-12">
+                {/* First Block - Services that Transform */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                  <div className="px-4 lg:px-0">
+                    <div className="flex items-center gap-6 pb-8">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-mandarina/90 via-45% to-naranja-tostado to-100% rounded-full flex items-center justify-center shadow-2xl">
+                        <Image
+                          src="/assets/img/symbols/single-chevron-white.webp"
+                          alt=""
+                          width={16}
+                          height={16}
+                          className="w-10 h-10 drop-shadow-lg"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
+                          {t("homepage.about.services.title")}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-base md:text-lg text-negro leading-relaxed pb-6">
+                      {t("homepage.about.services.description")}
+                    </p>
+                    <p className="text-base md:text-lg text-azul-profundo font-semibold leading-relaxed">
+                      {t("homepage.about.services.highlight")}
+                    </p>
+                  </div>
 
-              {/* Desc */}
-              <div className="absolute top-36 right-0 md:top-16 z-10">
-                <div className="h-82 md:h-60 lg:h-72 w-[95vw] md:w-[80vw] lg:w-[78vw] xxl:w-[60vw] glass-effect border border-white/30 rounded-l-[3rem] shadow-xl pl-8 lg:pl-0 flex items-center justify-center text-left">
-                  <p className="text-xl lg:text-2xl text-azul-profundo leading-relaxed max-w-[90%] md:max-w-[80%]">
-                    {t("homepage.about.ourFocus")}
-                  </p>
+                  <div className="relative lg:order-2 px-4 lg:px-0">
+                    <div className="bg-gradient-to-br from-teal to-turquesa p-8 rounded-2xl text-white shadow-2xl">
+                      <h4 className="text-xl font-bold pb-6">
+                        {t("homepage.about.services.cardTitle")}
+                      </h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">Análisis inicial</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">
+                            Diseño de estrategia
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">
+                            Implementación completa
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">
+                            Seguimiento y soporte
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* Second Block - Offer */}
-          <div className="w-screen relative break-padding-x z-50">
-            <div className="relative h-[500px] md:h-[300px] lg:h-[360px] xxl:h-[400px] mb-32 md:mb-40 lg:mb-48">
-              {/* Desc */}
-              <div className="absolute top-36 left-0 md:-left-8 md:top-16 z-10">
-                <div className="h-82 md:h-60 lg:h-72 w-[95vw] md:w-[80vw] lg:w-[78vw] xxl:w-[60vw] glass-effect border border-white/30 rounded-r-[3rem] shadow-xl pr-8 flex items-center justify-center text-left">
-                  <p className="text-xl lg:text-2xl text-azul-profundo leading-relaxed max-w-[90%] md:max-w-[80%]">
-                    {t("homepage.about.whatWeOffer")}
-                  </p>
+                {/* Second Block - Digital Transformation */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                  <div className="px-4 lg:px-0 lg:order-2">
+                    <div className="flex items-center gap-6 pb-8">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-turquesa/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl">
+                        <FaCogs className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
+                          {t("homepage.about.digitalization.title")}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
+                      {t("homepage.about.digitalization.shortDescription")}
+                    </p>
+                  </div>
+
+                  <div className="relative lg:order-1 px-4 lg:px-0">
+                    <div className="bg-gradient-to-br from-teal to-azul-profundo p-8 rounded-2xl text-white shadow-2xl">
+                      <h4 className="text-xl font-bold pb-6">
+                        {t("homepage.about.digitalization.cardTitle")}
+                      </h4>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">
+                            CRM, ERP, automatizaciones
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">
+                            Espacios colaborativos en la nube
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">Formación y soporte</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
+                          <span className="text-base">
+                            Gestión de subvenciones
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
 
-              {/* Title */}
-              <div className="absolute top-4 right-[30vw] md:right-[24vw] lg:right-[20vw] xl:right-[20vw] translate-x-1/2 z-20">
-                <div className="w-40 h-40 md:w-52 md:h-52 lg:w-72 lg:h-72 rounded-full flex items-center justify-center text-center shadow-xl bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% text-white p-6 border border-white/40 backdrop-blur-sm">
-                  <h3 className="text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight drop-shadow-sm">
-                    {t("homepage.about.offerTitle")}
-                  </h3>
-                </div>
-              </div>
+                {/* Third Block - Our Clients */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                  <div className="px-4 lg:px-0">
+                    <div className="flex items-center gap-6 pb-8">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl">
+                        <FaUsers className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
+                          {t("homepage.about.clients.title")}
+                        </h3>
+                      </div>
+                    </div>
+                    <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
+                      {t("homepage.about.clients.shortDescription")}
+                    </p>
+                  </div>
 
-              {/* Icon */}
-              <div className="absolute -top-6 right-4 md:right-12 lg:right-16 xl:right-40 xl:top-0 z-30">
-                <div className="rotate-4 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg bg-gradient-to-br from-hielo via-white to-hielo border border-white/40 backdrop-blur-sm">
-                  <FaLightbulb className="text-teal text-2xl md:text-4xl drop-shadow-sm" />
+                  <div className="relative lg:order-2 px-4 lg:px-0">
+                    <div className="grid grid-cols-1 gap-4">
+                      <div className="bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 border-blanco">
+                        <h5 className="font-bold text-azul-profundo text-lg mb-2">
+                          {t("homepage.about.clients.retail.title")}
+                        </h5>
+                        <p className="text-sm text-negro">
+                          {t("homepage.about.clients.retail.need")}
+                        </p>
+                      </div>
+                      <div className="bg-gradient-to-r from-mandarina/0 to-mandarina/10 p-6 rounded-xl border-l-4 border-mandarina">
+                        <h5 className="font-bold text-azul-profundo text-lg mb-2">
+                          {t("homepage.about.clients.growing.title")}
+                        </h5>
+                        <p className="text-sm text-negro">
+                          {t("homepage.about.clients.growing.need")}
+                        </p>
+                      </div>
+                      <div className="bg-gradient-to-r from-violeta/20 to-azul-profundo/20 p-6 rounded-xl border-l-4 border-violeta">
+                        <h5 className="font-bold text-azul-profundo text-lg mb-2">
+                          {t("homepage.about.clients.innovative.title")}
+                        </h5>
+                        <p className="text-sm text-negro">
+                          {t("homepage.about.clients.innovative.need")}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

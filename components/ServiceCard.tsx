@@ -49,6 +49,13 @@ export default function ServiceCard({
         bulletDefault: "bg-mandarina/60",
         titleColor: "text-mandarina",
         textColor: "text-azul-profundo"
+      },
+      "azul-profundo": {
+        border: "border-azul-profundo/40",
+        bulletHovered: "bg-azul-profundo",
+        bulletDefault: "bg-azul-profundo/60",
+        titleColor: "text-azul-profundo",
+        textColor: "text-azul-profundo"
       }
     };
     return styles[theme as keyof typeof styles] || styles.teal;

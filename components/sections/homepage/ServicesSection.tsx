@@ -17,7 +17,7 @@ export default function ServicesSection() {
     },
     {
       ...services[1],
-      theme: 'turquesa',
+      theme: 'azul-profundo',
       image: '/assets/img/servicios/automatizacion.png'
     },
     {
@@ -32,7 +32,7 @@ export default function ServicesSection() {
     },
     {
       ...services[4],
-      theme: 'turquesa',
+      theme: 'azul-profundo',
       image: '/assets/img/servicios/formacion.png'
     },
     {

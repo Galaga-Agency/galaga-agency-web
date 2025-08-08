@@ -39,13 +39,42 @@
       "scrollDown": "Desliza para continuar"
     },
     "about": {
-      "poeticHeading": "Somos el puente entre ideas y realidad",
-      "galagaAgency": "Galaga Agency",
-      "mainDescription": "gestiona tu proyecto tecnológico empresarial desde el diseño de la estrategia hasta el desarrollo de soluciones y el seguimiento de la implantación.",
-      "focusTitle": "¿Quiénes somos?",
-      "ourFocus": "Nos centramos en la innovación empresarial y el marketing interactivo, acompañando a aquellos clientes que necesitan digitalizar sus negocios pero carecen de las herramientas o el tiempo para hacerlo.",
-      "offerTitle": "Nuestra propuesta",
-      "whatWeOffer": "Les damos claridad, les ayudamos a organizarse, automatizar procesos, comunicar mejor y ofrecer experiencias memorables a sus clientes. Nuestro enfoque es humano, cercano y 100 % orientado a resultados."
+      "eyebrow": "Qué hacemos",
+      "mainTitle": "Tu Partner en Digitalización, Experiencias Interactivas y Crecimiento Empresarial",
+      "subtitle": "En Galaga ayudamos a que las empresas crezcan sin perder el control y el foco en lo que realmente importa. Ofrecemos un enfoque práctico que une estrategia, herramientas digitales y creatividad.",
+      
+      "services": {
+        "title": "Proyectos tecnológicos empresariales",
+        "description": "Galaga Agency gestiona tu proyecto tecnológico empresarial desde el diseño de la estrategia hasta el desarrollo de soluciones y seguimiento de la implantación.",
+        "highlight": "Nos ocupamos de todo el proceso para que no tengas que preocuparte de nada.",
+        "cardTitle": "Proceso Completo"
+      },
+      
+      "digitalization": {
+        "title": "Digitalización",
+        "shortDescription": "Acompañamos a las empresas en su transformación digital con un enfoque práctico y personalizado. Implementamos herramientas como CRM, ERP y automatizaciones, ofreciendo formación y soporte completo.",
+        "cardTitle": "Herramientas Digitales"
+      },
+      
+      "clients": {
+        "title": "Nuestros Clientes",
+        "shortDescription": "Trabajamos con empresas que necesitan digitalizar sus negocios pero no cuentan con el conocimiento, las herramientas o el tiempo para hacerlo. Les damos claridad y les ayudamos a organizarse.",
+        
+        "retail": {
+          "title": "PYMEs retail",
+          "need": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos."
+        },
+        
+        "growing": {
+          "title": "Empresas en crecimiento",
+          "need": "Necesitan ordenar procesos y liberar tiempo de gestión."
+        },
+        
+        "innovative": {
+          "title": "Marcas innovadoras",
+          "need": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos."
+        }
+      }
     },
     "whyChoose": {
       "title": "¿Por qué elegirnos?",
