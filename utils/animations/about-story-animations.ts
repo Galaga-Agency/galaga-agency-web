@@ -13,7 +13,6 @@ export const initAboutStoryAnimations = () => {
     scrollTrigger: {
       trigger: ".about-story-eyebrow",
       start: "top 80%",
-      end: "bottom 20%",
       toggleActions: "play none none none",
     },
   });
@@ -26,7 +25,6 @@ export const initAboutStoryAnimations = () => {
     scrollTrigger: {
       trigger: ".about-story-title",
       start: "top 80%",
-      end: "bottom 20%",
       toggleActions: "play none none none",
     },
   });
@@ -40,7 +38,6 @@ export const initAboutStoryAnimations = () => {
     scrollTrigger: {
       trigger: ".about-story-subtitle",
       start: "top 80%",
-      end: "bottom 20%",
       toggleActions: "play none none none",
     },
   });
@@ -54,157 +51,310 @@ export const initAboutStoryAnimations = () => {
     scrollTrigger: {
       trigger: ".about-story-bg",
       start: "top 90%",
-      end: "bottom 10%",
       toggleActions: "play none none none",
     },
   });
 
-  // Story blocks animation with alternating directions
-  gsap.utils.toArray(".story-block").forEach((block: any, index) => {
-    const isEven = index % 2 === 0;
-
-    // Main block animation
-    gsap.from(block, {
-      duration: 1,
-      x: isEven ? -100 : 100,
-      opacity: 0,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: block,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Story block header animation
-    gsap.from(block.querySelector(".story-block-header"), {
-      duration: 0.8,
-      y: 40,
-      opacity: 0,
-      ease: "power2.out",
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: block,
-        start: "top 75%",
-        end: "bottom 25%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Icon container animation
-    gsap.from(block.querySelector(".story-block-icon"), {
-      duration: 0.6,
-      scale: 0,
-      rotation: 180,
-      ease: "back.out(1.7)",
-      delay: 0.4,
-      scrollTrigger: {
-        trigger: block,
-        start: "top 75%",
-        end: "bottom 25%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Year animation
-    gsap.from(block.querySelector(".story-block-year"), {
-      duration: 0.6,
-      x: -20,
-      opacity: 0,
-      ease: "power2.out",
-      delay: 0.5,
-      scrollTrigger: {
-        trigger: block,
-        start: "top 75%",
-        end: "bottom 25%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Title animation
-    gsap.from(block.querySelector(".story-block-title"), {
-      duration: 0.8,
-      y: 30,
-      opacity: 0,
-      ease: "power2.out",
-      delay: 0.6,
-      scrollTrigger: {
-        trigger: block,
-        start: "top 75%",
-        end: "bottom 25%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Description animation
-    gsap.from(block.querySelector(".story-block-description"), {
-      duration: 0.8,
-      y: 20,
-      opacity: 0,
-      ease: "power2.out",
-      delay: 0.7,
-      scrollTrigger: {
-        trigger: block,
-        start: "top 75%",
-        end: "bottom 25%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Image container animation
-    gsap.from(block.querySelector(".story-block-image"), {
-      duration: 1,
-      opacity: 0,
-      ease: "back.out(1.7)",
-      delay: 0.3,
-      scrollTrigger: {
-        trigger: block,
-        start: "top 75%",
-        end: "bottom 25%",
-        toggleActions: "play none none none",
-      },
-    });
-
-    // Special animation for the third block - values grid
-    if (index === 2) {
-      const valuesGrid = block.querySelector(".story-values-grid");
-      if (valuesGrid) {
-        gsap.from(valuesGrid.querySelectorAll(".story-value"), {
-          duration: 0.6,
-          y: 30,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-          delay: 0.8,
-          scrollTrigger: {
-            trigger: valuesGrid,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-        });
-
-        // Value text animation
-        gsap.from(valuesGrid.querySelectorAll(".story-value-text"), {
-          duration: 0.8,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "back.out(1.7)",
-          delay: 1,
-          scrollTrigger: {
-            trigger: valuesGrid,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none none",
-          },
-        });
-      }
-    }
+  // Story Block 1 animations
+  gsap.from(".story-block-1", {
+    duration: 1,
+    x: -100,
+    opacity: 0,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
   });
 
-  // Setup hover animations for story blocks
-  setupStoryBlockHovers();
+  gsap.from(".story-header-1", {
+    duration: 0.8,
+    y: 40,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-icon-1", {
+    duration: 0.6,
+    scale: 0,
+    rotation: 180,
+    ease: "back.out(1.7)",
+    delay: 0.4,
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-year-1", {
+    duration: 0.6,
+    x: -20,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-title-1", {
+    duration: 0.8,
+    y: 30,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.6,
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-description-1", {
+    duration: 0.8,
+    y: 20,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.7,
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-image-1", {
+    duration: 1,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.3,
+    scrollTrigger: {
+      trigger: ".story-block-1",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Story Block 2 animations
+  gsap.from(".story-block-2", {
+    duration: 1,
+    x: 100,
+    opacity: 0,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-header-2", {
+    duration: 0.8,
+    y: 40,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-icon-2", {
+    duration: 0.6,
+    scale: 0,
+    rotation: 180,
+    ease: "back.out(1.7)",
+    delay: 0.4,
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-year-2", {
+    duration: 0.6,
+    x: -20,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-title-2", {
+    duration: 0.8,
+    y: 30,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.6,
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-description-2", {
+    duration: 0.8,
+    y: 20,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.7,
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-image-2", {
+    duration: 1,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.3,
+    scrollTrigger: {
+      trigger: ".story-block-2",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Story Block 3 animations
+  gsap.from(".story-block-3", {
+    duration: 1,
+    x: -100,
+    opacity: 0,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-header-3", {
+    duration: 0.8,
+    y: 40,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-icon-3", {
+    duration: 0.6,
+    scale: 0,
+    rotation: 180,
+    ease: "back.out(1.7)",
+    delay: 0.4,
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-year-3", {
+    duration: 0.6,
+    x: -20,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-title-3", {
+    duration: 0.8,
+    y: 30,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.6,
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-description-3", {
+    duration: 0.8,
+    y: 20,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.7,
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from(".story-image-3", {
+    duration: 1,
+    opacity: 0,
+    ease: "power2.out",
+    delay: 0.3,
+    scrollTrigger: {
+      trigger: ".story-block-3",
+      start: "top 75%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Values grid animation
+  gsap.from([".story-value-1", ".story-value-2", ".story-value-3"], {
+    duration: 0.6,
+    y: 30,
+    opacity: 0,
+    stagger: 0.1,
+    ease: "power2.out",
+    delay: 0.8,
+    scrollTrigger: {
+      trigger: ".story-values-grid",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.from([".story-value-text-1", ".story-value-text-2", ".story-value-text-3"], {
+    duration: 0.8,
+    opacity: 0,
+    stagger: 0.1,
+    ease: "back.out(1.7)",
+    delay: 1,
+    scrollTrigger: {
+      trigger: ".story-values-grid",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Setup hover animations
+  setupStoryHovers();
 
   // Return cleanup function
   return () => {
@@ -212,88 +362,66 @@ export const initAboutStoryAnimations = () => {
   };
 };
 
-const setupStoryBlockHovers = () => {
-  gsap.utils.toArray(".story-block").forEach((block: any) => {
-    if (!block) return;
+const setupStoryHovers = () => {
+  // Icon hover animations
+  [".story-icon-1", ".story-icon-2", ".story-icon-3"].forEach((selector) => {
+    const element = document.querySelector(selector);
+    if (!element) return;
 
-    const imageElement = block.querySelector(".story-block-image");
-    const iconElement = block.querySelector(".story-block-icon");
-
-    if (imageElement) {
-      block.addEventListener("mouseenter", () => {
-        gsap.to(imageElement, {
-          duration: 0.4,
-          scale: 1.05,
-          ease: "power2.out",
-        });
-
-        if (iconElement) {
-          gsap.to(iconElement, {
-            duration: 0.3,
-            rotation: 5,
-            scale: 1.1,
-            ease: "power2.out",
-          });
-        }
+    element.addEventListener("mouseenter", () => {
+      gsap.to(selector, {
+        duration: 0.3,
+        rotation: 5,
+        scale: 1.1,
+        ease: "power2.out",
       });
+    });
 
-      block.addEventListener("mouseleave", () => {
-        gsap.to(imageElement, {
-          duration: 0.4,
-          scale: 1,
-          ease: "power2.out",
-        });
-
-        if (iconElement) {
-          gsap.to(iconElement, {
-            duration: 0.3,
-            rotation: 0,
-            scale: 1,
-            ease: "power2.out",
-          });
-        }
+    element.addEventListener("mouseleave", () => {
+      gsap.to(selector, {
+        duration: 0.3,
+        rotation: 0,
+        scale: 1,
+        ease: "power2.out",
       });
-    }
+    });
   });
 
-  // Special hover animations for values
-  gsap.utils.toArray(".story-value").forEach((value: any) => {
-    if (!value) return;
+  // Value hover animations
+  [".story-value-1", ".story-value-2", ".story-value-3"].forEach((selector, index) => {
+    const element = document.querySelector(selector);
+    const textSelector = `.story-value-text-${index + 1}`;
+    
+    if (!element) return;
 
-    const valueText = value.querySelector(".story-value-text");
-
-    value.addEventListener("mouseenter", () => {
-      gsap.to(value, {
+    element.addEventListener("mouseenter", () => {
+      gsap.to(selector, {
         duration: 0.3,
         scale: 1.05,
         y: -5,
         ease: "power2.out",
       });
 
-      if (valueText) {
-        gsap.to(valueText, {
-          duration: 0.3,
-          scale: 1.1,
-          ease: "power2.out",
-        });
-      }
+      gsap.to(textSelector, {
+        duration: 0.3,
+        scale: 1.1,
+        ease: "power2.out",
+      });
     });
 
-    value.addEventListener("mouseleave", () => {
-      gsap.to(value, {
+    element.addEventListener("mouseleave", () => {
+      gsap.to(selector, {
         duration: 0.3,
         scale: 1,
         y: 0,
         ease: "power2.out",
       });
 
-      if (valueText) {
-        gsap.to(valueText, {
-          duration: 0.3,
-          scale: 1,
-          ease: "power2.out",
-        });
-      }
+      gsap.to(textSelector, {
+        duration: 0.3,
+        scale: 1,
+        ease: "power2.out",
+      });
     });
   });
 };
