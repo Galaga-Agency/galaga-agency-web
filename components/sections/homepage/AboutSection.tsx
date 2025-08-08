@@ -39,7 +39,7 @@ export default function HomepageAboutSection() {
           ></div>
         </div>
 
-        <div className="pt-[530px] md:pt-72 lg:pt-72 relative z-10">
+        <div className="pt-[530px] md:pt-72 lg:pt-76 relative z-10">
           <div className="container">
             {/* Section Header */}
             <div className="text-center pb-16 md:pb-20">
@@ -91,24 +91,24 @@ export default function HomepageAboutSection() {
                       <div className="space-y-4">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">Análisis inicial</span>
+                          <span className="text-base">{t("homepage.about.services.steps.analysis")}</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            Diseño de estrategia
+                            {t("homepage.about.services.steps.strategy")}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            Implementación completa
+                            {t("homepage.about.services.steps.implementation")}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            Seguimiento y soporte
+                            {t("homepage.about.services.steps.support")}
                           </span>
                         </div>
                       </div>
@@ -143,23 +143,23 @@ export default function HomepageAboutSection() {
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            CRM, ERP, automatizaciones
+                            {t("homepage.about.digitalization.steps.systems")}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            Espacios colaborativos en la nube
+                            {t("homepage.about.digitalization.steps.cloud")}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">Formación y soporte</span>
+                          <span className="text-base">{t("homepage.about.digitalization.steps.training")}</span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            Gestión de subvenciones
+                            {t("homepage.about.digitalization.steps.grants")}
                           </span>
                         </div>
                       </div>

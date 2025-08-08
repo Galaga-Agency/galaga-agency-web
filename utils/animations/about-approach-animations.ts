@@ -14,7 +14,7 @@ export const initAboutApproachAnimations = () => {
     if (title && cards.length && quote) {
       clearInterval(interval);
 
-      // First, force reset any previous GSAP properties
+      // Clear any previous GSAP properties
       cards.forEach((card) => {
         gsap.set(card, { clearProps: "all" });
         const textElements = card.querySelectorAll("h3, p, span, div, *");
@@ -25,16 +25,15 @@ export const initAboutApproachAnimations = () => {
 
       gsap.set([title, quote], { clearProps: "all" });
 
-      // Section title animation
+      // Section title animation - more subtle
       gsap.fromTo(
         title,
-        { opacity: 0, y: 50, scale: 0.9 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          scale: 1,
-          duration: 1.2,
-          ease: "power3.out",
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: title,
             start: "top 85%",
@@ -43,17 +42,16 @@ export const initAboutApproachAnimations = () => {
         }
       );
 
-      // Cards staggered entrance
+      // Cards subtle entrance
       gsap.fromTo(
         cards,
-        { opacity: 0, rotationY: 15 },
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          rotationY: 0,
-          duration: 1,
-          stagger: 0.2,
-          ease: "back.out(1.7)",
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: cards[0],
             start: "top 85%",
@@ -62,26 +60,23 @@ export const initAboutApproachAnimations = () => {
         }
       );
 
-      // Individual card element animations
+      // Individual card element animations - much more subtle
       cards.forEach((card, index) => {
         const icon = card.querySelector(".icon-container");
         const cardTitle = card.querySelector(".approach-card-title");
-        const cardDescription = card.querySelector(
-          ".approach-card-description"
-        );
-        const accentDot = card.querySelector(".accent-dot");
+        const cardDescription = card.querySelector(".approach-card-description");
 
-        // Icon spin-in animation
+        // Icon gentle scale-in
         if (icon) {
           gsap.fromTo(
             icon,
-            { scale: 0, rotation: 360 },
+            { scale: 0.8, opacity: 0 },
             {
               scale: 1,
-              rotation: 0,
-              duration: 0.8,
-              ease: "back.out(1.7)",
-              delay: index * 0.2 + 0.3,
+              opacity: 1,
+              duration: 0.4,
+              ease: "power2.out",
+              delay: index * 0.15 + 0.2,
               scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
@@ -91,37 +86,17 @@ export const initAboutApproachAnimations = () => {
           );
         }
 
-        // Title slide-in from left
+        // Title subtle fade-in
         if (cardTitle) {
           gsap.fromTo(
             cardTitle,
-            { opacity: 0, x: -50 },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.8,
-              ease: "power2.out",
-              delay: index * 0.2 + 0.5,
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
-        }
-
-        // Description fade-up
-        if (cardDescription) {
-          gsap.fromTo(
-            cardDescription,
-            { opacity: 0, y: 30 },
+            { opacity: 0, y: 20 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.8,
+              duration: 0.5,
               ease: "power2.out",
-              delay: index * 0.2 + 0.7,
+              delay: index * 0.15 + 0.3,
               scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
@@ -131,17 +106,17 @@ export const initAboutApproachAnimations = () => {
           );
         }
 
-        // Accent dot pop-in
-        if (accentDot) {
+        // Description gentle fade-up
+        if (cardDescription) {
           gsap.fromTo(
-            accentDot,
-            { scale: 0, rotation: 180 },
+            cardDescription,
+            { opacity: 0, y: 15 },
             {
-              scale: 1,
-              rotation: 0,
+              opacity: 1,
+              y: 0,
               duration: 0.5,
-              ease: "back.out(1.7)",
-              delay: index * 0.2 + 0.9,
+              ease: "power2.out",
+              delay: index * 0.15 + 0.4,
               scrollTrigger: {
                 trigger: card,
                 start: "top 85%",
@@ -152,16 +127,15 @@ export const initAboutApproachAnimations = () => {
         }
       });
 
-      // Quote elegant entrance
+      // Quote subtle entrance
       gsap.fromTo(
         quote,
-        { opacity: 0, scale: 0.8, y: 30 },
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
-          scale: 1,
           y: 0,
-          duration: 1.2,
-          ease: "power3.out",
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: quote,
             start: "top 85%",
@@ -170,7 +144,7 @@ export const initAboutApproachAnimations = () => {
         }
       );
 
-      // Quote decorative lines
+      // Quote decorative lines - subtle
       const quoteLines = document.querySelectorAll(".quote-line");
       if (quoteLines.length > 0) {
         gsap.fromTo(
@@ -178,9 +152,9 @@ export const initAboutApproachAnimations = () => {
           { width: 0, opacity: 0 },
           {
             width: "3rem",
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.2,
+            opacity: 0.6,
+            duration: 0.6,
+            stagger: 0.1,
             ease: "power2.out",
             scrollTrigger: {
               trigger: quote,
@@ -191,10 +165,10 @@ export const initAboutApproachAnimations = () => {
         );
       }
 
-      // Setup hover animations
-      setupApproachCardHovers();
+      // Setup subtle hover animations
+      setupSubtleCardHovers();
 
-      console.log("Approach animations initialized successfully");
+      console.log("Subtle approach animations initialized successfully");
     }
   }, 100);
 
@@ -204,34 +178,23 @@ export const initAboutApproachAnimations = () => {
   };
 };
 
-const setupApproachCardHovers = () => {
+const setupSubtleCardHovers = () => {
   const cards = document.querySelectorAll(".approach-card");
 
   cards.forEach((card: any) => {
-    const glow = card.querySelector(".absolute.inset-0");
     const icon = card.querySelector(".icon-container");
 
     card.addEventListener("mouseenter", () => {
       gsap.to(card, {
         duration: 0.3,
-        scale: 1.05,
-        y: -10,
+        y: -5,
         ease: "power2.out",
       });
-
-      if (glow) {
-        gsap.to(glow, {
-          duration: 0.3,
-          opacity: 1,
-          ease: "power2.out",
-        });
-      }
 
       if (icon) {
         gsap.to(icon, {
           duration: 0.3,
-          rotation: -6,
-          scale: 1.1,
+          scale: 1.05,
           ease: "power2.out",
         });
       }
@@ -240,23 +203,13 @@ const setupApproachCardHovers = () => {
     card.addEventListener("mouseleave", () => {
       gsap.to(card, {
         duration: 0.3,
-        scale: 1,
         y: 0,
         ease: "power2.out",
       });
 
-      if (glow) {
-        gsap.to(glow, {
-          duration: 0.3,
-          opacity: 0,
-          ease: "power2.out",
-        });
-      }
-
       if (icon) {
         gsap.to(icon, {
           duration: 0.3,
-          rotation: 0,
           scale: 1,
           ease: "power2.out",
         });

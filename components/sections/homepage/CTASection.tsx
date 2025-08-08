@@ -26,7 +26,7 @@ export default function CTASection() {
             </span>
           </h2>
 
-          <p className="cta-subtitle text-lg lg:text-xl text-grafito font-light leading-relaxed px-4">
+          <p className="cta-subtitle text-lg lg:text-xl text-negro font-light leading-relaxed px-4">
             {t("cta.massive.subtitle")}
           </p>
         </div>
@@ -60,7 +60,7 @@ export default function CTASection() {
 
         {/* Simple contact info */}
         <div className="text-center pt-16 lg:pt-20">
-          <p className="text-grafito text-lg font-light pb-4">
+          <p className="text-negro text-lg font-light pb-4">
             {t("cta.directContact")}
           </p>
           <a

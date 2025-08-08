@@ -2,89 +2,84 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { FaUser, FaCog, FaClock } from "react-icons/fa";
-import ApproachCard from "./ApproachCard";
 
 export default function AboutApproachSection() {
   const { t } = useTranslation();
 
-  const approaches = [
-    {
-      icon: <FaUser className="w-8 h-8 md:w-10 md:h-10" />,
-      titleKey: "about-page.approach.human.title",
-      descriptionKey: "about-page.approach.human.description",
-      color: "teal" as const
-    },
-    {
-      icon: <FaCog className="w-8 h-8 md:w-10 md:h-10" />,
-      titleKey: "about-page.approach.practical.title", 
-      descriptionKey: "about-page.approach.practical.description",
-      color: "orange" as const
-    },
-    {
-      icon: <FaClock className="w-8 h-8 md:w-10 md:h-10" />,
-      titleKey: "about-page.approach.longterm.title",
-      descriptionKey: "about-page.approach.longterm.description",
-      color: "purple" as const
-    }
-  ];
-
   return (
-    <section className="about-approach-section relative bg-gradient-to-br from-slate-900 via-slate-800 to-black overflow-hidden py-16 md:py-24 lg:py-32">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-orange-500/10 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-xl"></div>
-      </div>
-
-      <div className="relative z-10 px-6 md:px-8 lg:px-12">
+    <section className="about-approach-section section relative bg-gradient-to-br from-teal-600 via-teal-700 to-slate-800 overflow-hidden">
+      <div className="container">
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
-          <div className="inline-flex items-center gap-3 pb-6">
-            <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></div>
-            <span className="text-gray-300 font-semibold tracking-wider uppercase text-sm">
-              {t("about-page.approach.eyebrow")}
-            </span>
-            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></div>
-          </div>
-          
-          <h2 className="about-approach-title text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight pb-6">
+          <span className="text-gray-300 font-medium tracking-wider uppercase text-sm pb-6 block">
+            {t("about-page.approach.eyebrow")}
+          </span>
+
+          <h2 className="about-approach-title section-title text-blanco leading-tight pb-6">
             {t("about-page.approach.title")}
           </h2>
-          
-          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed px-4">
+
+          <p className="text-lg md:text-xl text-gray-300 leading-relaxed px-4">
             {t("about-page.approach.subtitle")}
           </p>
         </div>
 
-        {/* Approach Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-          {approaches.map((approach, index) => (
-            <ApproachCard
-              key={index}
-              icon={approach.icon}
-              titleKey={approach.titleKey}
-              descriptionKey={approach.descriptionKey}
-              color={approach.color}
-              index={index}
-            />
-          ))}
+        {/* Approach Bubbles */}
+        <div className="relative min-h-[600px] md:min-h-[500px]">
+          <img
+            src="/assets/img/symbols/double-chevron-white.webp"
+            alt="Double Chevron"
+            className="absolute left-1/2 top-[45%] -translate-x-2/3 -translate-y-1/2 opacity-10 hidden md:block w-[55vw] xl:w-[40vw] z-0 pointer-events-none select-none"
+            aria-hidden="true"
+          />
+          {/* Top left */}
+          <div className="approach-bubble-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%]">
+            <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-turquesa from-20% via-teal via-60% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <h3 className="text-base lg:text-lg xl:text-xl font-bold text-blanco pb-3 leading-tight tracking-tight">
+                  {t("about-page.approach.human.title")}
+                </h3>
+                <p className="text-sm lg:text-base xl:text-lg leading-relaxed font-medium text-hielo">
+                  {t("about-page.approach.human.description")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Top right */}
+          <div className="approach-bubble-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-8 xl:right-[15%]">
+            <div className="w-60 h-60 lg:w-68 lg:h-68 xl:w-76 xl:h-76 rounded-full bg-radial-[at_30%_30%] from-blanco from-10% via-hielo via-50% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <h3 className="text-base lg:text-lg xl:text-xl font-bold text-azul-profundo pb-3 leading-tight tracking-tight">
+                  {t("about-page.approach.practical.title")}
+                </h3>
+                <p className="text-sm lg:text-base xl:text-lg leading-relaxed font-medium text-azul-profundo">
+                  {t("about-page.approach.practical.description")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom center */}
+          <div className="approach-bubble-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-[51%] transform -translate-x-1/2">
+            <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-azul-profundo from-20% via-negro via-60% to-negro to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <h3 className="text-lg lg:text-xl xl:text-2xl font-bold text-blanco pb-3 leading-tight tracking-tight max-w-[85%] text-center px-auto">
+                  {t("about-page.approach.longterm.title")}
+                </h3>
+                <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-medium text-gray-300">
+                  {t("about-page.approach.longterm.description")}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Statement */}
-        <div className="text-center pt-16 md:pt-20">
-          <blockquote className="about-approach-quote text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed italic px-4">
-            <span className="text-teal-400 font-semibold">"</span>
+        <div className="text-center pt-36 md:pt-6">
+          <p className="about-approach-quote text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed px-4">
             {t("about-page.approach.quote")}
-            <span className="text-orange-400 font-semibold">"</span>
-          </blockquote>
-          <div className="flex justify-center pt-8">
-            <div className="flex items-center gap-4">
-              <div className="quote-line w-12 h-0.5 bg-gradient-to-r from-transparent to-teal-400"></div>
-              <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
-              <div className="quote-line w-12 h-0.5 bg-gradient-to-l from-transparent to-orange-400"></div>
-            </div>
-          </div>
+          </p>
         </div>
       </div>
     </section>
