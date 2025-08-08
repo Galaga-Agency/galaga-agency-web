@@ -47,15 +47,25 @@
         "title": "Business technology projects",
         "description": "Galaga Agency manages your business technology project from strategy design to solution development and implementation follow-up.",
         "highlight": "We take care of the entire process so you don't have to worry about anything.",
-        "cardTitle": "Complete Process"
+        "cardTitle": "Complete Process",
+        "steps": {
+          "analysis": "Initial analysis",
+          "strategy": "Strategy design",
+          "implementation": "Complete implementation",
+          "support": "Follow-up and support"
+        }
       },
-
       "digitalization": {
         "title": "Digitalization",
         "shortDescription": "We accompany companies in their digital transformation with a practical and personalized approach. We implement tools like CRM, ERP and automations, offering complete training and support.",
-        "cardTitle": "Digital Tools"
+        "cardTitle": "Digital Tools",
+        "steps": {
+          "systems": "CRM, ERP, automations",
+          "cloud": "Collaborative cloud spaces",
+          "training": "Training and support",
+          "grants": "Grant management"
+        }
       },
-
       "clients": {
         "title": "Our Clients",
         "shortDescription": "We work with companies that need to digitize their businesses but don't have the knowledge, tools or time to do it. We give them clarity and help them organize.",
