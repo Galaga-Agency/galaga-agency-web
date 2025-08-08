@@ -6,26 +6,30 @@ gsap.registerPlugin(ScrollTrigger);
 export const initAboutApproachAnimations = () => {
   let interval = window.setInterval(() => {
     const title = document.querySelector<HTMLElement>(".about-approach-title");
-    const cards = Array.from(
-      document.querySelectorAll<HTMLElement>(".approach-card")
-    );
+    const bubbles = [
+      document.querySelector<HTMLElement>(".approach-bubble-1"),
+      document.querySelector<HTMLElement>(".approach-bubble-2"),
+      document.querySelector<HTMLElement>(".approach-bubble-3"),
+    ].filter(Boolean);
     const quote = document.querySelector<HTMLElement>(".about-approach-quote");
 
-    if (title && cards.length && quote) {
+    if (title && bubbles.length && quote) {
       clearInterval(interval);
 
       // Clear any previous GSAP properties
-      cards.forEach((card) => {
-        gsap.set(card, { clearProps: "all" });
-        const textElements = card.querySelectorAll("h3, p, span, div, *");
-        textElements.forEach((el: any) => {
-          gsap.set(el, { clearProps: "all" });
-        });
+      bubbles.forEach((bubble) => {
+        gsap.set(bubble, { clearProps: "all" });
+        if (bubble) {
+          const textElements = bubble.querySelectorAll("h3, p, span, div, *");
+          textElements.forEach((el: any) => {
+            gsap.set(el, { clearProps: "all" });
+          });
+        }
       });
 
       gsap.set([title, quote], { clearProps: "all" });
 
-      // Section title animation - more subtle
+      // Section title animation
       gsap.fromTo(
         title,
         { opacity: 0, y: 30 },
@@ -42,63 +46,52 @@ export const initAboutApproachAnimations = () => {
         }
       );
 
-      // Cards subtle entrance
+      // Bubbles entrance animation with stagger
       gsap.fromTo(
-        cards,
-        { opacity: 0, y: 40 },
+        bubbles,
+        { 
+          opacity: 0, 
+          scale: 0.6,
+          y: 60,
+        },
         {
           opacity: 1,
+          scale: 1,
           y: 0,
-          duration: 0.6,
-          stagger: 0.15,
-          ease: "power2.out",
+          duration: 1,
+          stagger: 0.2,
+          ease: "back.out(1.7)",
           scrollTrigger: {
-            trigger: cards[0],
+            trigger: bubbles[0],
             start: "top 85%",
             toggleActions: "play none none none",
           },
+          onComplete: () => {
+            // Start infinite bounce after entrance animation completes
+            startBubbleBounce();
+          }
         }
       );
 
-      // Individual card element animations - much more subtle
-      cards.forEach((card, index) => {
-        const icon = card.querySelector(".icon-container");
-        const cardTitle = card.querySelector(".approach-card-title");
-        const cardDescription = card.querySelector(".approach-card-description");
+      // Individual bubble content animations
+      bubbles.forEach((bubble, index) => {
+        if (!bubble) return;
+        const bubbleTitle = bubble.querySelector("h3");
+        const bubbleDescription = bubble.querySelector("p");
 
-        // Icon gentle scale-in
-        if (icon) {
+        // Title fade-in
+        if (bubbleTitle) {
           gsap.fromTo(
-            icon,
-            { scale: 0.8, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 0.4,
-              ease: "power2.out",
-              delay: index * 0.15 + 0.2,
-              scrollTrigger: {
-                trigger: card,
-                start: "top 85%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
-        }
-
-        // Title subtle fade-in
-        if (cardTitle) {
-          gsap.fromTo(
-            cardTitle,
+            bubbleTitle,
             { opacity: 0, y: 20 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.5,
+              duration: 0.6,
               ease: "power2.out",
-              delay: index * 0.15 + 0.3,
+              delay: index * 0.2 + 0.4,
               scrollTrigger: {
-                trigger: card,
+                trigger: bubble,
                 start: "top 85%",
                 toggleActions: "play none none none",
               },
@@ -106,19 +99,19 @@ export const initAboutApproachAnimations = () => {
           );
         }
 
-        // Description gentle fade-up
-        if (cardDescription) {
+        // Description fade-in
+        if (bubbleDescription) {
           gsap.fromTo(
-            cardDescription,
+            bubbleDescription,
             { opacity: 0, y: 15 },
             {
               opacity: 1,
               y: 0,
-              duration: 0.5,
+              duration: 0.6,
               ease: "power2.out",
-              delay: index * 0.15 + 0.4,
+              delay: index * 0.2 + 0.5,
               scrollTrigger: {
-                trigger: card,
+                trigger: bubble,
                 start: "top 85%",
                 toggleActions: "play none none none",
               },
@@ -127,7 +120,7 @@ export const initAboutApproachAnimations = () => {
         }
       });
 
-      // Quote subtle entrance
+      // Quote animation
       gsap.fromTo(
         quote,
         { opacity: 0, y: 20 },
@@ -144,31 +137,34 @@ export const initAboutApproachAnimations = () => {
         }
       );
 
-      // Quote decorative lines - subtle
-      const quoteLines = document.querySelectorAll(".quote-line");
-      if (quoteLines.length > 0) {
-        gsap.fromTo(
-          quoteLines,
-          { width: 0, opacity: 0 },
-          {
-            width: "3rem",
-            opacity: 0.6,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: quote,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
+      // Function to start infinite bounce
+      function startBubbleBounce() {
+        bubbles.forEach((bubble, index) => {
+          // Each bubble gets a slightly different timing and amplitude
+          gsap.to(bubble, {
+            y: "-=8",
+            duration: 2 + (index * 0.3), // Slightly different duration for each
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: index * 0.4, // Stagger the start of each bounce
+          });
+          
+          // Add a very subtle rotation for more organic movement
+          gsap.to(bubble, {
+            duration: 3 + (index * 0.2),
+            ease: "power1.inOut",
+            yoyo: true,
+            repeat: -1,
+            delay: index * 0.5,
+          });
+        });
       }
 
-      // Setup subtle hover animations
-      setupSubtleCardHovers();
+      // Setup hover interactions
+      setupBubbleHovers(bubbles as HTMLElement[]);
 
-      console.log("Subtle approach animations initialized successfully");
+      console.log("Bubble approach animations with bounce initialized successfully");
     }
   }, 100);
 
@@ -178,42 +174,26 @@ export const initAboutApproachAnimations = () => {
   };
 };
 
-const setupSubtleCardHovers = () => {
-  const cards = document.querySelectorAll(".approach-card");
-
-  cards.forEach((card: any) => {
-    const icon = card.querySelector(".icon-container");
-
-    card.addEventListener("mouseenter", () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: -5,
+const setupBubbleHovers = (bubbles: HTMLElement[]) => {
+  bubbles.forEach((bubble: HTMLElement) => {
+    bubble.addEventListener("mouseenter", () => {
+      // Temporarily pause the bounce and scale up
+      gsap.to(bubble, {
+        duration: 0.4,
+        scale: 1.05,
         ease: "power2.out",
+        overwrite: false,
       });
-
-      if (icon) {
-        gsap.to(icon, {
-          duration: 0.3,
-          scale: 1.05,
-          ease: "power2.out",
-        });
-      }
     });
 
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, {
-        duration: 0.3,
-        y: 0,
+    bubble.addEventListener("mouseleave", () => {
+      // Return to normal scale
+      gsap.to(bubble, {
+        duration: 0.4,
+        scale: 1,
         ease: "power2.out",
+        overwrite: false,
       });
-
-      if (icon) {
-        gsap.to(icon, {
-          duration: 0.3,
-          scale: 1,
-          ease: "power2.out",
-        });
-      }
     });
   });
 };
