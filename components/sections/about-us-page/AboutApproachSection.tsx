@@ -62,7 +62,7 @@ export default function AboutApproachSection() {
 
           {/* Bottom center */}
           <div className="approach-bubble-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-[51%] transform -translate-x-1/2">
-            <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-azul-profundo from-20% via-negro via-60% to-negro to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
+            <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-teal from-10% via-negro via-60% to-negro to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-lg lg:text-xl xl:text-2xl font-bold text-blanco pb-3 leading-tight tracking-tight max-w-[85%] text-center px-auto">
                   {t("about-page.approach.longterm.title")}

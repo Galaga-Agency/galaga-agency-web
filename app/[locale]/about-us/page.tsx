@@ -11,6 +11,7 @@ import { initAboutHeroAnimations } from "@/utils/animations/about-hero-animation
 import { initAboutStoryAnimations } from "@/utils/animations/about-story-animations";
 import { initAboutClientsAnimations } from "@/utils/animations/about-clients-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
+import { initAboutApproachAnimations } from "@/utils/animations/about-approach-animations";
 
 export default function AboutPage() {
   const { t, language } = useTranslation();
@@ -19,6 +20,7 @@ export default function AboutPage() {
     animations: [
       initAboutHeroAnimations,
       initAboutStoryAnimations,
+      initAboutApproachAnimations,
       initAboutClientsAnimations,
     ],
     delay: 100,
