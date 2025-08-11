@@ -6,10 +6,10 @@ gsap.registerPlugin(ScrollTrigger);
 export const initAboutAnimations = () => {
   // Bubble animation - forced to disappear completely
   const bubbles = document.querySelectorAll(".value-card-1, .value-card-2, .value-card-3");
-  
+     
   // Set initial state - completely hidden
   gsap.set(bubbles, { y: 200, opacity: 0 });
-  
+     
   bubbles.forEach((bubble, index) => {
     ScrollTrigger.create({
       trigger: ".homepage-about-section",
@@ -35,70 +35,71 @@ export const initAboutAnimations = () => {
       }
     });
   });
-  // Section title
-  gsap.from(".section-title", {
+
+  // Section title - SPECIFIC to about section
+  gsap.from(".homepage-about-section .section-title", {
     duration: 0.8,
     y: 30,
     opacity: 0,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".section-title",
+      trigger: ".homepage-about-section .section-title",
       start: "top 80%",
       toggleActions: "play none none none",
     },
   });
-
-  // Section subtitle  
-  gsap.from(".text-lg", {
+   
+  // Section subtitle - SPECIFIC to about section only
+  gsap.from(".homepage-about-section .text-lg", {
     duration: 0.8,
     y: 20,
     opacity: 0,
     ease: "power2.out",
     delay: 0.2,
     scrollTrigger: {
-      trigger: ".section-title",
+      trigger: ".homepage-about-section .section-title",
       start: "top 80%",
       toggleActions: "play none none none",
     },
   });
-
-  // Timeline blocks
-  gsap.from(".grid:nth-of-type(1)", {
+   
+  // Timeline blocks - SPECIFIC to about section
+  gsap.from(".homepage-about-section .grid:nth-of-type(1)", {
     duration: 0.8,
     x: -50,
     opacity: 0,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".grid:nth-of-type(1)",
+      trigger: ".homepage-about-section .grid:nth-of-type(1)",
       start: "top 75%",
       toggleActions: "play none none none",
     },
   });
-
-  gsap.from(".grid:nth-of-type(2)", {
+   
+  gsap.from(".homepage-about-section .grid:nth-of-type(2)", {
     duration: 0.8,
     x: 50,
     opacity: 0,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".grid:nth-of-type(2)",
+      trigger: ".homepage-about-section .grid:nth-of-type(2)",
       start: "top 75%",
       toggleActions: "play none none none",
     },
   });
-
-  gsap.from(".grid:nth-of-type(3)", {
+   
+  gsap.from(".homepage-about-section .grid:nth-of-type(3)", {
     duration: 0.8,
     x: -50,
     opacity: 0,
     ease: "power2.out",
     scrollTrigger: {
-      trigger: ".grid:nth-of-type(3)",
+      trigger: ".homepage-about-section .grid:nth-of-type(3)",
       start: "top 75%",
       toggleActions: "play none none none",
     },
   });
-
+   
   // Cleanup
   return () => {
     ScrollTrigger.getAll().forEach(t => t.kill());

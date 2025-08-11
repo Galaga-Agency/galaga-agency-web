@@ -11,7 +11,7 @@ import ProyectoDetalleContentSection from "@/components/sections/project-details
 import ProyectoDetalleGallerySection from "@/components/sections/project-details/ProyectoDetalleGallerySection";
 import ProyectoDetalleResultsSection from "@/components/sections/project-details/ProyectoDetalleResultsSection";
 import CTASection from "@/components/sections/homepage/CTASection";
-import { initCTAAnimations } from "@/utils/animations/homepage-cta-animation";
+import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
 
 interface ProyectoDetallePageProps {

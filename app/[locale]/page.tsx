@@ -9,7 +9,7 @@ import CaseStudiesSection from "@/components/sections/homepage/CaseStudiesSectio
 import PartnersSection from "@/components/sections/homepage/PartnersSection";
 import { initHeroTitleAnimation } from "@/utils/animations/hero-title-animation";
 import { initHeroScrollAnimation } from "@/utils/animations/hero-scroll-animation";
-import { initCTAAnimations } from "@/utils/animations/homepage-cta-animation";
+import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { animatePartnersSection } from "@/utils/animations/partners-animation";
 import { initChevronAnimations } from "@/utils/animations/chevron-animation";
 import { initCaseStudiesAnimations } from "@/utils/animations/case-studies-animation";
@@ -21,7 +21,7 @@ export default function HomePage() {
   useGSAPAnimations({
     animations: [
       initHeroScrollAnimation,
-      initHeroTitleAnimation, 
+      initHeroTitleAnimation,
       fadeAnimations,
       initAboutAnimations,
       initChevronAnimations,

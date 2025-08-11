@@ -381,9 +381,9 @@
       }
     },
     "story": {
-      "eyebrow": "Nuestra historia",
+      "eyebrow": "El camino hacia Galaga",
       "title": "Nuestra historia",
-      "subtitle": "Su trayectoria une dos universos: más de 35 años de experiencia familiar en diseño y montaje de espacios comerciales, y la creación en 2020 de Team Galaga, evolucionando hacia una agencia que une estrategia, tecnología y emoción.",
+      "subtitle": "Nuestra trayectoria une dos universos: más de 35 años de experiencia familiar en diseño y montaje de espacios comerciales, y la creación en 2020 de Team Galaga, evolucionando hacia una agencia que une estrategia, tecnología y emoción.",
       "traditional": {
         "title": "Tradición empresarial",
         "description": "Más de 35 años de experiencia familiar en diseño y montaje de espacios comerciales a través de dos x dos Grupo Imagen, construyendo la solidez del tejido empresarial tradicional."
@@ -422,7 +422,7 @@
       "quote": "Nuestro enfoque es humano, cercano y 100% orientado a resultados."
     },
     "clients": {
-      "eyebrow": "Nuestros clientes",
+      "eyebrow": "Las empresas que nos eligen",
       "title": "Nuestros clientes",
       "subtitle": "Trabajamos con empresas que buscan crecer de manera organizada y eficiente, sin perder el foco en lo que realmente importa.",
       "retail": {
@@ -438,10 +438,12 @@
         "description": "Quieren diferenciarse con tecnología avanzada y crear conexiones emocionales duraderas con sus clientes."
       },
       "featured": {
-        "title": "Casos de éxito destacados",
+        "title": "Colaboraciones que muestran nuestro impacto",
         "subtitle": "Resultados reales con empresas que confiaron en nuestra visión"
       },
       "impact": {
+        "base-impressions": "Impresiones Base eLEAGUE",
+        "gameshow-attendees": "Asistentes Game Show",
         "title": "Impacto global conseguido",
         "projects": "Proyectos completados",
         "impressions": "Impresiones totales",
@@ -476,6 +478,14 @@
           "step4": "Damos soporte para crear un ecosistema de datos maduro y escalable"
         }
       }
+    },
+    "cta": {
+      "line1": "¿Listo para",
+      "line2": "trabajar juntos?",
+      "subtitle": "Descubre cómo podemos ayudar a tu negocio o empecemos una conversación",
+      "seeServices": "Ver servicios",
+      "getInTouch": "Hablemos",
+      "directContact": "¿Prefieres hablar directamente?"
     }
   },
   "service-page": {
@@ -607,8 +617,8 @@
       "category": "Transformación Digital",
       "description": "Desarrollamos aplicación web progresiva unificada y CRM conectado al ERP con dashboards y sincronización automática para gestión energética completa.",
       "results": {
-        "efficiency": "Eficiencia del sistema",
-        "monitoring": "Monitoreo tiempo real"
+        "platforms": "Todo en uno",
+        "monitoring": "Tiempo real"
       }
     },
     "toyota": {
@@ -623,8 +633,42 @@
       "category": "Transformación Digital",
       "description": "Implementamos Zoho CRM, migramos a A3 ERP, creamos integración con Notion y desarrollamos nueva web optimizada con Next.js y panel de contenidos propio.",
       "results": {
-        "integration": "Integración sistemas",
-        "seo": "Mejora SEO"
+        "processes": "Procesos fluidos",
+        "visibility": "SEO boost"
+      }
+    }
+  },
+  "projects": {
+    "energia-solar": {
+      "category": "Transformación Digital",
+      "description": "Aplicación web progresiva que unifica todos los proveedores en una sola interfaz responsiva con CRM conectado al ERP.",
+      "metrics": {
+        "platform": "Plataforma",
+        "monitoring": "Monitoreo"
+      },
+      "values": {
+        "unified": "Unificada",
+        "realtime": "Tiempo real"
+      }
+    },
+    "toyota": {
+      "category": "Marketing Inmersivo",
+      "description": "Circuito de activaciones con simuladores y realidad virtual que conectó con nuevos públicos.",
+      "metrics": {
+        "reach": "Impresiones",
+        "leads": "Leads cualificados"
+      }
+    },
+    "dosxdos": {
+      "category": "Digitalización",
+      "description": "Integración completa de CRM, ERP y web optimizada que transformó la eficiencia operativa.",
+      "metrics": {
+        "integration": "Integración",
+        "performance": "Rendimiento web"
+      },
+      "values": {
+        "complete": "Completa",
+        "optimized": "Optimizado"
       }
     }
   },

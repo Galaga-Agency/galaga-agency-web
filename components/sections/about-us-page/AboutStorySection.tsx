@@ -32,11 +32,9 @@ export default function AboutStorySection() {
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
           <div className="about-story-eyebrow inline-flex items-center gap-3 pb-6">
-            <div className="w-2 h-2 bg-teal rounded-full animate-pulse"></div>
             <span className="text-teal font-semibold tracking-wider uppercase text-sm">
               {t("about-page.story.eyebrow")}
             </span>
-            <div className="w-2 h-2 bg-turquesa rounded-full animate-pulse delay-300"></div>
           </div>
           
           <h2 className="about-story-title section-title text-teal leading-tight tracking-tight pb-6">
