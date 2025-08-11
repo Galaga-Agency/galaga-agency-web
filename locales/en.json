@@ -486,21 +486,12 @@
       "directContact": "Prefer to talk directly?"
     }
   },
-  "service-page": {
+  "services-page": {
     "eyebrow": "Our services",
     "hero": {
-      "nuestros": "Our",
-      "servicios": "services",
-      "subtitle": "Comprehensive solutions that combine strategy, technology and creativity to transform your business.",
-      "scroll": "Explore",
-      "areas": {
-        "strategy": "Strategy",
-        "strategyDesc": "Consulting and digital transformation",
-        "automation": "Automation",
-        "automationDesc": "Intelligent systems and processes",
-        "innovation": "Innovation",
-        "innovationDesc": "Technology applied to business"
-      }
+      "creamos": "We create the future",
+      "elFuturo": "of your business",
+      "subtitle": "At Galaga we help companies grow without losing control and focus on what really matters."
     },
     "overview": {
       "eyebrow": "What we offer",
@@ -539,15 +530,9 @@
   "contact-page": {
     "eyebrow": "Contact",
     "hero": {
-      "hablemos": "Let's talk about your",
-      "proyecto": "project",
-      "subtitle": "We're here to help you transform your business. Tell us what you need and let's start creating something amazing together.",
-      "scroll": "Contact",
-      "methods": {
-        "email": "Direct email",
-        "location": "Location",
-        "response": "Quick response"
-      }
+      "hablemos": "Let's talk about",
+      "proyecto": "your project",
+      "subtitle": "We're here to make your ideas come true. Tell us what you have in mind."
     },
     "form": {
       "eyebrow": "Send us a message",
@@ -574,16 +559,9 @@
   "case-studies-page": {
     "eyebrow": "Success stories",
     "hero": {
-      "casos": "Success",
-      "exito": "stories",
-      "subtitle": "Discover how we've transformed real businesses with innovative technological solutions and personalized strategies that generate measurable results.",
-      "scroll": "Explore cases",
-      "stats": {
-        "projectsCompleted": "Projects completed",
-        "totalImpressions": "Total impressions",
-        "clientSatisfaction": "Client satisfaction",
-        "responseTime": "Response time"
-      }
+      "innovacion": "Innovation",
+      "conImpacto": "with real impact",
+      "subtitle": "Every project is a transformation story. Discover how we have helped our clients achieve their goals."
     },
     "grid": {
       "eyebrow": "Our projects",
@@ -754,5 +732,6 @@
       "title": "Case Study Not Found",
       "backToProjects": "Back to Case Studies"
     }
-  }
+  },
+  "knowMore": "Learn more"
 }

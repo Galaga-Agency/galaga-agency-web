@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import CaseStudiesHeroSection from "@/components/sections/case-studies/CaseStudiesHeroSection";
 import CaseStudiesGridSection from "@/components/sections/case-studies/CaseStudiesGridSection";
 import CTASection from "@/components/sections/homepage/CTASection";
-import { initCaseStudiesHeroAnimations } from "@/utils/animations/case-studies-animations";
+import { initCaseStudiesHeroAnimations } from "@/utils/animations/case-studies-hero-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import CaseStudiesCategoriesSection from "@/components/sections/case-studies/CaseStudiesCategoriesSection";
 import { initCaseStudiesCategoriesAnimations } from "@/utils/animations/case-studies-categories-animation";

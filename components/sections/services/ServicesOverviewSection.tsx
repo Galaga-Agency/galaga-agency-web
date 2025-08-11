@@ -11,19 +11,20 @@ import {
   FiAward,
 } from "react-icons/fi";
 
-interface RawService {
+interface Service {
   icon: React.ReactNode;
   titleKey: string;
   descriptionKey: string;
   featuresKeys: string[];
-  color: string;
-  accent: string;
+  slug: string;
+  image: string;
+  theme: string;
 }
 
 export default function ServicesOverviewSection() {
   const { t } = useTranslation();
 
-  const services: RawService[] = [
+  const services: Service[] = [
     {
       icon: <FiTarget />,
       titleKey: "services.strategy.title",
@@ -33,8 +34,9 @@ export default function ServicesOverviewSection() {
         "services.strategy.feature2",
         "services.strategy.feature3",
       ],
-      color: "teal",
-      accent: "turquesa",
+      slug: "strategy",
+      image: "/assets/img/servicios/consultoria.jpg",
+      theme: "teal",
     },
     {
       icon: <FiZap />,
@@ -45,8 +47,9 @@ export default function ServicesOverviewSection() {
         "services.automation.feature2",
         "services.automation.feature3",
       ],
-      color: "mandarina",
-      accent: "naranja-tostado",
+      slug: "automation",
+      image: "/assets/img/servicios/automatizacion.jpg",
+      theme: "azul-profundo",
     },
     {
       icon: <FiStar />,
@@ -57,8 +60,9 @@ export default function ServicesOverviewSection() {
         "services.innovation.feature2",
         "services.innovation.feature3",
       ],
-      color: "violeta",
-      accent: "azul-profundo",
+      slug: "innovation",
+      image: "/assets/img/servicios/innovacion.png",
+      theme: "mandarina",
     },
     {
       icon: <FiEye />,
@@ -69,8 +73,9 @@ export default function ServicesOverviewSection() {
         "services.immersive.feature2",
         "services.immersive.feature3",
       ],
-      color: "verde-azulado",
-      accent: "turquesa",
+      slug: "immersive",
+      image: "/assets/img/servicios/gaming.png",
+      theme: "violeta",
     },
     {
       icon: <FiBookOpen />,
@@ -81,8 +86,9 @@ export default function ServicesOverviewSection() {
         "services.training.feature2",
         "services.training.feature3",
       ],
-      color: "azul-profundo",
-      accent: "teal",
+      slug: "training",
+      image: "/assets/img/servicios/formacion.jpg",
+      theme: "azul-profundo",
     },
     {
       icon: <FiAward />,
@@ -93,56 +99,37 @@ export default function ServicesOverviewSection() {
         "services.grants.feature2",
         "services.grants.feature3",
       ],
-      color: "turquesa",
-      accent: "verde-azulado",
+      slug: "grants",
+      image: "/assets/img/servicios/subvenciones.png",
+      theme: "teal",
     },
   ];
 
   return (
-    <section className="services-overview-section section relative overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/15 to-blanco"
-          style={{ clipPath: "polygon(0 0,100% 0,100% 70%,0 50%)" }}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"
-          style={{ clipPath: "polygon(0 50%,100% 70%,100% 100%,0 100%)" }}
-        />
-      </div>
-
-      <div className="container relative z-10">
-        {/* Header */}
-        <div className="text-center pb-16 md:pb-20">
-          <div className="services-overview-eyebrow inline-flex items-center gap-3 pb-6">
-            <div className="w-2 h-2 bg-teal rounded-full animate-pulse" />
-            <span className="text-teal font-semibold uppercase text-sm">
-              {t("service-page.overview.eyebrow")}
-            </span>
-            <div className="w-2 h-2 bg-mandarina rounded-full animate-pulse delay-300" />
-          </div>
-          <h2 className="services-overview-title text-4xl md:text-5xl lg:text-6xl font-black text-teal pb-6">
-            {t("services.title")}
+    <section className="services-overview-section section bg-hielo/20">
+      <div className="container">
+        {/* Section Header */}
+        <div className="text-center pb-16">
+          <span className="services-overview-eyebrow text-teal font-semibold tracking-wider uppercase text-sm">
+            {t("services-page.overview.eyebrow")}
+          </span>
+          
+          <h2 className="services-overview-title section-title text-teal pt-4 pb-6">
+            {t("services-page.overview.title")}
           </h2>
-          <p className="services-overview-subtitle text-lg md:text-xl text-grafito px-4">
-            {t("services.subtitle")}
+          
+          <p className="services-overview-subtitle text-subheading text-negro/70 w-full container-tablet">
+            {t("services-page.overview.subtitle")}
           </p>
         </div>
 
-        {/* Cards grid */}
-        <div className="services-overview-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((s, i) => (
+        {/* Services Grid */}
+        <div className="services-overview-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {services.map((service, index) => (
             <ServiceCard
-              key={i}
-              icon={s.icon}
-              title={t(s.titleKey)}
-              description={t(s.descriptionKey)}
-              features={s.featuresKeys.map((k) => t(k))}
-              color={s.color}
-              accent={s.accent}
-              linkSlug={s.titleKey.split(".").pop()!}
-              index={i}
+              key={index}
+              service={service}
+              index={index}
             />
           ))}
         </div>

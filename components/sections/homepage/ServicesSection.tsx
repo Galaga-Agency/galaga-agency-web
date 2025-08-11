@@ -13,12 +13,12 @@ export default function ServicesSection() {
     {
       ...services[0],
       theme: 'teal',
-      image: '/assets/img/servicios/consultoria.png'
+      image: '/assets/img/servicios/consultoria.jpg'
     },
     {
       ...services[1],
       theme: 'azul-profundo',
-      image: '/assets/img/servicios/automatizacion.png'
+      image: '/assets/img/servicios/automatizacion.jpg'
     },
     {
       ...services[2],
@@ -33,7 +33,7 @@ export default function ServicesSection() {
     {
       ...services[4],
       theme: 'azul-profundo',
-      image: '/assets/img/servicios/formacion.png'
+      image: '/assets/img/servicios/formacion.jpg'
     },
     {
       ...services[5],

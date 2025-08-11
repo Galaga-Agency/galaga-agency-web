@@ -1,83 +1,92 @@
-// components/sections/services/ServiceCard.tsx
 "use client";
 
 import Link from "next/link";
-import { ReactNode } from "react";
+import { useTranslation } from "@/hooks/useTranslation";
+import { FiArrowRight } from "react-icons/fi";
 
-export interface ServiceCardProps {
-  icon: ReactNode;
-  title: string;
-  description: string;
-  features: string[];
-  color: string;
-  accent: string;
-  linkSlug: string;
+interface Service {
+  icon: React.ReactNode;
+  titleKey: string;
+  descriptionKey: string;
+  featuresKeys: string[];
+  slug: string;
+  image?: string;
+  theme: string;
+}
+
+interface ServiceCardProps {
+  service: Service;
   index: number;
 }
 
-export default function ServiceCard({
-  icon,
-  title,
-  description,
-  features,
-  color,
-  accent,
-  linkSlug,
-  index,
-}: ServiceCardProps) {
+export default function ServiceCard({ service, index }: ServiceCardProps) {
+  const { t } = useTranslation();
+
   return (
-    <div
-      className="services-overview-card group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-hielo/50 hover:shadow-2xl hover:scale-105 transition-all duration-500"
-      data-index={index}
-    >
-      {/* Glow Background */}
-      <div
-        className={`services-overview-card-glow absolute inset-0 bg-gradient-to-br from-${color}/10 to-${accent}/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500`}
-      />
+    <div className="service-card group">
+      <Link href={`/servicios/${service.slug}`} className="block h-full">
+        <div className="
+          relative h-full min-h-[400px] rounded-2xl overflow-hidden 
+          bg-blanco border border-hielo/30
+          transform transition-all duration-300 ease-out
+          hover:scale-[1.02] hover:-translate-y-1
+          shadow-md hover:shadow-xl
+        ">
+          
+          {/* Background Image */}
+          {service.image && (
+            <div 
+              className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-10 transition-opacity duration-300"
+              style={{ backgroundImage: `url(${service.image})` }}
+            />
+          )}
 
-      {/* Icon Container */}
-      <div
-        className={`services-overview-card-icon w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-${color} to-${accent} rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 text-4xl md:text-5xl`}
-      >
-        {icon}
-      </div>
+          {/* Content */}
+          <div className="relative z-10 p-8 h-full flex flex-col">
+            
+            {/* Icon */}
+            <div className="
+              w-16 h-16 rounded-full bg-teal flex items-center justify-center
+              text-blanco text-2xl shadow-md
+              transform transition-transform duration-300 group-hover:scale-110
+            ">
+              <div className="flex items-center justify-center">
+                {service.icon}
+              </div>
+            </div>
 
-      {/* Title */}
-      <h3
-        className={`services-overview-card-title text-xl md:text-2xl font-bold text-${color} pb-4 group-hover:text-negro transition-colors duration-300 pt-6`}
-      >
-        {title}
-      </h3>
+            {/* Title */}
+            <h3 className="text-2xl font-bold text-negro pt-6 pb-4 leading-tight">
+              {t(service.titleKey)}
+            </h3>
 
-      {/* Description */}
-      <p className="services-overview-card-description text-base md:text-lg text-grafito pb-6 group-hover:text-azul-profundo transition-colors duration-300">
-        {description}
-      </p>
+            {/* Description */}
+            <p className="text-neutral-600 pb-6 leading-relaxed flex-1">
+              {t(service.descriptionKey)}
+            </p>
 
-      {/* Features List */}
-      <ul className="services-overview-card-features space-y-3 pb-6">
-        {features.map((feat, idx) => (
-          <li key={idx} className="services-overview-card-feature flex items-center gap-3">
-            <div className={`services-overview-feature-dot w-2 h-2 bg-${color} rounded-full`} />
-            <span className="services-overview-feature-text text-sm md:text-base text-grafito/80">
-              {feat}
-            </span>
-          </li>
-        ))}
-      </ul>
+            {/* Features */}
+            <div className="space-y-3 pt-6">
+              {service.featuresKeys.map((featureKey, idx) => (
+                <div key={idx} className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 bg-teal rounded-full flex-shrink-0" />
+                  <span className="text-sm text-neutral-600">
+                    {t(featureKey)}
+                  </span>
+                </div>
+              ))}
+            </div>
 
-      {/* CTA Link */}
-      {/* <Link
-        href={`/services/${linkSlug}`}
-        className={`services-overview-card-cta inline-flex items-center gap-2 text-${color} font-semibold hover:text-negro transition-transform duration-300 transform group-hover:translate-x-1`}
-      >
-        Learn more →
-      </Link> */}
-
-      {/* Accent Dot */}
-      <div
-        className={`services-overview-card-accent absolute top-4 right-4 w-3 h-3 bg-${accent} rounded-full opacity-30 group-hover:opacity-70 group-hover:scale-150 transition-all duration-300`}
-      />
+            {/* Action */}
+            <div className="flex items-center justify-between pt-6">
+              <span className="text-sm text-teal font-medium">
+                {t("knowMore")}
+              </span>
+              <FiArrowRight className="text-teal opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300" />
+            </div>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }

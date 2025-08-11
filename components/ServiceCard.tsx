@@ -81,7 +81,7 @@ export default function ServiceCard({
           src={service.image}
           alt={t(service.title)}
           className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
-            isHovered ? "opacity-0 scale-110" : "opacity-10 scale-100"
+            isHovered ? "opacity-5 scale-110" : "opacity-20 scale-100"
           }`}
         />
       </div>
