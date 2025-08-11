@@ -10,7 +10,7 @@ import CTASection from "@/components/sections/homepage/CTASection";
 import { initServicesHeroAnimations } from "@/utils/animations/services-hero-animations";
 import { initServicesOverviewAnimations } from "@/utils/animations/services-overview-animations";
 import { initServicesProcessAnimations } from "@/utils/animations/services-process-animations";
-import { initCTAAnimations } from "@/utils/animations/homepage-cta-animation";
+import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
 
 export default function ServicesPage() {

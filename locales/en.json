@@ -379,7 +379,7 @@
       }
     },
     "story": {
-      "eyebrow": "Our story",
+      "eyebrow": "The journey to Galaga",
       "title": "Our story",
       "subtitle": "Our trajectory unites two universes: more than 35 years of family experience in design and assembly of commercial spaces, and the creation in 2020 of Team Galaga, evolving into an agency that unites strategy, technology and emotion.",
       "traditional": {
@@ -420,7 +420,7 @@
       "quote": "Our approach is human, close and 100% results-oriented."
     },
     "clients": {
-      "eyebrow": "Our clients",
+      "eyebrow": "The companies that choose us",
       "title": "Our clients",
       "subtitle": "We work with companies that seek to grow in an organized and efficient way, without losing focus on what really matters.",
       "retail": {
@@ -436,10 +436,12 @@
         "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
       },
       "featured": {
-        "title": "Featured success stories",
+        "title": "Collaborations that show our impact",
         "subtitle": "Real results with companies that trusted our vision"
       },
       "impact": {
+        "base-impressions": "Base eLEAGUE Impressions",
+        "gameshow-attendees": "Game Show Attendees",
         "title": "Global impact achieved",
         "projects": "Projects completed",
         "impressions": "Total impressions",
@@ -474,6 +476,14 @@
           "step4": "We provide support to create a mature and scalable data ecosystem"
         }
       }
+    },
+    "cta": {
+      "line1": "Ready to",
+      "line2": "work together?",
+      "subtitle": "Discover how we can help your business or let's start a conversation",
+      "seeServices": "See services",
+      "getInTouch": "Let's talk",
+      "directContact": "Prefer to talk directly?"
     }
   },
   "service-page": {
@@ -605,8 +615,8 @@
       "category": "Digital Transformation",
       "description": "We developed a unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization for complete energy management.",
       "results": {
-        "efficiency": "System efficiency",
-        "monitoring": "Real-time monitoring"
+        "platforms": "All-in-one",
+        "monitoring": "Real-time"
       }
     },
     "toyota": {
@@ -621,8 +631,42 @@
       "category": "Digital Transformation",
       "description": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js and custom content panel.",
       "results": {
-        "integration": "System integration",
-        "seo": "SEO improvement"
+        "processes": "Smooth processes",
+        "visibility": "SEO boost"
+      }
+    }
+  },
+  "projects": {
+    "energia-solar": {
+      "category": "Digital Transformation",
+      "description": "Progressive web app that unifies all providers in a single responsive interface with CRM connected to ERP.",
+      "metrics": {
+        "platform": "Platform",
+        "monitoring": "Monitoring"
+      },
+      "values": {
+        "unified": "Unified",
+        "realtime": "Real-time"
+      }
+    },
+    "toyota": {
+      "category": "Immersive Marketing",
+      "description": "Circuit of activations with simulators and virtual reality that connected with new audiences.",
+      "metrics": {
+        "reach": "Impressions",
+        "leads": "Qualified leads"
+      }
+    },
+    "dosxdos": {
+      "category": "Digitalization",
+      "description": "Complete integration of CRM, ERP and optimized web that transformed operational efficiency.",
+      "metrics": {
+        "integration": "Integration",
+        "performance": "Web performance"
+      },
+      "values": {
+        "complete": "Complete",
+        "optimized": "Optimized"
       }
     }
   },

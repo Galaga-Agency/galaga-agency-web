@@ -44,7 +44,7 @@ export default function Navbar() {
     return () => {
       animationCleanup();
     };
-  }, [isOpen]);
+  }, []);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
@@ -68,7 +68,7 @@ export default function Navbar() {
         <div className="px-3 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 md:h-16 lg:h-20">
             {/* Logo */}
-            <div className="flex-shrink-0 logo-container min-w-0">
+            <div className="flex-shrink-0 navbar-logo min-w-0">
               <Link href={getLocalizedRoute("", language)} className="block">
                 <img
                   src={
@@ -88,12 +88,12 @@ export default function Navbar() {
 
             {/* Desktop Navigation - Only show on xl+ screens */}
             <div className="hidden xl:flex items-center justify-center flex-1">
-              <ul className="flex items-center gap-1 nav-links">
+              <ul className="flex items-center gap-1 navbar-links">
                 {localizedNavItems.map((item, index) => (
-                  <li key={item.href} className="nav-item" data-index={index}>
+                  <li key={item.href} className="navbar-link-item">
                     <Link
                       href={item.href}
-                      className={`relative text-base font-semibold py-3 px-4 transition-colors duration-300 nav-link ${
+                      className={`relative text-base font-semibold py-3 px-4 transition-colors duration-300 ${
                         pathname === item.href
                           ? isScrolled
                             ? "text-teal"
@@ -105,7 +105,7 @@ export default function Navbar() {
                     >
                       <span className="relative z-10">{t(item.labelKey)}</span>
                       <span
-                        className={`absolute inset-0 rounded-lg transform scale-0 hover-bg transition-all duration-75 ${
+                        className={`absolute inset-0 rounded-lg transform scale-0 navbar-link-hover transition-all duration-75 ${
                           isScrolled
                             ? "bg-gradient-to-r from-teal/5 to-turquesa/10"
                             : "bg-white/20"
@@ -113,7 +113,7 @@ export default function Navbar() {
                       ></span>
                       {pathname === item.href && (
                         <span
-                          className={`absolute inset-0 rounded-lg active-bg ${
+                          className={`absolute inset-0 rounded-lg navbar-link-active ${
                             isScrolled
                               ? "bg-gradient-to-r from-teal/5 to-turquesa/10"
                               : "bg-white/20"
@@ -127,15 +127,15 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Actions - Only show on xl+ screens */}
-            <div className="hidden xl:flex items-center gap-4 desktop-actions">
-              <div className="action-item" data-delay="0">
+            <div className="hidden xl:flex items-center gap-4 navbar-desktop-actions">
+              <div className="navbar-lang-selector">
                 <LanguageSelector
                   language={language}
                   onToggle={toggleLanguage}
                   isScrolled={isScrolled}
                 />
               </div>
-              <div className="action-item" data-delay="100">
+              <div className="navbar-cta-button">
                 {isScrolled ? (
                   <PrimaryButton
                     href={getLocalizedRoute("contacto", language)}
@@ -160,7 +160,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Backdrop - Show on everything below xl */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] xl:hidden mobile-backdrop ${
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-[999] xl:hidden navbar-mobile-backdrop ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -171,7 +171,7 @@ export default function Navbar() {
       {/* Mobile Menu - Show on everything below xl */}
       <div
         ref={mobileMenuRef}
-        className={`fixed inset-x-4 top-16 bottom-16 md:left-[50%] md:translate-x-[-50%] md:top-20 md:bottom-auto md:max-h-[70vh] md:w-96 bg-white rounded-2xl shadow-2xl z-[1001] xl:hidden mobile-menu transform transition-all duration-400 ease-out overflow-hidden ${
+        className={`fixed inset-x-4 top-16 bottom-16 md:left-[50%] md:translate-x-[-50%] md:top-20 md:bottom-auto md:max-h-[70vh] md:w-96 bg-white rounded-2xl shadow-2xl z-[1001] xl:hidden navbar-mobile-menu transform transition-all duration-400 ease-out overflow-hidden ${
           isOpen
             ? "scale-100 opacity-100"
             : "scale-95 opacity-0 pointer-events-none"
@@ -179,7 +179,7 @@ export default function Navbar() {
       >
         <div className="p-4 md:p-6 h-full flex flex-col">
           {/* Logo Section */}
-          <div className="pb-4 md:pb-6 flex-shrink-0 text-center">
+          <div className="pb-4 md:pb-6 flex-shrink-0 text-center navbar-mobile-header">
             <img
               src="/assets/img/logos/logo-full.webp"
               alt="Galaga Logo"
@@ -188,10 +188,10 @@ export default function Navbar() {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1">
+          <nav className="flex-1 navbar-mobile-nav">
             <ul className="flex flex-col gap-1 md:gap-2">
               {localizedNavItems.map((item, index) => (
-                <li key={item.href}>
+                <li key={item.href} className="navbar-mobile-item">
                   <Link
                     href={item.href}
                     onClick={closeMenu}
@@ -209,7 +209,7 @@ export default function Navbar() {
           </nav>
 
           {/* Bottom Section */}
-          <div className="pt-4 md:pt-6 border-t border-gray-100">
+          <div className="pt-4 md:pt-6 border-t border-gray-100 navbar-mobile-footer">
             {/* Language Selector */}
             <button
               onClick={toggleLanguage}

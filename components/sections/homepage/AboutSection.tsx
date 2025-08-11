@@ -66,7 +66,7 @@ export default function HomepageAboutSection() {
                           alt=""
                           width={16}
                           height={16}
-                          className="w-10 h-10 drop-shadow-lg"
+                          className="w-10 h-10 drop-shadow-lg translate-y-1 -translate-x-0.5"
                         />
                       </div>
                       <div>
@@ -91,7 +91,9 @@ export default function HomepageAboutSection() {
                       <div className="space-y-4">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">{t("homepage.about.services.steps.analysis")}</span>
+                          <span className="text-base">
+                            {t("homepage.about.services.steps.analysis")}
+                          </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
@@ -154,7 +156,9 @@ export default function HomepageAboutSection() {
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">{t("homepage.about.digitalization.steps.training")}</span>
+                          <span className="text-base">
+                            {t("homepage.about.digitalization.steps.training")}
+                          </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>

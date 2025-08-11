@@ -1,10 +1,10 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { clientCategories, featuredClients, impactMetrics } from "@/data/clients";
+import { featuredProjects } from "@/data/featured-projects";
+import { clientCategories } from "@/data/client-categories";
 import ClientCategoryCard from "@/components/ClientCategoryCard";
 import FeaturedClientCard from "@/components/FeaturedClientCard";
-import ImpactMetricsGrid from "@/components/ImpactMetricsGrid";
 
 export default function AboutClientsSection() {
   const { t } = useTranslation();
@@ -31,11 +31,9 @@ export default function AboutClientsSection() {
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
           <div className="about-clients-eyebrow inline-flex items-center gap-3 pb-6">
-            <div className="w-2 h-2 bg-teal rounded-full animate-pulse"></div>
             <span className="text-teal font-semibold tracking-wider uppercase text-sm">
               {t("about-page.clients.eyebrow")}
             </span>
-            <div className="w-2 h-2 bg-mandarina rounded-full animate-pulse delay-300"></div>
           </div>
           
           <h2 className="about-clients-title text-4xl md:text-5xl lg:text-6xl font-black text-teal leading-tight tracking-tight pb-6">
@@ -59,7 +57,7 @@ export default function AboutClientsSection() {
         </div>
 
         {/* Featured Success Stories */}
-        <div className="about-clients-featured pb-16 md:pb-20">
+        <div className="about-clients-featured">
           <div className="text-center pb-12 md:pb-16">
             <h3 className="about-clients-featured-title text-3xl md:text-4xl font-bold text-negro pb-4">
               {t("about-page.clients.featured.title")}
@@ -70,19 +68,14 @@ export default function AboutClientsSection() {
           </div>
 
           <div className="about-clients-featured-list flex flex-col gap-12 md:gap-16">
-            {featuredClients.map((client, index) => (
+            {featuredProjects.map((project, index) => (
               <FeaturedClientCard
-                key={index}
-                client={client}
+                key={project.id}
+                project={project}
                 index={index}
               />
             ))}
           </div>
-        </div>
-
-        {/* Overall Impact Summary */}
-        <div className="about-clients-impact">
-          <ImpactMetricsGrid metrics={impactMetrics} />
         </div>
       </div>
     </section>

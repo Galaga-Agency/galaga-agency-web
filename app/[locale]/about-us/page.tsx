@@ -12,6 +12,8 @@ import { initAboutStoryAnimations } from "@/utils/animations/about-story-animati
 import { initAboutClientsAnimations } from "@/utils/animations/about-clients-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { initAboutApproachAnimations } from "@/utils/animations/about-approach-animations";
+import { initCTAAnimations } from "@/utils/animations/cta-animation";
+import AboutCTASection from "@/components/sections/about-us-page/AboutCTASection";
 
 export default function AboutPage() {
   const { t, language } = useTranslation();
@@ -22,6 +24,7 @@ export default function AboutPage() {
       initAboutStoryAnimations,
       initAboutApproachAnimations,
       initAboutClientsAnimations,
+      initCTAAnimations
     ],
     delay: 100,
   });
@@ -45,6 +48,7 @@ export default function AboutPage() {
       <AboutStorySection />
       <AboutApproachSection />
       <AboutClientsSection />
+      <AboutCTASection/>
     </>
   );
 }

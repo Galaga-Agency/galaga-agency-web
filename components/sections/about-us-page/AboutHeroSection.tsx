@@ -40,11 +40,9 @@ export default function AboutHeroSection() {
         <div className="about-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
-            <div className="w-2 h-2 bg-turquesa rounded-full animate-pulse"></div>
             <span className="text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
               {t("about-page.eyebrow")}
             </span>
-            <div className="w-2 h-2 bg-hielo rounded-full animate-pulse delay-500"></div>
           </div>
 
           {/* Main Headline */}
