@@ -7,15 +7,14 @@ import ContactHeroSection from "@/components/sections/contact-page/ContactHeroSe
 import ContactFormSection from "@/components/sections/contact-page/ContactFormSection";
 import {
   initContactHeroAnimations,
-  initContactFormAnimations,
-} from "@/utils/animations/contact-animations";
+} from "@/utils/animations/contact-hero-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
 
 export default function ContactPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [initContactHeroAnimations, initContactFormAnimations],
+    animations: [initContactHeroAnimations],
     delay: 100,
   });
 

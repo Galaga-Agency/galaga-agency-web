@@ -488,21 +488,12 @@
       "directContact": "¿Prefieres hablar directamente?"
     }
   },
-  "service-page": {
+  "services-page": {
     "eyebrow": "Nuestros servicios",
     "hero": {
-      "nuestros": "Nuestros",
-      "servicios": "servicios",
-      "subtitle": "Soluciones integrales que combinan estrategia, tecnología y creatividad para transformar tu negocio.",
-      "scroll": "Explorar",
-      "areas": {
-        "strategy": "Estrategia",
-        "strategyDesc": "Consultoría y transformación digital",
-        "automation": "Automatización",
-        "automationDesc": "Sistemas y procesos inteligentes",
-        "innovation": "Innovación",
-        "innovationDesc": "Tecnología aplicada al negocio"
-      }
+      "creamos": "Creamos el futuro",
+      "elFuturo": "de tu negocio",
+      "subtitle": "En Galaga ayudamos a que las empresas crezcan sin perder el control y el foco en lo que realmente importa."
     },
     "overview": {
       "eyebrow": "Qué ofrecemos",
@@ -541,15 +532,9 @@
   "contact-page": {
     "eyebrow": "Contacto",
     "hero": {
-      "hablemos": "Hablemos de tu",
-      "proyecto": "proyecto",
-      "subtitle": "Estamos aquí para ayudarte a transformar tu negocio. Cuéntanos qué necesitas y empecemos a crear algo increíble juntos.",
-      "scroll": "Contactar",
-      "methods": {
-        "email": "Email directo",
-        "location": "Ubicación",
-        "response": "Respuesta rápida"
-      }
+      "hablemos": "Hablemos de",
+      "proyecto": "tu proyecto",
+      "subtitle": "Estamos aquí para hacer realidad tus ideas. Cuéntanos qué tienes en mente."
     },
     "form": {
       "eyebrow": "Envíanos un mensaje",
@@ -576,16 +561,9 @@
   "case-studies-page": {
     "eyebrow": "Casos de éxito",
     "hero": {
-      "casos": "Casos de",
-      "exito": "éxito",
-      "subtitle": "Descubre cómo hemos transformado negocios reales con soluciones tecnológicas innovadoras y estrategias personalizadas que generan resultados medibles.",
-      "scroll": "Explorar casos",
-      "stats": {
-        "projectsCompleted": "Proyectos completados",
-        "totalImpressions": "Impresiones totales",
-        "clientSatisfaction": "Satisfacción cliente",
-        "responseTime": "Tiempo respuesta"
-      }
+      "innovacion": "Innovación",
+      "conImpacto": "con impacto real",
+      "subtitle": "Cada proyecto es una historia de transformación. Descubre cómo hemos ayudado a nuestros clientes a alcanzar sus objetivos."
     },
     "grid": {
       "eyebrow": "Nuestros proyectos",
@@ -756,5 +734,6 @@
       "title": "Caso de Estudio No Encontrado",
       "backToProjects": "Volver a Casos de Éxito"
     }
-  }
+  },
+  "knowMore": "Saber más"
 }

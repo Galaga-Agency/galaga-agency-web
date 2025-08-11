@@ -1,11 +1,9 @@
 import { gsap } from "gsap";
-import { createAnimationManager } from "@/utils/animations/gsap-utils";
 
 export const initServicesHeroAnimations = () => {
-  const manager = createAnimationManager();
-
-  // Hero title words
   const tl = gsap.timeline();
+
+  // Main title words animate up
   tl.to(".services-hero-word-1", {
     duration: 1,
     y: 0,
@@ -33,62 +31,58 @@ export const initServicesHeroAnimations = () => {
       "-=0.5"
     );
 
-  // Service areas fade‐in + stagger
-  gsap.to(".services-hero-area", {
-    duration: 0.8,
-    y: 0,
+  // Scroll indicator fades in
+  tl.to('.services-hero-scroll-indicator', {
     opacity: 1,
-    stagger: 0.2,
-    ease: "back.out(1.7)",
-    delay: 1.5,
-  });
+    duration: 0.8,
+    ease: "power2.out"
+  }, "-=0.5");
 
-  // Area icons pop in
-  gsap.utils.toArray(".services-hero-area").forEach((area: any, i) => {
-    const icon = area.querySelector(".services-hero-area-icon");
-    if (icon) {
-      gsap.to(icon, {
-        duration: 0.8,
-        scale: 1,
-        rotation: 0,
-        ease: "back.out(1.7)",
-        delay: i * 0.2 + 1.8,
-      });
-    }
-  });
+  // Floating scroll indicator animation
+  tl.to('.services-hero-scroll-indicator .scroll-indicator-wrapper', {
+    y: 8,
+    duration: 1.5,
+    ease: "power2.inOut",
+    repeat: -1,
+    yoyo: true
+  }, "+=0.5");
 
-  // Scroll indicator float
-  const scroll = document.querySelector(".services-hero-scroll");
-  if (scroll) {
-    gsap.to(scroll, {
-      duration: 2,
-      y: 10,
-      repeat: -1,
-      yoyo: true,
-      ease: "power2.inOut",
-      delay: 2.5,
-    });
-  }
+  // Add scroll detection for fade out
+  tl.call(() => {
+    let hasScrolled = false;
+    let scrollTimeout: NodeJS.Timeout;
 
-  // Background decorative orbs
-  const orbTop = document.querySelector(".services-hero-bg-top");
-  if (orbTop) {
-    gsap.to(orbTop, {
-      duration: 8,
-      rotation: 360,
-      repeat: -1,
-      ease: "none",
-    });
-  }
-  const orbBottom = document.querySelector(".services-hero-bg-bottom");
-  if (orbBottom) {
-    gsap.to(orbBottom, {
-      duration: 12,
-      rotation: -360,
-      repeat: -1,
-      ease: "none",
-    });
-  }
+    const handleScroll = () => {
+      if (!hasScrolled && window.scrollY > 50) {
+        hasScrolled = true;
+        
+        gsap.to('.services-hero-scroll-indicator', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      }
+      
+      if (hasScrolled && window.scrollY <= 10) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          hasScrolled = false;
+          gsap.to('.services-hero-scroll-indicator', {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out"
+          });
+        }, 1000);
+      }
+    };
 
-  return manager.cleanup;
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }, [], "+=0.3");
+
+  // Return cleanup function
+  return () => {
+    tl.kill();
+  };
 };

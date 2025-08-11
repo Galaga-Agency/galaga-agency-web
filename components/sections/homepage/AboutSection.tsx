@@ -88,7 +88,7 @@ export default function HomepageAboutSection() {
                       <h4 className="text-xl font-bold pb-6">
                         {t("homepage.about.services.cardTitle")}
                       </h4>
-                      <div className="space-y-4">
+                      <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
@@ -141,7 +141,7 @@ export default function HomepageAboutSection() {
                       <h4 className="text-xl font-bold pb-6">
                         {t("homepage.about.digitalization.cardTitle")}
                       </h4>
-                      <div className="space-y-4">
+                      <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
@@ -192,7 +192,7 @@ export default function HomepageAboutSection() {
                   <div className="relative lg:order-2 px-4 lg:px-0">
                     <div className="grid grid-cols-1 gap-4">
                       <div className="bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 border-blanco">
-                        <h5 className="font-bold text-azul-profundo text-lg mb-2">
+                        <h5 className="font-bold text-azul-profundo text-lg pb-2">
                           {t("homepage.about.clients.retail.title")}
                         </h5>
                         <p className="text-sm text-negro">
@@ -200,7 +200,7 @@ export default function HomepageAboutSection() {
                         </p>
                       </div>
                       <div className="bg-gradient-to-r from-mandarina/0 to-mandarina/10 p-6 rounded-xl border-l-4 border-mandarina">
-                        <h5 className="font-bold text-azul-profundo text-lg mb-2">
+                        <h5 className="font-bold text-azul-profundo text-lg pb-2">
                           {t("homepage.about.clients.growing.title")}
                         </h5>
                         <p className="text-sm text-negro">
@@ -208,7 +208,7 @@ export default function HomepageAboutSection() {
                         </p>
                       </div>
                       <div className="bg-gradient-to-r from-violeta/20 to-azul-profundo/20 p-6 rounded-xl border-l-4 border-violeta">
-                        <h5 className="font-bold text-azul-profundo text-lg mb-2">
+                        <h5 className="font-bold text-azul-profundo text-lg pb-2">
                           {t("homepage.about.clients.innovative.title")}
                         </h5>
                         <p className="text-sm text-negro">
