@@ -525,6 +525,20 @@
         "startProject": "Start project",
         "learnMore": "Learn more"
       }
+    },
+    "cta": {
+      "line1": "Ready to See",
+      "line2": "Real Results?",
+      "subtitle": "Explore our portfolio to see how we've transformed businesses with these technologies. Every project tells a story of innovation and growth.",
+      "seePortfolio": "Explore Our Work",
+      "getStarted": "Start Your Project",
+      "readyToStart": "Ready to start your digital transformation?"
+    },
+    "technologies": {
+      "eyebrow": "Our Technology Arsenal",
+      "title": "Expert solutions, infinite possibilities",
+      "subtitle": "Our team brings deep expertise across diverse technology domains. These proven tools power our solutions, while we seamlessly integrate the latest innovations to perfectly match your project's vision.",
+      "message": "EWe scale with you. Your business grows, our tech arsenal grows too."
     }
   },
   "contact-page": {

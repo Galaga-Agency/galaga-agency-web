@@ -46,7 +46,7 @@ export const initAboutApproachAnimations = () => {
         }
       );
 
-      // Bubbles entrance animation with stagger
+      // Bubbles entrance animation with stagger - bubble and content as one unit
       gsap.fromTo(
         bubbles,
         { 
@@ -72,53 +72,6 @@ export const initAboutApproachAnimations = () => {
           }
         }
       );
-
-      // Individual bubble content animations
-      bubbles.forEach((bubble, index) => {
-        if (!bubble) return;
-        const bubbleTitle = bubble.querySelector("h3");
-        const bubbleDescription = bubble.querySelector("p");
-
-        // Title fade-in
-        if (bubbleTitle) {
-          gsap.fromTo(
-            bubbleTitle,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              delay: index * 0.2 + 0.4,
-              scrollTrigger: {
-                trigger: bubble,
-                start: "top 85%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
-        }
-
-        // Description fade-in
-        if (bubbleDescription) {
-          gsap.fromTo(
-            bubbleDescription,
-            { opacity: 0, y: 15 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              ease: "power2.out",
-              delay: index * 0.2 + 0.5,
-              scrollTrigger: {
-                trigger: bubble,
-                start: "top 85%",
-                toggleActions: "play none none none",
-              },
-            }
-          );
-        }
-      });
 
       // Quote animation
       gsap.fromTo(

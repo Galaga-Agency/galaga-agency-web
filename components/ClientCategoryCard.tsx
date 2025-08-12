@@ -15,23 +15,58 @@ export default function ClientCategoryCard({
   const { t } = useTranslation();
 
   return (
-    <div className="client-category-card flex flex-col items-center relative p-8 bg-blanco rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 group h-full">
-      {/* Background glow effect */}
-      <div className="client-category-glow absolute inset-0 bg-gradient-to-br from-turquesa/10 to-mandarina/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div className="client-category-card group">
+      <div className="
+        relative h-full min-h-[350px] rounded-2xl overflow-hidden 
+        bg-blanco
+        transform transition-all duration-300 ease-out
+        hover:scale-[1.02] hover:-translate-y-1
+        shadow-md hover:shadow-xl
+        border border-neutral-100 hover:border-teal/30
+      ">
+        
+        {/* Clean bottom accent - elegant and minimal */}
+        <div className="
+          absolute bottom-0 left-0 right-0 h-px
+          bg-gradient-to-r from-transparent via-teal to-transparent
+          group-hover:h-1 group-hover:via-teal group-hover:from-teal/50 group-hover:to-teal/50
+          transition-all duration-300 ease-out
+        " />
 
-      {/* Icon container */}
-      <div className="client-category-icon-container relative z-10 w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-turquesa to-teal flex items-center justify-center shadow-md">
-        <div className="text-blanco text-2xl">{category.icon}</div>
-      </div>
+        {/* Background Image */}
+        {category.image && (
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-300"
+            style={{ backgroundImage: `url(${category.image})` }}
+          />
+        )}
 
-      {/* Content */}
-      <div className="relative z-10 text-center flex-1 flex flex-col justify-center pt-4">
-        <h3 className="client-category-title text-xl font-bold text-negro pb-4">
-          {t(category.titleKey)}
-        </h3>
-        <p className="client-category-description text-grafito leading-relaxed">
-          {t(category.descriptionKey)}
-        </p>
+        {/* Content */}
+        <div className="relative z-10 p-8 h-full flex flex-col items-center text-center">
+          
+          {/* Icon container */}
+          <div className="
+            w-20 h-20 rounded-full
+            bg-gradient-to-br from-turquesa to-teal
+            flex items-center justify-center
+            text-blanco text-2xl
+            transform transition-all duration-300 
+            group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-teal/20
+            mb-6
+          ">
+            <div className="text-blanco text-2xl">{category.icon}</div>
+          </div>
+
+          {/* Content */}
+          <div className="flex-1 flex flex-col justify-center">
+            <h3 className="text-2xl font-bold text-negro pb-4 leading-tight">
+              {t(category.titleKey)}
+            </h3>
+            <p className="text-neutral-600 leading-relaxed">
+              {t(category.descriptionKey)}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

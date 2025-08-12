@@ -45,8 +45,8 @@ export default function AboutClientsSection() {
           </p>
         </div>
 
-        {/* Client Categories */}
-        <div className="about-clients-grid grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pb-20 md:pb-24">
+        {/* Client Categories Grid - Updated to match services grid */}
+        <div className="about-clients-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-20 md:pb-24">
           {clientCategories.map((category, index) => (
             <ClientCategoryCard
               key={index}

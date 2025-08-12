@@ -118,7 +118,7 @@ export default function ServicesOverviewSection() {
             {t("services-page.overview.title")}
           </h2>
           
-          <p className="services-overview-subtitle text-subheading text-negro/70 w-full container-tablet">
+          <p className="services-overview-subtitle text-lg md:text-xl text-negro/70 w-full container-tablet">
             {t("services-page.overview.subtitle")}
           </p>
         </div>

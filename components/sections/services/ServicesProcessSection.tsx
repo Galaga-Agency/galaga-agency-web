@@ -1,93 +1,109 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import ProcessCard from "./ProcessCard";
 
 export default function ServicesProcessSection() {
   const { t } = useTranslation();
-  const steps = [
-    {
-      number: "01",
-      titleKey: "service-page.process.discovery.title",
-      descriptionKey: "service-page.process.discovery.description",
-      color: "teal",
-      accent: "turquesa",
-    },
-    {
-      number: "02",
-      titleKey: "service-page.process.strategy.title",
-      descriptionKey: "service-page.process.strategy.description",
-      color: "mandarina",
-      accent: "naranja-tostado",
-    },
-    {
-      number: "03",
-      titleKey: "service-page.process.implementation.title",
-      descriptionKey: "service-page.process.implementation.description",
-      color: "violeta",
-      accent: "azul-profundo",
-    },
-    {
-      number: "04",
-      titleKey: "service-page.process.optimization.title",
-      descriptionKey: "service-page.process.optimization.description",
-      color: "verde-azulado",
-      accent: "turquesa",
-    },
-  ];
 
   return (
     <section className="services-process-section section relative bg-gradient-to-br from-azul-profundo via-teal to-negro overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="services-process-bg-element-1 absolute top-1/4 left-1/4 w-96 h-96 bg-turquesa/10 rounded-full blur-3xl" />
-        <div className="services-process-bg-element-2 absolute bottom-1/3 right-1/4 w-80 h-80 bg-mandarina/10 rounded-full blur-2xl" />
-        <div className="services-process-bg-element-3 absolute top-1/2 right-1/3 w-64 h-64 bg-violeta/10 rounded-full blur-xl" />
-      </div>
-      <div className="container relative z-10">
-        <div className="text-center pb-16 md:pb-20">
-          <div className="services-process-eyebrow inline-flex items-center gap-3 pb-6">
-            <div className="w-2 h-2 bg-turquesa rounded-full animate-pulse" />
-            <span className="text-hielo font-semibold uppercase text-sm">
-              {t("service-page.process.eyebrow")}
-            </span>
-            <div className="w-2 h-2 bg-mandarina rounded-full animate-pulse delay-300" />
-          </div>
-          <h2 className="services-process-title text-4xl md:text-5xl lg:text-6xl font-black text-blanco pb-6">
-            {t("service-page.process.title")}
+      <div className="container relative z-10 overflow-hidden">
+        <div className="text-center pb-12">
+          <h2 className="section-title text-blanco pb-8">
+            {t("services-page.process.title")}
           </h2>
-          <p className="services-process-subtitle text-lg md:text-xl text-hielo/90 font-light px-4">
-            {t("service-page.process.subtitle")}
-          </p>
-        </div>
-        <div className="relative">
-          <div className="services-process-connecting-line hidden absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-teal via-mandarina to-verde-azulado opacity-30 transform -translate-y-1/2" />
-          <div className="services-process-steps-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((step, idx) => (
-              <ProcessCard key={idx} index={idx} {...step} />
-            ))}
-          </div>
-        </div>
-        <div className="process-cta text-center pt-16 md:pt-20">
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-            <h3 className="services-process-cta-title text-2xl md:text-3xl font-bold text-blanco pb-4">
-              {t("service-page.process.cta.title")}
-            </h3>
-            <p className="services-process-cta-description text-lg text-hielo/90 pb-8">
-              {t("service-page.process.cta.description")}
+          <div className="mx-auto">
+            <p className="text-lg md:text-xl text-hielo/90 leading-relaxed">
+              {t("services-page.process.subtitle")}
             </p>
-            <div className="process-cta-buttons flex flex-col md:flex-row gap-4 justify-center">
-              <a
-                href="/contacto"
-                className="services-process-cta-primary inline-flex items-center gap-3 bg-gradient-to-r from-teal to-turquesa text-white font-semibold px-8 py-4 rounded-xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 shadow-xl"
-              >
-                {t("service-page.process.cta.startProject")}
-              </a>
-              <a
-                href="/sobre-nosotros"
-                className="services-process-cta-secondary inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border border-white/20 hover:bg-white/20 hover:scale-105 hover:-translate-y-1 transition-all duration-300"
-              >
-                {t("service-page.process.cta.learnMore")}
-              </a>
+          </div>
+      </div>
+        </div>
+
+        {/* Circles */}
+        <div className="relative flex justify-center">
+          <div className="relative min-h-[780px] md:min-h-[380px] lg:min-h-[400px] w-full md:w-[768px] lg:w-[1070px] overflow-visible">
+
+          {/* Bubble 1 - Discovery (Mobile: top-left, Tablet+: far left TOP) */}
+          <div className="process-circle-1 absolute 
+            top-0 left-0 
+            md:top-0 md:left-0 
+            opacity-0">
+            <div className="w-48 h-48 lg:w-54 lg:h-54 xl:w-60 xl:h-60 rounded-full bg-radial-[at_30%_30%] from-white from-20% via-neutral-50 via-60% to-azul-profundo/30 to-90% shadow-2xl flex items-center justify-center p-5 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center text-sm font-black mx-auto">
+                  01
+                </div>
+                <h3 className="text-sm lg:text-base xl:text-lg font-bold text-azul-profundo pt-3 pb-2 leading-tight tracking-tight">
+                  {t("services-page.process.discovery.title")}
+                </h3>
+                <p className="text-xs lg:text-sm xl:text-base leading-relaxed font-medium text-azul-profundo/80">
+                  {t("services-page.process.discovery.description")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bubble 2 - Strategy (Mobile: top-right, Tablet+: center-left BOTTOM) */}
+          <div className="process-circle-2 absolute 
+            top-32 right-0 
+            md:top-auto md:bottom-0 md:left-[15%] 
+            lg:left-[18%] lg:bottom-8
+            opacity-0">
+            <div className="w-60 h-60 lg:w-68 lg:h-68 xl:w-76 xl:h-76 rounded-full bg-radial-[at_25%_25%] from-turquesa from-15% via-teal via-60% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-6 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-white text-teal flex items-center justify-center text-sm font-black">
+                  02
+                </div>
+                <h3 className="text-sm lg:text-base xl:text-lg font-bold text-blanco pt-3 pb-2 leading-tight tracking-tight">
+                  {t("services-page.process.strategy.title")}
+                </h3>
+                <p className="text-xs lg:text-sm xl:text-base leading-relaxed font-medium text-hielo">
+                  {t("services-page.process.strategy.description")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bubble 3 - Implementation (Mobile: bottom-left, Tablet+: center-right TOP) */}
+          <div className="process-circle-3 absolute 
+            top-82 left-0 
+            md:top-0 md:left-auto md:right-[20%] 
+            lg:right-[25%]
+            opacity-0">
+            <div className="w-68 h-68 lg:w-76 lg:h-76 xl:w-84 xl:h-84 rounded-full bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% shadow-2xl flex items-center justify-center p-7 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-turquesa text-azul-profundo flex items-center justify-center text-sm font-black mx-auto">
+                  03
+                </div>
+                <h3 className="text-sm lg:text-base xl:text-lg font-bold text-blanco pt-3 pb-2 leading-tight tracking-tight">
+                  {t("services-page.process.implementation.title")}
+                </h3>
+                <p className="text-xs lg:text-sm xl:text-base leading-relaxed font-medium text-turquesa">
+                  {t("services-page.process.implementation.description")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Bubble 4 - Optimization (Mobile: bottom-right, Tablet+: far right BOTTOM) */}
+          <div className="process-circle-4 absolute 
+            top-136 right-0
+            md:top-auto md:bottom-0 md:right-0
+            lg:right-0 lg:bottom-8
+            opacity-0">
+            <div className="w-56 h-56 lg:w-64 lg:h-64 xl:w-72 xl:h-72 rounded-full bg-radial-[at_30%_30%] from-white from-20% via-neutral-50 via-60% to-azul-profundo/30 to-90% shadow-2xl flex items-center justify-center p-6 backdrop-blur-sm">
+              <div className="text-center flex flex-col items-center">
+                <div className="w-10 h-10 rounded-full bg-teal text-white flex items-center justify-center text-sm font-black mx-auto">
+                  04
+                </div>
+                <h3 className="text-sm lg:text-base xl:text-lg font-bold text-azul-profundo pt-3 pb-2 leading-tight tracking-tight">
+                  {t("services-page.process.optimization.title")}
+                </h3>
+                <p className="text-xs lg:text-sm xl:text-base leading-relaxed font-medium text-azul-profundo/80">
+                  {t("services-page.process.optimization.description")}
+                </p>
+              </div>
             </div>
           </div>
         </div>

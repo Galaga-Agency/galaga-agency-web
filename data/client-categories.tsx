@@ -10,7 +10,8 @@ export const clientCategories: ClientCategory[] = [
     titleKey: "about-page.clients.retail.title",
     descriptionKey: "about-page.clients.retail.description",
     color: "teal",
-    accent: "azul-profundo"
+    accent: "azul-profundo",
+    image: "/assets/img/sobre-nosotros/PYMEs-retail.png"
   },
   {
     icon: (
@@ -21,7 +22,8 @@ export const clientCategories: ClientCategory[] = [
     titleKey: "about-page.clients.growing.title",
     descriptionKey: "about-page.clients.growing.description",
     color: "mandarina",
-    accent: "naranja-tostado"
+    accent: "naranja-tostado",
+    image: "/assets/img/sobre-nosotros/empresas-en-crecimiento.png"
   },
   {
     icon: (
@@ -32,6 +34,7 @@ export const clientCategories: ClientCategory[] = [
     titleKey: "about-page.clients.innovative.title",
     descriptionKey: "about-page.clients.innovative.description",
     color: "violeta",
-    accent: "azul-profundo"
+    accent: "azul-profundo",
+    image: "/assets/img/sobre-nosotros/marcas-innovadores.png"
   }
 ];
