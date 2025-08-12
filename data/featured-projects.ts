@@ -25,7 +25,7 @@ export const featuredProjects: FeaturedProject[] = [
       { label: "projects.energia-solar.metrics.platform", value: "projects.energia-solar.values.unified" },
       { label: "projects.energia-solar.metrics.monitoring", value: "projects.energia-solar.values.realtime" }
     ],
-    image: "/assets/img/clients/energia-solar-canarias-cover.png",
+    image: "/assets/img/clients/energia-solar-canarias.png",
     color: "teal"
   },
   {
@@ -38,7 +38,7 @@ export const featuredProjects: FeaturedProject[] = [
       { label: "projects.toyota.metrics.reach", value: "375K+" },
       { label: "projects.toyota.metrics.leads", value: "4K+" }
     ],
-    image: "/assets/img/clients/toyota-cover.png",
+    image: "/assets/img/clients/toyota.png",
     color: "mandarina"
   },
   {
@@ -51,7 +51,7 @@ export const featuredProjects: FeaturedProject[] = [
       { label: "projects.dosxdos.metrics.integration", value: "projects.dosxdos.values.complete" },
       { label: "projects.dosxdos.metrics.performance", value: "projects.dosxdos.values.optimized" }
     ],
-    image: "/assets/img/clients/dosxdos-cover.png",
+    image: "/assets/img/clients/dosxdos.png",
     color: "violeta"
   }
 ];
