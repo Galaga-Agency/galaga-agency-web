@@ -4,6 +4,7 @@ export interface ClientCategory {
   descriptionKey: string;
   color: string;
   accent: string;
+  image?: string; // Added for background image support
 }
 
 export interface ClientResult {

@@ -527,6 +527,20 @@
         "startProject": "Iniciar proyecto",
         "learnMore": "Conocer más"
       }
+    },
+    "cta": {
+      "line1": "¿Listo Para Ver",
+      "line2": "Resultados Reales?",
+      "subtitle": "Explora nuestro portafolio para ver cómo hemos transformado negocios con estas tecnologías. Cada proyecto cuenta una historia de innovación y crecimiento.",
+      "seePortfolio": "Explora Nuestro Trabajo",
+      "getStarted": "Inicia Tu Proyecto",
+      "readyToStart": "¿Listo para comenzar tu transformación digital?"
+    },
+    "technologies": {
+      "eyebrow": "Nuestro Arsenal Tecnológico",
+      "title": "Soluciones expertas, posibilidades infinitas",
+      "subtitle": "Nuestro equipo aporta profunda experiencia en diversos dominios tecnológicos. Estas herramientas probadas impulsan nuestras soluciones, mientras integramos perfectamente las últimas innovaciones para adaptarnos a la visión de tu proyecto.",
+      "message": "Escalamos contigo. Tu negocio crece, nuestro arsenal tecnológico también."
     }
   },
   "contact-page": {

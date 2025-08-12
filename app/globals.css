@@ -12,7 +12,6 @@
   --color-melocoton: #f7b69f;
   --color-mandarina: #ee6f45;
   --color-violeta: #4e3a73;
-  --color-lavanda: #b880b5;
 
   /* Typography  */
   --font-family-primary: "aileron", "Inter", system-ui, sans-serif;
@@ -128,10 +127,6 @@ h6 {
   padding: clamp(4rem, 8vw, 4rem) clamp(1rem, 5vw, 2rem);
   overflow-x: hidden !important;
   overflow-y: visible !important;
-}
-
-.section-lg {
-  padding: clamp(4rem, 12vw, 8rem) clamp(1rem, 5vw, 2rem);
 }
 
 /* Break padding utility - cancels section padding at ALL breakpoints */

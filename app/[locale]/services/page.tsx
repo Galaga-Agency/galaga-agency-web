@@ -12,6 +12,9 @@ import { initServicesOverviewAnimations } from "@/utils/animations/services-over
 import { initServicesProcessAnimations } from "@/utils/animations/services-process-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
+import TechnologyStackSection from "@/components/sections/services/TechnologyStackSection";
+import { initTechnologyStackAnimations } from "@/utils/animations/technology-stack-animations";
+import ServicesCTASection from "@/components/sections/services/ServicesCTASection";
 
 export default function ServicesPage() {
   const { t, language } = useTranslation();
@@ -21,6 +24,7 @@ export default function ServicesPage() {
       initServicesHeroAnimations,
       initServicesOverviewAnimations,
       initServicesProcessAnimations,
+      initTechnologyStackAnimations,
       initCTAAnimations,
     ],
     delay: 100,
@@ -44,7 +48,8 @@ export default function ServicesPage() {
       <ServicesHeroSection />
       <ServicesOverviewSection />
       <ServicesProcessSection />
-      <CTASection />
+      <TechnologyStackSection />
+      <ServicesCTASection />
     </>
   );
 }
