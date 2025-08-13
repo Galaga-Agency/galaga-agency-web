@@ -93,7 +93,7 @@ export default function ContactFormSection() {
                         {t("contact.info.email.title")}
                       </h4>
 
-                      <p className="text-sm font-semibold leading-relaxed flex-1 text-azul-profundo">
+                      <p className="text-md font-semibold leading-relaxed flex-1 text-azul-profundo">
                         info@galagaagency.com
                       </p>
 
@@ -146,7 +146,7 @@ export default function ContactFormSection() {
                         {t("contact.info.location.title")}
                       </h4>
 
-                      <p className="text-sm font-semibold leading-relaxed flex-1 text-azul-profundo">
+                      <p className="text-md font-semibold leading-relaxed flex-1 text-azul-profundo">
                         Calle Arado 2, 35200 Telde, Las Palmas, España
                       </p>
 

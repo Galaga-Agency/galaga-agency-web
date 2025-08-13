@@ -19,7 +19,7 @@
     },
     "about": {
       "eyebrow": "What we do",
-      "mainTitle": "Your Partner in Digitalization, Interactive Experiences and Business Growth",
+      "mainTitle": "Your partner in digitalization, interactive experiences and business growth",
       "subtitle": "At Galaga we help companies grow without losing control and focus on what really matters. We offer a practical approach that combines strategy, digital tools and creativity.",
       "organize": "Organize",
       "automate": "Automate",
@@ -51,7 +51,7 @@
         }
       },
       "clients": {
-        "title": "Our Clients",
+        "title": "Our clients",
         "shortDescription": "We work with companies that need to digitize their businesses but don't have the knowledge, tools or time to do it. We give them clarity and help them organize.",
 
         "retail": {
@@ -276,7 +276,7 @@
       "subtitle": "We guide you from initial analysis to complete implementation, ensuring each step generates real value for your business"
     },
     "info": {
-      "title": "Start Your Project",
+      "title": "Start your project",
       "description": "Whether you need strategic consulting, digital transformation, or innovative solutions, we're here to help you achieve your goals.",
       "email": {
         "title": "Email Us",
@@ -431,7 +431,7 @@
         "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
       },
       "featured": {
-        "title": "Collaborations that Showcase Our Impact",
+        "title": "Collaborations that showcase our impact",
         "subtitle": "Our latest works and real results with companies that trusted our vision"
       },
       "impact": {
@@ -602,7 +602,7 @@
   },
   "clients": {
     "energiaSolar": {
-      "category": "Digital Transformation",
+      "category": "Digital transformation",
       "description": "We developed a unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization for complete energy management.",
       "results": {
         "platforms": "All-in-one",
@@ -618,7 +618,7 @@
       }
     },
     "dosxdos": {
-      "category": "Digital Transformation",
+      "category": "Digital transformation",
       "description": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js and custom content panel.",
       "results": {
         "processes": "Smooth processes",
@@ -628,7 +628,7 @@
   },
   "projects": {
     "energia-solar": {
-      "category": "Digital Transformation",
+      "category": "Digital transformation",
       "description": "Progressive web app that unifies all providers in a single responsive interface with CRM connected to ERP.",
       "metrics": {
         "platform": "Platform",
