@@ -55,7 +55,7 @@ export const featuredProjects: FeaturedProject[] = [
         value: "projects.energia-solar.values.realtime",
       },
     ],
-    image: "/assets/img/casos-de-exito/esc/energia-solar-canarias-cover.png",
+    image: "/assets/img/casos-de-exito/esc/energia-solar-canarias-app.png",
     background: "/assets/img/casos-de-exito/esc/energia-solar-canarias-portada.png",
     color: "teal",
   },
