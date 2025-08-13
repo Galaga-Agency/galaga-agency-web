@@ -69,8 +69,9 @@ export default function CaseStudyCarouselCard({
           {/* Hero Image - Less aggressive overlay */}
           <div className="relative h-[320px] md:h-[400px] overflow-hidden">
             {/* Subtle Gradient Overlay */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} opacity-30 z-10 group-hover:opacity-20 transition-all duration-700`}></div>
-            
+     <div
+              className={`absolute inset-0 ${colors.gradient} opacity-60 group-hover:opacity-40 transition-opacity duration-400`}
+            ></div>            
             {/* Responsive Image */}
             <Image
               src={image}
@@ -125,16 +126,15 @@ export default function CaseStudyCarouselCard({
             </div>
 
             {/* CTA - Responsive */}
-            <div className="flex items-center justify-between pt-3 md:pt-4">
+            <div className="flex items-center justify-end gap-4 pt-3 md:pt-4">
               <div className="flex items-center gap-2 md:gap-3">
-                <div className={`w-2.5 h-2.5 md:w-3 md:h-3 bg-${colors.accent} rounded-full animate-pulse shadow-lg`}></div>
                 <span className="text-xs md:text-sm font-bold text-grafito">
                   {t("caseStudies.readMore")}
                 </span>
               </div>
               
-              <div className={`w-10 h-10 md:w-14 md:h-14 bg-gradient-to-r ${colors.gradient} rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 shadow-lg md:shadow-xl`}>
-                <svg className="w-4 h-4 md:w-6 md:h-6 text-white group-hover:translate-x-0.5 md:group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className={`w-10 h-10 md:w-14 md:h-14 bg-gradient-to-r ${colors.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg md:shadow-xl`}>
+                <svg className="w-4 h-4 md:w-6 md:h-6 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                 </svg>
               </div>

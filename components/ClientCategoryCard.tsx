@@ -1,71 +1,40 @@
 "use client";
-
 import { useTranslation } from "@/hooks/useTranslation";
 import { ClientCategory } from "@/types/clients";
 
 interface ClientCategoryCardProps {
   category: ClientCategory;
-  index: number;
+  isHovered?: boolean;
+  isNeighborHovered?: boolean;
 }
 
 export default function ClientCategoryCard({
   category,
-  index,
 }: ClientCategoryCardProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="client-category-card group">
-      <div className="
-        relative h-full min-h-[350px] rounded-2xl overflow-hidden 
-        bg-blanco
-        transform transition-all duration-300 ease-out
-        hover:scale-[1.02] hover:-translate-y-1
-        shadow-md hover:shadow-xl
-        border border-neutral-100 hover:border-teal/30
-      ">
-        
-        {/* Clean bottom accent - elegant and minimal */}
-        <div className="
-          absolute bottom-0 left-0 right-0 h-px
-          bg-gradient-to-r from-transparent via-teal to-transparent
-          group-hover:h-1 group-hover:via-teal group-hover:from-teal/50 group-hover:to-teal/50
-          transition-all duration-300 ease-out
-        " />
-
-        {/* Background Image */}
+    <div className="group h-full">
+      <div className="relative h-full min-h-[300px] rounded-2xl overflow-hidden bg-white shadow-xl border border-white/20 transition-all duration-500 ease-out">
         {category.image && (
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-300"
-            style={{ backgroundImage: `url(${category.image})` }}
-          />
+          <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-20 transition-transform duration-500 ease-out group-hover:scale-110"
+              style={{ backgroundImage: `url(${category.image})` }}
+            />
+            <div className="absolute inset-0 bg-white/60 group-hover:bg-white/50 transition-colors duration-300" />
+          </div>
         )}
-
-        {/* Content */}
-        <div className="relative z-10 p-8 h-full flex flex-col items-center text-center">
-          
-          {/* Icon container */}
-          <div className="
-            w-20 h-20 rounded-full
-            bg-gradient-to-br from-turquesa to-teal
-            flex items-center justify-center
-            text-blanco text-2xl
-            transform transition-all duration-300 
-            group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-teal/20
-            mb-6
-          ">
-            <div className="text-blanco text-2xl">{category.icon}</div>
+        <div className="relative z-10 flex flex-col h-full p-8 items-center text-center">
+          <div className="w-20 h-20 rounded-full bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% text-white text-3xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+            {category.icon}
           </div>
-
-          {/* Content */}
-          <div className="flex-1 flex flex-col justify-center">
-            <h3 className="text-2xl font-bold text-negro pb-4 leading-tight">
-              {t(category.titleKey)}
-            </h3>
-            <p className="text-neutral-600 leading-relaxed">
-              {t(category.descriptionKey)}
-            </p>
-          </div>
+          <h3 className="pt-6 text-2xl font-bold leading-tight pb-4 transition-transform duration-300 group-hover:scale-105 text-negro group-hover:text-teal/80">
+            {t(category.titleKey)}
+          </h3>
+          <p className="text-neutral-600 group-hover:text-negro transition-colors duration-300">
+            {t(category.descriptionKey)}
+          </p>
         </div>
       </div>
     </div>

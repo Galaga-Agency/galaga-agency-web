@@ -9,6 +9,7 @@ export interface CaseStudy {
   challengeKey: string;
   solutionKey: string;
   resultKey: string;
+  introKey: string;
   metrics: CaseStudyMetric[];
   image: string;
   theme: 'digital' | 'marketing' | 'events';

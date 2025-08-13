@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
-import { FiArrowRight } from "react-icons/fi";
+import { ChevronRight } from "lucide-react";
 
-interface Service {
+interface ServiceConfig {
   icon: React.ReactNode;
   titleKey: string;
   descriptionKey: string;
@@ -15,154 +15,166 @@ interface Service {
 }
 
 interface ServiceCardProps {
-  service: Service;
+  service: ServiceConfig;
   index: number;
+  isHovered?: boolean;
+  isNeighborHovered?: boolean;
 }
 
-export default function ServiceCard({ service, index }: ServiceCardProps) {
+export default function ServiceCard({ 
+  service, 
+  index, 
+  isHovered = false, 
+  isNeighborHovered = false 
+}: ServiceCardProps) {
   const { t } = useTranslation();
 
-  const getThemeStyles = (theme: string) => {
-    const styles = {
-      teal: {
-        accent: "teal",
-        iconFrom: "from-teal",
-        iconTo: "to-teal/90",
-        iconHover: "group-hover:shadow-teal/20",
-        borderHover: "hover:border-teal/30",
-        bottomAccent: "via-teal group-hover:from-teal/50 group-hover:to-teal/50 group-hover:via-teal",
-        bullet: "bg-teal",
-        textAccent: "text-teal",
-        buttonBg: "bg-teal/10 group-hover:bg-teal",
-        buttonIcon: "text-teal group-hover:text-blanco"
-      },
-      violeta: {
-        accent: "violeta",
-        iconFrom: "from-violeta",
-        iconTo: "to-violeta/90",
-        iconHover: "group-hover:shadow-violeta/20",
-        borderHover: "hover:border-violeta/30",
-        bottomAccent: "via-violeta group-hover:from-violeta/50 group-hover:to-violeta/50 group-hover:via-violeta",
-        bullet: "bg-violeta",
-        textAccent: "text-violeta",
-        buttonBg: "bg-violeta/10 group-hover:bg-violeta",
-        buttonIcon: "text-violeta group-hover:text-blanco"
-      },
-      mandarina: {
-        accent: "mandarina",
-        iconFrom: "from-mandarina",
-        iconTo: "to-mandarina/90",
-        iconHover: "group-hover:shadow-mandarina/20",
-        borderHover: "hover:border-mandarina/30",
-        bottomAccent: "via-mandarina group-hover:from-mandarina/50 group-hover:to-mandarina/50 group-hover:via-mandarina",
-        bullet: "bg-mandarina",
-        textAccent: "text-mandarina",
-        buttonBg: "bg-mandarina/10 group-hover:bg-mandarina",
-        buttonIcon: "text-mandarina group-hover:text-blanco"
-      },
-      "azul-profundo": {
-        accent: "azul-profundo",
-        iconFrom: "from-azul-profundo",
-        iconTo: "to-azul-profundo/90",
-        iconHover: "group-hover:shadow-azul-profundo/20",
-        borderHover: "hover:border-azul-profundo/30",
-        bottomAccent: "via-azul-profundo group-hover:from-azul-profundo/50 group-hover:to-azul-profundo/50 group-hover:via-azul-profundo",
-        bullet: "bg-azul-profundo",
-        textAccent: "text-azul-profundo",
-        buttonBg: "bg-azul-profundo/10 group-hover:bg-azul-profundo",
-        buttonIcon: "text-azul-profundo group-hover:text-blanco"
-      }
-    };
-    return styles[theme as keyof typeof styles] || styles.teal;
-  };
+  const themes = {
+    teal: {
+      gradient: "from-teal/80 via-teal to-azul-profundo",
+      glow: "shadow-teal/50",
+      title: "text-teal",
+      bullet: "bg-teal/60",
+      bulletOn: "bg-teal",
+      text: "text-azul-profundo",
+    },
+    violeta: {
+      gradient: "from-violeta/80 via-violeta to-azul-profundo",
+      glow: "shadow-violeta/50",
+      title: "text-violeta",
+      bullet: "bg-violeta/60",
+      bulletOn: "bg-violeta",
+      text: "text-azul-profundo",
+    },
+    mandarina: {
+      gradient: "from-mandarina/80 via-mandarina to-naranja-tostado",
+      glow: "shadow-mandarina/50",
+      title: "text-mandarina",
+      bullet: "bg-mandarina/60",
+      bulletOn: "bg-mandarina",
+      text: "text-azul-profundo",
+    },
+    "azul-profundo": {
+      gradient: "from-azul-profundo/80 via-azul-profundo to-negro",
+      glow: "shadow-azul-profundo/50",
+      title: "text-azul-profundo",
+      bullet: "bg-azul-profundo/60",
+      bulletOn: "bg-azul-profundo",
+      text: "text-azul-profundo",
+    },
+  } as const;
 
-  const themeStyles = getThemeStyles(service.theme);
+  type ThemeKey = keyof typeof themes;
+
+  const theme =
+    themes[service.theme as ThemeKey] ?? {
+      gradient: "from-teal/80 via-teal to-azul-profundo",
+      glow: "shadow-teal/50",
+      title: "text-teal",
+      bullet: "bg-teal/60",
+      bulletOn: "bg-teal",
+      text: "text-azul-profundo",
+    };
 
   return (
-    <div className="service-card group">
-      <Link href={`/servicios/${service.slug}`} className="block h-full">
+    <div
+      className={[
+        "relative overflow-hidden h-full cursor-pointer rounded-2xl md:rounded-3xl",
+        "bg-white border border-white/20 shadow-xl hover:shadow-2xl",
+        theme.glow,
+        "transition-shadow duration-500 ease-out group",
+      ].join(" ")}
+    >
+      {/* Background image + whitish overlay */}
+      <div className="absolute inset-0 overflow-hidden rounded-2xl md:rounded-3xl">
+        {service.image && (
+          <img
+            src={service.image}
+            alt={t(service.titleKey)}
+            className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-1000 ease-out group-hover:scale-110"
+          />
+        )}
+        <div className="absolute inset-0 bg-white/60 transition-colors duration-500 group-hover:bg-white/50" />
+      </div>
+
+      {/* Floating icon */}
+      <div
+        className={[
+          "absolute -top-4 -right-4",
+          "text-[10rem]",
+          "text-white/10 rotate-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:text-white/30",
+        ].join(" ")}
+      >
+        {service.icon}
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col h-full p-6 lg:p-8">
+        
+        {/* Themed Icon Bubble */}
         <div className={`
-          relative h-full min-h-[400px] rounded-2xl overflow-hidden 
-          bg-blanco
-          transform transition-all duration-300 ease-out
-          hover:scale-[1.02] hover:-translate-y-1
-          shadow-md hover:shadow-xl
-          border border-neutral-100 ${themeStyles.borderHover}
+          w-16 h-16 rounded-full
+          bg-gradient-to-br ${theme.gradient}
+          flex items-center justify-center
+          text-blanco text-2xl
+          transform transition-all duration-300 
+          group-hover:scale-105 group-hover:shadow-lg
+          shadow-lg
         `}>
-          
-          {/* Themed bottom accent */}
-          <div className={`
-            absolute bottom-0 left-0 right-0 h-px
-            bg-gradient-to-r from-transparent ${themeStyles.bottomAccent}
-            group-hover:h-1
-            transition-all duration-300 ease-out
-          `} />
-          
-          {/* Background Image */}
-          {service.image && (
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-15 transition-opacity duration-300"
-              style={{ backgroundImage: `url(${service.image})` }}
-            />
-          )}
-          
-          {/* Content */}
-          <div className="relative z-10 p-8 h-full flex flex-col">
-            
-            {/* Themed Icon */}
-            <div className={`
-              w-16 h-16 rounded-full
-              bg-gradient-to-br ${themeStyles.iconFrom} ${themeStyles.iconTo}
-              flex items-center justify-center
-              text-blanco text-2xl
-              transform transition-all duration-300 
-              group-hover:scale-105 group-hover:shadow-lg ${themeStyles.iconHover}
-            `}>
-              {service.icon}
-            </div>
-            
-            {/* Title */}
-            <h3 className="text-2xl font-bold text-negro pt-6 pb-4 leading-tight">
-              {t(service.titleKey)}
-            </h3>
-            
-            {/* Description */}
-            <p className="text-neutral-600 pb-6 leading-relaxed flex-1">
-              {t(service.descriptionKey)}
-            </p>
-            
-            {/* Features with themed bullets */}
-            <div className="space-y-3 pt-6">
-              {service.featuresKeys.map((featureKey, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <div className={`w-1.5 h-1.5 ${themeStyles.bullet} rounded-full flex-shrink-0`} />
-                  <span className="text-sm text-neutral-600">
-                    {t(featureKey)}
-                  </span>
-                </div>
-              ))}
-            </div>
-            
-            {/* Themed action area */}
-            <div className="flex items-center justify-between pt-8 mt-4">
-              <span className={`text-sm ${themeStyles.textAccent} font-medium`}>
-                {t("knowMore")}
-              </span>
-              <div className={`
-                w-10 h-10 rounded-full ${themeStyles.buttonBg}
-                flex items-center justify-center
-                transition-all duration-300
-              `}>
-                <FiArrowRight className={`
-                  ${themeStyles.buttonIcon} text-sm
-                  transform group-hover:translate-x-0.5
-                  transition-all duration-300
-                `} />
-              </div>
-            </div>
-          </div>
+          {service.icon}
         </div>
-      </Link>
+        
+        <h3
+          className={[
+            "text-xl lg:text-2xl",
+            "font-black leading-tight py-6",
+            theme.title,
+            "transition-transform duration-300 group-hover:scale-[1.02]",
+          ].join(" ")}
+        >
+          {t(service.titleKey)}
+        </h3>
+
+        <p className={["text-sm lg:text-base font-semibold pb-6 leading-relaxed flex-1", theme.text].join(" ")}>
+          {t(service.descriptionKey)}
+        </p>
+
+        <div className="mt-auto flex flex-col gap-3">
+          {service.featuresKeys.map((feature, i) => (
+            <div key={i} className={["flex items-center gap-3 font-semibold text-sm", theme.text].join(" ")}>
+              <div
+                className={[
+                  "w-2.5 h-2.5 rounded-full flex-shrink-0 shadow-sm transition-colors",
+                  theme.bullet,
+                  "group-hover:" + theme.bulletOn,
+                ].join(" ")}
+              />
+              <span className="leading-relaxed">{t(feature)}</span>
+            </div>
+          ))}
+        </div>
+
+        <Link
+          href={`/servicios/${service.slug}`}
+          className="mt-6 flex items-center justify-end gap-4"
+        >
+          <div className="flex items-center gap-2">
+            <span className="text-xs md:text-sm font-bold text-azul-profundo">
+              {t("caseStudies.readMore")}
+            </span>
+          </div>
+          <ChevronRight className={`w-6 h-6 md:w-8 md:h-8 ${theme.title} transition-all duration-300 group-hover:scale-110 group-hover:translate-x-1`} />
+        </Link>
+      </div>
+
+      {/* Subtle glow border */}
+      <div
+        className={[
+          "pointer-events-none absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r",
+          theme.gradient,
+          "opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm",
+        ].join(" ")}
+      />
     </div>
   );
 }

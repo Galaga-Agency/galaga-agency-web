@@ -1,8 +1,8 @@
 "use client";
-import ServiceCard from "@/components/ServiceCard";
 import { useTranslation } from "@/hooks/useTranslation";
 import { services } from "@/data/services";
 import { useState } from "react";
+import BentoServiceCard from "@/components/sections/homepage/BentoServiceCard";
 
 export default function ServicesSection() {
   const { t } = useTranslation();
@@ -64,7 +64,7 @@ export default function ServicesSection() {
         <div className="section-break mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 md:hidden">
             {serviceConfigs.map((service, index) => (
-              <ServiceCard
+              <BentoServiceCard
                 key={index}
                 service={service}
                 size="mobile"
@@ -77,14 +77,14 @@ export default function ServicesSection() {
 
           <div className="hidden md:grid grid-cols-3 gap-8 lg:gap-10 auto-rows-[auto]">
             {/* Row 1: Small + Large */}
-            <ServiceCard
+            <BentoServiceCard
               service={serviceConfigs[0]}
               size="small"
               isHovered={hoveredCard === 0}
               isNeighborHovered={hoveredCard === 1}
               onHover={(isHovered) => handleCardHover(0, isHovered)}
             />
-            <ServiceCard
+            <BentoServiceCard
               service={serviceConfigs[1]}
               size="large"
               isHovered={hoveredCard === 1}
@@ -93,14 +93,14 @@ export default function ServicesSection() {
             />
                      
             {/* Row 2: Large + Small */}
-            <ServiceCard
+            <BentoServiceCard
               service={serviceConfigs[2]}
               size="large"
               isHovered={hoveredCard === 2}
               isNeighborHovered={hoveredCard === 3}
               onHover={(isHovered) => handleCardHover(2, isHovered)}
             />
-            <ServiceCard
+            <BentoServiceCard
               service={serviceConfigs[3]}
               size="small"
               isHovered={hoveredCard === 3}
@@ -109,14 +109,14 @@ export default function ServicesSection() {
             />
                      
             {/* Row 3: Small + Large */}
-            <ServiceCard
+            <BentoServiceCard
               service={serviceConfigs[4]}
               size="small"
               isHovered={hoveredCard === 4}
               isNeighborHovered={hoveredCard === 5}
               onHover={(isHovered) => handleCardHover(4, isHovered)}
             />
-            <ServiceCard
+            <BentoServiceCard
               service={serviceConfigs[5]}
               size="large"
               isHovered={hoveredCard === 5}

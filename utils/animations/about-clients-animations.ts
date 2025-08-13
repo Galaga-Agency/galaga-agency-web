@@ -1,3 +1,6 @@
+// animations/about-clients.ts
+"use client";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -163,19 +166,28 @@ export const initAboutClientsAnimations = () => {
       },
     });
 
-    gsap.from(card.querySelectorAll(".featured-client-result"), {
-      duration: 0.6,
-      y: 30,
-      opacity: 0,
-      stagger: 0.1,
-      ease: "power2.out",
-      delay: 0.6,
-      scrollTrigger: {
-        trigger: card.querySelector(".featured-client-results"),
-        start: "top 80%",
-        toggleActions: "play none none none",
-      },
-    });
+    // 🔧 FIXED: metrics were stuck invisible due to immediateRender on .from()
+    // Use fromTo + once:true and trigger the card so it always completes.
+    const results = card.querySelectorAll(".featured-client-result");
+    if (results && results.length) {
+      gsap.fromTo(
+        results,
+        { y: 30, opacity: 0 },
+        {
+          duration: 0.6,
+          y: 0,
+          opacity: 1,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: card,     // trigger the whole card
+            start: "top 85%",  // a touch later = more reliable
+            once: true,        // keep final state
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }
 
     gsap.from(card.querySelector(".featured-client-image"), {
       duration: 1,
@@ -245,6 +257,9 @@ export const initAboutClientsAnimations = () => {
 
   // Setup hover animations
   setupClientHovers();
+
+  // Recalculate after images/layout changes
+  ScrollTrigger.refresh();
 
   return () => {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());

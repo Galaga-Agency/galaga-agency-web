@@ -2,6 +2,7 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import ServiceCard from "./ServiceCard";
+import { useState } from "react";
 import {
   FiTarget,
   FiZap,
@@ -23,6 +24,7 @@ interface Service {
 
 export default function ServicesOverviewSection() {
   const { t } = useTranslation();
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const services: Service[] = [
     {
@@ -105,6 +107,28 @@ export default function ServicesOverviewSection() {
     },
   ];
 
+  // Define neighbor relationships for a 3-column grid
+  const getNeighbors = (index: number): number[] => {
+    const neighbors: { [key: number]: number[] } = {
+      0: [1, 3], // Top-left: right and below
+      1: [0, 2, 3, 4], // Top-center: left, right, and both below
+      2: [1, 4, 5], // Top-right: left and below
+      3: [0, 1, 4], // Bottom-left: above and right
+      4: [1, 2, 3, 5], // Bottom-center: all around
+      5: [2, 4], // Bottom-right: above and left
+    };
+    return neighbors[index] || [];
+  };
+
+  const handleCardHover = (cardIndex: number, isHovered: boolean) => {
+    setHoveredCard(isHovered ? cardIndex : null);
+  };
+
+  const isNeighbor = (cardIndex: number): boolean => {
+    if (hoveredCard === null) return false;
+    return getNeighbors(hoveredCard).includes(cardIndex);
+  };
+
   return (
     <section className="services-overview-section section bg-hielo/20">
       <div className="container">
@@ -123,14 +147,27 @@ export default function ServicesOverviewSection() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Interactive Services Grid */}
         <div className="services-overview-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <ServiceCard
+            <div
               key={index}
-              service={service}
-              index={index}
-            />
+              className={`
+                service-card-wrapper
+                transition-all duration-500 ease-out
+                ${hoveredCard === index ? 'scale-105 -translate-y-2 z-20' : 
+                  isNeighbor(index) ? 'scale-95 translate-y-1 opacity-75' : 'scale-100'}
+              `}
+              onMouseEnter={() => handleCardHover(index, true)}
+              onMouseLeave={() => handleCardHover(index, false)}
+            >
+              <ServiceCard
+                service={service}
+                index={index}
+                isHovered={hoveredCard === index}
+                isNeighborHovered={isNeighbor(index)}
+              />
+            </div>
           ))}
         </div>
       </div>
