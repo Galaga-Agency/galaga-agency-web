@@ -95,9 +95,9 @@ export default function CaseStudyCard({
     switch (size) {
       case "hero":
         return {
-          imageHeight: "h-[280px] md:h-[360px] lg:h-[330px] xl:h-[360px]",
+          imageHeight: "h-[300px] md:h-[390px] lg:h-[385px]",
           contentPadding: "p-4 md:p-6 lg:p-8",
-          titleSize: "text-lg md:text-xl lg:text-2xl xl:text-3xl",
+          titleSize: "text-lg md:text-xl lg:text-2xl",
           descriptionSize: "text-sm md:text-base lg:text-lg",
           maxLines: 3,
           categorySize: "text-xs md:text-sm",
@@ -106,7 +106,7 @@ export default function CaseStudyCard({
         };
       case "wide":
         return {
-          imageHeight: "h-[280px] md:h-[360px] lg:h-[330px]",
+          imageHeight: "h-[300px] md:h-[390px] lg:h-[385px]",
           contentPadding: "p-4 md:p-6 lg:p-7",
           titleSize: "text-lg md:text-xl lg:text-2xl",
           descriptionSize: "text-sm md:text-base",
@@ -117,7 +117,7 @@ export default function CaseStudyCard({
         };
       case "large":
         return {
-          imageHeight: "h-[280px] md:h-[360px] lg:h-[330px]",
+          imageHeight: "h-[300px] md:h-[390px] lg:h-[385px]",
           contentPadding: "p-4 md:p-6",
           titleSize: "text-lg md:text-xl lg:text-2xl",
           descriptionSize: "text-sm md:text-base",
@@ -227,29 +227,11 @@ export default function CaseStudyCard({
 
             {/* CTA Section */}
             <div className="flex items-center justify-end gap-3 pt-4 flex-shrink-0">
-              <div className="flex items-center gap-2">
-                <span className="text-xs md:text-sm font-bold text-neutral-600">
-                  {t("caseStudies.readMore")}
-                </span>
-              </div>
-
-              <div
-                className={`${sizeConfig.ctaSize} bg-gradient-to-r ${config.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}
-              >
-                <svg
-                  className={`${sizeConfig.ctaIconSize} text-white transition-transform duration-300`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
+           <div className={`w-8 h-8 bg-gradient-to-r ${config.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
+            <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
             </div>
           </div>
         </div>

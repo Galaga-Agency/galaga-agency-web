@@ -270,51 +270,62 @@
   "contact": {
     "title": "Let's talk about your project",
     "subtitle": "We're here to help you transform your business. Tell us what you need.",
-    "form": {
-      "title": "Send us a message",
-      "name": "Name",
-      "namePlaceholder": "Your full name",
-      "email": "Email",
-      "emailPlaceholder": "your@email.com",
-      "company": "Company",
-      "companyPlaceholder": "Your company name",
-      "phone": "Phone",
-      "phonePlaceholder": "+34 600 000 000",
-      "serviceInterest": "Service of interest",
-      "selectService": "Select a service",
-      "services": {
-        "strategy": "Strategic consulting",
-        "automation": "Automation",
-        "innovation": "Technological innovation",
-        "immersive": "Immersive marketing",
-        "training": "Training and support",
-        "grants": "Grant management",
-        "other": "Other"
-      },
-      "message": "Message",
-      "messagePlaceholder": "Tell us more about your project...",
-      "send": "Send message",
-      "sending": "Sending...",
-      "success": {
-        "title": "Message sent!",
-        "description": "We'll respond to you in less than 24 hours."
-      },
-      "privacy": "By submitting this form, you accept our privacy policy."
+    "section": {
+      "eyebrow": "Get in Touch",
+      "title": "Everything starts with a conversation",
+      "subtitle": "We guide you from initial analysis to complete implementation, ensuring each step generates real value for your business"
     },
     "info": {
-      "title": "Contact information"
+      "title": "Start Your Project",
+      "description": "Whether you need strategic consulting, digital transformation, or innovative solutions, we're here to help you achieve your goals.",
+      "email": {
+        "title": "Email Us",
+        "value": "hello@yourcompany.com"
+      },
+      "phone": {
+        "title": "Call Us",
+        "value": "+34 123 456 789"
+      },
+      "response": {
+        "title": "Response Time",
+        "value": "Within 24 hours"
+      },
+      "location": {
+        "title": "Location"
+      },
+      "social": {
+        "title": "Follow us"
+      }
     },
-    "email": "Email",
-    "location": "Location",
-    "locationText": "Gran Canaria, Spain",
-    "schedule": "Schedule",
-    "scheduleText": "Monday to Friday, 9:00 - 18:00",
-    "social": {
-      "title": "Follow us"
-    },
-    "promise": {
-      "title": "24h response guaranteed",
-      "description": "We commit to responding to your inquiry in less than 24 hours."
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+34 123 456 789",
+      "serviceInterest": "Service of Interest",
+      "selectService": "Select a service",
+      "message": "Project Details",
+      "messagePlaceholder": "Tell us about your project, goals, and timeline...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
+      "services": {
+        "strategy": "Strategic Consulting",
+        "automation": "Digital Automation",
+        "innovation": "Innovation & R&D",
+        "immersive": "Immersive Experiences",
+        "training": "Training & Development",
+        "grants": "Grant Assistance",
+        "other": "Other Services"
+      },
+      "success": {
+        "title": "Message Sent Successfully!",
+        "description": "Thank you for reaching out. We've received your message and will get back to you within 24 hours with next steps for your project."
+      }
     }
   },
   "notFound": {

@@ -267,51 +267,62 @@
   "contact": {
     "title": "Hablemos de tu proyecto",
     "subtitle": "Estamos aquí para ayudarte a transformar tu negocio. Cuéntanos qué necesitas.",
+    "section": {
+      "eyebrow": "Contacto",
+      "title": "Todo empieza con una conversación",
+      "subtitle": "Te acompañamos desde el análisis inicial hasta la implementación completa, asegurando que cada paso genere valor real para tu negocio"
+    },
+    "info": {
+      "title": "Inicia Tu Proyecto",
+      "description": "Ya sea que necesites consultoría estratégica, transformación digital o soluciones innovadoras, estamos aquí para ayudarte a alcanzar tus objetivos.",
+      "email": {
+        "title": "Escríbenos",
+        "value": "hello@yourcompany.com"
+      },
+      "phone": {
+        "title": "Llámanos",
+        "value": "+34 123 456 789"
+      },
+      "response": {
+        "title": "Tiempo de Respuesta",
+        "value": "En 24 horas"
+      },
+      "location": {
+        "title": "Ubicación"
+      },
+      "social": {
+        "title": "Síguenos" 
+      }
+    },
     "form": {
-      "title": "Envíanos un mensaje",
-      "name": "Nombre",
-      "namePlaceholder": "Tu nombre completo",
-      "email": "Email",
-      "emailPlaceholder": "tu@email.com",
+      "name": "Nombre Completo",
+      "namePlaceholder": "Introduce tu nombre completo",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "Introduce tu correo",
       "company": "Empresa",
       "companyPlaceholder": "Nombre de tu empresa",
       "phone": "Teléfono",
-      "phonePlaceholder": "+34 600 000 000",
-      "serviceInterest": "Servicio de interés",
+      "phonePlaceholder": "+34 123 456 789",
+      "serviceInterest": "Servicio de Interés",
       "selectService": "Selecciona un servicio",
-      "services": {
-        "strategy": "Consultoría estratégica",
-        "automation": "Automatización",
-        "innovation": "Innovación tecnológica",
-        "immersive": "Marketing inmersivo",
-        "training": "Formación y soporte",
-        "grants": "Gestión de subvenciones",
-        "other": "Otro"
-      },
-      "message": "Mensaje",
-      "messagePlaceholder": "Cuéntanos más sobre tu proyecto...",
-      "send": "Enviar mensaje",
+      "message": "Detalles del Proyecto",
+      "messagePlaceholder": "Cuéntanos sobre tu proyecto, objetivos y cronograma...",
+      "send": "Enviar Mensaje",
       "sending": "Enviando...",
-      "success": {
-        "title": "¡Mensaje enviado!",
-        "description": "Te responderemos en menos de 24 horas."
+      "privacy": "Al enviar este formulario, aceptas nuestra política de privacidad y términos de servicio.",
+      "services": {
+        "strategy": "Consultoría Estratégica",
+        "automation": "Automatización Digital",
+        "innovation": "Innovación e I+D",
+        "immersive": "Experiencias Inmersivas",
+        "training": "Formación y Desarrollo",
+        "grants": "Ayuda con Subvenciones",
+        "other": "Otros Servicios"
       },
-      "privacy": "Al enviar este formulario, aceptas nuestra política de privacidad."
-    },
-    "info": {
-      "title": "Información de contacto"
-    },
-    "email": "Email",
-    "location": "Ubicación",
-    "locationText": "Gran Canaria, España",
-    "schedule": "Horario",
-    "scheduleText": "Lunes a Viernes, 9:00 - 18:00",
-    "social": {
-      "title": "Síguenos"
-    },
-    "promise": {
-      "title": "Respuesta garantizada en 24h",
-      "description": "Nos comprometemos a responder tu consulta en menos de 24 horas."
+      "success": {
+        "title": "¡Mensaje Enviado Correctamente!",
+        "description": "Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos en 24 horas con los próximos pasos para tu proyecto."
+      }
     }
   },
   "notFound": {

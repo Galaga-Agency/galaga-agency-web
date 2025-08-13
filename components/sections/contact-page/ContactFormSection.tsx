@@ -1,131 +1,204 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import { Mail, MapPin, Linkedin, Instagram } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
-import { MdEmail, MdLocationOn, MdSchedule } from "react-icons/md";
-import { FiLinkedin, FiInstagram } from "react-icons/fi";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function ContactFormSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="contact-form-section section relative overflow-hidden">
-      {/* Simplified background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-hielo/30 to-white"></div>
+    <section className="relative contact-form-section section">
+            {/* Diagonal background layers */}
+      <div className="absolute inset-0">
+        {/* Top diagonal - Light teal gradient */}
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/20 to-blanco"
+          style={{
+            clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 45%)",
+          }}
+        ></div>
 
-      <div className="container relative z-10">
+        {/* Bottom diagonal - Pure white */}
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"
+          style={{
+            clipPath: "polygon(0 45%, 100% 65%, 100% 100%, 0 100%)",
+          }}
+        ></div>
+      </div>
+      <div className="container">
         {/* Header */}
-        <div className="text-center pb-16">
-          <div className="inline-flex items-center gap-3 pb-4">
-            <div className="w-2 h-2 bg-teal rounded-full animate-pulse" />
+        <div className="text-center pb-20">
+          <div className="contact-form-eyebrow pb-6">
             <span className="text-teal font-semibold tracking-wider uppercase text-sm">
-              {t("contact-page.form.eyebrow")}
+              {t("contact.section.eyebrow")}
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-negro pb-4">
-            {t("contact-page.form.title")}
+          <h2 className="contact-form-title section-title text-teal leading-tight tracking-tight pb-8">
+            {t("contact.section.title")}
           </h2>
 
-          <p className="text-xl text-grafito leading-relaxed">
-            {t("contact-page.form.subtitle")}
+          <p className="contact-form-subtitle text-xl text-negro leading-relaxed container-tablet">
+            {t("contact.section.subtitle")}
           </p>
         </div>
 
-        {/* Main grid - equal height columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 lg:items-start">
-          {/* Form - 3 columns */}
-          <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl p-8 md:p-10 shadow-xl border border-hielo/30 h-full">
-              <ContactForm />
-            </div>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-20">
+          {/* Left - Contact Info */}
+          <div className="relative lg:col-span-2">
+            <div className="contact-info-content">
+              <h3 className="text-3xl font-bold text-azul-profundo pb-6 leading-tight">
+                {t("contact.info.title")}
+              </h3>
 
-          {/* Info sidebar - 2 columns, single tall card */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-hielo/30 h-full flex flex-col">
-              {/* Contact Information */}
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-teal pb-6">
-                  {t("contact-page.info.title")}
-                </h3>
+              <p className="text-lg text-negro leading-relaxed pb-12">
+                {t("contact.info.description")}
+              </p>
 
-                <div className="flex flex-col gap-5 pb-8">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-teal/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MdEmail className="w-5 h-5 text-teal" />
+              {/* Contact Cards */}
+              <div className="contact-info-cards flex flex-col gap-6 pb-12">
+                {/* Email Card */}
+                <div className="contact-info-card group">
+                  <a
+                    href="mailto:info@galagaagency.com"
+                    className="relative overflow-hidden h-full cursor-pointer rounded-2xl bg-white border border-white/20 shadow-xl hover:shadow-2xl shadow-teal/50 transition-shadow duration-500 ease-out group block"
+                  >
+                    {/* Background image + overlay */}
+                    <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                      <img
+                        src="/assets/img/contacto/email-writing.jpg"
+                        alt="Email"
+                        className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-1000 ease-out group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-white/60 transition-colors duration-500 group-hover:bg-white/50" />
                     </div>
-                    <div>
-                      <p className="font-semibold text-negro text-sm">
-                        {t("contact-page.info.email")}
-                      </p>
-                      <a
-                        href="mailto:info@galagaagency.com"
-                        className="text-teal hover:text-azul-profundo transition-colors text-sm"
-                      >
+
+                    {/* Floating icon */}
+                    <div className="absolute -top-4 -right-4 text-[8rem] text-white/10 rotate-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:text-white/30">
+                      <Mail />
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col h-full p-6">
+                      {/* Themed Icon Bubble */}
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal/80 via-teal to-azul-profundo flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
+                        <Mail className="w-7 h-7" />
+                      </div>
+                      
+                      <h4 className="text-xl font-black leading-tight py-4 text-teal transition-transform duration-300 group-hover:scale-[1.02]">
+                        {t("contact.info.email.title")}
+                      </h4>
+
+                      <p className="text-sm font-semibold leading-relaxed flex-1 text-azul-profundo">
                         info@galagaagency.com
-                      </a>
-                    </div>
-                  </div>
+                      </p>
 
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-mandarina/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MdLocationOn className="w-5 h-5 text-mandarina" />
+                      {/* CTA */}
+                      <div className="mt-4 flex items-center justify-end gap-4">
+                        <div className="w-8 h-8 bg-gradient-to-r from-teal via-teal to-azul-profundo rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
+                          <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-negro text-sm">
-                        {t("contact-page.info.location")}
-                      </p>
-                      <p className="text-grafito text-sm">
-                        {t("contact-page.info.locationText")}
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-violeta/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MdSchedule className="w-5 h-5 text-violeta" />
+                    {/* Subtle glow border */}
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-teal/80 via-teal to-azul-profundo opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm" />
+                  </a>
+                </div>
+
+                {/* Location Card */}
+                <div className="contact-info-card group">
+                  <a
+                    href="https://maps.google.com/?q=C.+Arado%2C+35200+Telde%2C+Las+Palmas+de+Gran+Canaria%2C+Spain"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative overflow-hidden h-full cursor-pointer rounded-2xl bg-white border border-white/20 shadow-xl hover:shadow-2xl shadow-mandarina/50 transition-shadow duration-500 ease-out group block"
+                  >
+                    {/* Background image + overlay */}
+                    <div className="absolute inset-0 overflow-hidden rounded-2xl">
+                      <img
+                        src="/assets/img/contacto/map.png"
+                        alt="Location"
+                        className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-1000 ease-out group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-white/60 transition-colors duration-500 group-hover:bg-white/50" />
                     </div>
-                    <div>
-                      <p className="font-semibold text-negro text-sm">
-                        {t("contact-page.info.schedule")}
-                      </p>
-                      <p className="text-grafito text-sm">
-                        {t("contact-page.info.scheduleText")}
-                      </p>
+
+                    {/* Floating icon */}
+                    <div className="absolute -top-4 -right-4 text-[8rem] text-white/10 rotate-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:text-white/30">
+                      <MapPin />
                     </div>
-                  </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 flex flex-col h-full p-6">
+                      {/* Themed Icon Bubble */}
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-mandarina/80 via-mandarina to-naranja-tostado flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
+                        <MapPin className="w-7 h-7" />
+                      </div>
+                      
+                      <h4 className="text-xl font-black leading-tight py-4 text-mandarina transition-transform duration-300 group-hover:scale-[1.02]">
+                        {t("contact.info.location.title")}
+                      </h4>
+
+                      <p className="text-sm font-semibold leading-relaxed flex-1 text-azul-profundo">
+                        Calle Arado 2, 35200 Telde, Las Palmas, España
+                      </p>
+
+                      {/* CTA */}
+                      <div className="mt-4 flex items-center justify-end gap-4">
+                        <div className="w-8 h-8 bg-gradient-to-r from-mandarina via-mandarina to-naranja-tostado rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
+                          <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Subtle glow border */}
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-mandarina/80 via-mandarina to-naranja-tostado opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm" />
+                  </a>
                 </div>
               </div>
 
-              {/* Social Media at bottom */}
-              <div className="border-t border-hielo/30 pt-8">
-                <h3 className="text-xl font-bold text-teal pb-6">
-                  {t("contact-page.social.title")}
-                </h3>
-
-                <div className="flex gap-4 pb-6">
-                  <a
+              {/* Social Media Links */}
+              <div className="contact-social">
+                <h4 className="text-lg font-bold text-azul-profundo pb-4">
+                  {t("contact.info.social.title")}
+                </h4>
+                <div className="flex gap-4">
+                  <Link
                     href="https://linkedin.com/company/galagaagency"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-teal text-white rounded-lg flex items-center justify-center hover:bg-azul-profundo hover:scale-110 transition-all duration-300 shadow-lg"
+                    className="group w-14 h-14 bg-gradient-to-br from-teal/20 to-teal/10 border border-teal/20 hover:border-teal/40 rounded-xl flex items-center justify-center hover:shadow-lg transition-all duration-300"
                   >
-                    <FiLinkedin className="w-6 h-6" />
-                  </a>
-                  <a
+                    <Linkedin className="w-7 h-7 text-teal group-hover:scale-110 transition-transform duration-300" />
+                  </Link>
+
+                  <Link
                     href="https://instagram.com/galagaagency"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-gradient-to-br from-mandarina to-naranja-tostado text-white rounded-lg flex items-center justify-center hover:from-purple-500 hover:to-pink-500 hover:scale-110 transition-all duration-300 shadow-lg"
+                    className="group w-14 h-14 bg-gradient-to-br from-mandarina/20 to-mandarina/10 border border-mandarina/20 hover:border-mandarina/40 rounded-xl flex items-center justify-center hover:shadow-lg transition-all duration-300"
                   >
-                    <FiInstagram className="w-6 h-6" />
-                  </a>
+                    <Instagram className="w-7 h-7 text-mandarina group-hover:scale-110 transition-transform duration-300" />
+                  </Link>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <p className="text-grafito text-sm leading-relaxed">
-                  {t("contact-page.social.description")}
-                </p>
+          {/* Right - Form */}
+          <div className="z-20 lg:col-span-3">
+            <div className="contact-form-container">
+              <div className="bg-blanco/70 backdrop-blur-md p-12 rounded-3xl border border-hielo/30 shadow-xl">
+                <ContactForm />
               </div>
             </div>
           </div>

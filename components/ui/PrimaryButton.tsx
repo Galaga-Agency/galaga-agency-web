@@ -22,6 +22,7 @@ type PrimaryButtonProps = LinkButtonProps | ActionButtonProps;
 
 export default function PrimaryButton({ 
   children, 
+  
   className = "", 
   size = "md", 
   disabled = false,
@@ -37,6 +38,7 @@ export default function PrimaryButton({
     ${sizeStyles[size]}
     font-bold
     rounded-lg
+    cursor-pointer
     bg-teal
     text-blanco 
     shadow-md

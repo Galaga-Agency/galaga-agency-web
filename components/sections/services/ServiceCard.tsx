@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
-import { ChevronRight } from "lucide-react";
 
 interface ServiceConfig {
   icon: React.ReactNode;
@@ -37,6 +36,7 @@ export default function ServiceCard({
       bullet: "bg-teal/60",
       bulletOn: "bg-teal",
       text: "text-azul-profundo",
+      ctaGradient: "from-teal via-teal to-azul-profundo",
     },
     violeta: {
       gradient: "from-violeta/80 via-violeta to-azul-profundo",
@@ -45,6 +45,7 @@ export default function ServiceCard({
       bullet: "bg-violeta/60",
       bulletOn: "bg-violeta",
       text: "text-azul-profundo",
+      ctaGradient: "from-violeta via-violeta to-azul-profundo",
     },
     mandarina: {
       gradient: "from-mandarina/80 via-mandarina to-naranja-tostado",
@@ -53,6 +54,7 @@ export default function ServiceCard({
       bullet: "bg-mandarina/60",
       bulletOn: "bg-mandarina",
       text: "text-azul-profundo",
+      ctaGradient: "from-mandarina via-mandarina to-naranja-tostado",
     },
     "azul-profundo": {
       gradient: "from-azul-profundo/80 via-azul-profundo to-negro",
@@ -61,6 +63,7 @@ export default function ServiceCard({
       bullet: "bg-azul-profundo/60",
       bulletOn: "bg-azul-profundo",
       text: "text-azul-profundo",
+      ctaGradient: "from-azul-profundo via-azul-profundo to-negro",
     },
   } as const;
 
@@ -74,6 +77,7 @@ export default function ServiceCard({
       bullet: "bg-teal/60",
       bulletOn: "bg-teal",
       text: "text-azul-profundo",
+      ctaGradient: "from-teal via-teal to-azul-profundo",
     };
 
   return (
@@ -154,16 +158,16 @@ export default function ServiceCard({
           ))}
         </div>
 
+        {/* CTA - Small Circle with Arrow */}
         <Link
           href={`/servicios/${service.slug}`}
-          className="mt-6 flex items-center justify-end gap-4"
+          className="mt-6 flex items-center justify-end"
         >
-          <div className="flex items-center gap-2">
-            <span className="text-xs md:text-sm font-bold text-azul-profundo">
-              {t("caseStudies.readMore")}
-            </span>
+          <div className={`w-8 h-8 bg-gradient-to-r ${theme.ctaGradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
+            <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
           </div>
-          <ChevronRight className={`w-6 h-6 md:w-8 md:h-8 ${theme.title} transition-all duration-300 group-hover:scale-110 group-hover:translate-x-1`} />
         </Link>
       </div>
 

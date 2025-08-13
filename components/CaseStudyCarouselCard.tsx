@@ -36,25 +36,29 @@ export default function CaseStudyCarouselCard({
         return { 
           gradient: 'from-teal/80 via-teal to-azul-profundo', 
           accent: 'teal',
-          glow: 'shadow-teal/50'
+          glow: 'shadow-teal/50',
+          ctaGradient: 'from-teal via-teal to-azul-profundo'
         };
       case 'marketing':
         return { 
           gradient: 'from-mandarina/80 via-mandarina to-naranja-tostado', 
           accent: 'mandarina',
-          glow: 'shadow-mandarina/50'
+          glow: 'shadow-mandarina/50',
+          ctaGradient: 'from-mandarina via-mandarina to-naranja-tostado'
         };
       case 'events':
         return { 
           gradient: 'from-violeta/80 via-violeta to-azul-profundo', 
           accent: 'violeta',
-          glow: 'shadow-violeta/50'
+          glow: 'shadow-violeta/50',
+          ctaGradient: 'from-violeta via-violeta to-azul-profundo'
         };
       default:
         return { 
           gradient: 'from-teal/80 via-teal to-azul-profundo', 
           accent: 'teal',
-          glow: 'shadow-teal/50'
+          glow: 'shadow-teal/50',
+          ctaGradient: 'from-teal via-teal to-azul-profundo'
         };
     }
   };
@@ -125,16 +129,10 @@ export default function CaseStudyCarouselCard({
               </p>
             </div>
 
-            {/* CTA - Responsive */}
-            <div className="flex items-center justify-end gap-4 pt-3 md:pt-4">
-              <div className="flex items-center gap-2 md:gap-3">
-                <span className="text-xs md:text-sm font-bold text-grafito">
-                  {t("caseStudies.readMore")}
-                </span>
-              </div>
-              
-              <div className={`w-10 h-10 md:w-14 md:h-14 bg-gradient-to-r ${colors.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg md:shadow-xl`}>
-                <svg className="w-4 h-4 md:w-6 md:h-6 text-white transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {/* CTA - Small Circle with Arrow */}
+            <div className="flex items-center justify-end pt-3 md:pt-4">
+              <div className={`w-8 h-8 bg-gradient-to-r ${colors.ctaGradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
+                <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
