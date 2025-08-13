@@ -4,7 +4,6 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { FeaturedProject } from "@/data/featured-projects";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 
 interface FeaturedClientCardProps {
   project: FeaturedProject & { background?: string }; // background optional
@@ -21,6 +20,13 @@ export default function FeaturedClientCard({
 }: FeaturedClientCardProps) {
   const { t } = useTranslation();
   const isReversed = index % 2 === 1;
+
+  // Get CTA gradient based on index
+  const getCtaGradient = (index: number) => {
+    if (index % 3 === 0) return "from-mandarina via-mandarina to-naranja-tostado";
+    if (index % 3 === 1) return "from-violeta via-violeta to-azul-profundo";
+    return "from-teal via-teal to-azul-profundo";
+  };
 
   return (
     <div
@@ -74,18 +80,16 @@ export default function FeaturedClientCard({
             </div>
           </div>
 
+          {/* CTA - Small Circle with Arrow */}
           <Link
             href={`/servicios/${project.slug}`}
-            className="mt-6 flex items-center justify-end gap-4"
+            className="group"
           >
-            <div className="flex items-center gap-2">
-              <span className="text-xs md:text-sm font-bold text-azul-profundo">
-                {t("caseStudies.readMore")}
-              </span>
+            <div className={`w-8 h-8 bg-gradient-to-r from-teal via-teal to-azul-profundo rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
+              <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+              </svg>
             </div>
-            <ChevronRight
-              className={`w-6 h-6 md:w-8 md:h-8 text-teal transition-all duration-300 group-hover:scale-110 group-hover:translate-x-1`}
-            />
           </Link>
         </div>
 
