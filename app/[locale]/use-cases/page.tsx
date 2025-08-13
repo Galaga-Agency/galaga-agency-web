@@ -4,16 +4,13 @@ import { useGSAP } from "@gsap/react";
 import { useAppReady } from "@/hooks/useAppReady";
 import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
-import CaseStudiesHeroSection from "@/components/sections/case-studies/CaseStudiesHeroSection";
-import CaseStudiesGridSection from "@/components/sections/case-studies/CaseStudiesGridSection";
+import CaseStudiesHeroSection from "@/components/sections/case-studies-page/CaseStudiesHeroSection";
+import CaseStudiesGridSection from "@/components/sections/case-studies-page/CaseStudiesGridSection";
 import CTASection from "@/components/sections/homepage/CTASection";
 import { initCaseStudiesHeroAnimations } from "@/utils/animations/case-studies-hero-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
-import CaseStudiesCategoriesSection from "@/components/sections/case-studies/CaseStudiesCategoriesSection";
-import { initCaseStudiesCategoriesAnimations } from "@/utils/animations/case-studies-categories-animation";
-import CaseStudiesSection from "@/components/sections/homepage/CaseStudiesSection";
-import { initCaseStudiesAnimations } from "@/utils/animations/case-studies-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
+import { initCaseStudiesGridAnimations } from "@/utils/animations/case-studies-grid-animations";
 
 export default function CaseStudiesPage() {
   const isAppReady = useAppReady();
@@ -24,8 +21,7 @@ export default function CaseStudiesPage() {
 
     const timer = setTimeout(() => {
       initCaseStudiesHeroAnimations();
-      initCaseStudiesAnimations();
-      initCaseStudiesCategoriesAnimations();
+      initCaseStudiesGridAnimations();
       initCTAAnimations();
     }, 100);
 
@@ -48,8 +44,7 @@ export default function CaseStudiesPage() {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <CaseStudiesHeroSection />
-      <CaseStudiesSection />
-      <CaseStudiesCategoriesSection />
+      <CaseStudiesGridSection />
       <CTASection />
     </>
   );

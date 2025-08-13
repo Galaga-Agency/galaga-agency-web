@@ -7,6 +7,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.dosxdos.challenge",
     solutionKey: "caseStudies.dosxdos.solution",
     resultKey: "caseStudies.dosxdos.result",
+    introKey: "caseStudies.dosxdos.intro",
     metrics: [
       {
         value: "100%",
@@ -17,7 +18,7 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.seoImprovement",
       },
     ],
-    image: "/assets/img/casos-de-exito/dosxdos/dosxdos-cover.png",
+    image: "/assets/img/casos-de-exito/dosxdos/dosxdos-portada.png",
     theme: "digital" as const,
     slug: "dos-x-dos-grupo-imagen",
   },
@@ -27,6 +28,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.energiaSolar.challenge",
     solutionKey: "caseStudies.energiaSolar.solution",
     resultKey: "caseStudies.energiaSolar.result",
+    introKey: "caseStudies.energiaSolar.intro",
     metrics: [
       {
         value: "100%",
@@ -37,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.realTimeMonitoring",
       },
     ],
-    image: "/assets/img/casos-de-exito/esc/energia-solar-canarias-cover.png",
+    image: "/assets/img/casos-de-exito/esc/energia-solar-canarias-portada.png",
     theme: "digital" as const,
     slug: "energia-solar-canarias",
   },
@@ -47,6 +49,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.toyota.challenge",
     solutionKey: "caseStudies.toyota.solution",
     resultKey: "caseStudies.toyota.result",
+    introKey: "caseStudies.toyota.intro",
     metrics: [
       {
         value: "375K+",
@@ -57,7 +60,7 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.qualifiedLeads",
       },
     ],
-    image: "/assets/img/casos-de-exito/toyota/toyota-cover.png",
+    image: "/assets/img/casos-de-exito/toyota/toyota-cover-cut.png",
     theme: "marketing" as const,
     slug: "toyota-canarias",
   },
@@ -67,6 +70,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.canariasGameShow.challenge",
     solutionKey: "caseStudies.canariasGameShow.solution",
     resultKey: "caseStudies.canariasGameShow.result",
+    introKey: "caseStudies.canariasGameShow.intro",
     metrics: [
       {
         value: "30K+",
@@ -87,6 +91,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.tlpTenerife.challenge",
     solutionKey: "caseStudies.tlpTenerife.solution",
     resultKey: "caseStudies.tlpTenerife.result",
+    introKey: "caseStudies.tlpTenerife.intro",
     metrics: [
       {
         value: "62K+",
@@ -107,6 +112,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.foroCanaryIslands.challenge",
     solutionKey: "caseStudies.foroCanaryIslands.solution",
     resultKey: "caseStudies.foroCanaryIslands.result",
+    introKey: "caseStudies.foroCanaryIslands.intro",
     metrics: [
       {
         value: "100+",
@@ -117,37 +123,17 @@ export const caseStudies: CaseStudy[] = [
         labelKey: "caseStudies.metrics.recurringEvent",
       },
     ],
-    image:
-      "/assets/img/casos-de-exito/canary-islands-games/canary-islands-games.jpg",
+    image: "/assets/img/casos-de-exito/canary-islands-games/canary-islands-games.jpg",
     theme: "events" as const,
     slug: "foro-canary-islands-games",
   },
-  // {
-  //   titleKey: "caseStudies.holidayWorld.title",
-  //   categoryKey: "caseStudies.categories.marketing",
-  //   challengeKey: "caseStudies.holidayWorld.challenge",
-  //   solutionKey: "caseStudies.holidayWorld.solution",
-  //   resultKey: "caseStudies.holidayWorld.result",
-  //   metrics: [
-  //     {
-  //       value: "10K+",
-  //       labelKey: "caseStudies.metrics.attendees",
-  //     },
-  //     {
-  //       value: "3",
-  //       labelKey: "caseStudies.metrics.eventDays",
-  //     },
-  //   ],
-  //   image: "/assets/img/homepage/gaming.png",
-  //   theme: "marketing" as const,
-  //   slug: "holiday-world",
-  // },
   {
     titleKey: "caseStudies.baseEleague.title",
     categoryKey: "caseStudies.categories.marketing",
     challengeKey: "caseStudies.baseEleague.challenge",
     solutionKey: "caseStudies.baseEleague.solution",
     resultKey: "caseStudies.baseEleague.result",
+    introKey: "caseStudies.baseEleague.intro",
     metrics: [
       {
         value: "5M+",
@@ -168,6 +154,7 @@ export const caseStudies: CaseStudy[] = [
     challengeKey: "caseStudies.alisiosLive.challenge",
     solutionKey: "caseStudies.alisiosLive.solution",
     resultKey: "caseStudies.alisiosLive.result",
+    introKey: "caseStudies.alisiosLive.intro",
     metrics: [
       {
         value: "5K+",

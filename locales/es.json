@@ -8,27 +8,6 @@
     "cases": "Casos de éxito",
     "language": "Idioma"
   },
-  "hero": {
-    "transformamos": "Transformamos",
-    "negocios": "negocios",
-    "sinComplicaciones": "sin complicaciones",
-    "subtitle": "Llevamos negocios hacia su transformación digital con soluciones a medida, llave en mano.",
-    "weHelp": "Ayudamos a empresas que quieren crecer sin perder el control:",
-    "organize": "Organizar",
-    "automate": "Automatizar",
-    "connect": "Conectar",
-    "startTransformation": "Inicia tu transformación",
-    "learnMore": "Conoce más",
-    "trustedBy": "Confían en nosotros",
-    "organizeDesc": "Sistemas que organizan tu caos",
-    "automateDesc": "IA que trabaja mientras duermes",
-    "connectDesc": "Clientes que no te olvidan",
-    "companies": "empresas",
-    "companiesTransformed": "Empresas transformadas",
-    "yearsExperience": "Años de experiencia",
-    "guaranteedResponse": "Respuesta garantizada",
-    "humanApproach": "Enfoque humano"
-  },
   "homepage": {
     "hero": {
       "innovamos": "Innovamos",
@@ -42,7 +21,12 @@
       "eyebrow": "Qué hacemos",
       "mainTitle": "Tu Partner en Digitalización, Experiencias Interactivas y Crecimiento Empresarial",
       "subtitle": "En Galaga ayudamos a que las empresas crezcan sin perder el control y el foco en lo que realmente importa. Ofrecemos un enfoque práctico que une estrategia, herramientas digitales y creatividad.",
-
+      "organize": "Organizar",
+      "automate": "Automatizar",
+      "connect": "Conectar",
+      "organizeDesc": "Sistemas que organizan tu caos",
+      "automateDesc": "IA que trabaja mientras duermes",
+      "connectDesc": "Clientes que no te olvidan",
       "services": {
         "title": "Proyectos tecnológicos empresariales",
         "description": "Galaga Agency gestiona tu proyecto tecnológico empresarial desde el diseño de la estrategia hasta el desarrollo de soluciones y seguimiento de la implantación.",
@@ -55,7 +39,6 @@
           "support": "Seguimiento y soporte"
         }
       },
-
       "digitalization": {
         "title": "Digitalización",
         "shortDescription": "Acompañamos a las empresas en su transformación digital con un enfoque práctico y personalizado. Implementamos herramientas como CRM, ERP y automatizaciones, ofreciendo formación y soporte completo.",
@@ -67,21 +50,17 @@
           "grants": "Gestión de subvenciones"
         }
       },
-
       "clients": {
         "title": "Nuestros Clientes",
         "shortDescription": "Trabajamos con empresas que necesitan digitalizar sus negocios pero no cuentan con el conocimiento, las herramientas o el tiempo para hacerlo. Les damos claridad y les ayudamos a organizarse.",
-
         "retail": {
           "title": "PYMEs retail",
           "need": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos."
         },
-
         "growing": {
           "title": "Empresas en crecimiento",
           "need": "Necesitan ordenar procesos y liberar tiempo de gestión."
         },
-
         "innovative": {
           "title": "Marcas innovadoras",
           "need": "Buscan una mejor gestión operativa, modernizar sus tiendas y atraer a nuevos públicos."
@@ -118,35 +97,40 @@
       "description": "Analizamos tu negocio y diseñamos un plan de transformación personalizado.",
       "feature1": "Análisis de procesos",
       "feature2": "Plan de digitalización",
-      "feature3": "Acompañamiento continuo"
+      "feature3": "Acompañamiento continuo",
+      "slug": "consultoria-estrategica"
     },
     "automation": {
       "title": "Automatización",
       "description": "Implementamos sistemas que organizan y automatizan tus procesos.",
       "feature1": "CRM y ERP",
       "feature2": "Automatización de tareas",
-      "feature3": "Integración de sistemas"
+      "feature3": "Integración de sistemas",
+      "slug": "automatizacion"
     },
     "innovation": {
       "title": "Innovación tecnológica",
       "description": "Aplicamos las últimas tecnologías para mejorar tu negocio.",
       "feature1": "Inteligencia artificial",
       "feature2": "IoT y sensores",
-      "feature3": "Soluciones personalizadas"
+      "feature3": "Soluciones personalizadas",
+      "slug": "innovacion-tecnologica"
     },
     "immersive": {
       "title": "Marketing inmersivo",
       "description": "Creamos experiencias digitales que conectan con tus clientes.",
       "feature1": "Realidad aumentada",
       "feature2": "Experiencias interactivas",
-      "feature3": "Gamificación"
+      "feature3": "Gamificación",
+      "slug": "marketing-inmersivo"
     },
     "training": {
       "title": "Formación y soporte",
       "description": "Capacitamos a tu equipo para trabajar con autonomía.",
       "feature1": "Formación personalizada",
       "feature2": "Manuales visuales",
-      "feature3": "Seguimiento continuo"
+      "feature3": "Seguimiento continuo",
+      "slug": "formacion"
     },
     "grants": {
       "title": "Gestión de subvenciones",
@@ -154,7 +138,8 @@
       "feature1": "Kit Digital",
       "feature2": "Subvenciones públicas",
       "feature3": "Tramitación completa",
-      "feature4": "Gestión completa"
+      "feature4": "Gestión completa",
+      "slug": "subvenciones"
     },
     "cta": {
       "title": "¿Listo para transformar tu negocio?",
@@ -164,22 +149,70 @@
     }
   },
   "caseStudies": {
-    "title": "De necesidades específicas a soluciones personalizadas: así creamos cada proyecto",
-    "subtitle": "Descubre cómo hemos transformado negocios reales con soluciones tecnológicas innovadoras y estrategias personalizadas.",
-    "challenge": "Desafío",
-    "solution": "Solución",
-    "result": "Resultado",
+    "eyebrow": "Nuestros Proyectos",
+    "title": "Casos de Éxito",
+    "subtitle": "Cada proyecto es único y diseñado para resolver desafíos específicos. Aquí tienes algunos ejemplos de nuestro trabajo.",
     "readMore": "Leer más",
     "categories": {
       "digital": "Digitalización",
       "marketing": "Marketing Inmersivo",
       "events": "Eventos"
     },
-    "stats": {
-      "projectsCompleted": "Proyectos Completados",
-      "totalImpressions": "Impresiones Totales",
-      "clientSatisfaction": "Satisfacción Cliente",
-      "responseTime": "Tiempo Respuesta"
+    "dosxdos": {
+      "title": "Dos x Dos Grupo Imagen",
+      "intro": "Transformamos un ecosistema empresarial disperso en una plataforma digital integrada, conectando CRM, ERP y web mediante automatizaciones inteligentes para impulsar la eficiencia operativa y visibilidad comercial.",
+      "challenge": "Procesos manuales dispersos, ERP sin integrar, ausencia de CRM y web estática que limitaba la eficiencia operativa y visibilidad comercial.",
+      "solution": "Implementamos Zoho CRM, migramos a A3 ERP, creamos integración con Notion y desarrollamos nueva web optimizada con Next.js.",
+      "result": "Atención al cliente ágil, procesos internos fluidos, autonomía en contenidos y salto inmediato en visibilidad orgánica."
+    },
+    "energiaSolar": {
+      "title": "Energía Solar Canarias",
+      "intro": "Unificamos múltiples herramientas energéticas dispersas en una plataforma web progresiva con CRM integrado, permitiendo monitorización en tiempo real y automatización de procesos para optimizar ahorros y reducir la huella de carbono.",
+      "challenge": "Múltiples herramientas no conectadas, falta de plataforma unificada y ausencia de CRM para organizar usuarios y alertas.",
+      "solution": "Desarrollamos aplicación web progresiva unificada y CRM conectado al ERP con dashboards y sincronización automática.",
+      "result": "Monitoreo en tiempo real, alertas personalizadas, reducción de trabajo manual y mejora en eficiencia energética."
+    },
+    "toyota": {
+      "title": "Toyota Canarias",
+      "intro": "Renovamos la imagen de Toyota conectando con Gen Z y Millennials a través de un circuito de activaciones con simuladores y realidad virtual, generando más de 375K impresiones y 4K leads cualificados.",
+      "challenge": "Necesidad de renovar imagen y conectar con nuevos públicos (Gen Z y Millennials) alejados del marketing automovilístico tradicional.",
+      "solution": "Diseñamos circuito de activaciones con simuladores y realidad virtual en rallies y ferias, combinando acciones presenciales con comunidad online.",
+      "result": "Circuito que superó las 375.000 impresiones, captó más de 4.000 leads cualificados y sentó bases para edición ampliada."
+    },
+    "canariasGameShow": {
+      "title": "Canarias Game Show",
+      "intro": "Posicionamos Canarias como sede internacional de videojuegos organizando una feria en doble sede con torneos, influencers y experiencias interactivas que reunió a 30.000 personas y tuvo amplia difusión mediática.",
+      "challenge": "Posicionar Canarias como sede de evento internacional de videojuegos en mercado dominado por grandes ferias europeas.",
+      "solution": "Organizamos feria en doble sede (Tenerife y Gran Canaria) con torneos, exposiciones, influencers y experiencias interactivas.",
+      "result": "Evento que reunió a 30.000 personas, amplia difusión en redes y medios, posicionando a Canarias como nuevo polo de atracción gamer."
+    },
+    "tlpTenerife": {
+      "title": "TLP Tenerife",
+      "intro": "Relanzamos el mayor evento tech de Canarias tras dos años de pausa, diseñando una edición renovada con cuatro zonas especializadas que superó los 62.000 asistentes y recuperó su prestigio como referente tecnológico.",
+      "challenge": "Tras dos años de pausa, relanzar el mayor evento tech de Canarias suponía un reto organizativo y de confianza por parte del público y patrocinadores.",
+      "solution": "Colaboramos en el diseño y producción de una edición renovada, con cuatro zonas especializadas (LAN, Summer-Con, Innova y eSports).",
+      "result": "TLP superó los 62.000 asistentes, profesionalizó su propuesta y volvió a posicionarse como espacio clave de tecnología y gaming."
+    },
+    "foroCanaryIslands": {
+      "title": "Foro Canary Islands Games",
+      "intro": "Creamos el primer foro institucional del sector gaming en Canarias, reuniendo expertos, instituciones y talento local para establecer un espacio profesional de networking y reflexión sobre la industria de videojuegos.",
+      "challenge": "El sector de los videojuegos en Canarias carecía de espacios profesionales para networking y reflexión.",
+      "solution": "Creamos el primer foro institucional del sector, con participación activa de empresas, administración y talento local.",
+      "result": "Evento que reunió a expertos, instituciones y agentes clave, con alta visibilidad y bases para continuidad anual."
+    },
+    "baseEleague": {
+      "title": "Base eLeague",
+      "intro": "Integramos el gaming en la marca Base Deportes a través de una estrategia integral con liga online de FIFA, activaciones en tienda y eventos presenciales, generando más de 5 millones de impresiones y consolidando una imagen innovadora.",
+      "challenge": "Base Deportes buscaba conectar con el público joven, digitalizar su imagen y aumentar visibilidad en entornos online relevantes.",
+      "solution": "Desarrollamos estrategia integral: liga online de FIFA, activaciones en tienda, presencia en eventos y final presencial.",
+      "result": "Más de 5 millones de impresiones, cientos de participantes, alta conversión de leads y consolidación como marca innovadora."
+    },
+    "alisiosLive": {
+      "title": "Alisios Live Gaming",
+      "intro": "Transformamos el centro comercial Alisios en un espacio de experiencia interactiva durante la campaña navideña, conectando con público joven y familiar a través de torneos, VR e influencers durante tres días de evento gratuito.",
+      "challenge": "Transformar el centro comercial en espacio de experiencia interactiva, conectando con público joven y familiar durante campaña navideña.",
+      "solution": "Ideamos y produjimos evento gratuito con torneos, simuladores, VR, influencers y dinamización continua durante tres días.",
+      "result": "Alto volumen de participación, notable impacto mediático y consolidación como evento anual de referencia en entretenimiento digital."
     },
     "metrics": {
       "processReduction": "Reducción Procesos",
@@ -192,60 +225,6 @@
       "cities": "Ciudades",
       "eventDays": "Días de Evento",
       "recurringEvent": "Evento Recurrente"
-    },
-    "dosxdos": {
-      "title": "Dos x Dos Grupo Imagen",
-      "challenge": "Procesos manuales dispersos, ERP sin integrar, ausencia de CRM y web estática que limitaba la eficiencia operativa y visibilidad comercial.",
-      "solution": "Implementamos Zoho CRM, migramos a A3 ERP, creamos integración con Notion y desarrollamos nueva web optimizada con Next.js.",
-      "result": "Atención al cliente ágil, procesos internos fluidos, autonomía en contenidos y salto inmediato en visibilidad orgánica."
-    },
-    "energiaSolar": {
-      "title": "Energía Solar Canarias",
-      "challenge": "Múltiples herramientas no conectadas, falta de plataforma unificada y ausencia de CRM para organizar usuarios y alertas.",
-      "solution": "Desarrollamos aplicación web progresiva unificada y CRM conectado al ERP con dashboards y sincronización automática.",
-      "result": "Monitoreo en tiempo real, alertas personalizadas, reducción de trabajo manual y mejora en eficiencia energética."
-    },
-    "toyota": {
-      "title": "Toyota Canarias",
-      "challenge": "Necesidad de renovar imagen y conectar con nuevos públicos (Gen Z y Millennials) alejados del marketing automovilístico tradicional.",
-      "solution": "Diseñamos circuito de activaciones con simuladores y realidad virtual en rallies y ferias, combinando acciones presenciales con comunidad online.",
-      "result": "Circuito que superó las 375.000 impresiones, captó más de 4.000 leads cualificados y sentó bases para edición ampliada."
-    },
-    "canariasGameShow": {
-      "title": "Canarias Game Show",
-      "challenge": "Posicionar Canarias como sede de evento internacional de videojuegos en mercado dominado por grandes ferias europeas.",
-      "solution": "Organizamos feria en doble sede (Tenerife y Gran Canaria) con torneos, exposiciones, influencers y experiencias interactivas.",
-      "result": "Evento que reunió a 30.000 personas, amplia difusión en redes y medios, posicionando a Canarias como nuevo polo de atracción gamer."
-    },
-    "tlpTenerife": {
-      "title": "TLP Tenerife",
-      "challenge": "Tras dos años de pausa, relanzar el mayor evento tech de Canarias suponía un reto organizativo y de confianza por parte del público y patrocinadores. Era necesario recuperar el prestigio de TLP y evolucionar su formato.",
-      "solution": "Galaga colaboró en el diseño y producción de una edición renovada, con cuatro zonas especializadas (LAN, Summer-Con, Innova y eSports). En 2024, TLP superó los 62.000 asistentes, profesionalizó su propuesta y volvió a posicionarse como espacio clave de tecnología, gaming y formación en las islas.",
-      "result": "Relanzamiento exitoso del evento con asistencia récord, reputación profesional mejorada y establecimiento como el principal evento de tecnología y gaming en Canarias."
-    },
-    "foroCanaryIslands": {
-      "title": "Foro Canary Islands Games",
-      "challenge": "El sector de los videojuegos en Canarias carecía de espacios profesionales para networking y reflexión. Galaga se propuso crear el primer foro institucional del sector, con participación activa de empresas, administración y talento local.",
-      "solution": "El evento reunió a expertos, instituciones y agentes clave, con ponencias y mesas de debate sobre industria, empleo y transversalidad. Fue inaugurado por el Presidente del Gobierno de Canarias, tuvo alta visibilidad y sentó las bases para su continuidad como evento anual de referencia.",
-      "result": "Creación exitosa del primer foro institucional gaming, respaldo gubernamental y establecimiento de evento anual de networking industrial."
-    },
-    "holidayWorld": {
-      "title": "Holiday World Gaming",
-      "challenge": "En una zona eminentemente turística como Maspalomas, el reto era introducir una experiencia digital atractiva que captara tanto a público local como a visitantes. Además, debía demostrarse la viabilidad de un espacio de gaming como propuesta estable.",
-      "solution": "Galaga lideró la creación de un pop-up gaming con simuladores, consolas, VR y torneos en el centro Holiday World. La activación obtuvo una alta rotación de usuarios, excelente acogida del público familiar y una validación clara del modelo para su expansión a otros espacios o temporadas.",
-      "result": "Activación gaming exitosa con alta participación de usuarios, aprobación de audiencias familiares y modelo validado para expansión futura."
-    },
-    "baseEleague": {
-      "title": "Base eLeague",
-      "challenge": "Base Deportes Canarias buscaba conectar con el público joven, digitalizar su imagen y aumentar la visibilidad de marca en entornos online relevantes. El reto era integrar el gaming en una marca asociada al deporte físico tradicional.",
-      "solution": "Galaga desarrolló una estrategia integral: liga online de FIFA, activaciones en tienda, presencia en eventos y final presencial en un centro comercial. El proyecto generó más de 5 millones de impresiones, cientos de participantes, alta conversión de leads y consolidó a Base como una marca actual e innovadora.",
-      "result": "Más de 5 millones de impresiones, transformación digital exitosa y posicionamiento de Base como marca deportiva innovadora conectando con demografías más jóvenes."
-    },
-    "alisiosLive": {
-      "title": "Alisios Live Gaming",
-      "challenge": "Uno de los mayores retos era transformar el centro comercial Alisios en un espacio de experiencia interactiva, conectando con público joven y familiar durante la campaña navideña. Además, era necesario dar visibilidad a la cultura gamer en un entorno no especializado y generar tráfico real hacia tiendas y restauración.",
-      "solution": "Galaga ideó y produjo un evento gratuito con torneos, simuladores, VR, influencers y dinamización continua durante tres días. El resultado fue un alto volumen de participación, notable impacto mediático y la consolidación del evento como cita anual, posicionando a Alisios como referente en entretenimiento digital.",
-      "result": "Alto volumen de participación, impacto mediático significativo y establecimiento como evento anual, posicionando a Alisios como referencia de entretenimiento digital."
     },
     "cta": {
       "title": "¿Listo para tu próximo éxito?",
@@ -439,7 +418,7 @@
       },
       "featured": {
         "title": "Colaboraciones que muestran nuestro impacto",
-        "subtitle": "Resultados reales con empresas que confiaron en nuestra visión"
+        "subtitle": "Nuestros últimos trabajos y resultados reales con empresas que confiaron en nuestra visión"
       },
       "impact": {
         "base-impressions": "Impresiones Base eLEAGUE",
@@ -529,8 +508,8 @@
       }
     },
     "cta": {
-      "line1": "¿Listo Para Ver",
-      "line2": "Resultados Reales?",
+      "line1": "Las mejores ideas nacen",
+      "line2": "de los desafíos reales.",
       "subtitle": "Explora nuestro portafolio para ver cómo hemos transformado negocios con estas tecnologías. Cada proyecto cuenta una historia de innovación y crecimiento.",
       "seePortfolio": "Explora Nuestro Trabajo",
       "getStarted": "Inicia Tu Proyecto",
@@ -580,9 +559,12 @@
       "subtitle": "Cada proyecto es una historia de transformación. Descubre cómo hemos ayudado a nuestros clientes a alcanzar sus objetivos."
     },
     "grid": {
-      "eyebrow": "Nuestros proyectos",
-      "title": "Proyectos destacados",
+      "eyebrow": "Nuestros Proyectos",
+      "title": "Casos de Éxito",
       "subtitle": "Cada proyecto es único y diseñado para resolver desafíos específicos. Aquí tienes algunos ejemplos de nuestro trabajo.",
+      "challenge": "Desafío",
+      "result": "Resultado",
+      "results": "Resultados",
       "readMore": "Leer caso completo"
     },
     "categories": {
@@ -678,18 +660,20 @@
       "eventDays": "Días de Evento",
       "recurringEvent": "Evento Recurrente",
       "impressions": "Impresiones",
-      "qualifiedLeads": "Leads Cualificados",
+      "qualifiedLeads": "Leads Calificados",
       "attendees": "Asistentes",
       "cities": "Ciudades"
     },
     "dosxdos": {
       "title": "Dos x Dos Grupo Imagen",
+      "intro": "Transformamos un ecosistema empresarial disperso en una plataforma digital integrada, conectando CRM, ERP y web mediante automatizaciones inteligentes para impulsar la eficiencia operativa y visibilidad comercial.",
       "challenge": "Dos x Dos partía de un panorama disperso — procesos manuales, un ERP (Navision) sin integrar, ausencia de CRM y una web estática que no reflejaba la sofisticación de la marca ni ayudaba a posicionarla en buscadores. Esta falta de digitalización limitaba la eficiencia operativa, la visibilidad comercial y la capacidad de tomar decisiones basadas en datos, frenando su competitividad en un mercado cada vez más exigente.",
       "solution": "Para revertirlo implantamos Zoho CRM, migramos a A3 ERP y los conectamos a un espacio Notion que orquesta proyectos y automatizaciones; todo ello se integra mediante una API unificada. En paralelo, desarrollamos una nueva web con Next.js y panel de contenidos propio, optimizada para SEO y Core Web Vitals.",
       "result": "El resultado: atención al cliente ágil, procesos internos más fluidos, autonomía para publicar contenidos, salto inmediato en visibilidad orgánica y un ecosistema de datos preparado para el siguiente reto: crear un data warehouse que convierta esa información en inteligencia de negocio dinámica."
     },
     "energiaSolar": {
       "title": "Energía Solar Canarias",
+      "intro": "Unificamos múltiples herramientas energéticas dispersas en una plataforma web progresiva con CRM integrado, permitiendo monitorización en tiempo real y automatización de procesos para optimizar ahorros y reducir la huella de carbono.",
       "challenge": "Energía Solar Canarias partía de múltiples herramientas no conectadas: los clientes debían consultar los distintos proveedores de energía por separado en plataformas independientes. No existía una plataforma propia que consolidara los datos ni un CRM que organizara usuarios, plantas o alertas. Esta fragmentación impedía controlar precios y calcular ahorros con precisión, complicaba el acceso móvil y sobrecargaba al equipo con tareas manuales, erosionando la experiencia digital de la marca.",
       "solution": "Para revertirlo, se desarrolló una aplicación web progresiva que unifica todos los proveedores en una sola interfaz responsiva y se creó un CRM conectado al ERP, con dashboards, workflows y sincronización automática de datos.",
       "result": "Ahora los clientes monitorizan producción, consumo y ahorro en tiempo real, reciben alertas personalizadas, y la compañía reduce trabajo manual, toma decisiones basadas en datos y mejora la eficiencia energética, generando ahorros económicos y menor huella de carbono."
@@ -702,12 +686,14 @@
     },
     "toyota": {
       "title": "Toyota Canarias",
+      "intro": "Renovamos la imagen de Toyota conectando con Gen Z y Millennials a través de un circuito de activaciones con simuladores y realidad virtual, generando más de 375K impresiones y 4K leads cualificados.",
       "challenge": "Toyota necesitaba renovar su imagen y conectar con nuevos públicos (Gen Z y Millennials), alejados del tradicional marketing automovilístico. El desafío era crear experiencias memorables en entornos no convencionales y construir comunidad en torno a la marca.",
       "solution": "Galaga diseñó un circuito de activaciones con simuladores y realidad virtual en rallies y ferias. La estrategia combinó acciones presenciales con una comunidad online activa.",
       "result": "El circuito superó las 375.000 impresiones, captó más de 4.000 leads cualificados y sentó las bases para una edición ampliada en 2024."
     },
     "canariasGameShow": {
       "title": "Canarias Game Show",
+      "intro": "Posicionamos Canarias como sede internacional de videojuegos organizando una feria en doble sede con torneos, influencers y experiencias interactivas que reunió a 30.000 personas y tuvo amplia difusión mediática.",
       "challenge": "El principal reto era posicionar Canarias como sede de un evento internacional de videojuegos, en un mercado dominado por grandes ferias europeas. Además, era necesario atraer tanto a gamers como a marcas y medios, en un contexto de gran complejidad logística.",
       "solution": "Galaga organizó una feria en doble sede (Tenerife y Gran Canaria) con torneos, exposiciones, influencers y experiencias interactivas.",
       "result": "El evento reunió a 30.000 personas, tuvo amplia difusión en redes y medios, y posicionó a Canarias como nuevo polo de atracción para la industria gamer."

@@ -1,37 +1,33 @@
-import { Service } from '@/types/service';
-import { 
-  FaBullseye, 
-  FaCogs, 
-  FaRocket, 
-  FaGamepad, 
-  FaGraduationCap, 
-  FaDollarSign 
-} from 'react-icons/fa';
+import { Service } from "@/types/service";
+import {
+  FaBullseye,
+  FaCogs,
+  FaRocket,
+  FaGamepad,
+  FaGraduationCap,
+  FaDollarSign,
+} from "react-icons/fa";
 
 export const services: Service[] = [
   {
     icon: FaBullseye,
     title: "services.strategy.title",
     description: "services.strategy.description",
-    features: [
-      "services.strategy.feature1",
-      "services.strategy.feature2",
-    ],
+    features: ["services.strategy.feature1", "services.strategy.feature2"],
     theme: "primary",
     size: "small", // 1/3 width
-    href: "/services/strategy"
+    href: "/services/strategy",
+    slug: "services.strategy.slug",
   },
   {
     icon: FaCogs,
     title: "services.automation.title",
     description: "services.automation.description",
-    features: [
-      "services.automation.feature1",
-      "services.automation.feature2",
-    ],
+    features: ["services.automation.feature1", "services.automation.feature2"],
     theme: "creative",
     size: "large", // 2/3 width
-    href: "/services/automation"
+    href: "/services/automation",
+    slug: "services.automation.slug",
   },
   {
     icon: FaRocket,
@@ -44,7 +40,8 @@ export const services: Service[] = [
     ],
     theme: "accent",
     size: "large", // 2/3 width
-    href: "/services/innovation"
+    href: "/services/innovation",
+    slug: "services.innovation.slug",
   },
   {
     icon: FaGamepad,
@@ -57,7 +54,8 @@ export const services: Service[] = [
     ],
     theme: "warm",
     size: "small", // 1/3 width
-    href: "/services/immersive"
+    href: "/services/immersive",
+    slug: "services.immersive.slug",
   },
   {
     icon: FaGraduationCap,
@@ -71,7 +69,8 @@ export const services: Service[] = [
     ],
     theme: "secondary",
     size: "small", // 1/3 width
-    href: "/services/training"
+    href: "/services/training",
+    slug: "services.training.slug",
   },
   {
     icon: FaDollarSign,
@@ -85,6 +84,7 @@ export const services: Service[] = [
     ],
     theme: "electric",
     size: "large", // 2/3 width
-    href: "/services/grants"
+    href: "/services/grants",
+    slug: "services.grants.slug",
   },
 ];

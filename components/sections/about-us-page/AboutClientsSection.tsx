@@ -5,9 +5,38 @@ import { featuredProjects } from "@/data/featured-projects";
 import { clientCategories } from "@/data/client-categories";
 import ClientCategoryCard from "@/components/ClientCategoryCard";
 import FeaturedClientCard from "@/components/FeaturedClientCard";
+import { useState } from "react";
 
 export default function AboutClientsSection() {
   const { t } = useTranslation();
+  const [hoveredCategoryCard, setHoveredCategoryCard] = useState<number | null>(null);
+  const [hoveredFeaturedCard, setHoveredFeaturedCard] = useState<number | null>(null);
+
+  // Category cards neighbor relationships (3-column grid)
+  const getCategoryNeighbors = (index: number): number[] => {
+    const neighbors: { [key: number]: number[] } = {
+      0: [1, 3], // Top-left
+      1: [0, 2, 3, 4], // Top-center
+      2: [1, 4, 5], // Top-right
+      3: [0, 1, 4], // Bottom-left
+      4: [1, 2, 3, 5], // Bottom-center
+      5: [2, 4], // Bottom-right
+    };
+    return neighbors[index] || [];
+  };
+
+  const handleCategoryCardHover = (cardIndex: number, isHovered: boolean) => {
+    setHoveredCategoryCard(isHovered ? cardIndex : null);
+  };
+
+  const handleFeaturedCardHover = (cardIndex: number, isHovered: boolean) => {
+    setHoveredFeaturedCard(isHovered ? cardIndex : null);
+  };
+
+  const isCategoryNeighbor = (cardIndex: number): boolean => {
+    if (hoveredCategoryCard === null) return false;
+    return getCategoryNeighbors(hoveredCategoryCard).includes(cardIndex);
+  };
 
   return (
     <section className="about-clients-section section relative overflow-hidden">
@@ -35,24 +64,36 @@ export default function AboutClientsSection() {
               {t("about-page.clients.eyebrow")}
             </span>
           </div>
-          
+                   
           <h2 className="about-clients-title text-4xl md:text-5xl lg:text-6xl font-black text-teal leading-tight tracking-tight pb-6">
             {t("about-page.clients.title")}
           </h2>
-          
+                   
           <p className="about-clients-subtitle text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
             {t("about-page.clients.subtitle")}
           </p>
         </div>
 
-        {/* Client Categories Grid - Updated to match services grid */}
-        <div className="about-clients-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 pb-20 md:pb-24">
+        {/* Interactive Client Categories Grid */}
+        <div className="about-clients-grid grid grid-cols-1 lg:grid-cols-3 gap-8 pb-20 md:pb-24">
           {clientCategories.map((category, index) => (
-            <ClientCategoryCard
+            <div
               key={index}
-              category={category}
-              index={index}
-            />
+              className={`
+                client-category-wrapper
+                transition-all duration-500 ease-out
+                ${hoveredCategoryCard === index ? 'scale-[1.01] -translate-y-1 z-20' : 
+                  isCategoryNeighbor(index) ? 'scale-[0.99] opacity-90' : 'scale-100'}
+              `}
+              onMouseEnter={() => handleCategoryCardHover(index, true)}
+              onMouseLeave={() => handleCategoryCardHover(index, false)}
+            >
+              <ClientCategoryCard
+                category={category}
+                isHovered={hoveredCategoryCard === index}
+                isNeighborHovered={isCategoryNeighbor(index)}
+              />
+            </div>
           ))}
         </div>
 
@@ -67,13 +108,27 @@ export default function AboutClientsSection() {
             </p>
           </div>
 
+          {/* Interactive Featured Projects List */}
           <div className="about-clients-featured-list flex flex-col gap-12 md:gap-16">
             {featuredProjects.map((project, index) => (
-              <FeaturedClientCard
+              <div
                 key={project.id}
-                project={project}
-                index={index}
-              />
+                className={`
+                  featured-client-wrapper
+                  transition-all duration-500 ease-out
+                  ${hoveredFeaturedCard === index ? 'scale-[1.005] z-10' : 
+                    hoveredFeaturedCard !== null && hoveredFeaturedCard !== index ? 'opacity-95' : 'scale-100'}
+                `}
+                onMouseEnter={() => handleFeaturedCardHover(index, true)}
+                onMouseLeave={() => handleFeaturedCardHover(index, false)}
+              >
+                <FeaturedClientCard
+                  project={project}
+                  index={index}
+                  isHovered={hoveredFeaturedCard === index}
+                  isNeighborHovered={hoveredFeaturedCard !== null && hoveredFeaturedCard !== index}
+                />
+              </div>
             ))}
           </div>
         </div>

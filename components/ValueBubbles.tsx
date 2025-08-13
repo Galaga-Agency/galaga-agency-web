@@ -19,10 +19,10 @@ export default function ValueBubbles() {
                 <FaShuffle className="text-4xl lg:text-5xl xl:text-6xl mx-auto filter drop-shadow-lg" style={{ color: "#176161" }} />
               </div>
               <h3 className="text-base lg:text-lg xl:text-xl font-bold pb-3 leading-tight tracking-tight" style={{ color: "#121c30" }}>
-                {t("hero.organize")}
+                {t("homepage.about.organize")}
               </h3>
               <p className="text-sm lg:text-base xl:text-lg leading-relaxed font-medium" style={{ color: "#2c2c2c" }}>
-                {t("hero.organizeDesc")}
+                {t("homepage.about.organizeDesc")}
               </p>
             </div>
           </div>
@@ -36,10 +36,10 @@ export default function ValueBubbles() {
                 <FaHandshake className="text-4xl lg:text-5xl xl:text-6xl mx-auto filter drop-shadow-lg" style={{ color: "#c3e5ef" }} />
               </div>
               <h3 className="text-base lg:text-lg xl:text-xl font-bold pb-3 leading-tight tracking-tight" style={{ color: "#ffffff" }}>
-                {t("hero.connect")}
+                {t("homepage.about.connect")}
               </h3>
               <p className="text-sm lg:text-base xl:text-lg leading-relaxed font-medium" style={{ color: "#4cbcc5" }}>
-                {t("hero.connectDesc")}
+                {t("homepage.about.connectDesc")}
               </p>
             </div>
           </div>
@@ -53,10 +53,10 @@ export default function ValueBubbles() {
                 <FaRobot className="text-5xl lg:text-6xl xl:text-7xl mx-auto filter drop-shadow-lg" style={{ color: "#ffffff" }} />
               </div>
               <h3 className="text-lg lg:text-xl xl:text-2xl font-bold pb-3 leading-tight tracking-tight max-w-[85%] text-center px-auto" style={{ color: "#ffffff" }}>
-                {t("hero.automate")}
+                {t("homepage.about.automate")}
               </h3>
               <p className="text-base lg:text-lg xl:text-xl leading-relaxed font-medium" style={{ color: "#c3e5ef" }}>
-                {t("hero.automateDesc")}
+                {t("homepage.about.automateDesc")}
               </p>
             </div>
           </div>
