@@ -19,7 +19,7 @@
     },
     "about": {
       "eyebrow": "Qué hacemos",
-      "mainTitle": "Tu Partner en Digitalización, Experiencias Interactivas y Crecimiento Empresarial",
+      "mainTitle": "Tu partner en digitalización, experiencias interactivas y crecimiento empresarial",
       "subtitle": "En Galaga ayudamos a que las empresas crezcan sin perder el control y el foco en lo que realmente importa. Ofrecemos un enfoque práctico que une estrategia, herramientas digitales y creatividad.",
       "organize": "Organizar",
       "automate": "Automatizar",
@@ -51,7 +51,7 @@
         }
       },
       "clients": {
-        "title": "Nuestros Clientes",
+        "title": "Nuestros clientes",
         "shortDescription": "Trabajamos con empresas que necesitan digitalizar sus negocios pero no cuentan con el conocimiento, las herramientas o el tiempo para hacerlo. Les damos claridad y les ayudamos a organizarse.",
         "retail": {
           "title": "PYMEs retail",
@@ -273,7 +273,7 @@
       "subtitle": "Te acompañamos desde el análisis inicial hasta la implementación completa, asegurando que cada paso genere valor real para tu negocio"
     },
     "info": {
-      "title": "Inicia Tu Proyecto",
+      "title": "Inicia tu proyecto",
       "description": "Ya sea que necesites consultoría estratégica, transformación digital o soluciones innovadoras, estamos aquí para ayudarte a alcanzar tus objetivos.",
       "email": {
         "title": "Escríbenos",
