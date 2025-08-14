@@ -53,17 +53,14 @@
       "clients": {
         "title": "Our clients",
         "shortDescription": "We work with companies that need to digitize their businesses but don't have the knowledge, tools or time to do it. We give them clarity and help them organize.",
-
         "retail": {
           "title": "Retail SMEs",
           "need": "Looking for better operational management, modernize their stores and attract new audiences."
         },
-
         "growing": {
           "title": "Growing companies",
           "need": "Need to organize processes and free up management time."
         },
-
         "innovative": {
           "title": "Innovative brands",
           "need": "Looking for better operational management, modernize their stores and attract new audiences."
@@ -161,65 +158,361 @@
       "marketing": "Immersive Marketing",
       "events": "Events"
     },
-    "dosxdos": {
+    "dos-x-dos-grupo-imagen": {
       "title": "Dos x Dos Grupo Imagen",
       "intro": "We transformed a scattered business ecosystem into an integrated digital platform, connecting CRM, ERP and web through intelligent automations to boost operational efficiency and commercial visibility.",
       "challenge": "Scattered manual processes, unintegrated ERP, no CRM and static website limiting operational efficiency and commercial visibility.",
       "solution": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js.",
-      "result": "Agile customer service, smooth internal processes, content autonomy and immediate jump in organic visibility."
+      "result": "Agile customer service, smooth internal processes, content autonomy and immediate jump in organic visibility.",
+      "situation": {
+        "title": "A scattered digital landscape held back their growth",
+        "description": "Dos x Dos started from a dispersed landscape — manual processes, an unintegrated ERP (Navision), absence of CRM and a static website that didn't reflect the brand's sophistication or help position it in search engines."
+      },
+      "approach": {
+        "title": "We orchestrated a complete digital transformation",
+        "description": "To reverse this, we implemented Zoho CRM, migrated to A3 ERP and connected them to a Notion space that orchestrates projects and automations; all integrated through a unified API."
+      },
+      "impact": {
+        "title": "The transformation delivered immediate and lasting results",
+        "description": "The result: agile customer service, more fluid internal processes, autonomy to publish content, immediate jump in organic visibility and a data ecosystem prepared for the next challenge."
+      },
+      "issues": {
+        "manualProcesses": "Manual processes slowing operations",
+        "erpNotIntegrated": "Unintegrated ERP limiting data flow",
+        "noCrm": "No CRM system for customer management",
+        "staticWebsite": "Static website with poor SEO performance"
+      },
+      "processes": {
+        "crmImplementation": "Zoho CRM implementation and configuration",
+        "erpMigration": "Migration from Navision to A3 ERP",
+        "notionIntegration": "Notion workspace for project orchestration",
+        "websiteDevelopment": "New Next.js website with custom CMS"
+      },
+      "achievements": {
+        "agileCustomerService": "Agile customer service implementation",
+        "fluidProcesses": "Streamlined internal processes",
+        "contentAutonomy": "Content publishing autonomy",
+        "organicVisibility": "Immediate organic visibility improvement"
+      },
+      "technologies": {
+        "zohocrm": "Zoho CRM",
+        "a3erp": "A3 ERP",
+        "notion": "Notion",
+        "nextjs": "Next.js",
+        "apirest": "REST API"
+      }
     },
-    "energiaSolar": {
+    "energia-solar-canarias": {
       "title": "Energía Solar Canarias",
       "intro": "We unified multiple scattered energy tools into a progressive web platform with integrated CRM, enabling real-time monitoring and process automation to optimize savings and reduce carbon footprint.",
       "challenge": "Multiple unconnected tools, lack of unified platform and absence of CRM to organize users and alerts.",
       "solution": "We developed unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization.",
-      "result": "Real-time monitoring, personalized alerts, reduced manual work and improved energy efficiency."
+      "result": "Real-time monitoring, personalized alerts, reduced manual work and improved energy efficiency.",
+      "situation": {
+        "title": "Fragmented tools created operational chaos",
+        "description": "Energía Solar Canarias started from multiple unconnected tools: clients had to consult different energy providers separately on independent platforms."
+      },
+      "approach": {
+        "title": "We unified everything into one intelligent platform",
+        "description": "To reverse this, a progressive web application was developed that unifies all providers in a single responsive interface and a CRM connected to the ERP was created."
+      },
+      "impact": {
+        "title": "Real-time control transformed their business",
+        "description": "Now clients monitor production, consumption and savings in real time, receive personalized alerts, and the company reduces manual work and makes data-based decisions."
+      },
+      "issues": {
+        "disconnectedTools": "Multiple disconnected monitoring tools",
+        "separateProviders": "Clients consulting providers separately",
+        "noUnifiedPlatform": "No unified platform for data consolidation",
+        "noCrm": "Absence of CRM for user and alert organization"
+      },
+      "processes": {
+        "pwaDevelopment": "Progressive Web App development",
+        "providerUnification": "Unification of all energy providers",
+        "crmIntegration": "CRM integration with ERP system",
+        "dashboardCreation": "Real-time dashboards and workflows"
+      },
+      "achievements": {
+        "realTimeMonitoring": "Real-time production and consumption monitoring",
+        "personalizedAlerts": "Personalized alert system implementation",
+        "reducedManualWork": "Significant manual work reduction",
+        "dataBasedDecisions": "Data-driven decision making capability"
+      },
+      "technologies": {
+        "progressiveWebApp": "Progressive Web App",
+        "crmIntegration": "CRM Integration",
+        "realTimeDashboards": "Real-time Dashboards",
+        "automatedWorkflows": "Automated Workflows",
+        "mobileResponsive": "Mobile Responsive"
+      }
     },
-    "toyota": {
+    "toyota-canarias": {
       "title": "Toyota Canarias",
       "intro": "We renewed Toyota's image by connecting with Gen Z and Millennials through an activation circuit with simulators and virtual reality, generating over 375K impressions and 4K qualified leads.",
       "challenge": "Need to renew image and connect with new audiences (Gen Z and Millennials) distant from traditional automotive marketing.",
       "solution": "We designed activation circuit with simulators and virtual reality at rallies and fairs, combining face-to-face actions with online community.",
-      "result": "Circuit that exceeded 375,000 impressions, captured over 4,000 qualified leads and set foundation for expanded edition."
+      "result": "Circuit that exceeded 375,000 impressions, captured over 4,000 qualified leads and set foundation for expanded edition.",
+      "situation": {
+        "title": "Traditional marketing wasn't reaching new generations",
+        "description": "Toyota needed to renew its image and connect with new audiences (Gen Z and Millennials), away from traditional automotive marketing."
+      },
+      "approach": {
+        "title": "We created immersive gaming experiences",
+        "description": "Galaga designed an activation circuit with simulators and virtual reality at rallies and fairs. The strategy combined on-site actions with an active online community."
+      },
+      "impact": {
+        "title": "Gaming strategy delivered exceptional results",
+        "description": "The circuit exceeded 375,000 impressions, captured more than 4,000 qualified leads and laid the foundation for an expanded 2024 edition."
+      },
+      "issues": {
+        "imageRenewal": "Need for brand image renewal",
+        "youngAudience": "Difficulty connecting with Gen Z and Millennials",
+        "traditionalMarketing": "Traditional automotive marketing limitations",
+        "memorableExperiences": "Creating memorable experiences in unconventional environments"
+      },
+      "processes": {
+        "activationCircuit": "Gaming activation circuit design",
+        "simulatorExperiences": "Racing simulator experiences",
+        "virtualReality": "VR technology integration",
+        "onlineCommunity": "Active online community building"
+      },
+      "achievements": {
+        "impressions": "375,000+ impressions achieved",
+        "qualifiedLeads": "4,000+ qualified leads captured",
+        "brandConnection": "Strong connection with younger audiences",
+        "youngAudience": "Successful engagement with Gen Z and Millennials"
+      },
+      "technologies": {
+        "vrSimulators": "VR Simulators",
+        "gamingTechnology": "Gaming Technology",
+        "socialMediaManagement": "Social Media Management",
+        "eventTechnology": "Event Technology",
+        "leadTrackingSystems": "Lead Tracking Systems"
+      }
     },
-    "canariasGameShow": {
+    "canarias-game-show": {
       "title": "Canarias Game Show",
       "intro": "We positioned the Canary Islands as an international gaming hub by organizing a dual-venue fair with tournaments, influencers and interactive experiences that brought together 30,000 people and gained widespread media coverage.",
       "challenge": "Position Canarias as host of international video game event in market dominated by major European fairs.",
       "solution": "We organized dual-venue fair (Tenerife and Gran Canaria) with tournaments, exhibitions, influencers and interactive experiences.",
-      "result": "Event that brought together 30,000 people, wide dissemination on networks and media, positioning Canarias as new gaming attraction hub."
+      "result": "Event that brought together 30,000 people, wide dissemination on networks and media, positioning Canarias as new gaming attraction hub.",
+      "situation": {
+        "title": "Canary Islands needed gaming industry recognition",
+        "description": "The main challenge was positioning the Canary Islands as host of an international video game event, in a market dominated by major European fairs."
+      },
+      "approach": {
+        "title": "We created a dual-location gaming spectacular",
+        "description": "Galaga organized a fair at dual locations (Tenerife and Gran Canaria) with tournaments, exhibitions, influencers and interactive experiences."
+      },
+      "impact": {
+        "title": "Canary Islands became a gaming destination",
+        "description": "The event brought together 30,000 people, had wide coverage on social networks and media, and positioned the Canary Islands as a new attraction pole for the gaming industry."
+      },
+      "issues": {
+        "internationalPositioning": "Need for international gaming industry positioning",
+        "europeanCompetition": "Competition from major European gaming fairs",
+        "gamerAttraction": "Attracting both gamers and industry brands",
+        "logisticalComplexity": "Managing dual-location event complexity"
+      },
+      "processes": {
+        "dualLocation": "Dual-location event coordination",
+        "tournaments": "Gaming tournaments organization",
+        "exhibitions": "Interactive exhibitions and demos",
+        "interactiveExperiences": "Immersive gaming experiences"
+      },
+      "achievements": {
+        "attendance": "30,000 attendees across both locations",
+        "mediaImpact": "Extensive social media and press coverage",
+        "canariasPositioning": "Canary Islands positioned as gaming destination",
+        "industryAttraction": "Major gaming industry participation"
+      },
+      "technologies": {
+        "eventManagementSystems": "Event Management Systems",
+        "tournamentPlatforms": "Tournament Platforms",
+        "streamingTechnology": "Streaming Technology",
+        "interactiveInstallations": "Interactive Installations",
+        "socialMediaIntegration": "Social Media Integration"
+      }
     },
-    "tlpTenerife": {
+    "tlp-tenerife": {
       "title": "TLP Tenerife",
       "intro": "We relaunched the largest tech event in the Canary Islands after a two-year hiatus, designing a renewed edition with four specialized zones that exceeded 62,000 attendees and restored its prestige as a technological reference.",
       "challenge": "After two years of pause, relaunching the largest tech event in the Canary Islands involved an organizational and trust challenge from both the public and sponsors.",
       "solution": "We collaborated in the design and production of a renewed edition, with four specialized zones (LAN, Summer-Con, Innova and eSports).",
-      "result": "TLP exceeded 62,000 attendees, professionalized its proposal and returned to position itself as a key technology and gaming space."
+      "result": "TLP exceeded 62,000 attendees, professionalized its proposal and returned to position itself as a key technology and gaming space.",
+      "situation": {
+        "title": "TLP needed to rebuild trust after two-year pause",
+        "description": "After two years of pause, relaunching the largest tech event in the Canary Islands posed an organizational challenge and confidence from the public and sponsors."
+      },
+      "approach": {
+        "title": "We redesigned the event with specialized zones",
+        "description": "Galaga collaborated in the design and production of a renewed edition, with four specialized zones (LAN, Summer-Con, Innova and eSports)."
+      },
+      "impact": {
+        "title": "TLP returned stronger than ever",
+        "description": "In 2024, TLP exceeded 62,000 attendees, professionalized its offering and repositioned itself as a key space for technology, gaming and training in the islands."
+      },
+      "issues": {
+        "twoYearPause": "Two-year event pause creating uncertainty",
+        "organizationalChallenge": "Complex organizational and logistical challenges",
+        "publicConfidence": "Need to rebuild public confidence",
+        "sponsorConfidence": "Regaining sponsor trust and participation"
+      },
+      "processes": {
+        "formatEvolution": "Event format evolution and modernization",
+        "fourZones": "Four specialized zone implementation",
+        "designProduction": "Complete event design and production",
+        "professionalization": "Event professionalization and quality improvement"
+      },
+      "achievements": {
+        "attendance": "62,000+ attendees exceeded expectations",
+        "professionalization": "Successful event professionalization",
+        "techPositioning": "Repositioned as key tech and gaming space",
+        "eventRecovery": "Successful recovery from two-year pause"
+      },
+      "technologies": {
+        "lanInfrastructure": "LAN Infrastructure",
+        "esportsPlatforms": "eSports Platforms",
+        "innovationShowcases": "Innovation Showcases",
+        "eventProductionTech": "Event Production Tech",
+        "registrationSystems": "Registration Systems"
+      }
     },
-    "foroCanaryIslands": {
+    "foro-canary-islands-games": {
       "title": "Foro Canary Islands Games",
       "intro": "We created the first institutional forum for the gaming sector in the Canary Islands, bringing together experts, institutions and local talent to establish a professional networking and reflection space for the video game industry.",
       "challenge": "The video game sector in the Canary Islands lacked professional spaces for networking and reflection.",
       "solution": "We created the first institutional forum of the sector, with active participation of companies, administration and local talent.",
-      "result": "Event that brought together experts, institutions and key agents, with high visibility and foundations for annual continuity."
+      "result": "Event that brought together experts, institutions and key agents, with high visibility and foundations for annual continuity.",
+      "situation": {
+        "title": "Gaming industry needed professional networking space",
+        "description": "The video game sector in the Canary Islands lacked professional spaces for networking and reflection. Galaga set out to create the first institutional forum for the sector."
+      },
+      "approach": {
+        "title": "We created the first institutional gaming forum",
+        "description": "The event brought together experts, institutions and key agents, with presentations and debate tables on industry, employment and transversality."
+      },
+      "impact": {
+        "title": "Forum established annual industry reference",
+        "description": "It was inaugurated by the President of the Government of the Canary Islands, had high visibility and laid the foundations for its continuity as an annual reference event."
+      },
+      "issues": {
+        "lackProfessionalSpaces": "Lack of professional networking spaces",
+        "noNetworking": "No organized networking opportunities",
+        "sectorReflection": "Need for industry reflection and discussion",
+        "institutionalParticipation": "Need for institutional sector involvement"
+      },
+      "processes": {
+        "firstInstitutionalForum": "First institutional forum creation",
+        "expertGathering": "Expert and stakeholder gathering",
+        "debateTables": "Industry debate tables and presentations",
+        "governmentOpening": "Government opening and institutional support"
+      },
+      "achievements": {
+        "expertGathering": "Successful expert and institution gathering",
+        "governmentOpening": "Government President inauguration",
+        "highVisibility": "High visibility and media coverage",
+        "annualContinuity": "Established as annual reference event"
+      },
+      "technologies": {
+        "eventManagement": "Event Management",
+        "streamingPlatforms": "Streaming Platforms",
+        "registrationSystems": "Registration Systems",
+        "networkingTools": "Networking Tools",
+        "conferenceTechnology": "Conference Technology"
+      }
     },
-    "baseEleague": {
+    "base-eleague": {
       "title": "Base eLeague",
       "intro": "We integrated gaming into the Base Deportes brand through a comprehensive strategy with FIFA online league, in-store activations and live events, generating over 5 million impressions and consolidating an innovative image.",
       "challenge": "Base Deportes sought to connect with young audiences, digitize its image and increase visibility in relevant online environments.",
       "solution": "We developed comprehensive strategy: FIFA online league, store activations, presence at events and face-to-face final.",
-      "result": "Over 5 million impressions, hundreds of participants, high lead conversion and consolidation as an innovative brand."
+      "result": "Over 5 million impressions, hundreds of participants, high lead conversion and consolidation as an innovative brand.",
+      "situation": {
+        "title": "Traditional sports brand needed digital transformation",
+        "description": "Base Deportes Canarias sought to connect with young audiences, digitize its image and increase brand visibility in relevant online environments."
+      },
+      "approach": {
+        "title": "We integrated gaming into their brand strategy",
+        "description": "Galaga developed a comprehensive strategy: FIFA online league, in-store activations, event presence and live final in a shopping center."
+      },
+      "impact": {
+        "title": "Gaming strategy transformed their brand perception",
+        "description": "The project generated more than 5 million impressions, hundreds of participants, high lead conversion and consolidated Base as a current and innovative brand."
+      },
+      "issues": {
+        "youngConnection": "Need to connect with young digital audiences",
+        "digitalImage": "Brand digitization and modernization",
+        "brandVisibility": "Increase visibility in online gaming environments",
+        "gamingIntegration": "Integrating gaming with traditional sports brand"
+      },
+      "processes": {
+        "fifaLeague": "FIFA online league organization",
+        "storeActivations": "In-store gaming activations",
+        "eventPresence": "Gaming event presence and participation",
+        "finalEvent": "Live final event in shopping center"
+      },
+      "achievements": {
+        "impressions": "5+ million impressions generated",
+        "participants": "Hundreds of active participants",
+        "leadConversion": "High lead conversion rates",
+        "brandInnovation": "Brand positioned as innovative and current"
+      },
+      "technologies": {
+        "fifaGamingPlatform": "FIFA Gaming Platform",
+        "tournamentManagement": "Tournament Management",
+        "storeIntegrationSystems": "Store Integration Systems",
+        "eventTechnology": "Event Technology",
+        "leadGenerationTools": "Lead Generation Tools"
+      }
     },
-    "alisiosLive": {
+    "alisios-live-gaming": {
       "title": "Alisios Live Gaming",
       "intro": "We transformed the Alisios shopping center into an interactive experience space during the Christmas campaign, connecting with young and family audiences through tournaments, VR and influencers during a three-day free event.",
       "challenge": "Transform the shopping center into an interactive experience space, connecting with young and family audiences during Christmas campaign.",
       "solution": "We conceived and produced a free event with tournaments, simulators, VR, influencers and continuous dynamization during three days.",
-      "result": "High participation volume, notable media impact and consolidation as annual reference event in digital entertainment."
+      "result": "High participation volume, notable media impact and consolidation as annual reference event in digital entertainment.",
+      "situation": {
+        "title": "Shopping center needed Christmas gaming activation",
+        "description": "One of the biggest challenges was transforming the Alisios shopping center into an interactive experience space, connecting with young and family audiences during the Christmas campaign."
+      },
+      "approach": {
+        "title": "We created a three-day gaming extravaganza",
+        "description": "Galaga conceived and produced a free event with tournaments, simulators, VR, influencers and continuous animation for three days."
+      },
+      "impact": {
+        "title": "Event became annual Christmas gaming tradition",
+        "description": "The result was high participation volume, notable media impact and event consolidation as an annual event, positioning Alisios as a reference in digital entertainment."
+      },
+      "issues": {
+        "mallTransformation": "Transforming mall into interactive gaming space",
+        "youngFamilyConnection": "Connecting with both young and family audiences",
+        "christmasVisibility": "Creating Christmas campaign visibility",
+        "gamerCulture": "Bringing gamer culture to non-specialized environment"
+      },
+      "processes": {
+        "freeEvent": "Free three-day event organization",
+        "tournaments": "Gaming tournaments and competitions",
+        "simulatorsVr": "VR and simulator experiences",
+        "influencerActivation": "Influencer participation and continuous animation"
+      },
+      "achievements": {
+        "participation": "High volume of participation achieved",
+        "mediaImpact": "Notable media impact and coverage",
+        "annualEvent": "Consolidated as annual Christmas event",
+        "digitalPositioning": "Positioned Alisios as digital entertainment reference"
+      },
+      "technologies": {
+        "vrTechnology": "VR Technology",
+        "gamingSimulators": "Gaming Simulators",
+        "tournamentPlatforms": "Tournament Platforms",
+        "liveStreaming": "Live Streaming",
+        "interactiveInstallations": "Interactive Installations"
+      }
     },
     "metrics": {
       "processReduction": "Process Reduction",
-      "seoImprovement": "SEO Improvement",
+      "seoImprovement": "Google ranking",
       "dataUnification": "Data Unification",
       "realTimeMonitoring": "Real-time Monitoring",
       "impressions": "Impressions",
@@ -607,7 +900,7 @@
     }
   },
   "clients": {
-    "energiaSolar": {
+    "energiaSolarCanarias": {
       "category": "Digital transformation",
       "description": "We developed a unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization for complete energy management.",
       "results": {
@@ -623,7 +916,7 @@
         "leads": "Qualified leads"
       }
     },
-    "dosxdos": {
+    "dos-x-dos-grupo-imagen": {
       "category": "Digital transformation",
       "description": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js and custom content panel.",
       "results": {
@@ -653,7 +946,7 @@
         "leads": "Qualified leads"
       }
     },
-    "dosxdos": {
+    "dos-x-dos-grupo-imagen": {
       "category": "Digitalization",
       "description": "Complete integration of CRM, ERP and optimized web that transformed operational efficiency.",
       "metrics": {
@@ -666,123 +959,38 @@
       }
     }
   },
-  "caseStudiesDetails": {
-    "categories": {
-      "digital": "Digitalization",
-      "marketing": "Immersive Marketing",
-      "events": "Events"
-    },
-    "metrics": {
-      "processReduction": "Process Reduction",
-      "seoImprovement": "SEO Improvement",
-      "dataUnification": "Data Unification",
-      "realTimeMonitoring": "Real-time Monitoring",
-      "eventDays": "Event Days",
-      "recurringEvent": "Recurring Event",
-      "impressions": "Impressions",
-      "qualifiedLeads": "Qualified Leads",
-      "attendees": "Attendees",
-      "cities": "Cities"
-    },
-    "dosxdos": {
-      "title": "Dos x Dos Grupo Imagen",
-      "intro": "We transformed a scattered business ecosystem into an integrated digital platform, connecting CRM, ERP and web through intelligent automations to boost operational efficiency and commercial visibility.",
-      "challenge": "Dos x Dos started from a scattered landscape — manual processes, an unintegrated ERP (Navision), absence of CRM and a static website that didn't reflect the brand's sophistication or help position it in search engines. This lack of digitalization limited operational efficiency, commercial visibility and the ability to make data-driven decisions, hampering competitiveness in an increasingly demanding market.",
-      "solution": "To reverse this we implemented Zoho CRM, migrated to A3 ERP and connected them to a Notion space that orchestrates projects and automations; all of this is integrated through a unified API. In parallel, we developed a new website with Next.js and its own content panel, optimized for SEO and Core Web Vitals.",
-      "result": "The result: agile customer service, smoother internal processes, autonomy to publish content, immediate jump in organic visibility and a data ecosystem prepared for the next challenge: creating a data warehouse that converts that information into dynamic business intelligence."
-    },
-    "energiaSolar": {
-      "title": "Energía Solar Canarias",
-      "intro": "We unified multiple scattered energy tools into a progressive web platform with integrated CRM, enabling real-time monitoring and process automation to optimize savings and reduce carbon footprint.",
-      "challenge": "Energía Solar Canarias started from multiple unconnected tools: clients had to consult different energy providers separately on independent platforms. There was no proprietary platform that consolidated data or a CRM that organized users, plants or alerts. This fragmentation prevented controlling prices and calculating savings accurately, complicated mobile access and overwhelmed the team with manual tasks, eroding the brand's digital experience.",
-      "solution": "To reverse this, a progressive web application was developed that unifies all providers in a single responsive interface and a CRM connected to the ERP was created, with dashboards, workflows and automatic data synchronization.",
-      "result": "Now clients monitor production, consumption and savings in real time, receive personalized alerts, and the company reduces manual work, makes data-driven decisions and improves energy efficiency, generating economic savings and lower carbon footprint."
-    },
-    "alisiosLive": {
-      "title": "Alisios Live Gaming",
-      "intro": "We transformed the Alisios shopping center into an interactive experience space during the Christmas campaign, connecting with young and family audiences through tournaments, VR and influencers during a three-day free event.",
-      "challenge": "One of the biggest challenges was transforming the Alisios shopping center into an interactive experience space, connecting with young and family audiences during the Christmas campaign. Additionally, it was necessary to give visibility to gamer culture in a non-specialized environment and generate real traffic to stores and restaurants.",
-      "solution": "Galaga conceived and produced a free event with tournaments, simulators, VR, influencers and continuous dynamization during three days.",
-      "result": "The result was a high volume of participation, notable media impact and the consolidation of the event as an annual event, positioning Alisios as a reference in digital entertainment."
-    },
-    "toyota": {
-      "title": "Toyota Canarias",
-      "intro": "We renewed Toyota's image by connecting with Gen Z and Millennials through an activation circuit with simulators and virtual reality, generating over 375K impressions and 4K qualified leads.",
-      "challenge": "Toyota needed to renew its image and connect with new audiences (Gen Z and Millennials), away from traditional automotive marketing. The challenge was to create memorable experiences in unconventional environments and build community around the brand.",
-      "solution": "Galaga designed an activation circuit with simulators and virtual reality at rallies and fairs. The strategy combined face-to-face actions with an active online community.",
-      "result": "The circuit exceeded 375,000 impressions, captured more than 4,000 qualified leads and laid the foundations for an expanded edition in 2024."
-    },
-    "canariasGameShow": {
-      "title": "Canarias Game Show",
-      "intro": "We positioned the Canary Islands as an international gaming hub by organizing a dual-venue fair with tournaments, influencers and interactive experiences that brought together 30,000 people and gained widespread media coverage.",
-      "challenge": "The main challenge was positioning the Canary Islands as the venue for an international video game event, in a market dominated by large European fairs. Additionally, it was necessary to attract gamers, brands and media, in a context of great logistical complexity.",
-      "solution": "Galaga organized a fair in double venue (Tenerife and Gran Canaria) with tournaments, exhibitions, influencers and interactive experiences.",
-      "result": "The event brought together 30,000 people, had wide diffusion in networks and media, and positioned the Canary Islands as a new pole of attraction for the gaming industry."
-    },
-    "tlpTenerife": {
-      "title": "TLP Tenerife",
-      "intro": "We relaunched the largest tech event in the Canary Islands after a two-year hiatus, designing a renewed edition with four specialized zones that exceeded 62,000 attendees and restored its prestige as a technological reference.",
-      "challenge": "After two years of pause, relaunching the largest tech event in the Canary Islands involved an organizational and trust challenge from both the public and sponsors. It was necessary to recover TLP's prestige and evolve its format.",
-      "solution": "Galaga collaborated in the design and production of a renewed edition, with four specialized zones (LAN, Summer-Con, Innova and eSports). In 2024, TLP exceeded 62,000 attendees, professionalized its proposal and returned to position itself as a key space for technology, gaming and training in the islands.",
-      "result": "Successful event relaunch with record attendance, enhanced professional reputation, and established foundation as the premier technology and gaming event in the Canary Islands."
-    },
-    "foroCanaryIslands": {
-      "title": "Foro Canary Islands Games",
-      "intro": "We created the first institutional forum for the gaming sector in the Canary Islands, bringing together experts, institutions and local talent to establish a professional networking and reflection space for the video game industry.",
-      "challenge": "The video game sector in the Canary Islands lacked professional spaces for networking and reflection. Galaga proposed creating the first institutional forum of the sector, with active participation of companies, administration and local talent.",
-      "solution": "The event brought together experts, institutions and key agents, with presentations and discussion tables on industry, employment and transversality. It was inaugurated by the President of the Government of the Canary Islands, had high visibility and laid the foundations for its continuity as an annual reference event.",
-      "result": "Successful creation of the first institutional gaming forum, government endorsement, and establishment of annual industry networking event."
-    },
-    "holidayWorld": {
-      "title": "Holiday World Gaming",
-      "intro": "In a tourist area like Maspalomas, we created an attractive digital experience that captured both local and visiting audiences, demonstrating the viability of gaming spaces as a stable proposal.",
-      "challenge": "In an eminently tourist area like Maspalomas, the challenge was to introduce an attractive digital experience that would capture both local audiences and visitors. Additionally, it had to demonstrate the viability of a gaming space as a stable proposal.",
-      "solution": "Galaga led the creation of a pop-up gaming with simulators, consoles, VR and tournaments at the Holiday World center. The activation obtained high user rotation, excellent reception from family audiences and clear validation of the model for its expansion to other spaces or seasons.",
-      "result": "Successful gaming activation with high user engagement, family audience approval, and validated model for future expansion."
-    },
-    "baseEleague": {
-      "title": "Base eLeague",
-      "intro": "We integrated gaming into the Base Deportes brand through a comprehensive strategy with FIFA online league, in-store activations and live events, generating over 5 million impressions and consolidating an innovative image.",
-      "challenge": "Base Deportes Canarias sought to connect with young audiences, digitize its image and increase brand visibility in relevant online environments. The challenge was to integrate gaming into a brand associated with traditional physical sports.",
-      "solution": "Galaga developed an integral strategy: FIFA online league, store activations, presence at events and face-to-face final at a shopping center. The project generated more than 5 million impressions, hundreds of participants, high lead conversion and consolidated Base as a current and innovative brand.",
-      "result": "Over 5 million impressions, successful digital transformation, and positioned Base as an innovative sports brand connecting with younger demographics."
-    }
-  },
   "proyecto-detalle": {
     "volverProyectos": "Back to Projects",
-    "desafio": {
-      "titulo": "Challenge"
-    },
-    "solucion": {
-      "titulo": "Solution"
-    },
-    "resultados": {
-      "titulo": "Results"
-    },
-    "metricas": {
-      "subtitulo": "Results",
-      "titulo": "Measurable Impact",
-      "descripcion": "Real results achieved for our client"
-    },
     "challenge": {
-      "title": "Challenge"
+      "eyebrow": "The Situation"
     },
     "solution": {
-      "title": "Solution"
+      "eyebrow": "Our Approach"
     },
     "results": {
-      "title": "Results"
+      "eyebrow": "The Impact"
     },
     "metrics": {
-      "eyebrow": "Results",
+      "eyebrow": "Project Results",
       "title": "Measurable Impact",
-      "subtitle": "Real results achieved for our client"
+      "subtitle": "Real numbers from real results"
     },
-    "backToProjects": "Back to Projects",
-    "notFound": {
-      "title": "Case Study Not Found",
-      "backToProjects": "Back to Case Studies"
-    }
+    "summary": {
+      "title": "Project Success",
+      "description": "This project demonstrates our ability to deliver transformative digital solutions that drive real business results."
+    },
+    "projectDetails": "Project Details",
+    "projectDuration": "Project duration",
+    "projectType": "Type",
+    "problemsDetected": "Problems detected",
+    "technologiesUsed": "Technologies used",
+    "implementedTechnologies": "Implemented Technologies"
   },
-  "knowMore": "Learn more"
+  "common": {
+    "notFound": "Project Not Found",
+    "projectNotFound": "The requested project could not be found.",
+    "backToCases": "Back to Case Studies"
+  },
+  "knowMore": "Learn more",
+  "months": "months"
 }

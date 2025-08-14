@@ -24,6 +24,6 @@ export interface FeaturedClient {
 
 export interface ImpactMetric {
   value: string;
-  labelKey: string;
+  label: string;
   color: string;
 }

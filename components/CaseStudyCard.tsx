@@ -14,7 +14,7 @@ interface CaseStudy {
   resultKey: string;
   metrics: Array<{
     value: string;
-    labelKey: string;
+    label: string;
   }>;
   image: string;
   theme: "digital" | "marketing" | "events";
@@ -144,17 +144,20 @@ export default function CaseStudyCard({
 
   // Truncate text based on word count to prevent overflow
   const truncateText = (text: string, maxLines: number) => {
-    const words = text.split(' ');
-    const wordsPerLine = size === 'medium' ? 8 : size === 'hero' ? 12 : 10;
+    const words = text.split(" ");
+    const wordsPerLine = size === "medium" ? 8 : size === "hero" ? 12 : 10;
     const maxWords = maxLines * wordsPerLine;
-    
+
     if (words.length <= maxWords) return text;
-    return words.slice(0, maxWords).join(' ') + '...';
+    return words.slice(0, maxWords).join(" ") + "...";
   };
 
   return (
     <div className="case-study-card group h-full w-full">
-      <Link href={`/casos-de-exito/${caseStudy.slug}`} className="block h-full w-full">
+      <Link
+        href={`/casos-de-exito/${caseStudy.slug}`}
+        className="block h-full w-full"
+      >
         <div
           className={`
           h-full w-full rounded-xl lg:rounded-2xl overflow-hidden 
@@ -172,7 +175,9 @@ export default function CaseStudyCard({
         `}
         >
           {/* Image Section with Theme Enhancement */}
-          <div className={`relative ${sizeConfig.imageHeight} overflow-hidden flex-shrink-0`}>
+          <div
+            className={`relative ${sizeConfig.imageHeight} overflow-hidden flex-shrink-0`}
+          >
             <Image
               src={caseStudy.image}
               alt={t(caseStudy.titleKey)}
@@ -227,16 +232,30 @@ export default function CaseStudyCard({
 
             {/* CTA Section */}
             <div className="flex items-center justify-end gap-3 pt-4 flex-shrink-0">
-           <div className={`w-8 h-8 bg-gradient-to-r ${config.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
-            <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
+              <div
+                className={`w-8 h-8 bg-gradient-to-r ${config.gradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}
+              >
+                <svg
+                  className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={3}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
 
           {/* Enhanced Glow Border Effect */}
-          <div className={`absolute inset-0 rounded-xl lg:rounded-2xl bg-gradient-to-r ${config.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none blur-sm`}></div>
+          <div
+            className={`absolute inset-0 rounded-xl lg:rounded-2xl bg-gradient-to-r ${config.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none blur-sm`}
+          ></div>
         </div>
       </Link>
     </div>

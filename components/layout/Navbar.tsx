@@ -103,7 +103,7 @@ export default function Navbar() {
                           : "text-white hover:text-white/80 drop-shadow-lg"
                       }`}
                     >
-                      <span className="relative z-10">{t(item.labelKey)}</span>
+                      <span className="relative z-10">{t(item.label)}</span>
                       <span
                         className={`absolute inset-0 rounded-lg transform scale-0 navbar-link-hover transition-all duration-75 ${
                           isScrolled
@@ -201,7 +201,7 @@ export default function Navbar() {
                         : "text-gray-800 hover:bg-gray-50"
                     }`}
                   >
-                    {t(item.labelKey)}
+                    {t(item.label)}
                   </Link>
                 </li>
               ))}

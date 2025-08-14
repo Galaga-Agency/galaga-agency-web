@@ -1,8 +1,3 @@
-export interface CaseStudyMetric {
-  value: string;
-  labelKey: string;
-}
-
 export interface CaseStudy {
   titleKey: string;
   categoryKey: string;
@@ -10,8 +5,31 @@ export interface CaseStudy {
   solutionKey: string;
   resultKey: string;
   introKey: string;
-  metrics: CaseStudyMetric[];
+
+  // Detailed content structure
+  situationTitleKey: string;
+  situationDescKey: string;
+  approachTitleKey: string;
+  approachDescKey: string;
+  impactTitleKey: string;
+  impactDescKey: string;
+
+  // Lists of content
+  issues: string[];
+  processes: string[];
+  technologies: string[];
+  achievements: string[];
+
+  // Project details
+  duration: string;
+  metrics: Array<{
+    value: string;
+    label: string;
+  }>;
+
+  // Display properties
   image: string;
-  theme: 'digital' | 'marketing' | 'events';
+  gallery: string[];
+  theme: "digital" | "marketing" | "events";
   slug: string;
 }

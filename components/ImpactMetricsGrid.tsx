@@ -22,20 +22,23 @@ export default function ImpactMetricsGrid({ metrics }: ImpactMetricsGridProps) {
         <h3 className="impact-metrics-title text-3xl md:text-4xl font-bold text-negro pb-12">
           {t("about-page.clients.impact.title")}
         </h3>
-        
+
         <div className="impact-metrics-grid grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 pb-8">
           {metrics.map((metric, index) => (
-            <div key={index} className="impact-metric text-center p-6 bg-blanco rounded-2xl shadow-md border border-hielo hover:border-teal/30 hover:shadow-lg transition-all duration-300">
+            <div
+              key={index}
+              className="impact-metric text-center p-6 bg-blanco rounded-2xl shadow-md border border-hielo hover:border-teal/30 hover:shadow-lg transition-all duration-300"
+            >
               <div className="impact-metric-value text-3xl md:text-4xl font-black text-teal pb-2">
                 {metric.value}
               </div>
               <div className="impact-metric-label text-sm md:text-base text-grafito font-medium">
-                {t(metric.labelKey)}
+                {t(metric.label)}
               </div>
             </div>
           ))}
         </div>
-        
+
         <p className="impact-metrics-summary text-base md:text-lg text-negro font-light leading-relaxed">
           {t("about-page.clients.impact.summary")}
         </p>
