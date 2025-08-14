@@ -4,11 +4,11 @@ import { use } from "react";
 import { useGSAP } from "@gsap/react";
 import { useAppReady } from "@/hooks/useAppReady";
 import { useTranslation } from "@/hooks/useTranslation";
+import { getCaseStudyBySlug } from "@/data/case-studies";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import { initProyectoDetalleAnimations } from "@/utils/animations/project-details-animations";
 import ProyectoDetalleHeroSection from "@/components/sections/project-details/ProyectoDetalleHeroSection";
 import ProyectoDetalleContentSection from "@/components/sections/project-details/ProyectoDetalleContentSection";
-import ProyectoDetalleGallerySection from "@/components/sections/project-details/ProyectoDetalleGallerySection";
 import ProyectoDetalleResultsSection from "@/components/sections/project-details/ProyectoDetalleResultsSection";
 import CTASection from "@/components/sections/homepage/CTASection";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
@@ -18,19 +18,6 @@ interface ProyectoDetallePageProps {
   params: Promise<{
     projectSlug: string;
   }>;
-}
-
-// Helper function to get project title from slug
-function getProjectTitle(slug: string, t: (key: string) => string): string {
-  const projectTitles: { [key: string]: string } = {
-    "dos-x-dos": "Dos x Dos Grupo Imagen",
-    "energia-solar": "Energía Solar Canarias",
-    toyota: "Toyota Canarias",
-    "canarias-game-show": "Canarias Game Show",
-    "alisios-live": "Alisios Live Gaming",
-  };
-
-  return projectTitles[slug] || slug;
 }
 
 export default function ProyectoDetallePage({
@@ -51,10 +38,21 @@ export default function ProyectoDetallePage({
     return () => clearTimeout(timer);
   }, [isAppReady]);
 
-  // Get project title for breadcrumbs
-  const projectTitle = getProjectTitle(projectSlug, t);
+  // Get case study data
+  const caseStudy = getCaseStudyBySlug(projectSlug);
 
-  // Breadcrumb navigation
+  if (!caseStudy) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-azul-profundo to-teal">
+        <div className="text-center text-blanco">
+          <h1 className="text-4xl font-black pb-4">{t("common.notFound")}</h1>
+          <p className="text-hielo">{t("common.projectNotFound")}</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Breadcrumb navigation using project title from data
   const breadcrumbs = [
     {
       name: t("nav.home"),
@@ -65,7 +63,7 @@ export default function ProyectoDetallePage({
       href: getLocalizedRoute("casos-de-exito", language),
     },
     {
-      name: projectTitle,
+      name: t(caseStudy.titleKey),
       href: getLocalizedRoute(`casos-de-exito/${projectSlug}`, language),
     },
   ];
@@ -75,8 +73,7 @@ export default function ProyectoDetallePage({
       <Breadcrumbs items={breadcrumbs} />
       <ProyectoDetalleHeroSection slug={projectSlug} />
       <ProyectoDetalleContentSection slug={projectSlug} />
-      {/* <ProyectoDetalleGallerySection slug={projectSlug} /> */}
-      <ProyectoDetalleResultsSection slug={projectSlug} />
+      {/* <ProyectoDetalleResultsSection slug={projectSlug} /> */}
       <CTASection />
     </>
   );

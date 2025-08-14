@@ -6,7 +6,7 @@ export interface ProjectMetric {
 export interface FeaturedProject {
   id: string;
   name: string;
-  slug: string; 
+  slug: string;
   logo: string;
   category: string;
   description: string;
@@ -18,24 +18,26 @@ export interface FeaturedProject {
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    id: "dosxdos",
+    id: "dos-x-dos-grupo-imagen",
     slug: "dos-por-dos-grupo-imagen",
     name: "Dos x Dos Grupo Imagen",
-    logo: "/assets/img/clients/dosxdos.png",
-    category: "projects.dosxdos.category",
-    description: "caseStudies.dosxdos.intro",
+    logo: "/assets/img/clients/dos-x-dos-grupo-imagen.png",
+    category: "projects.dos-x-dos-grupo-imagen.category",
+    description: "caseStudies.dos-x-dos-grupo-imagen.intro",
     metrics: [
       {
-        label: "projects.dosxdos.metrics.integration",
-        value: "projects.dosxdos.values.complete",
+        value: "100%",
+        label: "caseStudies.metrics.processReduction",
       },
       {
-        label: "projects.dosxdos.metrics.performance",
-        value: "projects.dosxdos.values.optimized",
+        value: "SEO Boost",
+        label: "caseStudies.metrics.seoImprovement",
       },
     ],
-    image: "/assets/img/casos-de-exito/dosxdos/dosxdos-web.png",
-    background: "/assets/img/casos-de-exito/dosxdos/dosxdos-portada.png",
+    image:
+      "/assets/img/casos-de-exito/dos-x-dos-grupo-imagen/dos-x-dos-grupo-imagen-web.png",
+    background:
+      "/assets/img/casos-de-exito/dos-x-dos-grupo-imagen/dos-x-dos-grupo-imagen-portada.png",
     color: "mandarina",
   },
   {
@@ -44,7 +46,7 @@ export const featuredProjects: FeaturedProject[] = [
     name: "Energía Solar Canarias",
     logo: "/assets/img/clients/energia-solar-canarias.png",
     category: "projects.energia-solar.category",
-    description: "caseStudies.energiaSolar.intro",
+    description: "caseStudies.energia-solar-canarias.intro",
     metrics: [
       {
         label: "projects.energia-solar.metrics.platform",
@@ -56,7 +58,8 @@ export const featuredProjects: FeaturedProject[] = [
       },
     ],
     image: "/assets/img/casos-de-exito/esc/energia-solar-canarias-app.png",
-    background: "/assets/img/casos-de-exito/esc/energia-solar-canarias-portada.png",
+    background:
+      "/assets/img/casos-de-exito/esc/energia-solar-canarias-portada.png",
     color: "teal",
   },
 ];

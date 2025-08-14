@@ -42,7 +42,7 @@ export const initProyectoDetalleAnimations = () => {
     { scale: 1, opacity: 1, duration: 2, ease: "power2.out", stagger: 0.3 }
   );
 
-  // Content section - Challenge block
+  // Content section - Challenge/Situation block (First block)
   gsap.to(".challenge-icon", {
     duration: 0.6,
     opacity: 1,
@@ -82,7 +82,7 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  // Content section - Solution block
+  // Content section - Approach/Solution block (Second block)
   gsap.to(".solution-icon", {
     duration: 0.6,
     opacity: 1,
@@ -122,7 +122,7 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
-  // Content section - Results block
+  // Content section - Impact/Results block (Third block)
   gsap.to(".results-icon", {
     duration: 0.6,
     opacity: 1,
@@ -162,6 +162,23 @@ export const initProyectoDetalleAnimations = () => {
     },
   });
 
+  // Metrics cards in content section
+  gsap.utils.toArray(".proyecto-metric-card").forEach((card: any, i: number) => {
+    gsap.to(card, {
+      duration: 0.8,
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      ease: "back.out(1.7)",
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
   // Results section header
   const resultsHeaderElements = [
     { selector: ".results-eyebrow",   y: 30, delay: 0 },
@@ -184,7 +201,7 @@ export const initProyectoDetalleAnimations = () => {
     });
   });
 
-  // Results cards
+  // Results cards in results section
   gsap.utils.toArray(".result-card").forEach((card: any, i: number) => {
     gsap.to(card, {
       duration: 1,
@@ -230,36 +247,106 @@ export const initProyectoDetalleAnimations = () => {
         },
       });
     }
-
-    const accent = card.querySelector(".result-card-accent");
-    if (accent) {
-      gsap.from(accent, {
-        duration: 0.4,
-        opacity: 0,
-        scale: 0,
-        ease: "back.out(1.7)",
-        delay: i * 0.2 + 0.7,
-        scrollTrigger: {
-          trigger: card,
-          start: "top 90%",
-          toggleActions: "play none none none",
-        },
-      });
-    }
   });
 
-  // Background elements for results section
-  gsap.to(".results-bg-element-1, .results-bg-element-2", {
-    duration: 2,
-    scale: 1,
+  // Results summary card
+  gsap.to(".results-summary", {
+    duration: 0.8,
     opacity: 1,
+    y: 0,
     ease: "power2.out",
-    stagger: 0.3,
     scrollTrigger: {
-      trigger: ".proyecto-detalle-results-section",
+      trigger: ".results-summary",
       start: "top 85%",
       toggleActions: "play none none none",
     },
+  });
+
+  // Metrics icons animation in results section
+  gsap.to(".metrics-icon", {
+    duration: 0.6,
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+      trigger: ".metrics-icon",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.to(".results-metrics-title", {
+    duration: 0.6,
+    x: 0,
+    opacity: 1,
+    ease: "power2.out",
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: ".metrics-icon",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Achievements section animation
+  gsap.to(".achievements-icon", {
+    duration: 0.6,
+    opacity: 1,
+    scale: 1,
+    rotation: 0,
+    ease: "back.out(1.7)",
+    scrollTrigger: {
+      trigger: ".achievements-icon",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  gsap.to(".results-achievements-title", {
+    duration: 0.6,
+    x: 0,
+    opacity: 1,
+    ease: "power2.out",
+    delay: 0.2,
+    scrollTrigger: {
+      trigger: ".achievements-icon",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  });
+
+  // Individual achievement items
+  gsap.utils.toArray(".achievement-item").forEach((item: any, i: number) => {
+    gsap.to(item, {
+      duration: 0.6,
+      opacity: 1,
+      x: 0,
+      ease: "power2.out",
+      delay: i * 0.1,
+      scrollTrigger: {
+        trigger: item,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+
+  // Metric cards in results section
+  gsap.utils.toArray(".result-metric-card").forEach((card: any, i: number) => {
+    gsap.to(card, {
+      duration: 0.8,
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      ease: "back.out(1.7)",
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
   });
 
   // Cleanup on unmount

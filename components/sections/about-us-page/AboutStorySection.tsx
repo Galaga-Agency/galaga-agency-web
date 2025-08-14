@@ -79,7 +79,7 @@ export default function AboutStorySection() {
               <div className="story-image-container-1 relative lg:order-2">
                 <div className="story-image-1 relative aspect-video rounded-2xl overflow-hidden border border-mandarina shadow-2xl transition-transform duration-500">
                   <Image
-                    src="/assets/img/sobre-nosotros/dosxdos.webp"
+                    src="/assets/img/sobre-nosotros/dos-x-dos-grupo-imagen.webp"
                     alt="dos x dos Grupo Imagen - Traditional Business"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
