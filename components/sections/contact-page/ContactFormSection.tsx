@@ -1,17 +1,16 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { Mail, MapPin, Linkedin, Instagram } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
-import Link from "next/link";
-import Image from "next/image";
+import SocialIcons from "@/components/SocialIcons";
 
 export default function ContactFormSection() {
   const { t } = useTranslation();
 
   return (
     <section className="relative contact-form-section section">
-            {/* Diagonal background layers */}
+      {/* Diagonal background layers */}
       <div className="absolute inset-0">
         {/* Top diagonal - Light teal gradient */}
         <div
@@ -42,7 +41,7 @@ export default function ContactFormSection() {
             {t("contact.section.title")}
           </h2>
 
-          <p className="contact-form-subtitle text-xl text-negro leading-relaxed container-tablet">
+          <p className="contact-form-subtitle text-xl text-negro leading-relaxed container">
             {t("contact.section.subtitle")}
           </p>
         </div>
@@ -60,9 +59,9 @@ export default function ContactFormSection() {
               </p>
 
               {/* Contact Cards */}
-              <div className="contact-info-cards flex flex-col gap-6 pb-12">
+              <div className="contact-info-cards flex flex-col md:flex-row lg:flex-col gap-6 pb-12">
                 {/* Email Card */}
-                <div className="contact-info-card group">
+                <div className="contact-info-card group w-full md:w-1/2 lg:w-full">
                   <a
                     href="mailto:info@galagaagency.com"
                     className="relative overflow-hidden h-full cursor-pointer rounded-2xl bg-white border border-white/20 shadow-xl hover:shadow-2xl shadow-teal/50 transition-shadow duration-500 ease-out group block"
@@ -88,7 +87,7 @@ export default function ContactFormSection() {
                       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal/80 via-teal to-azul-profundo flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
                         <Mail className="w-7 h-7" />
                       </div>
-                      
+
                       <h4 className="text-xl font-black leading-tight py-4 text-teal transition-transform duration-300 group-hover:scale-[1.02]">
                         {t("contact.info.email.title")}
                       </h4>
@@ -100,8 +99,18 @@ export default function ContactFormSection() {
                       {/* CTA */}
                       <div className="mt-4 flex items-center justify-end gap-4">
                         <div className="w-8 h-8 bg-gradient-to-r from-teal via-teal to-azul-profundo rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
-                          <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                          <svg
+                            className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={3}
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </div>
                       </div>
@@ -113,7 +122,7 @@ export default function ContactFormSection() {
                 </div>
 
                 {/* Location Card */}
-                <div className="contact-info-card group">
+                <div className="contact-info-card group w-full md:w-1/2 lg:w-full">
                   <a
                     href="https://maps.google.com/?q=C.+Arado%2C+35200+Telde%2C+Las+Palmas+de+Gran+Canaria%2C+Spain"
                     target="_blank"
@@ -141,7 +150,7 @@ export default function ContactFormSection() {
                       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-mandarina/80 via-mandarina to-naranja-tostado flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
                         <MapPin className="w-7 h-7" />
                       </div>
-                      
+
                       <h4 className="text-xl font-black leading-tight py-4 text-mandarina transition-transform duration-300 group-hover:scale-[1.02]">
                         {t("contact.info.location.title")}
                       </h4>
@@ -153,8 +162,18 @@ export default function ContactFormSection() {
                       {/* CTA */}
                       <div className="mt-4 flex items-center justify-end gap-4">
                         <div className="w-8 h-8 bg-gradient-to-r from-mandarina via-mandarina to-naranja-tostado rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
-                          <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                          <svg
+                            className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={3}
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </div>
                       </div>
@@ -166,30 +185,16 @@ export default function ContactFormSection() {
                 </div>
               </div>
 
-              {/* Social Media Links */}
-              <div className="contact-social">
+              {/* Social Media Links - Now using consistent components */}
+              <div className="contact-social flex flex-col items-center lg:items-start">
                 <h4 className="text-lg font-bold text-azul-profundo pb-4">
                   {t("contact.info.social.title")}
                 </h4>
-                <div className="flex gap-4">
-                  <Link
-                    href="https://linkedin.com/company/galagaagency"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-14 h-14 bg-gradient-to-br from-teal/20 to-teal/10 border border-teal/20 hover:border-teal/40 rounded-xl flex items-center justify-center hover:shadow-lg transition-all duration-300"
-                  >
-                    <Linkedin className="w-7 h-7 text-teal group-hover:scale-110 transition-transform duration-300" />
-                  </Link>
-
-                  <Link
-                    href="https://instagram.com/galagaagency"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group w-14 h-14 bg-gradient-to-br from-mandarina/20 to-mandarina/10 border border-mandarina/20 hover:border-mandarina/40 rounded-xl flex items-center justify-center hover:shadow-lg transition-all duration-300"
-                  >
-                    <Instagram className="w-7 h-7 text-mandarina group-hover:scale-110 transition-transform duration-300" />
-                  </Link>
-                </div>
+                <SocialIcons
+                  linkedinColor="teal"
+                  instagramColor="mandarina"
+                  size="lg"
+                />
               </div>
             </div>
           </div>
@@ -197,7 +202,7 @@ export default function ContactFormSection() {
           {/* Right - Form */}
           <div className="z-20 lg:col-span-3">
             <div className="contact-form-container">
-              <div className="bg-blanco/70 backdrop-blur-md p-12 rounded-3xl border border-hielo/30 shadow-xl">
+              <div className="bg-blanco/70 backdrop-blur-md p-12 rounded-2xl border border-hielo/30 shadow-xl">
                 <ContactForm />
               </div>
             </div>

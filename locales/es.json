@@ -291,7 +291,7 @@
         "title": "Ubicación"
       },
       "social": {
-        "title": "Síguenos" 
+        "title": "Síguenos"
       }
     },
     "form": {
@@ -321,7 +321,13 @@
       },
       "success": {
         "title": "¡Mensaje Enviado Correctamente!",
-        "description": "Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos en 24 horas con los próximos pasos para tu proyecto."
+        "description": "Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible con los próximos pasos para tu proyecto."
+      },
+      "validation": {
+        "nameRequired": "El nombre completo es obligatorio",
+        "emailRequired": "El correo electrónico es obligatorio",
+        "emailInvalid": "Por favor, introduce una dirección de correo válida",
+        "messageRequired": "Los detalles del proyecto son obligatorios"
       }
     }
   },

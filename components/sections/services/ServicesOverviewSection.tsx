@@ -152,12 +152,7 @@ export default function ServicesOverviewSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`
-                service-card-wrapper
-                transition-all duration-500 ease-out
-                ${hoveredCard === index ? 'scale-105 -translate-y-2 z-20' : 
-                  isNeighbor(index) ? 'scale-95 translate-y-1 opacity-75' : 'scale-100'}
-              `}
+              className="service-card-wrapper h-full w-full"
               onMouseEnter={() => handleCardHover(index, true)}
               onMouseLeave={() => handleCardHover(index, false)}
             >

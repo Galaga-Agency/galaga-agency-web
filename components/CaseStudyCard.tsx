@@ -62,7 +62,7 @@ export default function CaseStudyCard({
         iconBg: "bg-gradient-to-br from-white/90 to-teal/20",
         icon: Monitor,
         border: "border-teal/20",
-        glow: "hover:shadow-teal/25",
+        glow: "hover:shadow-teal/50",
         overlay: "bg-gradient-to-t from-teal/10 to-transparent",
       },
       marketing: {
@@ -71,7 +71,7 @@ export default function CaseStudyCard({
         iconBg: "bg-gradient-to-br from-white/90 to-mandarina/20",
         icon: Megaphone,
         border: "border-mandarina/20",
-        glow: "hover:shadow-mandarina/25",
+        glow: "hover:shadow-mandarina/50",
         overlay: "bg-gradient-to-t from-mandarina/10 to-transparent",
       },
       events: {
@@ -80,7 +80,7 @@ export default function CaseStudyCard({
         iconBg: "bg-gradient-to-br from-white/90 to-violeta/20",
         icon: Calendar,
         border: "border-violeta/20",
-        glow: "hover:shadow-violeta/25",
+        glow: "hover:shadow-violeta/50",
         overlay: "bg-gradient-to-t from-violeta/10 to-transparent",
       },
     };
@@ -160,7 +160,7 @@ export default function CaseStudyCard({
           h-full w-full rounded-xl lg:rounded-2xl overflow-hidden 
           bg-white shadow-lg hover:shadow-xl ${config.glow}
           border ${config.border} hover:border-${config.accent}/40
-          transform transition-all duration-400 ease-out
+          transform transition-all duration-500 ease-out relative
           ${
             isHovered
               ? "scale-[1.03] -translate-y-2 shadow-xl"
@@ -183,7 +183,7 @@ export default function CaseStudyCard({
 
             {/* Theme overlay for visual enhancement */}
             <div
-              className={`absolute inset-0 ${config.overlay} opacity-60 group-hover:opacity-40 transition-opacity duration-400`}
+              className={`absolute inset-0 ${config.overlay} opacity-60 group-hover:opacity-40 transition-opacity duration-500`}
             ></div>
 
             {/* Category Badge */}
@@ -234,6 +234,9 @@ export default function CaseStudyCard({
           </div>
             </div>
           </div>
+
+          {/* Enhanced Glow Border Effect */}
+          <div className={`absolute inset-0 rounded-xl lg:rounded-2xl bg-gradient-to-r ${config.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none blur-sm`}></div>
         </div>
       </Link>
     </div>
