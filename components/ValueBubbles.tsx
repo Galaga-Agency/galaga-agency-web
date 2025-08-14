@@ -13,7 +13,7 @@ export default function ValueBubbles() {
       <div className="relative min-h-[600px] md:min-h-[500px]">
         {/* Top left - Organizar */}
         <div className="value-card-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%] opacity-0">
-          <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-white from-20% via-neutral-50 via-60% to-neutral-200 to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
+          <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-white from-20% via-neutral-50 via-60% to-azul-profundo/30 to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
             <div className="text-center flex flex-col items-center">
               <div className="pb-4">
                 <FaShuffle className="text-4xl lg:text-5xl xl:text-6xl mx-auto filter drop-shadow-lg" style={{ color: "#176161" }} />

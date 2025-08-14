@@ -4,7 +4,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { featuredProjects } from "@/data/featured-projects";
 import { clientCategories } from "@/data/client-categories";
 import ClientCategoryCard from "@/components/ClientCategoryCard";
-import FeaturedClientCard from "@/components/FeaturedClientCard";
+import FeaturedClientCard from "@/components/sections/about-us-page/FeaturedClientCard";
 import { useState } from "react";
 
 export default function AboutClientsSection() {

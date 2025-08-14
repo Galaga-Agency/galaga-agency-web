@@ -166,7 +166,7 @@ export default function FeaturedClientCard({
               index % 3 === 0
                 ? "bg-gradient-to-r from-mandarina/80 via-mandarina to-naranja-tostado"
                 : index % 3 === 1
-                ? "bg-gradient-to-r  from-violeta/80 via-violeta to-azul-profundo"
+                ? "bg-gradient-to-r  from-turquesa/80 to-teal"
                 : "bg-teal"
             }
           `}
