@@ -150,7 +150,7 @@ export default function ProyectoDetalleContentSection({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="px-4 lg:px-0">
             <div className="flex items-center gap-6 pb-8">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-turquesa/90 via-45% to-azul-profundo rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
                 <FiCheckCircle className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
               </div>
               <div>
@@ -166,10 +166,12 @@ export default function ProyectoDetalleContentSection({
 
           <div className="relative lg:order-2 px-4 lg:px-0">
             <div className="grid grid-cols-1 gap-4">
-              {caseStudy.metrics.map((metric, index) => (
+              {caseStudy.metrics.map((metric, index: any) => (
                 <div
                   key={index}
-                  className="bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 border-teal"
+                  className={`bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 ${
+                    index === 0 ? "border-teal" : "border-mandarina"
+                  } `}
                 >
                   <div className="flex items-center justify-between">
                     <div>
