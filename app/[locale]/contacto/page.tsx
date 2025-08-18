@@ -5,15 +5,15 @@ import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import ContactHeroSection from "@/components/sections/contact-page/ContactHeroSection";
 import ContactFormSection from "@/components/sections/contact-page/ContactFormSection";
-import { initContactHeroAnimations } from "@/utils/animations/contact-hero-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { initContactFormAnimations } from "@/utils/animations/contact-form-animations";
+import { initHeroAnimations } from "@/utils/animations/hero-animations";
 
 export default function ContactPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [initContactHeroAnimations, initContactFormAnimations],
+    animations: [initHeroAnimations, initContactFormAnimations],
     delay: 100,
   });
 

@@ -1,3 +1,4 @@
+// /components/sections/case-studies-page/CaseStudiesHeroSection.tsx
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
@@ -38,7 +39,7 @@ export default function CaseStudiesHeroSection() {
 
       <div className="container relative z-20 w-full py-20">
         <div className="case-studies-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
-          
+                   
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
             <span className="text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
@@ -50,12 +51,12 @@ export default function CaseStudiesHeroSection() {
           <div className="text-center pb-8 md:pb-12 w-full">
             <h1 className="hero-title text-blanco leading-[0.9] tracking-tight drop-shadow-2xl px-4 text-center">
               <span className="block pb-2 md:pb-4">
-                <span className="case-studies-hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
+                <span className="hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
                   {t("case-studies-page.hero.innovacion")}
                 </span>
               </span>
               <span className="block">
-                <span className="case-studies-hero-word-2 drop-shadow-xl opacity-0 translate-y-24">
+                <span className="hero-word-2 drop-shadow-xl opacity-0 translate-y-24">
                   {t("case-studies-page.hero.conImpacto")}
                 </span>
               </span>
@@ -64,7 +65,7 @@ export default function CaseStudiesHeroSection() {
 
           {/* Subtitle */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="case-studies-hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
+            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
               {t("case-studies-page.hero.subtitle")}
             </p>
           </div>
@@ -72,7 +73,7 @@ export default function CaseStudiesHeroSection() {
         </div>
       </div>
 
-      <ScrollIndicator className="case-studies-hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
+      <ScrollIndicator className="hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
     </section>
   );
 }

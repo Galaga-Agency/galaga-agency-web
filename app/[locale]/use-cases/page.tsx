@@ -7,10 +7,10 @@ import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import CaseStudiesHeroSection from "@/components/sections/case-studies-page/CaseStudiesHeroSection";
 import CaseStudiesGridSection from "@/components/sections/case-studies-page/CaseStudiesGridSection";
 import CTASection from "@/components/sections/homepage/CTASection";
-import { initCaseStudiesHeroAnimations } from "@/utils/animations/case-studies-hero-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { initCaseStudiesGridAnimations } from "@/utils/animations/case-studies-grid-animations";
+import { initHeroAnimations } from "@/utils/animations/hero-animations";
 
 export default function CaseStudiesPage() {
   const isAppReady = useAppReady();
@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
     if (!isAppReady) return;
 
     const timer = setTimeout(() => {
-      initCaseStudiesHeroAnimations();
+      initHeroAnimations();
       initCaseStudiesGridAnimations();
       initCTAAnimations();
     }, 100);

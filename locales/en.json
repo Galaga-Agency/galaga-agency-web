@@ -13,8 +13,14 @@
       "innovamos": "We innovate",
       "forYou": "for you",
       "contigo": "with you",
+      "valuePropositionLine1": "You don't need every digital tool on the market.",
+      "valuePropositionLine2": "You need strategies that transform how you work and connect with your clients.",
+      "ctaButton": "Discover How",
       "subtitle": "We take businesses through their digital transformation with tailor-made end-to-end solutions.",
-      "ctaText": "Schedule a call at www.galagaagency.com",
+      "cta": {
+        "services": "Our Services",
+        "ourWork": "Discover Our Work"
+      },
       "scrollDown": "Swipe to continue"
     },
     "about": {
@@ -116,7 +122,7 @@
       "feature3": "Custom solutions",
       "slug": "innovation"
     },
-    "immersive": {
+    "immersive-marketing": {
       "title": "Immersive marketing",
       "description": "We create digital experiences that connect with your customers.",
       "feature1": "Augmented reality",
@@ -146,6 +152,187 @@
       "description": "Schedule a free consultation and discover how we can help you.",
       "contact": "Contact us",
       "learnMore": "View all services"
+    },
+    "overview": {
+      "eyebrow": "What we do",
+      "title": "Experiences that transform brand interaction",
+      "subtitle": "We create immersive digital spaces that emotionally connect with your customers and generate measurable results.",
+      "what-we-do": {
+        "title": "We connect brands and customers through immersive experiences",
+        "description": "We design and develop interactive digital experiences that use augmented reality, smart displays and sensory technology to create unique emotional connections.",
+        "highlight": "Each experience is designed to generate engagement, increase sales and create lasting memories."
+      },
+      "points": {
+        "immersive-experiences": {
+          "title": "Personalized immersive experiences",
+          "description": "We design digital environments that adapt to each user's behavior and preferences."
+        },
+        "ar-technology": {
+          "title": "Augmented reality technology",
+          "description": "We implement advanced AR to create natural interactions between the physical and digital world."
+        },
+        "customer-connection": {
+          "title": "Emotional connection with customers",
+          "description": "We create unique moments that generate deep emotional bonds with your brand."
+        }
+      },
+      "visual": {
+        "title": "Immersive technologies",
+        "subtitle": "Tools we use",
+        "features": {
+          "ar-filters": "Custom AR filters",
+          "interactive-content": "Interactive content",
+          "virtual-try-on": "Virtual product try-on",
+          "gamification": "Gamification elements"
+        }
+      },
+      "stats": {
+        "engagement": {
+          "number": "+75%",
+          "label": "Increase in engagement"
+        },
+        "retention": {
+          "number": "+65%",
+          "label": "User retention"
+        },
+        "conversion": {
+          "number": "+45%",
+          "label": "Conversion improvement"
+        }
+      }
+    },
+    "features": {
+      "eyebrow": "Our capabilities",
+      "title": "Technologies that create unique experiences",
+      "subtitle": "We implement the latest technologies to create spaces that surprise and connect.",
+      "ar-displays": {
+        "title": "Digital displays and showcases integrated in furniture",
+        "description": "Display design with integrated screens that change content by campaign, time slot or visitor type."
+      },
+      "interactive-corners": {
+        "title": "Smart corners with reactive content",
+        "description": "Spaces equipped with proximity sensors that activate lights, sounds or screens according to customer behavior."
+      },
+      "smart-mirrors": {
+        "title": "Interactive digital mirrors",
+        "description": "Allow automatic product suggestions, brand messages or personalized tutorials when the customer tries on an item."
+      },
+      "virtual-tours": {
+        "title": "360° virtual tours and immersive virtual environments",
+        "description": "Digital representation of physical spaces to tour interactively or apply in campaigns from scratch for gamified experiences."
+      },
+      "cta": {
+        "primary": "Request demo",
+        "secondary": "View technologies"
+      }
+    },
+    "process": {
+      "eyebrow": "Our process",
+      "title": "How we create experiences that impact",
+      "subtitle": "A structured 5-phase process that guarantees exceptional results.",
+      "briefing": {
+        "title": "Listen & briefing",
+        "description": "We meet with you to understand your brand, your objectives and your customer. We gather all the key information to align vision and purpose from the beginning."
+      },
+      "creative-concept": {
+        "title": "Creative conceptualization",
+        "description": "We design the experience you want to convey: sensory, interactive, memorable. We apply strategic vision + digital creativity with focus on your audience."
+      },
+      "technical-design": {
+        "title": "Technical design & production",
+        "description": "We develop technical plans, renders and furniture and technology solutions. We take care of manufacturing everything necessary in our own workshops."
+      },
+      "implementation": {
+        "title": "Implementation & testing",
+        "description": "We install and integrate each technological element, event or promotional space. We test and adjust so that everything works perfectly before launch."
+      },
+      "optimization": {
+        "title": "Measurement & optimization",
+        "description": "We analyze usage, interaction and return data. From that information, we improve the experience and optimize future campaigns."
+      },
+      "quote": "Each step is designed to maximize impact and ensure that your investment generates measurable results."
+    },
+    "technologies": {
+      "eyebrow": "Technology stack",
+      "title": "Technologies that power experiences",
+      "subtitle": "We use the most advanced tools to create high-quality immersive experiences.",
+      "ar-platforms": {
+        "title": "Augmented Reality Platforms",
+        "description": "We develop native AR experiences for iOS and Android, plus cross-platform web solutions."
+      },
+      "interactive-displays": {
+        "title": "Interactive Display Systems",
+        "description": "Sensor and touch screen technology to create natural and intuitive interactions."
+      },
+      "content-management": {
+        "title": "Content Management",
+        "description": "Custom systems to update content in real time and manage campaigns remotely."
+      },
+      "analytics": {
+        "title": "Analytics & Tracking",
+        "description": "Advanced tools to measure engagement, user behavior and ROI of experiences."
+      },
+      "stats": {
+        "platforms": {
+          "number": "15+",
+          "label": "Supported platforms"
+        },
+        "devices": {
+          "number": "500+",
+          "label": "Compatible devices"
+        },
+        "integrations": {
+          "number": "25+",
+          "label": "Available integrations"
+        },
+        "uptime": {
+          "number": "99.9%",
+          "label": "Uptime"
+        }
+      }
+    },
+    "results": {
+      "eyebrow": "Results you get",
+      "title": "Real impact on your business",
+      "subtitle": "Our immersive experiences generate measurable results and transform the relationship with your customers.",
+      "emotional-connection": {
+        "title": "Greater emotional connection with customers",
+        "description": "Interactive, sensory and digital experiences generate memory and emotional bonding with the brand.",
+        "metric": "+42%",
+        "detail": "brand fixation compared to traditional spaces."
+      },
+      "conversion-increase": {
+        "title": "Increase in point-of-sale conversion",
+        "description": "Data-driven displays, personalized recommendations and interactive corners increase purchase intention.",
+        "metric": "Up to +30%",
+        "detail": "in featured product sales."
+      },
+      "data-driven-decisions": {
+        "title": "Data-driven decision making",
+        "description": "With sensors and real-time analytics, brands better understand how their customer behaves in space.",
+        "metric": "Optimization",
+        "detail": "of promotions and reduction of unnecessary stock."
+      },
+      "space-optimization": {
+        "title": "Better use of physical space",
+        "description": "Furniture with screen or digital showcase allows communicating several campaigns in the same place, without recurring production costs.",
+        "metric": "Savings",
+        "detail": "in physical materials and greater flexibility."
+      },
+      "real-time-personalization": {
+        "title": "Real-time personalization",
+        "description": "Adapting content according to time slot, location or customer type positions you thanks to digitalization.",
+        "metric": "Campaigns",
+        "detail": "more relevant and better received."
+      },
+      "competitive-advantage": {
+        "title": "Competitive advantage over other brands",
+        "description": "Offering differentiating experiences in retail and events positions your brand as innovative and close.",
+        "metric": "Boosts",
+        "detail": "positioning and loyalty."
+      },
+      "quote": "The new physical experience... is digital, measurable and human.",
+      "quote-author": "Immersive Marketing Team"
     }
   },
   "caseStudies": {
@@ -992,5 +1179,12 @@
     "backToCases": "Back to Case Studies"
   },
   "knowMore": "Learn more",
-  "months": "months"
+  "months": "months",
+  "service-details": {
+    "immersive-marketing": {
+      "hero": {
+        "eyebrow": "fuckkkkkk thaaat"
+      }
+    }
+  }
 }

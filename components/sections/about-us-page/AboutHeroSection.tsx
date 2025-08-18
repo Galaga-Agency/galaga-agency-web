@@ -49,12 +49,12 @@ export default function AboutHeroSection() {
           <div className="text-center pb-8 md:pb-12 w-full">
             <h1 className="hero-title text-blanco leading-[0.9] tracking-tight drop-shadow-2xl px-4 text-center">
               <span className="block pb-2 md:pb-4">
-                <span className="about-hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
+                <span className="hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
                   {t("about-page.hero.encendemos")}
                 </span>
               </span>
               <span className="block">
-                <span className="about-hero-word-2 drop-shadow-xl opacity-0 translate-y-24">
+                <span className="hero-word-2 drop-shadow-xl opacity-0 translate-y-24">
                   {t("about-page.hero.tuExito")}
                 </span>
               </span>
@@ -63,14 +63,14 @@ export default function AboutHeroSection() {
 
           {/* Subtitle */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="about-hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
+            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
               {t("about-page.hero.subtitle")}
             </p>
           </div>
         </div>
       </div>
 
-      <ScrollIndicator className="about-hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
+      <ScrollIndicator className="hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
     </section>
   );
 }

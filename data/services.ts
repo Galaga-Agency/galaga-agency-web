@@ -1,9 +1,10 @@
+// /data/services.ts
 import { Service } from "@/types/service";
 import {
   FaBullseye,
   FaCogs,
   FaRocket,
-  FaGamepad,
+  FaEye,
   FaGraduationCap,
   FaDollarSign,
 } from "react-icons/fa";
@@ -13,20 +14,28 @@ export const services: Service[] = [
     icon: FaBullseye,
     title: "services.strategy.title",
     description: "services.strategy.description",
-    features: ["services.strategy.feature1", "services.strategy.feature2"],
-    theme: "primary",
-    size: "small", // 1/3 width
-    href: "/services/strategy",
+    features: [
+      "services.strategy.feature1",
+      "services.strategy.feature2",
+      "services.strategy.feature3",
+    ],
+    theme: "teal",
+    size: "small",
+    href: "/servicios/consultoria-estrategica",
     slug: "services.strategy.slug",
   },
   {
     icon: FaCogs,
     title: "services.automation.title",
     description: "services.automation.description",
-    features: ["services.automation.feature1", "services.automation.feature2"],
-    theme: "creative",
-    size: "large", // 2/3 width
-    href: "/services/automation",
+    features: [
+      "services.automation.feature1",
+      "services.automation.feature2",
+      "services.automation.feature3",
+    ],
+    theme: "azul-profundo",
+    size: "large",
+    href: "/servicios/automatizacion",
     slug: "services.automation.slug",
   },
   {
@@ -38,24 +47,24 @@ export const services: Service[] = [
       "services.innovation.feature2",
       "services.innovation.feature3",
     ],
-    theme: "accent",
-    size: "large", // 2/3 width
-    href: "/services/innovation",
+    theme: "mandarina",
+    size: "large",
+    href: "/servicios/innovacion-tecnologica",
     slug: "services.innovation.slug",
   },
   {
-    icon: FaGamepad,
-    title: "services.immersive.title",
-    description: "services.immersive.description",
+    icon: FaEye,
+    title: "services.immersive-marketing.title",
+    description: "services.immersive-marketing.description",
     features: [
-      "services.immersive.feature1",
-      "services.immersive.feature2",
-      "services.immersive.feature3",
+      "services.immersive-marketing.feature1",
+      "services.immersive-marketing.feature2",
+      "services.immersive-marketing.feature3",
     ],
-    theme: "warm",
-    size: "small", // 1/3 width
-    href: "/services/immersive",
-    slug: "services.immersive.slug",
+    theme: "violeta",
+    size: "small",
+    href: "/servicios/marketing-inmersivo",
+    slug: "services.immersive-marketing.slug",
   },
   {
     icon: FaGraduationCap,
@@ -65,11 +74,10 @@ export const services: Service[] = [
       "services.training.feature1",
       "services.training.feature2",
       "services.training.feature3",
-      "services.training.feature4",
     ],
-    theme: "secondary",
-    size: "small", // 1/3 width
-    href: "/services/training",
+    theme: "azul-profundo",
+    size: "small",
+    href: "/servicios/formacion",
     slug: "services.training.slug",
   },
   {
@@ -82,9 +90,9 @@ export const services: Service[] = [
       "services.grants.feature3",
       "services.grants.feature4",
     ],
-    theme: "electric",
-    size: "large", // 2/3 width
-    href: "/services/grants",
+    theme: "teal",
+    size: "large",
+    href: "/servicios/subvenciones",
     slug: "services.grants.slug",
   },
 ];

@@ -7,6 +7,7 @@ interface BaseButtonProps {
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   darkBg?: boolean;
+  borderColor?: "teal" | "white";
 }
 
 interface LinkButtonProps extends BaseButtonProps {
@@ -27,6 +28,7 @@ export default function SecondaryButton({
   size = "md",
   disabled = false,
   darkBg = false,
+  borderColor = "teal",
   ...props
 }: SecondaryButtonProps) {
   const sizeStyles = {
@@ -35,8 +37,17 @@ export default function SecondaryButton({
     lg: "px-12 py-5 text-xl",
   };
 
-  // Conditional styles based on darkBg prop
-  const colorStyles = darkBg
+  // Conditional styles based on borderColor prop
+  const colorStyles = borderColor === "white"
+    ? `
+      text-blanco
+      border-blanco
+      hover:border-blanco
+      hover:text-blanco
+      hover:bg-blanco/10
+      focus:ring-blanco/30
+    `
+    : darkBg
     ? `
       text-blanco
       border-blanco/30

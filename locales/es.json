@@ -13,6 +13,12 @@
       "innovamos": "Innovamos",
       "forYou": "para ti",
       "contigo": "contigo",
+      "valuePropositionLine1": "No necesitas todas las herramientas digitales del mercado.",
+      "valuePropositionLine2": "Necesitas estrategias que transformen tu forma de trabajar y de conectar con tus clientes.",
+      "cta": {
+        "services": "Nuestros Servicios",
+        "ourWork": "Descubre Nuestro Trabajo"
+      },
       "subtitle": "Llevamos negocios hacia su transformación digital con soluciones a medida, llave en mano.",
       "ctaText": "Agenda una llamada en www.galagaagency.com",
       "scrollDown": "Desliza para continuar"
@@ -42,7 +48,7 @@
       "digitalization": {
         "title": "Digitalización",
         "shortDescription": "Acompañamos a las empresas en su transformación digital con un enfoque práctico y personalizado. Implementamos herramientas como CRM, ERP y automatizaciones, ofreciendo formación y soporte completo.",
-        "cardTitle": "Herramientas Digitales",
+        "cardTitle": "Soluciones Digitales",
         "steps": {
           "systems": "CRM, ERP, automatizaciones",
           "cloud": "Espacios colaborativos en la nube",
@@ -116,7 +122,7 @@
       "feature3": "Soluciones personalizadas",
       "slug": "innovacion-tecnologica"
     },
-    "immersive": {
+    "immersive-marketing": {
       "title": "Marketing inmersivo",
       "description": "Creamos experiencias digitales que conectan con tus clientes.",
       "feature1": "Realidad aumentada",
@@ -997,5 +1003,12 @@
     "backToCases": "Volver a Casos de Estudio"
   },
   "knowMore": "Saber más",
-  "months": "meses"
+  "months": "meses",
+  "service-details": {
+    "immersive-marketing": {
+      "hero": {
+        "eyebrow": "fuckkkkkk thaaat"
+      }
+    }
+  }
 }

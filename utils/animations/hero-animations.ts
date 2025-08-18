@@ -1,17 +1,17 @@
 import { gsap } from "gsap";
 
-export const initAboutHeroAnimations = () => {
+export const initHeroAnimations = () => {
   const tl = gsap.timeline();
 
   // Main title words animate up
-  tl.to(".about-hero-word-1", {
+  tl.to(".hero-word-1", {
     duration: 1,
     y: 0,
     opacity: 1,
     ease: "power3.out",
   })
     .to(
-      ".about-hero-word-2",
+      ".hero-word-2",
       {
         duration: 1,
         y: 0,
@@ -21,7 +21,7 @@ export const initAboutHeroAnimations = () => {
       "-=0.3"
     )
     .to(
-      ".about-hero-subtitle",
+      ".hero-subtitle",
       {
         duration: 0.8,
         y: 0,
@@ -31,15 +31,48 @@ export const initAboutHeroAnimations = () => {
       "-=0.5"
     );
 
+  // Optional hero icon animation (if exists)
+  const heroIcon = document.querySelector(".hero-icon");
+  if (heroIcon) {
+    tl.to(".hero-icon", {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+    }, 0);
+  }
+
+  // Optional hero features/pills animation (if exists)
+  const heroFeatures = document.querySelector(".hero-features");
+  if (heroFeatures) {
+    tl.to(".hero-features", {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power2.out",
+    }, "-=0.3");
+  }
+
+  // Optional hero CTA buttons
+  const heroCTA = document.querySelector(".hero-cta");
+  if (heroCTA) {
+    tl.to(".hero-cta", {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power2.out",
+    }, "-=0.3");
+  }
+
   // Scroll indicator fades in
-  tl.to('.about-hero-scroll-indicator', {
+  tl.to('.hero-scroll-indicator', {
     opacity: 1,
     duration: 0.8,
     ease: "power2.out"
   }, "-=0.5");
 
   // Floating scroll indicator animation
-  tl.to('.about-hero-scroll-indicator .scroll-indicator-wrapper', {
+  tl.to('.hero-scroll-indicator .scroll-indicator-wrapper', {
     y: 8,
     duration: 1.5,
     ease: "power2.inOut",
@@ -56,7 +89,7 @@ export const initAboutHeroAnimations = () => {
       if (!hasScrolled && window.scrollY > 50) {
         hasScrolled = true;
         
-        gsap.to('.about-hero-scroll-indicator', {
+        gsap.to('.hero-scroll-indicator', {
           opacity: 0,
           y: 20,
           duration: 0.6,
@@ -68,7 +101,7 @@ export const initAboutHeroAnimations = () => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
           hasScrolled = false;
-          gsap.to('.about-hero-scroll-indicator', {
+          gsap.to('.hero-scroll-indicator', {
             opacity: 1,
             y: 0,
             duration: 0.6,

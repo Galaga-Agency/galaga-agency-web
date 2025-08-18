@@ -1,20 +1,12 @@
+// /components/sections/services-page/ServiceCard.tsx
 "use client";
 
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
-
-interface ServiceConfig {
-  icon: React.ReactNode;
-  titleKey: string;
-  descriptionKey: string;
-  featuresKeys: string[];
-  slug: string;
-  image?: string;
-  theme: string;
-}
+import { Service } from "@/types/service";
 
 interface ServiceCardProps {
-  service: ServiceConfig;
+  service: Service;
   index: number;
   isHovered?: boolean;
   isNeighborHovered?: boolean;
@@ -85,6 +77,9 @@ export default function ServiceCard({
       border: "border-teal/20",
     };
 
+  // Get the translated slug for the URL
+  const translatedSlug = t(service.slug);
+
   return (
     <div
       className={`
@@ -97,13 +92,6 @@ export default function ServiceCard({
     >
       {/* Background image + whitish overlay */}
       <div className="absolute inset-0 overflow-hidden rounded-2xl md:rounded-3xl">
-        {service.image && (
-          <img
-            src={service.image}
-            alt={t(service.titleKey)}
-            className="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-1000 ease-out group-hover:scale-110"
-          />
-        )}
         <div className="absolute inset-0 bg-white/60 transition-colors duration-500 group-hover:bg-white/50" />
       </div>
 
@@ -115,7 +103,7 @@ export default function ServiceCard({
           text-white/10 rotate-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:text-white/30
         `}
       >
-        {service.icon}
+        <service.icon />
       </div>
 
       {/* Content */}
@@ -131,7 +119,7 @@ export default function ServiceCard({
           group-hover:scale-105 group-hover:shadow-lg
           shadow-lg
         `}>
-          {service.icon}
+          <service.icon />
         </div>
         
         <h3
@@ -142,15 +130,15 @@ export default function ServiceCard({
             transition-transform duration-300 group-hover:scale-[1.02] group-hover:translate-x-1
           `}
         >
-          {t(service.titleKey)}
+          {t(service.title)}
         </h3>
 
         <p className={`text-sm lg:text-base font-semibold pb-6 leading-relaxed flex-1 ${theme.text} group-hover:text-negro transition-colors duration-300`}>
-          {t(service.descriptionKey)}
+          {t(service.description)}
         </p>
 
         <div className="mt-auto flex flex-col gap-3">
-          {service.featuresKeys.map((feature, i) => (
+          {service.features.map((feature, i) => (
             <div key={i} className={`flex items-center gap-3 font-semibold text-sm ${theme.text}`}>
               <div
                 className={`
@@ -166,7 +154,7 @@ export default function ServiceCard({
 
         {/* CTA - Small Circle with Arrow */}
         <Link
-          href={`/servicios/${service.slug}`}
+          href={`/servicios/${translatedSlug}`}
           className="mt-6 flex items-center justify-end"
         >
           <div className={`w-8 h-8 bg-gradient-to-r ${theme.ctaGradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>

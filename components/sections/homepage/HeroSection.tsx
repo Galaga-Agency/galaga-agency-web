@@ -3,32 +3,24 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import SecondaryButton from "@/components/ui/SecondaryButton";
+import Image from "next/image";
 
 export default function HeroSection() {
   const { t } = useTranslation();
   const { isTouchDevice } = useDeviceDetect();
 
+  // Get current language for services link
+  const currentLang = t("meta.lang"); // Assuming you have this translation key
+  const servicesLink = currentLang === "es" ? "/servicios" : "/services";
+
   return (
-    <section className="hero-section relative min-h-screen w-screen flex items-center justify-center overflow-hidden">
+    <section className="hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
       {/* Hero gradient background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, #121c30 0%, #176161 50%, #4cbcc5 100%)",
-        }}
-      ></div>
+      <div className="absolute inset-0 bg-hero-gradient"></div>
 
-      {/* Overlay gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(18, 28, 48, 0.2) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%)",
-        }}
-      ></div>
-
-      <div className="hero-content relative z-40 w-full h-full flex items-center justify-center -pt-18 md:-pt-16 lg:-pt-20 overflow-hidden">
+      <div className="hero-content relative z-40 w-full min-h-screen flex flex-col items-center justify-center pt-0 overflow-hidden">
         <img
           src="/assets/img/symbols/double-chevron-white.webp"
           alt="Double Chevron"
@@ -36,104 +28,61 @@ export default function HeroSection() {
           aria-hidden="true"
         />
 
-        <div className="hero-logo absolute opacity-0">
-          <img
-            className="hero-logo-img opacity-95 drop-shadow-2xl"
-            src="/assets/img/logos/logo-full-white.webp"
-            alt="Galaga Agency"
-            style={{
-              width: "clamp(300px, 50vw, 600px)",
-              height: "auto",
-            }}
-          />
-        </div>
-
-        <div className="absolute">
+        <div className="flex flex-col items-center justify-center w-full px-4">
           <div className="relative">
-            <h1
-              className="hero-title font-bold drop-shadow-2xl opacity-0 mb-6"
-              style={{
-                color: "#ffffff",
-                transform: "translateY(100px)",
-                fontSize: "clamp(3rem, 15vw, 10rem)",
-                lineHeight: "0.9",
-              }}
-            >
+            {/* Logo - Big and centered alone when visible */}
+            <div className="hero-logo fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 z-50">
+              <Image
+                className="hero-logo-img opacity-95 drop-shadow-2xl w-[clamp(500px,80vw,700px)] h-auto"
+                src="/assets/img/logos/logo-full-white.webp"
+                alt="Galaga Agency"
+                height={800}
+                width={800}
+              />
+            </div>
+
+            <h1 className="hero-title font-bold drop-shadow-2xl opacity-0 text-white translate-y-[100px] text-center leading-[0.8]">
               {t("homepage.hero.innovamos")}
             </h1>
+            <div className="hero-subtitle-container absolute pt-[clamp(1rem,6vw,2rem)] w-full flex justify-end right-0">
+              <div className="relative">
+                <span className="hero-para-ti opacity-0 whitespace-nowrap relative inline-block text-hielo text-[clamp(1.2rem,6vw,3rem)] leading-[0.9]">
+                  {t("homepage.hero.forYou")}
+                  <span className="hero-strike-line absolute top-[52%] left-0 w-full h-1 lg:h-[6px] opacity-0 scale-x-0 origin-left bg-hielo -translate-y-1/2"></span>
+                </span>
 
-            <div
-              className="hero-subtitle-container absolute top-full mt-4"
-              style={{ right: "0" }}
-            >
-              <span
-                className="hero-para-ti opacity-0 whitespace-nowrap relative inline-block"
-                style={{
-                  color: "#c3e5ef",
-                  fontSize: "clamp(1.5rem, 8vw, 4rem)",
-                }}
-              >
-                {t("homepage.hero.forYou")}
-                <span
-                  className="hero-strike-line absolute top-[52%] left-0 w-full h-1 lg:h-[6px] opacity-0 scale-x-0 origin-left"
-                  style={{
-                    backgroundColor: "#c3e5ef",
-                    transform: "translateY(-50%)",
-                  }}
-                ></span>
-              </span>
+                <span className="hero-contigo absolute top-0 right-0 opacity-0 whitespace-nowrap inline-block text-hielo text-[clamp(1.2rem,6vw,3rem)] leading-[0.9]">
+                  {t("homepage.hero.contigo")}
+                </span>
+              </div>
+            </div>
+          </div>
 
-              <span
-                className="hero-contigo absolute top-0 opacity-0 whitespace-nowrap inline-block"
-                style={{
-                  color: "#c3e5ef",
-                  right: "0",
-                  fontSize: "clamp(1.5rem, 8vw, 4rem)",
-                }}
-              >
-                {t("homepage.hero.contigo")}
-              </span>
+          <div className="hero-value-proposition pt-8 md:pt-12 z-50 opacity-0 px-2 md:px-12">
+            <div className="text-left">
+              <p className="hero-value-text-line1 text-body-large opacity-0 lg:max-w-auto pb-4 pt-24">
+                {t("homepage.hero.valuePropositionLine1")}
+              </p>
+              <p className="hero-value-text-line2 text-body-large opacity-0 lg:max-w-auto">
+                {t("homepage.hero.valuePropositionLine2")}
+              </p>
+            </div>
+
+            {/* CTA Buttons - Hidden on mobile if not enough space */}
+            <div className="hero-cta-buttons opacity-0 translate-y-4 flex-col md:flex-row gap-4 pt-8 md:pt-12 justify-center items-center hidden md:flex">
+              <PrimaryButton href={servicesLink} bgColor="white" size="lg">
+                {t("homepage.hero.cta.services")}
+              </PrimaryButton>
+
+              <SecondaryButton href="/work" borderColor="white" size="lg">
+                {t("homepage.hero.cta.ourWork")}
+              </SecondaryButton>
             </div>
           </div>
         </div>
 
-        <div className="hero-final-logo absolute opacity-0 flex flex-col items-center">
-          <img
-            src="/assets/img/logos/logo-mobile-white.webp"
-            alt="Galaga Agency"
-            className="opacity-95 drop-shadow-2xl"
-            style={{
-              width: "clamp(150px, 20vw, 250px)",
-              height: "auto",
-              marginBottom: "clamp(2rem, 5vw, 2rem)",
-            }}
-          />
-          <div
-            style={{
-              height: "clamp(4rem, 12vw, 6rem)",
-              width: "clamp(300px, 80vw, 800px)",
-              display: "flex",
-              alignItems: "flex-start",
-              justifyContent: "center",
-              position: "relative",
-            }}
-          >
-            <p
-              className="hero-cta-text text-center opacity-0"
-              style={{
-                color: "#c3e5ef",
-                fontSize: "clamp(1.25rem, 4vw, 2rem)",
-                lineHeight: "1.4",
-              }}
-            >
-              {t("homepage.hero.subtitle")}
-            </p>
-          </div>
-        </div>
+        <ScrollIndicator className="scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
       </div>
-
-      {/* Custom Scroll Indicator */}
-      <ScrollIndicator className="scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
     </section>
   );
 }

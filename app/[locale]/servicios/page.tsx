@@ -7,7 +7,6 @@ import ServicesHeroSection from "@/components/sections/services/ServicesHeroSect
 import ServicesOverviewSection from "@/components/sections/services/ServicesOverviewSection";
 import ServicesProcessSection from "@/components/sections/services/ServicesProcessSection";
 import CTASection from "@/components/sections/homepage/CTASection";
-import { initServicesHeroAnimations } from "@/utils/animations/services-hero-animations";
 import { initServicesOverviewAnimations } from "@/utils/animations/services-overview-animations";
 import { initServicesProcessAnimations } from "@/utils/animations/services-process-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
@@ -15,13 +14,14 @@ import { getLocalizedRoute } from "@/utils/navigation";
 import TechnologyStackSection from "@/components/sections/services/TechnologyStackSection";
 import { initTechnologyStackAnimations } from "@/utils/animations/technology-stack-animations";
 import ServicesCTASection from "@/components/sections/services/ServicesCTASection";
+import { initHeroAnimations } from "@/utils/animations/hero-animations";
 
 export default function ServicesPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
     animations: [
-      initServicesHeroAnimations,
+      initHeroAnimations,
       initServicesOverviewAnimations,
       initServicesProcessAnimations,
       initTechnologyStackAnimations,

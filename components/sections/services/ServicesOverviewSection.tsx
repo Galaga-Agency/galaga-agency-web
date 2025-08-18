@@ -3,109 +3,11 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import ServiceCard from "./ServiceCard";
 import { useState } from "react";
-import {
-  FiTarget,
-  FiZap,
-  FiStar,
-  FiEye,
-  FiBookOpen,
-  FiAward,
-} from "react-icons/fi";
-
-interface Service {
-  icon: React.ReactNode;
-  titleKey: string;
-  descriptionKey: string;
-  featuresKeys: string[];
-  slug: string;
-  image: string;
-  theme: string;
-}
+import { services } from "@/data/services";
 
 export default function ServicesOverviewSection() {
   const { t } = useTranslation();
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-
-  const services: Service[] = [
-    {
-      icon: <FiTarget />,
-      titleKey: "services.strategy.title",
-      descriptionKey: "services.strategy.description",
-      featuresKeys: [
-        "services.strategy.feature1",
-        "services.strategy.feature2",
-        "services.strategy.feature3",
-      ],
-      slug: "strategy",
-      image: "/assets/img/servicios/consultoria.jpg",
-      theme: "teal",
-    },
-    {
-      icon: <FiZap />,
-      titleKey: "services.automation.title",
-      descriptionKey: "services.automation.description",
-      featuresKeys: [
-        "services.automation.feature1",
-        "services.automation.feature2",
-        "services.automation.feature3",
-      ],
-      slug: "automation",
-      image: "/assets/img/servicios/automatizacion.jpg",
-      theme: "azul-profundo",
-    },
-    {
-      icon: <FiStar />,
-      titleKey: "services.innovation.title",
-      descriptionKey: "services.innovation.description",
-      featuresKeys: [
-        "services.innovation.feature1",
-        "services.innovation.feature2",
-        "services.innovation.feature3",
-      ],
-      slug: "innovation",
-      image: "/assets/img/servicios/innovacion.png",
-      theme: "mandarina",
-    },
-    {
-      icon: <FiEye />,
-      titleKey: "services.immersive.title",
-      descriptionKey: "services.immersive.description",
-      featuresKeys: [
-        "services.immersive.feature1",
-        "services.immersive.feature2",
-        "services.immersive.feature3",
-      ],
-      slug: "immersive",
-      image: "/assets/img/servicios/gaming.png",
-      theme: "violeta",
-    },
-    {
-      icon: <FiBookOpen />,
-      titleKey: "services.training.title",
-      descriptionKey: "services.training.description",
-      featuresKeys: [
-        "services.training.feature1",
-        "services.training.feature2",
-        "services.training.feature3",
-      ],
-      slug: "training",
-      image: "/assets/img/servicios/formacion.jpg",
-      theme: "azul-profundo",
-    },
-    {
-      icon: <FiAward />,
-      titleKey: "services.grants.title",
-      descriptionKey: "services.grants.description",
-      featuresKeys: [
-        "services.grants.feature1",
-        "services.grants.feature2",
-        "services.grants.feature3",
-      ],
-      slug: "grants",
-      image: "/assets/img/servicios/subvenciones.png",
-      theme: "teal",
-    },
-  ];
 
   // Define neighbor relationships for a 3-column grid
   const getNeighbors = (index: number): number[] => {

@@ -7,20 +7,20 @@ import AboutHeroSection from "@/components/sections/about-us-page/AboutHeroSecti
 import AboutStorySection from "@/components/sections/about-us-page/AboutStorySection";
 import AboutApproachSection from "@/components/sections/about-us-page/AboutApproachSection";
 import AboutClientsSection from "@/components/sections/about-us-page/AboutClientsSection";
-import { initAboutHeroAnimations } from "@/utils/animations/about-hero-animations";
 import { initAboutStoryAnimations } from "@/utils/animations/about-story-animations";
 import { initAboutClientsAnimations } from "@/utils/animations/about-clients-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { initAboutApproachAnimations } from "@/utils/animations/about-approach-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import AboutCTASection from "@/components/sections/about-us-page/AboutCTASection";
+import { initHeroAnimations } from "@/utils/animations/hero-animations";
 
 export default function AboutPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
     animations: [
-      initAboutHeroAnimations,
+      initHeroAnimations,
       initAboutStoryAnimations,
       initAboutApproachAnimations,
       initAboutClientsAnimations,
