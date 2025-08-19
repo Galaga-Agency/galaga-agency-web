@@ -12,12 +12,13 @@ import MarketingInmersivoProcessSection from "@/components/pages/service-details
 import MarketingInmersivoTechnologiesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoTechnologiesSection";
 import MarketingInmersivoResultsSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoResultsSection";
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
+import { initAboutAnimations } from "@/utils/animations/about-animations";
 
 export default function MarketingInmersivoPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [initHeroAnimations],
+    animations: [initHeroAnimations, initAboutAnimations],
     delay: 100,
   });
 

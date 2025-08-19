@@ -492,20 +492,6 @@
             "virtual-try-on": "Virtual product try-on",
             "gamification": "Gamification elements"
           }
-        },
-        "stats": {
-          "engagement": {
-            "number": "+75%",
-            "label": "Increase in engagement"
-          },
-          "retention": {
-            "number": "+65%",
-            "label": "User retention"
-          },
-          "conversion": {
-            "number": "+45%",
-            "label": "Conversion improvement"
-          }
         }
       },
       "features": {
@@ -527,6 +513,22 @@
         "virtual-tours": {
           "title": "360° virtual tours and immersive virtual environments",
           "description": "Digital representation of physical spaces to tour interactively or apply in campaigns from scratch for gamified experiences."
+        },
+        "gamification": {
+          "title": "Gamification and interactive dynamics",
+          "description": "Games, quizzes or digital challenges that encourage participation, increase brand recall and allow collecting key user data in a fun and non-invasive way."
+        },
+        "virtual-reality": {
+          "title": "Virtual reality applied to product or brand",
+          "description": "Immersive simulations in which the user travels through the brand universe, experiences the storytelling of a fragrance or visualizes a product in an aspirational environment."
+        },
+        "content-management": {
+          "title": "Remote and updatable content system",
+          "description": "All screens and devices connected in network allow updating campaigns, images or promotions from a central platform, without the need for physical displacements."
+        },
+        "ar-experiences": {
+          "title": "Augmented reality experiences",
+          "description": "The customer scans a product or space with their mobile and accesses additional information, videos, animations or gamified experiences that expand engagement."
         },
         "cta": {
           "primary": "Request demo",

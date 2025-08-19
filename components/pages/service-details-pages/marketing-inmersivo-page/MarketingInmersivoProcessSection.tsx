@@ -164,16 +164,6 @@ export default function MarketingInmersivoProcessSection() {
             })}
           </div>
         </div>
-
-        {/* Bottom Statement */}
-        <div className="text-center pt-20 md:pt-24">
-          <div className="marketing-inmersivo-process-quote bg-gradient-to-r from-violeta/10 to-lavanda/10 rounded-3xl p-8 md:p-12 border border-violeta/20">
-            <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-azul-profundo leading-relaxed italic">
-              "{t("service-details-pages.immersive-marketing.process.quote")}"
-            </blockquote>
-          </div>
-        </div>
-
       </div>
     </section>
   );

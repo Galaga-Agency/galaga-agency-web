@@ -492,20 +492,6 @@
             "virtual-try-on": "Prueba virtual de productos",
             "gamification": "Elementos de gamificación"
           }
-        },
-        "stats": {
-          "engagement": {
-            "number": "+75%",
-            "label": "Aumento en engagement"
-          },
-          "retention": {
-            "number": "+65%",
-            "label": "Retención de usuarios"
-          },
-          "conversion": {
-            "number": "+45%",
-            "label": "Mejora en conversión"
-          }
         }
       },
       "features": {
@@ -527,6 +513,22 @@
         "virtual-tours": {
           "title": "Tours virtuales 360° y entornos virtuales inmersivos",
           "description": "Representación digital de espacios físicos para recorrer de forma interactiva o aplicar en campañas desde cero para experiencias gamificadas."
+        },
+        "gamification": {
+          "title": "Gamificación y dinámicas interactivas",
+          "description": "Juegos, quizzes o retos digitales que fomentan la participación, aumentan el recuerdo de marca y permiten recoger datos clave del usuario de forma divertida y no invasiva."
+        },
+        "virtual-reality": {
+          "title": "Realidad virtual aplicada a producto o marca",
+          "description": "Simulaciones inmersivas en las que el usuario recorre el universo de la marca, vive el storytelling de una fragancia o visualiza un producto en un entorno aspiracional."
+        },
+        "content-management": {
+          "title": "Sistema de contenido en remoto y actualizable",
+          "description": "Todas las pantallas y dispositivos conectados en red permiten actualizar campañas, imágenes o promociones desde una plataforma central, sin necesidad de desplazamientos físicos."
+        },
+        "ar-experiences": {
+          "title": "Experiencias de realidad aumentada",
+          "description": "El cliente escanea un producto o espacio con su móvil y accede a información adicional, vídeos, animaciones o experiencias gamificadas que amplían el engagement."
         },
         "cta": {
           "primary": "Solicitar demo",

@@ -1,108 +1,208 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import {
+  FaDesktop,
+  FaEye,
+  FaMobile,
+  FaCube,
+  FaGamepad,
+  FaVrCardboard,
+  FaServer,
+  FaPlay,
+} from "react-icons/fa";
+import FeatureCard from "../FeatureCard";
 
 export default function MarketingInmersivoFeaturesSection() {
   const { t } = useTranslation();
 
   const features = [
     {
-      title: "service-details-pages.immersive-marketing.features.ar-displays.title",
-      description: "service-details-pages.immersive-marketing.features.ar-displays.description", 
-      image: "/assets/img/servicios/marketing-inmersivo/ar-displays.webp"
+      icon: FaDesktop,
+      title:
+        "service-details-pages.immersive-marketing.features.ar-displays.title",
+      description:
+        "service-details-pages.immersive-marketing.features.ar-displays.description",
+      image:
+        "/assets/img/servicios/immersive-marketing/pantallas-digitales.png",
+      theme: "teal" as const,
     },
     {
-      title: "service-details-pages.immersive-marketing.features.interactive-corners.title",
-      description: "service-details-pages.immersive-marketing.features.interactive-corners.description",
-      image: "/assets/img/servicios/marketing-inmersivo/interactive-corners.webp"
+      icon: FaEye,
+      title:
+        "service-details-pages.immersive-marketing.features.interactive-corners.title",
+      description:
+        "service-details-pages.immersive-marketing.features.interactive-corners.description",
+      image:
+        "/assets/img/servicios/immersive-marketing/interactive-corners.png",
+      theme: "azul-profundo" as const,
     },
     {
-      title: "service-details-pages.immersive-marketing.features.smart-mirrors.title",
-      description: "service-details-pages.immersive-marketing.features.smart-mirrors.description",
-      image: "/assets/img/servicios/marketing-inmersivo/smart-mirrors.webp"
+      icon: FaMobile,
+      title:
+        "service-details-pages.immersive-marketing.features.smart-mirrors.title",
+      description:
+        "service-details-pages.immersive-marketing.features.smart-mirrors.description",
+      image: "/assets/img/servicios/immersive-marketing/smart-mirror.png",
+      theme: "mandarina" as const,
     },
     {
-      title: "service-details-pages.immersive-marketing.features.virtual-tours.title", 
-      description: "service-details-pages.immersive-marketing.features.virtual-tours.description",
-      image: "/assets/img/servicios/marketing-inmersivo/virtual-tours.webp"
-    }
+      icon: FaCube,
+      title:
+        "service-details-pages.immersive-marketing.features.virtual-tours.title",
+      description:
+        "service-details-pages.immersive-marketing.features.virtual-tours.description",
+      image: "/assets/img/servicios/immersive-marketing/tour-virtuales.png",
+      theme: "violeta" as const,
+    },
+    {
+      icon: FaGamepad,
+      title: "service-details-pages.immersive-marketing.features.gamification.title",
+      description:
+        "service-details-pages.immersive-marketing.features.gamification.description",
+      image: "/assets/img/servicios/immersive-marketing/gamification.png",
+      theme: "teal" as const,
+    },
+    {
+      icon: FaVrCardboard,
+      title: "service-details-pages.immersive-marketing.features.virtual-reality.title",
+      description:
+        "service-details-pages.immersive-marketing.features.virtual-reality.description",
+      image: "/assets/img/servicios/immersive-marketing/virtual-reality.png",
+      theme: "azul-profundo" as const,
+    },
+    {
+      icon: FaServer,
+      title: "service-details-pages.immersive-marketing.features.content-management.title",
+      description:
+        "service-details-pages.immersive-marketing.features.content-management.description",
+      image:
+        "/assets/img/servicios/immersive-marketing/content-management.webp",
+      theme: "mandarina" as const,
+    },
+    {
+      icon: FaPlay,
+      title: "service-details-pages.immersive-marketing.features.ar-experiences.title",
+      description:
+        "service-details-pages.immersive-marketing.features.ar-experiences.description",
+      image: "/assets/img/servicios/immersive-marketing/ar-experience.png",
+      theme: "violeta" as const,
+    },
   ];
 
   return (
-    <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-azul-profundo relative overflow-hidden">
-      
-      <div className="container relative z-10">
-        
-        <div className="text-center pb-16 md:pb-20">
-          <span className="text-turquesa font-medium tracking-wider uppercase text-sm pb-6 block">
-            {t("service-details-pages.immersive-marketing.features.eyebrow")}
-          </span>
-          
-          <h2 className="section-title text-blanco leading-tight pb-8">
+    <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
+      <div className="container relative z-10 pb-24">
+        <div className="text-center pb-16">
+          <h2 className="section-title text-blanco pb-8 mb-0">
             {t("service-details-pages.immersive-marketing.features.title")}
           </h2>
-          
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed px-4">
+          <p className="text-lg md:text-xl text-hielo leading-relaxed">
             {t("service-details-pages.immersive-marketing.features.subtitle")}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        {/* Mobile Layout - Simple grid */}
+        <div className="grid grid-cols-1 gap-6 md:hidden">
           {features.map((feature, index) => (
-            <div 
+            <FeatureCard
               key={index}
-              className={`marketing-inmersivo-feature-card-${index + 1} group cursor-pointer`}
-            >
-              <div className="bg-blanco/10 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-blanco/20 transition-all duration-500 hover:bg-blanco/15 hover:scale-[1.02] hover:shadow-3xl">
-                
-                <div className="relative h-64 md:h-72 overflow-hidden">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                    style={{ backgroundImage: `url('${feature.image}')` }}
-                  />
-                  
-                  <div className="absolute top-6 right-6">
-                    <div className="w-12 h-12 bg-blanco/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-blanco/30">
-                      <span className="text-blanco font-bold text-lg">
-                        {(index + 1).toString().padStart(2, '0')}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-blanco pb-4 leading-tight group-hover:text-lavanda transition-colors duration-300">
-                    {t(feature.title)}
-                  </h3>
-                  
-                  <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                    {t(feature.description)}
-                  </p>
-
-                  <div className="flex justify-end pt-6">
-                    <div className="w-8 h-8 bg-lavanda/20 rounded-full flex items-center justify-center group-hover:bg-lavanda/40 transition-all duration-300">
-                      <svg className="w-4 h-4 text-lavanda transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+              icon={feature.icon}
+              title={t(feature.title)}
+              description={t(feature.description)}
+              image={feature.image}
+              theme={feature.theme}
+              size="medium"
+            />
           ))}
         </div>
 
-        <div className="text-center pt-16 md:pt-20">
-          <div className="inline-flex flex-col md:flex-row gap-6">
-            <button className="btn-primary bg-gradient-to-r from-lavanda to-violeta hover:from-violeta hover:to-lavanda transition-all duration-300 px-8 py-4 text-lg font-semibold">
-              {t("service-details-pages.immersive-marketing.features.cta.primary")}
-            </button>
-            <button className="btn-outline border-2 border-lavanda text-lavanda hover:bg-lavanda hover:text-azul-profundo transition-all duration-300 px-8 py-4 text-lg font-semibold">
-              {t("service-details-pages.immersive-marketing.features.cta.secondary")}
-            </button>
-          </div>
-        </div>
+        {/* Desktop Bento Grid - 12 column system with varying widths */}
+        <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8">
+          {/* Row 1: 40% + 60% */}
+          <FeatureCard
+            icon={features[0].icon}
+            title={t(features[0].title)}
+            description={t(features[0].description)}
+            image={features[0].image}
+            theme={features[0].theme}
+            size="medium"
+            className="col-span-5"
+          />
 
+          <FeatureCard
+            icon={features[1].icon}
+            title={t(features[1].title)}
+            description={t(features[1].description)}
+            image={features[1].image}
+            theme={features[1].theme}
+            size="medium"
+            className="col-span-7"
+          />
+
+          {/* Row 2: 30% + 70% */}
+          <FeatureCard
+            icon={features[2].icon}
+            title={t(features[2].title)}
+            description={t(features[2].description)}
+            image={features[2].image}
+            theme={features[2].theme}
+            size="medium"
+            className="col-span-4"
+          />
+
+          <FeatureCard
+            icon={features[3].icon}
+            title={t(features[3].title)}
+            description={t(features[3].description)}
+            image={features[3].image}
+            theme={features[3].theme}
+            size="medium"
+            className="col-span-8"
+          />
+
+          {/* Row 3: 65% + 35% */}
+          <FeatureCard
+            icon={features[4].icon}
+            title={t(features[4].title)}
+            description={t(features[4].description)}
+            image={features[4].image}
+            theme={features[4].theme}
+            size="medium"
+            className="col-span-8"
+          />
+
+          <FeatureCard
+            icon={features[5].icon}
+            title={t(features[5].title)}
+            description={t(features[5].description)}
+            image={features[5].image}
+            theme={features[5].theme}
+            size="medium"
+            className="col-span-4"
+          />
+
+          {/* Row 4: 45% + 55% */}
+          <FeatureCard
+            icon={features[6].icon}
+            title={t(features[6].title)}
+            description={t(features[6].description)}
+            image={features[6].image}
+            theme={features[6].theme}
+            size="medium"
+            className="col-span-5"
+          />
+
+          <FeatureCard
+            icon={features[7].icon}
+            title={t(features[7].title)}
+            description={t(features[7].description)}
+            image={features[7].image}
+            theme={features[7].theme}
+            size="medium"
+            className="col-span-7"
+          />
+        </div>
       </div>
     </section>
   );
