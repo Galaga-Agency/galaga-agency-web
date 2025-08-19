@@ -8,8 +8,40 @@
     "cases": "Success Stories",
     "language": "Language"
   },
+  "footer": {
+    "description": "We transform businesses through digital solutions that work.",
+    "services": "Services",
+    "digitalConsulting": "Digital consulting",
+    "automation": "Automation",
+    "immersiveMarketing": "Immersive marketing",
+    "training": "Training",
+    "contact": "Contact",
+    "getInTouch": "Get in touch",
+    "location": "Telde, Gran Canaria, Spain",
+    "allRightsReserved": "All rights reserved",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "followUs": "Follow us"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "Sorry, the page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go home",
+    "goBack": "Go back",
+    "contactUs": "Contact us",
+    "helpfulLinks": "Helpful links",
+    "links": {
+      "about": "About us",
+      "aboutDesc": "Learn our story",
+      "services": "Services",
+      "servicesDesc": "Discover what we can do",
+      "contact": "Contact",
+      "contactDesc": "Get in touch",
+      "email": "Direct email"
+    }
+  },
   "homepage": {
-    "hero": {
+    "hero-section": {
       "innovamos": "We innovate",
       "forYou": "for you",
       "contigo": "with you",
@@ -23,7 +55,7 @@
       },
       "scrollDown": "Swipe to continue"
     },
-    "about": {
+    "about-section": {
       "eyebrow": "What we do",
       "mainTitle": "Your partner in digitalization, interactive experiences and business growth",
       "subtitle": "At Galaga we help companies grow without losing control and focus on what really matters. We offer a practical approach that combines strategy, digital tools and creativity.",
@@ -33,7 +65,7 @@
       "organizeDesc": "Systems that organize your chaos",
       "automateDesc": "AI that works while you sleep",
       "connectDesc": "Customers who don't forget you",
-      "services": {
+      "services-block": {
         "title": "Business technology projects",
         "description": "Galaga Agency manages your business technology project from strategy design to solution development and implementation follow-up.",
         "highlight": "We take care of the entire process so you don't have to worry about anything.",
@@ -45,7 +77,7 @@
           "support": "Follow-up and support"
         }
       },
-      "digitalization": {
+      "digitalization-block": {
         "title": "Digitalization",
         "shortDescription": "We accompany companies in their digital transformation with a practical and personalized approach. We implement tools like CRM, ERP and automations, offering complete training and support.",
         "cardTitle": "Digital Tools",
@@ -56,7 +88,7 @@
           "grants": "Grant management"
         }
       },
-      "clients": {
+      "clients-block": {
         "title": "Our clients",
         "shortDescription": "We work with companies that need to digitize their businesses but don't have the knowledge, tools or time to do it. We give them clarity and help them organize.",
         "retail": {
@@ -73,7 +105,7 @@
         }
       }
     },
-    "whyChoose": {
+    "whyChoose-section": {
       "title": "Why choose us?",
       "intro": "We don't focus on digitalization",
       "mainMessage": "We focus on offering solutions to make your business more competitive, efficient and relevant.",
@@ -91,14 +123,14 @@
       }
     }
   },
-  "partners": {
+  "partners-section": {
     "title": "Our partners",
     "subtitle": "We work with the best to offer you exceptional results"
   },
-  "services": {
+  "services-section": {
     "title": "Services that transform businesses",
     "subtitle": "Comprehensive solutions that combine strategy, technology and creativity to transform your business.",
-    "strategy": {
+    "strategic-consulting": {
       "title": "Strategic consulting",
       "description": "We analyze your business and design a personalized transformation plan.",
       "feature1": "Process analysis",
@@ -114,7 +146,7 @@
       "feature3": "System integration",
       "slug": "automation"
     },
-    "innovation": {
+    "technological-innovation": {
       "title": "Technological innovation",
       "description": "We apply the latest technologies to improve your business.",
       "feature1": "Artificial intelligence",
@@ -130,7 +162,7 @@
       "feature3": "Gamification",
       "slug": "immersive-marketing"
     },
-    "training": {
+    "training-and-support": {
       "title": "Training and support",
       "description": "We train your team to work autonomously.",
       "feature1": "Personalized training",
@@ -138,7 +170,7 @@
       "feature3": "Continuous monitoring",
       "slug": "training"
     },
-    "grants": {
+    "grants-management": {
       "title": "Grant management",
       "description": "We identify and manage public aid for your project.",
       "feature1": "Digital Kit",
@@ -152,190 +184,492 @@
       "description": "Schedule a free consultation and discover how we can help you.",
       "contact": "Contact us",
       "learnMore": "View all services"
-    },
-    "overview": {
-      "eyebrow": "What we do",
-      "title": "Experiences that transform brand interaction",
-      "subtitle": "We create immersive digital spaces that emotionally connect with your customers and generate measurable results.",
-      "what-we-do": {
-        "title": "We connect brands and customers through immersive experiences",
-        "description": "We design and develop interactive digital experiences that use augmented reality, smart displays and sensory technology to create unique emotional connections.",
-        "highlight": "Each experience is designed to generate engagement, increase sales and create lasting memories."
-      },
-      "points": {
-        "immersive-experiences": {
-          "title": "Personalized immersive experiences",
-          "description": "We design digital environments that adapt to each user's behavior and preferences."
-        },
-        "ar-technology": {
-          "title": "Augmented reality technology",
-          "description": "We implement advanced AR to create natural interactions between the physical and digital world."
-        },
-        "customer-connection": {
-          "title": "Emotional connection with customers",
-          "description": "We create unique moments that generate deep emotional bonds with your brand."
-        }
-      },
-      "visual": {
-        "title": "Immersive technologies",
-        "subtitle": "Tools we use",
-        "features": {
-          "ar-filters": "Custom AR filters",
-          "interactive-content": "Interactive content",
-          "virtual-try-on": "Virtual product try-on",
-          "gamification": "Gamification elements"
-        }
-      },
-      "stats": {
-        "engagement": {
-          "number": "+75%",
-          "label": "Increase in engagement"
-        },
-        "retention": {
-          "number": "+65%",
-          "label": "User retention"
-        },
-        "conversion": {
-          "number": "+45%",
-          "label": "Conversion improvement"
-        }
-      }
-    },
-    "features": {
-      "eyebrow": "Our capabilities",
-      "title": "Technologies that create unique experiences",
-      "subtitle": "We implement the latest technologies to create spaces that surprise and connect.",
-      "ar-displays": {
-        "title": "Digital displays and showcases integrated in furniture",
-        "description": "Display design with integrated screens that change content by campaign, time slot or visitor type."
-      },
-      "interactive-corners": {
-        "title": "Smart corners with reactive content",
-        "description": "Spaces equipped with proximity sensors that activate lights, sounds or screens according to customer behavior."
-      },
-      "smart-mirrors": {
-        "title": "Interactive digital mirrors",
-        "description": "Allow automatic product suggestions, brand messages or personalized tutorials when the customer tries on an item."
-      },
-      "virtual-tours": {
-        "title": "360° virtual tours and immersive virtual environments",
-        "description": "Digital representation of physical spaces to tour interactively or apply in campaigns from scratch for gamified experiences."
-      },
-      "cta": {
-        "primary": "Request demo",
-        "secondary": "View technologies"
-      }
-    },
-    "process": {
-      "eyebrow": "Our process",
-      "title": "How we create experiences that impact",
-      "subtitle": "A structured 5-phase process that guarantees exceptional results.",
-      "briefing": {
-        "title": "Listen & briefing",
-        "description": "We meet with you to understand your brand, your objectives and your customer. We gather all the key information to align vision and purpose from the beginning."
-      },
-      "creative-concept": {
-        "title": "Creative conceptualization",
-        "description": "We design the experience you want to convey: sensory, interactive, memorable. We apply strategic vision + digital creativity with focus on your audience."
-      },
-      "technical-design": {
-        "title": "Technical design & production",
-        "description": "We develop technical plans, renders and furniture and technology solutions. We take care of manufacturing everything necessary in our own workshops."
-      },
-      "implementation": {
-        "title": "Implementation & testing",
-        "description": "We install and integrate each technological element, event or promotional space. We test and adjust so that everything works perfectly before launch."
-      },
-      "optimization": {
-        "title": "Measurement & optimization",
-        "description": "We analyze usage, interaction and return data. From that information, we improve the experience and optimize future campaigns."
-      },
-      "quote": "Each step is designed to maximize impact and ensure that your investment generates measurable results."
-    },
-    "technologies": {
-      "eyebrow": "Technology stack",
-      "title": "Technologies that power experiences",
-      "subtitle": "We use the most advanced tools to create high-quality immersive experiences.",
-      "ar-platforms": {
-        "title": "Augmented Reality Platforms",
-        "description": "We develop native AR experiences for iOS and Android, plus cross-platform web solutions."
-      },
-      "interactive-displays": {
-        "title": "Interactive Display Systems",
-        "description": "Sensor and touch screen technology to create natural and intuitive interactions."
-      },
-      "content-management": {
-        "title": "Content Management",
-        "description": "Custom systems to update content in real time and manage campaigns remotely."
-      },
-      "analytics": {
-        "title": "Analytics & Tracking",
-        "description": "Advanced tools to measure engagement, user behavior and ROI of experiences."
-      },
-      "stats": {
-        "platforms": {
-          "number": "15+",
-          "label": "Supported platforms"
-        },
-        "devices": {
-          "number": "500+",
-          "label": "Compatible devices"
-        },
-        "integrations": {
-          "number": "25+",
-          "label": "Available integrations"
-        },
-        "uptime": {
-          "number": "99.9%",
-          "label": "Uptime"
-        }
-      }
-    },
-    "results": {
-      "eyebrow": "Results you get",
-      "title": "Real impact on your business",
-      "subtitle": "Our immersive experiences generate measurable results and transform the relationship with your customers.",
-      "emotional-connection": {
-        "title": "Greater emotional connection with customers",
-        "description": "Interactive, sensory and digital experiences generate memory and emotional bonding with the brand.",
-        "metric": "+42%",
-        "detail": "brand fixation compared to traditional spaces."
-      },
-      "conversion-increase": {
-        "title": "Increase in point-of-sale conversion",
-        "description": "Data-driven displays, personalized recommendations and interactive corners increase purchase intention.",
-        "metric": "Up to +30%",
-        "detail": "in featured product sales."
-      },
-      "data-driven-decisions": {
-        "title": "Data-driven decision making",
-        "description": "With sensors and real-time analytics, brands better understand how their customer behaves in space.",
-        "metric": "Optimization",
-        "detail": "of promotions and reduction of unnecessary stock."
-      },
-      "space-optimization": {
-        "title": "Better use of physical space",
-        "description": "Furniture with screen or digital showcase allows communicating several campaigns in the same place, without recurring production costs.",
-        "metric": "Savings",
-        "detail": "in physical materials and greater flexibility."
-      },
-      "real-time-personalization": {
-        "title": "Real-time personalization",
-        "description": "Adapting content according to time slot, location or customer type positions you thanks to digitalization.",
-        "metric": "Campaigns",
-        "detail": "more relevant and better received."
-      },
-      "competitive-advantage": {
-        "title": "Competitive advantage over other brands",
-        "description": "Offering differentiating experiences in retail and events positions your brand as innovative and close.",
-        "metric": "Boosts",
-        "detail": "positioning and loyalty."
-      },
-      "quote": "The new physical experience... is digital, measurable and human.",
-      "quote-author": "Immersive Marketing Team"
     }
   },
-  "caseStudies": {
+  "homepage-cta": {
+    "scheduleCall": "Schedule a call",
+    "knowMore": "Learn more",
+    "directContact": "Direct contact:",
+    "getInTouch": "Get in touch",
+    "massive": {
+      "line1": "Stop waiting",
+      "line2": "Start growing",
+      "subtitle": "Your business transformation begins with one conversation"
+    }
+  },
+  "about-page": {
+    "hero-section": {
+      "eyebrow": "About us",
+      "encendemos": "We ignite",
+      "tuExito": "your success",
+      "subtitle": "We transform businesses through digital solutions that work, combining business strategy, automation, experience design and technological creativity.",
+      "scroll": "Discover",
+      "stats": {
+        "yearsExperience": "Years of experience",
+        "projectsCompleted": "Projects completed",
+        "humanApproach": "Human approach"
+      }
+    },
+    "story-section": {
+      "eyebrow": "The journey to Galaga",
+      "title": "Our story",
+      "subtitle": "Our trajectory unites two universes: more than 35 years of family experience in design and assembly of commercial spaces, and the creation in 2020 of Team Galaga, evolving into an agency that unites strategy, technology and emotion.",
+      "traditional": {
+        "title": "Business tradition",
+        "description": "More than 35 years of family experience in design and assembly of commercial spaces through dos x dos Grupo Imagen, building the solidity of the traditional business fabric."
+      },
+      "gaming": {
+        "title": "Gaming innovation",
+        "description": "In 2020 Team Galaga was born, an esports club that evolved into Galaga Gaming, specialized in brand activations with immersive experiences and virtual simulators."
+      },
+      "today": {
+        "year": "2025",
+        "title": "Galaga Agency today",
+        "description": "We integrate that double vision: the solidity of traditional business fabric and the creativity of the gaming world, to become an agency that unites strategy, technology and emotion."
+      },
+      "values": {
+        "strategy": "Strategy",
+        "technology": "Technology",
+        "emotion": "Emotion"
+      }
+    },
+    "approach-section": {
+      "eyebrow": "How we work",
+      "title": "How we work?",
+      "subtitle": "Every client is unique. That's why we listen, analyze and design personalized transformation strategies, with three key principles:",
+      "human": {
+        "title": "Real accompaniment",
+        "description": "We are present throughout the process, advising and training so that your team gains autonomy."
+      },
+      "practical": {
+        "title": "Practical solutions",
+        "description": "Useful technology that adapts to your business and not the other way around. We implement tools that really work."
+      },
+      "longterm": {
+        "title": "Long-term vision",
+        "description": "Digitalization thinking about the future of the business and the people who make it possible."
+      },
+      "quote": "Our approach is human, close and 100% results-oriented."
+    },
+    "clients-section": {
+      "eyebrow": "The companies that choose us",
+      "title": "Our clients",
+      "subtitle": "We work with companies that seek to grow in an organized and efficient way, without losing focus on what really matters.",
+      "retail": {
+        "title": "Retail SMEs",
+        "description": "They seek better operational management, modernize their stores and attract new audiences with memorable experiences."
+      },
+      "growing": {
+        "title": "Growing companies",
+        "description": "They need to organize processes, free up management time and make decisions based on real data."
+      },
+      "innovative": {
+        "title": "Innovative brands",
+        "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
+      },
+      "featured": {
+        "title": "Collaborations that showcase our impact",
+        "subtitle": "Our latest works and real results with companies that trusted our vision"
+      },
+      "impact": {
+        "base-impressions": "Base eLEAGUE Impressions",
+        "gameshow-attendees": "Game Show Attendees",
+        "title": "Global impact achieved",
+        "projects": "Projects completed",
+        "impressions": "Total impressions",
+        "attendees": "Event attendees",
+        "satisfaction": "Client satisfaction",
+        "summary": "We improve management through personalized tools and activate brands with immersive experiences that generate measurable results."
+      }
+    },
+    "cta-section": {
+      "line1": "Ready to",
+      "line2": "work together?",
+      "subtitle": "Discover how we can help your business or let's start a conversation",
+      "seeServices": "See services",
+      "getInTouch": "Let's talk",
+      "directContact": "Prefer to talk directly?"
+    }
+  },
+  "services-page": {
+    "hero-section": {
+      "eyebrow": "Our services",
+      "creamos": "We create the future",
+      "elFuturo": "of your business",
+      "subtitle": "At Galaga we help companies grow without losing control and focus on what really matters."
+    },
+    "overview-section": {
+      "eyebrow": "What we offer",
+      "title": "Complete services",
+      "subtitle": "From strategy to implementation, we accompany you in every step of your digital transformation.",
+      "learnMore": "Learn more"
+    },
+    "process-section": {
+      "eyebrow": "Our process",
+      "title": "How we work",
+      "subtitle": "A proven process that guarantees exceptional results in every project.",
+      "discovery": {
+        "title": "Discovery",
+        "description": "We analyze your business, objectives and current challenges."
+      },
+      "strategy": {
+        "title": "Strategy",
+        "description": "We design a personalized plan with clear objectives."
+      },
+      "implementation": {
+        "title": "Implementation",
+        "description": "We execute solutions with precision and quality."
+      },
+      "optimization": {
+        "title": "Optimization",
+        "description": "We continuously improve and guarantee success."
+      },
+      "cta": {
+        "title": "Ready to start?",
+        "description": "Let's talk about your project and see how we can help.",
+        "startProject": "Start project",
+        "learnMore": "Learn more"
+      }
+    },
+    "technologies-section": {
+      "eyebrow": "Our Technology Arsenal",
+      "title": "Expert solutions, infinite possibilities",
+      "subtitle": "Our team brings deep expertise across diverse technology domains. These proven tools power our solutions, while we seamlessly integrate the latest innovations to perfectly match your project's vision.",
+      "message": "We scale with you. Your business grows, our tech arsenal grows too."
+    },
+    "cta-section": {
+      "line1": "The best ideas are born",
+      "line2": "from real challenges.",
+      "subtitle": "Explore our portfolio to see how we've transformed businesses with these technologies. Every project tells a story of innovation and growth.",
+      "seePortfolio": "Explore Our Work",
+      "getStarted": "Start Your Project",
+      "readyToStart": "Ready to start your digital transformation?"
+    }
+  },
+  "contact-page": {
+    "hero-section": {
+      "eyebrow": "Contact",
+      "hablemos": "Let's talk about",
+      "proyecto": "your project",
+      "subtitle": "We're here to make your ideas come true. Tell us what you have in mind."
+    },
+    "section": {
+      "eyebrow": "Get in Touch",
+      "title": "Everything starts with a conversation",
+      "subtitle": "We guide you from initial analysis to complete implementation, ensuring each step generates real value for your business"
+    },
+    "info": {
+      "title": "Start your project",
+      "description": "Whether you need strategic consulting, digital transformation, or innovative solutions, we're here to help you achieve your goals.",
+      "email": "Email",
+      "location": "Location",
+      "locationText": "Las Palmas de Gran Canaria, Spain",
+      "schedule": "Schedule",
+      "scheduleText": "Monday to Friday, 9:00 - 18:00"
+    },
+    "social": {
+      "title": "Follow us",
+      "description": "Follow us for updates and insights"
+    },
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+34 123 456 789",
+      "serviceInterest": "Service of Interest",
+      "selectService": "Select a service",
+      "message": "Project Details",
+      "messagePlaceholder": "Tell us about your project, goals, and timeline...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
+      "services": {
+        "strategy": "Strategic Consulting",
+        "automation": "Digital Automation",
+        "innovation": "Innovation & R&D",
+        "immersive": "Immersive Experiences",
+        "training": "Training & Development",
+        "grants": "Grant Assistance",
+        "other": "Other Services"
+      },
+      "success": {
+        "title": "Message Sent Successfully!",
+        "description": "Thank you for reaching out. We've received your message and will get back to you as soon as possible with next steps for your project."
+      },
+      "validation": {
+        "nameRequired": "Full name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "A message is required"
+      }
+    }
+  },
+  "case-studies-page": {
+    "hero-section": {
+      "eyebrow": "Success stories",
+      "innovacion": "Innovation",
+      "conImpacto": "with real impact",
+      "subtitle": "Every project is a transformation story. Discover how we have helped our clients achieve their goals."
+    },
+    "grid-section": {
+      "eyebrow": "Our Projects",
+      "title": "Success Stories",
+      "subtitle": "Each project is unique and designed to solve specific challenges. Here are some examples of our work.",
+      "challenge": "Challenge",
+      "result": "Result",
+      "results": "Results",
+      "readMore": "Read full case"
+    }
+  },
+  "project-details-page": {
+    "volverProyectos": "Back to Projects",
+    "challenge": {
+      "eyebrow": "The Situation"
+    },
+    "solution": {
+      "eyebrow": "Our Approach"
+    },
+    "results": {
+      "eyebrow": "The Impact"
+    },
+    "metrics": {
+      "eyebrow": "Project Results",
+      "title": "Measurable Impact",
+      "subtitle": "Real numbers from real results"
+    },
+    "summary": {
+      "title": "Project Success",
+      "description": "This project demonstrates our ability to deliver transformative digital solutions that drive real business results."
+    },
+    "projectDetails": "Project Details",
+    "projectDuration": "Project duration",
+    "months": "months",
+    "projectType": "Type",
+    "problemsDetected": "Problems detected",
+    "technologiesUsed": "Technologies used",
+    "implementedTechnologies": "Implemented Technologies",
+    "common": {
+      "notFound": "Project Not Found",
+      "projectNotFound": "The requested project could not be found.",
+      "backToCases": "Back to portfolio"
+    }
+  },
+  "service-details-pages": {
+    "immersive-marketing": {
+      "overview": {
+        "eyebrow": "What we do",
+        "title": "Experiences that transform brand interaction",
+        "subtitle": "We create immersive digital spaces that emotionally connect with your customers and generate measurable results.",
+        "what-we-do": {
+          "title": "We connect brands and customers through immersive experiences",
+          "description": "We design and develop interactive digital experiences that use augmented reality, smart displays and sensory technology to create unique emotional connections.",
+          "highlight": "Each experience is designed to generate engagement, increase sales and create lasting memories."
+        },
+        "points": {
+          "immersive-experiences": {
+            "title": "Personalized immersive experiences",
+            "description": "We design digital environments that adapt to each user's behavior and preferences."
+          },
+          "ar-technology": {
+            "title": "Augmented reality technology",
+            "description": "We implement advanced AR to create natural interactions between the physical and digital world."
+          },
+          "customer-connection": {
+            "title": "Emotional connection with customers",
+            "description": "We create unique moments that generate deep emotional bonds with your brand."
+          }
+        },
+        "visual": {
+          "title": "Immersive technologies",
+          "subtitle": "Tools we use",
+          "features": {
+            "ar-filters": "Custom AR filters",
+            "interactive-content": "Interactive content",
+            "virtual-try-on": "Virtual product try-on",
+            "gamification": "Gamification elements"
+          }
+        },
+        "stats": {
+          "engagement": {
+            "number": "+75%",
+            "label": "Increase in engagement"
+          },
+          "retention": {
+            "number": "+65%",
+            "label": "User retention"
+          },
+          "conversion": {
+            "number": "+45%",
+            "label": "Conversion improvement"
+          }
+        }
+      },
+      "features": {
+        "eyebrow": "Our capabilities",
+        "title": "Technologies that create unique experiences",
+        "subtitle": "We implement the latest technologies to create spaces that surprise and connect.",
+        "ar-displays": {
+          "title": "Digital displays and showcases integrated in furniture",
+          "description": "Display design with integrated screens that change content by campaign, time slot or visitor type."
+        },
+        "interactive-corners": {
+          "title": "Smart corners with reactive content",
+          "description": "Spaces equipped with proximity sensors that activate lights, sounds or screens according to customer behavior."
+        },
+        "smart-mirrors": {
+          "title": "Interactive digital mirrors",
+          "description": "Allow automatic product suggestions, brand messages or personalized tutorials when the customer tries on an item."
+        },
+        "virtual-tours": {
+          "title": "360° virtual tours and immersive virtual environments",
+          "description": "Digital representation of physical spaces to tour interactively or apply in campaigns from scratch for gamified experiences."
+        },
+        "cta": {
+          "primary": "Request demo",
+          "secondary": "View technologies"
+        }
+      },
+      "process": {
+        "eyebrow": "Our process",
+        "title": "How we create experiences that impact",
+        "subtitle": "A structured 5-phase process that guarantees exceptional results.",
+        "briefing": {
+          "title": "Listen & briefing",
+          "description": "We meet with you to understand your brand, your objectives and your customer. We gather all the key information to align vision and purpose from the beginning."
+        },
+        "creative-concept": {
+          "title": "Creative conceptualization",
+          "description": "We design the experience you want to convey: sensory, interactive, memorable. We apply strategic vision + digital creativity with focus on your audience."
+        },
+        "technical-design": {
+          "title": "Technical design & production",
+          "description": "We develop technical plans, renders and furniture and technology solutions. We take care of manufacturing everything necessary in our own workshops."
+        },
+        "implementation": {
+          "title": "Implementation & testing",
+          "description": "We install and integrate each technological element, event or promotional space. We test and adjust so that everything works perfectly before launch."
+        },
+        "optimization": {
+          "title": "Measurement & optimization",
+          "description": "We analyze usage, interaction and return data. From that information, we improve the experience and optimize future campaigns."
+        },
+        "quote": "Each step is designed to maximize impact and ensure that your investment generates measurable results."
+      },
+      "technologies": {
+        "eyebrow": "Technology stack",
+        "title": "Technologies that power experiences",
+        "subtitle": "We use the most advanced tools to create high-quality immersive experiences.",
+        "ar-platforms": {
+          "title": "Augmented Reality Platforms",
+          "description": "We develop native AR experiences for iOS and Android, plus cross-platform web solutions."
+        },
+        "interactive-displays": {
+          "title": "Interactive Display Systems",
+          "description": "Sensor and touch screen technology to create natural and intuitive interactions."
+        },
+        "content-management": {
+          "title": "Content Management",
+          "description": "Custom systems to update content in real time and manage campaigns remotely."
+        },
+        "analytics": {
+          "title": "Analytics & Tracking",
+          "description": "Advanced tools to measure engagement, user behavior and ROI of experiences."
+        },
+        "stats": {
+          "platforms": {
+            "number": "15+",
+            "label": "Supported platforms"
+          },
+          "devices": {
+            "number": "500+",
+            "label": "Compatible devices"
+          },
+          "integrations": {
+            "number": "25+",
+            "label": "Available integrations"
+          },
+          "uptime": {
+            "number": "99.9%",
+            "label": "Uptime"
+          }
+        }
+      },
+      "results": {
+        "eyebrow": "Results you get",
+        "title": "Real impact on your business",
+        "subtitle": "Our immersive experiences generate measurable results and transform the relationship with your customers.",
+        "emotional-connection": {
+          "title": "Greater emotional connection with customers",
+          "description": "Interactive, sensory and digital experiences generate memory and emotional bonding with the brand.",
+          "metric": "+42%",
+          "detail": "brand fixation compared to traditional spaces."
+        },
+        "conversion-increase": {
+          "title": "Increase in point-of-sale conversion",
+          "description": "Data-driven displays, personalized recommendations and interactive corners increase purchase intention.",
+          "metric": "Up to +30%",
+          "detail": "in featured product sales."
+        },
+        "data-driven-decisions": {
+          "title": "Data-driven decision making",
+          "description": "With sensors and real-time analytics, brands better understand how their customer behaves in space.",
+          "metric": "Optimization",
+          "detail": "of promotions and reduction of unnecessary stock."
+        },
+        "space-optimization": {
+          "title": "Better use of physical space",
+          "description": "Furniture with screen or digital showcase allows communicating several campaigns in the same place, without recurring production costs.",
+          "metric": "Savings",
+          "detail": "in physical materials and greater flexibility."
+        },
+        "real-time-personalization": {
+          "title": "Real-time personalization",
+          "description": "Adapting content according to time slot, location or customer type positions you thanks to digitalization.",
+          "metric": "Campaigns",
+          "detail": "more relevant and better received."
+        },
+        "competitive-advantage": {
+          "title": "Competitive advantage over other brands",
+          "description": "Offering differentiating experiences in retail and events positions your brand as innovative and close.",
+          "metric": "Boosts",
+          "detail": "positioning and loyalty."
+        },
+        "quote": "The new physical experience... is digital, measurable and human.",
+        "quote-author": "Immersive Marketing Team"
+      }
+    }
+  },
+  "featured-projects": {
+    "energia-solar-canarias": {
+      "category": "Digital transformation",
+      "description": "Progressive web app that unifies all providers in a single responsive interface with CRM connected to ERP.",
+      "metrics": {
+        "platform": "Platform",
+        "monitoring": "Monitoring"
+      },
+      "values": {
+        "unified": "Unified",
+        "realtime": "Real-time"
+      }
+    },
+    "dos-x-dos-grupo-imagen": {
+      "category": "Digitalization",
+      "description": "Complete integration of CRM, ERP and optimized web that transformed operational efficiency.",
+      "metrics": {
+        "integration": "Integration",
+        "performance": "Web performance"
+      },
+      "values": {
+        "complete": "Complete",
+        "optimized": "Optimized"
+      }
+    }
+  },
+  "portfolio": {
     "eyebrow": "Our Projects",
     "title": "Success Stories",
     "subtitle": "Each project is unique and designed to solve specific challenges. Here are some examples of our work.",
@@ -714,477 +1048,6 @@
       "description": "Every project is unique. Discover how we can transform your business with personalized solutions.",
       "viewAll": "View All Cases",
       "startProject": "Start Project"
-    }
-  },
-  "cta": {
-    "readyToTransform": "Ready to transform your business?",
-    "subtitle": "Don't wait any longer. The time for change is now.",
-    "benefit1": {
-      "title": "Results from the first month",
-      "description": "Visible operational improvements from the start"
-    },
-    "benefit2": {
-      "title": "Real support",
-      "description": "We're with you throughout the process"
-    },
-    "benefit3": {
-      "title": "Useful technology",
-      "description": "Practical solutions, not complex"
-    },
-    "scheduleCall": "Schedule a call",
-    "knowMore": "Learn more",
-    "directContact": "Direct contact:",
-    "getInTouch": "Get in touch",
-    "eyebrow": "Time to act",
-    "massive": {
-      "line1": "Stop waiting",
-      "line2": "Start growing",
-      "subtitle": "Your business transformation begins with one conversation"
-    },
-    "island": {
-      "badge": "Free consultation",
-      "title": "Let's build something amazing",
-      "description": "Schedule your strategy session and see immediate results"
-    }
-  },
-  "contact": {
-    "title": "Let's talk about your project",
-    "subtitle": "We're here to help you transform your business. Tell us what you need.",
-    "section": {
-      "eyebrow": "Get in Touch",
-      "title": "Everything starts with a conversation",
-      "subtitle": "We guide you from initial analysis to complete implementation, ensuring each step generates real value for your business"
-    },
-    "info": {
-      "title": "Start your project",
-      "description": "Whether you need strategic consulting, digital transformation, or innovative solutions, we're here to help you achieve your goals.",
-      "email": {
-        "title": "Email Us",
-        "value": "hello@yourcompany.com"
-      },
-      "phone": {
-        "title": "Call Us",
-        "value": "+34 123 456 789"
-      },
-      "response": {
-        "title": "Response Time",
-        "value": "Within 24 hours"
-      },
-      "location": {
-        "title": "Location"
-      },
-      "social": {
-        "title": "Follow us"
-      }
-    },
-    "form": {
-      "name": "Full Name",
-      "namePlaceholder": "Enter your full name",
-      "email": "Email Address",
-      "emailPlaceholder": "Enter your email",
-      "company": "Company",
-      "companyPlaceholder": "Your company name",
-      "phone": "Phone Number",
-      "phonePlaceholder": "+34 123 456 789",
-      "serviceInterest": "Service of Interest",
-      "selectService": "Select a service",
-      "message": "Project Details",
-      "messagePlaceholder": "Tell us about your project, goals, and timeline...",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "privacy": "By submitting this form, you agree to our privacy policy and terms of service.",
-      "services": {
-        "strategy": "Strategic Consulting",
-        "automation": "Digital Automation",
-        "innovation": "Innovation & R&D",
-        "immersive": "Immersive Experiences",
-        "training": "Training & Development",
-        "grants": "Grant Assistance",
-        "other": "Other Services"
-      },
-      "success": {
-        "title": "Message Sent Successfully!",
-        "description": "Thank you for reaching out. We've received your message and will get back to you as soon as possible with next steps for your project."
-      },
-      "validation": {
-        "nameRequired": "Full name is required",
-        "emailRequired": "Email is required",
-        "emailInvalid": "Please enter a valid email address",
-        "messageRequired": "A message is required"
-      }
-    }
-  },
-  "notFound": {
-    "title": "Page not found",
-    "description": "Sorry, the page you're looking for doesn't exist or has been moved.",
-    "goHome": "Go home",
-    "goBack": "Go back",
-    "contactUs": "Contact us",
-    "helpfulLinks": "Helpful links",
-    "links": {
-      "about": "About us",
-      "aboutDesc": "Learn our story",
-      "services": "Services",
-      "servicesDesc": "Discover what we can do",
-      "contact": "Contact",
-      "contactDesc": "Get in touch",
-      "email": "Direct email"
-    }
-  },
-  "footer": {
-    "description": "We transform businesses through digital solutions that work.",
-    "services": "Services",
-    "digitalConsulting": "Digital consulting",
-    "automation": "Automation",
-    "immersiveMarketing": "Immersive marketing",
-    "training": "Training",
-    "contact": "Contact",
-    "getInTouch": "Get in touch",
-    "location": "Telde, Gran Canaria, Spain",
-    "allRightsReserved": "All rights reserved",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "followUs": "Follow us"
-  },
-  "about-page": {
-    "eyebrow": "About us",
-    "hero": {
-      "encendemos": "We ignite",
-      "tuExito": "your success",
-      "subtitle": "We transform businesses through digital solutions that work, combining business strategy, automation, experience design and technological creativity.",
-      "scroll": "Discover",
-      "stats": {
-        "yearsExperience": "Years of experience",
-        "projectsCompleted": "Projects completed",
-        "humanApproach": "Human approach"
-      }
-    },
-    "story": {
-      "eyebrow": "The journey to Galaga",
-      "title": "Our story",
-      "subtitle": "Our trajectory unites two universes: more than 35 years of family experience in design and assembly of commercial spaces, and the creation in 2020 of Team Galaga, evolving into an agency that unites strategy, technology and emotion.",
-      "traditional": {
-        "title": "Business tradition",
-        "description": "More than 35 years of family experience in design and assembly of commercial spaces through dos x dos Grupo Imagen, building the solidity of the traditional business fabric."
-      },
-      "gaming": {
-        "title": "Gaming innovation",
-        "description": "In 2020 Team Galaga was born, an esports club that evolved into Galaga Gaming, specialized in brand activations with immersive experiences and virtual simulators."
-      },
-      "today": {
-        "year": "2025",
-        "title": "Galaga Agency today",
-        "description": "We integrate that double vision: the solidity of traditional business fabric and the creativity of the gaming world, to become an agency that unites strategy, technology and emotion."
-      },
-      "values": {
-        "strategy": "Strategy",
-        "technology": "Technology",
-        "emotion": "Emotion"
-      }
-    },
-    "approach": {
-      "eyebrow": "How we work",
-      "title": "How we work?",
-      "subtitle": "Every client is unique. That's why we listen, analyze and design personalized transformation strategies, with three key principles:",
-      "human": {
-        "title": "Real accompaniment",
-        "description": "We are present throughout the process, advising and training so that your team gains autonomy."
-      },
-      "practical": {
-        "title": "Practical solutions",
-        "description": "Useful technology that adapts to your business and not the other way around. We implement tools that really work."
-      },
-      "longterm": {
-        "title": "Long-term vision",
-        "description": "Digitalization thinking about the future of the business and the people who make it possible."
-      },
-      "quote": "Our approach is human, close and 100% results-oriented."
-    },
-    "clients": {
-      "eyebrow": "The companies that choose us",
-      "title": "Our clients",
-      "subtitle": "We work with companies that seek to grow in an organized and efficient way, without losing focus on what really matters.",
-      "retail": {
-        "title": "Retail SMEs",
-        "description": "They seek better operational management, modernize their stores and attract new audiences with memorable experiences."
-      },
-      "growing": {
-        "title": "Growing companies",
-        "description": "They need to organize processes, free up management time and make decisions based on real data."
-      },
-      "innovative": {
-        "title": "Innovative brands",
-        "description": "They want to differentiate themselves with advanced technology and create lasting emotional connections with their customers."
-      },
-      "featured": {
-        "title": "Collaborations that showcase our impact",
-        "subtitle": "Our latest works and real results with companies that trusted our vision"
-      },
-      "impact": {
-        "base-impressions": "Base eLEAGUE Impressions",
-        "gameshow-attendees": "Game Show Attendees",
-        "title": "Global impact achieved",
-        "projects": "Projects completed",
-        "impressions": "Total impressions",
-        "attendees": "Event attendees",
-        "satisfaction": "Client satisfaction",
-        "summary": "We improve management through personalized tools and activate brands with immersive experiences that generate measurable results."
-      }
-    },
-    "valueProposition": {
-      "eyebrow": "Our value proposition",
-      "title": "Why Galaga Agency?",
-      "subtitle": "We are not a typical consultancy, nor just another agency. Galaga Agency combines business strategy, automation, experience design and technological creativity.",
-      "comparison": {
-        "consultingIT": "IT Consulting",
-        "creativeAgency": "Creative agency",
-        "galagaAgency": "Galaga Agency",
-        "crmErp": "CRM/ERP Implementation",
-        "dataCulture": "Data culture",
-        "interactiveActivations": "Interactive activations",
-        "trainingSupport": "Training and support",
-        "grants": "Grants",
-        "vision360": "360° business vision"
-      },
-      "dataTransformation": {
-        "title": "Data Culture: from chaos to business intelligence",
-        "subtitle": "We turn scattered data into intelligent decisions.",
-        "description": "We implement systems that unify information (CRM, ERP, IoT...), automate tasks, and create dashboards so you make decisions based on data, not assumptions.",
-        "process": {
-          "step1": "We centralize information",
-          "step2": "We automate processes and alerts",
-          "step3": "We create intelligent dashboards",
-          "step4": "We provide support to create a mature and scalable data ecosystem"
-        }
-      }
-    },
-    "cta": {
-      "line1": "Ready to",
-      "line2": "work together?",
-      "subtitle": "Discover how we can help your business or let's start a conversation",
-      "seeServices": "See services",
-      "getInTouch": "Let's talk",
-      "directContact": "Prefer to talk directly?"
-    }
-  },
-  "services-page": {
-    "eyebrow": "Our services",
-    "hero": {
-      "creamos": "We create the future",
-      "elFuturo": "of your business",
-      "subtitle": "At Galaga we help companies grow without losing control and focus on what really matters."
-    },
-    "overview": {
-      "eyebrow": "What we offer",
-      "title": "Complete services",
-      "subtitle": "From strategy to implementation, we accompany you in every step of your digital transformation.",
-      "learnMore": "Learn more"
-    },
-    "process": {
-      "eyebrow": "Our process",
-      "title": "How we work",
-      "subtitle": "A proven process that guarantees exceptional results in every project.",
-      "discovery": {
-        "title": "Discovery",
-        "description": "We analyze your business, objectives and current challenges."
-      },
-      "strategy": {
-        "title": "Strategy",
-        "description": "We design a personalized plan with clear objectives."
-      },
-      "implementation": {
-        "title": "Implementation",
-        "description": "We execute solutions with precision and quality."
-      },
-      "optimization": {
-        "title": "Optimization",
-        "description": "We continuously improve and guarantee success."
-      },
-      "cta": {
-        "title": "Ready to start?",
-        "description": "Let's talk about your project and see how we can help.",
-        "startProject": "Start project",
-        "learnMore": "Learn more"
-      }
-    },
-    "cta": {
-      "line1": "The best ideas are born",
-      "line2": "from real challenges.",
-      "subtitle": "Explore our portfolio to see how we've transformed businesses with these technologies. Every project tells a story of innovation and growth.",
-      "seePortfolio": "Explore Our Work",
-      "getStarted": "Start Your Project",
-      "readyToStart": "Ready to start your digital transformation?"
-    },
-    "technologies": {
-      "eyebrow": "Our Technology Arsenal",
-      "title": "Expert solutions, infinite possibilities",
-      "subtitle": "Our team brings deep expertise across diverse technology domains. These proven tools power our solutions, while we seamlessly integrate the latest innovations to perfectly match your project's vision.",
-      "message": "We scale with you. Your business grows, our tech arsenal grows too."
-    }
-  },
-  "contact-page": {
-    "eyebrow": "Contact",
-    "hero": {
-      "hablemos": "Let's talk about",
-      "proyecto": "your project",
-      "subtitle": "We're here to make your ideas come true. Tell us what you have in mind."
-    },
-    "form": {
-      "eyebrow": "Send us a message",
-      "title": "Let's talk?",
-      "subtitle": "Fill out the form and we'll get in touch with you in less than 24 hours."
-    },
-    "info": {
-      "title": "Contact information",
-      "email": "Email",
-      "location": "Location",
-      "locationText": "Las Palmas de Gran Canaria, Spain",
-      "schedule": "Schedule",
-      "scheduleText": "Monday to Friday, 9:00 - 18:00"
-    },
-    "social": {
-      "title": "Follow us",
-      "description": "Follow us for updates and insights"
-    },
-    "promise": {
-      "title": "24h response guaranteed",
-      "description": "We commit to responding to your inquiry in less than 24 business hours."
-    }
-  },
-  "case-studies-page": {
-    "eyebrow": "Success stories",
-    "hero": {
-      "innovacion": "Innovation",
-      "conImpacto": "with real impact",
-      "subtitle": "Every project is a transformation story. Discover how we have helped our clients achieve their goals."
-    },
-    "grid": {
-      "eyebrow": "Our Projects",
-      "title": "Success Stories",
-      "subtitle": "Each project is unique and designed to solve specific challenges. Here are some examples of our work.",
-      "challenge": "Challenge",
-      "result": "Result",
-      "results": "Results",
-      "readMore": "Read full case"
-    },
-    "categories": {
-      "eyebrow": "Areas of expertise",
-      "title": "Our specialties",
-      "subtitle": "We work in different areas to cover all digital transformation needs of our clients.",
-      "projects": "projects",
-      "digital": "Digitalization",
-      "digitalDesc": "Complete digital transformation with CRM, ERP, automation and web development.",
-      "marketing": "Immersive marketing",
-      "marketingDesc": "Interactive experiences with augmented reality, gamification and brand activations.",
-      "events": "Events",
-      "eventsDesc": "Organization of tech events, gaming fairs and face-to-face experiences.",
-      "cta": {
-        "title": "Have a project in mind?",
-        "description": "Tell us your challenge and let's see how we can help you achieve similar results.",
-        "startProject": "Start project",
-        "viewServices": "View services"
-      }
-    }
-  },
-  "clients": {
-    "energiaSolarCanarias": {
-      "category": "Digital transformation",
-      "description": "We developed a unified progressive web application and CRM connected to ERP with dashboards and automatic synchronization for complete energy management.",
-      "results": {
-        "platforms": "All-in-one",
-        "monitoring": "Real-time"
-      }
-    },
-    "toyota": {
-      "category": "Immersive Marketing",
-      "description": "We designed an activation circuit with simulators and virtual reality at rallies and fairs, combining face-to-face actions with an active online community.",
-      "results": {
-        "impressions": "Total impressions",
-        "leads": "Qualified leads"
-      }
-    },
-    "dos-x-dos-grupo-imagen": {
-      "category": "Digital transformation",
-      "description": "We implemented Zoho CRM, migrated to A3 ERP, created Notion integration and developed new optimized website with Next.js and custom content panel.",
-      "results": {
-        "processes": "Smooth processes",
-        "visibility": "SEO boost"
-      }
-    }
-  },
-  "projects": {
-    "energia-solar": {
-      "category": "Digital transformation",
-      "description": "Progressive web app that unifies all providers in a single responsive interface with CRM connected to ERP.",
-      "metrics": {
-        "platform": "Platform",
-        "monitoring": "Monitoring"
-      },
-      "values": {
-        "unified": "Unified",
-        "realtime": "Real-time"
-      }
-    },
-    "toyota": {
-      "category": "Immersive Marketing",
-      "description": "Circuit of activations with simulators and virtual reality that connected with new audiences.",
-      "metrics": {
-        "reach": "Impressions",
-        "leads": "Qualified leads"
-      }
-    },
-    "dos-x-dos-grupo-imagen": {
-      "category": "Digitalization",
-      "description": "Complete integration of CRM, ERP and optimized web that transformed operational efficiency.",
-      "metrics": {
-        "integration": "Integration",
-        "performance": "Web performance"
-      },
-      "values": {
-        "complete": "Complete",
-        "optimized": "Optimized"
-      }
-    }
-  },
-  "proyecto-detalle": {
-    "volverProyectos": "Back to Projects",
-    "challenge": {
-      "eyebrow": "The Situation"
-    },
-    "solution": {
-      "eyebrow": "Our Approach"
-    },
-    "results": {
-      "eyebrow": "The Impact"
-    },
-    "metrics": {
-      "eyebrow": "Project Results",
-      "title": "Measurable Impact",
-      "subtitle": "Real numbers from real results"
-    },
-    "summary": {
-      "title": "Project Success",
-      "description": "This project demonstrates our ability to deliver transformative digital solutions that drive real business results."
-    },
-    "projectDetails": "Project Details",
-    "projectDuration": "Project duration",
-    "projectType": "Type",
-    "problemsDetected": "Problems detected",
-    "technologiesUsed": "Technologies used",
-    "implementedTechnologies": "Implemented Technologies"
-  },
-  "common": {
-    "notFound": "Project Not Found",
-    "projectNotFound": "The requested project could not be found.",
-    "backToCases": "Back to Case Studies"
-  },
-  "knowMore": "Learn more",
-  "months": "months",
-  "service-details": {
-    "immersive-marketing": {
-      "hero": {
-        "eyebrow": "fuckkkkkk thaaat"
-      }
     }
   }
 }

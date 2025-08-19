@@ -3,22 +3,15 @@
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "../ui/PrimaryButton";
-import SecondaryButton from "../ui/SecondaryButton";
 import { services } from "@/data/services";
 import SocialIcons from "../SocialIcons";
 
 export default function Footer() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 text-white overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-gradient-to-br from-teal-400 to-cyan-300 rounded-full blur-2xl md:blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-tr from-primary-400 to-accent rounded-full blur-2xl md:blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-      </div>
-
       <div className="relative z-10">
         {/* Main footer content */}
         <div className="container px-4 py-12 md:py-16 lg:py-20">
@@ -76,18 +69,27 @@ export default function Footer() {
                   {t("footer.services")}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
-                  {services.map((service, index) => (
-                    <div key={index} className="h-8 flex items-center">
-                      <Link
-                        href={service.href}
-                        className="group text-gray-300 hover:text-white transition-all duration-300 text-base md:text-lg"
-                      >
-                        <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">
-                          {t(service.title)}
-                        </span>
-                      </Link>
-                    </div>
-                  ))}
+                  {services.map((service, index) => {
+                    const translatedSlug = t(service.slug);
+                    // Build the URL with current language prefix
+                    const serviceUrl =
+                      language === "es"
+                        ? `/es/servicios/${translatedSlug}`
+                        : `/en/services/${translatedSlug}`;
+
+                    return (
+                      <div key={index} className="h-8 flex items-center">
+                        <Link
+                          href={serviceUrl}
+                          className="group text-gray-300 hover:text-white transition-all duration-300 text-base md:text-lg"
+                        >
+                          <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">
+                            {t(service.title)}
+                          </span>
+                        </Link>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 

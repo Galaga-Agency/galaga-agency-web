@@ -3,8 +3,8 @@
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
-import ContactHeroSection from "@/components/sections/contact-page/ContactHeroSection";
-import ContactFormSection from "@/components/sections/contact-page/ContactFormSection";
+import ContactHeroSection from "@/components/pages/contact-page/ContactHeroSection";
+import ContactFormSection from "@/components/pages/contact-page/ContactFormSection";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { initContactFormAnimations } from "@/utils/animations/contact-form-animations";
 import { initHeroAnimations } from "@/utils/animations/hero-animations";

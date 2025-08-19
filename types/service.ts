@@ -6,5 +6,4 @@ export interface Service {
   features: string[];
   theme: string;
   size: 'small' | 'large';
-  href: string;
 }

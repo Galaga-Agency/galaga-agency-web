@@ -1,12 +1,12 @@
 "use client";
 
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
-import AboutSection from "@/components/sections/homepage/AboutSection";
-import CTASection from "@/components/sections/homepage/CTASection";
-import HeroSection from "@/components/sections/homepage/HeroSection";
-import ServicesSection from "@/components/sections/homepage/ServicesSection";
-import CaseStudiesSection from "@/components/sections/homepage/CaseStudiesSection";
-import PartnersSection from "@/components/sections/homepage/PartnersSection";
+import AboutSection from "@/components/pages/homepage/AboutSection";
+import CTASection from "@/components/pages/homepage/CTASection";
+import HeroSection from "@/components/pages/homepage/HeroSection";
+import ServicesSection from "@/components/pages/homepage/ServicesSection";
+import CaseStudiesSection from "@/components/pages/homepage/CaseStudiesSection";
+import PartnersSection from "@/components/pages/homepage/PartnersSection";
 import { initHeroTitleAnimation } from "@/utils/animations/homepage-hero-animation";
 import { initHeroScrollAnimation } from "@/utils/animations/homepage-hero-scroll-animation";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";

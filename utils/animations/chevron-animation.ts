@@ -1,4 +1,3 @@
-// utils/chevron-animations.ts
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 

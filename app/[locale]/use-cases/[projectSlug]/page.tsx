@@ -7,10 +7,9 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { getCaseStudyBySlug } from "@/data/case-studies";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import { initProyectoDetalleAnimations } from "@/utils/animations/project-details-animations";
-import ProyectoDetalleHeroSection from "@/components/sections/project-details/ProyectoDetalleHeroSection";
-import ProyectoDetalleContentSection from "@/components/sections/project-details/ProyectoDetalleContentSection";
-import ProyectoDetalleResultsSection from "@/components/sections/project-details/ProyectoDetalleResultsSection";
-import CTASection from "@/components/sections/homepage/CTASection";
+import ProyectoDetalleHeroSection from "@/components/pages/project-details-pages/ProyectoDetalleHeroSection";
+import ProyectoDetalleContentSection from "@/components/pages/project-details-pages/ProyectoDetalleContentSection";
+import CTASection from "@/components/pages/homepage/CTASection";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
 
@@ -45,8 +44,8 @@ export default function ProyectoDetallePage({
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-azul-profundo to-teal">
         <div className="text-center text-blanco">
-          <h1 className="text-4xl font-black pb-4">{t("common.notFound")}</h1>
-          <p className="text-hielo">{t("common.projectNotFound")}</p>
+          <h1 className="text-4xl font-black pb-4">{t("project-details-page.common.notFound")}</h1>
+          <p className="text-hielo">{t("project-details-page.common.projectNotFound")}</p>
         </div>
       </div>
     );
@@ -73,7 +72,6 @@ export default function ProyectoDetallePage({
       <Breadcrumbs items={breadcrumbs} />
       <ProyectoDetalleHeroSection slug={projectSlug} />
       <ProyectoDetalleContentSection slug={projectSlug} />
-      {/* <ProyectoDetalleResultsSection slug={projectSlug} /> */}
       <CTASection />
     </>
   );

@@ -5,15 +5,13 @@ import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import { initHeroAnimations } from "@/utils/animations/hero-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
-import MarketingInmersivoHeroSection from "@/components/sections/services/marketing-inmersivo-page/MarketingInmersivoHeroSection";
+import MarketingInmersivoHeroSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoHeroSection";
 
 export default function MarketingInmersivoPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [
-      initHeroAnimations,
-    ],
+    animations: [initHeroAnimations],
     delay: 100,
   });
 

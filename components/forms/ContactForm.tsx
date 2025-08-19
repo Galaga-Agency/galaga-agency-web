@@ -84,18 +84,18 @@ export default function ContactForm() {
     } catch (emailError) {
       console.error('EmailJS Error:', emailError);
       setIsSubmitting(false);
-      setSubmitError(t("contact.form.error.message"));
+      setSubmitError(t("contact-page.form.error.message"));
     }
   };
 
   const serviceOptions = [
-    { value: "strategy", label: t("contact.form.services.strategy") },
-    { value: "automation", label: t("contact.form.services.automation") },
-    { value: "innovation", label: t("contact.form.services.innovation") },
-    { value: "immersive", label: t("contact.form.services.immersive") },
-    { value: "training", label: t("contact.form.services.training") },
-    { value: "grants", label: t("contact.form.services.grants") },
-    { value: "other", label: t("contact.form.services.other") },
+    { value: "strategy", label: t("contact-page.form.services.strategy") },
+    { value: "automation", label: t("contact-page.form.services.automation") },
+    { value: "innovation", label: t("contact-page.form.services.innovation") },
+    { value: "immersive", label: t("contact-page.form.services.immersive") },
+    { value: "training", label: t("contact-page.form.services.training") },
+    { value: "grants", label: t("contact-page.form.services.grants") },
+    { value: "other", label: t("contact-page.form.services.other") },
   ];
 
   if (isSubmitted) {
@@ -105,10 +105,10 @@ export default function ContactForm() {
           <CheckCircle className="w-10 h-10 text-blanco drop-shadow-lg" />
         </div>
         <h3 className="text-2xl font-bold text-teal py-4 leading-tight">
-          {t("contact.form.success.title")}
+          {t("contact-page.form.success.title")}
         </h3>
         <p className="text-lg text-negro leading-relaxed">
-          {t("contact.form.success.description")}
+          {t("contact-page.form.success.description")}
         </p>
       </div>
     );
@@ -128,26 +128,26 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <CustomInput
           {...register("name", { 
-            required: t("contact.form.validation.nameRequired") || "Full name is required" 
+            required: t("contact-page.form.validation.nameRequired") || "Full name is required" 
           })}
           type="text"
-          label={t("contact.form.name")}
-          placeholder={t("contact.form.namePlaceholder")}
+          label={t("contact-page.form.name")}
+          placeholder={t("contact-page.form.namePlaceholder")}
           error={errors.name?.message}
           required
         />
 
         <CustomInput
           {...register("email", { 
-            required: t("contact.form.validation.emailRequired") || "Email is required",
+            required: t("contact-page.form.validation.emailRequired") || "Email is required",
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: t("contact.form.validation.emailInvalid") || "Please enter a valid email address"
+              message: t("contact-page.form.validation.emailInvalid") || "Please enter a valid email address"
             }
           })}
           type="email"
-          label={t("contact.form.email")}
-          placeholder={t("contact.form.emailPlaceholder")}
+          label={t("contact-page.form.email")}
+          placeholder={t("contact-page.form.emailPlaceholder")}
           error={errors.email?.message}
           required
         />
@@ -158,23 +158,23 @@ export default function ContactForm() {
         <CustomInput
           {...register("company")}
           type="text"
-          label={t("contact.form.company")}
-          placeholder={t("contact.form.companyPlaceholder")}
+          label={t("contact-page.form.company")}
+          placeholder={t("contact-page.form.companyPlaceholder")}
         />
 
         <CustomInput
           {...register("phone")}
           type="tel"
-          label={t("contact.form.phone")}
-          placeholder={t("contact.form.phonePlaceholder")}
+          label={t("contact-page.form.phone")}
+          placeholder={t("contact-page.form.phonePlaceholder")}
         />
       </div>
 
       {/* Service */}
       <CustomSelect
         name="service"
-        label={t("contact.form.serviceInterest")}
-        placeholder={t("contact.form.selectService")}
+        label={t("contact-page.form.serviceInterest")}
+        placeholder={t("contact-page.form.selectService")}
         options={serviceOptions}
         value={watchedValues.service}
         onChange={handleSelectChange}
@@ -183,10 +183,10 @@ export default function ContactForm() {
       {/* Message */}
       <CustomTextarea
         {...register("message", { 
-          required: t("contact.form.validation.messageRequired") || "Project details are required" 
+          required: t("contact-page.form.validation.messageRequired") || "Project details are required" 
         })}
-        label={t("contact.form.message")}
-        placeholder={t("contact.form.messagePlaceholder")}
+        label={t("contact-page.form.message")}
+        placeholder={t("contact-page.form.messagePlaceholder")}
         rows={6}
         error={errors.message?.message}
         required
@@ -204,11 +204,11 @@ export default function ContactForm() {
               <div className="loading-dot-1 w-2 h-2 bg-blanco rounded-full"></div>
               <div className="loading-dot-2 w-2 h-2 bg-blanco rounded-full"></div>
               <div className="loading-dot-3 w-2 h-2 bg-blanco rounded-full"></div>
-              <span>{t("contact.form.sending")}</span>
+              <span>{t("contact-page.form.sending")}</span>
             </div>
           ) : (
             <>
-              <span>{t("contact.form.send")}</span>
+              <span>{t("contact-page.form.send")}</span>
               <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
             </>
           )}
@@ -217,7 +217,7 @@ export default function ContactForm() {
 
       {/* Privacy */}
       <p className="text-xs text-negro/60 text-center pt-2">
-        {t("contact.form.privacy")}
+        {t("contact-page.form.privacy")}
       </p>
     </form>
   );

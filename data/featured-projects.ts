@@ -19,19 +19,19 @@ export interface FeaturedProject {
 export const featuredProjects: FeaturedProject[] = [
   {
     id: "dos-x-dos-grupo-imagen",
-    slug: "dos-por-dos-grupo-imagen",
+    slug: "dos-x-dos-grupo-imagen",
     name: "Dos x Dos Grupo Imagen",
     logo: "/assets/img/clients/dos-x-dos-grupo-imagen.png",
-    category: "projects.dos-x-dos-grupo-imagen.category",
-    description: "caseStudies.dos-x-dos-grupo-imagen.intro",
+    category: "featured-projects.dos-x-dos-grupo-imagen.category",
+    description: "featured-projects.dos-x-dos-grupo-imagen.description",
     metrics: [
       {
-        value: "100%",
-        label: "caseStudies.metrics.processReduction",
+        label: "featured-projects.dos-x-dos-grupo-imagen.metrics.integration",
+        value: "featured-projects.dos-x-dos-grupo-imagen.values.complete",
       },
       {
-        value: "SEO Boost",
-        label: "caseStudies.metrics.seoImprovement",
+        label: "featured-projects.dos-x-dos-grupo-imagen.metrics.performance",
+        value: "featured-projects.dos-x-dos-grupo-imagen.values.optimized",
       },
     ],
     image:
@@ -41,20 +41,20 @@ export const featuredProjects: FeaturedProject[] = [
     color: "mandarina",
   },
   {
-    id: "energia-solar",
+    id: "energia-solar-canarias",
     slug: "energia-solar-canarias",
     name: "Energía Solar Canarias",
     logo: "/assets/img/clients/energia-solar-canarias.png",
-    category: "projects.energia-solar.category",
-    description: "caseStudies.energia-solar-canarias.intro",
+    category: "featured-projects.energia-solar-canarias.category",
+    description: "featured-projects.energia-solar-canarias.description",
     metrics: [
       {
-        label: "projects.energia-solar.metrics.platform",
-        value: "projects.energia-solar.values.unified",
+        label: "featured-projects.energia-solar-canarias.metrics.platform",
+        value: "featured-projects.energia-solar-canarias.values.unified",
       },
       {
-        label: "projects.energia-solar.metrics.monitoring",
-        value: "projects.energia-solar.values.realtime",
+        label: "featured-projects.energia-solar-canarias.metrics.monitoring",
+        value: "featured-projects.energia-solar-canarias.values.realtime",
       },
     ],
     image: "/assets/img/casos-de-exito/esc/energia-solar-canarias-app.png",

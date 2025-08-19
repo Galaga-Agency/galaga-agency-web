@@ -3,17 +3,17 @@
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
-import ServicesHeroSection from "@/components/sections/services/ServicesHeroSection";
-import ServicesOverviewSection from "@/components/sections/services/ServicesOverviewSection";
-import ServicesProcessSection from "@/components/sections/services/ServicesProcessSection";
-import CTASection from "@/components/sections/homepage/CTASection";
+import ServicesHeroSection from "@/components/pages/services-page/ServicesHeroSection";
+import ServicesOverviewSection from "@/components/pages/services-page/ServicesOverviewSection";
+import ServicesProcessSection from "@/components/pages/services-page/ServicesProcessSection";
+import CTASection from "@/components/pages/homepage/CTASection";
 import { initServicesOverviewAnimations } from "@/utils/animations/services-overview-animations";
 import { initServicesProcessAnimations } from "@/utils/animations/services-process-animations";
 import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
-import TechnologyStackSection from "@/components/sections/services/TechnologyStackSection";
+import TechnologyStackSection from "@/components/pages/services-page/TechnologyStackSection";
 import { initTechnologyStackAnimations } from "@/utils/animations/technology-stack-animations";
-import ServicesCTASection from "@/components/sections/services/ServicesCTASection";
+import ServicesCTASection from "@/components/pages/services-page/ServicesCTASection";
 import { initHeroAnimations } from "@/utils/animations/hero-animations";
 
 export default function ServicesPage() {
