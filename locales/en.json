@@ -460,7 +460,7 @@
   },
   "service-details-pages": {
     "immersive-marketing": {
-      "overview": {
+      "hero-section": {
         "eyebrow": "What we do",
         "title": "Experiences that transform brand interaction",
         "subtitle": "We create immersive digital spaces that emotionally connect with your customers and generate measurable results.",
@@ -640,6 +640,12 @@
         },
         "quote": "The new physical experience... is digital, measurable and human.",
         "quote-author": "Immersive Marketing Team"
+      },
+      "cta": {
+        "title": "¿Listo para transformar la experiencia de tu marca?",
+        "subtitle": "Descubre cómo las experiencias inmersivas pueden revolucionar la conexión con tus clientes.",
+        "primary": "Solicitar consulta gratuita",
+        "secondary": "Ver casos de éxito"
       }
     }
   },

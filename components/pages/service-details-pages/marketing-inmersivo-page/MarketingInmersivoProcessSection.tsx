@@ -8,36 +8,36 @@ export default function MarketingInmersivoProcessSection() {
   const processSteps = [
     {
       number: "01",
-      title: "services.marketing-inmersivo.process.briefing.title",
-      description: "services.marketing-inmersivo.process.briefing.description",
+      title: "service-details-pages.immersive-marketing.process.briefing.title",
+      description: "service-details-pages.immersive-marketing.process.briefing.description",
       color: "violeta",
       image: "/assets/img/servicios/marketing-inmersivo/process-1.webp"
     },
     {
       number: "02", 
-      title: "services.marketing-inmersivo.process.creative-concept.title",
-      description: "services.marketing-inmersivo.process.creative-concept.description", 
+      title: "service-details-pages.immersive-marketing.process.creative-concept.title",
+      description: "service-details-pages.immersive-marketing.process.creative-concept.description", 
       color: "lavanda",
       image: "/assets/img/servicios/marketing-inmersivo/process-2.webp"
     },
     {
       number: "03",
-      title: "services.marketing-inmersivo.process.technical-design.title", 
-      description: "services.marketing-inmersivo.process.technical-design.description",
+      title: "service-details-pages.immersive-marketing.process.technical-design.title", 
+      description: "service-details-pages.immersive-marketing.process.technical-design.description",
       color: "azul-profundo", 
       image: "/assets/img/servicios/marketing-inmersivo/process-3.webp"
     },
     {
       number: "04",
-      title: "services.marketing-inmersivo.process.implementation.title",
-      description: "services.marketing-inmersivo.process.implementation.description",
+      title: "service-details-pages.immersive-marketing.process.implementation.title",
+      description: "service-details-pages.immersive-marketing.process.implementation.description",
       color: "teal",
       image: "/assets/img/servicios/marketing-inmersivo/process-4.webp"
     },
     {
       number: "05", 
-      title: "services.marketing-inmersivo.process.optimization.title",
-      description: "services.marketing-inmersivo.process.optimization.description",
+      title: "service-details-pages.immersive-marketing.process.optimization.title",
+      description: "service-details-pages.immersive-marketing.process.optimization.description",
       color: "violeta",
       image: "/assets/img/servicios/marketing-inmersivo/process-5.webp"
     }
@@ -84,15 +84,15 @@ export default function MarketingInmersivoProcessSection() {
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
           <span className="text-violeta font-medium tracking-wider uppercase text-sm pb-6 block">
-            {t("services.marketing-inmersivo.process.eyebrow")}
+            {t("service-details-pages.immersive-marketing.process.eyebrow")}
           </span>
           
           <h2 className="marketing-inmersivo-process-title section-title text-azul-profundo leading-tight pb-8">
-            {t("services.marketing-inmersivo.process.title")}
+            {t("service-details-pages.immersive-marketing.process.title")}
           </h2>
           
           <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
-            {t("services.marketing-inmersivo.process.subtitle")}
+            {t("service-details-pages.immersive-marketing.process.subtitle")}
           </p>
         </div>
 
@@ -169,7 +169,7 @@ export default function MarketingInmersivoProcessSection() {
         <div className="text-center pt-20 md:pt-24">
           <div className="marketing-inmersivo-process-quote bg-gradient-to-r from-violeta/10 to-lavanda/10 rounded-3xl p-8 md:p-12 border border-violeta/20">
             <blockquote className="text-xl md:text-2xl lg:text-3xl font-light text-azul-profundo leading-relaxed italic">
-              "{t("services.marketing-inmersivo.process.quote")}"
+              "{t("service-details-pages.immersive-marketing.process.quote")}"
             </blockquote>
           </div>
         </div>

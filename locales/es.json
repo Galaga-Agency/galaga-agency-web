@@ -460,9 +460,9 @@
   },
   "service-details-pages": {
     "immersive-marketing": {
-      "overview": {
+      "hero-section": {
         "eyebrow": "Qué hacemos",
-        "title": "Experiencias que transforman la interacción con la marca",
+        "title": "Experiencias únicas para tu marca",
         "subtitle": "Creamos espacios digitales inmersivos que conectan emocionalmente con tus clientes y generan resultados medibles.",
         "what-we-do": {
           "title": "Conectamos marcas y clientes a través de experiencias inmersivas",
@@ -640,6 +640,12 @@
         },
         "quote": "La nueva experiencia física... es digital, medible y humana.",
         "quote-author": "Equipo Marketing Inmersivo"
+      },
+      "cta": {
+        "title": "¿Listo para transformar la experiencia de tu marca?",
+        "subtitle": "Descubre cómo las experiencias inmersivas pueden revolucionar la conexión con tus clientes.",
+        "primary": "Solicitar consulta gratuita",
+        "secondary": "Ver casos de éxito"
       }
     }
   },

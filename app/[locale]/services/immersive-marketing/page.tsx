@@ -6,6 +6,12 @@ import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import { initHeroAnimations } from "@/utils/animations/hero-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
 import MarketingInmersivoHeroSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoHeroSection";
+import MarketingInmersivoOverviewSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoOverviewSection";
+import MarketingInmersivoFeaturesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoFeaturesSection";
+import MarketingInmersivoProcessSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoProcessSection";
+import MarketingInmersivoTechnologiesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoTechnologiesSection";
+import MarketingInmersivoResultsSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoResultsSection";
+import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 
 export default function MarketingInmersivoPage() {
   const { t, language } = useTranslation();
@@ -26,7 +32,7 @@ export default function MarketingInmersivoPage() {
       href: getLocalizedRoute("servicios", language),
     },
     {
-      name: t("services.marketing-inmersivo.title"),
+      name: t("services.immersive-marketing.title"),
       href: getLocalizedRoute("servicios/marketing-inmersivo", language),
     },
   ];
@@ -35,12 +41,12 @@ export default function MarketingInmersivoPage() {
     <>
       <Breadcrumbs items={breadcrumbs} />
       <MarketingInmersivoHeroSection />
-      {/* <MarketingInmersivoOverviewSection />
+      <MarketingInmersivoOverviewSection />
       <MarketingInmersivoFeaturesSection />
       <MarketingInmersivoProcessSection />
       <MarketingInmersivoTechnologiesSection />
       <MarketingInmersivoResultsSection />
-      <ServiceCTASection serviceKey="marketing-inmersivo" /> */}
+      <ServiceCTASection serviceKey="immersive-marketing" />
     </>
   );
 }

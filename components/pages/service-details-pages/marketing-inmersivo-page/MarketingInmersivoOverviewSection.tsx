@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import Image from "next/image";
 
 export default function MarketingInmersivoOverviewSection() {
   const { t } = useTranslation();
@@ -18,15 +17,15 @@ export default function MarketingInmersivoOverviewSection() {
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
           <span className="text-violeta font-medium tracking-wider uppercase text-sm pb-6 block">
-            {t("services.marketing-inmersivo.overview.eyebrow")}
+            {t("service-details-pages.immersive-marketing.hero-section.what-we-do.title")}
           </span>
           
           <h2 className="marketing-inmersivo-overview-title section-title text-azul-profundo leading-tight pb-8">
-            {t("services.marketing-inmersivo.overview.title")}
+            {t("service-details-pages.immersive-marketing.hero-section.what-we-do.title")}
           </h2>
           
           <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
-            {t("services.marketing-inmersivo.overview.subtitle")}
+            {t("service-details-pages.immersive-marketing.hero-section.what-we-do.description")}
           </p>
         </div>
 
@@ -37,13 +36,13 @@ export default function MarketingInmersivoOverviewSection() {
           <div className="marketing-inmersivo-overview-content">
             <div className="pb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo pb-6 leading-tight">
-                {t("services.marketing-inmersivo.overview.what-we-do.title")}
+                {t("service-details-pages.immersive-marketing.hero-section.what-we-do.title")}
               </h3>
               <p className="text-base md:text-lg text-negro leading-relaxed pb-6">
-                {t("services.marketing-inmersivo.overview.what-we-do.description")}
+                {t("service-details-pages.immersive-marketing.hero-section.what-we-do.description")}
               </p>
               <p className="text-base md:text-lg text-violeta font-semibold leading-relaxed">
-                {t("services.marketing-inmersivo.overview.what-we-do.highlight")}
+                {t("service-details-pages.immersive-marketing.hero-section.what-we-do.highlight")}
               </p>
             </div>
 
@@ -53,10 +52,10 @@ export default function MarketingInmersivoOverviewSection() {
                 <div className="w-3 h-3 bg-violeta rounded-full flex-shrink-0 mt-2" />
                 <div>
                   <h4 className="font-bold text-azul-profundo pb-2">
-                    {t("services.marketing-inmersivo.overview.points.immersive-experiences.title")}
+                    {t("service-details-pages.immersive-marketing.hero-section.points.immersive-experiences.title")}
                   </h4>
                   <p className="text-negro text-sm">
-                    {t("services.marketing-inmersivo.overview.points.immersive-experiences.description")}
+                    {t("service-details-pages.immersive-marketing.hero-section.points.immersive-experiences.description")}
                   </p>
                 </div>
               </div>
@@ -65,10 +64,10 @@ export default function MarketingInmersivoOverviewSection() {
                 <div className="w-3 h-3 bg-lavanda rounded-full flex-shrink-0 mt-2" />
                 <div>
                   <h4 className="font-bold text-azul-profundo pb-2">
-                    {t("services.marketing-inmersivo.overview.points.ar-technology.title")}
+                    {t("service-details-pages.immersive-marketing.hero-section.points.ar-technology.title")}
                   </h4>
                   <p className="text-negro text-sm">
-                    {t("services.marketing-inmersivo.overview.points.ar-technology.description")}
+                    {t("service-details-pages.immersive-marketing.hero-section.points.ar-technology.description")}
                   </p>
                 </div>
               </div>
@@ -77,10 +76,10 @@ export default function MarketingInmersivoOverviewSection() {
                 <div className="w-3 h-3 bg-violeta rounded-full flex-shrink-0 mt-2" />
                 <div>
                   <h4 className="font-bold text-azul-profundo pb-2">
-                    {t("services.marketing-inmersivo.overview.points.customer-connection.title")}
+                    {t("service-details-pages.immersive-marketing.hero-section.points.customer-connection.title")}
                   </h4>
                   <p className="text-negro text-sm">
-                    {t("services.marketing-inmersivo.overview.points.customer-connection.description")}
+                    {t("service-details-pages.immersive-marketing.hero-section.points.customer-connection.description")}
                   </p>
                 </div>
               </div>
@@ -99,20 +98,20 @@ export default function MarketingInmersivoOverviewSection() {
                   </div>
                   <div>
                     <h4 className="font-bold text-azul-profundo">
-                      {t("services.marketing-inmersivo.overview.visual.title")}
+                      {t("service-details-pages.immersive-marketing.hero-section.visual.title")}
                     </h4>
                     <p className="text-sm text-negro">
-                      {t("services.marketing-inmersivo.overview.visual.subtitle")}
+                      {t("service-details-pages.immersive-marketing.hero-section.visual.subtitle")}
                     </p>
                   </div>
                 </div>
 
                 <div className="space-y-3">
                   {[
-                    "services.marketing-inmersivo.overview.visual.features.ar-filters",
-                    "services.marketing-inmersivo.overview.visual.features.interactive-content", 
-                    "services.marketing-inmersivo.overview.visual.features.virtual-try-on",
-                    "services.marketing-inmersivo.overview.visual.features.gamification"
+                    "service-details-pages.immersive-marketing.hero-section.visual.features.ar-filters",
+                    "service-details-pages.immersive-marketing.hero-section.visual.features.interactive-content", 
+                    "service-details-pages.immersive-marketing.hero-section.visual.features.virtual-try-on",
+                    "service-details-pages.immersive-marketing.hero-section.visual.features.gamification"
                   ].map((feature, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-violeta rounded-full flex-shrink-0" />
@@ -136,28 +135,28 @@ export default function MarketingInmersivoOverviewSection() {
         <div className="marketing-inmersivo-overview-stats grid grid-cols-1 md:grid-cols-3 gap-8 pt-16 border-t border-gray-200">
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-black text-violeta pb-2">
-              {t("services.marketing-inmersivo.overview.stats.engagement.number")}
+              {t("service-details-pages.immersive-marketing.hero-section.stats.engagement.number")}
             </div>
             <p className="text-sm md:text-base text-negro font-medium">
-              {t("services.marketing-inmersivo.overview.stats.engagement.label")}
+              {t("service-details-pages.immersive-marketing.hero-section.stats.engagement.label")}
             </p>
           </div>
           
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-black text-lavanda pb-2">
-              {t("services.marketing-inmersivo.overview.stats.retention.number")}
+              {t("service-details-pages.immersive-marketing.hero-section.stats.retention.number")}
             </div>
             <p className="text-sm md:text-base text-negro font-medium">
-              {t("services.marketing-inmersivo.overview.stats.retention.label")}
+              {t("service-details-pages.immersive-marketing.hero-section.stats.retention.label")}
             </p>
           </div>
           
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-black text-violeta pb-2">
-              {t("services.marketing-inmersivo.overview.stats.conversion.number")}
+              {t("service-details-pages.immersive-marketing.hero-section.stats.conversion.number")}
             </div>
             <p className="text-sm md:text-base text-negro font-medium">
-              {t("services.marketing-inmersivo.overview.stats.conversion.label")}
+              {t("service-details-pages.immersive-marketing.hero-section.stats.conversion.label")}
             </p>
           </div>
         </div>
