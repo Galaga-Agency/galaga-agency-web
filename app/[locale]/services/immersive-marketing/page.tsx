@@ -10,7 +10,6 @@ import MarketingInmersivoOverviewSection from "@/components/pages/service-detail
 import MarketingInmersivoFeaturesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoFeaturesSection";
 import MarketingInmersivoProcessSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoProcessSection";
 import MarketingInmersivoTechnologiesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoTechnologiesSection";
-import MarketingInmersivoResultsSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoResultsSection";
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 import { initAboutAnimations } from "@/utils/animations/about-animations";
 
@@ -46,7 +45,6 @@ export default function MarketingInmersivoPage() {
       <MarketingInmersivoFeaturesSection />
       <MarketingInmersivoProcessSection />
       <MarketingInmersivoTechnologiesSection />
-      <MarketingInmersivoResultsSection />
       <ServiceCTASection serviceKey="immersive-marketing" />
     </>
   );

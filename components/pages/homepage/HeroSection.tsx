@@ -12,28 +12,18 @@ export default function HeroSection() {
   const { isTouchDevice } = useDeviceDetect();
 
   // Get current language for services link
-  const currentLang = t("nav.language"); // Updated to use nav section
+  const currentLang = t("nav.language");
   const servicesLink = currentLang === "es" ? "/servicios" : "/services";
 
   return (
     <section className="hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Hero gradient background */}
-      <div className="absolute inset-0 bg-hero-gradient"></div>
-
       <div className="hero-content relative z-40 w-full min-h-screen flex flex-col items-center justify-center pt-0 overflow-hidden">
-        <img
-          src="/assets/img/symbols/double-chevron-white.webp"
-          alt="Double Chevron"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 hidden md:block w-[85vw] lg:w-[50vw] xl:w-[40vw] z-0 pointer-events-none select-none"
-          aria-hidden="true"
-        />
-
         <div className="flex flex-col items-center justify-center w-full px-4">
           <div className="relative">
-            {/* Logo - Big and centered alone when visible */}
-            <div className="hero-logo fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 z-50">
+            {/* Logo */}
+            <div className="hero-logo w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 z-50 flex justify-center">
               <Image
-                className="hero-logo-img opacity-95 drop-shadow-2xl w-[clamp(500px,80vw,700px)] h-auto"
+                className="hero-logo-img opacity-95 drop-shadow-2xl w-full md:w-[60vw] lg:w-[50vw] xl:w-[40vw] h-auto"
                 src="/assets/img/logos/logo-full-white.webp"
                 alt="Galaga Agency"
                 height={800}
@@ -74,8 +64,13 @@ export default function HeroSection() {
                 {t("homepage.hero-section.cta.services")}
               </PrimaryButton>
 
-              <SecondaryButton href="/work" borderColor="white" size="lg">
-                {t("homepage.hero-section.cta.ourWork")}
+              <SecondaryButton
+                href="https://calendly.com/operaciones-galagaagency/30min"
+                borderColor="white"
+                size="lg"
+                external
+              >
+                {t("homepage.hero-section.cta.scheduleCall")}
               </SecondaryButton>
             </div>
           </div>

@@ -178,7 +178,13 @@ export default function FeatureCard({
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 " />
           </div>
-
+      <div
+        className={[
+          "pointer-events-none absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r",
+          themeStyles.glow,
+          "opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm",
+        ].join(" ")}
+      />
           <div
             className={`h-1/2 flex flex-col justify-center ${sizeStyles.padding}`}
           >

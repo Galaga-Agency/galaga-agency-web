@@ -12,11 +12,13 @@ interface BaseButtonProps {
 interface LinkButtonProps extends BaseButtonProps {
   href: string;
   onClick?: () => void; // Allow onClick for links too
+  external?: boolean; // New prop for external links
 }
 
 interface ActionButtonProps extends BaseButtonProps {
   onClick: () => void;
   href?: never;
+  external?: never;
 }
 
 type PrimaryButtonProps = LinkButtonProps | ActionButtonProps;
@@ -73,6 +75,22 @@ export default function PrimaryButton({
 
   // Type guard to check if it's a link button
   if ("href" in props && props.href) {
+    // Check if it's an external link that should open in new tab
+    if (props.external) {
+      return (
+        <a 
+          href={props.href} 
+          className={combinedClassName}
+          onClick={props.onClick}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      );
+    }
+
+    // Internal link using Next.js Link (or external link in same tab)
     return (
       <Link
         href={props.href}

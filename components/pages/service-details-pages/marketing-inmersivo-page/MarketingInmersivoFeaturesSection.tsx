@@ -77,7 +77,7 @@ export default function MarketingInmersivoFeaturesSection() {
       description:
         "service-details-pages.immersive-marketing.features.content-management.description",
       image:
-        "/assets/img/servicios/immersive-marketing/content-management.webp",
+        "/assets/img/servicios/immersive-marketing/content-management.png",
       theme: "mandarina" as const,
     },
     {
@@ -93,7 +93,7 @@ export default function MarketingInmersivoFeaturesSection() {
   return (
     <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
       <div className="container relative z-10 pb-24">
-        <div className="text-center pb-16">
+        <div className="text-center">
           <h2 className="section-title text-blanco pb-8 mb-0">
             {t("service-details-pages.immersive-marketing.features.title")}
           </h2>

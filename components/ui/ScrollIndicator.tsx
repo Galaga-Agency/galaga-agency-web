@@ -15,7 +15,7 @@ export default function ScrollIndicator({ className = "" }: ScrollIndicatorProps
   return (
     <div className={`${!isTouchDevice && 'hidden'} scroll-indicator-wrapper flex flex-col items-center gap-3 ${className}`}>
       <span className="text-hielo text-sm font-medium tracking-wider">
-        {t("homepage.hero.scrollDown")}
+        {t("homepage.hero-section.scrollDown")}
       </span>
       <ChevronDownIcon 
         className="text-hielo w-8 h-8 animate-bounce"
