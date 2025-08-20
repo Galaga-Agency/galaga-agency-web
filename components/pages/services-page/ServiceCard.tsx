@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Service } from "@/types/service";
+import { getLocalizedRoute } from "@/utils/navigation";
 
 interface ServiceCardProps {
   service: Service;
@@ -85,13 +86,9 @@ export default function ServiceCard({
     border: "border-teal/20",
   };
 
-  const translatedSlug = t(service.slug);
-
-  // Build the URL with current language prefix
-  const serviceUrl =
-    language === "es"
-      ? `/es/servicios/${translatedSlug}`
-      : `/en/services/${translatedSlug}`;
+const translatedSlug = t(service.slug);
+const servicesRoute = getLocalizedRoute("services", language);
+const serviceUrl = `${servicesRoute}/${translatedSlug}`;
 
   // Check if this service has a link using the hasRedirection field
   const hasLink = service.hasRedirection;
@@ -191,9 +188,7 @@ export default function ServiceCard({
         )}
 
         {/* Spacer for cards without CTA to maintain consistent height */}
-        {!hasLink && (
-          <div className="mt-6 h-8" />
-        )}
+        {!hasLink && <div className="mt-6 h-8" />}
       </div>
 
       {/* Enhanced Glow Border Effect */}

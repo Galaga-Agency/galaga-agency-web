@@ -96,9 +96,19 @@ export function getRouteForLanguageSwitch(
     return currentRoute;
   }
 
-  // Map the route to the target language
-  const mappedRoute =
-    routeMapping[cleanRoute as keyof typeof routeMapping] || cleanRoute;
-
-  return `/${targetLanguage}/${mappedRoute}`;
+  // Split the route into parts
+  const routeParts = cleanRoute.split('/');
+  
+  // Skip the first part (language) if present
+  const pathParts = routeParts.length > 1 && (routeParts[0] === 'es' || routeParts[0] === 'en') 
+    ? routeParts.slice(1) 
+    : routeParts;
+  
+  // Map each part of the route
+  const mappedParts = pathParts.map(part => 
+    routeMapping[part as keyof typeof routeMapping] || part
+  );
+  
+  // Rebuild the route for target language
+  return `/${targetLanguage}/${mappedParts.join('/')}`;
 }

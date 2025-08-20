@@ -8,6 +8,7 @@ import {
   defaultLocale,
   type Language,
 } from "@/utils/routeTranslations";
+import { getRouteForLanguageSwitch } from "@/utils/navigation";
 
 interface TranslationContextType {
   t: (key: string) => string;
@@ -88,32 +89,8 @@ export function TranslationProvider({
     return typeof value === "string" ? value : key;
   };
 
-  const translateRoute = (
-    currentPath: string,
-    targetLang: Language
-  ): string => {
-    const pathWithoutLocale = currentPath.replace(/^\/[a-z]{2}/, "") || "/";
-    const segments = pathWithoutLocale.split("/").filter(Boolean);
-
-    if (segments.length === 0) {
-      return `/${targetLang}`;
-    }
-
-    const mainRoute = segments[0];
-    // Use the new mapping function
-    const mappedRoute =
-      routeMapping[mainRoute as keyof typeof routeMapping] || mainRoute;
-
-    const remainingSegments = segments.slice(1);
-    const newPath = `/${targetLang}/${mappedRoute}${
-      remainingSegments.length > 0 ? "/" + remainingSegments.join("/") : ""
-    }`;
-
-    return newPath;
-  };
-
   const changeLanguage = async (newLanguage: Language) => {
-    const newPath = translateRoute(pathname, newLanguage);
+    const newPath = getRouteForLanguageSwitch(pathname, newLanguage);
     // Use window.history.replaceState for no reload
     window.history.replaceState({}, "", newPath);
     setLanguage(newLanguage);

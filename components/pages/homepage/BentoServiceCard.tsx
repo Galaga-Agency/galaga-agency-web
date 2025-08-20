@@ -2,6 +2,7 @@
 import { IconType } from "react-icons";
 import { useTranslation } from "@/hooks/useTranslation";
 import Link from "next/link";
+import { getLocalizedRoute } from "@/utils/navigation";
 
 interface ServiceConfig {
   icon: IconType;
@@ -79,13 +80,9 @@ export default function BentoServiceCard({
     ctaGradient: "from-teal via-teal to-azul-profundo",
   };
 
-  const translatedSlug = t(service.slug);
-
-  // Build the URL with current language prefix
-  const serviceUrl =
-    language === "es"
-      ? `/es/servicios/${translatedSlug}`
-      : `/en/services/${translatedSlug}`;
+const translatedSlug = t(service.slug);
+const servicesRoute = getLocalizedRoute("services", language);
+const serviceUrl = `${servicesRoute}/${translatedSlug}`;
 
   return (
     <div

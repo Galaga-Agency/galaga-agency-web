@@ -136,7 +136,7 @@
       "feature1": "Process analysis",
       "feature2": "Digitalization plan",
       "feature3": "Continuous support",
-      "slug": "strategy"
+      "slug": "strategic-consulting"
     },
     "automation": {
       "title": "Automation",
@@ -152,7 +152,7 @@
       "feature1": "Artificial intelligence",
       "feature2": "IoT and sensors",
       "feature3": "Custom solutions",
-      "slug": "innovation"
+      "slug": "technological-innovation"
     },
     "immersive-marketing": {
       "title": "Immersive marketing",
@@ -168,7 +168,7 @@
       "feature1": "Personalized training",
       "feature2": "Visual manuals",
       "feature3": "Continuous monitoring",
-      "slug": "training"
+      "slug": "training-and-support"
     },
     "grants-management": {
       "title": "Grant management",
@@ -177,7 +177,7 @@
       "feature2": "Public subsidies",
       "feature3": "Complete processing",
       "feature4": "Complete management",
-      "slug": "grants"
+      "slug": "grants-management"
     },
     "cta": {
       "title": "Ready to transform your business?",

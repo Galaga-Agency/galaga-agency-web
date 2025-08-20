@@ -136,7 +136,7 @@
       "feature1": "Análisis de procesos",
       "feature2": "Plan de digitalización",
       "feature3": "Acompañamiento continuo",
-      "slug": "estrategia"
+      "slug": "consultoria-estrategica"
     },
     "automation": {
       "title": "Automatización",
@@ -152,7 +152,7 @@
       "feature1": "Inteligencia artificial",
       "feature2": "IoT y sensores",
       "feature3": "Soluciones personalizadas",
-      "slug": "innovacion"
+      "slug": "innovacion-tecnologica"
     },
     "immersive-marketing": {
       "title": "Marketing inmersivo",
@@ -168,7 +168,7 @@
       "feature1": "Formación personalizada",
       "feature2": "Manuales visuales",
       "feature3": "Seguimiento continuo",
-      "slug": "formacion"
+      "slug": "formacion-y-soporte"
     },
     "grants-management": {
       "title": "Gestión de subvenciones",
@@ -177,7 +177,7 @@
       "feature2": "Subvenciones públicas",
       "feature3": "Tramitación completa",
       "feature4": "Gestión completa",
-      "slug": "subvenciones"
+      "slug": "gestion-de-subvenciones"
     },
     "cta": {
       "title": "¿Listo para transformar tu negocio?",
