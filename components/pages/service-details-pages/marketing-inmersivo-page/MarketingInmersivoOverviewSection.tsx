@@ -135,7 +135,7 @@ export default function MarketingInmersivoOverviewSection() {
               {/* Second Block - Customer Connection */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 
-                <div className="relative lg:order-1 px-4 lg:px-0">
+                <div className="relative order-1 px-4 lg:px-0">
                   <div className="bg-gradient-to-br from-azul-profundo to-teal p-8 rounded-2xl text-white shadow-2xl">
                     <h4 className="text-xl font-bold pb-6">
                       {t("service-details-pages.immersive-marketing.overview.results.title")}

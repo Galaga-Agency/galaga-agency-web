@@ -193,149 +193,151 @@ export default function MarketingInmersivoProcessSection() {
   ];
 
   return (
-    <section className="horizontal-scroll-container marketing-inmersivo-process-section bg-gradient-to-br from-blanco via-hielo/20 to-blanco relative overflow-visible">
+    <section className="marketing-inmersivo-process-section bg-gradient-to-br from-blanco via-hielo/20 to-blanco relative overflow-visible">
       {/* Diagonal background layers */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/20 to-blanco"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"></div>
       </div>
+      <div className="horizontal-scroll-container">
+        {/* Section Header - Fixed */}
+        <div className="pt-16 md:pt-28">
+          <div className="text-center">
+            <span className="text-teal font-medium tracking-wider uppercase text-sm pb-6 block">
+              {t("service-details-pages.immersive-marketing.process.eyebrow")}
+            </span>
 
-      {/* Section Header - Fixed */}
-      <div className="pt-16 md:pt-28">
-        <div className="text-center">
-          <span className="text-teal font-medium tracking-wider uppercase text-sm pb-6 block">
-            {t("service-details-pages.immersive-marketing.process.eyebrow")}
-          </span>
+            <h2 className="section-title text-teal leading-tight pb-8">
+              {t("service-details-pages.immersive-marketing.process.title")}
+            </h2>
 
-          <h2 className="section-title text-teal leading-tight pb-8">
-            {t("service-details-pages.immersive-marketing.process.title")}
-          </h2>
-
-          <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
-            {t("service-details-pages.immersive-marketing.process.subtitle")}
-          </p>
+            <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
+              {t("service-details-pages.immersive-marketing.process.subtitle")}
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Mobile: Vertical Stack | Desktop: Horizontal Scroll */}
-      <div className="md:hidden">
-        {/* Mobile Layout - Vertical Stack */}
-        <div className="flex flex-col gap-16 px-4 py-8">
-          {processSteps.map((step, index) => {
-            const theme = colorThemes[step.color as keyof typeof colorThemes];
-
-            return (
-              <div key={index} className="relative mb-16">
-                {/* Decorative background shapes */}
-                <div className="absolute inset-0 -z-10 opacity-40">
-                  {step.backgroundShapes}
-                </div>
-
-                <div className="relative z-10 flex flex-col gap-6">
-                  {/* Step Header */}
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`w-16 h-16 ${theme.numberBg} rounded-full flex items-center justify-center shadow-xl flex-shrink-0`}
-                    >
-                      <span className="text-blanco font-black text-xl">
-                        {step.number}
-                      </span>
-                    </div>
-                    <h3
-                      className={`text-xl font-bold ${theme.titleText} leading-tight flex-1`}
-                    >
-                      {t(step.title)}
-                    </h3>
-                  </div>
-
-                  {/* Step Image */}
-                  <div className="relative">
-                    <div className="relative w-full aspect-[1/1] rounded-xl overflow-visible">
-                      <Image
-                        src={step.image}
-                        alt={t(step.title)}
-                        fill
-                        className="object-cover opacity-80"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Step Description */}
-                  <p className="text-base text-negro leading-relaxed">
-                    {t(step.description)}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Desktop Layout - Horizontal Scroll */}
-      <div className="hidden md:block">
-        <div className="relative h-auto overflow-visible py-16">
-          <div className="horizontal-scroll-wrapper flex items-center h-full">
+        {/* Mobile: Vertical Stack | Desktop: Horizontal Scroll */}
+        <div className="md:hidden">
+          {/* Mobile Layout - Vertical Stack */}
+          <div className="flex flex-col gap-16 px-4 py-8">
             {processSteps.map((step, index) => {
               const theme = colorThemes[step.color as keyof typeof colorThemes];
 
               return (
-                <div
-                  key={index}
-                  className="process-item flex-shrink-0 w-screen h-full flex items-center justify-center px-8 md:px-16 relative"
-                >
+                <div key={index} className="relative mb-16">
                   {/* Decorative background shapes */}
                   <div className="absolute inset-0 -z-10 opacity-40">
                     {step.backgroundShapes}
                   </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full max-w-6xl relative z-10">
-                    {/* Content */}
-                    <div className="process-content px-4 lg:px-0">
-                      <div className="flex items-center gap-6 pb-8">
-                        {/* Step Number */}
-                        <div
-                          className={`w-20 h-20 md:w-24 md:h-24 ${theme.numberBg} rounded-full flex items-center justify-center shadow-xl flex-shrink-0`}
-                        >
-                          <span className="text-blanco font-black text-2xl md:text-3xl">
-                            {step.number}
-                          </span>
-                        </div>
-
-                        {/* Step Title */}
-                        <div className="flex-1">
-                          <h3
-                            className={`text-2xl md:text-4xl font-bold ${theme.titleText} leading-tight`}
-                          >
-                            {t(step.title)}
-                          </h3>
-                        </div>
+                  <div className="relative z-10 flex flex-col gap-6">
+                    {/* Step Header */}
+                    <div className="flex items-center gap-4">
+                      <div
+                        className={`w-16 h-16 ${theme.numberBg} rounded-full flex items-center justify-center shadow-xl flex-shrink-0`}
+                      >
+                        <span className="text-blanco font-black text-xl">
+                          {step.number}
+                        </span>
                       </div>
+                      <h3
+                        className={`text-xl font-bold ${theme.titleText} leading-tight flex-1`}
+                      >
+                        {t(step.title)}
+                      </h3>
+                    </div>
 
-                      {/* Step Description */}
-                      <div className="pl-0">
-                        <p className="text-lg md:text-xl text-negro leading-relaxed">
-                          {t(step.description)}
-                        </p>
+                    {/* Step Image */}
+                    <div className="relative">
+                      <div className="relative w-full aspect-[1/1] rounded-xl overflow-visible">
+                        <Image
+                          src={step.image}
+                          alt={t(step.title)}
+                          fill
+                          className="object-cover opacity-80"
+                        />
                       </div>
                     </div>
 
-                    {/* Visual - Frame with image */}
-                    <div className="process-image px-4 lg:px-0 overflow-visible">
-                      <div className="relative">
-                        <div className="relative w-[90%] aspect-[1/1] rounded-2xl overflow-visible">
-                          <Image
-                            src={step.image}
-                            alt={t(step.title)}
-                            fill
-                            className="object-cover opacity-80"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                    {/* Step Description */}
+                    <p className="text-base text-negro leading-relaxed">
+                      {t(step.description)}
+                    </p>
                   </div>
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Desktop Layout - Horizontal Scroll */}
+        <div className="hidden md:block">
+          <div className="relative h-auto overflow-visible py-16">
+            <div className="horizontal-scroll-wrapper flex items-center h-full">
+              {processSteps.map((step, index) => {
+                const theme =
+                  colorThemes[step.color as keyof typeof colorThemes];
+
+                return (
+                  <div
+                    key={index}
+                    className="process-item flex-shrink-0 w-screen h-full flex items-center justify-center px-8 md:px-16 relative"
+                  >
+                    {/* Decorative background shapes */}
+                    <div className="absolute inset-0 -z-10 opacity-40">
+                      {step.backgroundShapes}
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full max-w-6xl relative z-10">
+                      {/* Content */}
+                      <div className="process-content px-4 lg:px-0">
+                        <div className="flex items-center gap-6 pb-8">
+                          {/* Step Number */}
+                          <div
+                            className={`w-20 h-20 md:w-24 md:h-24 ${theme.numberBg} rounded-full flex items-center justify-center shadow-xl flex-shrink-0`}
+                          >
+                            <span className="text-blanco font-black text-2xl md:text-3xl">
+                              {step.number}
+                            </span>
+                          </div>
+
+                          {/* Step Title */}
+                          <div className="flex-1">
+                            <h3
+                              className={`text-2xl md:text-4xl font-bold ${theme.titleText} leading-tight`}
+                            >
+                              {t(step.title)}
+                            </h3>
+                          </div>
+                        </div>
+
+                        {/* Step Description */}
+                        <div className="pl-0">
+                          <p className="text-lg md:text-xl text-negro leading-relaxed">
+                            {t(step.description)}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Visual - Frame with image */}
+                      <div className="process-image px-4 lg:px-0 overflow-visible">
+                        <div className="relative">
+                          <div className="relative w-[90%] aspect-[1/1] rounded-2xl overflow-visible">
+                            <Image
+                              src={step.image}
+                              alt={t(step.title)}
+                              fill
+                              className="object-cover opacity-80"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
