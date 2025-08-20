@@ -60,7 +60,7 @@ export default function HomepageAboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-mandarina/90 via-45% to-naranja-tostado to-100% rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-orange-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <Image
                           src="/assets/img/symbols/single-chevron-white.webp"
                           alt=""
@@ -122,7 +122,7 @@ export default function HomepageAboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0 lg:order-2">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-turquesa/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <FaCogs className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
                       </div>
                       <div>
@@ -175,7 +175,7 @@ export default function HomepageAboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="w-16 h-16 md:w-20 md:h-20 bg-skyblue-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <FaUsers className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
                       </div>
                       <div>

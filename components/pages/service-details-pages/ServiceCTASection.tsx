@@ -15,7 +15,6 @@ export default function ServiceCTASection({ serviceKey }: ServiceCTASectionProps
 
   return (
     <section className="cta-section section relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-hielo/20 to-white"></div>
 
       <div className="container relative z-10">
         <div className="text-center pb-8 lg:pb-12">

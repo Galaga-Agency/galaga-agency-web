@@ -3,7 +3,7 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { featuredProjects } from "@/data/featured-projects";
 import { clientCategories } from "@/data/client-categories";
-import ClientCategoryCard from "@/components/ClientCategoryCard";
+import ClientCategoryCard from "@/components/pages/about-us-page/ClientCategoryCard";
 import FeaturedClientCard from "@/components/pages/about-us-page/FeaturedClientCard";
 import { useState } from "react";
 

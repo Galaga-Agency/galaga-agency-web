@@ -494,6 +494,48 @@
           }
         }
       },
+      "overview": {
+        "results": {
+          "title": "Resultados Reales",
+          "engagement": "Mayor engagement",
+          "conversion": "Tasas de conversión más altas",
+          "analytics": "Analíticas en tiempo real",
+          "memorable": "Experiencias de marca memorables"
+        }
+      },
+      "concept": {
+        "title": "¿Qué entendemos por digitalizar experiencias?",
+        "description-1": "Digitalizar una experiencia no significa añadir tecnología por añadirla. Significa crear entornos que emocionen, respondan y evolucionen.",
+        "description-2": "Desde escaparates que invitan a interactuar, hasta corners que responden a gestos o espacios que cambian según la hora o el tipo de cliente.",
+        "description-3": "Hablamos de experiencias sensoriales, inmersivas e inolvidables, diseñadas para un cliente que valora la personalización, la sorpresa y el propósito de marca.",
+        "description-4": "Y además, con cada interacción obtenemos datos en tiempo real que te permiten entender mejor al cliente, adaptar tu estrategia y tomar decisiones más inteligentes.",
+        "highlight": {
+          "title": "Porque la nueva experiencia física... es digital, medible y humana.",
+          "description": ""
+        },
+        "ar-demo": {
+          "subtitle": "Con el contenido activado por trigger de imagen tu logo se convierte en la puerta de acceso a contenidos digitales"
+        },
+        "mockups": {
+          "subtitle": "Puedes convertir cualquier objeto promocional de tu evento en un canal vivo de comunicación antes, durante y después."
+        },
+        "sectors": {
+          "title": "Casos de uso por sector",
+          "retail": {
+            "title": "Retail",
+            "description": "Transforma tus tiendas en espacios inteligentes que sorprenden, conectan y convierten. Desde corners con pantallas reactivas hasta escaparates sensoriales, la digitalización permite ofrecer una experiencia memorable y personalizada, adaptada al momento, al cliente y a la campaña."
+          },
+          "events": {
+            "title": "Eventos y activaciones de marca",
+            "description": "Crea momentos inolvidables que vinculen al público con tu marca a través del juego, la inmersión y la sorpresa. Activaciones con realidad virtual, dinámicas gamificadas o entornos digitales permiten una conexión más profunda, emocional y duradera."
+          },
+          "promotional": {
+            "title": "Espacios promocionales",
+            "description": "Haz que cada promoción destaque, se recuerde y se sienta diferente. Góndolas, podiums y stands con tecnología integrada aumentan el impacto visual y permiten mostrar mensajes adaptados en tiempo real, conectando de forma más precisa con el consumidor."
+          }
+        }
+      },
+
       "features": {
         "eyebrow": "Nuestras capacidades",
         "title": "Tecnologías que crean experiencias únicas",
@@ -530,7 +572,25 @@
           "title": "Experiencias de realidad aumentada",
           "description": "El cliente escanea un producto o espacio con su móvil y accede a información adicional, vídeos, animaciones o experiencias gamificadas que amplían el engagement."
         },
+        "behavior-analytics": {
+          "title": "Análisis de comportamiento en el espacio físico",
+          "description": "Sensores que detectan recorridos, zonas calientes, tiempo de permanencia o interacciones, ofreciendo informes de comportamiento real del consumidor en tienda para optimizar el espacio y la experiencia."
+        },
+        "interactive-totems": {
+          "title": "Tótems y displays táctiles de autoservicio",
+          "description": "Dispositivos autónomos donde el cliente puede ver más productos, consultar disponibilidad, acceder a recomendaciones o incluso iniciar una compra online."
+        },
+        "sensorial-integration": {
+          "title": "Integración sensorial: luz, sonido y aroma por zonas",
+          "description": "Ambientes diseñados con tecnología que adapta la música, el olor o la iluminación según el momento o el comportamiento del cliente, reforzando el branding multisensorial."
+        },
+        "dynamic-furniture": {
+          "title": "Stands o mobiliario con pantallas dinámicas",
+          "description": "Diseño expositivo con pantallas integradas que cambian de contenido por campaña, franja horaria o tipo de visitante. Ideal para promociones, lanzamientos o activaciones de marca."
+        },
         "cta": {
+          "title": "¿Listo para transformar tu espacio?",
+          "description": "Descubre cómo estas tecnologías pueden revolucionar la experiencia de tus clientes.",
           "primary": "Solicitar demo",
           "secondary": "Ver tecnologías"
         }

@@ -10,8 +10,13 @@ import {
   FaVrCardboard,
   FaServer,
   FaPlay,
+  FaChartLine,
+  FaHandPointer,
+  FaLightbulb,
+  FaCouch,
 } from "react-icons/fa";
 import FeatureCard from "../FeatureCard";
+import SecondaryButton from "@/components/ui/SecondaryButton";
 
 export default function MarketingInmersivoFeaturesSection() {
   const { t } = useTranslation();
@@ -24,7 +29,7 @@ export default function MarketingInmersivoFeaturesSection() {
       description:
         "service-details-pages.immersive-marketing.features.ar-displays.description",
       image:
-        "/assets/img/servicios/immersive-marketing/pantallas-digitales.png",
+        "/assets/img/servicios/immersive-marketing/ar-displays.png",
       theme: "teal" as const,
     },
     {
@@ -88,11 +93,43 @@ export default function MarketingInmersivoFeaturesSection() {
       image: "/assets/img/servicios/immersive-marketing/ar-experience.png",
       theme: "violeta" as const,
     },
+    {
+      icon: FaChartLine,
+      title: "service-details-pages.immersive-marketing.features.behavior-analytics.title",
+      description:
+        "service-details-pages.immersive-marketing.features.behavior-analytics.description",
+      image: "/assets/img/servicios/immersive-marketing/behavior-analytics.png",
+      theme: "teal" as const,
+    },
+    {
+      icon: FaHandPointer,
+      title: "service-details-pages.immersive-marketing.features.interactive-totems.title",
+      description:
+        "service-details-pages.immersive-marketing.features.interactive-totems.description",
+      image: "/assets/img/servicios/immersive-marketing/interactive-totems.png",
+      theme: "azul-profundo" as const,
+    },
+    {
+      icon: FaLightbulb,
+      title: "service-details-pages.immersive-marketing.features.sensorial-integration.title",
+      description:
+        "service-details-pages.immersive-marketing.features.sensorial-integration.description",
+      image: "/assets/img/servicios/immersive-marketing/sensorial-integration.png",
+      theme: "mandarina" as const,
+    },
+    {
+      icon: FaCouch,
+      title: "service-details-pages.immersive-marketing.features.dynamic-furniture.title",
+      description:
+        "service-details-pages.immersive-marketing.features.dynamic-furniture.description",
+      image: "/assets/img/servicios/immersive-marketing/dynamic-furniture.png",
+      theme: "violeta" as const,
+    },
   ];
 
   return (
     <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
-      <div className="container relative z-10 pb-24">
+      <div className="container relative z-10 pb-0 md:pb-24">
         <div className="text-center">
           <h2 className="section-title text-blanco pb-8 mb-0">
             {t("service-details-pages.immersive-marketing.features.title")}
@@ -103,7 +140,7 @@ export default function MarketingInmersivoFeaturesSection() {
         </div>
 
         {/* Mobile Layout - Simple grid */}
-        <div className="grid grid-cols-1 gap-6 md:hidden">
+        <div className="grid grid-cols-1 gap-6 pt-12 md:hidden">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
@@ -117,7 +154,7 @@ export default function MarketingInmersivoFeaturesSection() {
           ))}
         </div>
 
-        {/* Desktop Bento Grid - 12 column system with varying widths */}
+        {/* Desktop Bento Grid - Beautiful asymmetric layout with varying sizes */}
         <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8">
           {/* Row 1: 40% + 60% */}
           <FeatureCard
@@ -140,7 +177,7 @@ export default function MarketingInmersivoFeaturesSection() {
             className="col-span-7"
           />
 
-          {/* Row 2: 30% + 70% */}
+          {/* Row 2: 70% + 30% (reversed from your original pattern) */}
           <FeatureCard
             icon={features[2].icon}
             title={t(features[2].title)}
@@ -148,7 +185,7 @@ export default function MarketingInmersivoFeaturesSection() {
             image={features[2].image}
             theme={features[2].theme}
             size="medium"
-            className="col-span-4"
+            className="col-span-8"
           />
 
           <FeatureCard
@@ -158,10 +195,10 @@ export default function MarketingInmersivoFeaturesSection() {
             image={features[3].image}
             theme={features[3].theme}
             size="medium"
-            className="col-span-8"
+            className="col-span-4"
           />
 
-          {/* Row 3: 65% + 35% */}
+          {/* Row 3: 35% + 65% */}
           <FeatureCard
             icon={features[4].icon}
             title={t(features[4].title)}
@@ -169,7 +206,7 @@ export default function MarketingInmersivoFeaturesSection() {
             image={features[4].image}
             theme={features[4].theme}
             size="medium"
-            className="col-span-8"
+            className="col-span-4"
           />
 
           <FeatureCard
@@ -179,10 +216,10 @@ export default function MarketingInmersivoFeaturesSection() {
             image={features[5].image}
             theme={features[5].theme}
             size="medium"
-            className="col-span-4"
+            className="col-span-8"
           />
 
-          {/* Row 4: 45% + 55% */}
+          {/* Row 4: 55% + 45% */}
           <FeatureCard
             icon={features[6].icon}
             title={t(features[6].title)}
@@ -190,7 +227,7 @@ export default function MarketingInmersivoFeaturesSection() {
             image={features[6].image}
             theme={features[6].theme}
             size="medium"
-            className="col-span-5"
+            className="col-span-7"
           />
 
           <FeatureCard
@@ -200,7 +237,61 @@ export default function MarketingInmersivoFeaturesSection() {
             image={features[7].image}
             theme={features[7].theme}
             size="medium"
+            className="col-span-5"
+          />
+
+          {/* Row 5: 25% + 50% + 25% (asymmetric trio) */}
+          <FeatureCard
+            icon={features[8].icon}
+            title={t(features[8].title)}
+            description={t(features[8].description)}
+            image={features[8].image}
+            theme={features[8].theme}
+            size="medium"
+            className="col-span-3"
+          />
+
+          <FeatureCard
+            icon={features[9].icon}
+            title={t(features[9].title)}
+            description={t(features[9].description)}
+            image={features[9].image}
+            theme={features[9].theme}
+            size="medium"
+            className="col-span-6"
+          />
+
+          <FeatureCard
+            icon={features[10].icon}
+            title={t(features[10].title)}
+            description={t(features[10].description)}
+            image={features[10].image}
+            theme={features[10].theme}
+            size="medium"
+            className="col-span-3"
+          />
+
+          {/* Row 6: 60% + 40% (perfect ending) */}
+          <FeatureCard
+            icon={features[11].icon}
+            title={t(features[11].title)}
+            description={t(features[11].description)}
+            image={features[11].image}
+            theme={features[11].theme}
+            size="medium"
             className="col-span-7"
+          />
+
+          <FeatureCard
+            icon={FaHandPointer}
+            title={t("service-details-pages.immersive-marketing.features.cta.title")}
+            description={t("service-details-pages.immersive-marketing.features.cta.description")}
+            image="/assets/img/servicios/immersive-marketing/cta-placeholder.png"
+            theme="teal"
+            size="medium"
+            className="col-span-5"
+            isCTA={true}
+            ctaButtonText={t("service-details-pages.immersive-marketing.features.cta.primary")}
           />
         </div>
       </div>

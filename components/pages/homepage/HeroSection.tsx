@@ -48,7 +48,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="hero-value-proposition pt-8 md:pt-12 z-50 opacity-0 px-2 md:px-12">
+          <div className="hero-value-proposition pt-8 md:pt-12 z-50 opacity-0 px-2 md:px-12 relative">
             <div className="text-left">
               <p className="hero-value-text-line1 text-body-large opacity-0 lg:max-w-auto pb-4 pt-24">
                 {t("homepage.hero-section.valuePropositionLine1")}
@@ -72,6 +72,17 @@ export default function HeroSection() {
               >
                 {t("homepage.hero-section.cta.scheduleCall")}
               </SecondaryButton>
+            </div>
+
+            {/* Double Chevron Symbol - Behind Second CTA Button Area */}
+            <div className="hero-chevron absolute right-0 -bottom-16 lg:right-[5vw] xl:-bottom-[0vh] opacity-30 pointer-events-none">
+              <Image
+                src="/assets/img/symbols/double-chevron-white.webp"
+                alt="Double Chevron"
+                width={120}
+                height={120}
+                className="w-[50vw] lg:w-[20vw] h-auto"
+              />
             </div>
           </div>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-
 import React, {
   createContext,
   useState,
@@ -30,8 +29,9 @@ export const CardContainer = ({
     if (!containerRef.current) return;
     const { left, top, width, height } =
       containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 25;
-    const y = (e.clientY - top - height / 2) / 25;
+    // Increased divisors from 50 to 80 for ultra-subtle effect
+    const x = (e.clientX - left - width / 2) / 80;
+    const y = (e.clientY - top - height / 2) / 80;
     containerRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   };
 
@@ -53,7 +53,8 @@ export const CardContainer = ({
           containerClassName
         )}
         style={{
-          perspective: "1000px",
+          // Increased perspective from 1500px to 2000px for even subtler depth
+          perspective: "2000px",
         }}
       >
         <div
@@ -62,7 +63,8 @@ export const CardContainer = ({
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           className={cn(
-            "flex items-center justify-center relative transition-all duration-200 ease-linear",
+            // Increased transition duration for smoother movement
+            "flex items-center justify-center relative transition-all duration-300 ease-out",
             className
           )}
           style={{
@@ -86,7 +88,7 @@ export const CardBody = ({
   return (
     <div
       className={cn(
-        "h-96 w-96 [transform-style:preserve-3d]  [&>*]:[transform-style:preserve-3d]",
+        "h-96 w-96 [transform-style:preserve-3d] [&>*]:[transform-style:preserve-3d]",
         className
       )}
     >
@@ -128,7 +130,12 @@ export const CardItem = ({
   const handleAnimations = () => {
     if (!ref.current) return;
     if (isMouseEntered) {
-      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
+      // Reduced translateZ values by ~50% for ultra-subtle depth
+      const subtleTranslateZ = typeof translateZ === 'number' ? translateZ * 0.5 : translateZ;
+      const subtleRotateX = typeof rotateX === 'number' ? rotateX * 0.4 : rotateX;
+      const subtleRotateZ = typeof rotateZ === 'number' ? rotateZ * 0.4 : rotateZ;
+      
+      ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${subtleTranslateZ}px) rotateX(${subtleRotateX}deg) rotateY(${rotateY}deg) rotateZ(${subtleRotateZ}deg)`;
     } else {
       ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
     }
@@ -137,7 +144,8 @@ export const CardItem = ({
   return (
     <Tag
       ref={ref}
-      className={cn("w-fit transition duration-200 ease-linear", className)}
+      // Increased transition duration for smoother animations
+      className={cn("w-fit transition duration-300 ease-out", className)}
       {...rest}
     >
       {children}

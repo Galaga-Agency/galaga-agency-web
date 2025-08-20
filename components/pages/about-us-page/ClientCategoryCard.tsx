@@ -1,4 +1,5 @@
 "use client";
+
 import { useTranslation } from "@/hooks/useTranslation";
 import { ClientCategory } from "@/types/clients";
 
@@ -26,7 +27,7 @@ export default function ClientCategoryCard({
           </div>
         )}
         <div className="relative z-10 flex flex-col h-full p-8 items-center text-center">
-          <div className="w-20 h-20 rounded-full bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% text-white text-3xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
+          <div className="w-20 h-20 rounded-full bg-teal-gradient text-white text-3xl flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
             {category.icon}
           </div>
           <h3 className="pt-6 text-2xl font-bold leading-tight pb-4 transition-transform duration-300 group-hover:scale-105 text-negro group-hover:text-teal/80">

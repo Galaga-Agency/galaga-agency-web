@@ -59,7 +59,7 @@ export default function AboutStorySection() {
             <div className="story-block-1 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="story-content-1 px-4 lg:px-0">
                 <div className="story-header-1 flex items-center gap-6 pb-8">
-                  <div className="story-icon-1 w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-mandarina/90 via-45% to-naranja-tostado to-100% rounded-full flex items-center justify-center shadow-xl">
+                  <div className="story-icon-1 w-16 h-16 md:w-20 md:h-20 bg-orange-gradient rounded-full flex items-center justify-center shadow-xl">
                     <Building2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   <div>
@@ -93,7 +93,7 @@ export default function AboutStorySection() {
             <div className="story-block-2 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="story-content-2 px-4 lg:px-0 lg:order-2">
                 <div className="story-header-2 flex items-center gap-6 pb-8">
-                  <div className="story-icon-2 w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-xl">
+                  <div className="story-icon-2 w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-xl">
                     <Gamepad2 className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function AboutStorySection() {
             <div className="story-block-3 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="story-content-3 px-4 lg:px-0">
                 <div className="story-header-3 flex items-center gap-6 pb-8">
-                  <div className="story-icon-3 w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-xl">
+                  <div className="story-icon-3 w-16 h-16 md:w-20 md:h-20 bg-skyblue-gradient rounded-full flex items-center justify-center shadow-xl">
                     <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   <div>

@@ -9,15 +9,16 @@ import MarketingInmersivoHeroSection from "@/components/pages/service-details-pa
 import MarketingInmersivoOverviewSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoOverviewSection";
 import MarketingInmersivoFeaturesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoFeaturesSection";
 import MarketingInmersivoProcessSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoProcessSection";
-import MarketingInmersivoTechnologiesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoTechnologiesSection";
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 import { initAboutAnimations } from "@/utils/animations/about-animations";
+import { initWhyChooseAnimations } from "@/utils/animations/why-choose-us-animations";
+import { initHorizontalScrollAnimation } from "@/utils/animations/horizontal-scroll-animation";
 
 export default function MarketingInmersivoPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [initHeroAnimations, initAboutAnimations],
+    animations: [initHeroAnimations, initAboutAnimations, initWhyChooseAnimations, initHorizontalScrollAnimation],
     delay: 100,
   });
 
@@ -44,8 +45,6 @@ export default function MarketingInmersivoPage() {
       <MarketingInmersivoOverviewSection />
       <MarketingInmersivoFeaturesSection />
       <MarketingInmersivoProcessSection />
-      <MarketingInmersivoTechnologiesSection />
-      <ServiceCTASection serviceKey="immersive-marketing" />
     </>
   );
 }

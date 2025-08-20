@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import SecondaryButton from "@/components/ui/SecondaryButton";
 
 interface FeatureCardProps {
   icon: IconType;
@@ -10,6 +11,8 @@ interface FeatureCardProps {
   size: "small" | "medium" | "large";
   imagePosition?: "top" | "bottom";
   className?: string;
+  isCTA?: boolean;
+  ctaButtonText?: string;
 }
 
 const themes = {
@@ -83,10 +86,121 @@ export default function FeatureCard({
   size,
   imagePosition,
   className = "",
+  isCTA = false,
+  ctaButtonText = "Solicitar demo",
 }: FeatureCardProps) {
   const themeStyles = themes[theme];
   const sizeStyles = sizeClasses[size];
 
+  if (isCTA) {
+    // CTA Card Version
+    return (
+      <>
+        {/* Desktop CTA Card */}
+        <div
+          className={`hidden md:block ${className} h-[350px] group hover:z-50 relative transition-all duration-300`}
+        >
+          <CardContainer className="w-full h-full">
+            <CardBody
+              className={`
+              relative group/card bg-white/5 backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl
+              ${themeStyles.glow} h-[350px]
+              w-full rounded-2xl lg:rounded-3xl
+              transition-all duration-500 ease-out
+            `}
+            >
+              <div className="relative z-10 flex h-full">
+                <div
+                  className={`
+                  flex flex-col justify-center flex-shrink-0 ${sizeStyles.padding}
+                  w-full relative rounded-l-2xl lg:rounded-l-3xl
+                `}
+                >
+                  <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-2xl lg:rounded-3xl"></div>
+
+                  <div className="relative z-10 text-center">
+                    <CardItem translateZ="40" className="w-full mx-auto">
+                      <h3
+                        className={`
+                        font-black leading-tight pb-4
+                        text-blanco ${sizeStyles.title}
+                      `}
+                      >
+                        {title}
+                      </h3>
+                    </CardItem>
+
+                    <CardItem translateZ="20" className="w-full mx-auto">
+                      <p
+                        className={`
+                        font-medium leading-relaxed text-hielo ${sizeStyles.description} pb-6
+                      `}
+                      >
+                        {description}
+                      </p>
+                    </CardItem>
+
+                    <CardItem translateZ="30" className="w-full flex flex-col items-center justify-center">
+                      <SecondaryButton 
+                        href="/contact" 
+                        darkBg={true} 
+                        borderColor="white"
+                        size="md"
+                      >
+                        {ctaButtonText}
+                      </SecondaryButton>
+                    </CardItem>
+                  </div>
+                </div>
+              </div>
+            </CardBody>
+          </CardContainer>
+        </div>
+
+        {/* Mobile CTA Card */}
+        <div className={`block md:hidden ${className} h-[400px]`}>
+          <div
+            className={`
+            relative overflow-hidden rounded-2xl bg-white border border-white/20 shadow-lg
+            h-[400px] 
+          `}
+          >
+            <div
+              className={`h-full flex flex-col justify-center ${sizeStyles.padding} text-center`}
+            >
+              <h3
+                className={`
+                font-black leading-tight pb-4
+                ${themeStyles.textColor} ${sizeStyles.title}
+              `}
+              >
+                {title}
+              </h3>
+
+              <p
+                className={`
+                font-medium leading-relaxed text-neutral-600 ${sizeStyles.description} pb-6
+              `}
+              >
+                {description}
+              </p>
+
+              <SecondaryButton 
+                href="/contact" 
+                darkBg={true} 
+                borderColor="white"
+                size="md"
+              >
+                {ctaButtonText}
+              </SecondaryButton>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
+  // Regular Feature Card
   return (
     <>
       {/* Desktop Card - Original layout with 3D overflowing image */}

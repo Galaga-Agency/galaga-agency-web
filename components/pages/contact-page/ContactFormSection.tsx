@@ -84,7 +84,7 @@ export default function ContactFormSection() {
                     {/* Content */}
                     <div className="relative z-10 flex flex-col h-full p-6">
                       {/* Themed Icon Bubble */}
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal/80 via-teal to-azul-profundo flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
+                      <div className="w-16 h-16 rounded-full bg-teal-gradient flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
                         <Mail className="w-7 h-7" />
                       </div>
 
@@ -98,7 +98,7 @@ export default function ContactFormSection() {
 
                       {/* CTA */}
                       <div className="mt-4 flex items-center justify-end gap-4">
-                        <div className="w-8 h-8 bg-gradient-to-r from-teal via-teal to-azul-profundo rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <div className="w-8 h-8 bg-teal-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
                           <svg
                             className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
                             fill="none"
@@ -117,7 +117,7 @@ export default function ContactFormSection() {
                     </div>
 
                     {/* Subtle glow border */}
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-teal/80 via-teal to-azul-profundo opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm" />
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-teal-gradient opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm" />
                   </a>
                 </div>
 
@@ -147,7 +147,7 @@ export default function ContactFormSection() {
                     {/* Content */}
                     <div className="relative z-10 flex flex-col h-full p-6">
                       {/* Themed Icon Bubble */}
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-mandarina/80 via-mandarina to-naranja-tostado flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
+                      <div className="w-16 h-16 rounded-full bg-orange-gradient flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg">
                         <MapPin className="w-7 h-7" />
                       </div>
 
@@ -161,7 +161,7 @@ export default function ContactFormSection() {
 
                       {/* CTA */}
                       <div className="mt-4 flex items-center justify-end gap-4">
-                        <div className="w-8 h-8 bg-gradient-to-r from-mandarina via-mandarina to-naranja-tostado rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
+                        <div className="w-8 h-8 bg-orange-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg">
                           <svg
                             className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
                             fill="none"
@@ -180,7 +180,7 @@ export default function ContactFormSection() {
                     </div>
 
                     {/* Subtle glow border */}
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-r from-mandarina/80 via-mandarina to-naranja-tostado opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm" />
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl bg-orange-gradient opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm" />
                   </a>
                 </div>
               </div>

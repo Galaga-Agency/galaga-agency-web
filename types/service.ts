@@ -7,4 +7,5 @@ export interface Service {
   image: string;
   theme: string;
   size: 'small' | 'large';
+  hasRedirection: boolean;
 }

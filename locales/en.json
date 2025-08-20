@@ -494,6 +494,47 @@
           }
         }
       },
+      "overview": {
+        "results": {
+          "title": "Real Results",
+          "engagement": "Increased engagement",
+          "conversion": "Higher conversion rates",
+          "analytics": "Real-time analytics",
+          "memorable": "Memorable brand experiences"
+        }
+      },
+      "concept": {
+        "title": "What do we understand by digitalizing experiences?",
+        "description-1": "Digitalizing an experience doesn't mean adding technology for the sake of it. It means creating environments that excite, respond and evolve.",
+        "description-2": "From shop windows that invite interaction, to corners that respond to gestures or spaces that change according to the time or type of customer.",
+        "description-3": "We talk about sensory, immersive and unforgettable experiences, designed for a customer who values personalization, surprise and brand purpose.",
+        "description-4": "And furthermore, with each interaction we obtain real-time data that allows you to better understand the customer, adapt your strategy and make smarter decisions.",
+        "highlight": {
+          "title": "Because the new physical experience... is digital, measurable and human.",
+          "description": ""
+        },
+        "ar-demo": {
+          "subtitle": "With content activated by image trigger your logo becomes the gateway to digital content"
+        },
+        "mockups": {
+          "subtitle": "You can turn any promotional object from your event into a live communication channel before, during and after."
+        },
+        "sectors": {
+          "title": "Use cases by sector",
+          "retail": {
+            "title": "Retail",
+            "description": "Transform your stores into intelligent spaces that surprise, connect and convert. From corners with reactive screens to sensory shop windows, digitalization allows offering a memorable and personalized experience, adapted to the moment, the customer and the campaign."
+          },
+          "events": {
+            "title": "Events and brand activations",
+            "description": "Create unforgettable moments that connect the public with your brand through play, immersion and surprise. Activations with virtual reality, gamified dynamics or digital environments allow for a deeper, emotional and lasting connection."
+          },
+          "promotional": {
+            "title": "Promotional spaces",
+            "description": "Make each promotion stand out, be remembered and feel different. Gondolas, podiums and stands with integrated technology increase visual impact and allow showing adapted messages in real time, connecting more precisely with the consumer."
+          }
+        }
+      },
       "features": {
         "eyebrow": "Our capabilities",
         "title": "Technologies that create unique experiences",
@@ -530,7 +571,25 @@
           "title": "Augmented reality experiences",
           "description": "The customer scans a product or space with their mobile and accesses additional information, videos, animations or gamified experiences that expand engagement."
         },
+        "behavior-analytics": {
+          "title": "Behavior analysis in physical spaces",
+          "description": "Sensors that detect routes, hot zones, dwell time or interactions, providing real consumer behavior reports in-store to optimize the space and experience."
+        },
+        "interactive-totems": {
+          "title": "Tactile totems and self-service displays",
+          "description": "Autonomous devices where the customer can see more products, check availability, access recommendations or even start an online purchase."
+        },
+        "sensorial-integration": {
+          "title": "Sensorial integration: light, sound and aroma by zones",
+          "description": "Environments designed with technology that adapts music, scent or lighting according to the moment or customer behavior, reinforcing multisensory branding."
+        },
+        "dynamic-furniture": {
+          "title": "Stands or furniture with dynamic screens",
+          "description": "Exhibition design with integrated screens that change content by campaign, time slot or visitor type. Ideal for promotions, launches or brand activations."
+        },
         "cta": {
+          "title": "Ready to transform your space?",
+          "description": "Discover how these technologies can revolutionize your customer experience.",
           "primary": "Request demo",
           "secondary": "View technologies"
         }
@@ -560,88 +619,6 @@
           "description": "We analyze usage, interaction and return data. From that information, we improve the experience and optimize future campaigns."
         },
         "quote": "Each step is designed to maximize impact and ensure that your investment generates measurable results."
-      },
-      "technologies": {
-        "eyebrow": "Technology stack",
-        "title": "Technologies that power experiences",
-        "subtitle": "We use the most advanced tools to create high-quality immersive experiences.",
-        "ar-platforms": {
-          "title": "Augmented Reality Platforms",
-          "description": "We develop native AR experiences for iOS and Android, plus cross-platform web solutions."
-        },
-        "interactive-displays": {
-          "title": "Interactive Display Systems",
-          "description": "Sensor and touch screen technology to create natural and intuitive interactions."
-        },
-        "content-management": {
-          "title": "Content Management",
-          "description": "Custom systems to update content in real time and manage campaigns remotely."
-        },
-        "analytics": {
-          "title": "Analytics & Tracking",
-          "description": "Advanced tools to measure engagement, user behavior and ROI of experiences."
-        },
-        "stats": {
-          "platforms": {
-            "number": "15+",
-            "label": "Supported platforms"
-          },
-          "devices": {
-            "number": "500+",
-            "label": "Compatible devices"
-          },
-          "integrations": {
-            "number": "25+",
-            "label": "Available integrations"
-          },
-          "uptime": {
-            "number": "99.9%",
-            "label": "Uptime"
-          }
-        }
-      },
-      "results": {
-        "eyebrow": "Results you get",
-        "title": "Real impact on your business",
-        "subtitle": "Our immersive experiences generate measurable results and transform the relationship with your customers.",
-        "emotional-connection": {
-          "title": "Greater emotional connection with customers",
-          "description": "Interactive, sensory and digital experiences generate memory and emotional bonding with the brand.",
-          "metric": "+42%",
-          "detail": "brand fixation compared to traditional spaces."
-        },
-        "conversion-increase": {
-          "title": "Increase in point-of-sale conversion",
-          "description": "Data-driven displays, personalized recommendations and interactive corners increase purchase intention.",
-          "metric": "Up to +30%",
-          "detail": "in featured product sales."
-        },
-        "data-driven-decisions": {
-          "title": "Data-driven decision making",
-          "description": "With sensors and real-time analytics, brands better understand how their customer behaves in space.",
-          "metric": "Optimization",
-          "detail": "of promotions and reduction of unnecessary stock."
-        },
-        "space-optimization": {
-          "title": "Better use of physical space",
-          "description": "Furniture with screen or digital showcase allows communicating several campaigns in the same place, without recurring production costs.",
-          "metric": "Savings",
-          "detail": "in physical materials and greater flexibility."
-        },
-        "real-time-personalization": {
-          "title": "Real-time personalization",
-          "description": "Adapting content according to time slot, location or customer type positions you thanks to digitalization.",
-          "metric": "Campaigns",
-          "detail": "more relevant and better received."
-        },
-        "competitive-advantage": {
-          "title": "Competitive advantage over other brands",
-          "description": "Offering differentiating experiences in retail and events positions your brand as innovative and close.",
-          "metric": "Boosts",
-          "detail": "positioning and loyalty."
-        },
-        "quote": "The new physical experience... is digital, measurable and human.",
-        "quote-author": "Immersive Marketing Team"
       },
       "cta": {
         "title": "¿Listo para transformar la experiencia de tu marca?",

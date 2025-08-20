@@ -42,7 +42,7 @@ export default function FeaturedClientCard({
             <div
               className={`
                 w-16 h-16 md:w-20 md:h-20 
-                bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% 
+                bg-teal-gradient 
                 rounded-full flex items-center justify-center 
                 shadow-xl p-3
                 transition-transform duration-300
@@ -78,7 +78,7 @@ export default function FeaturedClientCard({
             href={`/casos-de-exito/${project.slug}`}
             className="group"
           >
-            <div className={`w-8 h-8 bg-gradient-to-r from-teal via-teal to-azul-profundo rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
+            <div className={`w-8 h-8 bg-teal-gradient rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}>
               <svg className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
               </svg>
@@ -155,10 +155,10 @@ export default function FeaturedClientCard({
             ${isHovered ? "scale-105" : ""}
             ${
               index % 3 === 0
-                ? "bg-gradient-to-r from-mandarina/80 via-mandarina to-naranja-tostado"
+                ? "bg-orange-gradient"
                 : index % 3 === 1
-                ? "bg-gradient-to-r from-turquesa/80 to-teal"
-                : "bg-teal"
+                ? "bg-teal-gradient"
+                : "bg-skyblue-gradient"
             }
           `}
         >

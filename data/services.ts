@@ -22,6 +22,7 @@ export const services: Service[] = [
     theme: "teal",
     size: "small",
     slug: "services-section.strategic-consulting.slug",
+    hasRedirection: false,
   },
   {
     icon: FaCogs,
@@ -36,6 +37,7 @@ export const services: Service[] = [
     theme: "azul-profundo",
     size: "large",
     slug: "services-section.automation.slug",
+    hasRedirection: false,
   },
   {
     icon: FaRocket,
@@ -50,6 +52,7 @@ export const services: Service[] = [
     theme: "mandarina",
     size: "large",
     slug: "services-section.technological-innovation.slug",
+    hasRedirection: false,
   },
   {
     icon: FaEye,
@@ -61,9 +64,10 @@ export const services: Service[] = [
       "services-section.immersive-marketing.feature3",
     ],
     image: "/assets/img/servicios/gaming.png",
-    theme: "violeta",
+    theme: "skyblue",
     size: "small",
     slug: "services-section.immersive-marketing.slug",
+    hasRedirection: true,
   },
   {
     icon: FaGraduationCap,
@@ -75,9 +79,10 @@ export const services: Service[] = [
       "services-section.training-and-support.feature3",
     ],
     image: "/assets/img/servicios/formacion.jpg",
-    theme: "azul-profundo",
+    theme: "violeta",
     size: "small",
     slug: "services-section.training-and-support.slug",
+    hasRedirection: false,
   },
   {
     icon: FaDollarSign,
@@ -93,5 +98,6 @@ export const services: Service[] = [
     theme: "teal",
     size: "large",
     slug: "services-section.grants-management.slug",
+    hasRedirection: true,
   },
 ];
