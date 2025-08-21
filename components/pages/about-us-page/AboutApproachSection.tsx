@@ -33,7 +33,7 @@ export default function AboutApproachSection() {
             aria-hidden="true"
           />
           {/* Top left */}
-          <div className="approach-bubble-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%]">
+          <div className="approach-gradient-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%]">
             <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-turquesa from-20% via-teal via-60% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-base lg:text-lg xl:text-xl font-bold text-blanco pb-3 leading-tight tracking-tight">
@@ -47,7 +47,7 @@ export default function AboutApproachSection() {
           </div>
 
           {/* Top right */}
-          <div className="approach-bubble-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-8 xl:right-[15%]">
+          <div className="approach-gradient-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-8 xl:right-[15%]">
             <div className="w-60 h-60 lg:w-68 lg:h-68 xl:w-76 xl:h-76 rounded-full bg-radial-[at_30%_30%] from-blanco from-10% via-hielo via-50% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-base lg:text-lg xl:text-xl font-bold text-azul-profundo pb-3 leading-tight tracking-tight">
@@ -61,7 +61,7 @@ export default function AboutApproachSection() {
           </div>
 
           {/* Bottom center */}
-          <div className="approach-bubble-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-[51%] transform -translate-x-1/2">
+          <div className="approach-gradient-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-[51%] transform -translate-x-1/2">
             <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-teal from-10% via-negro via-60% to-negro to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-lg lg:text-xl xl:text-2xl font-bold text-blanco pb-3 leading-tight tracking-tight max-w-[85%] text-center px-auto">

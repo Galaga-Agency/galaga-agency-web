@@ -17,7 +17,7 @@ export default function HomepageAboutSection() {
 
       {/* Main section */}
       <section
-        className="homepage-about-section section relative overflow-x-hidden overflow-y-visible"
+        className="homepage-about-section bubble-section section relative overflow-x-hidden overflow-y-visible"
         style={{
           background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
         }}
@@ -92,25 +92,33 @@ export default function HomepageAboutSection() {
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.services-block.steps.analysis")}
+                            {t(
+                              "homepage.about-section.services-block.steps.analysis"
+                            )}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.services-block.steps.strategy")}
+                            {t(
+                              "homepage.about-section.services-block.steps.strategy"
+                            )}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.services-block.steps.implementation")}
+                            {t(
+                              "homepage.about-section.services-block.steps.implementation"
+                            )}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.services-block.steps.support")}
+                            {t(
+                              "homepage.about-section.services-block.steps.support"
+                            )}
                           </span>
                         </div>
                       </div>
@@ -127,43 +135,57 @@ export default function HomepageAboutSection() {
                       </div>
                       <div>
                         <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
-                          {t("homepage.about-section.digitalization-block.title")}
+                          {t(
+                            "homepage.about-section.digitalization-block.title"
+                          )}
                         </h3>
                       </div>
                     </div>
                     <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
-                      {t("homepage.about-section.digitalization-block.shortDescription")}
+                      {t(
+                        "homepage.about-section.digitalization-block.shortDescription"
+                      )}
                     </p>
                   </div>
 
                   <div className="relative lg:order-1 px-4 lg:px-0">
                     <div className="bg-gradient-to-br from-teal to-azul-profundo p-8 rounded-2xl text-white shadow-2xl">
                       <h4 className="text-xl font-bold pb-6">
-                        {t("homepage.about-section.digitalization-block.cardTitle")}
+                        {t(
+                          "homepage.about-section.digitalization-block.cardTitle"
+                        )}
                       </h4>
                       <div className="flex flex-col gap-4">
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.digitalization-block.steps.systems")}
+                            {t(
+                              "homepage.about-section.digitalization-block.steps.systems"
+                            )}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.digitalization-block.steps.cloud")}
+                            {t(
+                              "homepage.about-section.digitalization-block.steps.cloud"
+                            )}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.digitalization-block.steps.training")}
+                            {t(
+                              "homepage.about-section.digitalization-block.steps.training"
+                            )}
                           </span>
                         </div>
                         <div className="flex items-center gap-3">
                           <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
                           <span className="text-base">
-                            {t("homepage.about-section.digitalization-block.steps.grants")}
+                            {t(
+                              "homepage.about-section.digitalization-block.steps.grants"
+                            )}
                           </span>
                         </div>
                       </div>
@@ -185,7 +207,9 @@ export default function HomepageAboutSection() {
                       </div>
                     </div>
                     <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
-                      {t("homepage.about-section.clients-block.shortDescription")}
+                      {t(
+                        "homepage.about-section.clients-block.shortDescription"
+                      )}
                     </p>
                   </div>
 
@@ -193,26 +217,38 @@ export default function HomepageAboutSection() {
                     <div className="grid grid-cols-1 gap-4">
                       <div className="bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 border-blanco">
                         <h5 className="font-bold text-azul-profundo text-lg pb-2">
-                          {t("homepage.about-section.clients-block.retail.title")}
+                          {t(
+                            "homepage.about-section.clients-block.retail.title"
+                          )}
                         </h5>
                         <p className="text-sm text-negro">
-                          {t("homepage.about-section.clients-block.retail.need")}
+                          {t(
+                            "homepage.about-section.clients-block.retail.need"
+                          )}
                         </p>
                       </div>
                       <div className="bg-gradient-to-r from-mandarina/0 to-mandarina/10 p-6 rounded-xl border-l-4 border-mandarina">
                         <h5 className="font-bold text-azul-profundo text-lg pb-2">
-                          {t("homepage.about-section.clients-block.growing.title")}
+                          {t(
+                            "homepage.about-section.clients-block.growing.title"
+                          )}
                         </h5>
                         <p className="text-sm text-negro">
-                          {t("homepage.about-section.clients-block.growing.need")}
+                          {t(
+                            "homepage.about-section.clients-block.growing.need"
+                          )}
                         </p>
                       </div>
                       <div className="bg-gradient-to-r from-violeta/20 to-azul-profundo/20 p-6 rounded-xl border-l-4 border-violeta">
                         <h5 className="font-bold text-azul-profundo text-lg pb-2">
-                          {t("homepage.about-section.clients-block.innovative.title")}
+                          {t(
+                            "homepage.about-section.clients-block.innovative.title"
+                          )}
                         </h5>
                         <p className="text-sm text-negro">
-                          {t("homepage.about-section.clients-block.innovative.need")}
+                          {t(
+                            "homepage.about-section.clients-block.innovative.need"
+                          )}
                         </p>
                       </div>
                     </div>

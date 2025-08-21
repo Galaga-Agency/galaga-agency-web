@@ -20,8 +20,24 @@ export const initHorizontalScrollAnimation = () => {
         const itemImage = item.querySelector<HTMLElement>(".process-image");
         
         if (itemContent && itemImage) {
-          gsap.set(itemContent, { opacity: 0, x: -100, scale: 0.8 });
-          gsap.set(itemImage, { opacity: 0, x: 100, scale: 0.9, rotation: 5 });
+          // Only set initial states for elements that don't have card animation classes
+          if (!itemContent.classList.contains('card-slide-left') && 
+              !itemContent.classList.contains('card-slide-right') &&
+              !itemContent.classList.contains('card-slide-top') &&
+              !itemContent.classList.contains('card-slide-bottom') &&
+              !itemContent.classList.contains('card-flip-reveal') &&
+              !itemContent.classList.contains('card-zoom-rotate')) {
+            gsap.set(itemContent, { opacity: 0, x: -100, scale: 0.8 });
+          }
+          
+          if (!itemImage.classList.contains('card-slide-left') && 
+              !itemImage.classList.contains('card-slide-right') &&
+              !itemImage.classList.contains('card-slide-top') &&
+              !itemImage.classList.contains('card-slide-bottom') &&
+              !itemImage.classList.contains('card-flip-reveal') &&
+              !itemImage.classList.contains('card-zoom-rotate')) {
+            gsap.set(itemImage, { opacity: 0, x: 100, scale: 0.9, rotation: 5 });
+          }
         }
       });
 
@@ -49,22 +65,37 @@ export const initHorizontalScrollAnimation = () => {
                 const distance = Math.abs(viewportCenter - itemCenter);
                 const itemProgress = Math.max(0, Math.min(1, 1 - (distance / (window.innerWidth * 0.5))));
                 
-                gsap.to(itemContent, {
-                  opacity: itemProgress,
-                  x: -100 + (100 * itemProgress),
-                  scale: 0.8 + (0.2 * itemProgress),
-                  duration: 0.3,
-                  ease: "power2.out"
-                });
+                // Only animate elements that don't have card animation classes
+                if (!itemContent.classList.contains('card-slide-left') && 
+                    !itemContent.classList.contains('card-slide-right') &&
+                    !itemContent.classList.contains('card-slide-top') &&
+                    !itemContent.classList.contains('card-slide-bottom') &&
+                    !itemContent.classList.contains('card-flip-reveal') &&
+                    !itemContent.classList.contains('card-zoom-rotate')) {
+                  gsap.to(itemContent, {
+                    opacity: itemProgress,
+                    x: -100 + (100 * itemProgress),
+                    scale: 0.8 + (0.2 * itemProgress),
+                    duration: 0.3,
+                    ease: "power2.out"
+                  });
+                }
                 
-                gsap.to(itemImage, {
-                  opacity: itemProgress,
-                  x: 100 - (100 * itemProgress),
-                  scale: 0.9 + (0.1 * itemProgress),
-                  rotation: 5 - (5 * itemProgress),
-                  duration: 0.3,
-                  ease: "power2.out"
-                });
+                if (!itemImage.classList.contains('card-slide-left') && 
+                    !itemImage.classList.contains('card-slide-right') &&
+                    !itemImage.classList.contains('card-slide-top') &&
+                    !itemImage.classList.contains('card-slide-bottom') &&
+                    !itemImage.classList.contains('card-flip-reveal') &&
+                    !itemImage.classList.contains('card-zoom-rotate')) {
+                  gsap.to(itemImage, {
+                    opacity: itemProgress,
+                    x: 100 - (100 * itemProgress),
+                    scale: 0.9 + (0.1 * itemProgress),
+                    rotation: 5 - (5 * itemProgress),
+                    duration: 0.3,
+                    ease: "power2.out"
+                  });
+                }
               }
             });
           }

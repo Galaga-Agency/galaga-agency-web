@@ -12,14 +12,14 @@ interface TechItemProps {
 
 export default function TechItem({ tech }: TechItemProps) {
   return (
-    <div className="tech-card px-8">
+    <div className="tech-card px-8 z-50">
       <div className="w-20 h-20 md:w-28 md:h-28 relative">
         <div 
-          className="w-full h-full bg-teal"
+          className="w-full h-full bg-white"
           style={{
             mask: `url(${tech.logo}) center/contain no-repeat`,
             WebkitMask: `url(${tech.logo}) center/contain no-repeat`,
-            backgroundColor: '#176161'
+            backgroundColor: '#fff'
           }}
         />
       </div>

@@ -620,11 +620,78 @@
         },
         "quote": "Each step is designed to maximize impact and ensure that your investment generates measurable results."
       },
+       "collaboration": {
+        "eyebrow": "Strategic Partnership",
+        "title": "Joint Vision",
+        "subtitle": "Galaga Agency and Dos x Dos join forces to transform your sales spaces into authentic brand experiences.",
+        
+        "dos-summary": "Technical design, furniture manufacturing, and comprehensive installation in physical spaces.",
+        "dos-specialties": "Production • Installation • Logistics • Maintenance",
+        
+        "galaga-summary": "Strategic digital experience design with interactive technology and real-time analytics.",
+        "galaga-specialties": "Digital Strategy • Interactive Tech • Content • Data Analysis",
+        
+        "result": "Together we create environments that fall in love and sell, combining physical design with digital innovation.",
+        
+        "sustainability": {
+          "title": "Sustainability",
+          "description": "We use ecological materials, optimize resources, and leverage digitalization to drastically reduce printed material consumption while maintaining creativity and impact.",
+          "highlight": "Innovating also means caring. Creating spectacular experiences doesn't have to leave a footprint."
+        }
+      },
+      "results": {
+        "eyebrow": "Proven Results",
+        "title": "Spaces that Inspire",
+        "subtitle": "Interactive, sensory and digital experiences generate memory and emotional connection with the brand.",
+
+        "emotional-connection": {
+          "title": "Greater Emotional Connection with the Customer",
+          "description": "Interactive, sensory and digital experiences generate memory and emotional connection with the brand.",
+          "detail": "+42% brand attachment compared to traditional spaces."
+        },
+
+        "conversion-increase": {
+          "title": "Increase in Point-of-Sale Conversion",
+          "description": "Data-driven screens, personalized recommendations or interactive corners that increase purchase intention.",
+          "detail": "Up to +30% in featured product sales."
+        },
+
+        "engagement-time": {
+          "title": "Data-Based Decision Making",
+          "description": "With sensors and real-time analytics, brands better understand how their customers behave in the space.",
+          "detail": "Promotion optimization and unnecessary stock reduction."
+        },
+
+        "space-optimization": {
+          "title": "Better Use of Physical Space",
+          "description": "A piece of furniture with a screen or digital display allows multiple campaigns to be communicated in the same place, without recurring production costs.",
+          "detail": "Savings on physical materials and greater flexibility."
+        },
+
+        "personalization": {
+          "title": "Real-Time Personalization",
+          "description": "Adapting content according to time slot, location or customer type is possible thanks to digitalization.",
+          "detail": "More relevant campaigns and better received."
+        },
+
+        "competitive-advantage": {
+          "title": "Competitive Advantage Against Other Brands",
+          "description": "Offering differentiating experiences in retail and events positions the brand as innovative and close.",
+          "detail": "Drives positioning and loyalty."
+        },
+
+        "case-study": {
+          "title": "Results",
+          "description": "Actual description of the case study project and its specific outcomes...",
+          "client": "Dos x Dos Grupo Imagen",
+          "agency": "Galaga Agency"
+        }
+      },
       "cta": {
-        "title": "¿Listo para transformar la experiencia de tu marca?",
-        "subtitle": "Descubre cómo las experiencias inmersivas pueden revolucionar la conexión con tus clientes.",
-        "primary": "Solicitar consulta gratuita",
-        "secondary": "Ver casos de éxito"
+        "title": "Ready to transform your brand experience?",
+        "subtitle": "Discover how immersive experiences can revolutionize your customer connections.",
+        "primary": "Request free consultation",
+        "secondary": "View success stories"
       }
     }
   },

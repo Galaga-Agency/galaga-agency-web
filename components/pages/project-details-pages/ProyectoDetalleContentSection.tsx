@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { FiTarget, FiZap, FiCheckCircle } from "react-icons/fi";
 import { getCaseStudyBySlug } from "@/data/case-studies";
 import Image from "next/image";
@@ -13,6 +14,7 @@ export default function ProyectoDetalleContentSection({
   slug,
 }: ProyectoDetalleContentSectionProps) {
   const { t } = useTranslation();
+  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   const caseStudy = getCaseStudyBySlug(slug);
 
@@ -22,6 +24,7 @@ export default function ProyectoDetalleContentSection({
 
   return (
     <section
+      ref={elementRef}
       className="project-details-page-content-section section relative overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
@@ -45,7 +48,14 @@ export default function ProyectoDetalleContentSection({
 
       <div className="container relative z-10">
         {/* First Block - Challenge/Situation */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20">
+        <div 
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20 transition-all duration-800 ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 -translate-x-12'
+          }`}
+          style={{ transitionDelay: '200ms' }}
+        >
           <div className="px-4 lg:px-0">
             <div className="flex items-center gap-6 pb-8">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
@@ -110,7 +120,14 @@ export default function ProyectoDetalleContentSection({
         </div>
 
         {/* Second Block - Solution/Approach */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20">
+        <div 
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20 transition-all duration-800 ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 translate-x-12'
+          }`}
+          style={{ transitionDelay: '400ms' }}
+        >
           <div className="px-4 lg:px-0 lg:order-2">
             <div className="flex items-center gap-6 pb-8">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-mandarina/90 via-45% to-naranja-tostado to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
@@ -147,7 +164,14 @@ export default function ProyectoDetalleContentSection({
         </div>
 
         {/* Third Block - Impact/Results */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div 
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center transition-all duration-800 ${
+            isVisible 
+              ? 'opacity-100 translate-x-0' 
+              : 'opacity-0 -translate-x-12'
+          }`}
+          style={{ transitionDelay: '600ms' }}
+        >
           <div className="px-4 lg:px-0">
             <div className="flex items-center gap-6 pb-8">
               <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-turquesa/90 via-45% to-azul-profundo rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
@@ -171,7 +195,12 @@ export default function ProyectoDetalleContentSection({
                   key={index}
                   className={`bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 ${
                     index === 0 ? "border-teal" : "border-mandarina"
-                  } `}
+                  } transition-all duration-800 ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0 scale-100' 
+                      : 'opacity-0 translate-y-5 scale-95'
+                  }`}
+                  style={{ transitionDelay: `${800 + (index * 100)}ms` }}
                 >
                   <div className="flex items-center justify-between">
                     <div>

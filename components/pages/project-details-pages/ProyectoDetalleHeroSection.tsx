@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FiArrowLeft, FiTag } from "react-icons/fi";
@@ -14,8 +15,18 @@ export default function ProyectoDetalleHeroSection({
   slug,
 }: ProyectoDetalleHeroSectionProps) {
   const { t } = useTranslation();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const caseStudy = getCaseStudyBySlug(slug);
+
+  useEffect(() => {
+    // Trigger animations on mount
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!caseStudy) {
     return (
@@ -69,7 +80,14 @@ export default function ProyectoDetalleHeroSection({
       <div className="container relative z-30 w-full py-20">
         <div className="proyecto-detalle-hero-content w-full flex flex-col justify-center min-h-[70vh]">
           {/* Breadcrumb */}
-          <div className="proyecto-detalle-breadcrumb pb-8 md:pb-12">
+          <div 
+            className={`proyecto-detalle-breadcrumb pb-8 md:pb-12 transition-all duration-800 ease-out ${
+              isLoaded 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-5'
+            }`}
+            style={{ transitionDelay: '0ms' }}
+          >
             <Link
               href="/casos-de-exito"
               className="inline-flex items-center gap-3 text-hielo/80 hover:text-blanco transition-colors duration-300 drop-shadow-lg"
@@ -85,7 +103,14 @@ export default function ProyectoDetalleHeroSection({
             {/* Content */}
             <div className="proyecto-detalle-content">
               {/* Category badge */}
-              <div className="proyecto-detalle-category opacity-0 inline-flex items-center gap-2 bg-teal/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+              <div 
+                className={`proyecto-detalle-category inline-flex items-center gap-2 bg-teal/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10 transition-all duration-800 ease-out ${
+                  isLoaded 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: '100ms' }}
+              >
                 <FiTag className="text-turquesa text-sm flex-shrink-0" />
                 <span className="text-turquesa font-semibold text-sm uppercase tracking-wider drop-shadow-lg">
                   {t(caseStudy.categoryKey)}
@@ -93,21 +118,47 @@ export default function ProyectoDetalleHeroSection({
               </div>
 
               {/* Title */}
-              <h1 className="proyecto-detalle-title opacity-0 text-4xl md:text-5xl lg:text-6xl font-black text-blanco leading-tight tracking-tight py-6 drop-shadow-2xl">
+              <h1 
+                className={`proyecto-detalle-title text-4xl md:text-5xl lg:text-6xl font-black text-blanco leading-tight tracking-tight py-6 drop-shadow-2xl transition-all duration-800 ease-out ${
+                  isLoaded 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
+                }`}
+                style={{ transitionDelay: '200ms' }}
+              >
                 {t(caseStudy.titleKey)}
               </h1>
 
               {/* Challenge/Description */}
-              <p className="proyecto-detalle-subtitle opacity-0 text-xl md:text-2xl text-hielo/90 font-light leading-relaxed pb-12 drop-shadow-lg">
+              <p 
+                className={`proyecto-detalle-subtitle text-xl md:text-2xl text-hielo/90 font-light leading-relaxed pb-12 drop-shadow-lg transition-all duration-800 ease-out ${
+                  isLoaded 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: '300ms' }}
+              >
                 {t(caseStudy.introKey)}
               </p>
 
               {/* Metrics */}
-              <div className="proyecto-detalle-metrics opacity-0 grid grid-cols-2 gap-6">
+              <div 
+                className={`proyecto-detalle-metrics grid grid-cols-2 gap-6 transition-all duration-800 ease-out ${
+                  isLoaded 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-5'
+                }`}
+                style={{ transitionDelay: '400ms' }}
+              >
                 {caseStudy.metrics.map((metric, index) => (
                   <div
                     key={index}
-                    className="proyecto-metric-item text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 drop-shadow-xl"
+                    className={`proyecto-metric-item text-center bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 drop-shadow-xl transition-all duration-600 ease-out ${
+                      isLoaded 
+                        ? 'opacity-100 scale-100' 
+                        : 'opacity-0 scale-80'
+                    }`}
+                    style={{ transitionDelay: `${500 + (index * 200)}ms` }}
                   >
                     <div className="text-3xl md:text-4xl font-black text-turquesa pb-2 drop-shadow-lg">
                       {metric.value}
@@ -121,7 +172,14 @@ export default function ProyectoDetalleHeroSection({
             </div>
 
             {/* Hero Image - Rectangle aspect ratio */}
-            <div className="proyecto-detalle-image relative opacity-0 lg:block">
+            <div 
+              className={`proyecto-detalle-image relative lg:block transition-all duration-1200 ease-out ${
+                isLoaded 
+                  ? 'opacity-100 scale-100' 
+                  : 'opacity-0 scale-80'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
               <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 drop-shadow-2xl">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
                   <Image

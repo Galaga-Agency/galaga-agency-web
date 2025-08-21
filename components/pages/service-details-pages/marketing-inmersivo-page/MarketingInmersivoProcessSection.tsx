@@ -3,6 +3,7 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import Image from "next/image";
 import ServiceCTASection from "../ServiceCTASection";
+import MarketingInmersivoCollaborationSection from "./MarketingInmersivoCollaborationSection";
 
 export default function MarketingInmersivoProcessSection() {
   const { t } = useTranslation();
@@ -193,12 +194,7 @@ export default function MarketingInmersivoProcessSection() {
   ];
 
   return (
-    <section className="marketing-inmersivo-process-section bg-gradient-to-br from-blanco via-hielo/20 to-blanco relative overflow-visible">
-      {/* Diagonal background layers */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/20 to-blanco"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"></div>
-      </div>
+    <section className="marketing-inmersivo-process-section bg-transparent relative overflow-x-hidden md:overflow-visible">
       <div className="horizontal-scroll-container">
         {/* Section Header - Fixed */}
         <div className="pt-16 md:pt-28">
@@ -320,7 +316,7 @@ export default function MarketingInmersivoProcessSection() {
                         </div>
                       </div>
 
-                      {/* Visual - Frame with image */}
+                      {/* Visual */}
                       <div className="process-image px-4 lg:px-0 overflow-visible">
                         <div className="relative">
                           <div className="relative w-[90%] aspect-[1/1] rounded-2xl overflow-visible">
@@ -341,7 +337,6 @@ export default function MarketingInmersivoProcessSection() {
           </div>
         </div>
       </div>
-      <ServiceCTASection serviceKey="immersive-marketing" />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const initCaseStudiesAnimations = () => {
+export const initCarouselAnimation = () => {
   // Section animations
   gsap.fromTo(".case-studies-title", 
     { y: 30, opacity: 0 },

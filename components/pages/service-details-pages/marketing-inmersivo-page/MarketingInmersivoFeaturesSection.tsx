@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import {
   FaDesktop,
   FaEye,
@@ -20,6 +21,7 @@ import SecondaryButton from "@/components/ui/SecondaryButton";
 
 export default function MarketingInmersivoFeaturesSection() {
   const { t } = useTranslation();
+  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   const features = [
     {
@@ -128,7 +130,10 @@ export default function MarketingInmersivoFeaturesSection() {
   ];
 
   return (
-    <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
+    <section 
+      ref={elementRef}
+      className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden"
+    >
       <div className="container relative z-10 pb-0 md:pb-24">
         <div className="text-center">
           <h2 className="section-title text-blanco pb-8 mb-0">
@@ -142,157 +147,270 @@ export default function MarketingInmersivoFeaturesSection() {
         {/* Mobile Layout - Simple grid */}
         <div className="grid grid-cols-1 gap-6 pt-12 md:hidden">
           {features.map((feature, index) => (
-            <FeatureCard
+            <div
               key={index}
-              icon={feature.icon}
-              title={t(feature.title)}
-              description={t(feature.description)}
-              image={feature.image}
-              theme={feature.theme}
-              size="medium"
-            />
+              className={`transition-all duration-1000 ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-10 scale-95'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <FeatureCard
+                icon={feature.icon}
+                title={t(feature.title)}
+                description={t(feature.description)}
+                image={feature.image}
+                theme={feature.theme}
+                size="medium"
+              />
+            </div>
           ))}
         </div>
 
         {/* Desktop Bento Grid - Beautiful asymmetric layout with varying sizes */}
         <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8">
           {/* Row 1: 40% + 60% */}
-          <FeatureCard
-            icon={features[0].icon}
-            title={t(features[0].title)}
-            description={t(features[0].description)}
-            image={features[0].image}
-            theme={features[0].theme}
-            size="medium"
-            className="col-span-5"
-          />
+          <div
+            className={`col-span-5 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '0ms' }}
+          >
+            <FeatureCard
+              icon={features[0].icon}
+              title={t(features[0].title)}
+              description={t(features[0].description)}
+              image={features[0].image}
+              theme={features[0].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={features[1].icon}
-            title={t(features[1].title)}
-            description={t(features[1].description)}
-            image={features[1].image}
-            theme={features[1].theme}
-            size="medium"
-            className="col-span-7"
-          />
+          <div
+            className={`col-span-7 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '100ms' }}
+          >
+            <FeatureCard
+              icon={features[1].icon}
+              title={t(features[1].title)}
+              description={t(features[1].description)}
+              image={features[1].image}
+              theme={features[1].theme}
+              size="medium"
+            />
+          </div>
 
-          {/* Row 2: 70% + 30% (reversed from your original pattern) */}
-          <FeatureCard
-            icon={features[2].icon}
-            title={t(features[2].title)}
-            description={t(features[2].description)}
-            image={features[2].image}
-            theme={features[2].theme}
-            size="medium"
-            className="col-span-8"
-          />
+          {/* Row 2: 70% + 30% */}
+          <div
+            className={`col-span-8 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
+            <FeatureCard
+              icon={features[2].icon}
+              title={t(features[2].title)}
+              description={t(features[2].description)}
+              image={features[2].image}
+              theme={features[2].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={features[3].icon}
-            title={t(features[3].title)}
-            description={t(features[3].description)}
-            image={features[3].image}
-            theme={features[3].theme}
-            size="medium"
-            className="col-span-4"
-          />
+          <div
+            className={`col-span-4 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '300ms' }}
+          >
+            <FeatureCard
+              icon={features[3].icon}
+              title={t(features[3].title)}
+              description={t(features[3].description)}
+              image={features[3].image}
+              theme={features[3].theme}
+              size="medium"
+            />
+          </div>
 
           {/* Row 3: 35% + 65% */}
-          <FeatureCard
-            icon={features[4].icon}
-            title={t(features[4].title)}
-            description={t(features[4].description)}
-            image={features[4].image}
-            theme={features[4].theme}
-            size="medium"
-            className="col-span-4"
-          />
+          <div
+            className={`col-span-4 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '400ms' }}
+          >
+            <FeatureCard
+              icon={features[4].icon}
+              title={t(features[4].title)}
+              description={t(features[4].description)}
+              image={features[4].image}
+              theme={features[4].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={features[5].icon}
-            title={t(features[5].title)}
-            description={t(features[5].description)}
-            image={features[5].image}
-            theme={features[5].theme}
-            size="medium"
-            className="col-span-8"
-          />
+          <div
+            className={`col-span-8 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '500ms' }}
+          >
+            <FeatureCard
+              icon={features[5].icon}
+              title={t(features[5].title)}
+              description={t(features[5].description)}
+              image={features[5].image}
+              theme={features[5].theme}
+              size="medium"
+            />
+          </div>
 
           {/* Row 4: 55% + 45% */}
-          <FeatureCard
-            icon={features[6].icon}
-            title={t(features[6].title)}
-            description={t(features[6].description)}
-            image={features[6].image}
-            theme={features[6].theme}
-            size="medium"
-            className="col-span-7"
-          />
+          <div
+            className={`col-span-7 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '600ms' }}
+          >
+            <FeatureCard
+              icon={features[6].icon}
+              title={t(features[6].title)}
+              description={t(features[6].description)}
+              image={features[6].image}
+              theme={features[6].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={features[7].icon}
-            title={t(features[7].title)}
-            description={t(features[7].description)}
-            image={features[7].image}
-            theme={features[7].theme}
-            size="medium"
-            className="col-span-5"
-          />
+          <div
+            className={`col-span-5 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '700ms' }}
+          >
+            <FeatureCard
+              icon={features[7].icon}
+              title={t(features[7].title)}
+              description={t(features[7].description)}
+              image={features[7].image}
+              theme={features[7].theme}
+              size="medium"
+            />
+          </div>
 
-          {/* Row 5: 25% + 50% + 25% (asymmetric trio) */}
-          <FeatureCard
-            icon={features[8].icon}
-            title={t(features[8].title)}
-            description={t(features[8].description)}
-            image={features[8].image}
-            theme={features[8].theme}
-            size="medium"
-            className="col-span-3"
-          />
+          {/* Row 5: 25% + 50% + 25% */}
+          <div
+            className={`col-span-3 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '800ms' }}
+          >
+            <FeatureCard
+              icon={features[8].icon}
+              title={t(features[8].title)}
+              description={t(features[8].description)}
+              image={features[8].image}
+              theme={features[8].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={features[9].icon}
-            title={t(features[9].title)}
-            description={t(features[9].description)}
-            image={features[9].image}
-            theme={features[9].theme}
-            size="medium"
-            className="col-span-6"
-          />
+          <div
+            className={`col-span-6 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-y-0 scale-100' 
+                : 'opacity-0 translate-y-10 scale-95'
+            }`}
+            style={{ transitionDelay: '900ms' }}
+          >
+            <FeatureCard
+              icon={features[9].icon}
+              title={t(features[9].title)}
+              description={t(features[9].description)}
+              image={features[9].image}
+              theme={features[9].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={features[10].icon}
-            title={t(features[10].title)}
-            description={t(features[10].description)}
-            image={features[10].image}
-            theme={features[10].theme}
-            size="medium"
-            className="col-span-3"
-          />
+          <div
+            className={`col-span-3 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '1000ms' }}
+          >
+            <FeatureCard
+              icon={features[10].icon}
+              title={t(features[10].title)}
+              description={t(features[10].description)}
+              image={features[10].image}
+              theme={features[10].theme}
+              size="medium"
+            />
+          </div>
 
-          {/* Row 6: 60% + 40% (perfect ending) */}
-          <FeatureCard
-            icon={features[11].icon}
-            title={t(features[11].title)}
-            description={t(features[11].description)}
-            image={features[11].image}
-            theme={features[11].theme}
-            size="medium"
-            className="col-span-7"
-          />
+          {/* Row 6: 60% + 40% */}
+          <div
+            className={`col-span-7 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '1100ms' }}
+          >
+            <FeatureCard
+              icon={features[11].icon}
+              title={t(features[11].title)}
+              description={t(features[11].description)}
+              image={features[11].image}
+              theme={features[11].theme}
+              size="medium"
+            />
+          </div>
 
-          <FeatureCard
-            icon={FaHandPointer}
-            title={t("service-details-pages.immersive-marketing.features.cta.title")}
-            description={t("service-details-pages.immersive-marketing.features.cta.description")}
-            image="/assets/img/servicios/immersive-marketing/cta-placeholder.png"
-            theme="teal"
-            size="medium"
-            className="col-span-5"
-            isCTA={true}
-            ctaButtonText={t("service-details-pages.immersive-marketing.features.cta.primary")}
-          />
+          <div
+            className={`col-span-5 transition-all duration-1000 ${
+              isVisible 
+                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
+                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
+            }`}
+            style={{ transitionDelay: '1200ms' }}
+          >
+            <FeatureCard
+              icon={FaHandPointer}
+              title={t("service-details-pages.immersive-marketing.features.cta.title")}
+              description={t("service-details-pages.immersive-marketing.features.cta.description")}
+              image="/assets/img/servicios/immersive-marketing/cta-placeholder.png"
+              theme="teal"
+              size="medium"
+              isCTA={true}
+              ctaButtonText={t("service-details-pages.immersive-marketing.features.cta.primary")}
+            />
+          </div>
         </div>
       </div>
     </section>

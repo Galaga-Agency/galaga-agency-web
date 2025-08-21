@@ -3,27 +3,21 @@
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
-import { initHeroAnimations } from "@/utils/animations/hero-animations";
 import { getLocalizedRoute } from "@/utils/navigation";
 import MarketingInmersivoHeroSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoHeroSection";
 import MarketingInmersivoOverviewSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoOverviewSection";
 import MarketingInmersivoFeaturesSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoFeaturesSection";
 import MarketingInmersivoProcessSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoProcessSection";
-import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
-import { initAboutAnimations } from "@/utils/animations/about-animations";
-import { initWhyChooseAnimations } from "@/utils/animations/why-choose-us-animations";
 import { initHorizontalScrollAnimation } from "@/utils/animations/horizontal-scroll-animation";
+import MarketingInmersivoResultsSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoResultsSection";
+import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
+import MarketingInmersivoCollaborationSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoCollaborationSection";
 
 export default function MarketingInmersivoPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [
-      initHeroAnimations,
-      initAboutAnimations,
-      initWhyChooseAnimations,
-      initHorizontalScrollAnimation,
-    ],
+    animations: [initHorizontalScrollAnimation],
     delay: 100,
   });
 
@@ -49,7 +43,17 @@ export default function MarketingInmersivoPage() {
       <MarketingInmersivoHeroSection />
       <MarketingInmersivoOverviewSection />
       <MarketingInmersivoFeaturesSection />
-      <MarketingInmersivoProcessSection />
+      <div className="relative">
+        {/* Diagonal background layers */}
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-teal/50 via-turquesa/20 to-blanco"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"></div>
+        </div>
+        <MarketingInmersivoProcessSection />
+        <MarketingInmersivoCollaborationSection />
+      </div>
+      <MarketingInmersivoResultsSection />
+      <ServiceCTASection serviceKey="immersive-marketing" />
     </>
   );
 }

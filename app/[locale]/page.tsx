@@ -9,26 +9,16 @@ import CaseStudiesSection from "@/components/pages/homepage/CaseStudiesSection";
 import PartnersSection from "@/components/pages/homepage/PartnersSection";
 import { initHeroTitleAnimation } from "@/utils/animations/homepage-hero-animation";
 import { initHeroScrollAnimation } from "@/utils/animations/homepage-hero-scroll-animation";
-import { initCTAAnimations } from "@/utils/animations/cta-animation";
-import { animatePartnersSection } from "@/utils/animations/partners-animation";
-import { initChevronAnimations } from "@/utils/animations/chevron-animation";
-import { initCaseStudiesAnimations } from "@/utils/animations/case-studies-animation";
-import { initAboutAnimations } from "@/utils/animations/about-animations";
-import { fadeAnimations } from "@/utils/animations/fade-animations";
-import { initWhyChooseAnimations } from "@/utils/animations/why-choose-us-animations";
+import { initCarouselAnimation } from "@/utils/animations/carousel-animation";
+import { initBoucingBubblesAnimation } from "@/utils/animations/bouncing-bubbles-animations";
 
 export default function HomePage() {
   useGSAPAnimations({
     animations: [
       initHeroScrollAnimation,
       initHeroTitleAnimation,
-      fadeAnimations,
-      initAboutAnimations,
-      initChevronAnimations,
-      initWhyChooseAnimations,
-      initCaseStudiesAnimations,
-      animatePartnersSection,
-      initCTAAnimations,
+      initBoucingBubblesAnimation,
+      initCarouselAnimation,
     ],
     delay: 100,
   });

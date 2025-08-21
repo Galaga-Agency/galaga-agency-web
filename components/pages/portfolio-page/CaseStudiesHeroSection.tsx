@@ -2,11 +2,40 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
+import { useEffect, useState } from "react";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 
 export default function CaseStudiesHeroSection() {
   const { t } = useTranslation();
   const { isTouchDevice } = useDeviceDetect();
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+
+  useEffect(() => {
+    let hasScrolled = false;
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      if (!hasScrolled && window.scrollY > 50) {
+        hasScrolled = true;
+        setShowScrollIndicator(false);
+      }
+
+      if (hasScrolled && window.scrollY <= 10) {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          hasScrolled = false;
+          setShowScrollIndicator(true);
+        }, 1000);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   return (
     <section className="case-studies-hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -40,7 +69,7 @@ export default function CaseStudiesHeroSection() {
         <div className="case-studies-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
-            <span className="text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
+            <span className="hero-eyebrow text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg opacity-0">
               {t("case-studies-page.hero-section.eyebrow")}
             </span>
           </div>
@@ -49,12 +78,12 @@ export default function CaseStudiesHeroSection() {
           <div className="text-center pb-8 md:pb-12 w-full">
             <h1 className="hero-title text-blanco leading-[0.9] tracking-tight drop-shadow-2xl px-4 text-center">
               <span className="block pb-2 md:pb-4">
-                <span className="hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
+                <span className="hero-word-1 drop-shadow-xl opacity-0">
                   {t("case-studies-page.hero-section.innovacion")}
                 </span>
               </span>
               <span className="block">
-                <span className="hero-word-2 drop-shadow-xl opacity-0 translate-y-24">
+                <span className="hero-word-2 drop-shadow-xl opacity-0">
                   {t("case-studies-page.hero-section.conImpacto")}
                 </span>
               </span>
@@ -63,14 +92,20 @@ export default function CaseStudiesHeroSection() {
 
           {/* Subtitle */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
+            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0">
               {t("case-studies-page.hero-section.subtitle")}
             </p>
           </div>
         </div>
       </div>
 
-      <ScrollIndicator className="hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
+      <div 
+        className={`hero-scroll-indicator absolute bottom-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-600 ${
+          showScrollIndicator ? 'opacity-100' : 'opacity-0 translate-y-5'
+        }`}
+      >
+        <ScrollIndicator />
+      </div>
     </section>
   );
 }

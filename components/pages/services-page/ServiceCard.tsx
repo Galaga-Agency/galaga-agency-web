@@ -86,9 +86,9 @@ export default function ServiceCard({
     border: "border-teal/20",
   };
 
-const translatedSlug = t(service.slug);
-const servicesRoute = getLocalizedRoute("services", language);
-const serviceUrl = `${servicesRoute}/${translatedSlug}`;
+  const translatedSlug = t(service.slug);
+  const servicesRoute = getLocalizedRoute("services", language);
+  const serviceUrl = `${servicesRoute}/${translatedSlug}`;
 
   // Check if this service has a link using the hasRedirection field
   const hasLink = service.hasRedirection;

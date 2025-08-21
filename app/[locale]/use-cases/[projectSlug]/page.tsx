@@ -1,16 +1,12 @@
 "use client";
 
 import { use } from "react";
-import { useGSAP } from "@gsap/react";
-import { useAppReady } from "@/hooks/useAppReady";
 import { useTranslation } from "@/hooks/useTranslation";
 import { getCaseStudyBySlug } from "@/data/case-studies";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
-import { initProyectoDetalleAnimations } from "@/utils/animations/project-details-animations";
 import ProyectoDetalleHeroSection from "@/components/pages/project-details-pages/ProyectoDetalleHeroSection";
 import ProyectoDetalleContentSection from "@/components/pages/project-details-pages/ProyectoDetalleContentSection";
 import CTASection from "@/components/pages/homepage/CTASection";
-import { initCTAAnimations } from "@/utils/animations/cta-animation";
 import { getLocalizedRoute } from "@/utils/navigation";
 
 interface ProyectoDetallePageProps {
@@ -23,19 +19,7 @@ export default function ProyectoDetallePage({
   params,
 }: ProyectoDetallePageProps) {
   const { projectSlug } = use(params);
-  const isAppReady = useAppReady();
   const { t, language } = useTranslation();
-
-  useGSAP(() => {
-    if (!isAppReady) return;
-
-    const timer = setTimeout(() => {
-      initProyectoDetalleAnimations();
-      initCTAAnimations();
-    }, 100);
-
-    return () => clearTimeout(timer);
-  }, [isAppReady]);
 
   // Get case study data
   const caseStudy = getCaseStudyBySlug(projectSlug);

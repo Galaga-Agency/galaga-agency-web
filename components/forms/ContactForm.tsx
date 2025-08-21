@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "@/hooks/useTranslation";
-import { CheckCircle, ArrowRight, AlertCircle } from "lucide-react";
-import emailjs from '@emailjs/browser';
+import { ArrowRight, AlertCircle, CheckCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import CustomInput from "@/components/ui/CustomInput";
 import CustomTextarea from "@/components/ui/CustomTextarea";
 import CustomSelect from "@/components/ui/CustomSelect";
@@ -18,7 +18,11 @@ interface FormData {
   message: string;
 }
 
-export default function ContactForm() {
+interface ContactFormProps {
+  isVisible?: boolean;
+}
+
+export default function ContactForm({ isVisible = true }: ContactFormProps) {
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -30,7 +34,7 @@ export default function ContactForm() {
     watch,
     setValue,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
       name: "",
@@ -39,7 +43,7 @@ export default function ContactForm() {
       phone: "",
       service: "",
       message: "",
-    }
+    },
   });
 
   const watchedValues = watch();
@@ -59,11 +63,11 @@ export default function ContactForm() {
       const templateParams = {
         name: data.name,
         email: data.email,
-        company: data.company || 'No company provided',
-        phone: data.phone || 'No phone provided',
-        service: data.service || 'No service selected',
+        company: data.company || "No company provided",
+        phone: data.phone || "No phone provided",
+        service: data.service || "No service selected",
         message: data.message,
-        to_email: 'thomas@galagaagency.com'
+        to_email: "thomas@galagaagency.com",
       };
 
       const result = await emailjs.send(
@@ -72,7 +76,7 @@ export default function ContactForm() {
         templateParams
       );
 
-      console.log('EmailJS Success:', result);
+      console.log("EmailJS Success:", result);
       setIsSubmitting(false);
       setIsSubmitted(true);
 
@@ -80,9 +84,8 @@ export default function ContactForm() {
         setIsSubmitted(false);
         reset();
       }, 4000);
-
     } catch (emailError) {
-      console.error('EmailJS Error:', emailError);
+      console.error("EmailJS Error:", emailError);
       setIsSubmitting(false);
       setSubmitError(t("contact-page.form.error.message"));
     }
@@ -101,8 +104,8 @@ export default function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="contact-form-success flex flex-col justify-center items-center text-center py-12">
-        <div className="w-20 h-20 bg-radial-[at_30%_25%] from-hielo/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center mx-auto shadow-xl">
-          <CheckCircle className="w-10 h-10 text-blanco drop-shadow-lg" />
+        <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto shadow-xl bg-teal">
+          <CheckCircle className="w-10 h-10 text-white drop-shadow-lg" />
         </div>
         <h3 className="text-2xl font-bold text-teal py-4 leading-tight">
           {t("contact-page.form.success.title")}
@@ -125,10 +128,12 @@ export default function ContactForm() {
       )}
 
       {/* Name and Email */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 form-field">
         <CustomInput
-          {...register("name", { 
-            required: t("contact-page.form.validation.nameRequired") || "Full name is required" 
+          {...register("name", {
+            required:
+              t("contact-page.form.validation.nameRequired") ||
+              "Full name is required",
           })}
           type="text"
           label={t("contact-page.form.name")}
@@ -138,12 +143,16 @@ export default function ContactForm() {
         />
 
         <CustomInput
-          {...register("email", { 
-            required: t("contact-page.form.validation.emailRequired") || "Email is required",
+          {...register("email", {
+            required:
+              t("contact-page.form.validation.emailRequired") ||
+              "Email is required",
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: t("contact-page.form.validation.emailInvalid") || "Please enter a valid email address"
-            }
+              message:
+                t("contact-page.form.validation.emailInvalid") ||
+                "Please enter a valid email address",
+            },
           })}
           type="email"
           label={t("contact-page.form.email")}
@@ -154,7 +163,7 @@ export default function ContactForm() {
       </div>
 
       {/* Company and Phone */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 form-field">
         <CustomInput
           {...register("company")}
           type="text"
@@ -171,45 +180,51 @@ export default function ContactForm() {
       </div>
 
       {/* Service */}
-      <CustomSelect
-        name="service"
-        label={t("contact-page.form.serviceInterest")}
-        placeholder={t("contact-page.form.selectService")}
-        options={serviceOptions}
-        value={watchedValues.service}
-        onChange={handleSelectChange}
-      />
+      <div className="form-field z-50">
+        <CustomSelect
+          name="service"
+          label={t("contact-page.form.serviceInterest")}
+          placeholder={t("contact-page.form.selectService")}
+          options={serviceOptions}
+          value={watchedValues.service}
+          onChange={handleSelectChange}
+        />
+      </div>
 
       {/* Message */}
-      <CustomTextarea
-        {...register("message", { 
-          required: t("contact-page.form.validation.messageRequired") || "Project details are required" 
-        })}
-        label={t("contact-page.form.message")}
-        placeholder={t("contact-page.form.messagePlaceholder")}
-        rows={6}
-        error={errors.message?.message}
-        required
-      />
+      <div className="form-field">
+        <CustomTextarea
+          {...register("message", {
+            required:
+              t("contact-page.form.validation.messageRequired") ||
+              "Project details are required",
+          })}
+          label={t("contact-page.form.message")}
+          placeholder={t("contact-page.form.messagePlaceholder")}
+          rows={6}
+          error={errors.message?.message}
+          required
+        />
+      </div>
 
       {/* Submit Button */}
       <div className="pt-4">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full contact-form-submit group px-12 py-5 text-xl font-bold rounded-lg bg-teal text-blanco shadow-md hover:shadow-lg hover:bg-teal/90 focus:outline-none transition-all duration-200 inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full contact-form-submit group px-12 py-5 text-xl font-bold rounded-lg bg-teal text-white shadow-md hover:shadow-lg hover:bg-teal/90 focus:outline-none transition-all duration-200 inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <div className="flex items-center gap-3">
-              <div className="loading-dot-1 w-2 h-2 bg-blanco rounded-full"></div>
-              <div className="loading-dot-2 w-2 h-2 bg-blanco rounded-full"></div>
-              <div className="loading-dot-3 w-2 h-2 bg-blanco rounded-full"></div>
+              <div className="loading-dot-1 w-2 h-2 bg-white rounded-full"></div>
+              <div className="loading-dot-2 w-2 h-2 bg-white rounded-full"></div>
+              <div className="loading-dot-3 w-2 h-2 bg-white rounded-full"></div>
               <span>{t("contact-page.form.sending")}</span>
             </div>
           ) : (
             <>
               <span>{t("contact-page.form.send")}</span>
-              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="w-5 h-5" />
             </>
           )}
         </button>

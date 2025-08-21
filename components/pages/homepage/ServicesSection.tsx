@@ -1,11 +1,13 @@
 "use client";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { services } from "@/data/services";
 import { useState } from "react";
 import BentoServiceCard from "@/components/pages/homepage/BentoServiceCard";
 
 export default function ServicesSection() {
   const { t } = useTranslation();
+  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   // Service configurations
@@ -47,7 +49,10 @@ export default function ServicesSection() {
   };
 
   return (
-    <section className="relative section overflow-hidden bg-gradient-to-br from-azul-profundo via-teal to-negro">
+    <section
+      ref={elementRef}
+      className="relative section overflow-hidden bg-gradient-to-br from-azul-profundo via-teal to-negro"
+    >
       <div className="relative z-10">
         {/* Enhanced section header */}
         <div className="text-center pb-16">
@@ -62,67 +67,135 @@ export default function ServicesSection() {
         </div>
 
         <div className="section-break mx-auto px-4">
+          {/* Mobile Grid */}
           <div className="grid grid-cols-1 gap-8 md:hidden">
             {serviceConfigs.map((service, index) => (
-              <BentoServiceCard
+              <div
                 key={index}
-                service={service}
-                size="mobile"
-                isHovered={hoveredCard === index}
-                isNeighborHovered={false}
-                onHover={(isHovered) => handleCardHover(index, isHovered)}
-              />
+                className={`transition-all duration-1000 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0 scale-100"
+                    : "opacity-0 translate-y-10 scale-95"
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <BentoServiceCard
+                  service={service}
+                  size="mobile"
+                  isHovered={hoveredCard === index}
+                  isNeighborHovered={false}
+                  onHover={(isHovered) => handleCardHover(index, isHovered)}
+                />
+              </div>
             ))}
           </div>
 
+          {/* Desktop Bento Grid */}
           <div className="hidden md:grid grid-cols-3 gap-8 lg:gap-10 auto-rows-[auto]">
             {/* Row 1: Small + Large */}
-            <BentoServiceCard
-              service={serviceConfigs[0]}
-              size="small"
-              isHovered={hoveredCard === 0}
-              isNeighborHovered={hoveredCard === 1}
-              onHover={(isHovered) => handleCardHover(0, isHovered)}
-            />
-            <BentoServiceCard
-              service={serviceConfigs[1]}
-              size="large"
-              isHovered={hoveredCard === 1}
-              isNeighborHovered={hoveredCard === 0}
-              onHover={(isHovered) => handleCardHover(1, isHovered)}
-            />
+            <div
+              className={`transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 -translate-x-10 translate-y-5 scale-95"
+              }`}
+              style={{ transitionDelay: "0ms" }}
+            >
+              <BentoServiceCard
+                service={serviceConfigs[0]}
+                size="small"
+                isHovered={hoveredCard === 0}
+                isNeighborHovered={hoveredCard === 1}
+                onHover={(isHovered) => handleCardHover(0, isHovered)}
+              />
+            </div>
+
+            <div
+              className={`col-span-2 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 translate-x-10 translate-y-5 scale-95"
+              }`}
+              style={{ transitionDelay: "150ms" }}
+            >
+              <BentoServiceCard
+                service={serviceConfigs[1]}
+                size="large"
+                isHovered={hoveredCard === 1}
+                isNeighborHovered={hoveredCard === 0}
+                onHover={(isHovered) => handleCardHover(1, isHovered)}
+              />
+            </div>
 
             {/* Row 2: Large + Small */}
-            <BentoServiceCard
-              service={serviceConfigs[2]}
-              size="large"
-              isHovered={hoveredCard === 2}
-              isNeighborHovered={hoveredCard === 3}
-              onHover={(isHovered) => handleCardHover(2, isHovered)}
-            />
-            <BentoServiceCard
-              service={serviceConfigs[3]}
-              size="small"
-              isHovered={hoveredCard === 3}
-              isNeighborHovered={hoveredCard === 2}
-              onHover={(isHovered) => handleCardHover(3, isHovered)}
-            />
+            <div
+              className={`col-span-2 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 -translate-x-10 translate-y-5 scale-95"
+              }`}
+              style={{ transitionDelay: "300ms" }}
+            >
+              <BentoServiceCard
+                service={serviceConfigs[2]}
+                size="large"
+                isHovered={hoveredCard === 2}
+                isNeighborHovered={hoveredCard === 3}
+                onHover={(isHovered) => handleCardHover(2, isHovered)}
+              />
+            </div>
+
+            <div
+              className={`transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 translate-x-10 translate-y-5 scale-95"
+              }`}
+              style={{ transitionDelay: "450ms" }}
+            >
+              <BentoServiceCard
+                service={serviceConfigs[3]}
+                size="small"
+                isHovered={hoveredCard === 3}
+                isNeighborHovered={hoveredCard === 2}
+                onHover={(isHovered) => handleCardHover(3, isHovered)}
+              />
+            </div>
 
             {/* Row 3: Small + Large */}
-            <BentoServiceCard
-              service={serviceConfigs[4]}
-              size="small"
-              isHovered={hoveredCard === 4}
-              isNeighborHovered={hoveredCard === 5}
-              onHover={(isHovered) => handleCardHover(4, isHovered)}
-            />
-            <BentoServiceCard
-              service={serviceConfigs[5]}
-              size="large"
-              isHovered={hoveredCard === 5}
-              isNeighborHovered={hoveredCard === 4}
-              onHover={(isHovered) => handleCardHover(5, isHovered)}
-            />
+            <div
+              className={`transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 -translate-x-10 translate-y-5 scale-95"
+              }`}
+              style={{ transitionDelay: "600ms" }}
+            >
+              <BentoServiceCard
+                service={serviceConfigs[4]}
+                size="small"
+                isHovered={hoveredCard === 4}
+                isNeighborHovered={hoveredCard === 5}
+                onHover={(isHovered) => handleCardHover(4, isHovered)}
+              />
+            </div>
+
+            <div
+              className={`col-span-2 transition-all duration-1000 ${
+                isVisible
+                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+                  : "opacity-0 translate-x-10 translate-y-5 scale-95"
+              }`}
+              style={{ transitionDelay: "750ms" }}
+            >
+              <BentoServiceCard
+                service={serviceConfigs[5]}
+                size="large"
+                isHovered={hoveredCard === 5}
+                isNeighborHovered={hoveredCard === 4}
+                onHover={(isHovered) => handleCardHover(5, isHovered)}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "../ui/PrimaryButton";
 import { services } from "@/data/services";
 import SocialIcons from "../SocialIcons";
+import SecondaryButton from "../ui/SecondaryButton";
 
 export default function Footer() {
   const { t, language } = useTranslation();
@@ -42,7 +43,7 @@ export default function Footer() {
                 <p className="text-gray-400 pb-6 text-sm md:text-base">
                   Let's discuss your next project
                 </p>
-                <PrimaryButton href="/contacto" className="w-full">
+                <SecondaryButton darkBg href="/contacto" className="w-full">
                   {t("footer.getInTouch")}
                   <svg
                     className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -57,7 +58,7 @@ export default function Footer() {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </PrimaryButton>
+                </SecondaryButton>
               </div>
             </div>
 

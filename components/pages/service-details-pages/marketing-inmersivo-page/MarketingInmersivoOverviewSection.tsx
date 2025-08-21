@@ -1,14 +1,19 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { FaEye, FaUsers } from "react-icons/fa";
 import Image from "next/image";
 
 export default function MarketingInmersivoOverviewSection() {
   const { t } = useTranslation();
+  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section className="marketing-inmersivo-overview-section homepage-about-section section relative overflow-x-hidden overflow-y-visible bg-gradient-to-br from-blanco via-hielo/30 to-blanco">
+    <section 
+      ref={elementRef}
+      className="marketing-inmersivo-overview-section homepage-about-section section relative overflow-x-hidden overflow-y-visible bg-gradient-to-br from-blanco via-hielo/30 to-blanco"
+    >
       {/* Diagonal background layers */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/20 to-blanco"></div>
@@ -19,17 +24,38 @@ export default function MarketingInmersivoOverviewSection() {
         <div className="container">
           {/* Section Header */}
           <div className="text-center pb-16 md:pb-20">
-            <h2 className="section-title text-teal leading-tight tracking-tight pb-6">
+            <h2 
+              className={`section-title text-teal leading-tight tracking-tight pb-6 transition-all duration-1000 ease-out ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-12'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
               {t("service-details-pages.immersive-marketing.hero-section.what-we-do.title")}
             </h2>
-            <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
+            <p 
+              className={`text-lg md:text-xl text-negro leading-relaxed px-4 transition-all duration-1000 ease-out ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
               {t("service-details-pages.immersive-marketing.hero-section.what-we-do.description")}
             </p>
           </div>
 
           {/* Philosophy Block - What we understand */}
           <div className="pb-16 md:pb-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div 
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-1000 ease-out ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-16 scale-95'
+              }`}
+              style={{ transitionDelay: '500ms' }}
+            >
               
               {/* Concept Text */}
               <div className="marketing-inmersivo-concept-text px-4 lg:px-0">
@@ -80,7 +106,11 @@ export default function MarketingInmersivoOverviewSection() {
             <div className="relative z-10 flex flex-col gap-12 md:gap-16 lg:gap-12">
               
               {/* First Block - Immersive Experiences */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              <div 
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
+                  isVisible ? 'animate-slide-left' : 'opacity-0'
+                }`}
+              >
                 <div className="px-4 lg:px-0">
                   <div className="flex items-center gap-6 pb-8">
                     <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-2xl">
@@ -133,7 +163,11 @@ export default function MarketingInmersivoOverviewSection() {
               </div>
 
               {/* Second Block - Customer Connection */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+              <div 
+                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
+                  isVisible ? 'animate-slide-right' : 'opacity-0'
+                }`}
+              >
                 
                 <div className="relative order-1 px-4 lg:px-0">
                   <div className="bg-gradient-to-br from-azul-profundo to-teal p-8 rounded-2xl text-white shadow-2xl">

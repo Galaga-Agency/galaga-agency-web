@@ -621,87 +621,75 @@
         },
         "quote": "Cada paso está diseñado para maximizar el impacto y asegurar que tu inversión genere resultados medibles."
       },
-      "technologies": {
-        "eyebrow": "Stack tecnológico",
-        "title": "Tecnologías que potencian experiencias",
-        "subtitle": "Utilizamos las herramientas más avanzadas para crear experiencias inmersivas de alta calidad.",
-        "ar-platforms": {
-          "title": "Plataformas de Realidad Aumentada",
-          "description": "Desarrollamos experiencias AR nativas para iOS y Android, además de soluciones web multiplataforma."
-        },
-        "interactive-displays": {
-          "title": "Sistemas de Pantallas Interactivas",
-          "description": "Tecnología de sensores y pantallas táctiles para crear interacciones naturales e intuitivas."
-        },
-        "content-management": {
-          "title": "Gestión de Contenido",
-          "description": "Sistemas personalizados para actualizar contenido en tiempo real y gestionar campañas remotamente."
-        },
-        "analytics": {
-          "title": "Analytics y Seguimiento",
-          "description": "Herramientas avanzadas para medir engagement, comportamiento de usuarios y ROI de experiencias."
-        },
-        "stats": {
-          "platforms": {
-            "number": "15+",
-            "label": "Plataformas soportadas"
-          },
-          "devices": {
-            "number": "500+",
-            "label": "Dispositivos compatibles"
-          },
-          "integrations": {
-            "number": "25+",
-            "label": "Integraciones disponibles"
-          },
-          "uptime": {
-            "number": "99.9%",
-            "label": "Tiempo activo"
-          }
+      "collaboration": {
+        "eyebrow": "Alianza Estratégica",
+        "title": "Visión conjunta",
+        "subtitle": "Galaga Agency y Dos x Dos unimos fuerzas para transformar tus espacios de venta en auténticas experiencias de marca.",
+
+        "dos-summary": "Diseño técnico, fabricación de mobiliario e instalación integral en espacios físicos.",
+        "dos-specialties": "Producción • Instalación • Logística • Mantenimiento",
+
+        "galaga-summary": "Diseño estratégico de experiencias digitales con tecnología interactiva y analítica en tiempo real.",
+        "galaga-specialties": "Estrategia Digital • Tecnología Interactiva • Contenido • Análisis de Datos",
+
+        "result": "Juntos creamos entornos que enamoran y venden, combinando diseño físico con innovación digital.",
+
+        "sustainability": {
+          "title": "Sostenibilidad",
+          "description": "Utilizamos materiales ecológicos, optimizamos recursos y aprovechamos la digitalización para reducir drásticamente el consumo de materiales impresos manteniendo creatividad e impacto.",
+          "highlight": "Innovar también es cuidar. Crear experiencias espectaculares no tiene por qué dejar huella."
         }
       },
       "results": {
-        "eyebrow": "Resultados que obtienes",
-        "title": "Impacto real en tu negocio",
-        "subtitle": "Nuestras experiencias inmersivas generan resultados medibles y transforman la relación con tus clientes.",
+        "eyebrow": "Resultados Comprobados",
+        "title": "Creamos espacios que inspiran",
+        "subtitle": "Las experiencias interactivas, sensoriales y digitales generan recuerdo y vinculación emocional con la marca.",
+
         "emotional-connection": {
-          "title": "Mayor conexión emocional con clientes",
-          "description": "Las experiencias interactivas, sensoriales y digitales generan memoria y vinculación emocional con la marca.",
-          "metric": "+42%",
-          "detail": "fijación de marca comparado con espacios tradicionales."
+          "title": "Mayor conexión emocional con el cliente",
+          "description": "Las experiencias interactivas, sensoriales y digitales generan recuerdo y vinculación emocional con la marca.",
+          "detail": "+42% de fijación de marca frente a espacios tradicionales."
         },
+
         "conversion-increase": {
-          "title": "Aumento en conversión punto de venta",
-          "description": "Displays basados en datos, recomendaciones personalizadas y rincones interactivos aumentan la intención de compra.",
-          "metric": "Hasta +30%",
-          "detail": "en ventas de productos destacados."
+          "title": "Incremento en la conversión en punto de venta",
+          "description": "Pantallas dirigidas por datos, recomendaciones personalizadas o corners que interactúan aumentan la intención de compra.",
+          "detail": "Hasta +30% en ventas de producto destacado."
         },
-        "data-driven-decisions": {
-          "title": "Toma de decisiones basada en datos",
-          "description": "Con sensores y analíticas en tiempo real, las marcas entienden mejor cómo se comporta su cliente en el espacio.",
-          "metric": "Optimización",
-          "detail": "de promociones y reducción de stock innecesario."
+
+        "engagement-time": {
+          "title": "Toma de decisiones basadas en datos reales",
+          "description": "Con sensores y analítica en tiempo real, las marcas entienden mejor cómo se comporta su cliente en el espacio.",
+          "detail": "Optimización de promociones y reducción de stock innecesario."
         },
+
         "space-optimization": {
           "title": "Mejor aprovechamiento del espacio físico",
-          "description": "Mobiliario con pantalla o escaparate digital permite comunicar varias campañas en el mismo lugar, sin costes recurrentes de producción.",
-          "metric": "Ahorro",
-          "detail": "en materiales físicos y mayor flexibilidad."
+          "description": "Un mueble con pantalla o un escaparate digital permite comunicar varias campañas en el mismo lugar, sin costes de producción recurrentes.",
+          "detail": "Ahorro en materiales físicos y mayor flexibilidad."
         },
-        "real-time-personalization": {
+
+        "personalization": {
           "title": "Personalización en tiempo real",
-          "description": "Adaptar contenido según franja horaria, ubicación o tipo de cliente te posiciona gracias a la digitalización.",
-          "metric": "Campañas",
-          "detail": "más relevantes y mejor recibidas."
+          "description": "Adaptar contenido según franja horaria, localización o tipo de cliente es posible gracias a la digitalización.",
+          "detail": "Campañas más relevantes y mejor recibidas."
         },
+
         "competitive-advantage": {
-          "title": "Ventaja competitiva sobre otras marcas",
-          "description": "Ofrecer experiencias diferenciales en retail y eventos posiciona tu marca como innovadora y cercana.",
-          "metric": "Impulsa",
-          "detail": "posicionamiento y fidelización."
+          "title": "Ventaja competitiva frente a otras marcas",
+          "description": "Ofrecer experiencias diferenciadoras en retail y eventos posiciona a la marca como innovadora y cercana.",
+          "detail": "Impulsa el posicionamiento y la fidelidad."
         },
-        "quote": "La nueva experiencia física... es digital, medible y humana.",
-        "quote-author": "Equipo Marketing Inmersivo"
+
+        "case-study": {
+          "title": "Resultados",
+          "point-1": "Mayor conexión emocional con el cliente",
+          "point-2": "Incremento en la conversión en punto de venta",
+          "point-3": "Toma de decisiones basadas en datos reales",
+          "point-4": "Mejor aprovechamiento del espacio físico",
+          "client": "Dos x Dos Grupo Imagen",
+          "agency": "Galaga Agency"
+        }
       },
       "cta": {
         "title": "¿Listo para transformar la experiencia de tu marca?",

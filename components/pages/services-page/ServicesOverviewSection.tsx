@@ -1,12 +1,14 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import ServiceCard from "./ServiceCard";
 import { useState } from "react";
 import { services } from "@/data/services";
 
 export default function ServicesOverviewSection() {
   const { t } = useTranslation();
+  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   // Define neighbor relationships for a 3-column grid
@@ -32,19 +34,43 @@ export default function ServicesOverviewSection() {
   };
 
   return (
-    <section className="services-overview-section section bg-hielo/20">
+    <section 
+      ref={elementRef}
+      className="services-overview-section section bg-hielo/20"
+    >
       <div className="container">
         {/* Section Header */}
         <div className="text-center pb-16">
-          <span className="services-overview-eyebrow text-teal font-semibold tracking-wider uppercase text-sm">
+          <span 
+            className={`services-overview-eyebrow text-teal font-semibold tracking-wider uppercase text-sm transition-all duration-800 ease-out ${
+              isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: '0ms' }}
+          >
             {t("services-page.overview-section.eyebrow")}
           </span>
 
-          <h2 className="services-overview-title section-title text-teal pt-4 pb-6">
+          <h2 
+            className={`services-overview-title section-title text-teal pt-4 pb-6 transition-all duration-800 ease-out ${
+              isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-12'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
             {t("services-page.overview-section.title")}
           </h2>
 
-          <p className="services-overview-subtitle text-lg md:text-xl text-negro/70 w-full container-tablet">
+          <p 
+            className={`services-overview-subtitle text-lg md:text-xl text-negro/70 w-full container-tablet transition-all duration-800 ease-out ${
+              isVisible 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: '400ms' }}
+          >
             {t("services-page.overview-section.subtitle")}
           </p>
         </div>
@@ -54,7 +80,12 @@ export default function ServicesOverviewSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card-wrapper h-full w-full"
+              className={`service-card-wrapper h-full w-full transition-all duration-1000 ease-out ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-10 scale-95'
+              }`}
+              style={{ transitionDelay: `${600 + (index * 150)}ms` }}
               onMouseEnter={() => handleCardHover(index, true)}
               onMouseLeave={() => handleCardHover(index, false)}
             >
