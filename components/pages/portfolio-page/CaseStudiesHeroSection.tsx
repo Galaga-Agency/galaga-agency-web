@@ -29,16 +29,16 @@ export default function CaseStudiesHeroSection() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       clearTimeout(scrollTimeout);
     };
   }, []);
 
   return (
-    <section className="case-studies-hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="case-studies-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image layer */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -99,9 +99,9 @@ export default function CaseStudiesHeroSection() {
         </div>
       </div>
 
-      <div 
+      <div
         className={`hero-scroll-indicator absolute bottom-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-600 ${
-          showScrollIndicator ? 'opacity-100' : 'opacity-0 translate-y-5'
+          showScrollIndicator ? "opacity-100" : "opacity-0 translate-y-5"
         }`}
       >
         <ScrollIndicator />

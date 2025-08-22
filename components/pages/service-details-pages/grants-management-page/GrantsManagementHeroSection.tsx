@@ -9,7 +9,7 @@ export default function GrantsManagementHeroSection() {
   const { isTouchDevice } = useDeviceDetect();
 
   return (
-    <section className="immersive-marketing-hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="immersive-marketing-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image layer */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
