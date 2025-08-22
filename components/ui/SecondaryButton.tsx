@@ -40,8 +40,9 @@ export default function SecondaryButton({
   };
 
   // Conditional styles based on borderColor prop
-  const colorStyles = borderColor === "white"
-    ? `
+  const colorStyles =
+    borderColor === "white"
+      ? `
       text-blanco
       border-blanco
       hover:border-blanco
@@ -49,8 +50,8 @@ export default function SecondaryButton({
       hover:bg-blanco/10
       focus:ring-blanco/30
     `
-    : darkBg
-    ? `
+      : darkBg
+      ? `
       text-blanco
       border-blanco/30
       hover:border-blanco
@@ -58,7 +59,7 @@ export default function SecondaryButton({
       hover:bg-blanco/10
       focus:ring-blanco/30
     `
-    : `
+      : `
       text-grafito
       border-hielo
       hover:border-teal
@@ -79,9 +80,11 @@ export default function SecondaryButton({
     hover:shadow-lg
     focus:outline-none
     focus:ring-4
+        text-nowrap
     transition-all
     duration-300
     transform
+    cursor-pointer
     active:scale-95
     disabled:opacity-50
     disabled:cursor-not-allowed
@@ -99,8 +102,8 @@ export default function SecondaryButton({
     // Check if it's an external link that should open in new tab
     if (props.external) {
       return (
-        <a 
-          href={props.href} 
+        <a
+          href={props.href}
           className={combinedClassName}
           target="_blank"
           rel="noopener noreferrer"

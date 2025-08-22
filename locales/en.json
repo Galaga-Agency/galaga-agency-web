@@ -1106,5 +1106,19 @@
       "viewAll": "View All Cases",
       "startProject": "Start Project"
     }
+  },
+  "cookies": {
+    "title": "We use cookies",
+    "description": "This site uses cookies to improve your browsing experience. You can accept all cookies or customize your preferences.",
+    "acceptAll": "Accept All",
+    "rejectAll": "Essential Only",
+    "customize": "Customize",
+    "save": "Save",
+    "necessary": "Necessary Cookies",
+    "analytics": "Analytics Cookies",
+    "marketing": "Marketing Cookies",
+    "necessaryDesc": "Essential for basic website functionality.",
+    "analyticsDesc": "Help us understand how you interact with our site.",
+    "marketingDesc": "To show personalized content and relevant ads."
   }
 }

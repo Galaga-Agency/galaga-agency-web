@@ -64,6 +64,7 @@ export default function PrimaryButton({
     transition-all
     duration-300
     inline-flex
+    text-nowrap
     items-center
     justify-center
     gap-2

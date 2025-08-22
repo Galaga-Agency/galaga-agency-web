@@ -1110,5 +1110,19 @@
       "viewAll": "Ver Todos los Casos",
       "startProject": "Iniciar Proyecto"
     }
+  },
+  "cookies": {
+    "title": "Gestión de Cookies",
+    "description": "Utilizamos cookies para mejorar tu experiencia de navegación y analizar el tráfico de nuestro sitio web.",
+    "acceptAll": "Aceptar Todas",
+    "rejectAll": "Solo Esenciales",
+    "customize": "Personalizar",
+    "save": "Guardar",
+    "necessary": "Cookies Necesarias",
+    "analytics": "Cookies Analíticas",
+    "marketing": "Cookies de Marketing",
+    "necessaryDesc": "Esenciales para el funcionamiento básico del sitio web.",
+    "analyticsDesc": "Nos ayudan a entender cómo interactúas con nuestro sitio.",
+    "marketingDesc": "Para mostrar contenido personalizado y anuncios relevantes."
   }
 }

@@ -9,6 +9,7 @@ import {
   getWebsiteSchema,
   getLocalBusinessSchema,
 } from "@/utils/seo";
+import CookieBanner from "@/components/CookieBanner";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://galagaagency.com";
 
@@ -129,6 +130,7 @@ export default function LocaleLayout({
         <LoadingWrapper>
           <Navbar />
           {children}
+          <CookieBanner /> 
           <Footer />
         </LoadingWrapper>
       </TranslationProvider>
