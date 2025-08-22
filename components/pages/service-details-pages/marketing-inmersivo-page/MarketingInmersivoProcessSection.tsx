@@ -2,8 +2,6 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import Image from "next/image";
-import ServiceCTASection from "../ServiceCTASection";
-import MarketingInmersivoCollaborationSection from "./MarketingInmersivoCollaborationSection";
 
 export default function MarketingInmersivoProcessSection() {
   const { t } = useTranslation();
@@ -179,35 +177,21 @@ export default function MarketingInmersivoProcessSection() {
     },
   };
 
-  // Different blob shapes for variety
-  const blobShapes = [
-    // Blob 1 - Rounded organic
-    "M150,-260C220,-220,300,-140,300,-50C300,40,220,120,150,180C80,240,20,280,-60,280C-140,280,-240,240,-270,170C-300,100,-260,0,-210,-80C-160,-160,-100,-220,-20,-260C60,-300,120,-300,150,-260Z",
-    // Blob 2 - Flowing wave
-    "M180,-200C240,-160,300,-80,280,0C260,80,160,160,60,180C-40,200,-140,160,-200,80C-260,0,-280,-120,-220,-180C-160,-240,-80,-280,0,-260C80,-240,120,-240,180,-200Z",
-    // Blob 3 - Angular modern
-    "M200,-180C250,-120,280,-40,260,20C240,80,180,120,100,140C20,160,-80,160,-160,120C-240,80,-300,0,-280,-80C-260,-160,-160,-240,-60,-240C40,-240,150,-240,200,-180Z",
-    // Blob 4 - Smooth curves
-    "M160,-220C200,-180,220,-120,220,-60C220,0,200,60,160,100C120,140,60,160,0,160C-60,160,-120,140,-160,100C-200,60,-220,0,-220,-60C-220,-120,-200,-180,-160,-220C-120,-260,-60,-280,0,-280C60,-280,120,-260,160,-220Z",
-    // Blob 5 - Elongated flowing
-    "M220,-160C280,-100,320,-20,300,60C280,140,200,200,100,220C0,240,-120,220,-200,160C-280,100,-320,0,-300,-100C-280,-200,-200,-280,-100,-300C0,-320,120,-300,220,-160Z",
-  ];
-
   return (
     <section className="marketing-inmersivo-process-section bg-transparent relative overflow-x-hidden md:overflow-visible">
       <div className="horizontal-scroll-container">
-        {/* Section Header - Fixed */}
+        {/* Section Header - Animated entrance */}
         <div className="pt-16 md:pt-28">
           <div className="text-center">
-            <span className="text-teal font-medium tracking-wider uppercase text-sm pb-6 block">
+            <span className="text-teal font-medium tracking-wider uppercase text-sm pb-6 block fade-in-up opacity-0">
               {t("service-details-pages.immersive-marketing.process.eyebrow")}
             </span>
 
-            <h2 className="section-title text-teal leading-tight pb-8">
+            <h2 className="section-title text-teal leading-tight pb-8 slide-in-up opacity-0">
               {t("service-details-pages.immersive-marketing.process.title")}
             </h2>
 
-            <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
+            <p className="text-lg md:text-xl text-negro leading-relaxed px-4 bounce-in-up opacity-0">
               {t("service-details-pages.immersive-marketing.process.subtitle")}
             </p>
           </div>
@@ -215,13 +199,13 @@ export default function MarketingInmersivoProcessSection() {
 
         {/* Mobile: Vertical Stack | Desktop: Horizontal Scroll */}
         <div className="md:hidden">
-          {/* Mobile Layout - Vertical Stack */}
+          {/* Mobile Layout - Staggered animations */}
           <div className="flex flex-col gap-16 px-4 py-8">
             {processSteps.map((step, index) => {
               const theme = colorThemes[step.color as keyof typeof colorThemes];
 
               return (
-                <div key={index} className="relative mb-16">
+                <div key={index} className="relative mb-16 stagger-bounce-in-up opacity-0">
                   {/* Decorative background shapes */}
                   <div className="absolute inset-0 -z-10 opacity-40">
                     {step.backgroundShapes}
@@ -267,7 +251,7 @@ export default function MarketingInmersivoProcessSection() {
           </div>
         </div>
 
-        {/* Desktop Layout - Horizontal Scroll */}
+        {/* Desktop Layout - Individual step animations */}
         <div className="hidden md:block">
           <div className="relative h-auto overflow-visible py-16">
             <div className="horizontal-scroll-wrapper flex items-center h-full">
@@ -275,10 +259,19 @@ export default function MarketingInmersivoProcessSection() {
                 const theme =
                   colorThemes[step.color as keyof typeof colorThemes];
 
+                // Alternate animation patterns for variety
+                const animations = [
+                  "fade-in-left", // Step 1
+                  "fade-in-right", // Step 2  
+                  "drift-right", // Step 3
+                  "drift-left", // Step 4
+                  "bounce-in-up", // Step 5
+                ];
+
                 return (
                   <div
                     key={index}
-                    className="process-item flex-shrink-0 w-screen h-full flex items-center justify-center px-8 md:px-16 relative"
+                    className={`process-item flex-shrink-0 w-screen h-full flex items-center justify-center px-8 md:px-16 relative ${animations[index]} opacity-0`}
                   >
                     {/* Decorative background shapes */}
                     <div className="absolute inset-0 -z-10 opacity-40">

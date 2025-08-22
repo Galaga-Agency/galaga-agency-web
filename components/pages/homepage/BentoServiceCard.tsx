@@ -12,6 +12,7 @@ interface ServiceConfig {
   theme: string;
   image: string;
   slug: string;
+  hasRedirection: boolean;
 }
 
 interface BentoServiceCardProps {
@@ -80,9 +81,10 @@ export default function BentoServiceCard({
     ctaGradient: "from-teal via-teal to-azul-profundo",
   };
 
-const translatedSlug = t(service.slug);
-const servicesRoute = getLocalizedRoute("services", language);
-const serviceUrl = `${servicesRoute}/${translatedSlug}`;
+  const translatedSlug = t(service.slug);
+  const servicesRoute = getLocalizedRoute("services", language);
+  const serviceUrl = `${servicesRoute}/${translatedSlug}`;
+  const hasLink = service.hasRedirection;
 
   return (
     <div
@@ -167,28 +169,30 @@ const serviceUrl = `${servicesRoute}/${translatedSlug}`;
         </div>
 
         {/* CTA - Small Circle with Arrow */}
-        <Link
-          href={serviceUrl}
-          className="mt-6 flex items-center justify-end group"
-        >
-          <div
-            className={`w-8 h-8 bg-gradient-to-r ${theme.ctaGradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}
+        {hasLink && (
+          <Link
+            href={serviceUrl}
+            className="mt-6 flex items-center justify-end group"
           >
-            <svg
-              className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+            <div
+              className={`w-8 h-8 bg-gradient-to-r ${theme.ctaGradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={3}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </div>
-        </Link>
+              <svg
+                className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={3}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </Link>
+        )}
       </div>
 
       {/* Subtle glow border */}

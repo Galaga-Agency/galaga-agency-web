@@ -87,7 +87,7 @@ export default function MarketingInmersivoResultsSection() {
   ];
 
   return (
-    <section
+    <section 
       ref={elementRef}
       className="relative marketing-inmersivo-results-section section overflow-x-hidden"
     >
@@ -110,32 +110,36 @@ export default function MarketingInmersivoResultsSection() {
       <div className="container">
         {/* Section Header */}
         <div className="text-center pb-16">
-          <span className="text-blanco font-semibold tracking-wider uppercase text-sm">
+          <span className={`text-blanco font-semibold tracking-wider uppercase text-sm transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
             {t("service-details-pages.immersive-marketing.results.eyebrow")}
           </span>
 
-          <h2 className="section-title text-blanco pt-4 pb-6">
+          <h2 className={`section-title text-blanco pt-4 pb-6 transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`} style={{ transitionDelay: '200ms' }}>
             {t("service-details-pages.immersive-marketing.results.title")}
           </h2>
 
-          <p className="text-lg md:text-xl text-blanco/70 w-full max-w-full container-tablet">
+          <p className={`text-lg md:text-xl text-blanco/70 w-full max-w-full container-tablet transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+          }`} style={{ transitionDelay: '400ms' }}>
             {t("service-details-pages.immersive-marketing.results.subtitle")}
           </p>
         </div>
 
         {/* Results Grid - 2 columns of 3 rows + Images */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-12 xl:gap-16">
-          {/* Results Cards - 2x3 grid */}
+          {/* Results Cards - 2x3 grid with stagger bounce animation */}
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
             {results.map((result, index) => (
-              <div
-                key={index}
+              <div 
+                key={index} 
                 className={`transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 translate-y-10 scale-95"
+                  isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'
                 }`}
-                style={{ transitionDelay: `${index * 300}ms` }}
+                style={{ transitionDelay: `${600 + (index * 150)}ms` }}
               >
                 <ResultCard result={result} index={index} />
               </div>
@@ -146,15 +150,12 @@ export default function MarketingInmersivoResultsSection() {
           <div className="relative h-132 md:h-96 lg:h-full xl:min-h-[600px]">
             {/* Mobile + Desktop XL: Stacked images */}
             <div className="block md:hidden xl:block relative h-full">
-              {/* Top image */}
-              <div
-                className={`absolute top-0 left-1/2 transform -translate-x-1/2 xl:-translate-x-1/3 w-4/5 md:max-w-[70%] h-1/3 z-10 rotate-4 rounded-2xl shadow-2xl border-4 border-white transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-x-0 -translate-y-0 scale-100"
-                    : "opacity-0 -translate-x-10 -translate-y-10 scale-90"
-                }`}
-                style={{ transitionDelay: "200ms" }}
-              >
+              {/* Top image - Mobile: centered, XL: offset */}
+              <div className={`absolute top-0 w-72 h-1/3 z-10 rotate-3 rounded-2xl shadow-2xl border-4 border-white transition-all duration-1200
+                left-1/2 transform -translate-x-1/2 xl:-translate-0
+                xl:left-auto xl:right-8 xl:transform-none
+                ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+              `} style={{ transitionDelay: '800ms' }}>
                 <Image
                   src="/assets/img/casos-de-exito/toyota/toyota-cover-cut.png"
                   alt="QR Experience Case Study"
@@ -164,15 +165,12 @@ export default function MarketingInmersivoResultsSection() {
                 />
               </div>
 
-              {/* Middle image */}
-              <div
-                className={`absolute top-1/3 left-1/2 transform -translate-x-1/2 xl:-translate-x-1/2 w-4/5 md:max-w-[70%] h-1/3 z-20 -rotate-4 rounded-2xl shadow-2xl border-4 border-white transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                    : "opacity-0 translate-x-10 translate-y-5 scale-90"
-                }`}
-                style={{ transitionDelay: "400ms" }}
-              >
+              {/* Middle image - Mobile: centered, XL: centered */}
+              <div className={`absolute top-1/3 w-72 h-1/3 z-20 -rotate-2 rounded-2xl shadow-2xl border-4 border-white transition-all duration-1200
+                left-1/2 transform -translate-x-1/2 xl:-translate-0
+                xl:left-1/2 xl:transform xl:-translate-x-1/2
+                ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+              `} style={{ transitionDelay: '1000ms' }}>
                 <Image
                   src="/assets/img/servicios/immersive-marketing/alsios.png"
                   alt="Retail Experience Case Study"
@@ -182,15 +180,12 @@ export default function MarketingInmersivoResultsSection() {
                 />
               </div>
 
-              {/* Bottom image */}
-              <div
-                className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 xl:-translate-x-1/3 w-4/5 md:max-w-[70%] h-1/3 z-15 rotate-4 rounded-2xl shadow-2xl border-4 border-white transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                    : "opacity-0 -translate-x-10 translate-y-10 scale-90"
-                }`}
-                style={{ transitionDelay: "600ms" }}
-              >
+              {/* Bottom image - Mobile: centered, XL: offset */}
+              <div className={`absolute bottom-0 w-72 h-1/3 z-15 rotate-3 rounded-2xl shadow-2xl border-4 border-white transition-all duration-1200
+                left-1/2 transform -translate-x-1/2 xl:-translate-0
+                xl:left-auto xl:right-8 xl:transform-none
+                ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
+              `} style={{ transitionDelay: '1200ms' }}>
                 <Image
                   src="/assets/img/casos-de-exito/alisios/alisios.jpg"
                   alt="AR Displays"
@@ -201,22 +196,41 @@ export default function MarketingInmersivoResultsSection() {
               </div>
             </div>
 
-            {/* MD and LG ONLY: Flex row */}
-            <div className="hidden md:flex lg:flex xl:hidden gap-14 justify-center items-center h-full">
-              <div
-                className={`transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 translate-y-10 scale-95"
-                }`}
-                style={{ transitionDelay: "300ms" }}
-              >
+            {/* MD and LG ONLY: Flex row with all 3 images */}
+            <div className="hidden md:flex lg:flex xl:hidden gap-4 justify-center items-center h-full px-4">
+              <div className={`flex-1  pb-10 transition-all duration-1000 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`} style={{ transitionDelay: '800ms' }}>
                 <Image
                   src="/assets/img/casos-de-exito/toyota/toyota-cover-cut.png"
                   alt="QR Experience Case Study"
-                  width={200}
-                  height={150}
-                  className="flex-1 max-w-[180px] h-full rounded-xl object-cover shadow-xl border-2 border-white"
+                  width={300}
+                  height={200}
+                  className="w-full h-64 rounded-xl object-cover shadow-xl border-2 border-white rotate-4"
+                />
+              </div>
+              
+              {/* <div className={`flex-1 transition-all duration-1000 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`} style={{ transitionDelay: '1000ms' }}>
+                <Image
+                  src="/assets/img/servicios/immersive-marketing/alsios.png"
+                  alt="Retail Experience Case Study"
+                  width={300}
+                  height={200}
+                  className="w-full h-32 lg:h-40 rounded-xl object-cover shadow-xl border-2 border-white"
+                />
+              </div> */}
+              
+              <div className={`flex-1 pt-10 transition-all duration-1000 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`} style={{ transitionDelay: '1200ms' }}>
+                <Image
+                  src="/assets/img/casos-de-exito/alisios/alisios.jpg"
+                  alt="AR Displays"
+                  width={300}
+                  height={200}
+                  className="w-full h-64 rounded-xl object-cover shadow-xl border-2 border-white -rotate-4"
                 />
               </div>
             </div>

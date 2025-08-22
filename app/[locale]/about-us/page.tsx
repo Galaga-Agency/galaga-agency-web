@@ -23,7 +23,7 @@ export default function AboutPage() {
     },
     {
       name: t("nav.about"),
-      href: getLocalizedRoute("sobre-nosotros", language),
+      href: getLocalizedRoute("about-us", language),
     },
   ];
 

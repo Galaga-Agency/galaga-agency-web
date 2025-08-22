@@ -19,7 +19,7 @@ export default function ContactPage() {
     },
     {
       name: t("nav.contact"),
-      href: getLocalizedRoute("contacto", language),
+      href: getLocalizedRoute("contact", language),
     },
   ];
 

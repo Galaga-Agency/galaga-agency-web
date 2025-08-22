@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import {
   FaDesktop,
   FaEye,
@@ -21,7 +20,6 @@ import SecondaryButton from "@/components/ui/SecondaryButton";
 
 export default function MarketingInmersivoFeaturesSection() {
   const { t } = useTranslation();
-  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   const features = [
     {
@@ -130,32 +128,21 @@ export default function MarketingInmersivoFeaturesSection() {
   ];
 
   return (
-    <section 
-      ref={elementRef}
-      className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden"
-    >
+    <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
       <div className="container relative z-10 pb-0 md:pb-24">
         <div className="text-center">
-          <h2 className="section-title text-blanco pb-8 mb-0">
+          <h2 className="section-title text-blanco pb-8 mb-0 fade-in-up opacity-0">
             {t("service-details-pages.immersive-marketing.features.title")}
           </h2>
-          <p className="text-lg md:text-xl text-hielo leading-relaxed">
+          <p className="text-lg md:text-xl text-hielo leading-relaxed slide-in-up opacity-0">
             {t("service-details-pages.immersive-marketing.features.subtitle")}
           </p>
         </div>
 
-        {/* Mobile Layout - Simple grid */}
+        {/* Mobile Layout - Simple grid with stagger bounce */}
         <div className="grid grid-cols-1 gap-6 pt-12 md:hidden">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className={`transition-all duration-1000 ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-10 scale-95'
-              }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
+            <div key={index} className="stagger-bounce-in-up opacity-0">
               <FeatureCard
                 icon={feature.icon}
                 title={t(feature.title)}
@@ -168,17 +155,10 @@ export default function MarketingInmersivoFeaturesSection() {
           ))}
         </div>
 
-        {/* Desktop Bento Grid - Beautiful asymmetric layout with varying sizes */}
+        {/* Desktop Bento Grid - Beautiful asymmetric layout with varying animations */}
         <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8">
           {/* Row 1: 40% + 60% */}
-          <div
-            className={`col-span-5 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '0ms' }}
-          >
+          <div className="col-span-5 fade-in-left opacity-0">
             <FeatureCard
               icon={features[0].icon}
               title={t(features[0].title)}
@@ -189,14 +169,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-7 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '100ms' }}
-          >
+          <div className="col-span-7 fade-in-right opacity-0">
             <FeatureCard
               icon={features[1].icon}
               title={t(features[1].title)}
@@ -208,14 +181,7 @@ export default function MarketingInmersivoFeaturesSection() {
           </div>
 
           {/* Row 2: 70% + 30% */}
-          <div
-            className={`col-span-8 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '200ms' }}
-          >
+          <div className="col-span-8 bounce-in-up opacity-0">
             <FeatureCard
               icon={features[2].icon}
               title={t(features[2].title)}
@@ -226,14 +192,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-4 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '300ms' }}
-          >
+          <div className="col-span-4 fade-in-right opacity-0">
             <FeatureCard
               icon={features[3].icon}
               title={t(features[3].title)}
@@ -245,14 +204,7 @@ export default function MarketingInmersivoFeaturesSection() {
           </div>
 
           {/* Row 3: 35% + 65% */}
-          <div
-            className={`col-span-4 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
+          <div className="col-span-4 fade-in-left opacity-0">
             <FeatureCard
               icon={features[4].icon}
               title={t(features[4].title)}
@@ -263,14 +215,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-8 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '500ms' }}
-          >
+          <div className="col-span-8 fade-in-right opacity-0">
             <FeatureCard
               icon={features[5].icon}
               title={t(features[5].title)}
@@ -282,14 +227,7 @@ export default function MarketingInmersivoFeaturesSection() {
           </div>
 
           {/* Row 4: 55% + 45% */}
-          <div
-            className={`col-span-7 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '600ms' }}
-          >
+          <div className="col-span-7 fade-in-left opacity-0">
             <FeatureCard
               icon={features[6].icon}
               title={t(features[6].title)}
@@ -300,14 +238,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-5 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '700ms' }}
-          >
+          <div className="col-span-5 fade-in-right opacity-0">
             <FeatureCard
               icon={features[7].icon}
               title={t(features[7].title)}
@@ -319,14 +250,7 @@ export default function MarketingInmersivoFeaturesSection() {
           </div>
 
           {/* Row 5: 25% + 50% + 25% */}
-          <div
-            className={`col-span-3 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '800ms' }}
-          >
+          <div className="col-span-3 fade-in-left opacity-0">
             <FeatureCard
               icon={features[8].icon}
               title={t(features[8].title)}
@@ -337,14 +261,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-6 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '900ms' }}
-          >
+          <div className="col-span-6 bounce-in-up opacity-0">
             <FeatureCard
               icon={features[9].icon}
               title={t(features[9].title)}
@@ -355,14 +272,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-3 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '1000ms' }}
-          >
+          <div className="col-span-3 fade-in-right opacity-0">
             <FeatureCard
               icon={features[10].icon}
               title={t(features[10].title)}
@@ -374,14 +284,7 @@ export default function MarketingInmersivoFeaturesSection() {
           </div>
 
           {/* Row 6: 60% + 40% */}
-          <div
-            className={`col-span-7 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 -translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '1100ms' }}
-          >
+          <div className="col-span-7 fade-in-left opacity-0">
             <FeatureCard
               icon={features[11].icon}
               title={t(features[11].title)}
@@ -392,14 +295,7 @@ export default function MarketingInmersivoFeaturesSection() {
             />
           </div>
 
-          <div
-            className={`col-span-5 transition-all duration-1000 ${
-              isVisible 
-                ? 'opacity-100 translate-x-0 translate-y-0 scale-100' 
-                : 'opacity-0 translate-x-10 translate-y-5 scale-95'
-            }`}
-            style={{ transitionDelay: '1200ms' }}
-          >
+          <div className="col-span-5 fade-in-right opacity-0">
             <FeatureCard
               icon={FaHandPointer}
               title={t("service-details-pages.immersive-marketing.features.cta.title")}

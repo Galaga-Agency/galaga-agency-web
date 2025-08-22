@@ -46,11 +46,11 @@ export default function ProyectoDetallePage({
     },
     {
       name: t("nav.cases"),
-      href: getLocalizedRoute("casos-de-exito", language),
+      href: getLocalizedRoute("use-cases", language),
     },
     {
       name: t(caseStudy.titleKey),
-      href: getLocalizedRoute(`casos-de-exito/${projectSlug}`, language),
+      href: getLocalizedRoute(`use-cases/${projectSlug}`, language),
     },
   ];
 

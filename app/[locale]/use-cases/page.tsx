@@ -19,7 +19,7 @@ export default function CaseStudiesPage() {
     },
     {
       name: t("nav.cases"),
-      href: getLocalizedRoute("casos-de-exito", language),
+      href: getLocalizedRoute("use-cases", language),
     },
   ];
 

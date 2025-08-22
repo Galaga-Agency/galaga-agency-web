@@ -136,7 +136,7 @@ export default function AboutClientsSection() {
               <div
                 key={project.id}
                 className={`
-                  ${index === 0 ? "fade-in-left" : "fade-in-right"} opacity-0
+                  stagger-bounce-in-up opacity-0
                   featured-client-wrapper
                   transition-all duration-500 ease-out
                   ${
@@ -148,7 +148,6 @@ export default function AboutClientsSection() {
                       : "scale-100"
                   }
                 `}
-                style={{ animationDelay: `${0.6 + index * 0.2}s` }}
                 onMouseEnter={() => handleFeaturedCardHover(index, true)}
                 onMouseLeave={() => handleFeaturedCardHover(index, false)}
               >

@@ -12,12 +12,28 @@ import { initHorizontalScrollAnimation } from "@/utils/animations/horizontal-scr
 import MarketingInmersivoResultsSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoResultsSection";
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 import MarketingInmersivoCollaborationSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoCollaborationSection";
+import { use } from "react";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 
-export default function MarketingInmersivoPage() {
+interface ServiceDetailsPageProps {
+  params: Promise<{
+    serviceSlug: string;
+  }>;
+}
+
+export default function MarketingInmersivoPage({
+  params,
+}: ServiceDetailsPageProps) {
   const { t, language } = useTranslation();
+  const { serviceSlug } = use(params);
 
   useGSAPAnimations({
-    animations: [initHorizontalScrollAnimation],
+    animations: [
+      initHorizontalScrollAnimation,
+      initEntranceAnimations,
+      initAlternateBlocksAnimations,
+    ],
     delay: 100,
   });
 
@@ -33,7 +49,7 @@ export default function MarketingInmersivoPage() {
     },
     {
       name: t("services.immersive-marketing.title"),
-      href: getLocalizedRoute("servicios/marketing-inmersivo", language),
+      href: getLocalizedRoute(`servicios/${serviceSlug}`, language),
     },
   ];
 

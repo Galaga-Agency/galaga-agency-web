@@ -43,7 +43,7 @@ export default function Footer() {
                 <p className="text-gray-400 pb-6 text-sm md:text-base">
                   Let's discuss your next project
                 </p>
-                <SecondaryButton darkBg href="/contacto" className="w-full">
+                <PrimaryButton href="/contacto" className="w-full">
                   {t("footer.getInTouch")}
                   <svg
                     className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -58,7 +58,7 @@ export default function Footer() {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </svg>
-                </SecondaryButton>
+                </PrimaryButton>
               </div>
             </div>
 

@@ -22,7 +22,7 @@ export default function ServicesPage() {
     },
     {
       name: t("nav.services"),
-      href: getLocalizedRoute("servicios", language),
+      href: getLocalizedRoute("services", language),
     },
   ];
 

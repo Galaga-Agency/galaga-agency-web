@@ -690,7 +690,10 @@
         }
       },
       "cta": {
-        "title": "Ready to transform your brand experience?",
+        "title": {
+          "line1": "Ready to transform",
+          "line2": "your brand experience?"
+        },
         "subtitle": "Discover how immersive experiences can revolutionize your customer connections.",
         "primary": "Request free consultation",
         "secondary": "View success stories"

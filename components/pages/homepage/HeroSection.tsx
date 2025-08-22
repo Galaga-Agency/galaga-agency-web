@@ -2,6 +2,7 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
+import { useEffect, useRef } from "react";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
@@ -10,30 +11,72 @@ import Image from "next/image";
 export default function HeroSection() {
   const { t } = useTranslation();
   const { isTouchDevice } = useDeviceDetect();
+  const hasAnimated = useRef(false);
 
   // Get current language for services link
   const currentLang = t("nav.language");
   const servicesLink = currentLang === "es" ? "/servicios" : "/services";
 
+  useEffect(() => {
+    if (hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    // Simple logo animation with JavaScript
+    const logoContainer: any = document.querySelector('.hero-logo-js');
+    const logoImg = logoContainer?.querySelector('img');
+    
+    if (!logoContainer || !logoImg) return;
+
+    // Set initial state
+    logoContainer.style.opacity = '0';
+    logoImg.style.transform = 'perspective(1000px) rotateX(-90deg)';
+    logoImg.style.transformOrigin = 'center center -100px';
+
+    // Animate in
+    setTimeout(() => {
+      logoContainer.style.transition = 'opacity 0.3s ease-out';
+      logoContainer.style.opacity = '1';
+      
+      logoImg.style.transition = 'transform 1s ease-out';
+      logoImg.style.transform = 'perspective(1000px) rotateX(0deg)';
+    }, 600);
+
+    // Fade out
+    setTimeout(() => {
+      logoContainer.style.transition = 'opacity 0.6s ease-out';
+      logoContainer.style.opacity = '0';
+    }, 1800);
+
+    // Remove
+    setTimeout(() => {
+      logoContainer.style.display = 'none';
+    }, 2500);
+    
+  }, []);
+
   return (
     <section className="hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+      
+      {/* Simple Logo Animation */}
+      <div className="hero-logo-js fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 opacity-0">
+        <img 
+          src="/assets/img/logos/logo-full-white.webp"
+          alt="Galaga Agency"
+          className="w-[70vw] md:w-[50vw] lg:w-[35vw] xl:w-[30vw] h-auto opacity-95 drop-shadow-2xl"
+          style={{
+            transformStyle: 'preserve-3d',
+            backfaceVisibility: 'hidden'
+          }}
+        />
+      </div>
+
       <div className="hero-content relative z-40 w-full min-h-screen flex flex-col items-center justify-center pt-0 overflow-hidden">
         <div className="flex flex-col items-center justify-center w-full px-4">
           <div className="relative">
-            {/* Logo */}
-            <div className="hero-logo w-full fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 z-50 flex justify-center">
-              <Image
-                className="hero-logo-img opacity-95 drop-shadow-2xl w-full md:w-[60vw] lg:w-[50vw] xl:w-[40vw] h-auto"
-                src="/assets/img/logos/logo-full-white.webp"
-                alt="Galaga Agency"
-                height={800}
-                width={800}
-              />
-            </div>
-
             <h1 className="hero-title font-bold drop-shadow-2xl opacity-0 text-white translate-y-[100px] text-center leading-[0.8]">
               {t("homepage.hero-section.innovamos")}
             </h1>
+            
             <div className="hero-subtitle-container absolute pt-[clamp(1rem,6vw,2rem)] w-full flex justify-end right-0">
               <div className="relative">
                 <span className="hero-para-ti opacity-0 whitespace-nowrap relative inline-block text-hielo text-[clamp(1.2rem,6vw,3rem)] leading-[0.9]">
@@ -50,15 +93,15 @@ export default function HeroSection() {
 
           <div className="hero-value-proposition pt-8 md:pt-12 z-50 opacity-0 px-2 md:px-12 relative">
             <div className="text-left">
-              <p className="hero-value-text-line1 text-body-large opacity-0 lg:max-w-auto pb-4 pt-24">
+              <p className="hero-value-text-line1 text-body-large opacity-0 lg:max-w-auto pb-4 pt-24 text-white">
                 {t("homepage.hero-section.valuePropositionLine1")}
               </p>
-              <p className="hero-value-text-line2 text-body-large opacity-0 lg:max-w-auto">
+              <p className="hero-value-text-line2 text-body-large opacity-0 lg:max-w-auto text-white">
                 {t("homepage.hero-section.valuePropositionLine2")}
               </p>
             </div>
 
-            {/* CTA Buttons - Hidden on mobile if not enough space */}
+            {/* CTA Buttons */}
             <div className="hero-cta-buttons opacity-0 translate-y-4 flex-col md:flex-row gap-4 pt-8 md:pt-12 justify-center items-center hidden md:flex">
               <PrimaryButton href={servicesLink} bgColor="white" size="lg">
                 {t("homepage.hero-section.cta.services")}
@@ -74,7 +117,7 @@ export default function HeroSection() {
               </SecondaryButton>
             </div>
 
-            {/* Double Chevron Symbol - Behind Second CTA Button Area */}
+            {/* Double Chevron Symbol */}
             <div className="hero-chevron absolute right-0 -bottom-16 lg:right-[5vw] xl:-bottom-[0vh] opacity-30 pointer-events-none">
               <Image
                 src="/assets/img/symbols/double-chevron-white.webp"

@@ -7,9 +7,19 @@ import { getLocalizedRoute } from "@/utils/navigation";
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import GrantsManagementHeroSection from "@/components/pages/service-details-pages/grants-management-page/GrantsManagementHeroSection";
+import { use } from "react";
 
-export default function GrantsManagementPage() {
+interface ServiceDetailsPageProps {
+  params: Promise<{
+    serviceSlug: string;
+  }>;
+}
+
+export default function GrantsManagementPage({
+  params,
+}: ServiceDetailsPageProps) {
   const { t, language } = useTranslation();
+  const { serviceSlug } = use(params);
 
   useGSAPAnimations({
     animations: [initEntranceAnimations],
@@ -28,7 +38,7 @@ export default function GrantsManagementPage() {
     },
     {
       name: t("services.immersive-marketing.title"),
-      href: getLocalizedRoute("services/grants-management", language),
+      href: getLocalizedRoute(`services/${serviceSlug}`, language),
     },
   ];
 

@@ -3,60 +3,13 @@ import { gsap } from "gsap";
 export const initHeroTitleAnimation = () => {
   const tl = gsap.timeline();
 
-  // Set up 3D properties for logo
-  tl.set(
-    ".hero-logo",
-    {
-      perspective: 1000,
-    },
-    0
-  );
+  // EXPLICITLY KILL ANY GSAP CONTROL OVER LOGO
+  tl.set(".hero-logo, .hero-logo-img, .hero-logo *", { 
+    clearProps: "all"
+  }, 0);
 
-  tl.set(
-    ".hero-logo-img",
-    {
-      transformStyle: "preserve-3d",
-      rotationX: -90,
-      transformOrigin: "center center -100px",
-      backfaceVisibility: "hidden",
-    },
-    0
-  );
-
-  // 1. Logo roll down in center
-  tl.to(
-    ".hero-logo",
-    {
-      opacity: 1,
-      duration: 0.05,
-      ease: "none",
-    },
-    0
-  );
-
-  tl.to(
-    ".hero-logo-img",
-    {
-      rotationX: 0,
-      duration: 1.0,
-      ease: "power3.out",
-      transformOrigin: "center center -100px",
-    },
-    0.2
-  );
-
-  // 2. Logo fades away (slower)
-  tl.to(
-    ".hero-logo",
-    {
-      opacity: 0,
-      duration: 0.6,
-      ease: "power2.out",
-    },
-    "+=0.8"
-  );
-
-  // 3. Value proposition container appears first
+  // Start GSAP animations AFTER CSS logo is done
+  // 1. Value proposition container appears first
   tl.to(
     ".hero-value-proposition",
     {
@@ -64,22 +17,24 @@ export const initHeroTitleAnimation = () => {
       duration: 0.8,
       ease: "power2.out",
     },
-    "-=0.2"
+    0.2 // Start after CSS animation
   );
 
-  // 4. ValuePropositionLine1 appears FIRST before anything else
-  tl.to(
+  // 2. ValuePropositionLine1 appears FIRST
+  tl.fromTo(
     ".hero-value-text-line1",
     {
+      opacity: 0,
+    },
+    {
       opacity: 1,
-      color: "rgba(255, 255, 255, 1)",
-      duration: 0.6,
-      ease: "power2.out",
+      duration: 1.0, // Slower for smoother fade
+      ease: "power1.out", // Gentler easing
     },
     "+=0.3"
   );
 
-  // 5. Innovamos appears (starts animating)
+  // 3. Innovamos appears (starts animating)
   tl.to(
     ".hero-title",
     {
@@ -91,7 +46,7 @@ export const initHeroTitleAnimation = () => {
     "+=0.4"
   );
 
-  // 6. Para ti appears at same time as Innovamos
+  // 4. Para ti appears at same time as Innovamos
   tl.to(
     ".hero-para-ti",
     {
@@ -99,17 +54,19 @@ export const initHeroTitleAnimation = () => {
       duration: 0.5,
       ease: "power2.out",
     },
-    "-=0.5"
+    "-=0.2"
   );
 
-  // 7. ValuePropositionLine2 shows up and animates
-  tl.to(
+  // 5. ValuePropositionLine2 shows up
+  tl.fromTo(
     ".hero-value-text-line2",
     {
+      opacity: 0,
+    },
+    {
       opacity: 1,
-      color: "rgba(255, 255, 255, 1)",
-      duration: 0.5,
-      ease: "power2.out",
+      duration: 0.8,
+      ease: "power1.out", // Gentler easing
     },
     "+=0.3"
   );
@@ -135,7 +92,7 @@ export const initHeroTitleAnimation = () => {
     "+=0.1"
   );
 
-  // 8. Para ti strike through animation
+  // 6. Para ti strike through animation
   tl.to(
     ".hero-strike-line",
     {
@@ -147,7 +104,7 @@ export const initHeroTitleAnimation = () => {
     "+=0.2"
   );
 
-  // 9. Set up rolling for para ti -> contigo
+  // 7. Set up rolling for para ti -> contigo
   tl.set(
     ".hero-subtitle-container",
     {
@@ -166,7 +123,7 @@ export const initHeroTitleAnimation = () => {
     opacity: 1,
   });
 
-  // 10. Roll transition: para ti -> contigo
+  // 8. Roll transition: para ti -> contigo
   tl.to(".hero-para-ti", {
     rotationY: -90,
     opacity: 0,
@@ -186,7 +143,7 @@ export const initHeroTitleAnimation = () => {
     "-=0.4"
   );
 
-  // 11. Fade line 1 to reduced opacity after everything is settled
+  // 9. Fade line 1 to reduced opacity after everything is settled
   tl.to(
     ".hero-value-text-line1",
     {
@@ -197,7 +154,7 @@ export const initHeroTitleAnimation = () => {
     "+=0.2"
   );
 
-  // 12. CTA buttons appear
+  // 10. CTA buttons appear
   tl.to(
     ".hero-cta-buttons",
     {
@@ -209,7 +166,7 @@ export const initHeroTitleAnimation = () => {
     "+=0.3"
   );
 
-  // 13. ScrollIndicator appears with slight overlap with CTA
+  // 11. ScrollIndicator appears with slight overlap with CTA
   tl.to(
     ".scroll-indicator",
     {
@@ -220,7 +177,7 @@ export const initHeroTitleAnimation = () => {
     "-=0.2"
   );
 
-  // 14. Floating animation for ScrollIndicator starts immediately
+  // 12. Floating animation for ScrollIndicator starts immediately
   tl.to(
     ".scroll-indicator-wrapper",
     {
