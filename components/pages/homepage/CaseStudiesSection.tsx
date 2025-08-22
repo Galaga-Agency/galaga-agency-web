@@ -57,29 +57,7 @@ export default function CaseStudiesSection() {
   };
 
   return (
-    <section className="case-studies-section section relative bg-gradient-to-br from-white via-hielo/30 to-white overflow-hidden">
-      {/* Diagonal background layers */}
-      <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(195,229,239,0.4) 0%, rgba(76,188,197,0.1) 50%, rgba(255,255,255,1) 100%)",
-            clipPath: "polygon(0 0, 100% 0, 100% 70%, 0 50%)",
-          }}
-        ></div>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(195,229,239,0.2) 50%, rgba(255,255,255,1) 100%)",
-            clipPath: "polygon(0 50%, 100% 70%, 100% 100%, 0 100%)",
-          }}
-        ></div>
-      </div>
-
-      <WhyChooseUsSection />
-
+    <section className="case-studies-section relative overflow-hidden">
       <div className="container relative z-10">
         <div className="text-center pb-12 md:pb-16">
           <h2 className="case-studies-title section-title text-teal pb-6">

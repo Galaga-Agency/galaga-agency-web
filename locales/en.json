@@ -338,8 +338,10 @@
       "message": "We scale with you. Your business grows, our tech arsenal grows too."
     },
     "cta-section": {
-      "line1": "The best ideas are born",
-      "line2": "from real challenges.",
+      "title": {
+        "line1": "The best ideas are born",
+        "line2": "from real challenges."
+      },
       "subtitle": "Explore our portfolio to see how we've transformed businesses with these technologies. Every project tells a story of innovation and growth.",
       "seePortfolio": "Explore Our Work",
       "getStarted": "Start Your Project",
@@ -620,19 +622,19 @@
         },
         "quote": "Each step is designed to maximize impact and ensure that your investment generates measurable results."
       },
-       "collaboration": {
+      "collaboration": {
         "eyebrow": "Strategic Partnership",
         "title": "Joint Vision",
         "subtitle": "Galaga Agency and Dos x Dos join forces to transform your sales spaces into authentic brand experiences.",
-        
+
         "dos-summary": "Technical design, furniture manufacturing, and comprehensive installation in physical spaces.",
         "dos-specialties": "Production • Installation • Logistics • Maintenance",
-        
+
         "galaga-summary": "Strategic digital experience design with interactive technology and real-time analytics.",
         "galaga-specialties": "Digital Strategy • Interactive Tech • Content • Data Analysis",
-        
+
         "result": "Together we create environments that fall in love and sell, combining physical design with digital innovation.",
-        
+
         "sustainability": {
           "title": "Sustainability",
           "description": "We use ecological materials, optimize resources, and leverage digitalization to drastically reduce printed material consumption while maintaining creativity and impact.",

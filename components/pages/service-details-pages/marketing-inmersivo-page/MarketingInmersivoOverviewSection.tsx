@@ -1,17 +1,14 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { FaEye, FaUsers } from "react-icons/fa";
 import Image from "next/image";
 
 export default function MarketingInmersivoOverviewSection() {
   const { t } = useTranslation();
-  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <section 
-      ref={elementRef}
       className="marketing-inmersivo-overview-section homepage-about-section section relative overflow-x-hidden overflow-y-visible bg-gradient-to-br from-blanco via-hielo/30 to-blanco"
     >
       {/* Diagonal background layers */}
@@ -24,41 +21,20 @@ export default function MarketingInmersivoOverviewSection() {
         <div className="container">
           {/* Section Header */}
           <div className="text-center pb-16 md:pb-20">
-            <h2 
-              className={`section-title text-teal leading-tight tracking-tight pb-6 transition-all duration-1000 ease-out ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-12'
-              }`}
-              style={{ transitionDelay: '100ms' }}
-            >
+            <h2 className="section-title text-teal leading-tight tracking-tight pb-6 fade-in-up opacity-0">
               {t("service-details-pages.immersive-marketing.hero-section.what-we-do.title")}
             </h2>
-            <p 
-              className={`text-lg md:text-xl text-negro leading-relaxed px-4 transition-all duration-1000 ease-out ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: '300ms' }}
-            >
+            <p className="text-lg md:text-xl text-negro leading-relaxed px-4 slide-in-up opacity-0">
               {t("service-details-pages.immersive-marketing.hero-section.what-we-do.description")}
             </p>
           </div>
 
           {/* Philosophy Block - What we understand */}
           <div className="pb-16 md:pb-20">
-            <div 
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-1000 ease-out ${
-                isVisible 
-                  ? 'opacity-100 translate-y-0 scale-100' 
-                  : 'opacity-0 translate-y-16 scale-95'
-              }`}
-              style={{ transitionDelay: '500ms' }}
-            >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Concept Text */}
-              <div className="marketing-inmersivo-concept-text px-4 lg:px-0">
+              <div className="marketing-inmersivo-concept-text px-4 lg:px-0 fade-in-left opacity-0">
                 <h3 className="text-3xl md:text-4xl font-black text-mandarina leading-tight pb-8">
                   {t("service-details-pages.immersive-marketing.concept.title")}
                 </h3>
@@ -85,7 +61,7 @@ export default function MarketingInmersivoOverviewSection() {
               </div>
 
               {/* AR Demo Image */}
-              <div className="marketing-inmersivo-concept-ar-demo px-4 lg:px-0">
+              <div className="marketing-inmersivo-concept-ar-demo px-4 lg:px-0 fade-in-right opacity-0">
                 <div className="relative">
                   <div className="flex justify-center">
                     <Image
@@ -106,29 +82,25 @@ export default function MarketingInmersivoOverviewSection() {
             <div className="relative z-10 flex flex-col gap-12 md:gap-16 lg:gap-12">
               
               {/* First Block - Immersive Experiences */}
-              <div 
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-                  isVisible ? 'animate-slide-left' : 'opacity-0'
-                }`}
-              >
+              <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 <div className="px-4 lg:px-0">
                   <div className="flex items-center gap-6 pb-8">
-                    <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-2xl">
+                    <div className="block-icon-1 opacity-0 flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-2xl">
                       <FaEye className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
                     </div>
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
+                      <h3 className="block-title-1 opacity-0 text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
                         {t("service-details-pages.immersive-marketing.hero-section.points.immersive-experiences.title")}
                       </h3>
                     </div>
                   </div>
-                  <p className="text-base md:text-lg text-negro leading-relaxed">
+                  <p className="block-description-1 opacity-0 text-base md:text-lg text-negro leading-relaxed">
                     {t("service-details-pages.immersive-marketing.hero-section.points.immersive-experiences.description")}
                   </p>
                 </div>
 
                 <div className="relative lg:order-2 px-4 lg:px-0">
-                  <div className="bg-gradient-to-br from-teal to-turquesa p-8 rounded-2xl text-white shadow-2xl">
+                  <div className="block-image-1 opacity-0 bg-gradient-to-br from-teal to-turquesa p-8 rounded-2xl text-white shadow-2xl">
                     <h4 className="text-xl font-bold pb-6">
                       {t("service-details-pages.immersive-marketing.hero-section.visual.title")}
                     </h4>
@@ -163,14 +135,10 @@ export default function MarketingInmersivoOverviewSection() {
               </div>
 
               {/* Second Block - Customer Connection */}
-              <div 
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-                  isVisible ? 'animate-slide-right' : 'opacity-0'
-                }`}
-              >
+              <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                 
                 <div className="relative order-1 px-4 lg:px-0">
-                  <div className="bg-gradient-to-br from-azul-profundo to-teal p-8 rounded-2xl text-white shadow-2xl">
+                  <div className="block-image-2 opacity-0 bg-gradient-to-br from-azul-profundo to-teal p-8 rounded-2xl text-white shadow-2xl">
                     <h4 className="text-xl font-bold pb-6">
                       {t("service-details-pages.immersive-marketing.overview.results.title")}
                     </h4>
@@ -205,19 +173,19 @@ export default function MarketingInmersivoOverviewSection() {
 
                 <div className="px-4 lg:px-0 lg:order-2">
                   <div className="flex items-center gap-6 pb-8">
-                    <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-purple-gradient rounded-full flex items-center justify-center shadow-2xl">
+                    <div className="block-icon-2 opacity-0 flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-purple-gradient rounded-full flex items-center justify-center shadow-2xl">
                       <FaUsers className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
                     </div>
                     <div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
+                      <h3 className="block-title-2 opacity-0 text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
                         {t("service-details-pages.immersive-marketing.hero-section.points.customer-connection.title")}
                       </h3>
                     </div>
                   </div>
-                  <p className="text-base md:text-lg text-negro leading-relaxed pb-6">
+                  <p className="block-description-2 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-6">
                     {t("service-details-pages.immersive-marketing.hero-section.points.customer-connection.description")}
                   </p>
-                  <p className="text-base md:text-lg text-azul-profundo font-semibold leading-relaxed">
+                  <p className="block-description-2 opacity-0 text-base md:text-lg text-azul-profundo font-semibold leading-relaxed">
                     {t("service-details-pages.immersive-marketing.hero-section.what-we-do.highlight")}
                   </p>
                 </div>

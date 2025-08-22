@@ -6,11 +6,12 @@ import CaseStudiesHeroSection from "@/components/pages/portfolio-page/CaseStudie
 import CaseStudiesGridSection from "@/components/pages/portfolio-page/CaseStudiesGridSection";
 import CTASection from "@/components/pages/homepage/CTASection";
 import { getLocalizedRoute } from "@/utils/navigation";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 
 export default function CaseStudiesPage() {
   const { t, language } = useTranslation();
 
-  // Breadcrumb navigation
   const breadcrumbs = [
     {
       name: t("nav.home"),
@@ -21,6 +22,11 @@ export default function CaseStudiesPage() {
       href: getLocalizedRoute("casos-de-exito", language),
     },
   ];
+
+    useGSAPAnimations({
+      animations: [initEntranceAnimations],
+      delay: 100,
+    });
 
   return (
     <>

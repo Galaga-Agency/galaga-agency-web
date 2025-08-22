@@ -1,4 +1,5 @@
 export interface Service {
+  id: number;
   icon: any;
   slug: string;
   title: string;

@@ -12,12 +12,18 @@ import { initHorizontalScrollAnimation } from "@/utils/animations/horizontal-scr
 import MarketingInmersivoResultsSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoResultsSection";
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 import MarketingInmersivoCollaborationSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoCollaborationSection";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 
 export default function MarketingInmersivoPage() {
   const { t, language } = useTranslation();
 
   useGSAPAnimations({
-    animations: [initHorizontalScrollAnimation],
+    animations: [
+      initEntranceAnimations,
+      initAlternateBlocksAnimations,
+      initHorizontalScrollAnimation,
+    ],
     delay: 100,
   });
 

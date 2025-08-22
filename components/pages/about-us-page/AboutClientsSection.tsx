@@ -63,17 +63,23 @@ export default function AboutClientsSection() {
       <div className="container relative z-10">
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
-          <div className="about-clients-eyebrow inline-flex items-center gap-3 pb-6">
+          <div className="fade-in-up opacity-0 about-clients-eyebrow inline-flex items-center gap-3 pb-6">
             <span className="text-teal font-semibold tracking-wider uppercase text-sm">
               {t("about-page.clients-section.eyebrow")}
             </span>
           </div>
 
-          <h2 className="about-clients-title text-4xl md:text-5xl lg:text-6xl font-black text-teal leading-tight tracking-tight pb-6">
+          <h2
+            className="fade-in-up opacity-0 about-clients-title text-4xl md:text-5xl lg:text-6xl font-black text-teal leading-tight tracking-tight pb-6"
+            style={{ animationDelay: "0.2s" }}
+          >
             {t("about-page.clients-section.title")}
           </h2>
 
-          <p className="about-clients-subtitle text-lg md:text-xl text-grafito font-light leading-relaxed px-4">
+          <p
+            className="fade-in-up opacity-0 about-clients-subtitle text-lg md:text-xl text-grafito font-light leading-relaxed px-4"
+            style={{ animationDelay: "0.4s" }}
+          >
             {t("about-page.clients-section.subtitle")}
           </p>
         </div>
@@ -84,6 +90,7 @@ export default function AboutClientsSection() {
             <div
               key={index}
               className={`
+                stagger-bounce-in-up opacity-0
                 client-category-wrapper
                 transition-all duration-500 ease-out
                 ${
@@ -109,10 +116,16 @@ export default function AboutClientsSection() {
         {/* Featured Success Stories */}
         <div className="about-clients-featured">
           <div className="text-center pb-12 md:pb-16">
-            <h3 className="about-clients-featured-title text-3xl md:text-4xl font-bold text-negro pb-4">
+            <h3
+              className="fade-in-up opacity-0 about-clients-featured-title text-3xl md:text-4xl font-bold text-negro pb-4"
+              style={{ animationDelay: "0.2s" }}
+            >
               {t("about-page.clients-section.featured.title")}
             </h3>
-            <p className="about-clients-featured-subtitle text-lg text-grafito">
+            <p
+              className="fade-in-up opacity-0 about-clients-featured-subtitle text-lg text-grafito"
+              style={{ animationDelay: "0.4s" }}
+            >
               {t("about-page.clients-section.featured.subtitle")}
             </p>
           </div>
@@ -123,6 +136,7 @@ export default function AboutClientsSection() {
               <div
                 key={project.id}
                 className={`
+                  ${index === 0 ? "fade-in-left" : "fade-in-right"} opacity-0
                   featured-client-wrapper
                   transition-all duration-500 ease-out
                   ${
@@ -134,6 +148,7 @@ export default function AboutClientsSection() {
                       : "scale-100"
                   }
                 `}
+                style={{ animationDelay: `${0.6 + index * 0.2}s` }}
                 onMouseEnter={() => handleFeaturedCardHover(index, true)}
                 onMouseLeave={() => handleFeaturedCardHover(index, false)}
               >

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { FiTarget, FiZap, FiCheckCircle } from "react-icons/fi";
 import { getCaseStudyBySlug } from "@/data/case-studies";
 import Image from "next/image";
@@ -14,7 +13,6 @@ export default function ProyectoDetalleContentSection({
   slug,
 }: ProyectoDetalleContentSectionProps) {
   const { t } = useTranslation();
-  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   const caseStudy = getCaseStudyBySlug(slug);
 
@@ -23,9 +21,7 @@ export default function ProyectoDetalleContentSection({
   }
 
   return (
-    <section
-      ref={elementRef}
-      className="project-details-page-content-section section relative overflow-hidden"
+    <section className="project-details-page-content-section section relative overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
       }}
@@ -48,29 +44,22 @@ export default function ProyectoDetalleContentSection({
 
       <div className="container relative z-10">
         {/* First Block - Challenge/Situation */}
-        <div 
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20 transition-all duration-800 ${
-            isVisible 
-              ? 'opacity-100 translate-x-0' 
-              : 'opacity-0 -translate-x-12'
-          }`}
-          style={{ transitionDelay: '200ms' }}
-        >
+        <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20">
           <div className="px-4 lg:px-0">
             <div className="flex items-center gap-6 pb-8">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
+              <div className="block-icon-1 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-teal/90 via-45% to-azul-profundo to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
                 <FiTarget className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
               </div>
-              <div>
+              <div className="block-title-1 opacity-0">
                 <h3 className="text-xl md:text-2xl font-bold text-azul-profundo leading-tight">
                   {t(caseStudy.situationTitleKey)}
                 </h3>
               </div>
             </div>
-            <p className="text-base md:text-lg text-negro leading-relaxed pb-6">
+            <p className="block-description-1 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-6">
               {t(caseStudy.situationDescKey)}
             </p>
-            <div className="flex flex-col gap-4">
+            <div className="block-description-1 opacity-0 flex flex-col gap-4">
               {caseStudy.issues.map((issue, index) => (
                 <div key={index} className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-teal rounded-full flex-shrink-0"></div>
@@ -80,7 +69,7 @@ export default function ProyectoDetalleContentSection({
             </div>
           </div>
 
-          <div className="relative lg:order-2 px-4 lg:px-0">
+          <div className="block-image-1 opacity-0 relative lg:order-2 px-4 lg:px-0">
             <div className="bg-gradient-to-br from-teal to-turquesa p-8 rounded-2xl text-white shadow-2xl">
               <h4 className="text-lg font-bold pb-6">
                 {t("project-details-page.projectDetails")}
@@ -120,31 +109,24 @@ export default function ProyectoDetalleContentSection({
         </div>
 
         {/* Second Block - Solution/Approach */}
-        <div 
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20 transition-all duration-800 ${
-            isVisible 
-              ? 'opacity-100 translate-x-0' 
-              : 'opacity-0 translate-x-12'
-          }`}
-          style={{ transitionDelay: '400ms' }}
-        >
+        <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pb-16 md:pb-20">
           <div className="px-4 lg:px-0 lg:order-2">
             <div className="flex items-center gap-6 pb-8">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-mandarina/90 via-45% to-naranja-tostado to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
+              <div className="block-icon-2 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-mandarina/90 via-45% to-naranja-tostado to-100% rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
                 <FiZap className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
               </div>
-              <div>
+              <div className="block-title-2 opacity-0">
                 <h3 className="text-xl md:text-2xl font-bold text-azul-profundo leading-tight">
                   {t(caseStudy.approachTitleKey)}
                 </h3>
               </div>
             </div>
-            <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
+            <p className="block-description-2 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-8">
               {t(caseStudy.approachDescKey)}
             </p>
           </div>
 
-          <div className="relative lg:order-1 px-4 lg:px-0">
+          <div className="block-image-2 opacity-0 relative lg:order-1 px-4 lg:px-0">
             <div className="bg-gradient-to-br from-teal to-azul-profundo p-8 rounded-2xl text-white shadow-2xl">
               <h4 className="text-lg font-bold pb-6">
                 {t("project-details-page.implementedTechnologies")}
@@ -164,43 +146,31 @@ export default function ProyectoDetalleContentSection({
         </div>
 
         {/* Third Block - Impact/Results */}
-        <div 
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center transition-all duration-800 ${
-            isVisible 
-              ? 'opacity-100 translate-x-0' 
-              : 'opacity-0 -translate-x-12'
-          }`}
-          style={{ transitionDelay: '600ms' }}
-        >
+        <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="px-4 lg:px-0">
             <div className="flex items-center gap-6 pb-8">
-              <div className="w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-turquesa/90 via-45% to-azul-profundo rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
+              <div className="block-icon-3 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-radial-[at_30%_25%] from-white/20 from-0% via-turquesa/90 via-45% to-azul-profundo rounded-full flex items-center justify-center shadow-2xl flex-shrink-0">
                 <FiCheckCircle className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
               </div>
-              <div>
+              <div className="block-title-3 opacity-0">
                 <h3 className="text-xl md:text-2xl font-bold text-azul-profundo leading-tight">
                   {t(caseStudy.impactTitleKey)}
                 </h3>
               </div>
             </div>
-            <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
+            <p className="block-description-3 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-8">
               {t(caseStudy.impactDescKey)}
             </p>
           </div>
 
-          <div className="relative lg:order-2 px-4 lg:px-0">
+          <div className="block-image-3 opacity-0 relative lg:order-2 px-4 lg:px-0">
             <div className="grid grid-cols-1 gap-4">
               {caseStudy.metrics.map((metric, index: any) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 ${
+                  className={`stagger-bounce-in-up opacity-0 bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 ${
                     index === 0 ? "border-teal" : "border-mandarina"
-                  } transition-all duration-800 ${
-                    isVisible 
-                      ? 'opacity-100 translate-y-0 scale-100' 
-                      : 'opacity-0 translate-y-5 scale-95'
                   }`}
-                  style={{ transitionDelay: `${800 + (index * 100)}ms` }}
                 >
                   <div className="flex items-center justify-between">
                     <div>

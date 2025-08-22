@@ -37,7 +37,6 @@ export const routeMapping = {
   "marketing-inmersivo": "immersive-marketing",
   "formacion-y-soporte": "training-and-support",
   "gestion-de-subvenciones": "grants-management",
-  
   "about-us": "sobre-nosotros",
   services: "servicios",
   "use-cases": "casos-de-exito", 

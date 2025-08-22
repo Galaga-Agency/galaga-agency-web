@@ -1,5 +1,6 @@
 "use client";
 
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { useTranslation } from "@/hooks/useTranslation";
 import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import ServicesHeroSection from "@/components/pages/services-page/ServicesHeroSection";
@@ -7,7 +8,8 @@ import ServicesOverviewSection from "@/components/pages/services-page/ServicesOv
 import ServicesProcessSection from "@/components/pages/services-page/ServicesProcessSection";
 import { getLocalizedRoute } from "@/utils/navigation";
 import TechnologyStackSection from "@/components/pages/services-page/TechnologyStackSection";
-import ServicesCTASection from "@/components/pages/services-page/ServicesCTASection";
+import ServiceCTASection from "@/components/pages/services-page/ServicesCTASection";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 
 export default function ServicesPage() {
   const { t, language } = useTranslation();
@@ -24,6 +26,11 @@ export default function ServicesPage() {
     },
   ];
 
+  useGSAPAnimations({
+    animations: [initEntranceAnimations],
+    delay: 100,
+  });
+
   return (
     <>
       <Breadcrumbs items={breadcrumbs} />
@@ -31,7 +38,7 @@ export default function ServicesPage() {
       <ServicesOverviewSection />
       <ServicesProcessSection />
       <TechnologyStackSection />
-      <ServicesCTASection serviceKey="immersive-marketing" />
+      <ServiceCTASection serviceKey="immersive-marketing" />
     </>
   );
 }

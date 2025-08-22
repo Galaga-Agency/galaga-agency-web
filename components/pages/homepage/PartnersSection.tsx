@@ -10,12 +10,12 @@ const PartnersSection: React.FC = () => {
 
       <div className="w-full container relative z-10">
         {/* Title */}
-        <h2 className="partners-title text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center pb-6 md:pb-8">
+        <h2 className="fade-in-up partners-title text-4xl md:text-6xl lg:text-7xl font-bold text-white text-center pb-6 md:pb-8">
           {t("partners-section.title")}
         </h2>
 
         {/* Subtitle */}
-        <p className="partners-subtitle text-center text-white/70 text-lg md:text-xl pb-16 md:pb-20 lg:pb-24">
+        <p className="fade-in-up partners-subtitle text-center text-white/70 text-lg md:text-xl pb-16 md:pb-20 lg:pb-24" style={{ animationDelay: '0.2s' }}>
           {t("partners-section.subtitle")}
         </p>
 
@@ -27,7 +27,7 @@ const PartnersSection: React.FC = () => {
               {partners.slice(0, 4).map((partner, index) => (
                 <div
                   key={partner.id}
-                  className={`partner-logo partner-logo-${index} group cursor-pointer flex justify-center`}
+                  className={`stagger-bounce-in-up partner-logo partner-logo-${index} group cursor-pointer flex justify-center`}
                 >
                   <div className="relative">
                     <img
@@ -55,7 +55,7 @@ const PartnersSection: React.FC = () => {
               {partners.slice(4, 8).map((partner, index) => (
                 <div
                   key={partner.id}
-                  className={`partner-logo partner-logo-${
+                  className={`stagger-bounce-in-up partner-logo partner-logo-${
                     index + 4
                   } group cursor-pointer flex justify-center`}
                 >

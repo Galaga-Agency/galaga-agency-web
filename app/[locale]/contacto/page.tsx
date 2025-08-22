@@ -5,6 +5,8 @@ import Breadcrumbs from "@/components/SEO/Breadcrumbs";
 import ContactHeroSection from "@/components/pages/contact-page/ContactHeroSection";
 import ContactFormSection from "@/components/pages/contact-page/ContactFormSection";
 import { getLocalizedRoute } from "@/utils/navigation";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 
 export default function ContactPage() {
   const { t, language } = useTranslation();
@@ -20,6 +22,11 @@ export default function ContactPage() {
       href: getLocalizedRoute("contacto", language),
     },
   ];
+
+  useGSAPAnimations({
+    animations: [initEntranceAnimations],
+    delay: 100,
+  });
 
   return (
     <>

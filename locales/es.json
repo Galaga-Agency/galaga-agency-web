@@ -338,8 +338,10 @@
       "message": "Escalamos contigo. Tu negocio crece, nuestro arsenal tecnológico también."
     },
     "cta-section": {
-      "line1": "Las mejores ideas nacen",
-      "line2": "de los desafíos reales.",
+      "title": {
+        "line1": "Las mejores ideas nacen",
+        "line2": "de los desafíos reales."
+      },
       "subtitle": "Explora nuestro portafolio para ver cómo hemos transformado negocios con estas tecnologías. Cada proyecto cuenta una historia de innovación y crecimiento.",
       "seePortfolio": "Explora Nuestro Trabajo",
       "getStarted": "Inicia Tu Proyecto",

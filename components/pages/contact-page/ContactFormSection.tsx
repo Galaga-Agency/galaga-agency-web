@@ -1,37 +1,15 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { Mail, MapPin } from "lucide-react";
 import ContactForm from "@/components/forms/ContactForm";
 import SocialIcons from "@/components/SocialIcons";
 
 export default function ContactFormSection() {
   const { t } = useTranslation();
-  
-  // Main section observer
-  const { elementRef: sectionRef, isVisible } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: "-50px",
-    triggerOnce: true
-  });
-
-  // Separate observer for cards with different threshold
-  const { elementRef: cardsRef, isVisible: cardsVisible } = useIntersectionObserver({
-    threshold: 0.2,
-    rootMargin: "-30px",
-    triggerOnce: true
-  });
-
-  // Separate observer for form
-  const { elementRef: formRef, isVisible: formVisible } = useIntersectionObserver({
-    threshold: 0.1,
-    rootMargin: "-30px",
-    triggerOnce: true
-  });
 
   return (
-    <section ref={sectionRef as React.RefObject<HTMLElement>} className="relative contact-form-section section">
+    <section className="relative contact-form-section section">
       {/* Diagonal background layers */}
       <div className="absolute inset-0">
         {/* Top diagonal - Light teal gradient */}
@@ -52,25 +30,19 @@ export default function ContactFormSection() {
       </div>
       
       <div className="container">
-        {/* Header */}
+        {/* Header - Staggered fade in up */}
         <div className="text-center pb-20">
-          <div className={`contact-form-eyebrow pb-6 ${
-            isVisible ? 'animate-fade-in-up' : 'opacity-0'
-          }`}>
+          <div className="contact-form-eyebrow pb-6 fade-in-up opacity-0">
             <span className="text-teal font-semibold tracking-wider uppercase text-sm">
               {t("contact-page.section.eyebrow")}
             </span>
           </div>
 
-          <h2 className={`contact-form-title section-title text-teal leading-tight tracking-tight pb-8 ${
-            isVisible ? 'animate-slide-up animation-delay-200' : 'opacity-0'
-          }`}>
+          <h2 className="contact-form-title section-title text-teal leading-tight tracking-tight pb-8 slide-in-up opacity-0">
             {t("contact-page.section.title")}
           </h2>
 
-          <p className={`contact-form-subtitle text-xl text-negro leading-relaxed container ${
-            isVisible ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
-          }`}>
+          <p className="contact-form-subtitle text-xl text-negro leading-relaxed container bounce-in-up opacity-0">
             {t("contact-page.section.subtitle")}
           </p>
         </div>
@@ -79,24 +51,18 @@ export default function ContactFormSection() {
           {/* Left - Contact Info */}
           <div className="relative lg:col-span-2">
             <div className="contact-info-content">
-              <h3 className={`text-3xl font-bold text-azul-profundo pb-6 leading-tight ${
-                isVisible ? 'animate-fade-in-up animation-delay-500' : 'opacity-0'
-              }`}>
+              <h3 className="text-3xl font-bold text-azul-profundo pb-6 leading-tight fade-in-left opacity-0">
                 {t("contact-page.info.title")}
               </h3>
 
-              <p className={`text-lg text-negro leading-relaxed pb-12 ${
-                isVisible ? 'animate-fade-in-up animation-delay-600' : 'opacity-0'
-              }`}>
+              <p className="text-lg text-negro leading-relaxed pb-12 fade-in-left opacity-0">
                 {t("contact-page.info.description")}
               </p>
 
-              {/* Contact Cards */}
-              <div ref={cardsRef as React.RefObject<HTMLDivElement>} className="contact-info-cards flex flex-col md:flex-row lg:flex-col gap-6 pb-12">
+              {/* Contact Cards - Drift animations for dynamic effect */}
+              <div className="contact-info-cards flex flex-col md:flex-row lg:flex-col gap-6 pb-12">
                 {/* Email Card */}
-                <div className={`contact-info-card group w-full md:w-1/2 lg:w-full ${
-                  cardsVisible ? 'animate-slide-right' : 'opacity-0'
-                }`}>
+                <div className="contact-info-card group w-full md:w-1/2 lg:w-full fade-in-up opacity-0">
                   <a
                     href="mailto:info@galagaagency.com"
                     className="relative overflow-hidden h-full cursor-pointer rounded-2xl bg-white border border-white/20 shadow-xl hover:shadow-2xl shadow-teal/50 transition-shadow duration-500 ease-out group block"
@@ -157,9 +123,7 @@ export default function ContactFormSection() {
                 </div>
 
                 {/* Location Card */}
-                <div className={`contact-info-card group w-full md:w-1/2 lg:w-full ${
-                  cardsVisible ? 'animate-slide-right animation-delay-200' : 'opacity-0'
-                }`}>
+                <div className="contact-info-card group w-full md:w-1/2 lg:w-full fade-in-up opacity-0">
                   <a
                     href="https://maps.google.com/?q=C.+Arado%2C+35200+Telde%2C+Las+Palmas+de+Gran+Canaria%2C+Spain"
                     target="_blank"
@@ -222,10 +186,8 @@ export default function ContactFormSection() {
                 </div>
               </div>
 
-              {/* Social Media Links */}
-              <div className={`contact-social flex flex-col items-center lg:items-start ${
-                cardsVisible ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
-              }`}>
+              {/* Social Media Links - Scale in animation */}
+              <div className="contact-social flex flex-col items-center lg:items-start fade-in-up-rotate opacity-0 w-fit">
                 <h4 className="text-lg font-bold text-azul-profundo pb-4">
                   {t("contact-page.social.title")}
                 </h4>
@@ -238,13 +200,11 @@ export default function ContactFormSection() {
             </div>
           </div>
 
-          {/* Right - Form */}
-          <div ref={formRef as React.RefObject<HTMLDivElement>} className="z-20 lg:col-span-3">
-            <div className={`contact-form-container ${
-              formVisible ? 'animate-slide-up animation-delay-200' : 'opacity-0'
-            }`}>
+          {/* Right - Form - Simple slide up animation */}
+          <div className="z-20 lg:col-span-3">
+            <div className="contact-form-container slide-in-up opacity-0">
               <div className="bg-blanco/70 backdrop-blur-md p-12 rounded-2xl border border-hielo/30 shadow-xl">
-                <ContactForm isVisible={formVisible} />
+                <ContactForm />
               </div>
             </div>
           </div>

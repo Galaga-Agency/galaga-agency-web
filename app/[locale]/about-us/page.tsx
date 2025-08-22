@@ -8,6 +8,9 @@ import AboutApproachSection from "@/components/pages/about-us-page/AboutApproach
 import AboutClientsSection from "@/components/pages/about-us-page/AboutClientsSection";
 import { getLocalizedRoute } from "@/utils/navigation";
 import AboutCTASection from "@/components/pages/about-us-page/AboutCTASection";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 
 export default function AboutPage() {
   const { t, language } = useTranslation();
@@ -23,6 +26,14 @@ export default function AboutPage() {
       href: getLocalizedRoute("sobre-nosotros", language),
     },
   ];
+
+    useGSAPAnimations({
+      animations: [
+        initEntranceAnimations,
+        initAlternateBlocksAnimations
+      ],
+      delay: 100,
+    });
 
   return (
     <>

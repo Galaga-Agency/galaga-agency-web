@@ -11,15 +11,15 @@ export default function AboutApproachSection() {
       <div className="container">
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
-          <span className="text-gray-300 font-medium tracking-wider uppercase text-sm pb-6 block">
+          <span className="fade-in-up opacity-0 text-gray-300 font-medium tracking-wider uppercase text-sm pb-6 block">
             {t("about-page.approach-section.eyebrow")}
           </span>
 
-          <h2 className="about-approach-title section-title text-blanco leading-tight pb-6">
+          <h2 className="fade-in-up opacity-0 about-approach-title section-title text-blanco leading-tight pb-6" style={{ animationDelay: '0.2s' }}>
             {t("about-page.approach-section.title")}
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed px-4">
+          <p className="fade-in-up opacity-0 text-lg md:text-xl text-gray-300 leading-relaxed px-4" style={{ animationDelay: '0.4s' }}>
             {t("about-page.approach-section.subtitle")}
           </p>
         </div>
@@ -32,8 +32,9 @@ export default function AboutApproachSection() {
             className="absolute left-1/2 top-[45%] -translate-x-2/3 -translate-y-1/2 opacity-10 hidden md:block w-[55vw] xl:w-[40vw] z-0 pointer-events-none select-none"
             aria-hidden="true"
           />
+          
           {/* Top left */}
-          <div className="approach-gradient-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%]">
+          <div className="fade-in-left opacity-0 approach-gradient-1 absolute top-0 left-[10%] md:left-[5%] lg:left-8 xl:left-[15%]" style={{ animationDelay: '0.6s' }}>
             <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-turquesa from-20% via-teal via-60% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-base lg:text-lg xl:text-xl font-bold text-blanco pb-3 leading-tight tracking-tight">
@@ -47,7 +48,7 @@ export default function AboutApproachSection() {
           </div>
 
           {/* Top right */}
-          <div className="approach-gradient-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-8 xl:right-[15%]">
+          <div className="fade-in-right opacity-0 approach-gradient-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-8 xl:right-[15%]" style={{ animationDelay: '0.8s' }}>
             <div className="w-60 h-60 lg:w-68 lg:h-68 xl:w-76 xl:h-76 rounded-full bg-radial-[at_30%_30%] from-blanco from-10% via-hielo via-50% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-base lg:text-lg xl:text-xl font-bold text-azul-profundo pb-3 leading-tight tracking-tight">
@@ -61,7 +62,7 @@ export default function AboutApproachSection() {
           </div>
 
           {/* Bottom center */}
-          <div className="approach-gradient-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-[51%] transform -translate-x-1/2">
+          <div className="fade-in-up opacity-0 approach-gradient-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-[51%] transform -translate-x-1/2" style={{ animationDelay: '1.0s' }}>
             <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-teal from-10% via-negro via-60% to-negro to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-lg lg:text-xl xl:text-2xl font-bold text-blanco pb-3 leading-tight tracking-tight max-w-[85%] text-center px-auto">
@@ -77,7 +78,7 @@ export default function AboutApproachSection() {
 
         {/* Bottom Statement */}
         <div className="text-center pt-36 md:pt-6">
-          <p className="about-approach-quote text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed px-4">
+          <p className="fade-in-up opacity-0 about-approach-quote text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 leading-relaxed px-4" style={{ animationDelay: '1.2s' }}>
             {t("about-page.approach-section.quote")}
           </p>
         </div>

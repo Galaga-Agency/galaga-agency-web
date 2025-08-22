@@ -6,25 +6,25 @@ export default function WhyChooseUsSection() {
   const { t } = useTranslation();
 
   return (
-    <section className="why-choose-section floating-bubbles-section">
+    <section className="why-choose-section">
       <div className="container relative z-10 pb-36 md:pb-12 lg:pb-32 overflow-hidden">
         {/* Main question - centered like screenshot */}
         <div className="text-center pb-16">
-          <h2 className="section-title text-teal pb-8">
+          <h2 className="fade-in-up section-title text-teal pb-8">
             {t("homepage.whyChoose-section.title")}
           </h2>
           <div className="mx-auto">
-            <p className="text-lg md:text-xl text-grafito leading-relaxed">
+            <p className="fade-in-up text-lg md:text-xl text-grafito leading-relaxed">
               {t("homepage.whyChoose-section.intro")}
             </p>
-            <p className="text-xl md:text-2xl font-semibold text-negro pt-2">
+            <p className="fade-in-up text-xl md:text-2xl font-semibold text-negro pt-2">
               {t("homepage.whyChoose-section.mainMessage")}
             </p>
           </div>
         </div>
 
         {/* Circles */}
-        <div className="relative min-h-[600px] md:min-h-[500px]">
+        <div className="relative min-h-[600px] md:min-h-[500px] bubble-section-2">
           <img
             src="/assets/img/symbols/double-chevron-teal.webp"
             alt="Double Chevron"
@@ -33,7 +33,7 @@ export default function WhyChooseUsSection() {
           />
 
           {/* Top left circle - Transparency */}
-          <div className="bubble-1 absolute top-0 left-[10%] md:left-[5%] lg:left-[15%] opacity-0">
+          <div className="bubble-1 absolute top-0 left-[10%] md:left-[5%] lg:left-[15%]">
             <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-white from-20% via-neutral-50 via-60% to-azul-profundo/30 to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center">
                 <h3 className="text-base lg:text-lg xl:text-xl font-bold text-azul-profundo pb-3 leading-tight tracking-tight">
@@ -47,7 +47,7 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* Top right circle - Strategy */}
-          <div className="bubble-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-[15%] opacity-0">
+          <div className="bubble-2 absolute top-[35%] md:top-0 right-[1%] md:right-[5%] lg:right-[15%]">
             <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-turquesa from-15% via-teal via-60% to-azul-profundo to-90% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <h3 className="text-lg lg:text-xl xl:text-2xl font-bold text-blanco pb-3 leading-tight tracking-tight max-w-[85%] text-center px-auto">
@@ -61,7 +61,7 @@ export default function WhyChooseUsSection() {
           </div>
 
           {/* Bottom center circle -Involvement */}
-          <div className="bubble-3 absolute -bottom-24 md:bottom-12 lg:bottom-0 left-1/2 transform -translate-x-1/2 opacity-0">
+          <div className="bubble-3 absolute -bottom-24 md:bottom-12 lg:bottom-0 left-1/2 transform -translate-x-1/2">
             <div className="w-60 h-60 lg:w-68 lg:h-68 xl:w-76 xl:h-76 rounded-full bg-radial-[at_35%_20%] from-azul-profundo from-40% via-teal via-80% to-negro to-95% shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center">
                 <h3 className="text-base lg:text-lg xl:text-xl font-bold text-blanco pb-3 leading-tight tracking-tight">

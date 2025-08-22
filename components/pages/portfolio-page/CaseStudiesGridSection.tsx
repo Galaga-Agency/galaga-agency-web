@@ -1,17 +1,14 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { caseStudies } from "@/data/case-studies";
 import CaseStudyCard from "./CaseStudyCard";
 
 export default function CaseStudiesGridSection() {
   const { t } = useTranslation();
-  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <section
-      ref={elementRef}
       className="case-studies-grid-section section relative overflow-hidden"
       style={{
         background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
@@ -37,15 +34,15 @@ export default function CaseStudiesGridSection() {
       <div className="container relative z-10">
         {/* Section Header */}
         <div className="text-center pb-16 md:pb-20">
-          <span className={`case-studies-grid-eyebrow text-teal font-semibold tracking-wider uppercase text-sm ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+          <span className="fade-in-up opacity-0 text-teal font-semibold tracking-wider uppercase text-sm">
             {t("case-studies-page.grid-section.eyebrow")}
           </span>
 
-          <h2 className={`case-studies-grid-title section-title text-teal leading-tight tracking-tight pt-4 pb-6 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+          <h2 className="fade-in-up opacity-0 section-title text-teal leading-tight tracking-tight pt-4 pb-6">
             {t("case-studies-page.grid-section.title")}
           </h2>
 
-          <p className={`case-studies-grid-subtitle text-lg md:text-xl text-negro leading-relaxed px-4 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+          <p className="fade-in-up opacity-0 text-lg md:text-xl text-negro leading-relaxed px-4">
             {t("case-studies-page.grid-section.subtitle")}
           </p>
         </div>
@@ -53,94 +50,38 @@ export default function CaseStudiesGridSection() {
         {/* Responsive Bento Grid */}
         <div className="case-studies-bento-grid grid grid-cols-12 gap-6 md:gap-8">
           {/* First row - Hero takes more space on larger screens */}
-          <div 
-            className={`col-span-12 lg:col-span-8 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '600ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-8 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[0]} index={0} size="hero" />
           </div>
 
-          <div 
-            className={`col-span-12 lg:col-span-4 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '700ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-4 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[1]} index={1} size="medium" />
           </div>
 
           {/* Second row */}
-          <div 
-            className={`col-span-12 lg:col-span-4 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '800ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-4 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[2]} index={2} size="medium" />
           </div>
 
-          <div 
-            className={`col-span-12 lg:col-span-8 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '900ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-8 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[3]} index={3} size="wide" />
           </div>
 
           {/* Third row - Equal height columns */}
-          <div 
-            className={`col-span-12 lg:col-span-6 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '1000ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-6 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[4]} index={4} size="large" />
           </div>
 
-          <div 
-            className={`col-span-12 lg:col-span-6 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '1100ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-6 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[5]} index={5} size="large" />
           </div>
 
           {/* Fourth row */}
-          <div 
-            className={`col-span-12 lg:col-span-4 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '1200ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-4 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[6]} index={6} size="medium" />
           </div>
 
-          <div 
-            className={`col-span-12 lg:col-span-8 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px] case-study-bento-item transition-all duration-1000 ease-out ${
-              isVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-10 scale-95'
-            }`}
-            style={{ transitionDelay: '1300ms' }}
-          >
+          <div className="stagger-bounce-in-up opacity-0 col-span-12 lg:col-span-8 h-[500px] md:h-[600px] lg:h-[550px] xl:h-[600px]">
             <CaseStudyCard caseStudy={caseStudies[7]} index={7} size="wide" />
           </div>
         </div>

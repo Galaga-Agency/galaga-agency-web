@@ -9,6 +9,7 @@ import ServicesProcessSection from "@/components/pages/services-page/ServicesPro
 import { getLocalizedRoute } from "@/utils/navigation";
 import TechnologyStackSection from "@/components/pages/services-page/TechnologyStackSection";
 import ServiceCTASection from "@/components/pages/services-page/ServicesCTASection";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 
 export default function ServicesPage() {
   const { t, language } = useTranslation();
@@ -24,6 +25,11 @@ export default function ServicesPage() {
       href: getLocalizedRoute("servicios", language),
     },
   ];
+
+  useGSAPAnimations({
+    animations: [initEntranceAnimations],
+    delay: 100,
+  });
 
   return (
     <>

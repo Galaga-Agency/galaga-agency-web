@@ -2,7 +2,7 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { FaRocket, FaCogs, FaUsers } from "react-icons/fa";
-import ValueBubbles from "@/components/pages/about-us-page/ValueBubbles";
+import ValueBubbles from "@/components/pages/homepage/ValueBubbles";
 import Image from "next/image";
 
 export default function HomepageAboutSection() {
@@ -43,11 +43,11 @@ export default function HomepageAboutSection() {
           <div className="container">
             {/* Section Header */}
             <div className="text-center pb-16 md:pb-20">
-              <h2 className="section-title text-teal leading-tight tracking-tight pb-6">
+              <h2 className="fade-in-up opacity-0 section-title text-teal leading-tight tracking-tight pb-6">
                 {t("homepage.about-section.mainTitle")}
               </h2>
 
-              <p className="text-lg md:text-xl text-negro leading-relaxed px-4">
+              <p className="fade-in-up opacity-0 text-lg md:text-xl text-negro leading-relaxed px-4">
                 {t("homepage.about-section.subtitle")}
               </p>
             </div>
@@ -57,10 +57,10 @@ export default function HomepageAboutSection() {
               {/* Timeline Content */}
               <div className="relative z-10 flex flex-col gap-12 md:gap-16 lg:gap-12">
                 {/* First Block - Services that Transform */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-orange-gradient rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="block-icon-1 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-orange-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <Image
                           src="/assets/img/symbols/single-chevron-white.webp"
                           alt=""
@@ -69,21 +69,21 @@ export default function HomepageAboutSection() {
                           className="w-10 h-10 drop-shadow-lg translate-y-1 -translate-x-0.5"
                         />
                       </div>
-                      <div>
+                      <div className="block-title-1 opacity-0">
                         <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
                           {t("homepage.about-section.services-block.title")}
                         </h3>
                       </div>
                     </div>
-                    <p className="text-base md:text-lg text-negro leading-relaxed pb-6">
+                    <p className="block-description-1 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-6">
                       {t("homepage.about-section.services-block.description")}
                     </p>
-                    <p className="text-base md:text-lg text-azul-profundo font-semibold leading-relaxed">
+                    <p className="block-description-1 opacity-0 text-base md:text-lg text-azul-profundo font-semibold leading-relaxed">
                       {t("homepage.about-section.services-block.highlight")}
                     </p>
                   </div>
 
-                  <div className="relative lg:order-2 px-4 lg:px-0">
+                  <div className="block-image-1 opacity-0 relative lg:order-2 px-4 lg:px-0">
                     <div className="bg-gradient-to-br from-teal to-turquesa p-8 rounded-2xl text-white shadow-2xl">
                       <h4 className="text-xl font-bold pb-6">
                         {t("homepage.about-section.services-block.cardTitle")}
@@ -127,13 +127,13 @@ export default function HomepageAboutSection() {
                 </div>
 
                 {/* Second Block - Digital Transformation */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0 lg:order-2">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="block-icon-2 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-teal-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <FaCogs className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
                       </div>
-                      <div>
+                      <div className="block-title-2 opacity-0">
                         <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
                           {t(
                             "homepage.about-section.digitalization-block.title"
@@ -141,14 +141,14 @@ export default function HomepageAboutSection() {
                         </h3>
                       </div>
                     </div>
-                    <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
+                    <p className="block-description-2 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-8">
                       {t(
                         "homepage.about-section.digitalization-block.shortDescription"
                       )}
                     </p>
                   </div>
 
-                  <div className="relative lg:order-1 px-4 lg:px-0">
+                  <div className="block-image-2 opacity-0 relative lg:order-1 px-4 lg:px-0">
                     <div className="bg-gradient-to-br from-teal to-azul-profundo p-8 rounded-2xl text-white shadow-2xl">
                       <h4 className="text-xl font-bold pb-6">
                         {t(
@@ -194,26 +194,26 @@ export default function HomepageAboutSection() {
                 </div>
 
                 {/* Third Block - Our Clients */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-skyblue-gradient rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="block-icon-3 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-skyblue-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <FaUsers className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-lg" />
                       </div>
-                      <div>
+                      <div className="block-title-3 opacity-0">
                         <h3 className="text-2xl md:text-3xl font-bold text-azul-profundo leading-tight">
                           {t("homepage.about-section.clients-block.title")}
                         </h3>
                       </div>
                     </div>
-                    <p className="text-base md:text-lg text-negro leading-relaxed pb-8">
+                    <p className="block-description-3 opacity-0 text-base md:text-lg text-negro leading-relaxed pb-8">
                       {t(
                         "homepage.about-section.clients-block.shortDescription"
                       )}
                     </p>
                   </div>
 
-                  <div className="relative lg:order-2 px-4 lg:px-0">
+                  <div className="block-image-3 opacity-0 relative lg:order-2 px-4 lg:px-0">
                     <div className="grid grid-cols-1 gap-4">
                       <div className="bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 border-blanco">
                         <h5 className="font-bold text-azul-profundo text-lg pb-2">

@@ -8,6 +8,9 @@ import ProyectoDetalleHeroSection from "@/components/pages/project-details-pages
 import ProyectoDetalleContentSection from "@/components/pages/project-details-pages/ProyectoDetalleContentSection";
 import CTASection from "@/components/pages/homepage/CTASection";
 import { getLocalizedRoute } from "@/utils/navigation";
+import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 
 interface ProyectoDetallePageProps {
   params: Promise<{
@@ -50,6 +53,11 @@ export default function ProyectoDetallePage({
       href: getLocalizedRoute(`casos-de-exito/${projectSlug}`, language),
     },
   ];
+
+      useGSAPAnimations({
+        animations: [initEntranceAnimations, initAlternateBlocksAnimations],
+        delay: 100,
+      });
 
   return (
     <>

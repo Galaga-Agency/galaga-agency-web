@@ -1,13 +1,11 @@
 "use client";
 import { useTranslation } from "@/hooks/useTranslation";
-import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import { services } from "@/data/services";
 import { useState } from "react";
 import BentoServiceCard from "@/components/pages/homepage/BentoServiceCard";
 
 export default function ServicesSection() {
   const { t } = useTranslation();
-  const { elementRef, isVisible } = useIntersectionObserver({ threshold: 0.1 });
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   // Service configurations
@@ -49,19 +47,16 @@ export default function ServicesSection() {
   };
 
   return (
-    <section
-      ref={elementRef}
-      className="relative section overflow-hidden bg-gradient-to-br from-azul-profundo via-teal to-negro"
-    >
+    <section className="relative section overflow-hidden bg-gradient-to-br from-azul-profundo via-teal to-negro">
       <div className="relative z-10">
         {/* Enhanced section header */}
         <div className="text-center pb-16">
           <div className="inline-block p-3 mb-6">
-            <h2 className="section-title text-blanco pb-8 mb-0">
+            <h2 className="fade-in-up section-title text-blanco pb-8 mb-0">
               {t("services-section.title")}
             </h2>
           </div>
-          <p className="text-lg md:text-xl text-hielo leading-relaxed">
+          <p className="fade-in-up text-lg md:text-xl text-hielo leading-relaxed">
             {t("services-section.subtitle")}
           </p>
         </div>
@@ -70,15 +65,7 @@ export default function ServicesSection() {
           {/* Mobile Grid */}
           <div className="grid grid-cols-1 gap-8 md:hidden">
             {serviceConfigs.map((service, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-1000 ${
-                  isVisible
-                    ? "opacity-100 translate-y-0 scale-100"
-                    : "opacity-0 translate-y-10 scale-95"
-                }`}
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
+              <div key={index} className="fade-in-up">
                 <BentoServiceCard
                   service={service}
                   size="mobile"
@@ -93,14 +80,7 @@ export default function ServicesSection() {
           {/* Desktop Bento Grid */}
           <div className="hidden md:grid grid-cols-3 gap-8 lg:gap-10 auto-rows-[auto]">
             {/* Row 1: Small + Large */}
-            <div
-              className={`transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 -translate-x-10 translate-y-5 scale-95"
-              }`}
-              style={{ transitionDelay: "0ms" }}
-            >
+            <div className="fade-in-left">
               <BentoServiceCard
                 service={serviceConfigs[0]}
                 size="small"
@@ -110,14 +90,7 @@ export default function ServicesSection() {
               />
             </div>
 
-            <div
-              className={`col-span-2 transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 translate-x-10 translate-y-5 scale-95"
-              }`}
-              style={{ transitionDelay: "150ms" }}
-            >
+            <div className="fade-in-right col-span-2">
               <BentoServiceCard
                 service={serviceConfigs[1]}
                 size="large"
@@ -128,14 +101,7 @@ export default function ServicesSection() {
             </div>
 
             {/* Row 2: Large + Small */}
-            <div
-              className={`col-span-2 transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 -translate-x-10 translate-y-5 scale-95"
-              }`}
-              style={{ transitionDelay: "300ms" }}
-            >
+            <div className="fade-in-left col-span-2">
               <BentoServiceCard
                 service={serviceConfigs[2]}
                 size="large"
@@ -145,14 +111,7 @@ export default function ServicesSection() {
               />
             </div>
 
-            <div
-              className={`transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 translate-x-10 translate-y-5 scale-95"
-              }`}
-              style={{ transitionDelay: "450ms" }}
-            >
+            <div className="fade-in-right">
               <BentoServiceCard
                 service={serviceConfigs[3]}
                 size="small"
@@ -163,14 +122,7 @@ export default function ServicesSection() {
             </div>
 
             {/* Row 3: Small + Large */}
-            <div
-              className={`transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 -translate-x-10 translate-y-5 scale-95"
-              }`}
-              style={{ transitionDelay: "600ms" }}
-            >
+            <div className="fade-in-left">
               <BentoServiceCard
                 service={serviceConfigs[4]}
                 size="small"
@@ -180,14 +132,7 @@ export default function ServicesSection() {
               />
             </div>
 
-            <div
-              className={`col-span-2 transition-all duration-1000 ${
-                isVisible
-                  ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-                  : "opacity-0 translate-x-10 translate-y-5 scale-95"
-              }`}
-              style={{ transitionDelay: "750ms" }}
-            >
+            <div className="fade-in-right col-span-2">
               <BentoServiceCard
                 service={serviceConfigs[5]}
                 size="large"

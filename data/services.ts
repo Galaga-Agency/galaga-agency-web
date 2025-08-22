@@ -10,6 +10,7 @@ import {
 
 export const services: Service[] = [
   {
+    id: 1,
     icon: FaBullseye,
     title: "services-section.strategic-consulting.title",
     description: "services-section.strategic-consulting.description",
@@ -25,6 +26,7 @@ export const services: Service[] = [
     hasRedirection: false,
   },
   {
+    id: 2,
     icon: FaCogs,
     title: "services-section.automation.title",
     description: "services-section.automation.description",
@@ -40,6 +42,7 @@ export const services: Service[] = [
     hasRedirection: false,
   },
   {
+    id: 3,
     icon: FaRocket,
     title: "services-section.technological-innovation.title",
     description: "services-section.technological-innovation.description",
@@ -55,6 +58,7 @@ export const services: Service[] = [
     hasRedirection: false,
   },
   {
+    id: 4,
     icon: FaEye,
     title: "services-section.immersive-marketing.title",
     description: "services-section.immersive-marketing.description",
@@ -70,6 +74,7 @@ export const services: Service[] = [
     hasRedirection: true,
   },
   {
+    id: 5,
     icon: FaGraduationCap,
     title: "services-section.training-and-support.title",
     description: "services-section.training-and-support.description",
@@ -85,6 +90,7 @@ export const services: Service[] = [
     hasRedirection: false,
   },
   {
+    id: 6,
     icon: FaDollarSign,
     title: "services-section.grants-management.title",
     description: "services-section.grants-management.description",
