@@ -172,7 +172,7 @@ export default function MarketingInmersivoResultsSection() {
                 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}
               `} style={{ transitionDelay: '1000ms' }}>
                 <Image
-                  src="/assets/img/servicios/immersive-marketing/alsios.png"
+                  src="/assets/img/servicios/immersive-marketing/alisios.png"
                   alt="Retail Experience Case Study"
                   width={300}
                   height={200}
