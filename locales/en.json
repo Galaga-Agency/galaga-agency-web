@@ -42,6 +42,20 @@
   },
   "homepage": {
     "hero-section": {
+      "hero-features": {
+        "crm-erp": "CRM & ERP",
+        "automations": "Automations",
+        "cloud-collab": "Collaborative cloud spaces",
+        "strategic-consulting": "Strategic consulting",
+        "digitalization-plan": "Digitalization plan",
+        "system-integration": "System integration",
+        "task-automation": "Task automation",
+        "artificial-intelligence": "Artificial intelligence",
+        "interactive-experiences": "Interactive experiences",
+        "gamification": "Gamification",
+        "immersive-technologies": "Immersive technologies",
+        "promotional-spaces": "Promotional spaces"
+      },
       "innovamos": "We innovate",
       "forYou": "for you",
       "contigo": "with you",
@@ -649,13 +663,13 @@
         "emotional-connection": {
           "title": "Greater Emotional Connection with the Customer",
           "description": "Interactive, sensory and digital experiences generate memory and emotional connection with the brand.",
-          "detail": "+42% brand attachment compared to traditional spaces."
+          "detail": "Increased brand attachment compared to traditional spaces."
         },
 
         "conversion-increase": {
           "title": "Increase in Point-of-Sale Conversion",
           "description": "Data-driven screens, personalized recommendations or interactive corners that increase purchase intention.",
-          "detail": "Up to +30% in featured product sales."
+          "detail": "Increase in featured product sales."
         },
 
         "engagement-time": {

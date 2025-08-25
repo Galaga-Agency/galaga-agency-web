@@ -17,7 +17,7 @@ export const initHeroTitleAnimation = () => {
       duration: 0.8,
       ease: "power2.out",
     },
-    0.2 // Start after CSS animation
+    0 // Start after CSS animation
   );
 
   // 2. ValuePropositionLine1 appears FIRST

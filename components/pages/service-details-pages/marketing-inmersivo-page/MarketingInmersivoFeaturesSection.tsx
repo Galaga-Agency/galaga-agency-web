@@ -16,7 +16,6 @@ import {
   FaCouch,
 } from "react-icons/fa";
 import FeatureCard from "../FeatureCard";
-import SecondaryButton from "@/components/ui/SecondaryButton";
 
 export default function MarketingInmersivoFeaturesSection() {
   const { t } = useTranslation();

@@ -1,25 +1,12 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://galagaagency.com";
-  const isProduction = process.env.NODE_ENV === "production";
+  const baseUrl = "https://galagaagency.com";
 
-  // Block everything in development/staging
-  if (!isProduction) {
-    return {
-      rules: {
-        userAgent: "*",
-        disallow: "/",
-      },
-      sitemap: `${baseUrl}/sitemap.xml`,
-    };
-  }
-
-  // Production rules
+  // ALWAYS ALLOW CRAWLERS 
   return {
     rules: [
-      // General rules for all search engines
+      // Allow everything for all search engines
       {
         userAgent: "*",
         allow: "/",
@@ -35,7 +22,7 @@ export default function robots(): MetadataRoute.Robots {
           "/*.pdf$", // Block direct PDF access
           "/temp/", // Block temporary files
         ],
-        crawlDelay: 1, // Be respectful to server
+        crawlDelay: 1,
       },
 
       // Give Google special treatment
@@ -43,7 +30,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "Googlebot",
         allow: "/",
         disallow: ["/api/", "/admin/", "/_next/", "/private/", "/dashboard/"],
-        // No crawl delay for Google
       },
 
       // Allow Bingbot
@@ -54,18 +40,19 @@ export default function robots(): MetadataRoute.Robots {
         crawlDelay: 2,
       },
 
-      // Block resource-draining bots
+      // Block resource-draining SEO bots
       {
         userAgent: ["AhrefsBot", "SemrushBot", "MJ12bot", "DotBot", "BLEXBot"],
         disallow: "/",
       },
 
-      // Block AI training bots (optional)
+      // Block AI training bots
       {
         userAgent: ["ChatGPT-User", "CCBot", "anthropic-ai", "Claude-Web"],
         disallow: "/",
       },
     ],
+
     sitemap: `${baseUrl}/sitemap.xml`,
     host: baseUrl,
   };

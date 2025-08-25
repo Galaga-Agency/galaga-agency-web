@@ -1,21 +1,30 @@
 "use client";
 
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { useTranslation } from "@/hooks/useTranslation";
 import AboutSection from "@/components/pages/homepage/AboutSection";
 import CTASection from "@/components/pages/homepage/CTASection";
-import HeroSection from "@/components/pages/homepage/HeroSection";
 import ServicesSection from "@/components/pages/homepage/ServicesSection";
 import CaseStudiesSection from "@/components/pages/homepage/CaseStudiesSection";
 import PartnersSection from "@/components/pages/homepage/PartnersSection";
+import WhyChooseUsSection from "@/components/pages/homepage/WhyChooseUsSection";
+import { HeroParallax } from "@/components/pages/homepage/HeroParallax";
 import { initHeroTitleAnimation } from "@/utils/animations/homepage-hero-animation";
 import { initHeroScrollAnimation } from "@/utils/animations/homepage-hero-scroll-animation";
 import { initCarouselAnimation } from "@/utils/animations/carousel-animation";
 import { initBoucingBubblesAnimation } from "@/utils/animations/bouncing-bubbles-animations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
-import WhyChooseUsSection from "@/components/pages/homepage/WhyChooseUsSection";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
+import { parallaxItems } from "@/data/hero-parallax-items";
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
+  const items: { title: string; image: string }[] = parallaxItems.map((item) => ({
+    title: t(item.title),
+    image: item.image,
+  }));
+
   useGSAPAnimations({
     animations: [
       initHeroScrollAnimation,
@@ -30,7 +39,7 @@ export default function HomePage() {
 
   return (
     <>
-      <HeroSection />
+      <HeroParallax parallaxItems={items} />
       <AboutSection />
       <ServicesSection />
       <div className="relative section">
