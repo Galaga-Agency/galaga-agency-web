@@ -117,7 +117,7 @@ export const HeroServiceCard = ({
               alt={parallaxItem.title}
               className="w-full h-full object-cover"
             />
-        
+
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-azul-profundo/80 via-transparent to-transparent" />
           </div>
@@ -128,6 +128,7 @@ export const HeroServiceCard = ({
             style={{
               transform: "translateZ(160px) rotateX(5deg)",
               transformStyle: "preserve-3d",
+
             }}
           >
             <div className="p-2">

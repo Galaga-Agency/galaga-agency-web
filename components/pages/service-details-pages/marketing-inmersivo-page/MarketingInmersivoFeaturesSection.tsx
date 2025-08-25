@@ -129,7 +129,7 @@ export default function MarketingInmersivoFeaturesSection() {
   return (
     <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
       <div className="container relative z-10 pb-0 md:pb-24">
-        <div className="text-center">
+        <div className="text-center pb-12">
           <h2 className="section-title text-blanco pb-8 mb-0 fade-in-up opacity-0">
             {t("service-details-pages.immersive-marketing.features.title")}
           </h2>
@@ -139,7 +139,7 @@ export default function MarketingInmersivoFeaturesSection() {
         </div>
 
         {/* Mobile Layout - Simple grid with stagger bounce */}
-        <div className="grid grid-cols-1 gap-6 pt-12 md:hidden">
+        <div className="grid grid-cols-1 gap-8 lg:gap-16 pt-12 md:hidden">
           {features.map((feature, index) => (
             <div key={index} className="stagger-bounce-in-up opacity-0">
               <FeatureCard
@@ -155,7 +155,7 @@ export default function MarketingInmersivoFeaturesSection() {
         </div>
 
         {/* Desktop Bento Grid - Beautiful asymmetric layout with varying animations */}
-        <div className="hidden md:grid grid-cols-12 gap-6 lg:gap-8">
+        <div className="hidden md:grid grid-cols-12 gap-8 lg:gap-12">
           {/* Row 1: 40% + 60% */}
           <div className="col-span-5 fade-in-left opacity-0">
             <FeatureCard
@@ -297,13 +297,19 @@ export default function MarketingInmersivoFeaturesSection() {
           <div className="col-span-5 fade-in-right opacity-0">
             <FeatureCard
               icon={FaHandPointer}
-              title={t("service-details-pages.immersive-marketing.features.cta.title")}
-              description={t("service-details-pages.immersive-marketing.features.cta.description")}
+              title={t(
+                "service-details-pages.immersive-marketing.features.cta.title"
+              )}
+              description={t(
+                "service-details-pages.immersive-marketing.features.cta.description"
+              )}
               image="/assets/img/servicios/immersive-marketing/cta-placeholder.png"
               theme="teal"
               size="medium"
               isCTA={true}
-              ctaButtonText={t("service-details-pages.immersive-marketing.features.cta.primary")}
+              ctaButtonText={t(
+                "service-details-pages.immersive-marketing.features.cta.primary"
+              )}
             />
           </div>
         </div>

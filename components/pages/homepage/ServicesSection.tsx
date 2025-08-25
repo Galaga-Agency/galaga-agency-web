@@ -78,7 +78,7 @@ export default function ServicesSection() {
           </div>
 
           {/* Desktop Bento Grid */}
-          <div className="hidden md:grid grid-cols-3 gap-8 lg:gap-10 auto-rows-[auto]">
+          <div className="hidden md:grid grid-cols-3 gap-8 lg:gap-16 auto-rows-[auto]">
             {/* Row 1: Small + Large */}
             <div className="fade-in-left">
               <BentoServiceCard

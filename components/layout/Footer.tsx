@@ -43,7 +43,7 @@ export default function Footer() {
                 <p className="text-gray-400 pb-6 text-sm md:text-base">
                   Let's discuss your next project
                 </p>
-                <PrimaryButton href="/contacto" className="w-full">
+                <PrimaryButton href={t("nav.contact").toLowerCase()} className="w-full">
                   {t("footer.getInTouch")}
                   <svg
                     className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
