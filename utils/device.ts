@@ -50,60 +50,86 @@ export const isTablet = (): boolean => {
     userAgent.includes(keyword)
   );
 
-  // Enhanced iPad detection (including iPad Pro)
-  const isIPad = 
-    /macintosh/.test(userAgent) && isTouch ||
-    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-    /ipad/.test(userAgent);
+  // Real iPad detection (not simulator)
+  const isIPad =
+    /ipad/.test(userAgent) ||
+    (navigator.platform === "MacIntel" &&
+      navigator.maxTouchPoints > 1 &&
+      !userAgent.includes("chrome"));
 
-  // Aggressive iPad Pro detection for simulators
-  const isIPadPro = (
-    navigator.platform === 'MacIntel' ||
-    /macintosh/.test(userAgent) ||
-    userAgent.includes('mac os x')
-  ) && (
-    width >= 1024 || // iPad Pro sizes
-    navigator.maxTouchPoints > 1 ||
-    // Simulator fallback - assume large "Mac" screens are iPad Pro
-    (width >= 1024 && width <= 1366)
-  );
+  // Only consider Mac as tablet if it's actually an iPad masquerading as Mac
+  // AND has touch AND is in typical tablet size range
+  const isPossibleIPadPro =
+    navigator.platform === "MacIntel" &&
+    navigator.maxTouchPoints > 1 &&
+    width >= 1024 &&
+    width <= 1366 &&
+    !userAgent.includes("chrome"); // Chrome on Mac will report touch but isn't iPad
 
-  // Size-based detection for touch devices
+  // Size-based detection for touch devices (but exclude large screens that are likely desktops)
   const isTabletSize = width >= 768 && width <= 1024 && isTouch;
 
-  // Large tablet detection (including iPad Pro) - even without proper touch detection
-  const isLargeTablet = width >= 1024 && width <= 1366;
+  // Force tablet detection for explicit tablet resolutions with touch
+  const commonTabletSizes = [768, 1024]; // Only common actual tablet sizes
+  const isCommonTabletSize =
+    isTouch && commonTabletSizes.some((size) => Math.abs(width - size) <= 50);
 
-  // Force tablet detection for common tablet resolutions
-  const commonTabletSizes = [
-    1024, 1080, 1112, 1194, 1366 // Common tablet widths
-  ];
-  const isCommonTabletSize = commonTabletSizes.some(size => 
-    Math.abs(width - size) <= 50 // Allow some tolerance
+  return (
+    hasTabletKeyword ||
+    isIPad ||
+    isPossibleIPadPro ||
+    isTabletSize ||
+    isCommonTabletSize
   );
-
-  return hasTabletKeyword || isIPad || isIPadPro || isTabletSize || isLargeTablet || isCommonTabletSize;
 };
 
 export const isDesktop = (): boolean => {
   if (typeof window === "undefined") return true;
 
-  // Only desktop if screen is massive (typical desktop monitor)
-  return window.innerWidth >= 1440;
+  const width = window.innerWidth;
+  const userAgent = navigator.userAgent.toLowerCase();
+
+  // Desktop if:
+  // 1. Large screen (1440+) OR
+  // 2. Screen >= 1025px AND not detected as mobile/tablet AND not touch device OR
+  // 3. Explicit desktop indicators (Mac/Windows without touch)
+  const hasDesktopUA =
+    userAgent.includes("macintosh") || userAgent.includes("windows nt");
+  const isLargeScreen = width >= 1440;
+  const isMediumScreenNonTouch =
+    width >= 1025 && !isTouchDevice() && !isMobile() && !isTablet();
+
+  return (
+    isLargeScreen ||
+    isMediumScreenNonTouch ||
+    (hasDesktopUA && width >= 1025 && !isTablet())
+  );
 };
 
 export const isTouchDevice = (): boolean => {
   if (typeof window === "undefined") return false;
-  
-  // Everything under 1440px is touch
-  return window.innerWidth < 1440;
+
+  const width = window.innerWidth;
+  const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+  const userAgent = navigator.userAgent.toLowerCase();
+
+  // Don't consider Mac desktops as touch devices unless they're actually iPads
+  if (
+    userAgent.includes("macintosh") &&
+    width >= 1440 &&
+    !userAgent.includes("ipad")
+  ) {
+    return false;
+  }
+
+  // Touch if has touch capability AND is in mobile/tablet size range
+  return hasTouch && width < 1440;
 };
 
-// NEW: Create external store for instant updates
+// External store for instant updates
 let listeners = new Set<() => void>();
 let cachedSnapshot: any = null;
 
-// Cache the server snapshot to avoid infinite loops
 const SERVER_SNAPSHOT = {
   isMobile: true,
   isTablet: false,
@@ -147,7 +173,6 @@ const deviceStore = {
   },
 
   getServerSnapshot() {
-    // Return cached stable reference
     return SERVER_SNAPSHOT;
   },
 
@@ -156,7 +181,6 @@ const deviceStore = {
 
     listeners.add(listener);
 
-    // Add resize listener only once
     if (listeners.size === 1) {
       let timeoutId: NodeJS.Timeout;
       const debouncedUpdate = () => {
@@ -168,7 +192,6 @@ const deviceStore = {
 
       window.addEventListener("resize", debouncedUpdate);
 
-      // Store cleanup function
       (deviceStore as any)._cleanup = () => {
         window.removeEventListener("resize", debouncedUpdate);
         clearTimeout(timeoutId);
