@@ -50,7 +50,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="hero-parallax relative z-10 h-[200vh] overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d]"
+      className="hero-parallax relative z-10 h-[190vh] md:h-[180vh] lg:h-[170vh] xl:h-[200vh] 2xl:h-[210vh] overflow-hidden antialiased flex flex-col [perspective:1000px] [transform-style:preserve-3d]"
       style={{
         background:
           "linear-gradient(135deg, var(--color-azul-profundo) 0%, var(--color-teal) 50%, var(--color-negro) 100%)",
@@ -63,7 +63,7 @@ export const HeroParallax = ({
         className="flex flex-col gap-20 justify-center items-center min-h-screen"
       >
         {/* ROW OF CARDS (centered vertically on screen) */}
-        <div className="cards-container flex flex-row items-center justify-center gap-4 lg:gap-16 px-4">
+        <div className="cards-container flex flex-row items-center justify-center gap-24 lg:gap-16 px-4">
           <motion.div
             style={{ opacity: sidesOpacity, x: translateXReverse }}
             className="flex flex-row gap-4 lg:gap-16"

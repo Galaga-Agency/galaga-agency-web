@@ -11,7 +11,7 @@ export default function ValueBubbles() {
     <div className="value-bubbles-layer container relative z-[60] pointer-events-none overflow-visible">
       <div className="relative min-h-[520px] md:min-h-[500px]">
         {/* Top-left */}
-        <div className="absolute top-0 left-[10%] md:left-[6%] lg:left-10 xl:left-[15%]">
+        <div className="absolute -top-14 md:-top-4 left-[10%] md:left-[6%] lg:left-10 xl:left-[15%]">
           <div className="value-bubble opacity-0 will-change-transform">
             <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-gradient-to-br from-white via-neutral-50 to-azul-profundo/30 shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
@@ -28,7 +28,7 @@ export default function ValueBubbles() {
         </div>
 
         {/* Top-right */}
-        <div className="absolute top-[32%] md:top-[8%] right-[2%] md:right-[6%] lg:right-10 xl:right-[15%]">
+        <div className="absolute top-[28%] md:top-[4%] right-[2%] md:right-[5%] lg:right-10 xl:right-[15%]">
           <div className="value-bubble opacity-0 will-change-transform">
             <div className="w-60 h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-gradient-to-br from-azul-profundo via-teal to-negro shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">

@@ -33,7 +33,7 @@ export default function HomepageAboutSection() {
           />
         </div>
 
-        <div className="pt-[530px] md:pt-72 lg:pt-72 relative z-10">
+        <div className="pt-[300px] md:pt-24 lg:pt-72 relative z-10">
           <div className="container">
             <div className="text-center pb-16 md:pb-20">
               <h2 className="fade-in-up opacity-0 section-title text-teal leading-tight tracking-tight pb-6">
@@ -50,7 +50,7 @@ export default function HomepageAboutSection() {
                 <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
-                      <div className="block-icon-1 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-orange-gradient rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="flex-shrink-0 block-icon-1 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-orange-gradient rounded-full flex items-center justify-center shadow-2xl">
                         <Image
                           src="/assets/img/symbols/single-chevron-white.webp"
                           alt=""

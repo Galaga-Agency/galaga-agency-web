@@ -1,11 +1,14 @@
 // utils/animations/video-player-animations.ts
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { deviceStore } from "@/utils/device";
+
 gsap.registerPlugin(ScrollTrigger);
 
 /**
  * No bump. No pin. No sticky.
- * Grow .hero-video-card from in-row size to 80vw x 80vh during hero scroll.
+ * Grow .hero-video-card from in-row size to responsive size during hero scroll.
+ * Mobile: 80vw x 40vh, Desktop: 80vw x 80vh
  * Pure width/height interpolation (crisp). Does not affect page scroll.
  */
 export const initVideoPlayerAnimation = () => {
@@ -41,7 +44,13 @@ export const initVideoPlayerAnimation = () => {
       startW = cr.width;
       startH = cr.height;
       targetW = Math.round(window.innerWidth * 0.8);
-      targetH = Math.round(window.innerHeight * 0.8);
+
+      // Get current device info
+      const deviceInfo = deviceStore.getSnapshot();
+      const heightMultiplier =
+        deviceInfo.isMobile || deviceInfo.isTablet ? 0.4 : 0.8;
+      targetH = Math.round(window.innerHeight * heightMultiplier);
+
       try {
         videoEl.muted = true;
         videoEl.play().catch(() => {});
