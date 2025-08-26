@@ -1,4 +1,3 @@
-// components/pages/homepage/HeroParallax.tsx
 "use client";
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
@@ -9,7 +8,7 @@ import { HeroVideoCard } from "./HeroVideoCard ";
 export const HeroParallax = ({
   parallaxItems,
 }: {
-  parallaxItems: { title: string; image: string }[];
+  parallaxItems: { title: string; image: string; video?: string }[];
 }) => {
   const imageRow = parallaxItems.slice(0, 8);
 
@@ -43,7 +42,7 @@ export const HeroParallax = ({
     spring
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-1100, 100]),
+    useTransform(scrollYProgress, [0, 0.2], [-700, 0]),
     spring
   );
   const sidesOpacity = useTransform(scrollYProgress, [0.2, 0.55], [1, 0]);
@@ -61,10 +60,10 @@ export const HeroParallax = ({
 
       <motion.div
         style={{ rotateX, rotateZ, translateY, opacity }}
-        className="flex flex-col gap-20 justify-center"
+        className="flex flex-col gap-20 justify-center items-center min-h-screen"
       >
-        {/* ROW OF CARDS (video stays centered in-row) */}
-        <div className="cards-container flex flex-row items-center justify-center gap-4 lg:gap-16 mb-20 px-4 min-h-[60vh]">
+        {/* ROW OF CARDS (centered vertically on screen) */}
+        <div className="cards-container flex flex-row items-center justify-center gap-4 lg:gap-16 px-4">
           <motion.div
             style={{ opacity: sidesOpacity, x: translateXReverse }}
             className="flex flex-row gap-4 lg:gap-16"
@@ -72,9 +71,10 @@ export const HeroParallax = ({
             {imageRow.slice(0, 4).map((item, i) => (
               <HeroImageCard
                 key={i}
-                image={item.image}
+                item={item}
                 translate={translateXReverse}
                 scrollProgress={scrollYProgress}
+                cardIndex={i}
               />
             ))}
           </motion.div>
@@ -91,9 +91,10 @@ export const HeroParallax = ({
             {imageRow.slice(4, 8).map((item, i) => (
               <HeroImageCard
                 key={i + 4}
-                image={item.image}
+                item={item}
                 translate={translateX}
                 scrollProgress={scrollYProgress}
+                cardIndex={i + 4}
               />
             ))}
           </motion.div>

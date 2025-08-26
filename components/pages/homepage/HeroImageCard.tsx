@@ -3,16 +3,42 @@ import React from "react";
 import { motion, MotionValue, useTransform } from "motion/react";
 
 export const HeroImageCard = ({
-  image,
+  item,
   translate,
   scrollProgress,
+  cardIndex = 0,
 }: {
-  image: string;
+  item: { title: string; image: string; video?: string };
   translate: MotionValue<number>;
   scrollProgress: MotionValue<number>;
+  cardIndex?: number;
 }) => {
   // Cards fade out as video expands
   const cardOpacity = useTransform(scrollProgress, [0.8, 0.95], [1, 0]);
+
+  // Different time offsets for each card (in seconds)
+  const timeOffsets = [6, 10, 14, 18, 22, 26, 30, 34]; // Starting at 6s with 4s intervals
+  const currentTimeOffset = timeOffsets[cardIndex % timeOffsets.length];
+
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      const handleTimeUpdate = () => {
+        // Only set the time once when video starts playing
+        if (video.currentTime < currentTimeOffset) {
+          video.currentTime = currentTimeOffset;
+        }
+      };
+
+      video.addEventListener("timeupdate", handleTimeUpdate, { once: true });
+
+      return () => {
+        video.removeEventListener("timeupdate", handleTimeUpdate);
+      };
+    }
+  }, [currentTimeOffset]);
 
   return (
     <motion.div
@@ -52,7 +78,7 @@ export const HeroImageCard = ({
             style={{ transform: "translateZ(-20px)" }}
           />
 
-          {/* Image */}
+          {/* Video or Image */}
           <div
             className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
             style={{
@@ -60,7 +86,31 @@ export const HeroImageCard = ({
               transformStyle: "preserve-3d",
             }}
           >
-            <img src={image} alt="" className="w-full h-full object-cover" />
+            {item.video ? (
+              <video
+                ref={videoRef}
+                src={item.video}
+                className="video-element absolute inset-0 w-full h-full"
+                muted
+                loop
+                playsInline
+                autoPlay
+                preload="metadata"
+                style={{
+                  objectFit: "cover",
+                  imageRendering: "auto",
+                  backfaceVisibility: "hidden",
+                  transform: "translate3d(0, 0, 0)",
+                  filter: "contrast(1.05) brightness(1.02)",
+                }}
+              />
+            ) : (
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-full h-full object-cover"
+              />
+            )}
           </div>
         </div>
       </div>

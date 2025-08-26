@@ -14,12 +14,18 @@ const clearPinSpacers = () => {
 };
 
 export const initHeroScrollAnimation = () => {
-  // Kill any pins / old IDs that might lock scroll (do NOT kill your video grow)
+  // Kill any pins / old IDs that might lock scroll
   ScrollTrigger.getAll().forEach((st) => {
     const id = (st as any).vars?.id;
     if (
       st.vars?.pin ||
-      ["hero-pin", "hero-overlay-pin", "about-pin", "hero-bump"].includes(id)
+      [
+        "hero-pin",
+        "hero-overlay-pin",
+        "about-pin",
+        "hero-bump",
+        "value-bubbles-reveal",
+      ].includes(id)
     ) {
       st.kill(true);
     }
@@ -27,55 +33,44 @@ export const initHeroScrollAnimation = () => {
   clearPinSpacers();
 
   // =========================
-  // BUBBLES — correct trigger
+  // BUBBLES — SCROLL TRIGGER WITH REVERSE (NO POSITION CONFLICTS)
   // =========================
-  // We trigger on the bubbles layer itself so it always fires,
-  // even if the layer is pulled upward to overlap the hero.
-  const bubbles = gsap.utils.toArray<HTMLElement>(
-    ".value-bubbles-layer .value-bubble"
-  );
-  if (bubbles.length) {
-    // make sure we start hidden (also set in JSX as a fallback)
-    gsap.set(bubbles, { opacity: 0, y: 24, scale: 0.96 });
+  const bubbles = document.querySelectorAll(".value-bubble");
+
+  if (bubbles.length > 0) {
+    // ONLY animate opacity and scale - NEVER touch positioning
+    gsap.set(bubbles, { opacity: 0, scale: 0.8 });
 
     gsap.to(bubbles, {
       opacity: 1,
-      y: 0,
       scale: 1,
-      duration: 0.6,
-      ease: "back.out(1.6)",
-      stagger: 0.15,
+      duration: 1,
+      ease: "back.out(1.7)",
+      stagger: 0.2,
       scrollTrigger: {
         id: "value-bubbles-reveal",
         trigger: ".value-bubbles-layer",
-        start: "top 85%", // when the bubbles layer enters viewport
+        start: "top 85%",
         end: "top 60%",
         toggleActions: "play none none reverse",
-        // markers: true, // uncomment to debug
       },
     });
 
-    // subtle idle float (inner only, anchors never move)
+    // Subtle float WITHOUT affecting main positioning
     bubbles.forEach((el, i) => {
       gsap.to(el, {
         y: "+=6",
-        duration: 2 + i * 0.2,
+        duration: 3 + i * 0.5,
         ease: "sine.inOut",
         repeat: -1,
         yoyo: true,
-      });
-      gsap.to(el, {
-        x: "+=4",
-        duration: 3 + i * 0.25,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
+        delay: 1.5 + i * 0.3,
       });
     });
   }
 
   // =========================
-  // Services fade (non-blocking)
+  // Services fade
   // =========================
   const services = document.querySelector(".services-section");
   if (services) {
@@ -98,10 +93,7 @@ export const initHeroScrollAnimation = () => {
     );
   }
 
-  // IMPORTANT: refresh after images/fonts change layout
-  const debouncedRefresh = () => ScrollTrigger.refresh();
-  window.addEventListener("load", debouncedRefresh, { once: true });
-  setTimeout(debouncedRefresh, 0);
+  setTimeout(() => ScrollTrigger.refresh(), 100);
 };
 
 export const cleanupHeroScrollAnimation = () => {

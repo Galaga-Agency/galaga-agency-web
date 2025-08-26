@@ -12,12 +12,12 @@ export default function HomepageAboutSection() {
   return (
     <div className="relative overflow-visible">
       {/* Overlap hero */}
-      <div className="absolute -top-[320px] md:-top-[360px] lg:-top-[400px] left-0 right-0 z-[60] pointer-events-none overflow-visible">
+      <div className="absolute -top-[320px] md:-top-[360px] lg:-top-[160px] left-0 right-0 z-[60] pointer-events-none overflow-visible">
         <ValueBubbles />
       </div>
 
       <section
-        className="homepage-about-section relative z-20 overflow-x-hidden overflow-y-visible"
+        className="homepage-about-section section relative z-20 overflow-x-hidden overflow-y-visible"
         style={{
           background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
         }}
@@ -33,7 +33,7 @@ export default function HomepageAboutSection() {
           />
         </div>
 
-        <div className="pt-[530px] md:pt-72 lg:pt-92 relative z-10">
+        <div className="pt-[530px] md:pt-72 lg:pt-72 relative z-10">
           <div className="container">
             <div className="text-center pb-16 md:pb-20">
               <h2 className="fade-in-up opacity-0 section-title text-teal leading-tight tracking-tight pb-6">

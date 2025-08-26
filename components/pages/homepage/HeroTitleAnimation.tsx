@@ -53,8 +53,8 @@ export const HeroTitleAnimation = () => {
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center z-20">
-      {/* Simple Logo Animation */}
-      <div className="hero-logo-js fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] opacity-0">
+      {/* Simple Logo Animation - Changed to absolute positioning within the centered container */}
+      <div className="hero-logo-js absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] opacity-0">
         <img
           src="/assets/img/logos/logo-full-white.webp"
           alt="Galaga Agency"

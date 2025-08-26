@@ -1,5 +1,4 @@
 "use client";
-
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { useTranslation } from "@/hooks/useTranslation";
 import AboutSection from "@/components/pages/homepage/AboutSection";
@@ -21,12 +20,12 @@ import { parallaxItems } from "@/data/hero-parallax-items";
 export default function HomePage() {
   const { t } = useTranslation();
 
-  const items: { title: string; image: string }[] = parallaxItems.map(
-    (item) => ({
+  const items: { title: string; image: string; video?: string }[] =
+    parallaxItems.map((item) => ({
       title: t(item.title),
       image: item.image,
-    })
-  );
+      video: item.video, // This was missing!
+    }));
 
   useGSAPAnimations({
     animations: [
