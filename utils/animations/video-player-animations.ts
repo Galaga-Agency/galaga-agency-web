@@ -5,8 +5,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * No bump. No pin. No sticky.
- * Grows the video card from its natural in-row size to 80vw × 80vh
- * across the hero's scroll range. Pure width/height interpolation (crisp).
+ * Grow .hero-video-card from in-row size to 80vw x 80vh during hero scroll.
+ * Pure width/height interpolation (crisp). Does not affect page scroll.
  */
 export const initVideoPlayerAnimation = () => {
   const boot = () => {
@@ -24,11 +24,9 @@ export const initVideoPlayerAnimation = () => {
       return;
     }
 
-    // Kill old trigger & clear any old padding
     ScrollTrigger.getById("hero-video-grow")?.kill();
     (hero as HTMLElement).style.paddingBottom = "";
 
-    // Visual state
     gsap.set(logoEl, { opacity: 0 });
     gsap.set(videoEl, { opacity: 1 });
 
@@ -42,21 +40,20 @@ export const initVideoPlayerAnimation = () => {
       const cr = card.getBoundingClientRect();
       startW = cr.width;
       startH = cr.height;
-      targetW = Math.round(window.innerWidth * 0.8); // 80vw
-      targetH = Math.round(window.innerHeight * 0.8); // 80vh
-
+      targetW = Math.round(window.innerWidth * 0.8);
+      targetH = Math.round(window.innerHeight * 0.8);
       try {
         videoEl.muted = true;
         videoEl.play().catch(() => {});
       } catch {}
     };
 
-    ScrollTrigger.create({
+    const st = ScrollTrigger.create({
       id: "hero-video-grow",
       trigger: hero,
       start: "top top",
       end: "bottom bottom",
-      scrub: 0, // 1:1 sync
+      scrub: 0, // exact sync to scroll
       invalidateOnRefresh: true,
       onRefresh: measure,
       onUpdate: (self) => {
@@ -73,11 +70,7 @@ export const initVideoPlayerAnimation = () => {
       },
     });
 
-    window.addEventListener(
-      "resize",
-      () => ScrollTrigger.getById("hero-video-grow")?.refresh(),
-      { passive: true }
-    );
+    window.addEventListener("resize", () => st.refresh(), { passive: true });
   };
 
   setTimeout(boot, 80);

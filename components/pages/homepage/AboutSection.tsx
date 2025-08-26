@@ -1,3 +1,4 @@
+// components/pages/homepage/AboutSection.tsx  (bubbles pulled up to overlap hero)
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
@@ -10,52 +11,42 @@ export default function HomepageAboutSection() {
 
   return (
     <div className="relative overflow-visible">
+      {/* Overlap hero */}
       <div className="absolute -top-[320px] md:-top-[360px] lg:-top-[400px] left-0 right-0 z-[60] pointer-events-none overflow-visible">
         <ValueBubbles />
       </div>
 
-      {/* Main section */}
       <section
-        className="homepage-about-section section relative z-20 overflow-x-hidden overflow-y-visible"
+        className="homepage-about-section relative z-20 overflow-x-hidden overflow-y-visible"
         style={{
           background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
         }}
       >
-        {/* Diagonal background layers */}
         <div className="absolute inset-0">
           <div
             className="absolute inset-0 bg-gradient-to-br from-hielo/50 via-turquesa/20 to-blanco"
-            style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 45%)",
-            }}
-          ></div>
-
+            style={{ clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 45%)" }}
+          />
           <div
             className="absolute inset-0 bg-gradient-to-br from-blanco via-hielo/30 to-blanco"
-            style={{
-              clipPath: "polygon(0 45%, 100% 65%, 100% 100%, 0 100%)",
-            }}
-          ></div>
+            style={{ clipPath: "polygon(0 45%, 100% 65%, 100% 100%, 0 100%)" }}
+          />
         </div>
 
-        <div className="pt-[530px] md:pt-72 lg:pt-72 relative z-10">
+        <div className="pt-[530px] md:pt-72 lg:pt-92 relative z-10">
           <div className="container">
-            {/* Section Header */}
             <div className="text-center pb-16 md:pb-20">
               <h2 className="fade-in-up opacity-0 section-title text-teal leading-tight tracking-tight pb-6">
                 {t("homepage.about-section.mainTitle")}
               </h2>
-
               <p className="fade-in-up opacity-0 text-lg md:text-xl text-negro leading-relaxed px-4">
                 {t("homepage.about-section.subtitle")}
               </p>
             </div>
 
-            {/* Story Timeline */}
             <div className="relative">
-              {/* Timeline Content */}
               <div className="relative z-10 flex flex-col gap-12 md:gap-16 lg:gap-12">
-                {/* First Block - Services that Transform */}
+                {/* Block 1 */}
                 <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
@@ -88,44 +79,23 @@ export default function HomepageAboutSection() {
                         {t("homepage.about-section.services-block.cardTitle")}
                       </h4>
                       <div className="flex flex-col gap-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.services-block.steps.analysis"
-                            )}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.services-block.steps.strategy"
-                            )}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.services-block.steps.implementation"
-                            )}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.services-block.steps.support"
-                            )}
-                          </span>
-                        </div>
+                        {[
+                          "homepage.about-section.services-block.steps.analysis",
+                          "homepage.about-section.services-block.steps.strategy",
+                          "homepage.about-section.services-block.steps.implementation",
+                          "homepage.about-section.services-block.steps.support",
+                        ].map((k) => (
+                          <div className="flex items-center gap-3" key={k}>
+                            <div className="w-2 h-2 bg-white rounded-full flex-shrink-0" />
+                            <span className="text-base">{t(k)}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Second Block - Digital Transformation */}
+                {/* Block 2 */}
                 <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0 lg:order-2">
                     <div className="flex items-center gap-6 pb-8">
@@ -155,44 +125,23 @@ export default function HomepageAboutSection() {
                         )}
                       </h4>
                       <div className="flex flex-col gap-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.digitalization-block.steps.systems"
-                            )}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.digitalization-block.steps.cloud"
-                            )}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.digitalization-block.steps.training"
-                            )}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-white rounded-full flex-shrink-0"></div>
-                          <span className="text-base">
-                            {t(
-                              "homepage.about-section.digitalization-block.steps.grants"
-                            )}
-                          </span>
-                        </div>
+                        {[
+                          "homepage.about-section.digitalization-block.steps.systems",
+                          "homepage.about-section.digitalization-block.steps.cloud",
+                          "homepage.about-section.digitalization-block.steps.training",
+                          "homepage.about-section.digitalization-block.steps.grants",
+                        ].map((k) => (
+                          <div className="flex items-center gap-3" key={k}>
+                            <div className="w-2 h-2 bg-white rounded-full flex-shrink-0" />
+                            <span className="text-base">{t(k)}</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Third Block - Our Clients */}
+                {/* Block 3 */}
                 <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                   <div className="px-4 lg:px-0">
                     <div className="flex items-center gap-6 pb-8">
@@ -214,45 +163,42 @@ export default function HomepageAboutSection() {
 
                   <div className="block-image-3 opacity-0 relative lg:order-2 px-4 lg:px-0">
                     <div className="grid grid-cols-1 gap-4">
-                      <div className="bg-gradient-to-r from-blanco/20 to-blanco/80 p-6 rounded-xl border-l-4 border-blanco">
-                        <h5 className="font-bold text-azul-profundo text-lg pb-2">
-                          {t(
-                            "homepage.about-section.clients-block.retail.title"
-                          )}
-                        </h5>
-                        <p className="text-sm text-negro">
-                          {t(
-                            "homepage.about-section.clients-block.retail.need"
-                          )}
-                        </p>
-                      </div>
-                      <div className="bg-gradient-to-r from-mandarina/0 to-mandarina/10 p-6 rounded-xl border-l-4 border-mandarina">
-                        <h5 className="font-bold text-azul-profundo text-lg pb-2">
-                          {t(
-                            "homepage.about-section.clients-block.growing.title"
-                          )}
-                        </h5>
-                        <p className="text-sm text-negro">
-                          {t(
-                            "homepage.about-section.clients-block.growing.need"
-                          )}
-                        </p>
-                      </div>
-                      <div className="bg-gradient-to-r from-violeta/20 to-azul-profundo/20 p-6 rounded-xl border-l-4 border-violeta">
-                        <h5 className="font-bold text-azul-profundo text-lg pb-2">
-                          {t(
-                            "homepage.about-section.clients-block.innovative.title"
-                          )}
-                        </h5>
-                        <p className="text-sm text-negro">
-                          {t(
-                            "homepage.about-section.clients-block.innovative.need"
-                          )}
-                        </p>
-                      </div>
+                      {(
+                        [
+                          [
+                            "homepage.about-section.clients-block.retail.title",
+                            "homepage.about-section.clients-block.retail.need",
+                            "from-blanco/20 to-blanco/80",
+                            "border-blanco",
+                          ],
+                          [
+                            "homepage.about-section.clients-block.growing.title",
+                            "homepage.about-section.clients-block.growing.need",
+                            "from-mandarina/0 to-mandarina/10",
+                            "border-mandarina",
+                          ],
+                          [
+                            "homepage.about-section.clients-block.innovative.title",
+                            "homepage.about-section.clients-block.innovative.need",
+                            "from-violeta/20 to-azul-profundo/20",
+                            "border-violeta",
+                          ],
+                        ] as const
+                      ).map(([titleKey, needKey, grad, border], i) => (
+                        <div
+                          key={i}
+                          className={`bg-gradient-to-r ${grad} p-6 rounded-xl border-l-4 ${border}`}
+                        >
+                          <h5 className="font-bold text-azul-profundo text-lg pb-2">
+                            {t(titleKey)}
+                          </h5>
+                          <p className="text-sm text-negro">{t(needKey)}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
+                {/* end blocks */}
               </div>
             </div>
           </div>

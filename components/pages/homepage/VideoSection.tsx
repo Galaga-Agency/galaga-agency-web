@@ -88,7 +88,7 @@ export default function VideoSection() {
               preload="metadata"
             >
               <source
-                src="/assets/videos/galaga-presentation.mp4"
+                src="/assets/videos/galaga-intro.mp4"
                 type="video/mp4"
               />
               {t("homepage.video-section.videoNotSupported")}

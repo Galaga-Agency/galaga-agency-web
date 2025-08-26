@@ -1,4 +1,3 @@
-// components/pages/homepage/ValueBubbles.tsx
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
@@ -6,20 +5,21 @@ import { FaRobot, FaHandshake } from "react-icons/fa";
 import { FaShuffle } from "react-icons/fa6";
 
 /**
- * FIX: anchors are absolute and NEVER animated.
- * Only the INNER ".value-bubble" gets transform animations,
- * so positions don’t drift or get lost.
+ * Anchors are absolute and never animated.
+ * Only the inner ".value-bubble" gets transforms, so positions stay locked.
  */
 export default function ValueBubbles() {
   const { t } = useTranslation();
 
   return (
-    <div className="value-bubbles-layer container relative z-[60] pointer-events-none overflow-visible">
+    <div
+      className="value-bubbles-layer container relative z-[60] pointer-events-none overflow-visible"
+      // NOTE: this layer is the ScrollTrigger target
+    >
       <div className="relative min-h-[520px] md:min-h-[500px]">
         {/* Top-left — anchor (never animated) */}
         <div className="value-bubble-anchor bubble-1 absolute top-0 left-[10%] md:left-[6%] lg:left-10 xl:left-[15%]">
-          {/* Animated inner */}
-          <div className="value-bubble will-change-transform">
+          <div className="value-bubble will-change-transform opacity-0 translate-y-6 scale-[0.96]">
             <div className="w-64 h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_30%_30%] from-white via-neutral-50 to-azul-profundo/30 shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <FaShuffle className="text-4xl lg:text-6xl text-[#176161] drop-shadow-lg pb-4" />
@@ -36,8 +36,7 @@ export default function ValueBubbles() {
 
         {/* Top-right — anchor (never animated) */}
         <div className="value-bubble-anchor bubble-2 absolute top-[32%] md:top-[8%] right-[2%] md:right-[6%] lg:right-10 xl:right-[15%]">
-          {/* Animated inner */}
-          <div className="value-bubble will-change-transform">
+          <div className="value-bubble will-change-transform opacity-0 translate-y-6 scale-[0.96]">
             <div className="w-60 h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-full bg-radial-[at_35%_20%] from-azul-profundo via-teal to-negro shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <FaHandshake className="text-4xl lg:text-6xl text-[#c3e5ef] drop-shadow-lg pb-4" />
@@ -54,8 +53,7 @@ export default function ValueBubbles() {
 
         {/* Bottom-center — anchor (never animated) */}
         <div className="value-bubble-anchor bubble-3 absolute -bottom-24 md:bottom-12 lg:bottom-6 left-1/2 -translate-x-1/2">
-          {/* Animated inner */}
-          <div className="value-bubble will-change-transform">
+          <div className="value-bubble will-change-transform opacity-0 translate-y-6 scale-[0.96]">
             <div className="w-72 h-72 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full bg-radial-[at_25%_25%] from-turquesa via-teal to-azul-profundo shadow-2xl flex items-center justify-center p-8 backdrop-blur-sm">
               <div className="text-center flex flex-col items-center">
                 <FaRobot className="text-5xl lg:text-7xl text-white drop-shadow-lg pb-4" />
