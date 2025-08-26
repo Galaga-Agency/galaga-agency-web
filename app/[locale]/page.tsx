@@ -15,20 +15,24 @@ import { initCarouselAnimation } from "@/utils/animations/carousel-animation";
 import { initBoucingBubblesAnimation } from "@/utils/animations/bouncing-bubbles-animations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
+import { initVideoPlayerAnimation } from "@/utils/animations/video-player-animations";
 import { parallaxItems } from "@/data/hero-parallax-items";
 
 export default function HomePage() {
   const { t } = useTranslation();
 
-  const items: { title: string; image: string }[] = parallaxItems.map((item) => ({
-    title: t(item.title),
-    image: item.image,
-  }));
+  const items: { title: string; image: string }[] = parallaxItems.map(
+    (item) => ({
+      title: t(item.title),
+      image: item.image,
+    })
+  );
 
   useGSAPAnimations({
     animations: [
       initHeroScrollAnimation,
       initHeroTitleAnimation,
+      initVideoPlayerAnimation,
       initEntranceAnimations,
       initAlternateBlocksAnimations,
       initBoucingBubblesAnimation,

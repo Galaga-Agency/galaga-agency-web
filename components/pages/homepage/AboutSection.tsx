@@ -9,15 +9,14 @@ export default function HomepageAboutSection() {
   const { t } = useTranslation();
 
   return (
-    <div className="relative">
-      {/* Overflowing cards at the top */}
-      <div className="absolute top-16 md:top-4 lg:top-10 left-0 right-0 -translate-y-1/3 z-30 w-full pointer-events-none">
+    <div className="relative overflow-visible">
+      <div className="absolute -top-[320px] md:-top-[360px] lg:-top-[400px] left-0 right-0 z-[60] pointer-events-none overflow-visible">
         <ValueBubbles />
       </div>
 
       {/* Main section */}
       <section
-        className="homepage-about-section bubble-section section relative overflow-x-hidden overflow-y-visible"
+        className="homepage-about-section section relative z-20 overflow-x-hidden overflow-y-visible"
         style={{
           background: "linear-gradient(135deg, #ffffff 0%, #c3e5ef 100%)",
         }}
@@ -39,7 +38,7 @@ export default function HomepageAboutSection() {
           ></div>
         </div>
 
-        <div className="pt-[530px] md:pt-72 lg:pt-76 relative z-10">
+        <div className="pt-[530px] md:pt-72 lg:pt-72 relative z-10">
           <div className="container">
             {/* Section Header */}
             <div className="text-center pb-16 md:pb-20">
