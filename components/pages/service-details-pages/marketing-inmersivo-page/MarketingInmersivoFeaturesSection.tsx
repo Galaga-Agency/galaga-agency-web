@@ -16,9 +16,12 @@ import {
   FaCouch,
 } from "react-icons/fa";
 import FeatureCard from "../FeatureCard";
+import { useRef, useEffect, useState } from "react";
 
 export default function MarketingInmersivoFeaturesSection() {
   const { t } = useTranslation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   const features = [
     {
@@ -27,8 +30,7 @@ export default function MarketingInmersivoFeaturesSection() {
         "service-details-pages.immersive-marketing.features.ar-displays.title",
       description:
         "service-details-pages.immersive-marketing.features.ar-displays.description",
-      image:
-        "/assets/img/servicios/immersive-marketing/ar-displays.png",
+      image: "/assets/img/servicios/immersive-marketing/ar-displays.png",
       theme: "teal" as const,
     },
     {
@@ -61,7 +63,8 @@ export default function MarketingInmersivoFeaturesSection() {
     },
     {
       icon: FaGamepad,
-      title: "service-details-pages.immersive-marketing.features.gamification.title",
+      title:
+        "service-details-pages.immersive-marketing.features.gamification.title",
       description:
         "service-details-pages.immersive-marketing.features.gamification.description",
       image: "/assets/img/servicios/immersive-marketing/gamification.png",
@@ -69,7 +72,8 @@ export default function MarketingInmersivoFeaturesSection() {
     },
     {
       icon: FaVrCardboard,
-      title: "service-details-pages.immersive-marketing.features.virtual-reality.title",
+      title:
+        "service-details-pages.immersive-marketing.features.virtual-reality.title",
       description:
         "service-details-pages.immersive-marketing.features.virtual-reality.description",
       image: "/assets/img/servicios/immersive-marketing/virtual-reality.png",
@@ -77,16 +81,17 @@ export default function MarketingInmersivoFeaturesSection() {
     },
     {
       icon: FaServer,
-      title: "service-details-pages.immersive-marketing.features.content-management.title",
+      title:
+        "service-details-pages.immersive-marketing.features.content-management.title",
       description:
         "service-details-pages.immersive-marketing.features.content-management.description",
-      image:
-        "/assets/img/servicios/immersive-marketing/content-management.png",
+      image: "/assets/img/servicios/immersive-marketing/content-management.png",
       theme: "mandarina" as const,
     },
     {
       icon: FaPlay,
-      title: "service-details-pages.immersive-marketing.features.ar-experiences.title",
+      title:
+        "service-details-pages.immersive-marketing.features.ar-experiences.title",
       description:
         "service-details-pages.immersive-marketing.features.ar-experiences.description",
       image: "/assets/img/servicios/immersive-marketing/ar-experience.png",
@@ -94,7 +99,8 @@ export default function MarketingInmersivoFeaturesSection() {
     },
     {
       icon: FaChartLine,
-      title: "service-details-pages.immersive-marketing.features.behavior-analytics.title",
+      title:
+        "service-details-pages.immersive-marketing.features.behavior-analytics.title",
       description:
         "service-details-pages.immersive-marketing.features.behavior-analytics.description",
       image: "/assets/img/servicios/immersive-marketing/behavior-analytics.png",
@@ -102,7 +108,8 @@ export default function MarketingInmersivoFeaturesSection() {
     },
     {
       icon: FaHandPointer,
-      title: "service-details-pages.immersive-marketing.features.interactive-totems.title",
+      title:
+        "service-details-pages.immersive-marketing.features.interactive-totems.title",
       description:
         "service-details-pages.immersive-marketing.features.interactive-totems.description",
       image: "/assets/img/servicios/immersive-marketing/interactive-totems.png",
@@ -110,15 +117,18 @@ export default function MarketingInmersivoFeaturesSection() {
     },
     {
       icon: FaLightbulb,
-      title: "service-details-pages.immersive-marketing.features.sensorial-integration.title",
+      title:
+        "service-details-pages.immersive-marketing.features.sensorial-integration.title",
       description:
         "service-details-pages.immersive-marketing.features.sensorial-integration.description",
-      image: "/assets/img/servicios/immersive-marketing/sensorial-integration.png",
+      image:
+        "/assets/img/servicios/immersive-marketing/sensorial-integration.png",
       theme: "mandarina" as const,
     },
     {
       icon: FaCouch,
-      title: "service-details-pages.immersive-marketing.features.dynamic-furniture.title",
+      title:
+        "service-details-pages.immersive-marketing.features.dynamic-furniture.title",
       description:
         "service-details-pages.immersive-marketing.features.dynamic-furniture.description",
       image: "/assets/img/servicios/immersive-marketing/dynamic-furniture.png",
@@ -126,10 +136,38 @@ export default function MarketingInmersivoFeaturesSection() {
     },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden">
+    <section
+      ref={containerRef}
+      className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden"
+      style={{
+        backgroundAttachment: "fixed",
+      }}
+    >
+      {/* Animated grid background */}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(76, 188, 197, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(76, 188, 197, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+          transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.05}px)`,
+        }}
+      />
+
       <div className="container relative z-10 pb-0 md:pb-24">
-        <div className="text-center pb-12">
+        {/* Header */}
+        <div className="text-center pb-16">
           <h2 className="section-title text-blanco pb-8 mb-0 fade-in-up opacity-0">
             {t("service-details-pages.immersive-marketing.features.title")}
           </h2>
@@ -137,181 +175,26 @@ export default function MarketingInmersivoFeaturesSection() {
             {t("service-details-pages.immersive-marketing.features.subtitle")}
           </p>
         </div>
-
-        {/* Mobile Layout - Simple grid with stagger bounce */}
-        <div className="grid grid-cols-1 gap-8 lg:gap-16 pt-12 md:hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12">
           {features.map((feature, index) => (
-            <div key={index} className="stagger-bounce-in-up opacity-0">
+            <div
+              key={index}
+              className="fade-in-up opacity-0"
+              style={{
+                animationDelay: `${index * 0.05}s`,
+                transform: `translateY(${(index % 3) * 20}px)`,
+              }}
+            >
               <FeatureCard
                 icon={feature.icon}
                 title={t(feature.title)}
                 description={t(feature.description)}
                 image={feature.image}
                 theme={feature.theme}
-                size="medium"
+                index={index}
               />
             </div>
           ))}
-        </div>
-
-        {/* Desktop Bento Grid - Beautiful asymmetric layout with varying animations */}
-        <div className="hidden md:grid grid-cols-12 gap-8 lg:gap-12">
-          {/* Row 1: 40% + 60% */}
-          <div className="col-span-5 fade-in-left opacity-0">
-            <FeatureCard
-              icon={features[0].icon}
-              title={t(features[0].title)}
-              description={t(features[0].description)}
-              image={features[0].image}
-              theme={features[0].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-7 fade-in-right opacity-0">
-            <FeatureCard
-              icon={features[1].icon}
-              title={t(features[1].title)}
-              description={t(features[1].description)}
-              image={features[1].image}
-              theme={features[1].theme}
-              size="medium"
-            />
-          </div>
-
-          {/* Row 2: 70% + 30% */}
-          <div className="col-span-8 bounce-in-up opacity-0">
-            <FeatureCard
-              icon={features[2].icon}
-              title={t(features[2].title)}
-              description={t(features[2].description)}
-              image={features[2].image}
-              theme={features[2].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-4 fade-in-right opacity-0">
-            <FeatureCard
-              icon={features[3].icon}
-              title={t(features[3].title)}
-              description={t(features[3].description)}
-              image={features[3].image}
-              theme={features[3].theme}
-              size="medium"
-            />
-          </div>
-
-          {/* Row 3: 35% + 65% */}
-          <div className="col-span-4 fade-in-left opacity-0">
-            <FeatureCard
-              icon={features[4].icon}
-              title={t(features[4].title)}
-              description={t(features[4].description)}
-              image={features[4].image}
-              theme={features[4].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-8 fade-in-right opacity-0">
-            <FeatureCard
-              icon={features[5].icon}
-              title={t(features[5].title)}
-              description={t(features[5].description)}
-              image={features[5].image}
-              theme={features[5].theme}
-              size="medium"
-            />
-          </div>
-
-          {/* Row 4: 55% + 45% */}
-          <div className="col-span-7 fade-in-left opacity-0">
-            <FeatureCard
-              icon={features[6].icon}
-              title={t(features[6].title)}
-              description={t(features[6].description)}
-              image={features[6].image}
-              theme={features[6].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-5 fade-in-right opacity-0">
-            <FeatureCard
-              icon={features[7].icon}
-              title={t(features[7].title)}
-              description={t(features[7].description)}
-              image={features[7].image}
-              theme={features[7].theme}
-              size="medium"
-            />
-          </div>
-
-          {/* Row 5: 25% + 50% + 25% */}
-          <div className="col-span-3 fade-in-left opacity-0">
-            <FeatureCard
-              icon={features[8].icon}
-              title={t(features[8].title)}
-              description={t(features[8].description)}
-              image={features[8].image}
-              theme={features[8].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-6 bounce-in-up opacity-0">
-            <FeatureCard
-              icon={features[9].icon}
-              title={t(features[9].title)}
-              description={t(features[9].description)}
-              image={features[9].image}
-              theme={features[9].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-3 fade-in-right opacity-0">
-            <FeatureCard
-              icon={features[10].icon}
-              title={t(features[10].title)}
-              description={t(features[10].description)}
-              image={features[10].image}
-              theme={features[10].theme}
-              size="medium"
-            />
-          </div>
-
-          {/* Row 6: 60% + 40% */}
-          <div className="col-span-7 fade-in-left opacity-0">
-            <FeatureCard
-              icon={features[11].icon}
-              title={t(features[11].title)}
-              description={t(features[11].description)}
-              image={features[11].image}
-              theme={features[11].theme}
-              size="medium"
-            />
-          </div>
-
-          <div className="col-span-5 fade-in-right opacity-0">
-            <FeatureCard
-              icon={FaHandPointer}
-              title={t(
-                "service-details-pages.immersive-marketing.features.cta.title"
-              )}
-              description={t(
-                "service-details-pages.immersive-marketing.features.cta.description"
-              )}
-              image="/assets/img/servicios/immersive-marketing/cta-placeholder.png"
-              theme="teal"
-              size="medium"
-              isCTA={true}
-              ctaButtonText={t(
-                "service-details-pages.immersive-marketing.features.cta.primary"
-              )}
-            />
-          </div>
         </div>
       </div>
     </section>

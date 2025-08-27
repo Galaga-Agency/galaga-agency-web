@@ -166,7 +166,6 @@ export default function CaseStudiesSection() {
                     metrics={caseStudy.metrics}
                     image={caseStudy.image}
                     theme={caseStudy.theme}
-                    index={index}
                     slug={caseStudy.slug}
                   />
                 </div>

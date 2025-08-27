@@ -1,3 +1,4 @@
+// components/pages/marketing/ResultCard.tsx
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
@@ -17,95 +18,170 @@ interface ResultCardProps {
   index: number;
 }
 
-export default function ResultCard({ result, index }: ResultCardProps) {
+const themeColors = {
+  teal: { primary: "#176161", glow: "76, 188, 197" },
+  "azul-profundo": { primary: "#121c30", glow: "18, 28, 48" },
+  mandarina: { primary: "#b03c18", glow: "238, 111, 69" },
+  violeta: { primary: "#4e3a73", glow: "78, 58, 115" },
+  skyblue: { primary: "#0d4a6d", glow: "67, 175, 230" },
+} as const;
+
+type ThemeKey = keyof typeof themeColors;
+const resolveThemeKey = (raw?: string): ThemeKey =>
+  raw && raw in themeColors ? (raw as ThemeKey) : "teal";
+
+export default function ResultCard({ result }: ResultCardProps) {
   const { t } = useTranslation();
 
-  const themes = {
-    teal: {
-      gradient: "bg-teal-gradient",
-      glow: "hover:shadow-teal/50",
-      title: "text-teal",
-      border: "border-teal/20",
-    },
-    skyblue: {
-      gradient: "bg-skyblue-gradient",
-      glow: "hover:shadow-turquesa/50",
-      title: "text-turquesa",
-      border: "border-turquesa/20",
-    },
-    violeta: {
-      gradient: "bg-purple-gradient",
-      glow: "hover:shadow-violeta/50",
-      title: "text-violeta",
-      border: "border-violeta/20",
-    },
-    mandarina: {
-      gradient: "bg-orange-gradient",
-      glow: "hover:shadow-mandarina/50",
-      title: "text-mandarina",
-      border: "border-mandarina/20",
-    },
-    "azul-profundo": {
-      gradient: "bg-darkblue-gradient",
-      glow: "hover:shadow-azul-profundo/50",
-      title: "text-azul-profundo",
-      border: "border-azul-profundo/20",
-    },
-  } as const;
+  const themeKey = resolveThemeKey(result.color);
+  const colors = themeColors[themeKey];
 
-  type ThemeKey = keyof typeof themes;
-
-  const theme = themes[result.color as ThemeKey] ?? {
-    gradient: "bg-teal-gradient",
-    glow: "hover:shadow-teal/50",
-    title: "text-teal",
-    border: "border-teal/20",
-  };
+  const Icon = result.icon;
+  const iconSize = 26;
 
   return (
-    <div
-      className={`relative overflow-hidden h-full rounded-2xl md:rounded-3xl bg-white shadow-lg hover:shadow-xl ${theme.glow} border ${theme.border} hover:border-${result.color}/40 transition-all duration-500 ease-out group`}
-    >
-      {/* Background image + whitish overlay */}
-      <div className="absolute inset-0 overflow-hidden rounded-2xl md:rounded-3xl">
-        <div className="absolute inset-0 bg-white/60 transition-colors duration-500 group-hover:bg-white/50" />
-      </div>
-
-      {/* Floating percentage */}
-      <div className="absolute -top-4 -right-4 text-[10rem] text-white/10 rotate-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:text-white/30 font-black">
-        {result.percentage}
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col h-full p-6 lg:p-8">
-        {/* Themed Icon Bubble */}
-        <div
-          className={`w-16 h-16 rounded-full ${theme.gradient} flex items-center justify-center text-blanco text-2xl transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg shadow-lg`}
-        >
-          <result.icon />
-        </div>
-
-        <h3
-          className={`text-xl lg:text-2xl font-black leading-tight py-6 ${theme.title} transition-transform duration-300 group-hover:scale-[1.02] group-hover:translate-x-1`}
-        >
-          {t(result.title)}
-        </h3>
-
-        <p className="text-sm lg:text-base font-semibold pb-6 leading-relaxed flex-1 text-azul-profundo group-hover:text-negro transition-colors duration-300">
-          {t(result.description)}
-        </p>
-
-        <div className="mt-auto">
-          <p className="text-sm font-medium text-azul-profundo/70 leading-relaxed">
-            {t(result.detail)}
-          </p>
-        </div>
-      </div>
-
-      {/* Enhanced Glow Border Effect */}
+    <div data-3d-card className="group h-full relative cursor-pointer">
+      {/* Tilt / depth container */}
       <div
-        className={`pointer-events-none absolute inset-0 rounded-2xl md:rounded-3xl ${theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm`}
-      />
+        data-3d-tilt
+        className="relative w-full h-full rounded-3xl"
+        style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+      >
+        {/* Ambient outer glow */}
+        <div
+          data-3d-glow
+          className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(520px 320px at 50% 50%,
+                rgba(${colors.glow}, 0.55) 0%,
+                rgba(${colors.glow}, 0.18) 40%,
+                transparent 70%
+              )
+            `,
+            animation: "pulse-glow 2s ease-in-out infinite alternate",
+          }}
+        />
+
+        {/* Card surface */}
+        <div
+          className="relative w-full h-full rounded-3xl overflow-hidden border flex flex-col"
+          style={{
+            background: `
+              linear-gradient(135deg, rgba(255,255,255,0.88), rgba(255,255,255,0.78)),
+              radial-gradient(1000px 520px at -10% -10%, rgba(${colors.glow},0.18), transparent 60%)
+            `,
+            borderColor: "rgba(0,0,0,0.06)",
+            boxShadow:
+              "0 8px 28px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)",
+            backdropFilter: "saturate(120%) blur(6px)",
+            transformStyle: "preserve-3d",
+          }}
+        >
+          {/* Optional BG wash */}
+          <div
+            data-3d-bg
+            className="absolute inset-0 pointer-events-none"
+            style={{ opacity: 0, willChange: "transform" }}
+          />
+
+          {/* Subtle scan line */}
+          <div
+            data-3d-scan
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent)",
+              transform: "translateX(-100%)",
+              animation: "scan-line 3s ease-in-out infinite",
+              willChange: "transform",
+            }}
+          />
+
+          {/* Content */}
+          <div
+            className="relative z-10 p-6 lg:p-8 flex flex-col items-center text-center gap-3 flex-1"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            {/* Icon bubble */}
+            <div className="w-full flex items-center justify-center gap-4 pb-2">
+              <div
+                data-3d-icon
+                className="relative w-14 h-14 rounded-full flex items-center justify-center border shadow-sm"
+                style={{
+                  background: `
+                    linear-gradient(135deg,
+                      rgba(${colors.glow},0.25) 0%,
+                      rgba(${colors.glow},0.06) 100%
+                    )
+                  `,
+                  borderColor: `rgba(${colors.glow},0.30)`,
+                  boxShadow: `inset 0 0 12px rgba(${colors.glow},0.10)`,
+                  willChange: "transform",
+                }}
+              >
+                <Icon
+                  size={iconSize}
+                  style={{
+                    color: colors.primary,
+                    filter: `drop-shadow(0 0 10px #fff)`,
+                  }}
+                  className="relative z-10"
+                />
+                <span
+                  className="absolute inset-0 rounded-full opacity-50"
+                  style={{
+                    background: `radial-gradient(circle, rgba(${colors.glow},0.28) 0%, transparent 70%)`,
+                    filter: "blur(8px)",
+                  }}
+                />
+              </div>
+            </div>
+
+            <h3
+              data-3d-title
+              className="text-[1.15rem] font-bold leading-tight"
+              style={{
+                color: "#0c1b2a",
+                textShadow: "0 1px 0 rgba(255,255,255,0.85)",
+                willChange: "transform",
+              }}
+            >
+              {t(result.title)}
+            </h3>
+
+            <p
+              data-3d-desc
+              className="text-[0.98rem] leading-relaxed text-[#0b1a28]/80 max-w-[54ch]"
+              style={{ willChange: "transform" }}
+            >
+              {t(result.description)}
+            </p>
+
+            {result.detail && (
+              <p
+                data-3d-desc
+                className="text-sm text-[#0b1a28]/60 max-w-[58ch] mt-auto"
+                style={{ willChange: "transform" }}
+              >
+                {t(result.detail)}
+              </p>
+            )}
+          </div>
+
+          {/* Side data stream */}
+          <div className="absolute top-0 right-0 w-1 h-full overflow-hidden opacity-30">
+            <div
+              data-3d-data
+              className="w-full h-8 opacity-80"
+              style={{
+                background: `linear-gradient(180deg, rgba(${colors.glow}, 0.55) 0%, transparent 100%)`,
+                willChange: "transform",
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

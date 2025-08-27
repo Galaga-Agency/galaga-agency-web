@@ -502,6 +502,34 @@ h6 {
   }
 }
 
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(400%);
+  }
+}
+
 .hero-word-1 {
   animation: heroWordSlideUp 1s ease-out forwards;
   animation-delay: 0.2s;
@@ -568,4 +596,3 @@ h6 {
 .animation-delay-800 {
   animation-delay: 0.8s !important;
 }
-

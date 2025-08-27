@@ -10,6 +10,7 @@ import { getLocalizedRoute } from "@/utils/navigation";
 import TechnologyStackSection from "@/components/pages/services-page/TechnologyStackSection";
 import ServiceCTASection from "@/components/pages/services-page/ServicesCTASection";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 
 export default function ServicesPage() {
   const { t, language } = useTranslation();
@@ -27,7 +28,7 @@ export default function ServicesPage() {
   ];
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations],
+    animations: [initEntranceAnimations, init3DCardAnimations],
     delay: 100,
   });
 

@@ -6,6 +6,7 @@ import PrimaryButton from "../ui/PrimaryButton";
 import { services } from "@/data/services";
 import SocialIcons from "../SocialIcons";
 import SecondaryButton from "../ui/SecondaryButton";
+import { getLocalizedRoute } from "@/utils/navigation";
 
 export default function Footer() {
   const { t, language } = useTranslation();
@@ -38,12 +39,15 @@ export default function Footer() {
               {/* Single enhanced CTA - much cleaner design */}
               <div className="bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-6 md:p-8 border border-white/10">
                 <p className="text-teal-300 font-medium pb-4 text-base md:text-lg">
-                  Ready to transform your business?
+                  {t("footer.cta.title")}
                 </p>
                 <p className="text-gray-400 pb-6 text-sm md:text-base">
-                  Let's discuss your next project
+                  {t("footer.cta.description")}
                 </p>
-                <PrimaryButton href={t("nav.contact").toLowerCase()} className="w-full">
+                <PrimaryButton
+                  href={getLocalizedRoute("contacto", language)}
+                  className="w-full"
+                >
                   {t("footer.getInTouch")}
                   <svg
                     className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
@@ -72,11 +76,10 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
                   {services.map((service, index) => {
                     const translatedSlug = t(service.slug);
-                    // Build the URL with current language prefix
-                    const serviceUrl =
-                      language === "es"
-                        ? `/es/servicios/${translatedSlug}`
-                        : `/en/services/${translatedSlug}`;
+                    const serviceUrl = getLocalizedRoute(
+                      `servicios/${translatedSlug}`,
+                      language
+                    );
 
                     return (
                       <div key={index} className="h-8 flex items-center">
@@ -163,7 +166,11 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-6 md:gap-8">
                 <Link
-                  href="/privacy"
+                  href={
+                    language === "es"
+                      ? "/es/politica-de-privacidad"
+                      : "/en/privacy-policy"
+                  }
                   className="group hover:text-white transition-colors duration-300 text-sm md:text-base"
                 >
                   <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">
@@ -171,7 +178,11 @@ export default function Footer() {
                   </span>
                 </Link>
                 <Link
-                  href="/terms"
+                  href={
+                    language === "es"
+                      ? "/es/terminos-y-condiciones"
+                      : "/en/terms-and-conditions"
+                  }
                   className="group hover:text-white transition-colors duration-300 text-sm md:text-base"
                 >
                   <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">

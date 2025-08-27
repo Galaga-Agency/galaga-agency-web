@@ -16,6 +16,7 @@ import { use } from "react";
 import { init } from "next/dist/compiled/webpack/webpack";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
+import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 
 interface ServiceDetailsPageProps {
   params: Promise<{
@@ -34,6 +35,7 @@ export default function MarketingInmersivoPage({
       initHorizontalScrollAnimation,
       initEntranceAnimations,
       initAlternateBlocksAnimations,
+      init3DCardAnimations,
     ],
     delay: 100,
   });

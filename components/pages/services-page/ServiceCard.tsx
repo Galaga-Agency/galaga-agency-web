@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { IconType } from "react-icons";
 import { useTranslation } from "@/hooks/useTranslation";
 import { Service } from "@/types/service";
 import { getLocalizedRoute } from "@/utils/navigation";
@@ -8,221 +9,242 @@ import { getLocalizedRoute } from "@/utils/navigation";
 interface ServiceCardProps {
   service: Service;
   index: number;
-  isHovered?: boolean;
-  isNeighborHovered?: boolean;
 }
 
-export default function ServiceCard({
-  service,
-  index,
-  isHovered = false,
-  isNeighborHovered = false,
-}: ServiceCardProps) {
+/** Brand themes → CSS-friendly rgba triplets for glow + primary text color */
+const themeColors = {
+  teal: { primary: "#176161", glow: "76, 188, 197" }, // rgb triplet as string
+  "azul-profundo": { primary: "#121c30", glow: "18, 28, 48" },
+  mandarina: { primary: "#b03c18", glow: "238, 111, 69" },
+  violeta: { primary: "#4e3a73", glow: "78, 58, 115" },
+} as const;
+
+type ThemeKey = keyof typeof themeColors;
+
+/** Guard against unknown/missing themes */
+function resolveThemeKey(raw?: string): ThemeKey {
+  if (!raw) return "teal";
+  return (raw in themeColors ? raw : "teal") as ThemeKey;
+}
+
+export default function ServiceCard({ service }: ServiceCardProps) {
   const { t, language } = useTranslation();
 
-  const themes = {
-    teal: {
-      gradient: "bg-teal-gradient",
-      glow: "hover:shadow-teal/50",
-      title: "text-teal",
-      bullet: "bg-teal/60",
-      bulletOn: "bg-teal",
-      text: "text-azul-profundo",
-      ctaGradient: "bg-teal-gradient",
-      border: "border-teal/20",
-    },
-    skyblue: {
-      gradient: "bg-skyblue-gradient",
-      glow: "hover:shadow-turquesa/50",
-      title: "text-turquesa",
-      bullet: "bg-turquesa/60",
-      bulletOn: "bg-turquesa",
-      text: "text-azul-profundo",
-      ctaGradient: "bg-skyblue-gradient",
-      border: "border-turquesa/20",
-    },
-    violeta: {
-      gradient: "bg-purple-gradient",
-      glow: "hover:shadow-violeta/50",
-      title: "text-violeta",
-      bullet: "bg-violeta/60",
-      bulletOn: "bg-violeta",
-      text: "text-azul-profundo",
-      ctaGradient: "bg-purple-gradient",
-      border: "border-violeta/20",
-    },
-    mandarina: {
-      gradient: "bg-orange-gradient",
-      glow: "hover:shadow-mandarina/50",
-      title: "text-mandarina",
-      bullet: "bg-mandarina/60",
-      bulletOn: "bg-mandarina",
-      text: "text-azul-profundo",
-      ctaGradient: "bg-orange-gradient",
-      border: "border-mandarina/20",
-    },
-    "azul-profundo": {
-      gradient: "bg-darkblue-gradient",
-      glow: "hover:shadow-azul-profundo/50",
-      title: "text-azul-profundo",
-      bullet: "bg-azul-profundo/60",
-      bulletOn: "bg-azul-profundo",
-      text: "text-azul-profundo",
-      ctaGradient: "bg-darkblue-gradient",
-      border: "border-azul-profundo/20",
-    },
-  } as const;
+  const themeKey = resolveThemeKey(service.theme as string);
+  const colors = themeColors[themeKey];
 
-  type ThemeKey = keyof typeof themes;
-
-  const theme = themes[service.theme as ThemeKey] ?? {
-    gradient: "bg-teal-gradient",
-    glow: "hover:shadow-teal/50",
-    title: "text-teal",
-    bullet: "bg-teal/60",
-    bulletOn: "bg-teal",
-    text: "text-azul-profundo",
-    ctaGradient: "bg-teal-gradient",
-    border: "border-teal/20",
-  };
+  // icon safety: only use if it's a function/component
+  const IconComp: IconType | null =
+    typeof service.icon === "function" ? (service.icon as IconType) : null;
 
   const translatedSlug = t(service.slug);
   const servicesRoute = getLocalizedRoute("services", language);
   const serviceUrl = `${servicesRoute}/${translatedSlug}`;
+  const hasLink = service.hasRedirection !== false;
 
-  // Check if this service has a link using the hasRedirection field
-  const hasLink = service.hasRedirection;
+  const cardHeight = "h-[400px]";
+  const iconSize = 28;
 
-  // Card content component
-  const CardContent = () => (
-    <>
-      {/* Background image + whitish overlay */}
-      <div className="absolute inset-0 overflow-hidden rounded-2xl md:rounded-3xl">
-        <div className="absolute inset-0 bg-white/60 transition-colors duration-500 group-hover:bg-white/50" />
-      </div>
-
-      {/* Floating icon */}
-      <div
-        className={`
-          absolute -top-4 -right-4
-          text-[10rem]
-          text-white/10 rotate-6 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 group-hover:text-white/30
-        `}
-      >
-        <service.icon />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col h-full p-6 lg:p-8">
-        {/* Themed Icon Bubble */}
-        <div
-          className={`
-          w-16 h-16 rounded-full
-          ${theme.gradient}
-          flex items-center justify-center
-          text-blanco text-2xl
-          transform transition-all duration-300 
-          group-hover:scale-105 group-hover:shadow-lg
-          shadow-lg
-        `}
-        >
-          <service.icon />
-        </div>
-
-        <h3
-          className={`
-            text-xl lg:text-2xl
-            font-black leading-tight py-6
-            ${theme.title}
-            transition-transform duration-300 group-hover:scale-[1.02] group-hover:translate-x-1
-          `}
-        >
-          {t(service.title)}
-        </h3>
-
-        <p
-          className={`text-sm lg:text-base font-semibold pb-6 leading-relaxed flex-1 ${theme.text} group-hover:text-negro transition-colors duration-300`}
-        >
-          {t(service.description)}
-        </p>
-
-        <div className="mt-auto flex flex-col gap-3">
-          {service.features.map((feature, i) => (
-            <div
-              key={i}
-              className={`flex items-center gap-3 font-semibold text-sm ${theme.text}`}
-            >
-              <div
-                className={`
-                  w-2.5 h-2.5 rounded-full flex-shrink-0 shadow-sm transition-colors
-                  ${theme.bullet}
-                  group-hover:${theme.bulletOn}
-                `}
-              />
-              <span className="leading-relaxed">{t(feature)}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA - Small Circle with Arrow - Only show if has link */}
-        {hasLink && (
-          <div className="mt-6 flex items-center justify-end">
-            <div
-              className={`w-8 h-8 ${theme.ctaGradient} rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg`}
-            >
-              <svg
-                className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={3}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </div>
-          </div>
-        )}
-
-        {/* Spacer for cards without CTA to maintain consistent height */}
-        {!hasLink && <div className="mt-6 h-8" />}
-      </div>
-
-      {/* Enhanced Glow Border Effect */}
-      <div
-        className={`
-          pointer-events-none absolute inset-0 rounded-2xl md:rounded-3xl
-          ${theme.gradient}
-          opacity-0 group-hover:opacity-20 transition-opacity duration-700 blur-sm
-        `}
-      />
-    </>
-  );
-
-  const baseClasses = `
-    relative overflow-hidden h-full rounded-2xl md:rounded-3xl
-    bg-white shadow-lg hover:shadow-xl ${theme.glow}
-    border ${theme.border} hover:border-${service.theme}/40
-    transition-all duration-500 ease-out group
-    ${isHovered ? "shadow-xl" : isNeighborHovered ? "opacity-80" : ""}
-  `;
-
-  // If has link, wrap entire card in Link component
-  if (hasLink) {
-    return (
-      <Link href={serviceUrl} className={`${baseClasses} cursor-pointer block`}>
-        <CardContent />
-      </Link>
-    );
-  }
-
-  // If no link, render as regular div
   return (
-    <div className={baseClasses}>
-      <CardContent />
+    <div data-3d-card className={`group relative ${cardHeight} cursor-pointer`}>
+      {/* Tilt / depth container (GSAP animates this) */}
+      <div
+        data-3d-tilt
+        className="relative w-full h-full rounded-3xl"
+        style={{ transformStyle: "preserve-3d", willChange: "transform" }}
+      >
+        {/* Ambient outer glow */}
+        <div
+          data-3d-glow
+          className="absolute -inset-2 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(520px 320px at 50% 50%,
+                rgba(${colors.glow}, 0.55) 0%,
+                rgba(${colors.glow}, 0.18) 40%,
+                transparent 70%
+              )
+            `,
+            animation: "pulse-glow 2s ease-in-out infinite alternate",
+          }}
+        />
+
+        {/* Card surface (light / glassy) */}
+        <div
+          className="relative w-full h-full rounded-3xl overflow-hidden border"
+          style={{
+            background: `
+              linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.76)),
+              radial-gradient(1200px 600px at -10% -10%, rgba(${colors.glow},0.18), transparent 60%)
+            `,
+            borderColor: "rgba(0,0,0,0.06)",
+            boxShadow:
+              "0 8px 28px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.9)",
+            backdropFilter: "saturate(120%) blur(6px)",
+            transformStyle: "preserve-3d",
+          }}
+        >
+          {/* Soft image wash */}
+          {service.image && (
+            <div
+              data-3d-bg
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `url(${service.image}) center/cover no-repeat`,
+                opacity: 0.22,
+                WebkitMaskImage:
+                  "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.05) 75%, transparent)",
+                maskImage:
+                  "linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.05) 75%, transparent)",
+                willChange: "transform",
+              }}
+            />
+          )}
+
+          {/* Subtle scan line */}
+          <div
+            data-3d-scan
+            className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(0,0,0,0.06), transparent)",
+              transform: "translateX(-100%)",
+              animation: "scan-line 3s ease-in-out infinite",
+              willChange: "transform",
+            }}
+          />
+
+          {/* Content */}
+          <div
+            className="relative z-10 h-full p-7 flex flex-col"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            {/* Icon bubble (spins + pops via GSAP util) */}
+            <div className="pb-6 w-full flex justify-center">
+              <div
+                data-3d-icon
+                className="relative w-16 h-16 rounded-full flex items-center justify-center border shadow-sm"
+                style={{
+                  background: `
+                    linear-gradient(135deg,
+                      rgba(${colors.glow},0.25) 0%,
+                      rgba(${colors.glow},0.06) 100%
+                    )
+                  `,
+                  borderColor: `rgba(${colors.glow},0.30)`,
+                  boxShadow: `inset 0 0 12px rgba(${colors.glow},0.10)`,
+                  willChange: "transform",
+                }}
+              >
+                {IconComp && (
+                  <IconComp
+                    size={iconSize}
+                    style={{
+                      color: colors.primary,
+                      filter: `drop-shadow(0 0 12px #fff)`,
+                    }}
+                    className="relative z-10"
+                  />
+                )}
+                <span
+                  className="absolute inset-0 rounded-full opacity-50"
+                  style={{
+                    background: `radial-gradient(circle, rgba(${colors.glow},0.28) 0%, transparent 70%)`,
+                    filter: "blur(8px)",
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="w-full flex flex-col items-center">  {/* Title */}
+            <h3
+              data-3d-title
+              className="text-[1.35rem] font-black leading-tight pb-4"
+              style={{
+                color: "#0c1b2a",
+                textShadow: "0 1px 0 rgba(255,255,255,0.85)",
+                willChange: "transform",
+              }}
+            >
+              {t(service.title)}
+            </h3>
+
+            {/* Description */}
+            <p
+              data-3d-desc
+              className="pb-6 text-center"
+              style={{
+                color: "rgba(10,20,30,0.72)",
+                willChange: "transform",
+              }}
+            >
+              {t(service.description)}
+            </p></div>
+
+  
+            {/* Bullets */}
+            <ul className="flex flex-col gap-2 mt-auto">
+              {(service.features ?? []).slice(0, 4).map((featKey, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span
+                    className="mt-2 inline-block w-2 h-2 rounded-full"
+                    style={{ background: `rgba(${colors.glow},0.9)` }}
+                  />
+                  <span className="text-[0.95rem] text-[#0b1a28]">
+                    {t(featKey)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            {/* CTA */}
+            {hasLink && (
+              <div className="absolute bottom-6 right-6 mt-6 flex justify-end">
+                <Link
+                  href={serviceUrl}
+                  className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full border transition-transform"
+                  style={{
+                    borderColor: "rgba(0,0,0,0.08)",
+                    background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78))",
+                    boxShadow:
+                      "0 4px 14px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.95)",
+                  }}
+                >
+                  <span className="text-[0.92rem] text-[#0c1b2a]">
+                    {t("homepage-cta.knowMore")}
+                  </span>
+                  <svg
+                    className="w-4 h-4 text-[#0c1b2a]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Side data stream */}
+          <div className="absolute top-0 right-0 w-1 h-full overflow-hidden opacity-30">
+            <div
+              data-3d-data
+              className="w-full h-8 opacity-80"
+              style={{
+                background: `linear-gradient(180deg, rgba(${colors.glow}, 0.55) 0%, transparent 100%)`,
+                willChange: "transform",
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -10,6 +10,8 @@ import {
   getLocalBusinessSchema,
 } from "@/utils/seo";
 import CookieBanner from "@/components/CookieBanner";
+import SmoothScrollWrapper from "@/components/layout/SmoothScrollWrapper";
+import ScrollToTopOnRouteChange from "@/components/layout/ScrollToTopOnRouteChange";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://galagaagency.com";
 
@@ -129,8 +131,11 @@ export default function LocaleLayout({
       <TranslationProvider>
         <LoadingWrapper>
           <Navbar />
-          {children}
-          <CookieBanner /> 
+          <SmoothScrollWrapper>
+            <ScrollToTopOnRouteChange />
+            {children}
+          </SmoothScrollWrapper>
+          <CookieBanner />
           <Footer />
         </LoadingWrapper>
       </TranslationProvider>

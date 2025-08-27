@@ -16,6 +16,7 @@ import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 import { initVideoPlayerAnimation } from "@/utils/animations/video-player-animations";
 import { parallaxItems } from "@/data/hero-parallax-items";
+import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -35,6 +36,7 @@ export default function HomePage() {
       initEntranceAnimations,
       initAlternateBlocksAnimations,
       initBoucingBubblesAnimation,
+      init3DCardAnimations,
       initCarouselAnimation,
     ],
     delay: 100,

@@ -6,7 +6,9 @@
     "contact": "Contact",
     "cta": "Let's Talk",
     "cases": "Success Stories",
-    "language": "Language"
+    "language": "Language",
+    "privacy-policy": "Política de Privacidad",
+    "terms-conditions": "Términos y Condiciones"
   },
   "footer": {
     "description": "We transform businesses through digital solutions that work.",
@@ -19,9 +21,15 @@
     "getInTouch": "Get in touch",
     "location": "Telde, Gran Canaria, Spain",
     "allRightsReserved": "All rights reserved",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "followUs": "Follow us"
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "followUs": "Follow us",
+    "cta": {
+      "title": "Ready to transform your business?",
+      "description": "Schedule a free consultation and discover how we can help you.",
+      "contact": "Contact us",
+      "learnMore": "View all services"
+    }
   },
   "notFound": {
     "title": "Page not found",
@@ -1134,5 +1142,214 @@
     "necessaryDesc": "Essential for basic website functionality.",
     "analyticsDesc": "Help us understand how you interact with our site.",
     "marketingDesc": "To show personalized content and relevant ads."
+  },
+  "privacy-policy": {
+    "breadcrumb": "Privacy Policy",
+    "hero": {
+      "eyebrow": "Data Protection",
+      "privacidad": "Privacy",
+      "yTransparencia": "& Transparency",
+      "subtitle": "Your information is safe with us. Learn how we protect your personal data."
+    },
+    "intro": {
+      "title": "Personal Data Protection Information",
+      "description": "In Europe and Spain, there are data protection regulations designed to protect your personal information, which are mandatory for our organization. Therefore, it is very important for us that you fully understand what we are going to do with the personal data we request from you.",
+      "thanks": "Thank you very much for your collaboration."
+    },
+    "who-we-are": {
+      "title": "Who We Are?",
+      "company": "Company Name",
+      "cif": "Tax ID",
+      "activity": "Main Activity",
+      "activity-value": "Advertising",
+      "address": "Address",
+      "email": "Contact Email",
+      "website": "Websites",
+      "contact": "We are at your disposal, please do not hesitate to contact us."
+    },
+    "data-usage": {
+      "title": "How Will We Use Your Data?",
+      "description1": "In general, your personal data will be used to be able to interact with you and provide our services, including e-commerce, which consists of buying and selling products or services through electronic means.",
+      "description2": "Additionally, they may also be used for other activities, such as sending you advertising or promoting our activities."
+    },
+    "why-data": {
+      "title": "Why Do We Need to Use Your Data?",
+      "description1": "Your personal data is necessary to be able to interact with you and provide our services, including e-commerce services. In this regard, we will provide you with a series of checkboxes that will allow you to decide clearly and simply about the use of your personal information.",
+      "description2": "All the information we require will be used to contribute to the proper development of the product purchase relationship that unites us with you. Data such as addresses or telephone numbers, which initially seem not to be related to e-commerce activity, will be used solely to ensure that you can enjoy the products purchased through this website.",
+      "description3": "The information you provide must be truthful so that e-commerce services can be provided consistently and effectively. It would also be interesting for you to update the information you provide at all times to avoid future errors or confusion that could disrupt the proper provision of services."
+    },
+    "who-knows": {
+      "title": "Who Will Know the Information We Request?",
+      "description": "In general, only personnel from our organization who are duly authorized may have knowledge of the information we request from you. Similarly, those entities that need to have access to your personal information so that we can provide our services may have knowledge of it."
+    },
+    "protection": {
+      "title": "How Will We Protect Your Data?",
+      "description1": "We will protect your data with effective security measures based on the risks involved in using your information. For this purpose, our organization has approved a Data Protection Policy and annual controls and audits are carried out to verify that your personal data is safe at all times.",
+      "description2": "Notwithstanding the above, you must maintain maximum confidentiality regarding your access keys, adopting all necessary measures so that they are not used by unauthorized third parties."
+    },
+    "transfers": {
+      "title": "Will We Send Your Data to Other Countries?",
+      "description1": "In the world, there are countries that are safe for your data and others that are not so safe. For example, the European Union is a safe environment for your data. Our policy is not to send your personal information to any country that is not safe from the point of view of protecting your data.",
+      "description2": "If, in order to provide you with the service, it is essential to send your data to a country that is not as safe as Spain, we will always request your permission in advance and apply effective security measures that reduce the risks of sending your personal information to another country."
+    },
+    "retention": {
+      "title": "How Long Will We Keep Your Data?",
+      "description": "We will keep your data during our relationship and as long as the laws require us to. Once the applicable legal periods have ended, we will proceed to delete them safely and environmentally responsibly."
+    },
+    "rights": {
+      "title": "What Are Your Data Protection Rights?",
+      "description1": "At any time you can contact us to find out what information we have about you, correct it if it is incorrect and delete it once our relationship is finished, if this is legally possible. You also have the right to request the transfer of your information to another entity. This right is called \"portability\" and can be useful in certain situations.",
+      "description2": "To request any of these rights, you must make a written request to our address, along with a photocopy of your ID, so we can identify you.",
+      "description3": "To learn more about your data protection rights, you can consult the website of the Spanish Data Protection Agency (www.aepd.es)."
+    },
+    "consent": {
+      "title": "Can You Withdraw Your Consent If You Change Your Mind?",
+      "description": "You can withdraw your consent if you change your mind about the use of your data at any time. For example, if you were once interested in receiving advertising for our products or services, but no longer wish to receive more advertising, you can let us know through the processing opposition form available at our organization's offices."
+    },
+    "complaints": {
+      "title": "Where Can You File a Complaint?",
+      "description": "If you believe that your rights have been neglected by our organization, you can file a complaint with the Spanish Data Protection Agency, through any of the following means:",
+      "website-label": "Electronic headquarters",
+      "address-label": "Postal address",
+      "phone-label": "By telephone",
+      "note": "Filing a complaint with the Spanish Data Protection Agency does not involve any cost and does not require the assistance of a lawyer or attorney."
+    },
+    "profiles": {
+      "title": "Will We Create Profiles About You?",
+      "description1": "Our policy is not to create profiles about users of our services.",
+      "description2": "However, there may be situations where, for service provision, commercial or other purposes, we need to create information profiles about you. An example could be using your purchase or service history to offer you products or services adapted to your tastes or needs.",
+      "description3": "In such cases, we will always keep you informed in advance and apply effective security measures that protect your information at all times from unauthorized persons who intend to use it for their own benefit."
+    },
+    "other-purposes": {
+      "title": "Will We Use Your Data for Other Purposes?",
+      "description": "Our policy is not to use your data for purposes other than those we have explained to you. However, if we need to use your data for different activities, we will always request your permission in advance through clear options that will allow you to decide about it."
+    },
+    "contact": {
+      "title": "Need More Information?",
+      "description": "If you have any questions about our privacy policy or the processing of your personal data, please do not hesitate to contact us:"
+    }
+  },
+  "terms-conditions": {
+    "hero": {
+      "eyebrow": "Legal Framework",
+      "terminos": "Terms",
+      "yCondiciones": "& Conditions",
+      "subtitle": "General conditions governing the use of our services."
+    },
+    "intro": {
+      "title": "Terms and Conditions of Use",
+      "description": "These terms regulate the use of our services and establish rights and obligations between parties.",
+      "effective-date": "Last updated: January 2025"
+    },
+    "company-info": {
+      "title": "Company Information",
+      "company": "Company",
+      "cif": "Tax ID",
+      "address": "Address",
+      "website": "Website",
+      "email": "Email"
+    },
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "description1": "By using our services, you accept these terms and conditions in their entirety.",
+      "description2": "If you disagree, we recommend not using our services."
+    },
+    "services": {
+      "title": "Service Description",
+      "description1": "We offer professional services including:",
+      "digital-marketing": "Digital marketing and online strategies",
+      "web-development": "Web development and applications",
+      "branding": "Branding and corporate identity",
+      "social-media": "Social media management",
+      "consulting": "Strategic consulting",
+      "automation": "Process automation",
+      "description2": "Specific services are detailed in each commercial proposal."
+    },
+    "service-agreement": {
+      "title": "Service Contracting",
+      "description1": "Services are contracted through accepted proposals or signed contracts.",
+      "description2": "Scope and specific conditions are detailed in each particular agreement.",
+      "cancellation": "Cancellation must be communicated with the agreed advance notice."
+    },
+    "payment": {
+      "title": "Payment Terms",
+      "description1": "Prices are established in local currency and include applicable taxes.",
+      "vat": "Current taxes will apply according to corresponding tax legislation.",
+      "methods": "Payments are made according to methods specified in each proposal.",
+      "late-fees": "Late payments may generate interest according to applicable regulations."
+    },
+    "client-obligations": {
+      "title": "Client Obligations",
+      "description": "For proper service development, the client must:",
+      "content": "Provide necessary information and materials",
+      "access": "Facilitate required access to systems and platforms",
+      "feedback": "Provide feedback within established timeframes",
+      "legal-compliance": "Ensure compliance with applicable regulations"
+    },
+    "intellectual-property": {
+      "title": "Intellectual Property",
+      "client-materials": "Client materials remain under their ownership with necessary licenses for service.",
+      "galaga-work": "Our proprietary methodologies and tools maintain our ownership.",
+      "final-deliverables": "Final deliverables are transferred as agreed in each project."
+    },
+    "confidentiality": {
+      "title": "Confidentiality",
+      "description1": "Both parties will maintain confidentiality of exchanged information.",
+      "description2": "This obligation continues during and after the business relationship."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "description1": "We provide our services with maximum professional diligence.",
+      "force-majeure": "We are not responsible for force majeure or exceptional circumstances.",
+      "max-liability": "Maximum liability is limited to the specific service amount."
+    },
+    "termination": {
+      "title": "Termination",
+      "notice": "Either party may terminate the agreement with agreed notice.",
+      "immediate": "Can be resolved immediately for serious breach.",
+      "consequences": "Upon termination, services provided to date will be settled."
+    },
+    "applicable-law": {
+      "title": "Applicable Law",
+      "spanish-law": "Governed by the legislation of the country where service is provided.",
+      "jurisdiction": "For disputes, subject to competent courts of registered office.",
+      "disputes": "Amicable resolution will be attempted before court proceedings."
+    },
+    "data-protection": {
+      "title": "Data Protection",
+      "gdpr-compliance": "Data processing complies with current data protection regulations.",
+      "privacy-policy": "See our Privacy Policy for detailed information."
+    },
+    "changes": {
+      "title": "Modifications",
+      "right-to-modify": "We reserve the right to modify these terms when necessary.",
+      "notification": "Modifications will be communicated with sufficient advance notice."
+    },
+    "miscellaneous": {
+      "title": "General Provisions",
+      "severability": "Invalidity of any clause does not affect validity of the rest.",
+      "entire-agreement": "These terms constitute the complete agreement between parties.",
+      "language": "In case of language discrepancies, the original version prevails."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "For inquiries about these terms, you can contact us:"
+    }
+  },
+  "legal-pages": {
+    "cta-section": {
+      "line1": "Need",
+      "line2": "Help?",
+      "subtitle": {
+        "terms": "We're here to answer your questions and help you with any inquiries about our terms.",
+        "privacy": "We're here to answer your questions and help you with any inquiries about our privacy policy."
+      },
+      "primaryButton": "Contact Us",
+      "secondaryButton": {
+        "terms": "View Privacy Policy",
+        "privacy": "View Terms & Conditions"
+      },
+      "directContact": "Direct contact"
+    }
   }
 }

@@ -6,7 +6,9 @@
     "contact": "Contacto",
     "cta": "Hablemos",
     "cases": "Casos de éxito",
-    "language": "Idioma"
+    "language": "Idioma",
+    "privacy-policy": "Política de Privacidad",
+    "terms-conditions": "Términos y Condiciones"
   },
   "footer": {
     "description": "Transformamos negocios a través de soluciones digitales que funcionan.",
@@ -19,9 +21,15 @@
     "getInTouch": "Ponte en contacto",
     "location": "Telde, Gran Canaria, España",
     "allRightsReserved": "Todos los derechos reservados",
-    "privacy": "Privacidad",
-    "terms": "Términos",
-    "followUs": "Síguenos"
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "followUs": "Síguenos",
+    "cta": {
+      "title": "¿Listo para transformar tu negocio?",
+      "description": "Agenda una consulta gratuita y descubre cómo podemos ayudarte.",
+      "contact": "Contacta con nosotros",
+      "learnMore": "Ver todos los servicios"
+    }
   },
   "notFound": {
     "title": "Página no encontrada",
@@ -1138,5 +1146,213 @@
     "necessaryDesc": "Esenciales para el funcionamiento básico del sitio web.",
     "analyticsDesc": "Nos ayudan a entender cómo interactúas con nuestro sitio.",
     "marketingDesc": "Para mostrar contenido personalizado y anuncios relevantes."
+  },
+  "privacy-policy": {
+    "breadcrumb": "Política de Privacidad",
+    "hero": {
+      "eyebrow": "Protección de Datos",
+      "privacidad": "Privacidad",
+      "yTransparencia": "y Transparencia",
+      "subtitle": "Tu información está segura con nosotros. Conoce cómo protegemos tus datos personales."
+    },
+    "intro": {
+      "title": "Información sobre Protección de Datos Personales",
+      "description": "En Europa y en España existen normas de protección de datos pensadas para proteger su información personal de obligado cumplimiento para nuestra entidad. Por ello, es muy importante para nosotros que entienda perfectamente qué vamos a hacer con los datos personales que le pedimos.",
+      "thanks": "Muchas gracias por su colaboración."
+    },
+    "who-we-are": {
+      "title": "¿Quiénes Somos?",
+      "company": "Denominación",
+      "cif": "CIF/NIF",
+      "activity": "Actividad principal",
+      "activity-value": "Publicidad",
+      "address": "Dirección",
+      "email": "Email de contacto",
+      "website": "Páginas web",
+      "contact": "Estamos a su disposición, no dude en contactar con nosotros."
+    },
+    "data-usage": {
+      "title": "¿Para Qué Vamos a Usar Sus Datos?",
+      "description1": "Con carácter general, sus datos personales serán usados para poder relacionarnos con usted y poder prestarle nuestros servicios, incluyendo también el comercio electrónico, también conocido como e-commerce, consistente en la compra y venta de productos o de servicios a través de medios electrónicos.",
+      "description2": "Asimismo, también pueden ser usados para otras actividades, como enviarle publicidad o promocionar nuestras actividades."
+    },
+    "why-data": {
+      "title": "¿Por Qué Necesitamos Usar Sus Datos?",
+      "description1": "Sus datos personales son necesarios para poder relacionarnos con usted y poder prestarle nuestros servicios, incluidos los de comercio electrónico. En este sentido, pondremos a su disposición una serie de casillas que le permitirán decidir de manera clara y sencilla sobre el uso de su información personal.",
+      "description2": "Toda la información que le requerimos será utilizada para contribuir al correcto desenvolvimiento de la relación de compraventa de productos que nos une con usted. Datos tales como direcciones o números de teléfono, que en principio parecen no estar relacionados con la actividad de comercio electrónico, serán utilizados únicamente para asegurarnos de que pueda disfrutar de los productos adquiridos a través de este sitio web.",
+      "description3": "La información que nos proporcione deberá ser veraz para que los servicios de comercio electrónico puedan prestarse de manera coherente y efectiva. Sería interesante, además, que actualice en todo momento la información que nos proporcione para evitar errores o confusiones futuras que puedan quebrar la correcta prestación de servicios."
+    },
+    "who-knows": {
+      "title": "¿Quién Va a Conocer la Información que le Pedimos?",
+      "description": "Con carácter general, sólo el personal de nuestra entidad que esté debidamente autorizado podrá tener conocimiento de la información que le pedimos. De igual modo, podrán tener conocimiento de su información personal aquellas entidades que necesiten tener acceso a la misma para que podamos prestarle nuestros servicios."
+    },
+    "protection": {
+      "title": "¿Cómo Vamos a Proteger Sus Datos?",
+      "description1": "Protegeremos sus datos con medidas de seguridad eficaces en función de los riesgos que conlleve el uso de su información. Para ello, nuestra entidad ha aprobado una Política de Protección de Datos y se realizan controles y auditorías anuales para verificar que sus datos personales están seguros en todo momento.",
+      "description2": "No obstante lo anterior, debe guardar la máxima confidencialidad en relación a sus claves de acceso, adoptando todas las medidas necesarias para que las mismas no sean utilizadas por terceros no autorizados."
+    },
+    "transfers": {
+      "title": "¿Enviaremos Sus Datos a Otros Países?",
+      "description1": "En el mundo hay países que son seguros para sus datos y otros que no lo son tanto. Así por ejemplo, la Unión Europea es un entorno seguro para sus datos. Nuestra política es no enviar su información personal a ningún país que no sea seguro desde el punto de vista de la protección de sus datos.",
+      "description2": "En el caso de que, con motivo de prestarle el servicio, sea imprescindible enviar sus datos a un país que no sea tan seguro como España, siempre le solicitaremos previamente su permiso y aplicaremos medidas de seguridad eficaces que reduzcan los riesgos del envío de su información personal a otro país."
+    },
+    "retention": {
+      "title": "¿Durante Cuánto Tiempo Vamos a Conservar Sus Datos?",
+      "description": "Conservaremos sus datos durante nuestra relación y mientras nos obliguen las leyes. Una vez finalizados los plazos legales aplicables, procederemos a eliminarlos de forma segura y respetuosa con el medio ambiente."
+    },
+    "rights": {
+      "title": "¿Cuáles Son Sus Derechos de Protección de Datos?",
+      "description1": "En cualquier momento puede dirigirse a nosotros para saber qué información tenemos sobre usted, rectificarla si fuese incorrecta y eliminarla una vez finalizada nuestra relación, en el caso de que ello sea legalmente posible. También tiene derecho a solicitar el traspaso de su información a otra entidad. Este derecho se llama \"portabilidad\" y puede ser útil en determinadas situaciones.",
+      "description2": "Para solicitar alguno de estos derechos, deberá realizar una solicitud escrita a nuestra dirección, junto con una fotocopia de su DNI, para poder identificarle.",
+      "description3": "Para saber más sobre sus derechos de protección de datos, puede consultar la página web de la Agencia Española de Protección de Datos (www.aepd.es)."
+    },
+    "consent": {
+      "title": "¿Puede Retirar Su Consentimiento Si Cambia de Opinión?",
+      "description": "Usted puede retirar su consentimiento si cambia de opinión sobre el uso de sus datos en cualquier momento. Así por ejemplo, si usted en su día estuvo interesado/a en recibir publicidad de nuestros productos o servicios, pero ya no desea recibir más publicidad, puede hacérnoslo constar a través del formulario de oposición al tratamiento disponible en las oficinas de nuestra entidad."
+    },
+    "complaints": {
+      "title": "¿Dónde Puede Formular una Reclamación?",
+      "description": "En caso de que entienda que sus derechos han sido desatendidos por nuestra entidad, puede formular una reclamación en la Agencia Española de Protección de Datos, a través de alguno de los medios siguientes:",
+      "website-label": "Sede electrónica",
+      "address-label": "Dirección postal",
+      "phone-label": "Vía telefónica",
+      "note": "Formular una reclamación en la Agencia Española de Protección de Datos no conlleva ningún coste y no es necesaria la asistencia de abogado ni procurador."
+    },
+    "profiles": {
+      "title": "¿Elaboraremos Perfiles Sobre Usted?",
+      "description1": "Nuestra política es no elaborar perfiles sobre los usuarios de nuestros servicios.",
+      "description2": "No obstante, pueden existir situaciones en las que, con fines de prestación del servicio, comerciales o de otro tipo, necesitemos elaborar perfiles de información sobre usted. Un ejemplo pudiera ser la utilización de su historial de compras o servicios para poder ofrecerle productos o servicios adaptados a sus gustos o necesidades.",
+      "description3": "En tal caso, siempre le mantendremos informado previamente y aplicaremos medidas de seguridad eficaces que protejan su información en todo momento de personas no autorizadas que pretendan utilizarla en su propio beneficio."
+    },
+    "other-purposes": {
+      "title": "¿Usaremos Sus Datos para Otros Fines?",
+      "description": "Nuestra política es no usar sus datos para otras finalidades distintas a las que le hemos explicado. Si, no obstante, necesitásemos usar sus datos para actividades distintas, siempre le solicitaremos previamente su permiso a través de opciones claras que le permitirán decidir al respecto."
+    },
+    "contact": {
+      "title": "¿Necesita Más Información?",
+      "description": "Si tiene alguna pregunta sobre nuestra política de privacidad o el tratamiento de sus datos personales, no dude en contactarnos:"
+    }
+  },
+  "terms-conditions": {
+    "hero": {
+      "eyebrow": "Marco Legal",
+      "terminos": "Términos",
+      "yCondiciones": "y Condiciones",
+      "subtitle": "Condiciones generales que rigen el uso de nuestros servicios."
+    },
+    "intro": {
+      "title": "Términos y Condiciones de Uso",
+      "description": "Estos términos regulan el uso de nuestros servicios y establecen los derechos y obligaciones entre las partes.",
+      "effective-date": "Última actualización: Enero 2025"
+    },
+    "company-info": {
+      "title": "Información de la Empresa",
+      "company": "Empresa",
+      "cif": "CIF",
+      "address": "Dirección",
+      "website": "Sitio Web",
+      "email": "Email"
+    },
+    "acceptance": {
+      "title": "Aceptación de los Términos",
+      "description1": "Al utilizar nuestros servicios, acepta estos términos y condiciones en su totalidad.",
+      "description2": "Si no está de acuerdo, le recomendamos que no utilice nuestros servicios."
+    },
+    "services": {
+      "title": "Descripción de Servicios",
+      "description1": "Ofrecemos servicios profesionales que incluyen:",
+      "digital-marketing": "Marketing digital y estrategias online",
+      "web-development": "Desarrollo web y aplicaciones",
+      "branding": "Branding e identidad corporativa",
+      "social-media": "Gestión de redes sociales",
+      "consulting": "Consultoría estratégica",
+      "automation": "Automatización de procesos",
+      "description2": "Los servicios específicos se detallan en cada propuesta comercial."
+    },
+    "service-agreement": {
+      "title": "Contratación de Servicios",
+      "description1": "Los servicios se contratan mediante propuesta aceptada o contrato firmado.",
+      "description2": "El alcance y condiciones específicas se detallan en cada acuerdo particular.",
+      "cancellation": "La cancelación debe comunicarse con la antelación acordada en cada caso."
+    },
+    "payment": {
+      "title": "Condiciones de Pago",
+      "description1": "Los precios se establecen en la moneda local e incluyen los impuestos aplicables.",
+      "vat": "Se aplicarán los impuestos vigentes según la legislación tributaria correspondiente.",
+      "methods": "Los pagos se realizan según los métodos especificados en cada propuesta.",
+      "late-fees": "Los pagos tardíos pueden generar intereses según la normativa aplicable."
+    },
+    "client-obligations": {
+      "title": "Obligaciones del Cliente",
+      "description": "Para el desarrollo adecuado de los servicios, el cliente debe:",
+      "content": "Proporcionar la información y materiales necesarios",
+      "access": "Facilitar los accesos requeridos a sistemas y plataformas",
+      "feedback": "Proporcionar retroalimentación en los plazos establecidos",
+      "legal-compliance": "Asegurar el cumplimiento de la normativa aplicable"
+    },
+    "intellectual-property": {
+      "title": "Propiedad Intelectual",
+      "client-materials": "Los materiales del cliente permanecen bajo su propiedad con las licencias necesarias para el servicio.",
+      "galaga-work": "Nuestras metodologías y herramientas propias mantienen nuestra titularidad.",
+      "final-deliverables": "Los entregables finales se transfieren según lo acordado en cada proyecto."
+    },
+    "confidentiality": {
+      "title": "Confidencialidad",
+      "description1": "Ambas partes mantendrán la confidencialidad de la información intercambiada.",
+      "description2": "Esta obligación se mantiene durante y después de la relación comercial."
+    },
+    "liability": {
+      "title": "Limitación de Responsabilidad",
+      "description1": "Prestamos nuestros servicios con la máxima diligencia profesional.",
+      "force-majeure": "No nos responsabilizamos por causas de fuerza mayor o circunstancias excepcionales.",
+      "max-liability": "La responsabilidad máxima se limita al importe del servicio específico."
+    },
+    "termination": {
+      "title": "Terminación",
+      "notice": "Cualquier parte puede terminar el acuerdo con el preaviso acordado.",
+      "immediate": "Se puede resolver inmediatamente por incumplimiento grave.",
+      "consequences": "Al terminar, se liquidarán los servicios prestados hasta la fecha."
+    },
+    "applicable-law": {
+      "title": "Ley Aplicable",
+      "spanish-law": "Se rige por la legislación del país donde se presta el servicio.",
+      "jurisdiction": "Para controversias, se somete a los tribunales competentes del domicilio social.",
+      "disputes": "Se intentará resolver amistosamente antes de acudir a tribunales."
+    },
+    "data-protection": {
+      "title": "Protección de Datos",
+      "gdpr-compliance": "El tratamiento de datos se ajusta a la normativa de protección de datos vigente.",
+      "privacy-policy": "Consulte nuestra Política de Privacidad para información detallada."
+    },
+    "changes": {
+      "title": "Modificaciones",
+      "right-to-modify": "Nos reservamos el derecho de modificar estos términos cuando sea necesario.",
+      "notification": "Las modificaciones se comunicarán con antelación suficiente."
+    },
+    "miscellaneous": {
+      "title": "Disposiciones Generales",
+      "severability": "La invalidez de alguna cláusula no afecta la validez del resto.",
+      "entire-agreement": "Estos términos constituyen el acuerdo completo entre las partes.",
+      "language": "En caso de discrepancias idiomáticas, prevalece la versión original."
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Para consultas sobre estos términos, puede contactarnos: info@galagaagency.com"
+    }
+  },
+  "legal-pages": {
+    "cta-section": {
+      "line1": "¿Necesitas",
+      "line2": "Ayuda?",
+      "subtitle": {
+        "terms": "Estamos aquí para responder tus preguntas y ayudarte con cualquier consulta sobre nuestros términos.",
+        "privacy": "Estamos aquí para responder tus preguntas y ayudarte con cualquier consulta sobre nuestra política de privacidad."
+      },
+      "primaryButton": "Contactar",
+      "secondaryButton": {
+        "terms": "Ver Política de Privacidad", "privacy": "Ver Términos y Condiciones"
+      },
+      "directContact": "Contacto directo"
+    }
   }
 }
