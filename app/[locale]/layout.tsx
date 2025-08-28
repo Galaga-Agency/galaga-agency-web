@@ -12,8 +12,19 @@ import {
 import CookieBanner from "@/components/CookieBanner";
 import SmoothScrollWrapper from "@/components/layout/SmoothScrollWrapper";
 import ScrollToTopOnRouteChange from "@/components/layout/ScrollToTopOnRouteChange";
+import { notFound } from "next/navigation";
+
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://galagaagency.com";
+
+const LOCALES = ["es", "en"] as const;
+type Locale = (typeof LOCALES)[number];
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -102,6 +113,12 @@ export default function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+   const { locale } = params;
+
+   if (!LOCALES.includes(locale as Locale)) {
+     notFound();
+   }
+
   const organizationSchema = getOrganizationSchema();
   const websiteSchema = getWebsiteSchema();
   const localBusinessSchema = getLocalBusinessSchema();
@@ -128,7 +145,7 @@ export default function LocaleLayout({
         }}
       />
 
-      <TranslationProvider>
+      <TranslationProvider locale={locale as "es" | "en"}>
         <LoadingWrapper>
           <Navbar />
           <SmoothScrollWrapper>

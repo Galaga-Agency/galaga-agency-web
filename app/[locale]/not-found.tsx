@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslation } from "@/hooks/useTranslation";
+import { getLocalizedRoute } from "@/utils/navigation";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
@@ -8,6 +10,8 @@ import { init404Animations } from "@/utils/animations/404-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 
 export default function NotFound() {
+  const { t, language } = useTranslation();
+
   useGSAPAnimations({
     animations: [init404Animations, init3DCardAnimations],
     delay: 40,
@@ -18,7 +22,6 @@ export default function NotFound() {
 
   return (
     <section className="section relative" aria-labelledby="nf-title">
-      {/* Gradient background (same as localized) */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -126,7 +129,7 @@ export default function NotFound() {
                     className="opacity-0 text-xs md:text-sm uppercase tracking-[0.2em] text-grafito/70"
                     data-3d-desc
                   >
-                    Página no encontrada
+                    {t("not-found.kicker")}
                   </p>
 
                   <h1
@@ -134,29 +137,31 @@ export default function NotFound() {
                     data-3d-title
                     className="opacity-0 text-2xl md:text-4xl font-extrabold text-azul-profundo py-2"
                   >
-                    No hemos encontrado esta página
+                    {t("not-found.title")}
                   </h1>
 
                   <p
                     data-3d-desc
                     className="opacity-0 text-lg text-grafito max-w-prose"
                   >
-                    Lo sentimos, pero la dirección que has introducido no existe
-                    o ha cambiado.
+                    {t("not-found.description")}
                   </p>
 
                   <div
                     data-3d-data
                     className="opacity-0 pt-4 flex flex-col sm:flex-row items-center justify-center gap-3"
                   >
-                    <PrimaryButton href="/es" className="px-7 py-3 w-full">
-                      Ir al inicio
-                    </PrimaryButton>
-                    <SecondaryButton
-                      href="/es/contacto"
+                    <PrimaryButton
+                      href={getLocalizedRoute("/", language)}
                       className="px-7 py-3 w-full"
                     >
-                      Contacto
+                      {t("not-found.go-home")}
+                    </PrimaryButton>
+                    <SecondaryButton
+                      href={getLocalizedRoute("contact", language)}
+                      className="px-7 py-3 w-full"
+                    >
+                      {t("not-found.contact")}
                     </SecondaryButton>
                   </div>
 
@@ -165,24 +170,24 @@ export default function NotFound() {
                     className="opacity-0 pt-1 text-sm text-grafito/80 flex items-center justify-center gap-4"
                   >
                     <Link
-                      href="/es/servicios"
+                      href={getLocalizedRoute("services", language)}
                       className="hover:text-teal transition-colors"
                     >
-                      Servicios
+                      {t("nav.services")}
                     </Link>
                     <span className="opacity-30">•</span>
                     <Link
-                      href="/es/sobre-nosotros"
+                      href={getLocalizedRoute("about-us", language)}
                       className="hover:text-teal transition-colors"
                     >
-                      Sobre nosotros
+                      {t("nav.about")}
                     </Link>
                     <span className="opacity-30">•</span>
                     <Link
-                      href="/es/casos-de-exito"
+                      href={getLocalizedRoute("use-cases", language)}
                       className="hover:text-teal transition-colors"
                     >
-                      Casos de éxito
+                      {t("nav.cases")}
                     </Link>
                   </div>
                 </div>

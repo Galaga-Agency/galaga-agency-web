@@ -4,111 +4,86 @@ import {
   type Language,
 } from "./routeTranslations";
 
+function isAsset(path: string) {
+  return (
+    path.includes(".") ||
+    path.startsWith("_next/") ||
+    path.startsWith("favicon") ||
+    path.startsWith("icon") ||
+    path.startsWith("apple-touch") ||
+    path.startsWith("manifest")
+  );
+}
+
+function splitPathQueryHash(input: string) {
+  const [pathAndQuery, hash = ""] = input.split("#");
+  const [pathOnly, query = ""] = pathAndQuery.split("?");
+  return {
+    pathOnly,
+    query: query ? `?${query}` : "",
+    hash: hash ? `#${hash}` : "",
+  };
+}
+
+function normalize(path: string) {
+  return path.replace(/^\/+/, "").replace(/\/+$/, "");
+}
+
+/* FIXED */
 export function getLocalizedRoute(route: string, language: Language): string {
-  // If route or language are not strings, return safely
-  if (typeof route !== "string" || typeof language !== "string") {
+  if (typeof route !== "string" || (language !== "es" && language !== "en")) {
     return "/";
   }
 
-  // Skip static assets and files with extensions - return original
-  if (
-    route.includes(".") ||
-    route.startsWith("_next/") ||
-    route.startsWith("favicon") ||
-    route.startsWith("icon") ||
-    route.startsWith("apple-touch") ||
-    route.startsWith("manifest")
-  ) {
-    return route;
-  }
+  if (isAsset(route)) return route;
 
-  // If language is actually a filename, return the route as-is
-  if (
-    language.includes(".") ||
-    language.startsWith("_next/") ||
-    language.startsWith("favicon") ||
-    language.startsWith("icon")
-  ) {
-    return route;
-  }
+  // Home
+  if (!route || route === "/" || route === "") return `/${language}`;
 
-  // If it's the home route (empty string)
-  if (!route || route === "") {
-    return `/${language}`;
-  }
+  const { pathOnly, query, hash } = splitPathQueryHash(route);
 
-  // Validate language - if invalid, return route without processing
-  if (language !== "es" && language !== "en") {
-    return route;
-  }
+  // Strip leading slashes + existing locale if present
+  const parts = normalize(pathOnly).split("/");
+  const pathParts =
+    parts[0] === "es" || parts[0] === "en" ? parts.slice(1) : parts;
 
-  // Get translations for the current language
-  const translations = routeTranslations[language];
+  // Translate FIRST segment with your dictionary;
+  const first = pathParts[0] ?? "";
+  const rest = pathParts.slice(1).join("/");
 
-  if (!translations) {
-    console.error(`No translations found for language: ${language}`);
-    return `/${language}/${route}`;
-  }
+  const dict = routeTranslations[language] ?? {};
+  const translatedFirst = (dict as Record<string, string>)[first] ?? first;
 
-  // Translate the route
-  const translatedRoute =
-    translations[route as keyof typeof translations] || route;
-  return `/${language}/${translatedRoute}`;
+  const translatedPath = [translatedFirst, rest].filter(Boolean).join("/");
+
+  return `/${language}/${translatedPath}${query}${hash}`.replace(/\/+/g, "/");
 }
 
-// Function for switching languages while keeping the same page
 export function getRouteForLanguageSwitch(
   currentRoute: string,
   targetLanguage: Language
 ): string {
-  // If parameters are not strings, return safely
-  if (typeof currentRoute !== "string" || typeof targetLanguage !== "string") {
+  if (
+    typeof currentRoute !== "string" ||
+    (targetLanguage !== "es" && targetLanguage !== "en")
+  ) {
     return "/";
   }
 
-  // Skip static assets - return as-is
-  if (
-    currentRoute.includes(".") ||
-    currentRoute.startsWith("_next/") ||
-    currentRoute.startsWith("favicon") ||
-    currentRoute.startsWith("icon") ||
-    currentRoute.startsWith("apple-touch") ||
-    currentRoute.startsWith("manifest")
-  ) {
-    return currentRoute;
-  }
+  if (isAsset(currentRoute)) return currentRoute;
 
-  // If targetLanguage is actually a filename, return original route
-  if (
-    targetLanguage.includes(".") ||
-    targetLanguage.startsWith("_next/") ||
-    targetLanguage.startsWith("favicon") ||
-    targetLanguage.startsWith("icon")
-  ) {
-    return currentRoute;
-  }
+  const { pathOnly, query, hash } = splitPathQueryHash(currentRoute);
 
-  // Remove leading slash if present
-  const cleanRoute = currentRoute.replace(/^\//, "");
+  const parts = normalize(pathOnly).split("/");
 
-  // Validate target language - if invalid, return original route
-  if (targetLanguage !== "es" && targetLanguage !== "en") {
-    return currentRoute;
-  }
+  // Drop existing locale if present
+  const pathParts =
+    parts[0] === "es" || parts[0] === "en" ? parts.slice(1) : parts;
 
-  // Split the route into parts
-  const routeParts = cleanRoute.split('/');
-  
-  // Skip the first part (language) if present
-  const pathParts = routeParts.length > 1 && (routeParts[0] === 'es' || routeParts[0] === 'en') 
-    ? routeParts.slice(1) 
-    : routeParts;
-  
-  // Map each part of the route
-  const mappedParts = pathParts.map(part => 
-    routeMapping[part as keyof typeof routeMapping] || part
-  );
-  
-  // Rebuild the route for target language
-  return `/${targetLanguage}/${mappedParts.join('/')}`;
+  // Map each segment via routeMapping (unknowns are kept as-is)
+  const mapped = pathParts
+    .map((seg) => (routeMapping as Record<string, string>)[seg] ?? seg)
+    .join("/");
+
+  return `/${targetLanguage}/${mapped}${query}${hash}`.replace(/\/+/g, "/");
 }

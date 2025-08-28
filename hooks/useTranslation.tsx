@@ -2,12 +2,7 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  routeTranslations,
-  routeMapping,
-  defaultLocale,
-  type Language,
-} from "@/utils/routeTranslations";
+import { defaultLocale, type Language } from "@/utils/routeTranslations";
 import { getRouteForLanguageSwitch } from "@/utils/navigation";
 
 interface TranslationContextType {
@@ -23,25 +18,25 @@ const TranslationContext = createContext<TranslationContextType | undefined>(
 
 export function TranslationProvider({
   children,
+  locale, // 👈 accept locale from layout
 }: {
   children: React.ReactNode;
+  locale?: Language;
 }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // Get current language from URL and persist it
+  // 👇 use the locale prop if provided, otherwise derive from URL
   const pathSegment = pathname.split("/")[1];
-  const currentLocale = (pathSegment === "es" || pathSegment === "en") ? pathSegment : null;
-  
-  const [language, setLanguage] = useState<Language>(() => {
-    // If URL has valid locale, use it
-    if (currentLocale) {
-      return currentLocale;
-    }
-    
-    // Default to Spanish for root path or invalid locales
-    return "es";
-  });
+  const currentLocale =
+    locale ||
+    (pathSegment === "es" || pathSegment === "en"
+      ? (pathSegment as Language)
+      : null);
+
+  const [language, setLanguage] = useState<Language>(
+    currentLocale || defaultLocale
+  );
   const [translations, setTranslations] = useState<any>({});
 
   const loadTranslations = async (lang: Language) => {
@@ -53,22 +48,18 @@ export function TranslationProvider({
     }
   };
 
+  // 🔄 update language if URL or prop changes
   useEffect(() => {
     const urlLocale = pathname.split("/")[1] as Language;
-    if (urlLocale && (urlLocale === "es" || urlLocale === "en")) {
-      setLanguage(urlLocale);
-      // Save to localStorage for persistence
-      if (typeof window !== "undefined") {
-        localStorage.setItem("preferred-language", urlLocale);
-      }
-    } else {
-      // No locale in URL, default to Spanish
-      setLanguage("es");
-      if (typeof window !== "undefined") {
-        localStorage.setItem("preferred-language", "es");
-      }
+    const effectiveLocale =
+      locale ||
+      (urlLocale === "es" || urlLocale === "en" ? urlLocale : defaultLocale);
+
+    setLanguage(effectiveLocale);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("preferred-language", effectiveLocale);
     }
-  }, [pathname]);
+  }, [pathname, locale]);
 
   useEffect(() => {
     loadTranslations(language);
@@ -89,19 +80,17 @@ export function TranslationProvider({
     return typeof value === "string" ? value : key;
   };
 
-  const changeLanguage = async (newLanguage: Language) => {
+  const changeLanguage = (newLanguage: Language) => {
     const newPath = getRouteForLanguageSwitch(pathname, newLanguage);
-    // Use window.history.replaceState for no reload
     window.history.replaceState({}, "", newPath);
     setLanguage(newLanguage);
 
-    // Save preference
     if (typeof window !== "undefined") {
       localStorage.setItem("preferred-language", newLanguage);
     }
   };
 
-  const toggleLanguage = async () => {
+  const toggleLanguage = () => {
     const newLang = language === "es" ? "en" : "es";
     changeLanguage(newLang);
   };

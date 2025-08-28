@@ -31,22 +31,12 @@
       "learnMore": "View all services"
     }
   },
-  "notFound": {
+  "not-found": {
+    "kicker": "Error 404",
     "title": "Page not found",
-    "description": "Sorry, the page you're looking for doesn't exist or has been moved.",
-    "goHome": "Go home",
-    "goBack": "Go back",
-    "contactUs": "Contact us",
-    "helpfulLinks": "Helpful links",
-    "links": {
-      "about": "About us",
-      "aboutDesc": "Learn our story",
-      "services": "Services",
-      "servicesDesc": "Discover what we can do",
-      "contact": "Contact",
-      "contactDesc": "Get in touch",
-      "email": "Direct email"
-    }
+    "description": "The page you’re looking for doesn’t exist or was moved.",
+    "go-home": "Go home",
+    "contact": "Contact"
   },
   "homepage": {
     "hero-section": {

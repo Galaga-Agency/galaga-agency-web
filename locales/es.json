@@ -31,22 +31,12 @@
       "learnMore": "Ver todos los servicios"
     }
   },
-  "notFound": {
+  "not-found": {
+    "kicker": "Error 404",
     "title": "Página no encontrada",
-    "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
-    "goHome": "Volver al inicio",
-    "goBack": "Volver atrás",
-    "contactUs": "Contacta con nosotros",
-    "helpfulLinks": "Enlaces útiles",
-    "links": {
-      "about": "Sobre nosotros",
-      "aboutDesc": "Conoce nuestra historia",
-      "services": "Servicios",
-      "servicesDesc": "Descubre qué podemos hacer",
-      "contact": "Contacto",
-      "contactDesc": "Ponte en contacto",
-      "email": "Email directo"
-    }
+    "description": "La página que buscas no existe o fue movida.",
+    "go-home": "Ir al inicio",
+    "contact": "Contactar"
   },
   "homepage": {
     "hero-section": {
@@ -1350,7 +1340,8 @@
       },
       "primaryButton": "Contactar",
       "secondaryButton": {
-        "terms": "Ver Política de Privacidad", "privacy": "Ver Términos y Condiciones"
+        "terms": "Ver Política de Privacidad",
+        "privacy": "Ver Términos y Condiciones"
       },
       "directContact": "Contacto directo"
     }
