@@ -7,6 +7,7 @@ import ContactFormSection from "@/components/pages/contact-page/ContactFormSecti
 import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 
 export default function ContactPage() {
   const { t, language } = useTranslation();
@@ -24,7 +25,7 @@ export default function ContactPage() {
   ];
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations],
+    animations: [initEntranceAnimations, init3DCardAnimations],
     delay: 100,
   });
 

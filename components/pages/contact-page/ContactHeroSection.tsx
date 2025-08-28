@@ -100,7 +100,7 @@ export default function ContactHeroSection() {
       </div>
 
       <div 
-        className={`hero-scroll-indicator absolute bottom-8 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-600 ${
+        className={`hero-scroll-indicator absolute bottom-12 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-600 ${
           showScrollIndicator ? 'opacity-100' : 'opacity-0 translate-y-5'
         }`}
       >

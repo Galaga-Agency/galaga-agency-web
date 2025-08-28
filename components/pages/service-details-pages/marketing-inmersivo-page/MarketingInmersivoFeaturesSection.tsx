@@ -147,25 +147,9 @@ export default function MarketingInmersivoFeaturesSection() {
   return (
     <section
       ref={containerRef}
-      className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden"
-      style={{
-        backgroundAttachment: "fixed",
-      }}
+      className="marketing-inmersivo-features-section section bg-gradient-to-br from-azul-profundo via-teal to-negro relative overflow-hidden h-auto"
     >
-      {/* Animated grid background */}
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(76, 188, 197, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(76, 188, 197, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: "50px 50px",
-          transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.05}px)`,
-        }}
-      />
-
-      <div className="container relative z-10 pb-0 md:pb-24">
+      <div className="container relative z-10 pb-0 md:pb-24 overflow-hidden">
         {/* Header */}
         <div className="text-center pb-16">
           <h2 className="section-title text-blanco pb-8 mb-0 fade-in-up opacity-0">

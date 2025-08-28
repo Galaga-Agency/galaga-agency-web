@@ -66,7 +66,7 @@ export default function MarketingInmersivoHeroSection() {
         </div>
       </div>
 
-      <ScrollIndicator className="hero-scroll-indicator absolute bottom-8 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
+      <ScrollIndicator className="hero-scroll-indicator absolute bottom-12 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
     </section>
   );
 }

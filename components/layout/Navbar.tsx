@@ -2,10 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useGSAP } from "@gsap/react";
 import { getLocalizedNavigationItems, ctaButtonKey } from "@/data/menu";
-import { getLocalizedRoute } from "@/utils/navigation";
+import {
+  getLocalizedRoute,
+  getRouteForLanguageSwitch,
+} from "@/utils/navigation";
 import { useTranslation } from "@/hooks/useTranslation";
 import { services } from "@/data/services";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -19,13 +22,15 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const router = useRouter();
+  const currentLang: "es" | "en" = pathname.startsWith("/en") ? "en" : "es";
   const { t, language, toggleLanguage } = useTranslation();
   const { isMobile } = useDeviceDetect();
   const navRef = useRef<HTMLElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const servicesTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const localizedNavItems = getLocalizedNavigationItems(language);
+  const localizedNavItems = getLocalizedNavigationItems(currentLang);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -63,6 +68,21 @@ export default function Navbar() {
     }, 150);
   };
 
+  // Route to the mirrored path when switching language
+  const handleLanguageSwitch = () => {
+    const targetLanguage: "es" | "en" = currentLang === "es" ? "en" : "es";
+    const nextPath = getRouteForLanguageSwitch(pathname, targetLanguage);
+    router.push(nextPath);
+  };
+
+  // Keep i18n store in sync with the URL (prevents “sometimes stuck”)
+  useEffect(() => {
+    if (language !== currentLang) {
+      toggleLanguage();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentLang]);
+
   return (
     <>
       <HamburgerToggle
@@ -83,7 +103,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-18 md:h-16 lg:h-20">
             {/* Logo */}
             <div className="flex-shrink-0 navbar-logo min-w-0">
-              <Link href={getLocalizedRoute("", language)} className="block">
+              <Link href={getLocalizedRoute("", currentLang)} className="block">
                 <img
                   src={
                     isScrolled
@@ -104,14 +124,20 @@ export default function Navbar() {
             <div className="hidden xl:flex items-center justify-center flex-1">
               <ul className="flex items-center gap-1 navbar-links">
                 {localizedNavItems.map((item, index) => {
-                  const isServicesItem = item.href.includes('services') || item.href.includes('servicios');
-                  
+                  const isServicesItem =
+                    item.href.includes("services") ||
+                    item.href.includes("servicios");
+
                   return (
-                    <li 
-                      key={item.href} 
+                    <li
+                      key={item.href}
                       className="navbar-link-item relative"
-                      onMouseEnter={isServicesItem ? handleServicesMouseEnter : undefined}
-                      onMouseLeave={isServicesItem ? handleServicesMouseLeave : undefined}
+                      onMouseEnter={
+                        isServicesItem ? handleServicesMouseEnter : undefined
+                      }
+                      onMouseLeave={
+                        isServicesItem ? handleServicesMouseLeave : undefined
+                      }
                     >
                       <Link
                         href={item.href}
@@ -129,13 +155,18 @@ export default function Navbar() {
                         {isServicesItem && (
                           <svg
                             className={`w-4 h-4 transition-transform duration-200 ${
-                              isServicesOpen ? 'rotate-180' : ''
+                              isServicesOpen ? "rotate-180" : ""
                             }`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         )}
                       </Link>
@@ -145,8 +176,8 @@ export default function Navbar() {
                         <div
                           className={`absolute top-full left-0 mt-2 w-80 transition-all duration-300 ease-out ${
                             isServicesOpen
-                              ? 'opacity-100 visible translate-y-0'
-                              : 'opacity-0 invisible translate-y-4 pointer-events-none'
+                              ? "opacity-100 visible translate-y-0"
+                              : "opacity-0 invisible translate-y-4 pointer-events-none"
                           }`}
                           onMouseEnter={handleServicesMouseEnter}
                           onMouseLeave={handleServicesMouseLeave}
@@ -155,8 +186,12 @@ export default function Navbar() {
                             <div className="space-y-1">
                               {services.map((service, index) => {
                                 const translatedSlug = t(service.slug);
-                                const serviceUrl = `/${language}/${language === "es" ? "servicios" : "services"}/${translatedSlug}`;
-                                
+                                const serviceUrl = `/${currentLang}/${
+                                  currentLang === "es"
+                                    ? "servicios"
+                                    : "services"
+                                }/${translatedSlug}`;
+
                                 if (!service.hasRedirection) {
                                   return (
                                     <div
@@ -172,7 +207,7 @@ export default function Navbar() {
                                     </div>
                                   );
                                 }
-                                
+
                                 return (
                                   <Link
                                     key={index}
@@ -188,18 +223,31 @@ export default function Navbar() {
                                   </Link>
                                 );
                               })}
-                              
+
                               {/* View All Services */}
                               <div className="pt-2 mt-2 border-t border-teal/10">
                                 <Link
-                                  href={getLocalizedRoute("services", language)}
+                                  href={getLocalizedRoute(
+                                    "services",
+                                    currentLang
+                                  )}
                                   className="group flex items-center justify-between p-3 rounded-lg bg-teal/5 hover:bg-teal/10 transition-all duration-200"
                                 >
                                   <span className="text-sm font-semibold text-teal">
                                     Ver Todos los Servicios
                                   </span>
-                                  <svg className="w-4 h-4 text-teal group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                  <svg
+                                    className="w-4 h-4 text-teal group-hover:translate-x-1 transition-transform"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M9 5l7 7-7 7"
+                                    />
                                   </svg>
                                 </Link>
                               </div>
@@ -217,22 +265,22 @@ export default function Navbar() {
             <div className="hidden xl:flex items-center gap-4 navbar-desktop-actions">
               <div className="navbar-lang-selector">
                 <LanguageSelector
-                  language={language}
-                  onToggle={toggleLanguage}
+                  language={currentLang}
+                  onToggle={handleLanguageSwitch}
                   isScrolled={isScrolled}
                 />
               </div>
               <div className="navbar-cta-button">
                 {isScrolled ? (
                   <PrimaryButton
-                    href={getLocalizedRoute("contacto", language)}
+                    href={getLocalizedRoute("contacto", currentLang)}
                     size="md"
                   >
                     {t(ctaButtonKey)}
                   </PrimaryButton>
                 ) : (
                   <SecondaryButton
-                    href={getLocalizedRoute("contacto", language)}
+                    href={getLocalizedRoute("contacto", currentLang)}
                     size="md"
                     className="text-white/80 hover:text-white hover:border-white"
                   >
@@ -295,13 +343,13 @@ export default function Navbar() {
 
           <div className="pt-4 md:pt-6 border-t border-gray-100 navbar-mobile-footer">
             <button
-              onClick={toggleLanguage}
+              onClick={handleLanguageSwitch}
               className="w-full text-left px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base text-gray-600 hover:bg-gray-50 rounded-lg transition-colors mb-3 md:mb-4"
             >
               <span className="text-xs text-gray-400 block">
                 {t("nav.language")}
               </span>
-              {language === "es" ? "Español" : "English"}
+              {currentLang === "es" ? "Español" : "English"}
             </button>
 
             <div className="pb-4 border-b border-gray-100 mb-4">
@@ -363,7 +411,7 @@ export default function Navbar() {
             </div>
 
             <PrimaryButton
-              href={getLocalizedRoute("contacto", language)}
+              href={getLocalizedRoute("contacto", currentLang)}
               size="md"
               className="w-full justify-center text-sm md:text-base py-2.5 md:py-3"
               onClick={closeMenu}
