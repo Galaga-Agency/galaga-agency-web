@@ -122,7 +122,7 @@ export default function AboutStorySection() {
             <div className="block-container grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="px-4 lg:px-0">
                 <div className="flex items-center gap-6 pb-8">
-                  <div className="block-icon-3 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-purple-gradient rounded-full flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 hover:rotate-6">
+                  <div className="flex-shrink-0 block-icon-3 opacity-0 w-16 h-16 md:w-20 md:h-20 bg-purple-gradient rounded-full flex items-center justify-center shadow-xl transition-all duration-300 hover:scale-110 hover:rotate-6">
                     <Target className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
                   <div className="block-title-3 opacity-0">

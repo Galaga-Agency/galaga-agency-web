@@ -70,7 +70,7 @@ export default function ServicesHeroSection() {
         </div>
       </div>
 
-      <ScrollIndicator className="hero-scroll-indicator absolute bottom-12 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
+      <ScrollIndicator className="hero-scroll-indicator absolute bottom-16 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
     </section>
   );
 }

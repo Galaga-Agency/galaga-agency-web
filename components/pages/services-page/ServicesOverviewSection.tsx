@@ -11,14 +11,14 @@ export default function ServicesOverviewSection() {
     <section className="services-overview-section section bg-[#f6fbfd]">
       <div className="container">
         {/* Header */}
-        <div className="text-center pb-16">
+        <div className="text-center pb-16 w-full">
           <span className="fade-in-up opacity-0 text-teal font-semibold tracking-wider uppercase text-sm">
             {t("services-page.overview-section.eyebrow")}
           </span>
           <h2 className="fade-in-up opacity-0 section-title text-teal pt-4 pb-6">
             {t("services-page.overview-section.title")}
           </h2>
-          <p className="fade-in-up opacity-0 text-lg md:text-xl text-negro/70 w-full container-tablet">
+          <p className="fade-in-up opacity-0 text-lg md:text-xl text-negro/70 w-full">
             {t("services-page.overview-section.subtitle")}
           </p>
         </div>

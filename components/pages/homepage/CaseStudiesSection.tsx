@@ -57,7 +57,7 @@ export default function CaseStudiesSection() {
   };
 
   return (
-    <section className="case-studies-section relative overflow-hidden">
+    <section className="case-studies-section relative overflow-visible">
       <div className="container relative z-10">
         <div className="text-center pb-12 md:pb-16">
           <h2 className="case-studies-title section-title text-teal pb-6">

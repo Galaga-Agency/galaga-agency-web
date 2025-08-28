@@ -11,9 +11,8 @@ interface ServiceCardProps {
   index: number;
 }
 
-/** Brand themes → CSS-friendly rgba triplets for glow + primary text color */
 const themeColors = {
-  teal: { primary: "#176161", glow: "76, 188, 197" }, // rgb triplet as string
+  teal: { primary: "#176161", glow: "23, 97, 97" }, // rgb triplet as string
   "azul-profundo": { primary: "#121c30", glow: "18, 28, 48" },
   mandarina: { primary: "#b03c18", glow: "238, 111, 69" },
   violeta: { primary: "#4e3a73", glow: "78, 58, 115" },
@@ -156,32 +155,33 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               </div>
             </div>
 
-            <div className="w-full flex flex-col items-center">  {/* Title */}
-            <h3
-              data-3d-title
-              className="text-[1.35rem] font-black leading-tight pb-4"
-              style={{
-                color: "#0c1b2a",
-                textShadow: "0 1px 0 rgba(255,255,255,0.85)",
-                willChange: "transform",
-              }}
-            >
-              {t(service.title)}
-            </h3>
+            <div className="w-full flex flex-col items-center">
+              {" "}
+              {/* Title */}
+              <h3
+                data-3d-title
+                className="text-[1.35rem] font-black leading-tight pb-4"
+                style={{
+                  color: "#0c1b2a",
+                  textShadow: "0 1px 0 rgba(255,255,255,0.85)",
+                  willChange: "transform",
+                }}
+              >
+                {t(service.title)}
+              </h3>
+              {/* Description */}
+              <p
+                data-3d-desc
+                className="pb-6 text-center"
+                style={{
+                  color: "rgba(10,20,30,0.72)",
+                  willChange: "transform",
+                }}
+              >
+                {t(service.description)}
+              </p>
+            </div>
 
-            {/* Description */}
-            <p
-              data-3d-desc
-              className="pb-6 text-center"
-              style={{
-                color: "rgba(10,20,30,0.72)",
-                willChange: "transform",
-              }}
-            >
-              {t(service.description)}
-            </p></div>
-
-  
             {/* Bullets */}
             <ul className="flex flex-col gap-2 mt-auto">
               {(service.features ?? []).slice(0, 4).map((featKey, i) => (
@@ -202,31 +202,32 @@ export default function ServiceCard({ service }: ServiceCardProps) {
               <div className="absolute bottom-6 right-6 mt-6 flex justify-end">
                 <Link
                   href={serviceUrl}
-                  className="relative inline-flex items-center gap-2 px-4 py-2 rounded-full border transition-transform"
-                  style={{
-                    borderColor: "rgba(0,0,0,0.08)",
-                    background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.78))",
-                    boxShadow:
-                      "0 4px 14px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.95)",
-                  }}
                 >
-                  <span className="text-[0.92rem] text-[#0c1b2a]">
-                    {t("homepage-cta.knowMore")}
-                  </span>
-                  <svg
-                    className="w-4 h-4 text-[#0c1b2a]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
+                  <div className="flex items-center justify-end pt-3 md:pt-4">
+                    <div
+                      className="w-8 h-8 rounded-full flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg"
+                      style={{
+                        background: `linear-gradient(135deg,
+      rgba(${colors.glow},0.9) 0%,
+      rgba(${colors.glow},0.7) 100%)`,
+                        boxShadow: `0 0 12px rgba(${colors.glow},0.45)`,
+                      }}
+                    >
+                      <svg
+                        className="w-4 h-4 text-white transition-transform duration-300 group-hover:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={3}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
                 </Link>
               </div>
             )}

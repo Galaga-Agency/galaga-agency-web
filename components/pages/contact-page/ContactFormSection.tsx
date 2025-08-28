@@ -379,7 +379,7 @@ export default function ContactFormSection() {
           {/* Right - Form */}
           <div className="z-20 lg:col-span-3">
             <div className="contact-form-container slide-in-up opacity-0">
-              <div className="bg-blanco/70 backdrop-blur-md p-12 rounded-2xl border border-hielo/30 shadow-xl">
+              <div className="bg-blanco/70 backdrop-blur-md p-6 lg:px-8 lg:py-12 rounded-2xl border border-hielo/30 shadow-xl">
                 <ContactForm />
               </div>
             </div>
