@@ -37,7 +37,7 @@ export default function CookieBanner({}: CookieBannerProps) {
   };
 
   return (
-    <div className="fixed inset-x-4 bottom-6 w-[90vw] mx-auto md:inset-x-auto md:bottom-6 md:right-6 md:w-auto md:max-w-lg z-50 overflow-hidden">
+    <div className="fixed inset-x-4 bottom-6 w-[90vw] mx-auto md:inset-x-auto md:bottom-6 md:right-6 md:w-auto md:max-w-lg z-[99999] overflow-hidden">
       {!showDetails ? (
         /* Main Banner with Dramatic 3D effects and Cookie Cursor */
         <div
