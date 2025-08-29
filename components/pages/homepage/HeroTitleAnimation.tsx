@@ -5,6 +5,7 @@ import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import SecondaryButton from "@/components/ui/SecondaryButton";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import Image from "next/image";
 
 export const HeroTitleAnimation = () => {
   const { t } = useTranslation();
@@ -55,10 +56,12 @@ export const HeroTitleAnimation = () => {
     <div className="relative w-full h-screen flex flex-col items-center justify-center z-20">
       {/* Simple Logo Animation - Changed to absolute positioning within the centered container */}
       <div className="hero-logo-js absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] opacity-0">
-        <img
+        <Image
           src="/assets/img/logos/logo-full-white.webp"
           alt="Galaga Agency"
-          className="w-[70vw] md:w-[50vw] lg:w-[35vw] xl:w-[30vw] h-auto opacity-95 drop-shadow-2xl"
+          className="w-[90vw] md:w-[50vw] lg:w-[35vw] xl:w-[30vw] h-auto opacity-95 drop-shadow-2xl"
+          width={600}
+          height={600}
           style={{
             transformStyle: "preserve-3d",
             backfaceVisibility: "hidden",

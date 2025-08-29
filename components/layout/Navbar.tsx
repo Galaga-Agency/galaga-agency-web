@@ -50,8 +50,14 @@ export default function Navbar() {
     return initMobilePortal({ isOpen });
   }, [isOpen]);
 
-  const toggleMenu = () => setIsOpen((prev) => !prev);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => {
+    setIsServicesMobileOpen(false);
+    setIsOpen((prev) => !prev);
+  };
+  const closeMenu = () => {
+    setIsServicesMobileOpen(false);
+    setIsOpen(false);
+  };
 
   const handleServicesMouseEnter = () => {
     if (servicesTimeoutRef.current) {
@@ -422,6 +428,34 @@ export default function Navbar() {
                                 </Link>
                               );
                             })}
+                          </div>
+
+                          {/* All Services Link */}
+                          <div className="pt-3 md:pt-4">
+                            <Link
+                              href={getLocalizedRoute("services", currentLang)}
+                              onClick={closeMenu}
+                              className="group flex items-center justify-between p-6 transition-all duration-200"
+                            >
+                              <span className="text-sm font-semibold text-white">
+                                {currentLang === "es"
+                                  ? "Ver Todos los Servicios"
+                                  : "View All Services"}
+                              </span>
+                              <svg
+                                className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M9 5l7 7-7 7"
+                                />
+                              </svg>
+                            </Link>
                           </div>
                         </div>
                       </div>
