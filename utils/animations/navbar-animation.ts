@@ -1,23 +1,19 @@
-export interface NavbarAnimationsConfig {
-  navElement: HTMLElement;
-  mobileMenuElement: HTMLElement | null;
-  isMenuOpen: boolean;
-}
-
-export function initNavbarAnimations({
-  navElement,
-  mobileMenuElement,
-  isMenuOpen
-}: NavbarAnimationsConfig) {
-  
-  // Everything is handled by CSS animations now
-  // This function is kept for consistency but does minimal work
-  
-  // Just mark as animated to prevent re-initialization
-  if (!navElement.dataset.animated) {
-    navElement.dataset.animated = "true";
+// /utils/animations/navbar-animation.ts
+export function initNavbarAnimations({ isMenuOpen }: { isMenuOpen: boolean }) {
+  const tokens = ["overflow-hidden", "touch-none", "overscroll-none"];
+  const add = (el: Element) => tokens.forEach((t) => el.classList.add(t));
+  const rem = (el: Element) => tokens.forEach((t) => el.classList.remove(t));
+  const root = document.documentElement,
+    body = document.body;
+  if (isMenuOpen) {
+    add(root);
+    add(body);
+  } else {
+    rem(root);
+    rem(body);
   }
-
-  // No cleanup needed - CSS handles everything
-  return () => {};
+  return () => {
+    rem(root);
+    rem(body);
+  };
 }
