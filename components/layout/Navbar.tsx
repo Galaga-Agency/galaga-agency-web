@@ -14,7 +14,6 @@ import { services } from "@/data/services";
 import PrimaryButton from "@/components/ui/PrimaryButton";
 import LanguageSelector from "@/components/LanguageSelector";
 import HamburgerToggle from "@/components/HamburgerToggle";
-import { initNavbarAnimations } from "@/utils/animations/navbar-animation";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import SecondaryButton from "../ui/SecondaryButton";
 import Image from "next/image";
@@ -286,7 +285,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
       {/* === MOBILE MENU PORTAL ==================================== */}
       <div
         className="xl:hidden fixed inset-0 z-[998] pointer-events-none"
@@ -434,8 +432,8 @@ export default function Navbar() {
             </nav>
 
             {/* Extras */}
-            <div className="portal-extras pt-6 md:mt-8 px-5 md:px-6 pb-8 flex flex-col gap-4">
-              <div className="h-full flex flex-col justify-center gap-3 md:gap-4 flex-1 py-6">
+            <div className="portal-extras py-6 md:mt-8 px-5 md:px-6 flex flex-col gap-4">
+              <div className="h-full flex flex-col justify-center gap-3 md:gap-4 flex-1 pt-4 pb-12">
                 {/* Email */}
                 <a
                   href="mailto:info@galagaagency.com"
@@ -465,71 +463,149 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="container bottom-6 inset-x-0 bg-azul-profundo backdrop-blur-md rounded-2xl p-6 border border-white/10">
-                {/* Socials + language */}
-                <div className="flex justify-between items-center pb-5">
-                  <div className="flex gap-3">
-                    <a
-                      href="https://linkedin.com/company/galagaagency"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
-                    >
-                      <FiLinkedin className="w-6 h-6 flex-shrink-0" />
-                    </a>
-                    <a
-                      href="https://instagram.com/galagaagency"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
-                    >
-                      <FiInstagram className="w-6 h-6 flex-shrink-0" />
-                    </a>
-                  </div>
-                  {/* Language toggle */}
-                  <button
-                    onClick={handleLanguageSwitch}
-                    className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold border border-white/10 hover:border-white/20 transition-all duration-200"
-                  >
-                    {currentLang === "es" ? "English" : "Español"}
-                  </button>
-                </div>
 
-                {/* CTA */}
-                <PrimaryButton
-                  href={getLocalizedRoute("contacto", currentLang)}
-                  size="md"
-                  onClick={closeMenu}
-                  className="w-full"
+              <div className="group relative">
+                <div
+                  className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 blur-xl pointer-events-none"
+                  style={{
+                    background: `
+                      radial-gradient(circle at 50% 50%,
+                        rgba(76, 188, 197, 0.6) 0%,
+                        rgba(76, 188, 197, 0.2) 40%,
+                        transparent 70%
+                      )
+                    `,
+                    animation: "pulse-glow 2s ease-in-out infinite alternate",
+                  }}
+                />
+
+                <div
+                  className="container bottom-6 inset-x-0 relative rounded-2xl p-6 border overflow-hidden backdrop-blur-xl"
+                  style={{
+                    background: `
+                      linear-gradient(135deg, 
+                        rgba(255, 255, 255, 0.10) 0%,
+                        rgba(255, 255, 255, 0.05) 50%,
+                        rgba(76, 188, 197, 0.10) 100%
+                      )
+                    `,
+                    borderColor: "rgba(255, 255, 255, 0.12)",
+                    boxShadow: `
+                      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                      0 20px 40px rgba(0, 0, 0, 0.12)
+                    `,
+                    transformStyle: "preserve-3d",
+                  }}
                 >
-                  {t(ctaButtonKey)}
-                </PrimaryButton>
+                  <div
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      background: `
+                        radial-gradient(circle at 50% 50%, 
+                          rgba(76, 188, 197, 0.15) 0%, 
+                          transparent 50%
+                        ),
+                        linear-gradient(45deg, 
+                          transparent 30%, 
+                          rgba(76, 188, 197, 0.05) 50%, 
+                          transparent 70%
+                        )
+                      `,
+                      willChange: "transform",
+                    }}
+                  />
 
-                {/* Legal */}
-                <div className="flex justify-between items-center gap-6 text-white/60 text-md pt-6">
-                  <Link
-                    href={
-                      currentLang === "es"
-                        ? "/es/politica-de-privacidad"
-                        : "/en/privacy-policy"
-                    }
-                    onClick={closeMenu}
-                    className="hover:text-white transition text-center"
-                  >
-                    {t("footer.privacy")}
-                  </Link>
-                  <span>•</span>
-                  <Link
-                    href={
-                      currentLang === "es"
-                        ? "/es/terminos-y-condiciones"
-                        : "/en/terms-and-conditions"
-                    }
-                    onClick={closeMenu}
-                    className="hover:text-white transition text-center"
-                  >
-                    {t("footer.terms")}
-                  </Link>
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none"
+                    style={{
+                      background: `linear-gradient(90deg, 
+                        transparent 0%, 
+                        rgba(76, 188, 197, 0.5) 50%, 
+                        transparent 100%
+                      )`,
+                      transform: "translateX(-100%)",
+                      animation: "scan-line 3s ease-in-out infinite",
+                      willChange: "transform",
+                    }}
+                  />
+
+                  <div className="absolute top-0 right-0 w-1 h-full overflow-hidden opacity-30">
+                    <div
+                      className="w-full h-8 opacity-80"
+                      style={{
+                        background: `linear-gradient(180deg, rgba(76, 188, 197, 0.8) 0%, transparent 100%)`,
+                        willChange: "transform",
+                      }}
+                    />
+                  </div>
+
+                  <div className="relative z-10">
+                    {/* Socials + language */}
+                    <div className="flex justify-between items-center pb-5">
+                      <div className="flex gap-3">
+                        <a
+                          href="https://linkedin.com/company/galagaagency"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
+                        >
+                          <FiLinkedin className="w-6 h-6 flex-shrink-0" />
+                        </a>
+                        <a
+                          href="https://instagram.com/galagaagency"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 hover:border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-105"
+                        >
+                          <FiInstagram className="w-6 h-6 flex-shrink-0" />
+                        </a>
+                      </div>
+                      {/* Language toggle */}
+                      <button
+                        onClick={handleLanguageSwitch}
+                        className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-sm font-semibold border border-white/10 hover:border-white/20 transition-all duration-200"
+                      >
+                        {currentLang === "es" ? "English" : "Español"}
+                      </button>
+                    </div>
+
+                    {/* CTA */}
+                    <PrimaryButton
+                      href={getLocalizedRoute("contacto", currentLang)}
+                      size="md"
+                      onClick={closeMenu}
+                      className="w-full"
+                    >
+                      {t(ctaButtonKey)}
+                    </PrimaryButton>
+
+                    {/* Legal */}
+                    <div className="flex justify-between items-center gap-6 text-white/60 text-md pt-6">
+                      <Link
+                        href={
+                          currentLang === "es"
+                            ? "/es/politica-de-privacidad"
+                            : "/en/privacy-policy"
+                        }
+                        onClick={closeMenu}
+                        className="hover:text-white transition text-center"
+                      >
+                        {t("footer.privacy")}
+                      </Link>
+                      <span>•</span>
+                      <Link
+                        href={
+                          currentLang === "es"
+                            ? "/es/terminos-y-condiciones"
+                            : "/en/terms-and-conditions"
+                        }
+                        onClick={closeMenu}
+                        className="hover:text-white transition text-center"
+                      >
+                        {t("footer.terms")}
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
