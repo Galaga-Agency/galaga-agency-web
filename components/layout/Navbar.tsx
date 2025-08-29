@@ -456,7 +456,7 @@ export default function Navbar() {
                     <FiMapPin className="flex-shrink-0 w-5 h-5" />
                   </div>
                   <div>
-                    <p className="text-white/60 text-sm">Location</p>
+                    <p className="text-white/60 text-sm">{t("nav.location")}</p>
                     <span className="text-white font-semibold">
                       Telde, Gran Canaria
                     </span>
