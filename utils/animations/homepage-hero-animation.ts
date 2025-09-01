@@ -1,137 +1,91 @@
-import { gsap } from "gsap";
+"use client";
+
+import { gsap } from "@/lib/gsapConfig";
 
 export const initHeroTitleAnimation = () => {
-  const tl = gsap.timeline();
+  if (typeof window === "undefined") return () => {};
 
-  // EXPLICITLY KILL ANY GSAP CONTROL OVER LOGO
-  tl.set(".hero-logo, .hero-logo-img, .hero-logo *", { 
-    clearProps: "all"
-  }, 0);
+  const tl = gsap.timeline({ defaults: { overwrite: "auto" } });
 
-  // Start GSAP animations AFTER CSS logo is done
-  // 1. Value proposition container appears first
+  // 0) Ensure GSAP doesn't hold any prior transforms on the logo (CSS owns it)
+  tl.set(".hero-logo, .hero-logo-img, .hero-logo *", { clearProps: "all" }, 0);
+
+  // 1) Value proposition container appears
   tl.to(
     ".hero-value-proposition",
-    {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out",
-    },
-    0 // Start after CSS animation
+    { opacity: 1, duration: 0.8, ease: "power2.out" },
+    0
   );
 
-  // 2. ValuePropositionLine1 appears FIRST
+  // 2) Line 1 fades in
   tl.fromTo(
     ".hero-value-text-line1",
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      duration: 1.0, // Slower for smoother fade
-      ease: "power1.out", // Gentler easing
-    },
+    { opacity: 0 },
+    { opacity: 1, duration: 1.0, ease: "power1.out" },
     "+=0.3"
   );
 
-  // 3. Innovamos appears (starts animating)
+  // 3) Main title
   tl.to(
     ".hero-title",
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    },
+    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
     "+=0.4"
   );
 
-  // 4. Para ti appears at same time as Innovamos
+  // 4) “Para ti” appears (parallel-ish)
   tl.to(
     ".hero-para-ti",
-    {
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out",
-    },
+    { opacity: 1, duration: 0.5, ease: "power2.out" },
     "-=0.2"
   );
 
-  // 5. ValuePropositionLine2 shows up
+  // 5) Line 2 in
   tl.fromTo(
     ".hero-value-text-line2",
-    {
-      opacity: 0,
-    },
-    {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power1.out", // Gentler easing
-    },
+    { opacity: 0 },
+    { opacity: 1, duration: 0.8, ease: "power1.out" },
     "+=0.3"
   );
 
-  // Flash animation for line 2
+  // Flash effect on line 2
   tl.to(
     ".hero-value-text-line2",
-    {
-      opacity: 0.1,
-      duration: 0.25,
-      ease: "power2.inOut",
-    },
+    { opacity: 0.1, duration: 0.25, ease: "power2.inOut" },
+    "+=0.1"
+  );
+  tl.to(
+    ".hero-value-text-line2",
+    { opacity: 1, duration: 0.3, ease: "power2.out" },
     "+=0.1"
   );
 
-  tl.to(
-    ".hero-value-text-line2",
-    {
-      opacity: 1,
-      duration: 0.3,
-      ease: "power2.out",
-    },
-    "+=0.1"
-  );
-
-  // 6. Para ti strike through animation
+  // 6) Strike-through animation
   tl.to(
     ".hero-strike-line",
-    {
-      opacity: 1,
-      scaleX: 1,
-      duration: 0.4,
-      ease: "power2.out",
-    },
+    { opacity: 1, scaleX: 1, duration: 0.4, ease: "power2.out" },
     "+=0.2"
   );
 
-  // 7. Set up rolling for para ti -> contigo
-  tl.set(
-    ".hero-subtitle-container",
-    {
-      perspective: 1000,
-    },
-    "+=0.1"
-  );
-
+  // 7) 3D context for para-ti → contigo roll
+  tl.set(".hero-subtitle-container", { perspective: 1000 }, "+=0.1");
   tl.set(".hero-para-ti, .hero-contigo", {
     transformStyle: "preserve-3d",
     transformOrigin: "center center -50px",
   });
+  tl.set(".hero-contigo", { rotationY: 90, opacity: 1 });
 
-  tl.set(".hero-contigo", {
-    rotationY: 90,
-    opacity: 1,
-  });
-
-  // 8. Roll transition: para ti -> contigo
-  tl.to(".hero-para-ti", {
-    rotationY: -90,
-    opacity: 0,
-    duration: 0.4,
-    ease: "power2.inOut",
-    transformOrigin: "center center -50px",
-  }, "+=0.1");
-
+  // 8) Roll transition
+  tl.to(
+    ".hero-para-ti",
+    {
+      rotationY: -90,
+      opacity: 0,
+      duration: 0.4,
+      ease: "power2.inOut",
+      transformOrigin: "center center -50px",
+    },
+    "+=0.1"
+  );
   tl.to(
     ".hero-contigo",
     {
@@ -143,86 +97,77 @@ export const initHeroTitleAnimation = () => {
     "-=0.4"
   );
 
-  // 9. Fade line 1 to reduced opacity after everything is settled
+  // 9) Dim line 1 slightly
   tl.to(
     ".hero-value-text-line1",
-    {
-      color: "rgba(255, 255, 255, 0.4)",
-      duration: 0.5,
-      ease: "power2.out",
-    },
+    { color: "rgba(255, 255, 255, 0.4)", duration: 0.5, ease: "power2.out" },
     "+=0.2"
   );
 
-  // 10. CTA buttons appear
+  // 10) CTAs in
   tl.to(
     ".hero-cta-buttons",
-    {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: "power2.out",
-    },
+    { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
     "+=0.3"
   );
 
-  // 11. ScrollIndicator appears with slight overlap with CTA
+  // 11) Scroll indicator fades in
   tl.to(
     ".scroll-indicator",
-    {
-      opacity: 1,
-      duration: 0.5,
-      ease: "power2.out",
-    },
+    { opacity: 1, duration: 0.5, ease: "power2.out" },
     "-=0.2"
   );
 
-  // 12. Floating animation for ScrollIndicator starts immediately
+  // 12) Floating indicator loop
   tl.to(
     ".scroll-indicator-wrapper",
-    {
-      y: 8,
-      duration: 1.2,
-      ease: "power2.inOut",
-      repeat: -1,
-      yoyo: true,
-    },
+    { y: 8, duration: 1.2, ease: "power2.inOut", repeat: -1, yoyo: true },
     "-=0.4"
   );
 
-  // Add scroll detection
-  tl.call(() => {
-    let hasScrolled = false;
-    let scrollTimeout: NodeJS.Timeout;
+  // 13) Scroll hide/re-show logic with proper cleanup handles
+  let hasScrolled = false;
+  let scrollTimeout: number | null = null;
+  const handleScroll = () => {
+    if (!hasScrolled && window.scrollY > 50) {
+      hasScrolled = true;
+      gsap.to(".scroll-indicator", {
+        opacity: 0,
+        y: 20,
+        duration: 0.4,
+        ease: "power2.out",
+      });
+    }
 
-    const handleScroll = () => {
-      if (!hasScrolled && window.scrollY > 50) {
-        hasScrolled = true;
-
+    if (hasScrolled && window.scrollY <= 10) {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        hasScrolled = false;
         gsap.to(".scroll-indicator", {
-          opacity: 0,
-          y: 20,
+          opacity: 1,
+          y: 0,
           duration: 0.4,
           ease: "power2.out",
         });
-      }
+      }, 800);
+    }
+  };
 
-      if (hasScrolled && window.scrollY <= 10) {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          hasScrolled = false;
-          gsap.to(".scroll-indicator", {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: "power2.out",
-          });
-        }, 800);
-      }
-    };
+  // attach after timeline builds
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-  }, []);
-
-  return tl;
+  // ✅ cleanup only what we created
+  return () => {
+    tl.kill();
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = null;
+    }
+    window.removeEventListener("scroll", handleScroll);
+    // optional: clear transforms if DOM persists
+    // gsap.set(
+    //   [".hero-para-ti", ".hero-contigo", ".scroll-indicator-wrapper"],
+    //   { clearProps: "transform" }
+    // );
+  };
 };

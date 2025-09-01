@@ -1,17 +1,17 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client";
 
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
 
 export const initBoucingBubblesAnimation = () => {
-  // Bubble animation - forced to disappear completely
   const bubbles = document.querySelectorAll(".bubble-1, .bubble-2, .bubble-3");
 
   // Set initial state - completely hidden
   gsap.set(bubbles, { y: 200, opacity: 0 });
 
+  const triggers: ScrollTrigger[] = [];
+
   bubbles.forEach((bubble, index) => {
-    ScrollTrigger.create({
+    const trigger = ScrollTrigger.create({
       trigger: ".bubble-section, .bubble-section-2",
       start: "top 85%",
       end: "bottom 15%",
@@ -34,10 +34,12 @@ export const initBoucingBubblesAnimation = () => {
         });
       },
     });
+    triggers.push(trigger);
   });
 
-  // Cleanup
+  // Cleanup: only kill what we created
   return () => {
-    ScrollTrigger.getAll().forEach((t) => t.kill());
+    gsap.killTweensOf(bubbles);
+    triggers.forEach((t) => t.kill());
   };
 };

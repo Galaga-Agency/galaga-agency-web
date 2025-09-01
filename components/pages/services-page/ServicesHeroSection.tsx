@@ -4,31 +4,33 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
 import { ThreeDMarquee } from "@/components/ui/3DMarquee";
+import { useCachedList } from "@/hooks/useCachedList";
 
 export default function ServicesHeroSection() {
   const { t } = useTranslation();
-  const { isTouchDevice } = useDeviceDetect();
+  const rawImages = [
+    "/assets/img/features/automatizacion.jpg",
+    "/assets/img/features/base.png",
+    "/assets/img/features/canary-islands-games.jpg",
+    "/assets/img/features/cloud-collab.png",
+    "/assets/img/features/consultoria.jpg",
+    "/assets/img/features/crm-erp.jpg",
+    "/assets/img/features/crm.png",
+    "/assets/img/features/dos-x-dos-grupo-imagen-web.png",
+    "/assets/img/features/dynamic-furniture.png",
+    "/assets/img/features/gaming.png",
+    "/assets/img/features/innovacion.png",
+    "/assets/img/features/interactive-corners.png",
+    "/assets/img/features/subvenciones.png",
+  ];
+  const images = useCachedList(rawImages);
 
   return (
     <section className="services-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background 3D marquee layer */}
       <div className="absolute inset-0 z-0">
         <ThreeDMarquee
-          images={[
-            "/assets/img/features/automatizacion.jpg",
-            "/assets/img/features/base.png",
-            "/assets/img/features/canary-islands-games.jpg",
-            "/assets/img/features/cloud-collab.png",
-            "/assets/img/features/consultoria.jpg",
-            "/assets/img/features/crm-erp.jpg",
-            "/assets/img/features/crm.png",
-            "/assets/img/features/dos-x-dos-grupo-imagen-web.png",
-            "/assets/img/features/dynamic-furniture.png",
-            "/assets/img/features/gaming.png",
-            "/assets/img/features/innovacion.png",
-            "/assets/img/features/interactive-corners.png",
-            "/assets/img/features/subvenciones.png",
-          ]}
+          images={images}
           className="opacity-40 pointer-events-none will-change-transform"
           baseDuration={50}
         />

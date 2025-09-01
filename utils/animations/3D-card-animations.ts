@@ -1,7 +1,12 @@
 "use client";
 
-import gsap from "gsap";
+import { gsap } from "@/lib/gsapConfig";
 
+/**
+ * 3D Card hover/parallax animation
+ * - Attaches listeners to elements marked with [data-3d-card]
+ * - Cleans up ONLY its own tweens/listeners on unmount
+ */
 export function init3DCardAnimations(root: Element | Document = document) {
   const PERSPECTIVE = 1100;
 
@@ -18,7 +23,7 @@ export function init3DCardAnimations(root: Element | Document = document) {
     DESC: 56,
     SCAN: 48,
     DATA: 32,
-  };
+  } as const;
 
   // Parallax distances in px (XY)
   const PX = {
@@ -28,10 +33,9 @@ export function init3DCardAnimations(root: Element | Document = document) {
     ICON_Y: 6,
     TEXT_X: 6,
     TEXT_Y: 4,
-  };
+  } as const;
 
   const cards = gsap.utils.toArray<HTMLElement>("[data-3d-card]", root);
-
   const cleanups: Array<() => void> = [];
 
   cards.forEach((card) => {
@@ -46,17 +50,13 @@ export function init3DCardAnimations(root: Element | Document = document) {
     const scan = card.querySelector<HTMLElement>("[data-3d-scan]");
     const data = card.querySelector<HTMLElement>("[data-3d-data]");
 
+    const targets = [tilt, bg, glow, icon, title, desc, scan, data].filter(
+      Boolean
+    ) as HTMLElement[];
+
     // base 3D context (no visual change at rest)
     gsap.set(card, { perspective: PERSPECTIVE });
-    gsap.set(
-      [tilt, bg, glow, icon, title, desc, scan, data].filter(
-        Boolean
-      ) as HTMLElement[],
-      {
-        transformStyle: "preserve-3d",
-        z: 0,
-      }
-    );
+    gsap.set(targets, { transformStyle: "preserve-3d", z: 0 });
 
     let hover = false;
     let spinTween: gsap.core.Tween | null = null;
@@ -126,12 +126,11 @@ export function init3DCardAnimations(root: Element | Document = document) {
       if (icon) {
         spinTween?.kill();
         // ensure a little 3D pitch so it doesn't look flat
-        gsap.set(icon, { rotateX: 15, transformOrigin: "50% 50% " });
+        gsap.set(icon, { rotateX: 15, transformOrigin: "50% 50%" });
         spinTween = gsap.to(icon, {
           keyframes: [
             { y: -10, duration: 0.12, ease: "power2.out" }, // quick hop
-            // then perpetual spin
-            { rotateY: "+=360", duration: 1.6, ease: "none" },
+            { rotateY: "+=360", duration: 1.6, ease: "none" }, // perpetual spin
           ],
           repeat: -1,
         });
@@ -145,21 +144,16 @@ export function init3DCardAnimations(root: Element | Document = document) {
       spinTween?.kill();
       spinTween = null;
 
-      gsap.to(
-        [tilt, bg, glow, icon, title, desc, scan, data].filter(
-          Boolean
-        ) as HTMLElement[],
-        {
-          x: 0,
-          y: 0,
-          z: 0,
-          rotateX: 0,
-          rotateY: 0,
-          duration: 0.28,
-          ease: "power2.out",
-          overwrite: "auto",
-        }
-      );
+      gsap.to(targets, {
+        x: 0,
+        y: 0,
+        z: 0,
+        rotateX: 0,
+        rotateY: 0,
+        duration: 0.28,
+        ease: "power2.out",
+        overwrite: "auto",
+      });
     };
 
     // listeners
@@ -167,11 +161,19 @@ export function init3DCardAnimations(root: Element | Document = document) {
     card.addEventListener("mouseenter", onEnter);
     card.addEventListener("mouseleave", onLeave);
 
+    // per-card cleanup
     cleanups.push(() => {
       spinTween?.kill();
+
+      // Stop any in-flight tweens for these specific targets
+      gsap.killTweensOf(targets);
+
       card.removeEventListener("mousemove", onMove);
       card.removeEventListener("mouseenter", onEnter);
       card.removeEventListener("mouseleave", onLeave);
+
+      // Optional: if elements persist, clear transform props
+      // gsap.set(targets, { clearProps: "transform" });
     });
   });
 

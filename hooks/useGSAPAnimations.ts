@@ -1,47 +1,56 @@
+"use client";
+
 import { useGSAP } from "@gsap/react";
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig"; // load GSAP once, reuse across routes
 import { useAppReady } from "@/hooks/useAppReady";
 
-type AnimationFunction = () => (() => void) | void;
+type AnimationFunction = () => void | (() => void);
 
 interface UseGSAPAnimationsProps {
   animations: AnimationFunction[];
-  delay?: number;
+  delay?: number; // keep your 100ms safety buffer
   dependencies?: any[];
 }
 
-export const useGSAPAnimations = ({ 
-  animations, 
-  delay = 100, 
-  dependencies = [] 
+export const useGSAPAnimations = ({
+  animations,
+  delay = 100,
+  dependencies = [],
 }: UseGSAPAnimationsProps) => {
   const isAppReady = useAppReady();
+
+  // Keep the import "warm" in some build modes
+  void gsap;
 
   useGSAP(() => {
     if (!isAppReady) return;
 
-    const cleanupFunctions: (() => void)[] = [];
+    const cleanupFunctions: Array<() => void> = [];
 
     const timer = setTimeout(() => {
-      animations.forEach(animationFn => {
+      animations.forEach((animationFn) => {
         const cleanup = animationFn();
-        if (cleanup && typeof cleanup === 'function') {
-          cleanupFunctions.push(cleanup);
-        }
+        if (typeof cleanup === "function") cleanupFunctions.push(cleanup);
       });
+
+      // After wiring everything, calibrate once
+      try {
+        ScrollTrigger.refresh();
+      } catch {
+        // no-op
+      }
     }, delay);
 
-    // Return cleanup function
     return () => {
       clearTimeout(timer);
-      
-      // Call all cleanup functions
-      cleanupFunctions.forEach(cleanup => cleanup());
-      
-      // Kill all ScrollTrigger instances as fallback
-      if (typeof window !== 'undefined') {
-        const ScrollTrigger = require('gsap/ScrollTrigger').ScrollTrigger;
-        ScrollTrigger.killAll();
-      }
+      // Clean up only what we created (no global killAll)
+      cleanupFunctions.forEach((fn) => {
+        try {
+          fn();
+        } catch {
+          // no-op
+        }
+      });
     };
   }, [isAppReady, ...dependencies]);
 };

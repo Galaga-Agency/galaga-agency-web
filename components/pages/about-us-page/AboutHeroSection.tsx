@@ -4,6 +4,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import { useEffect, useState } from "react";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import CachedImage from "@/components/ui/CachedImage";
 
 export default function AboutHeroSection() {
   const { t } = useTranslation();
@@ -29,10 +30,10 @@ export default function AboutHeroSection() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       clearTimeout(scrollTimeout);
     };
   }, []);
@@ -40,12 +41,16 @@ export default function AboutHeroSection() {
   return (
     <section className="about-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image layer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/img/sobre-nosotros-page/hero.png')",
-        }}
-      ></div>
+      <div className="absolute inset-0">
+        <CachedImage
+          src="/assets/img/sobre-nosotros-page/hero.png"
+          alt="About Us Hero Background"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </div>
 
       {/* Gradient overlay that blends with the image */}
       <div
@@ -99,9 +104,9 @@ export default function AboutHeroSection() {
         </div>
       </div>
 
-      <div 
+      <div
         className={`hero-scroll-indicator absolute bottom-16 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-600 ${
-          showScrollIndicator ? 'opacity-100' : 'opacity-0 translate-y-5'
+          showScrollIndicator ? "opacity-100" : "opacity-0 translate-y-5"
         }`}
       >
         <ScrollIndicator />

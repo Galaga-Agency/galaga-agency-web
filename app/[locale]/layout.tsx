@@ -13,6 +13,9 @@ import CookieBanner from "@/components/CookieBanner";
 import SmoothScrollWrapper from "@/components/layout/SmoothScrollWrapper";
 import ScrollToTopOnRouteChange from "@/components/layout/ScrollToTopOnRouteChange";
 import { notFound } from "next/navigation";
+import ImageCacheInitializer from "@/components/ImageCacheInitializer";
+import PrewarmLinks from "@/components/PrewarmLinks";
+import GsapBoot from "@/components/GsapBoot";
 
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://galagaagency.com";
@@ -106,18 +109,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-   const { locale } = params;
+  const { locale } = await params;
 
-   if (!LOCALES.includes(locale as Locale)) {
-     notFound();
-   }
+  if (!LOCALES.includes(locale as Locale)) {
+    notFound();
+  }
 
   const organizationSchema = getOrganizationSchema();
   const websiteSchema = getWebsiteSchema();
@@ -146,6 +149,9 @@ export default function LocaleLayout({
       />
 
       <TranslationProvider locale={locale as "es" | "en"}>
+        <GsapBoot />
+        <ImageCacheInitializer />
+        <PrewarmLinks />
         <LoadingWrapper>
           <Navbar />
           <SmoothScrollWrapper>

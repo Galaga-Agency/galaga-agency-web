@@ -1,4 +1,6 @@
-import { gsap } from "gsap";
+"use client";
+
+import { gsap } from "@/lib/gsapConfig";
 
 export const init404Animations = () => {
   gsap.defaults({ overwrite: "auto" });
@@ -26,4 +28,9 @@ export const init404Animations = () => {
     { opacity: 1, y: 0, duration: 0.35, stagger: 0.06 },
     "-=0.15"
   );
+
+  // ✅ Return cleanup so the hook can dispose of it
+  return () => {
+    tl.kill();
+  };
 };

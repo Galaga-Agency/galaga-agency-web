@@ -1,9 +1,9 @@
-// /components/pages/immersive-marketing/MarketingInmersivoHeroSection.tsx
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import CachedImage from "@/components/ui/CachedImage";
 
 export default function MarketingInmersivoHeroSection() {
   const { t } = useTranslation();
@@ -12,12 +12,16 @@ export default function MarketingInmersivoHeroSection() {
   return (
     <section className="immersive-marketing-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image layer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/img/servicios/gaming.png')",
-        }}
-      />
+      <div className="absolute inset-0">
+        <CachedImage
+          src="/assets/img/servicios/gaming.png"
+          alt="Immersive Marketing Hero Background"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </div>
 
       {/* Gradient overlay that blends with the image */}
       <div
@@ -42,7 +46,9 @@ export default function MarketingInmersivoHeroSection() {
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
             <span className="text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
-              {t("service-details-pages.immersive-marketing.hero-section.eyebrow")}
+              {t(
+                "service-details-pages.immersive-marketing.hero-section.eyebrow"
+              )}
             </span>
           </div>
 
@@ -51,7 +57,9 @@ export default function MarketingInmersivoHeroSection() {
             <h1 className="hero-title text-blanco leading-[0.9] tracking-tight drop-shadow-2xl px-4 text-center">
               <span className="block">
                 <span className="hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
-                  {t("service-details-pages.immersive-marketing.hero-section.title")}
+                  {t(
+                    "service-details-pages.immersive-marketing.hero-section.title"
+                  )}
                 </span>
               </span>
             </h1>
@@ -60,7 +68,9 @@ export default function MarketingInmersivoHeroSection() {
           {/* Subtitle */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
             <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
-              {t("service-details-pages.immersive-marketing.hero-section.subtitle")}
+              {t(
+                "service-details-pages.immersive-marketing.hero-section.subtitle"
+              )}
             </p>
           </div>
         </div>

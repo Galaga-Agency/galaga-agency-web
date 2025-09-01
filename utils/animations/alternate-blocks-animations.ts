@@ -1,233 +1,280 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client";
 
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
 
 export const initAlternateBlocksAnimations = () => {
-  // Block Icons - Dramatic entrance with impact
-  gsap.set(".block-icon-1, .block-icon-2, .block-icon-3", { 
+  // Track only the triggers we create here
+  const triggers: ScrollTrigger[] = [];
+
+  // -------- Icons
+  gsap.set(".block-icon-1, .block-icon-2, .block-icon-3", {
     scale: 0,
     opacity: 0,
     y: 50,
     rotation: 45,
-    force3D: true
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(1)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-icon-1", {
-        scale: 1,
-        opacity: 1,
-        y: 0,
-        rotation: 0,
-        duration: 0.7,
-        ease: "back.out(2)",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(2)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-icon-2", {
-        scale: 1,
-        opacity: 1,
-        y: 0,
-        rotation: 0,
-        duration: 0.7,
-        ease: "back.out(2)",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(3)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-icon-3", {
-        scale: 1,
-        opacity: 1,
-        y: 0,
-        rotation: 0,
-        duration: 0.7,
-        ease: "back.out(2)",
-        force3D: true
-      });
-    },
-    once: true,
+    force3D: true,
   });
 
-  // Block Titles - Smooth slide entrance
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(1)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-icon-1", {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          rotation: 0,
+          duration: 0.7,
+          ease: "back.out(2)",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(2)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-icon-2", {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          rotation: 0,
+          duration: 0.7,
+          ease: "back.out(2)",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(3)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-icon-3", {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          rotation: 0,
+          duration: 0.7,
+          ease: "back.out(2)",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  // -------- Titles
   gsap.set(".block-title-1", { x: 40, opacity: 0, force3D: true });
   gsap.set(".block-title-2", { x: -40, opacity: 0, force3D: true });
-  gsap.set(".block-title-3", { x: 40, opacity: 0, force3D: true });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(1)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-title-1", {
-        x: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(2)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-title-2", {
-        x: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(3)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-title-3", {
-        x: 0,
-        opacity: 1,
-        duration: 1.2,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
+  gsagSet(".block-title-3", { x: 40, opacity: 0, force3D: true });
 
-  // Block Descriptions - Modern vertical reveal
-  gsap.set(".block-description-1, .block-description-2, .block-description-3", { 
-    y: 40, 
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(1)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-title-1", {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(2)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-title-2", {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(3)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-title-3", {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  // -------- Descriptions
+  gsap.set(".block-description-1, .block-description-2, .block-description-3", {
+    y: 40,
     opacity: 0,
-    force3D: true 
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(1)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-description-1", {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(2)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-description-2", {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(3)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-description-3", {
-        y: 0,
-        opacity: 1,
-        duration: 1.1,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
+    force3D: true,
   });
 
-  // Block Images - First two normal, third one special flip
-  gsap.set(".block-image-1, .block-image-2", { 
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(1)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-description-1", {
+          y: 0,
+          opacity: 1,
+          duration: 1.1,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(2)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-description-2", {
+          y: 0,
+          opacity: 1,
+          duration: 1.1,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(3)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-description-3", {
+          y: 0,
+          opacity: 1,
+          duration: 1.1,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  // -------- Images
+  gsap.set(".block-image-1, .block-image-2", {
     opacity: 0,
     y: 20,
-    force3D: true 
+    force3D: true,
   });
-  
-  gsap.set(".block-image-3", { 
+  gsap.set(".block-image-3", {
     opacity: 0,
     y: 20,
     rotateY: 180,
-    force3D: true 
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(1)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-image-1", {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(2)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-image-2", {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
-  });
-  
-  ScrollTrigger.create({
-    trigger: ".block-container:nth-child(3)",
-    start: "top 85%",
-    onEnter: () => {
-      gsap.to(".block-image-3", {
-        opacity: 1,
-        y: 0,
-        rotateY: 0,
-        duration: 1.4,
-        ease: "power4.out",
-        force3D: true
-      });
-    },
-    once: true,
+    force3D: true,
   });
 
-  // Cleanup
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(1)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-image-1", {
+          opacity: 1,
+          y: 0,
+          duration: 1.4,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(2)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-image-2", {
+          opacity: 1,
+          y: 0,
+          duration: 1.4,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  triggers.push(
+    ScrollTrigger.create({
+      trigger: ".block-container:nth-child(3)",
+      start: "top 85%",
+      onEnter: () => {
+        gsap.to(".block-image-3", {
+          opacity: 1,
+          y: 0,
+          rotateY: 0,
+          duration: 1.4,
+          ease: "power4.out",
+          force3D: true,
+        });
+      },
+      once: true,
+    })
+  );
+
+  // ---- Cleanup: kill only what we created here
   return () => {
-    ScrollTrigger.getAll().forEach((t) => t.kill());
+    // stop any in-flight tweens on our targets (optional but safe)
+    gsap.killTweensOf([
+      ".block-icon-1",
+      ".block-icon-2",
+      ".block-icon-3",
+      ".block-title-1",
+      ".block-title-2",
+      ".block-title-3",
+      ".block-description-1",
+      ".block-description-2",
+      ".block-description-3",
+      ".block-image-1",
+      ".block-image-2",
+      ".block-image-3",
+    ]);
+
+    // kill our triggers
+    triggers.forEach((t) => t.kill());
   };
 };
+
+// tiny helper to avoid a typo above
+function gsagSet(sel: string, vars: gsap.TweenVars) {
+  gsap.set(sel, vars);
+}

@@ -1,5 +1,8 @@
 "use client";
+
 import React from "react";
+import CachedImage from "@/components/ui/CachedImage";
+import CachedVideo from "@/components/ui/CachedVideo";
 
 export const HeroVideoCard = () => {
   return (
@@ -24,19 +27,23 @@ export const HeroVideoCard = () => {
       >
         {/* Logo (will fade out once) */}
         <div className="logo-preview absolute inset-0 flex items-center justify-center bg-gradient-to-br from-azul-profundo to-teal">
-          <img
+          <CachedImage
             src="/assets/img/logos/logo-mobile-white.webp"
             alt="Galaga Agency"
+            width={300}
+            height={300}
             className="w-3/4 h-auto opacity-95 drop-shadow-2xl"
             style={{
               backfaceVisibility: "hidden",
               transform: "translate3d(0, 0, 0)",
             }}
+            priority
           />
         </div>
 
         {/* Video */}
-        <video
+        <CachedVideo
+          src="/assets/videos/galaga-presentation.mp4"
           className="video-element absolute inset-0 w-full h-full"
           muted
           loop
@@ -51,12 +58,7 @@ export const HeroVideoCard = () => {
             filter: "contrast(1.05) brightness(1.02)",
             opacity: 0, // GSAP will set to 1 and keep it
           }}
-        >
-          <source
-            src="/assets/videos/galaga-presentation.mp4"
-            type="video/mp4"
-          />
-        </video>
+        />
       </div>
     </div>
   );

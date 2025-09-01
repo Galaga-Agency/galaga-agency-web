@@ -2,7 +2,7 @@
 
 import { useTranslation } from "@/hooks/useTranslation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import CachedImage from "@/components/ui/CachedImage";
 import Link from "next/link";
 import { FiArrowLeft, FiTag } from "react-icons/fi";
 import { getCaseStudyBySlug } from "@/data/case-studies";
@@ -51,13 +51,16 @@ export default function ProyectoDetalleHeroSection({
   return (
     <section className="proyecto-detalle-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('${caseStudy.image}')`,
-          backgroundPosition: "center center",
-        }}
-      ></div>
+      <div className="absolute inset-0">
+        <CachedImage
+          src={caseStudy.image}
+          alt={t(caseStudy.titleKey)}
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </div>
 
       {/* Gradient overlay */}
       <div
@@ -176,7 +179,7 @@ export default function ProyectoDetalleHeroSection({
             >
               <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 drop-shadow-2xl">
                 <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                  <Image
+                  <CachedImage
                     src={caseStudy.gallery[0]}
                     alt={t(caseStudy.titleKey)}
                     fill

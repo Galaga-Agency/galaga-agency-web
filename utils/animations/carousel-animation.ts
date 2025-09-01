@@ -1,71 +1,110 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client";
 
-gsap.registerPlugin(ScrollTrigger);
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
 
 export const initCarouselAnimation = () => {
-  // Section animations
-  gsap.fromTo(".case-studies-title", 
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.6, ease: "power2.out", scrollTrigger: { trigger: ".case-studies-section", start: "top 90%" }}
-  );
+  if (typeof window === "undefined") return () => {};
 
-  gsap.fromTo(".stats-item", 
-    { scale: 0.8, opacity: 0 },
-    { scale: 1, opacity: 1, duration: 0.4, stagger: 0.1, ease: "back.out", scrollTrigger: { trigger: ".stats-container", start: "top 90%" }}
-  );
+  const createdTriggers: ScrollTrigger[] = [];
+  const createdTweens: gsap.core.Tween[] = [];
 
-  // Initialize GSAP 3D carousel
-  initGSAPCarousel();
+  // ----- Title
+  const section = document.querySelector(".case-studies-section");
+  if (section && document.querySelector(".case-studies-title")) {
+    const t = gsap.fromTo(
+      ".case-studies-title",
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: { trigger: section, start: "top 90%" },
+      }
+    );
+    createdTweens.push(t);
+    if ((t as any).scrollTrigger)
+      createdTriggers.push((t as any).scrollTrigger);
+  }
+
+  // ----- Stats
+  const statsContainer = document.querySelector(".stats-container");
+  const statsItems = document.querySelectorAll(".stats-item");
+  if (statsContainer && statsItems.length) {
+    const t = gsap.fromTo(
+      statsItems,
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: "back.out",
+        scrollTrigger: { trigger: statsContainer, start: "top 90%" },
+      }
+    );
+    createdTweens.push(t);
+    if ((t as any).scrollTrigger)
+      createdTriggers.push((t as any).scrollTrigger);
+  }
+
+  // ----- Carousel (with its own cleanup)
+  const cleanupCarousel = initGSAPCarousel();
+
+  // ----- Combined cleanup
+  return () => {
+    // kill tweens we created (and their internal ScrollTriggers)
+    createdTweens.forEach((t) => t.kill());
+    // explicitly kill any ScrollTriggers we tracked
+    createdTriggers.forEach((st) => st.kill());
+    // kill carousel resources (listeners, interval, tweens)
+    cleanupCarousel?.();
+  };
 };
 
 const initGSAPCarousel = () => {
-  const slides = document.querySelectorAll('.carousel-slide');
-  const container = document.querySelector('.carousel-track');
-  
-  if (!slides.length) return;
+  const slides = Array.from(
+    document.querySelectorAll<HTMLElement>(".carousel-slide")
+  );
+  const container = document.querySelector<HTMLElement>(".carousel-track");
+  if (!slides.length || !container) return;
 
   let currentIndex = 0;
   const totalSlides = slides.length;
+  let intervalId: number | null = null;
 
-  // GSAP 3D positioning for coverflow effect
   const updateCarousel = () => {
     slides.forEach((slide, index) => {
       const offset = index - currentIndex;
-      
-      // Normalize for circular
       let normalizedOffset = offset;
+
       if (normalizedOffset > totalSlides / 2) normalizedOffset -= totalSlides;
       if (normalizedOffset < -totalSlides / 2) normalizedOffset += totalSlides;
-      
-      // Only show 3 slides
+
       const isVisible = Math.abs(normalizedOffset) <= 1;
-      
-      let x = normalizedOffset * 320; // Less space between cards
-      let z = Math.abs(normalizedOffset) * -350; // Deep depth
-      let rotateY = normalizedOffset * 35; // Rotation
-      let scale = normalizedOffset === 0 ? 1 : 0.75;
-      let opacity = isVisible ? (normalizedOffset === 0 ? 1 : 0.7) : 0;
-      let zIndex = normalizedOffset === 0 ? 100 : Math.max(1, 50 - Math.abs(normalizedOffset) * 10);
+      const x = normalizedOffset * 320;
+      const z = Math.abs(normalizedOffset) * -350;
+      const rotateY = normalizedOffset * 35;
+      const scale = normalizedOffset === 0 ? 1 : 0.75;
+      const opacity = isVisible ? (normalizedOffset === 0 ? 1 : 0.7) : 0;
+      const zIndex =
+        normalizedOffset === 0
+          ? 100
+          : Math.max(1, 50 - Math.abs(normalizedOffset) * 10);
 
       gsap.to(slide, {
-        x: x,
-        z: z,
-        rotateY: rotateY,
-        scale: scale,
-        opacity: opacity,
-        zIndex: zIndex,
-        display: isVisible ? 'block' : 'none',
+        x,
+        z,
+        rotateY,
+        scale,
+        opacity,
+        zIndex,
+        display: isVisible ? "block" : "none",
         duration: 0.6,
-        ease: "power2.out"
+        ease: "power2.out",
+        overwrite: "auto",
       });
     });
-  };
-
-  // Navigation
-  const goToSlide = (index: any) => {
-    currentIndex = index;
-    updateCarousel();
   };
 
   const nextSlide = () => {
@@ -78,49 +117,72 @@ const initGSAPCarousel = () => {
     updateCarousel();
   };
 
-  // Touch/mouse handling
+  // --- Touch/mouse handling
   let startX = 0;
   let isDragging = false;
 
-  if (container) {
-    (container as HTMLElement).style.cursor = 'grab';
-    
-    container.addEventListener('mousedown', (e: any) => {
-      startX = e.clientX;
-      isDragging = true;
-      (container as HTMLElement).style.cursor = 'grabbing';
-    });
+  const el = container;
+  el.style.cursor = "grab";
 
-    container.addEventListener('mouseup', (e: any) => {
-      if (!isDragging) return;
-      isDragging = false;
-      (container as HTMLElement).style.cursor = 'grab';
-      
-      const diff = startX - e.clientX;
-      if (Math.abs(diff) > 50) {
-        diff > 0 ? nextSlide() : prevSlide();
-      }
-    });
+  const onMouseDown: EventListener = (e) => {
+    const me = e as MouseEvent;
+    startX = me.clientX;
+    isDragging = true;
+    el.style.cursor = "grabbing";
+  };
 
-    container.addEventListener('touchstart', (e: any) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-    });
+  const onMouseUp: EventListener = (e) => {
+    if (!isDragging) return;
+    const me = e as MouseEvent;
+    isDragging = false;
+    el.style.cursor = "grab";
+    const diff = startX - me.clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+  };
 
-    container.addEventListener('touchend', (e: any) => {
-      if (!isDragging) return;
-      isDragging = false;
-      
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) {
-        diff > 0 ? nextSlide() : prevSlide();
-      }
-    });
-  }
+  const onTouchStart: EventListener = (e) => {
+    const te = e as TouchEvent;
+    startX = te.touches[0]?.clientX ?? 0;
+    isDragging = true;
+  };
 
-  // Auto-advance every 3 seconds
-  setInterval(nextSlide, 3000);
+  const onTouchEnd: EventListener = (e) => {
+    if (!isDragging) return;
+    const te = e as TouchEvent;
+    isDragging = false;
+    const diff = startX - (te.changedTouches[0]?.clientX ?? 0);
+    if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+  };
+
+  el.addEventListener("mousedown", onMouseDown);
+  el.addEventListener("mouseup", onMouseUp);
+  el.addEventListener("touchstart", onTouchStart, { passive: true });
+  el.addEventListener("touchend", onTouchEnd);
+
+  // Auto-advance every 3s
+  intervalId = window.setInterval(nextSlide, 3000);
 
   // Initial setup
   updateCarousel();
+
+  // Cleanup specific to carousel
+  return () => {
+    // listeners
+    el.removeEventListener("mousedown", onMouseDown);
+    el.removeEventListener("mouseup", onMouseUp);
+    el.removeEventListener("touchstart", onTouchStart);
+    el.removeEventListener("touchend", onTouchEnd);
+
+    // interval
+    if (intervalId != null) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    // stop any in-flight tweens on slides
+    gsap.killTweensOf(slides);
+
+    // optional: clear transforms if the DOM persists
+    // gsap.set(slides, { clearProps: "transform,opacity,display" });
+  };
 };

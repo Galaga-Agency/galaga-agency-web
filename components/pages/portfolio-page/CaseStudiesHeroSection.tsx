@@ -4,6 +4,7 @@ import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import { useEffect, useState } from "react";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import CachedImage from "@/components/ui/CachedImage";
 
 export default function CaseStudiesHeroSection() {
   const { t } = useTranslation();
@@ -40,12 +41,16 @@ export default function CaseStudiesHeroSection() {
   return (
     <section className="case-studies-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background image layer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/img/casos-de-exito/hero.png')",
-        }}
-      />
+      <div className="absolute inset-0">
+        <CachedImage
+          src="/assets/img/casos-de-exito/hero.png"
+          alt="Case Studies Hero Background"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </div>
 
       {/* Gradient overlay that blends with the image */}
       <div

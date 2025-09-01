@@ -1,38 +1,36 @@
-import gsap from "gsap";
+"use client";
+
+import { gsap } from "@/lib/gsapConfig";
 
 export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
-  const layer = document.querySelector(".portal-layer") as HTMLElement | null;
-  const surface = document.querySelector(
-    ".portal-surface"
-  ) as HTMLElement | null;
-  const header = document.querySelector(".portal-header") as HTMLElement | null;
-  const items = document.querySelectorAll(
-    ".portal-nav li"
-  ) as NodeListOf<HTMLElement>;
-  const extras = document.querySelectorAll(
-    ".portal-extras > *"
-  ) as NodeListOf<HTMLElement>;
+  if (typeof window === "undefined") return () => {};
 
-  if (!layer || !surface || !header || !items.length || !extras.length) return;
+  const layer = document.querySelector<HTMLElement>(".portal-layer");
+  const surface = document.querySelector<HTMLElement>(".portal-surface");
+  const header = document.querySelector<HTMLElement>(".portal-header");
+  const items = document.querySelectorAll<HTMLElement>(".portal-nav li");
+  const extras = document.querySelectorAll<HTMLElement>(".portal-extras > *");
 
-  // Calculate radius based on diagonal distance from top-right corner
-  const radius = Math.ceil(
-    Math.hypot(window.innerWidth, window.innerHeight) * 1.2
-  );
+  if (!layer || !surface || !header || !items.length || !extras.length) {
+    return () => {};
+  }
 
-  // Initial setup - hide all content
-  gsap.set([...(header.children as any), ...items, ...extras], {
+  const headerChildren = Array.from(header.children) as HTMLElement[];
+
+  const computeRadius = () =>
+    Math.ceil(Math.hypot(window.innerWidth, window.innerHeight) * 1.2);
+
+  // Initial state
+  gsap.set([...headerChildren, ...Array.from(items), ...Array.from(extras)], {
     autoAlpha: 0,
     y: 30,
   });
 
-  // Set initial clip-path to 0 (completely hidden)
   gsap.set(layer, {
     clipPath: "circle(0px at calc(100% - 60px) 60px)",
     webkitClipPath: "circle(0px at calc(100% - 60px) 60px)",
   });
 
-  // Remove any transforms from surface that could interfere
   gsap.set(surface, {
     scale: 1,
     rotate: 0,
@@ -42,17 +40,17 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
 
   const tl = gsap.timeline({ paused: true });
 
-  // Single smooth circular expansion
+  // Circular expansion
   tl.to(layer, {
-    clipPath: `circle(${radius}px at calc(100% - 60px) 60px)`,
-    webkitClipPath: `circle(${radius}px at calc(100% - 60px) 60px)`,
+    clipPath: `circle(${computeRadius()}px at calc(100% - 60px) 60px)`,
+    webkitClipPath: `circle(${computeRadius()}px at calc(100% - 60px) 60px)`,
     duration: 0.6,
     ease: "power2.out",
   });
 
-  // Animate content in
+  // Header in
   tl.to(
-    header.children,
+    headerChildren,
     {
       y: 0,
       autoAlpha: 1,
@@ -63,6 +61,7 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
     "-=0.3"
   );
 
+  // Items in
   tl.to(
     items,
     {
@@ -75,6 +74,7 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
     "-=0.25"
   );
 
+  // Extras in
   tl.to(
     extras,
     {
@@ -90,5 +90,26 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
   if (isOpen) tl.play(0);
   else tl.reverse(0);
 
-  return () => tl.kill();
+  // Keep radius correct when resizing viewport
+  const onResize = () => {
+    if (isOpen) {
+      const r = computeRadius();
+      gsap.set(layer, {
+        clipPath: `circle(${r}px at calc(100% - 60px) 60px)`,
+        webkitClipPath: `circle(${r}px at calc(100% - 60px) 60px)`,
+      });
+    }
+  };
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    window.removeEventListener("resize", onResize);
+    tl.kill();
+    gsap.killTweensOf(layer);
+    gsap.killTweensOf([
+      ...headerChildren,
+      ...Array.from(items),
+      ...Array.from(extras),
+    ]);
+  };
 }
