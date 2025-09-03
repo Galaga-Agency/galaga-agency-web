@@ -7,67 +7,39 @@ export function useAppReady() {
 
   useEffect(() => {
     const checkAppReady = () => {
-      // Check if document is loaded
-      if (document.readyState !== 'complete') return false;
-      
-      // Check if the main content is visible (opacity 1)
-      const mainElement = document.querySelector('main');
-      if (!mainElement) return false;
-      
-      const computedStyle = window.getComputedStyle(mainElement);
-      return computedStyle.opacity === '1';
+      return document.body.getAttribute('data-app-ready') === 'true';
     };
 
-    const handleAppReady = () => {
-      if (checkAppReady()) {
-        // Add a small buffer to ensure everything is settled
-        setTimeout(() => {
-          setIsAppReady(true);
-        }, 200);
-      }
-    };
-
-    // Check immediately
     if (checkAppReady()) {
-      handleAppReady();
+      setIsAppReady(true);
       return;
     }
 
-    // Set up observers and listeners
-    const observer = new MutationObserver(() => {
-      handleAppReady();
+    // Watch for app ready state changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && 
+            mutation.attributeName === 'data-app-ready' &&
+            checkAppReady()) {
+          setIsAppReady(true);
+          observer.disconnect();
+        }
+      });
     });
 
-    const handleLoad = () => {
-      setTimeout(handleAppReady, 100);
-    };
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['data-app-ready']
+    });
 
-    const handleTransitionEnd = (e: TransitionEvent) => {
-      if (e.target === document.querySelector('main') && e.propertyName === 'opacity') {
-        handleAppReady();
-      }
-    };
-
-    // Start observing
-    if (document.querySelector('main')) {
-      observer.observe(document.querySelector('main')!, {
-        attributes: true,
-        attributeFilter: ['style', 'class']
-      });
-    }
-
-    document.addEventListener('transitionend', handleTransitionEnd);
-    window.addEventListener('load', handleLoad);
-
-    // Fallback timer
+    // Fallback timeout
     const fallbackTimer = setTimeout(() => {
       setIsAppReady(true);
-    }, 2000);
+      observer.disconnect();
+    }, 5000);
 
     return () => {
       observer.disconnect();
-      document.removeEventListener('transitionend', handleTransitionEnd);
-      window.removeEventListener('load', handleLoad);
       clearTimeout(fallbackTimer);
     };
   }, []);

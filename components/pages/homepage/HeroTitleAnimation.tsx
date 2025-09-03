@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
 import PrimaryButton from "@/components/ui/PrimaryButton";
@@ -9,52 +9,11 @@ import Image from "next/image";
 
 export const HeroTitleAnimation = () => {
   const { t } = useTranslation();
-  const { isTouchDevice } = useDeviceDetect();
-  const hasAnimated = useRef(false);
-
-  // Get current language for services link
   const currentLang = t("nav.language");
   const servicesLink = currentLang === "es" ? "/servicios" : "/services";
 
-  useEffect(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    // Simple logo animation with JavaScript
-    const logoContainer: any = document.querySelector(".hero-logo-js");
-    const logoImg = logoContainer?.querySelector("img");
-
-    if (!logoContainer || !logoImg) return;
-
-    // Set initial state
-    logoContainer.style.opacity = "0";
-    logoImg.style.transform = "perspective(1000px) rotateX(-90deg)";
-    logoImg.style.transformOrigin = "center center -100px";
-
-    // Animate in
-    setTimeout(() => {
-      logoContainer.style.transition = "opacity 0.3s ease-out";
-      logoContainer.style.opacity = "1";
-
-      logoImg.style.transition = "transform 1s ease-out";
-      logoImg.style.transform = "perspective(1000px) rotateX(0deg)";
-    }, 600);
-
-    // Fade out
-    setTimeout(() => {
-      logoContainer.style.transition = "opacity 0.6s ease-out";
-      logoContainer.style.opacity = "0";
-    }, 1800);
-
-    // Remove
-    setTimeout(() => {
-      logoContainer.style.display = "none";
-    }, 2500);
-  }, []);
-
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center z-20">
-      {/* Simple Logo Animation - Changed to absolute positioning within the centered container */}
       <div className="hero-logo-js absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] opacity-0">
         <Image
           src="/assets/img/logos/logo-full-white.webp"
@@ -100,7 +59,6 @@ export const HeroTitleAnimation = () => {
               </p>
             </div>
 
-            {/* CTA Buttons */}
             <div className="hero-cta-buttons opacity-0 translate-y-4 flex-col md:flex-row gap-4 pt-8 md:pt-12 justify-center items-center hidden md:flex">
               <PrimaryButton href={servicesLink} bgColor="white" size="lg">
                 {t("homepage.hero-section.cta.services")}

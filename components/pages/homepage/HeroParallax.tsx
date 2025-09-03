@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { HeroImageCard } from "./HeroImageCard";
 import { HeroTitleAnimation } from "./HeroTitleAnimation";
@@ -12,7 +12,6 @@ export const HeroParallax = ({
   parallaxItems: { title: string; image: string; video?: string }[];
 }) => {
   const imageRow = parallaxItems.slice(0, 8);
-  const hasAnimated = useRef(false);
 
   const ref = React.useRef<HTMLDivElement | null>(null);
   const { scrollYProgress } = useScroll({
@@ -22,7 +21,6 @@ export const HeroParallax = ({
 
   const spring = { stiffness: 300, damping: 80, bounce: 300 };
 
-  // Parallax stays exactly as before
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1200]),
     spring
@@ -49,51 +47,6 @@ export const HeroParallax = ({
   );
   const sidesOpacity = useTransform(scrollYProgress, [0.2, 0.55], [1, 0]);
 
-  // Logo animation - moved here from HeroTitleAnimation
-  useEffect(() => {
-    if (hasAnimated.current) return;
-    hasAnimated.current = true;
-
-    // Simple logo animation with JavaScript
-    const logoContainer: any = document.querySelector(".hero-logo-js");
-    const logoImg = logoContainer?.querySelector("img");
-
-    if (!logoContainer || !logoImg) return;
-
-    // FORCE THE SIZE BEFORE ANIMATION
-    logoContainer.style.width = "90vw";
-    logoContainer.style.maxWidth = "600px";
-    logoContainer.style.minWidth = "300px";
-    logoImg.style.width = "100%";
-    logoImg.style.height = "auto";
-    logoImg.style.maxWidth = "none";
-
-    // Set initial state
-    logoContainer.style.opacity = "0";
-    logoImg.style.transform = "perspective(1000px) rotateX(-90deg)";
-    logoImg.style.transformOrigin = "center center -100px";
-
-    // Animate in
-    setTimeout(() => {
-      logoContainer.style.transition = "opacity 0.3s ease-out";
-      logoContainer.style.opacity = "1";
-
-      logoImg.style.transition = "transform 1s ease-out";
-      logoImg.style.transform = "perspective(1000px) rotateX(0deg)";
-    }, 600);
-
-    // Fade out
-    setTimeout(() => {
-      logoContainer.style.transition = "opacity 0.6s ease-out";
-      logoContainer.style.opacity = "0";
-    }, 1800);
-
-    // Remove
-    setTimeout(() => {
-      logoContainer.style.display = "none";
-    }, 2500);
-  }, []);
-
   return (
     <div
       ref={ref}
@@ -103,7 +56,6 @@ export const HeroParallax = ({
           "linear-gradient(135deg, var(--color-azul-profundo) 0%, var(--color-teal) 50%, var(--color-negro) 100%)",
       }}
     >
-      {/* Logo Animation - positioned relative to viewport */}
       <div
         className="hero-logo-js fixed z-[100] opacity-0 pointer-events-none"
         style={{

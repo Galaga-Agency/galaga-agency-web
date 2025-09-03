@@ -8,7 +8,7 @@ type AnimationFunction = () => void | (() => void);
 
 interface UseGSAPAnimationsProps {
   animations: AnimationFunction[];
-  delay?: number; // keep your 100ms safety buffer
+  delay?: number; // 100ms safety buffer
   dependencies?: any[];
 }
 

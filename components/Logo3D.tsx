@@ -76,7 +76,7 @@ export const Logo3D: React.FC<Logo3DProps> = ({
       frameRef.current = requestAnimationFrame(animate);
       
       if (logoRef.current) {
-        logoRef.current.rotation.y += 0.01;
+        logoRef.current.rotation.y -= 0.02;
       }
       
       renderer.render(scene, camera);

@@ -1,48 +1,62 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useAppLoading } from "@/hooks/useAppLoading";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import { useEffect, useState, useRef } from "react";
+import { initLoadingToContentTransition } from "@/utils/animations/loading-transition-animations";
 
 interface LoadingWrapperProps {
   children: React.ReactNode;
 }
 
 export default function LoadingWrapper({ children }: LoadingWrapperProps) {
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading, loadingProgress, isAppReady } = useAppLoading();
+  const [showLoading, setShowLoading] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const loadingRef = useRef<HTMLDivElement>(null);
+  const transitionStarted = useRef(false);
 
+  // Set global app ready state on body
   useEffect(() => {
-    const checkReady = () => {
-      if (document.readyState === 'complete') {
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 1200);
+    document.body.setAttribute('data-app-ready', isAppReady.toString());
+  }, [isAppReady]);
+
+  // Initialize transition animation when ready
+  useEffect(() => {
+    if (isAppReady && !isLoading && !transitionStarted.current) {
+      transitionStarted.current = true;
+      
+      if (contentRef.current && loadingRef.current) {
+        const cleanup = initLoadingToContentTransition({
+          loadingElement: loadingRef.current,
+          contentElement: contentRef.current,
+          onComplete: () => {
+            setShowLoading(false);
+          }
+        });
+
+        return cleanup;
       }
-    };
-
-    if (document.readyState === 'complete') {
-      checkReady();
-    } else {
-      document.addEventListener('readystatechange', checkReady);
     }
-
-    return () => document.removeEventListener('readystatechange', checkReady);
-  }, []);
-
-  // Lock scroll while loading
-  useEffect(() => {
-    if (isLoading) {
-      const prev = document.documentElement.style.overflow;
-      document.documentElement.style.overflow = "hidden";
-      return () => {
-        document.documentElement.style.overflow = prev;
-      };
-    }
-  }, [isLoading]);
+  }, [isAppReady, isLoading]);
 
   return (
     <>
-      {children}
-      {!isLoading && <LoadingScreen />}
+      <div 
+        ref={contentRef}
+        style={{ 
+          opacity: 0,
+          pointerEvents: isLoading ? 'none' : 'auto'
+        }}
+      >
+        {children}
+      </div>
+      
+      {showLoading && (
+        <div ref={loadingRef}>
+          <LoadingScreen progress={loadingProgress} />
+        </div>
+      )}
     </>
   );
 }

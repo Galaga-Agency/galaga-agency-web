@@ -25,7 +25,7 @@ export default function HomePage() {
     parallaxItems.map((item) => ({
       title: t(item.title),
       image: item.image,
-      video: item.video, // This was missing!
+      video: item.video,
     }));
 
   useGSAPAnimations({
