@@ -15,7 +15,7 @@ export default function LoadingWrapper({ children }: LoadingWrapperProps) {
       if (document.readyState === 'complete') {
         setTimeout(() => {
           setIsLoading(false);
-        }, 800);
+        }, 1200);
       }
     };
 
@@ -28,12 +28,21 @@ export default function LoadingWrapper({ children }: LoadingWrapperProps) {
     return () => document.removeEventListener('readystatechange', checkReady);
   }, []);
 
+  // Lock scroll while loading
+  useEffect(() => {
+    if (isLoading) {
+      const prev = document.documentElement.style.overflow;
+      document.documentElement.style.overflow = "hidden";
+      return () => {
+        document.documentElement.style.overflow = prev;
+      };
+    }
+  }, [isLoading]);
+
   return (
     <>
-      {isLoading && <LoadingScreen />}
-      <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-        {children}
-      </div>
+      {children}
+      {!isLoading && <LoadingScreen />}
     </>
   );
 }

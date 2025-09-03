@@ -1,156 +1,115 @@
-// import React, { useRef, useEffect, useState, Suspense } from 'react';
-// import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-// import { Environment, Float, Center } from '@react-three/drei';
-// import * as THREE from 'three';
+'use client';
 
-// // 3D Logo Model Component
-// function Logo3D({ isVisible = true }) {
-//   const meshRef = useRef<THREE.Group>(null);
-//   const gltf = useLoader(GLTFLoader, '/assets/models/galaga-logo.glb');
-  
-//   // Animate rotation
-//   useFrame((state) => {
-//     if (meshRef.current && isVisible) {
-//       meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.8) * 0.2;
-//       // Gentle floating animation
-//       meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.1;
-//     }
-//   });
+import { useRef, useEffect } from 'react';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
-//   useEffect(() => {
-//     if (gltf) {
-//       // Apply brand colors to materials
-//       gltf.scene.traverse((child: any) => {
-//         if (child instanceof THREE.Mesh) {
-//           if (child.material) {
-//             // Apply your brand teal color
-//             child.material = new THREE.MeshStandardMaterial({
-//               color: '#176161', // brand-teal
-//               metalness: 0.3,
-//               roughness: 0.4,
-//             });
-//           }
-//         }
-//       });
-//     }
-//   }, [gltf]);
+interface Logo3DProps {
+  className?: string;
+  size?: number;
+}
 
-//   return (
-//     <Center>
-//       <Float
-//         speed={2}
-//         rotationIntensity={0.5}
-//         floatIntensity={0.2}
-//       >
-//         <group ref={meshRef} scale={[1.5, 1.5, 1.5]}>
-//           <primitive object={gltf.scene} />
-//         </group>
-//       </Float>
-//     </Center>
-//   );
-// }
+export const Logo3D: React.FC<Logo3DProps> = ({ 
+  className = '', 
+  size = 400 
+}) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const frameRef = useRef<number | null>(null);
+  const logoRef = useRef<THREE.Group | null>(null);
 
-// // Fallback while loading
-// function LogoFallback() {
-//   return (
-//     <Center>
-//       <mesh>
-//         <boxGeometry args={[2, 1, 0.2]} />
-//         <meshStandardMaterial color="#176161" />
-//       </mesh>
-//     </Center>
-//   );
-// }
+  useEffect(() => {
+    if (!canvasRef.current) return;
 
-// // Main Loading Component
-// export default function Logo3DLoader({ 
-//   isLoading = true, 
-//   onComplete 
-// }: { 
-//   isLoading?: boolean;
-//   onComplete?: () => void;
-// }) {
-//   const [progress, setProgress] = useState(0);
-//   const [isVisible, setIsVisible] = useState(true);
+    const canvas = canvasRef.current;
+    
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ 
+      canvas: canvas,
+      antialias: true, 
+      alpha: true 
+    });
+    
+    renderer.setSize(size, size);
+    renderer.setClearColor(0x000000, 0);
 
-//   useEffect(() => {
-//     if (!isLoading) {
-//       // Fade out animation
-//       const timer = setTimeout(() => {
-//         setIsVisible(false);
-//         onComplete?.();
-//       }, 500);
-//       return () => clearTimeout(timer);
-//     }
-//   }, [isLoading, onComplete]);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(2, 2, 5);
+    scene.add(directionalLight);
 
-//   // Simulate loading progress (replace with real loading logic)
-//   useEffect(() => {
-//     if (isLoading) {
-//       const interval = setInterval(() => {
-//         setProgress(prev => {
-//           if (prev >= 100) {
-//             clearInterval(interval);
-//             return 100;
-//           }
-//           return prev + Math.random() * 10;
-//         });
-//       }, 100);
-//       return () => clearInterval(interval);
-//     }
-//   }, [isLoading]);
-
-//   if (!isVisible) return null;
-
-//   return (
-//     <div className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-azul-profundo transition-opacity duration-500 ${
-//       isLoading ? 'opacity-100' : 'opacity-0'
-//     }`}>
-//       {/* 3D Canvas */}
-//       <div className="w-64 h-64 mb-8">
-//         <Canvas
-//           camera={{ position: [0, 0, 5], fov: 50 }}
-//           gl={{ antialias: true, alpha: true }}
-//         >
-//           <Suspense fallback={<LogoFallback />}>
-//             <Environment preset="studio" />
-//             <ambientLight intensity={0.6} />
-//             <directionalLight 
-//               position={[10, 10, 5]} 
-//               intensity={1}
-//               color="#4cbcc5" // brand-turquesa
-//             />
-//             <Logo3D isVisible={isVisible} />
-//           </Suspense>
-//         </Canvas>
-//       </div>
-
-//       {/* Loading Text */}
-//       <div className="text-center">
-//         <h2 className="text-2xl font-bold text-blanco mb-4">
-//           Cargando experiencia
-//         </h2>
+    const loader = new GLTFLoader();
+    loader.load(
+      '/assets/models/galaga-logo.glb',
+      (gltf) => {
+        const model = gltf.scene;
         
-//         {/* Progress Bar */}
-//         <div className="w-64 h-1 bg-hielo/20 rounded-full overflow-hidden">
-//           <div 
-//             className="h-full bg-gradient-to-r from-teal to-turquesa transition-all duration-300 ease-out"
-//             style={{ width: `${progress}%` }}
-//           />
-//         </div>
+        const whiteMaterial = new THREE.MeshPhongMaterial({ 
+          color: 0xffffff,
+          shininess: 500
+        });
         
-//         <p className="text-hielo/70 mt-2 text-sm">
-//           {Math.round(progress)}%
-//         </p>
-//       </div>
+        model.traverse((child) => {
+          if (child instanceof THREE.Mesh) {
+            child.material = whiteMaterial;
+          }
+        });
+        
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
+        
+        const boxSize = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(boxSize.x, boxSize.y, boxSize.z);
+        model.scale.setScalar(3 / maxDim);
+        
+        scene.add(model);
+        logoRef.current = model;
+      }
+    );
 
-//       {/* Loading dots animation */}
-//       <div className="flex gap-2 mt-6">
-//         <div className="w-2 h-2 bg-turquesa rounded-full loading-dot-1"></div>
-//         <div className="w-2 h-2 bg-turquesa rounded-full loading-dot-2"></div>
-//         <div className="w-2 h-2 bg-turquesa rounded-full loading-dot-3"></div>
-//       </div>
-//     </div>
-//   );
-// }
+    camera.position.z = 5;
+
+    const animate = () => {
+      frameRef.current = requestAnimationFrame(animate);
+      
+      if (logoRef.current) {
+        logoRef.current.rotation.y += 0.01;
+      }
+      
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    return () => {
+      if (frameRef.current) {
+        cancelAnimationFrame(frameRef.current);
+      }
+      renderer.dispose();
+    };
+  }, [size]);
+
+  return (
+    <div 
+      className={className}
+      style={{ 
+        width: 'auto', 
+        height: 'fit-content',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <canvas 
+        ref={canvasRef}
+        style={{
+          width: `${size}px`,
+          height: `${size}px`,
+          display: 'block'
+        }}
+      />
+    </div>
+  );
+};

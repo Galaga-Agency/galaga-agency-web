@@ -32,6 +32,7 @@
       "learnMore": "View all services"
     }
   },
+    "loading": "Loading Data",
   "not-found": {
     "kicker": "Error 404",
     "title": "Page not found",
