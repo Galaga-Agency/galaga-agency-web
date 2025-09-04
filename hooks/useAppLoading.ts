@@ -41,60 +41,34 @@ export function useAppLoading(): UseAppLoadingReturn {
   const scrollLocked = useRef(false);
   const hasLoadedOnce = useRef(false);
 
-  // Video caching integration
-  const {
-    cachedUrl: cachedVideoUrl,
-    isLoading: videoLoading,
-    cacheVideo,
-  } = useVideoCache(HERO_VIDEO_URL, {
-    onCached: () => {
-      setLoadingState((prev) => {
-        const newState = { ...prev, video: true };
-        updateProgress(newState);
-        return newState;
-      });
-    },
-    onError: (error) => {
-      console.warn("Video caching failed, using original URL:", error);
-      setLoadingState((prev) => {
-        const newState = { ...prev, video: true };
-        updateProgress(newState);
-        return newState;
-      });
-    },
-  });
-
   const updateProgress = useCallback((state: LoadingState) => {
     const completed = Object.values(state).filter(Boolean).length;
     const total = Object.keys(state).length;
     const targetProgress = Math.floor((completed / total) * 100);
 
-    // Kill existing tween
-    if (progressTween.current) {
-      progressTween.current.kill();
-    }
+    if (progressTween.current) progressTween.current.kill();
 
-    // Smooth animation to new progress value
     progressTween.current = gsap.to(currentProgress, {
       current: targetProgress,
       duration: 0.8,
       ease: "power2.out",
       onUpdate: () => {
-        setLoadingProgress(Math.floor(currentProgress.current));
+        setLoadingProgress(
+          Math.floor((currentProgress.current as unknown as number) ?? 0)
+        );
       },
       onComplete: () => {
         if (targetProgress === 100) {
-          // Wait a bit at 100%, then trigger transition
+          // small hold at 100 for a nicer feel
           setTimeout(() => {
             setIsLoading(false);
-            // Unlock scroll immediately when loading ends
             if (scrollLocked.current) {
               document.documentElement.style.overflow = "";
               scrollLocked.current = false;
             }
-            // Set app ready after a short delay
             setTimeout(() => {
               setIsAppReady(true);
+              hasLoadedOnce.current = true;
             }, 100);
           }, 600);
         }
@@ -110,11 +84,12 @@ export function useAppLoading(): UseAppLoadingReturn {
     }
   }, [isLoading]);
 
-  // Check if document is actually loaded
+  // Document ready gate
   useEffect(() => {
     const checkDocument = () => {
       if (document.readyState === "complete") {
         setLoadingState((prev) => {
+          if (prev.document) return prev;
           const newState = { ...prev, document: true };
           updateProgress(newState);
           return newState;
@@ -127,21 +102,21 @@ export function useAppLoading(): UseAppLoadingReturn {
     } else {
       document.addEventListener("readystatechange", checkDocument);
     }
-
     return () =>
       document.removeEventListener("readystatechange", checkDocument);
   }, [updateProgress]);
 
-  // Check if GSAP is actually loaded and working
+  // GSAP gate
   useEffect(() => {
     const checkGSAP = () => {
       if (
         typeof window !== "undefined" &&
-        window.gsap &&
-        typeof window.gsap.timeline === "function" &&
-        typeof window.gsap.to === "function"
+        (window as any).gsap &&
+        typeof (window as any).gsap.timeline === "function" &&
+        typeof (window as any).gsap.to === "function"
       ) {
         setLoadingState((prev) => {
+          if (prev.gsap) return prev;
           const newState = { ...prev, gsap: true };
           updateProgress(newState);
           return newState;
@@ -154,15 +129,14 @@ export function useAppLoading(): UseAppLoadingReturn {
     if (checkGSAP()) return;
 
     const interval = setInterval(() => {
-      if (checkGSAP()) {
-        clearInterval(interval);
-      }
+      if (checkGSAP()) clearInterval(interval);
     }, 50);
 
     const timeout = setTimeout(() => {
       clearInterval(interval);
-      console.warn("GSAP loading timeout");
+      // fail-open after 5s
       setLoadingState((prev) => {
+        if (prev.gsap) return prev;
         const newState = { ...prev, gsap: true };
         updateProgress(newState);
         return newState;
@@ -175,20 +149,17 @@ export function useAppLoading(): UseAppLoadingReturn {
     };
   }, [updateProgress]);
 
-  // Use your actual image preloader system
+  // Images gate (critical only)
   useEffect(() => {
     const preloadCriticalImages = async () => {
       try {
-        // Initialize your advanced image cache
         await imageCache.initialize();
-
-        // Get only critical assets that need to be loaded for initial display
         const criticalAssets = CRITICAL_ASSETS.filter(
-          (asset) => asset.priority === "critical"
+          (a) => a.priority === "critical"
         );
-
-        if (criticalAssets.length === 0) {
+        if (!criticalAssets.length) {
           setLoadingState((prev) => {
+            if (prev.images) return prev;
             const newState = { ...prev, images: true };
             updateProgress(newState);
             return newState;
@@ -196,27 +167,26 @@ export function useAppLoading(): UseAppLoadingReturn {
           return;
         }
 
-        // Wait for critical images to load
         const loadPromises = criticalAssets
-          .filter((asset) => asset.type === "image")
-          .map((asset) =>
-            imageCache
-              .preloadImage(asset.path, asset.priority)
-              .catch((error) => {
-                console.warn(`Failed to preload ${asset.path}:`, error);
-              })
+          .filter((a) => a.type === "image")
+          .map((a) =>
+            imageCache.preloadImage(a.path, a.priority).catch((err) => {
+              console.warn(`Failed to preload ${a.path}:`, err);
+            })
           );
 
         await Promise.all(loadPromises);
 
         setLoadingState((prev) => {
+          if (prev.images) return prev;
           const newState = { ...prev, images: true };
           updateProgress(newState);
           return newState;
         });
-      } catch (error) {
-        console.error("Critical image preloading failed:", error);
+      } catch (err) {
+        console.error("Critical image preloading failed:", err);
         setLoadingState((prev) => {
+          if (prev.images) return prev;
           const newState = { ...prev, images: true };
           updateProgress(newState);
           return newState;
@@ -227,37 +197,22 @@ export function useAppLoading(): UseAppLoadingReturn {
     preloadCriticalImages();
   }, [updateProgress]);
 
-  // Start video caching
-  useEffect(() => {
-    if (!cachedVideoUrl && !videoLoading) {
-      cacheVideo();
-    }
-  }, [cachedVideoUrl, videoLoading, cacheVideo]);
-
-  // Check if translations are ready
+  // Translations gate (lightweight check)
   useEffect(() => {
     const checkTranslations = () => {
       try {
         const hasTranslationContext = typeof window !== "undefined";
-
-        if (hasTranslationContext) {
-          setLoadingState((prev) => {
-            const newState = { ...prev, translations: true };
-            updateProgress(newState);
-            return newState;
-          });
-        } else {
-          setTimeout(() => {
-            setLoadingState((prev) => {
-              const newState = { ...prev, translations: true };
-              updateProgress(newState);
-              return newState;
-            });
-          }, 1000);
-        }
+        // Treat as ready either way; your i18n lib will lazy-load
+        setLoadingState((prev) => {
+          if (prev.translations) return prev;
+          const newState = { ...prev, translations: true };
+          updateProgress(newState);
+          return newState;
+        });
       } catch (error) {
         console.warn("Translation check failed:", error);
         setLoadingState((prev) => {
+          if (prev.translations) return prev;
           const newState = { ...prev, translations: true };
           updateProgress(newState);
           return newState;
@@ -265,19 +220,74 @@ export function useAppLoading(): UseAppLoadingReturn {
       }
     };
 
-    setTimeout(checkTranslations, 200);
+    const t = setTimeout(checkTranslations, 200);
+    return () => clearTimeout(t);
+  }, [updateProgress]);
+
+  // ------- VIDEO GATE (decoupled) -------
+  const {
+    cachedUrl: cachedVideoUrl,
+    isLoading: videoLoading,
+    progress: videoProgress,
+    cacheVideo,
+  } = useVideoCache(HERO_VIDEO_URL, {
+    onProgress: (p) => {
+      // Flip video gate early once we see ≥10% (first chunks)
+      if (p >= 10) {
+        setLoadingState((prev) => {
+          if (prev.video) return prev;
+          const newState = { ...prev, video: true };
+          updateProgress(newState);
+          return newState;
+        });
+      }
+    },
+    onCached: () => {
+      // Ensure marked if threshold wasn't crossed (fast or unknown size)
+      setLoadingState((prev) => {
+        if (prev.video) return prev;
+        const newState = { ...prev, video: true };
+        updateProgress(newState);
+        return newState;
+      });
+    },
+    onError: (error) => {
+      console.warn("Video caching failed, using original URL:", error);
+      // Fail-open: don't block the app
+      setLoadingState((prev) => {
+        if (prev.video) return prev;
+        const newState = { ...prev, video: true };
+        updateProgress(newState);
+        return newState;
+      });
+    },
+  });
+
+  // Start video caching
+  useEffect(() => {
+    if (!cachedVideoUrl && !videoLoading) {
+      cacheVideo();
+    }
+  }, [cachedVideoUrl, videoLoading, cacheVideo]);
+
+  // Safety net: if video is slow or content-length missing, unlock after N ms
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadingState((prev) => {
+        if (prev.video) return prev;
+        const newState = { ...prev, video: true };
+        updateProgress(newState);
+        return newState;
+      });
+    }, 2500); // tweak to your taste
+    return () => clearTimeout(timer);
   }, [updateProgress]);
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
-      if (progressTween.current) {
-        progressTween.current.kill();
-      }
-      // Always unlock scroll on cleanup
-      if (scrollLocked.current) {
-        document.documentElement.style.overflow = "";
-      }
+      if (progressTween.current) progressTween.current.kill();
+      if (scrollLocked.current) document.documentElement.style.overflow = "";
     };
   }, []);
 

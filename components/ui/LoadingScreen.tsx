@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Logo3D } from "../Logo3D";
-import { useTranslation } from "@/hooks/useTranslation";
 import { initLoadingAnimation } from "@/utils/animations/loading-animations";
 import { gsap } from "gsap";
 
@@ -12,57 +11,58 @@ interface LoadingScreenProps {
 }
 
 export default function LoadingScreen({ progress }: LoadingScreenProps) {
-  const { t } = useTranslation();
+  // 1) All hooks are declared on every render (no early returns above)
+  const [mounted, setMounted] = useState(false);
+
   const rootRef = useRef<HTMLDivElement | null>(null);
   const animationInitialized = useRef(false);
   const circleRef = useRef<SVGCircleElement | null>(null);
   const currentOffset = useRef(942.48); // Full circle initially
   const gaugeTween = useRef<gsap.core.Tween | null>(null);
 
-  if (typeof document === "undefined") return null;
-
+  // 2) Mark mounted after first client render
   useEffect(() => {
-    if (!rootRef.current || animationInitialized.current) return;
+    setMounted(true);
+  }, []);
 
+  // 3) Init text/pulse animations once (guard with mounted + ref)
+  useEffect(() => {
+    if (!mounted || !rootRef.current || animationInitialized.current) return;
     animationInitialized.current = true;
     const cleanup = initLoadingAnimation({
       root: rootRef.current,
       selector: ".loading-text",
     });
-
     return () => cleanup?.();
-  }, []);
+  }, [mounted]);
 
-  // Smooth gauge animation when progress changes
+  // 4) Smooth gauge animation
   useEffect(() => {
-    if (!circleRef.current) return;
+    if (!mounted || !circleRef.current) return;
 
     const targetOffset = 942.48 - (942.48 * progress) / 100;
+    if (gaugeTween.current) gaugeTween.current.kill();
 
-    // Kill existing tween
-    if (gaugeTween.current) {
-      gaugeTween.current.kill();
-    }
-
-    // Smooth animation to new gauge position
     gaugeTween.current = gsap.to(currentOffset, {
       current: targetOffset,
       duration: 0.8,
       ease: "power2.out",
       onUpdate: () => {
         if (circleRef.current) {
-          circleRef.current.style.strokeDashoffset =
-            currentOffset.current.toString();
+          circleRef.current.style.strokeDashoffset = String(
+            currentOffset.current
+          );
         }
       },
     });
 
     return () => {
-      if (gaugeTween.current) {
-        gaugeTween.current.kill();
-      }
+      if (gaugeTween.current) gaugeTween.current.kill();
     };
-  }, [progress]);
+  }, [mounted, progress]);
+
+  // 5) Only branch in the return — this is safe for Hooks order
+  if (!mounted) return null;
 
   return createPortal(
     <div
@@ -84,7 +84,6 @@ export default function LoadingScreen({ progress }: LoadingScreenProps) {
       aria-live="polite"
       role="status"
     >
-      {/* Wrap the loading elements in a container that can be animated */}
       <div className="loading-elements-container">
         <div
           className="relative"
