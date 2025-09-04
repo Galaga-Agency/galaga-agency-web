@@ -68,6 +68,38 @@ const nextConfig: NextConfig = {
     NEXT_TELEMETRY_DISABLED: "1",
   },
 
+  // Custom headers for video files
+  async headers() {
+    return [
+      {
+        source: '/assets/videos/:path*',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'video/mp4',
+          },
+          {
+            key: 'Accept-Ranges',
+            value: 'bytes',
+          },
+        ],
+      },
+      {
+        source: '/:path*.(mp4|webm|ogg|avi|mov)',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'video/mp4',
+          },
+          {
+            key: 'Accept-Ranges',
+            value: 'bytes',
+          },
+        ],
+      },
+    ];
+  },
+
   // URL redirects - handles old or missing routes
   async redirects() {
     return [

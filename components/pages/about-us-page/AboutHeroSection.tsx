@@ -45,7 +45,6 @@ export default function AboutHeroSection() {
         <CachedImage
           src="/assets/img/sobre-nosotros-page/hero.png"
           alt="About Us Hero Background"
-          fill
           className="object-cover object-center"
           priority
           sizes="100vw"

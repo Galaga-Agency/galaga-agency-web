@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion, MotionValue, useTransform } from "motion/react";
 
 export const HeroImageCard = ({
@@ -21,6 +21,11 @@ export const HeroImageCard = ({
   const currentTimeOffset = timeOffsets[cardIndex % timeOffsets.length];
 
   const videoRef = React.useRef<HTMLVideoElement>(null);
+  
+  // Loading states for fallback
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   React.useEffect(() => {
     const video = videoRef.current;
@@ -39,6 +44,8 @@ export const HeroImageCard = ({
       };
     }
   }, [currentTimeOffset]);
+
+  const showFallback = item.video ? !videoLoaded || hasError : !imageLoaded || hasError;
 
   return (
     <motion.div
@@ -86,11 +93,31 @@ export const HeroImageCard = ({
               transformStyle: "preserve-3d",
             }}
           >
+            {/* Logo fallback */}
+            {showFallback && (
+              <div
+                className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+                style={{ zIndex: 10 }}
+              >
+                <img
+                  src="/assets/img/logos/logo-full-white.webp"
+                  alt="Company Logo"
+                  style={{
+                    maxWidth: '150px',
+                    maxHeight: '90px',
+                    width: 'auto',
+                    height: 'auto',
+                    opacity: 0.8
+                  }}
+                />
+              </div>
+            )}
+
             {item.video ? (
               <video
                 ref={videoRef}
                 src={item.video}
-                className="video-element absolute inset-0 w-full h-full"
+                className={`video-element absolute inset-0 w-full h-full ${showFallback ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
                 muted
                 loop
                 playsInline
@@ -103,12 +130,20 @@ export const HeroImageCard = ({
                   transform: "translate3d(0, 0, 0)",
                   filter: "contrast(1.05) brightness(1.02)",
                 }}
+                onCanPlay={() => setVideoLoaded(true)}
+                onError={() => setHasError(true)}
+                onLoadStart={() => {
+                  setVideoLoaded(false);
+                  setHasError(false);
+                }}
               />
             ) : (
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                className={`absolute inset-0 w-full h-full object-cover ${showFallback ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
+                onLoad={() => setImageLoaded(true)}
+                onError={() => setHasError(true)}
               />
             )}
           </div>

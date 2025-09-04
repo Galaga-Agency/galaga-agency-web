@@ -292,3 +292,96 @@ export function useAppLoading(): UseAppLoadingReturn {
     cachedVideoUrl,
   };
 }
+
+// Simple cached asset hook (replaces useCachedImage)
+export function useCachedAsset(mediaPath: string) {
+  const [src, setSrc] = useState<string>(mediaPath);
+  const [isFromCache, setIsFromCache] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkCachedUrl = () => {
+      const cachedUrl = assetCache.getCachedAssetUrl(mediaPath);
+
+      if (cachedUrl) {
+        setSrc(cachedUrl);
+        setIsFromCache(true);
+        setIsLoaded(true);
+      } else {
+        setSrc(mediaPath);
+        setIsFromCache(false);
+        setIsLoaded(true);
+      }
+    };
+
+    // Check immediately
+    checkCachedUrl();
+
+    // Listen for asset cache events
+    const handleAssetCached = (event: CustomEvent) => {
+      if (event.detail.path === mediaPath) {
+        checkCachedUrl();
+      }
+    };
+
+    window.addEventListener('assetCached', handleAssetCached as EventListener);
+
+    return () => {
+      window.removeEventListener('assetCached', handleAssetCached as EventListener);
+    };
+  }, [mediaPath]);
+
+  return { src, isFromCache, isLoaded };
+}
+
+// Utility hook to check if critical assets are ready
+export function useCriticalAssetsReady(): boolean {
+  const [isReady, setIsReady] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkReady = () => {
+      const initialized = sessionStorage.getItem("galaga_assets_initialized");
+      setIsReady(!!initialized);
+    };
+
+    checkReady();
+
+    const interval = setInterval(() => {
+      if (!isReady) {
+        checkReady();
+      } else {
+        clearInterval(interval);
+      }
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [isReady]);
+
+  return isReady;
+}
+
+// Hook for preloading page-specific assets
+export function usePageAssets(pageName: string) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const preloadAssets = useCallback(async () => {
+    if (isLoading || isLoaded) return;
+    
+    setIsLoading(true);
+    try {
+      await assetCache.preloadPageAssets(pageName);
+      setIsLoaded(true);
+    } catch (error) {
+      console.error(`Failed to preload assets for page ${pageName}:`, error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [pageName, isLoading, isLoaded]);
+
+  useEffect(() => {
+    preloadAssets();
+  }, [preloadAssets]);
+
+  return { isLoading, isLoaded, preloadAssets };
+}

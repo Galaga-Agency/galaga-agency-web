@@ -1,71 +1,70 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { useCachedImage } from "@/hooks/useCachedImage";
+import { useCachedAsset } from "@/hooks/useCachedAssets";
 
 interface CachedImageProps {
   src: string;
   alt: string;
-  width?: number;
-  height?: number;
-  fill?: boolean;
-  priority?: boolean;
   className?: string;
   sizes?: string;
   quality?: number;
-  placeholder?: "blur" | "empty";
-  blurDataURL?: string;
-  style?: React.CSSProperties;
+  priority?: boolean;
   onLoad?: () => void;
   onError?: () => void;
 }
 
-/**
- * Enhanced Image component that uses cached images when available
- * Falls back to Next.js Image for non-cached images
- */
 const CachedImage: React.FC<CachedImageProps> = ({
   src,
   alt,
-  width,
-  height,
-  fill = false,
-  priority = false,
   className = "",
   sizes = "100vw",
   quality = 90,
-  placeholder = "empty",
-  blurDataURL,
+  priority = false,
   onLoad,
   onError,
 }) => {
-  const { src: cachedSrc, isFromCache, isLoaded } = useCachedImage(src);
+  const { src: cachedSrc, isFromCache } = useCachedAsset(src);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleLoad = () => {
+    setImageLoaded(true);
     onLoad?.();
   };
 
   const handleError = () => {
+    setImageError(true);
     onError?.();
   };
 
+  const showLogo = !imageLoaded || imageError;
+
   return (
-    <Image
-      src={cachedSrc}
-      alt={alt}
-      width={width}
-      height={height}
-      fill={fill}
-      priority={priority || isFromCache} // Prioritize cached images
-      className={`${className} ${isFromCache ? "from-cache" : "from-network"}`}
-      sizes={sizes}
-      quality={quality}
-      placeholder={placeholder}
-      blurDataURL={blurDataURL}
-      onLoad={handleLoad}
-      onError={handleError}
-    />
+    <>
+      {showLogo && (
+        <div className="absolute inset-0 flex items-center justify-center bg-azul-profundo/10" style={{ zIndex: 10 }}>
+          <img
+            src="/assets/img/logos/logo-full-white.webp"
+            alt="Galaga Logo"
+            className="w-auto h-auto max-w-[200px] max-h-[120px] opacity-80"
+          />
+        </div>
+      )}
+      
+      <Image
+        src={cachedSrc}
+        alt={alt}
+        fill
+        priority={priority || isFromCache}
+        sizes={sizes}
+        quality={quality}
+        className={`${className} ${isFromCache ? "from-cache" : "from-network"} ${showLogo ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
+        onLoad={handleLoad}
+        onError={handleError}
+      />
+    </>
   );
 };
 

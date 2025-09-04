@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { useVideoCache } from "@/hooks/useVideoCache";
+import Image from "next/image";
+import { assetCache } from "@/utils/asset-cache";
 
 interface CachedVideoProps {
   src: string;
@@ -19,6 +20,7 @@ interface CachedVideoProps {
   onError?: () => void;
   preload?: "none" | "metadata" | "auto";
   fallbackSrc?: string;
+  logoFallback?: string;
 }
 
 const CachedVideo: React.FC<CachedVideoProps> = ({
@@ -37,31 +39,60 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
   onError,
   preload = "metadata",
   fallbackSrc,
+  logoFallback = "/assets/img/logos/logo-full-white.webp",
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
+  const [cachedUrl, setCachedUrl] = useState<string | null>(null);
+  const [cacheLoading, setCacheLoading] = useState<boolean>(false);
+  const [showFallback, setShowFallback] = useState<boolean>(true);
 
-  // Use the dedicated video cache hook
-  const {
-    cachedUrl,
-    isLoading: cacheLoading,
-    error: cacheError,
-  } = useVideoCache(src, {
-    preloadOnMount: true,
-  });
+  // Try to get cached video URL on mount
+  useEffect(() => {
+    const getCachedVideo = async () => {
+      setCacheLoading(true);
 
-  // Use cached URL if available, otherwise fallback to original
+      try {
+        const cached = assetCache.getCachedAssetUrl(src);
+        if (cached) {
+          setCachedUrl(cached);
+          setCacheLoading(false);
+          return;
+        }
+
+        const resultUrl = await assetCache.cacheAsset(
+          src,
+          "video",
+          "normal",
+          undefined,
+          (progress) => {
+            // Video is loading, but we keep showing fallback until ready
+          }
+        );
+
+        setCachedUrl(resultUrl);
+      } catch (error) {
+        console.warn("Failed to cache video:", error);
+        setCachedUrl(src);
+      } finally {
+        setCacheLoading(false);
+      }
+    };
+
+    getCachedVideo();
+  }, [src]);
+
   const videoSrc = cachedUrl || src;
-  const isFromCache = cachedUrl !== null;
+  const isFromCache = cachedUrl !== null && cachedUrl !== src && cachedUrl.startsWith('blob:');
 
   const handleCanPlay = () => {
     setIsLoading(false);
+    setShowFallback(false);
     onLoad?.();
   };
 
   const handleError = () => {
-    // Try fallback if available and we haven't used it yet
     if (fallbackSrc && videoSrc !== fallbackSrc) {
       console.warn(
         `Video failed: ${videoSrc}, trying fallback: ${fallbackSrc}`
@@ -74,11 +105,13 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
 
     setHasError(true);
     setIsLoading(false);
+    setShowFallback(true);
     onError?.();
   };
 
   const handleLoadStart = () => {
     setIsLoading(true);
+    setShowFallback(true);
     setHasError(false);
   };
 
@@ -88,30 +121,31 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
     }
   }, [videoSrc]);
 
-  if (hasError) {
-    return (
-      <div
-        className={`${className} bg-gray-100 flex items-center justify-center`}
-        style={{ width, height }}
-      >
-        <div className="text-sm text-red-500">Video failed to load</div>
-      </div>
-    );
-  }
-
   return (
-    <>
-      {(isLoading || cacheLoading) && (
+    <div className={`relative ${className}`} style={{ width, height, ...style }}>
+      {/* Company logo fallback - shown while loading or on error */}
+      {(showFallback || isLoading || cacheLoading || hasError) && (
         <div
-          className={`${className} bg-gray-100 animate-pulse flex items-center justify-center absolute inset-0`}
-          style={{ width, height }}
+          className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+          style={{ 
+            zIndex: 10
+          }}
         >
-          <div className="text-sm text-gray-500">
-            {isFromCache ? "Loading from cache..." : "Loading video..."}
-          </div>
+          <img
+            src={logoFallback}
+            alt="Company Logo"
+            style={{
+              maxWidth: width ? `${width * 0.4}px` : '200px',
+              maxHeight: height ? `${height * 0.3}px` : '120px',
+              width: 'auto',
+              height: 'auto',
+              opacity: 0.8
+            }}
+          />
         </div>
       )}
 
+      {/* Video element */}
       <video
         ref={videoRef}
         src={videoSrc}
@@ -124,15 +158,14 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
         controls={controls}
         playsInline={playsInline}
         preload={preload}
-        className={`${className} ${
+        className={`${
           isFromCache ? "from-cache" : "from-network"
-        } ${isLoading || cacheLoading ? "opacity-0" : "opacity-100"}`}
-        style={style}
+        } ${showFallback || isLoading || cacheLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
         onCanPlay={handleCanPlay}
         onError={handleError}
         onLoadStart={handleLoadStart}
       />
-    </>
+    </div>
   );
 };
 
