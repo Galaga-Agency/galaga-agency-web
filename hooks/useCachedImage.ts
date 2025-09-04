@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { imageCache } from "@/utils/imagePreloader";
+import { imageCache } from "@/utils/image-preloader";
 
 export const useCachedImage = (mediaPath: string) => {
   const [src, setSrc] = useState<string>(mediaPath);

@@ -2,8 +2,8 @@
 
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { preloadPageAssets } from "@/utils/imagePreloader";
-import { locales, routeMapping } from "@/utils/routeTranslations";
+import { preloadPageAssets } from "@/utils/image-preloader";
+import { locales, routeMapping } from "@/utils/route-translations";
 
 const HERO_KEYS = new Set([
   "home",
@@ -13,9 +13,8 @@ const HERO_KEYS = new Set([
   "privacy-policy",
   "terms-and-conditions",
   "immersive-marketing",
-  "services", 
+  "services",
 ]);
-
 
 function toEnBase(pathname: string): string {
   const clean = pathname.split("?")[0].split("#")[0];

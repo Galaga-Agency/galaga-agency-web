@@ -1,5 +1,5 @@
 import { getLocalizedRoute } from "@/utils/navigation";
-import type { Language } from "@/utils/routeTranslations";
+import type { Language } from "@/utils/route-translations";
 
 export interface MenuItem {
   route: string; // The base route (without language prefix)

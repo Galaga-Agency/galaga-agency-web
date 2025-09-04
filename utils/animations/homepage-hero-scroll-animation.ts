@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 // helper
@@ -94,6 +95,13 @@ export const initHeroScrollAnimation = () => {
   }
 
   setTimeout(() => ScrollTrigger.refresh(), 100);
+
+  // Return cleanup function
+  return () => {
+    ["value-bubbles-reveal", "services-fade"].forEach((id) =>
+      ScrollTrigger.getById(id)?.kill()
+    );
+  };
 };
 
 export const cleanupHeroScrollAnimation = () => {

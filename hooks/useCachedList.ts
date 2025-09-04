@@ -1,6 +1,6 @@
 "use client";
 import { useMemo } from "react";
-import { imageCache } from "@/utils/imagePreloader";
+import { imageCache } from "@/utils/image-preloader";
 
 export function useCachedList(paths: string[]) {
   return useMemo(

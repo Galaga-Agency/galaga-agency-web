@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { locales, defaultLocale } from "./utils/routeTranslations";
+import { locales, defaultLocale } from "./utils/route-translations";
 
 function getLocale(request: NextRequest): string {
   const pathname = request.nextUrl.pathname;

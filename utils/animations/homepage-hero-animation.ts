@@ -2,13 +2,24 @@
 
 import { gsap } from "@/lib/gsapConfig";
 
+let isAnimationRunning = false;
+
 export const initHeroTitleAnimation = () => {
   if (typeof window === "undefined") return () => {};
 
-  const tl = gsap.timeline({ defaults: { overwrite: "auto" } });
+  // Reset flag and prevent multiple simultaneous animations
+  if (isAnimationRunning) {
+    isAnimationRunning = false; // Reset it so it can run again
+  }
 
-  // 0) Ensure GSAP doesn't hold any prior transforms on the logo (CSS owns it)
-  tl.set(".hero-logo, .hero-logo-img, .hero-logo *", { clearProps: "all" }, 0);
+  isAnimationRunning = true;
+
+  const tl = gsap.timeline({
+    defaults: { overwrite: "auto" },
+    onComplete: () => {
+      isAnimationRunning = false;
+    },
+  });
 
   // 1) Value proposition container appears
   tl.to(
@@ -18,9 +29,8 @@ export const initHeroTitleAnimation = () => {
   );
 
   // 2) Line 1 fades in
-  tl.fromTo(
+  tl.to(
     ".hero-value-text-line1",
-    { opacity: 0 },
     { opacity: 1, duration: 1.0, ease: "power1.out" },
     "+=0.3"
   );
@@ -32,7 +42,7 @@ export const initHeroTitleAnimation = () => {
     "+=0.4"
   );
 
-  // 4) “Para ti” appears (parallel-ish)
+  // 4) "Para ti" appears (parallel-ish)
   tl.to(
     ".hero-para-ti",
     { opacity: 1, duration: 0.5, ease: "power2.out" },
@@ -40,9 +50,8 @@ export const initHeroTitleAnimation = () => {
   );
 
   // 5) Line 2 in
-  tl.fromTo(
+  tl.to(
     ".hero-value-text-line2",
-    { opacity: 0 },
     { opacity: 1, duration: 0.8, ease: "power1.out" },
     "+=0.3"
   );
@@ -108,7 +117,7 @@ export const initHeroTitleAnimation = () => {
   tl.to(
     ".hero-cta-buttons",
     { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-    "+=0.3"
+    "-=0.5"
   );
 
   // 11) Scroll indicator fades in
@@ -153,21 +162,15 @@ export const initHeroTitleAnimation = () => {
     }
   };
 
-  // attach after timeline builds
   window.addEventListener("scroll", handleScroll, { passive: true });
 
-  // ✅ cleanup only what we created
   return () => {
+    isAnimationRunning = false;
     tl.kill();
     if (scrollTimeout) {
       clearTimeout(scrollTimeout);
       scrollTimeout = null;
     }
     window.removeEventListener("scroll", handleScroll);
-    // optional: clear transforms if DOM persists
-    // gsap.set(
-    //   [".hero-para-ti", ".hero-contigo", ".scroll-indicator-wrapper"],
-    //   { clearProps: "transform" }
-    // );
   };
 };

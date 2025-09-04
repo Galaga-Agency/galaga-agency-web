@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect, useState } from "react";
-import { useCachedImage } from "@/hooks/useCachedImage";
+import { useVideoCache } from "@/hooks/useVideoCache";
 
 interface CachedVideoProps {
   src: string;
@@ -42,14 +42,18 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<boolean>(false);
 
-  // Get cached video source
-  const { src: cachedVideoSrc, isFromCache: videoFromCache } =
-    useCachedImage(src);
+  // Use the dedicated video cache hook
+  const {
+    cachedUrl,
+    isLoading: cacheLoading,
+    error: cacheError,
+  } = useVideoCache(src, {
+    preloadOnMount: true,
+  });
 
-  // Get cached poster if provided
-  const { src: cachedPoster, isFromCache: posterFromCache } = poster
-    ? useCachedImage(poster)
-    : { src: undefined, isFromCache: false };
+  // Use cached URL if available, otherwise fallback to original
+  const videoSrc = cachedUrl || src;
+  const isFromCache = cachedUrl !== null;
 
   const handleCanPlay = () => {
     setIsLoading(false);
@@ -58,9 +62,9 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
 
   const handleError = () => {
     // Try fallback if available and we haven't used it yet
-    if (fallbackSrc && cachedVideoSrc !== fallbackSrc) {
+    if (fallbackSrc && videoSrc !== fallbackSrc) {
       console.warn(
-        `Video failed: ${cachedVideoSrc}, trying fallback: ${fallbackSrc}`
+        `Video failed: ${videoSrc}, trying fallback: ${fallbackSrc}`
       );
       if (videoRef.current) {
         videoRef.current.src = fallbackSrc;
@@ -79,10 +83,10 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
   };
 
   useEffect(() => {
-    if (videoRef.current && cachedVideoSrc) {
-      videoRef.current.src = cachedVideoSrc;
+    if (videoRef.current && videoSrc) {
+      videoRef.current.src = videoSrc;
     }
-  }, [cachedVideoSrc]);
+  }, [videoSrc]);
 
   if (hasError) {
     return (
@@ -97,21 +101,21 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
 
   return (
     <>
-      {isLoading && (
+      {(isLoading || cacheLoading) && (
         <div
           className={`${className} bg-gray-100 animate-pulse flex items-center justify-center absolute inset-0`}
           style={{ width, height }}
         >
           <div className="text-sm text-gray-500">
-            {videoFromCache ? "Loading from cache..." : "Loading video..."}
+            {isFromCache ? "Loading from cache..." : "Loading video..."}
           </div>
         </div>
       )}
 
       <video
         ref={videoRef}
-        src={cachedVideoSrc}
-        poster={cachedPoster}
+        src={videoSrc}
+        poster={poster}
         width={width}
         height={height}
         autoPlay={autoPlay}
@@ -121,10 +125,8 @@ const CachedVideo: React.FC<CachedVideoProps> = ({
         playsInline={playsInline}
         preload={preload}
         className={`${className} ${
-          videoFromCache ? "from-cache" : "from-network"
-        } ${posterFromCache ? "poster-from-cache" : ""} ${
-          isLoading ? "opacity-0" : "opacity-100"
-        }`}
+          isFromCache ? "from-cache" : "from-network"
+        } ${isLoading || cacheLoading ? "opacity-0" : "opacity-100"}`}
         style={style}
         onCanPlay={handleCanPlay}
         onError={handleError}

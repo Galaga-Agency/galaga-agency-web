@@ -9,17 +9,35 @@ interface LoadingTransitionOptions {
 export function initLoadingToContentTransition({
   loadingElement,
   contentElement,
-  onComplete
+  onComplete,
 }: LoadingTransitionOptions) {
-  gsap.set(contentElement, { opacity: 1 });
+  // Find the actual loading screen in the DOM (it's portaled to body)
+  const actualLoadingScreen = document.querySelector(
+    '[role="status"]'
+  ) as HTMLElement;
 
-  const tl = gsap.timeline({ onComplete });
+  if (!actualLoadingScreen) {
+    onComplete?.();
+    return () => {};
+  }
 
-  tl.to(loadingElement, {
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out"
+  // Create smooth timeline
+  const tl = gsap.timeline({
+    onComplete,
   });
+
+  // Set initial state and animate smoothly
+  tl.set(actualLoadingScreen, {
+    willChange: "transform",
+    backfaceVisibility: "hidden",
+  })
+    .set(contentElement, { visibility: "visible" })
+    .to(actualLoadingScreen, {
+      y: "-100vh",
+      duration: 1.0,
+      ease: "power3.inOut",
+      force3D: true,
+    });
 
   return () => {
     tl.kill();

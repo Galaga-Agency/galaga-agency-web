@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { defaultLocale, type Language } from "@/utils/routeTranslations";
+import { defaultLocale, type Language } from "@/utils/route-translations";
 import { getRouteForLanguageSwitch } from "@/utils/navigation";
 
 interface TranslationContextType {

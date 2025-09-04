@@ -1,56 +1,63 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger } from "@/lib/gsapConfig"; // load GSAP once, reuse across routes
-import { useAppReady } from "@/hooks/useAppReady";
+import { gsap, ScrollTrigger } from "@/lib/gsapConfig";
+import { useAppLoading } from "@/hooks/useAppLoading";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 type AnimationFunction = () => void | (() => void);
 
 interface UseGSAPAnimationsProps {
   animations: AnimationFunction[];
-  delay?: number; // 100ms safety buffer
+  delay?: number;
   dependencies?: any[];
 }
+
+// Global flag to track if app has ever been ready
+let globalAppHasBeenReady = false;
 
 export const useGSAPAnimations = ({
   animations,
   delay = 100,
   dependencies = [],
 }: UseGSAPAnimationsProps) => {
-  const isAppReady = useAppReady();
+  const { isAppReady } = useAppLoading();
+  const pathname = usePathname();
 
-  // Keep the import "warm" in some build modes
   void gsap;
 
-  useGSAP(() => {
-    if (!isAppReady) return;
+  // Track global app ready state
+  useEffect(() => {
+    if (isAppReady) {
+      globalAppHasBeenReady = true;
+    }
+  }, [isAppReady]);
 
-    const cleanupFunctions: Array<() => void> = [];
+  useGSAP(() => {
+    const shouldRun = globalAppHasBeenReady || isAppReady;
+    if (!shouldRun) return;
 
     const timer = setTimeout(() => {
       animations.forEach((animationFn) => {
-        const cleanup = animationFn();
-        if (typeof cleanup === "function") cleanupFunctions.push(cleanup);
+        try {
+          animationFn();
+        } catch (error) {
+          console.error("Animation failed:", error);
+        }
       });
 
-      // After wiring everything, calibrate once
-      try {
-        ScrollTrigger.refresh();
-      } catch {
-        // no-op
-      }
+      setTimeout(() => {
+        try {
+          ScrollTrigger.refresh();
+        } catch (error) {
+          console.error("ScrollTrigger refresh failed:", error);
+        }
+      }, 100);
     }, delay);
 
     return () => {
       clearTimeout(timer);
-      // Clean up only what we created (no global killAll)
-      cleanupFunctions.forEach((fn) => {
-        try {
-          fn();
-        } catch {
-          // no-op
-        }
-      });
     };
-  }, [isAppReady, ...dependencies]);
+  }, [isAppReady, pathname, ...dependencies]);
 };

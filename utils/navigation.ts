@@ -2,7 +2,7 @@ import {
   routeTranslations,
   routeMapping,
   type Language,
-} from "./routeTranslations";
+} from "./route-translations";
 
 function isAsset(path: string) {
   return (

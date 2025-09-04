@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { initializeImageCache } from "@/utils/imagePreloader";
+import { initializeImageCache } from "@/utils/image-preloader";
 
 const ImageCacheInitializer: React.FC = () => {
   useEffect(() => {
-
     initializeImageCache()
       .then(() => {
         console.log("Image cache initialization complete");

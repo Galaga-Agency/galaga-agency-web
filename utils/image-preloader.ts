@@ -9,7 +9,7 @@ export interface HeroAsset {
   maxSize?: number; // Max size in bytes for caching (videos only)
 }
 
-export const HERO_ASSETS: HeroAsset[] = [
+export const CRITICAL_ASSETS: HeroAsset[] = [
   {
     path: "/assets/img/sobre-nosotros-page/hero.png",
     page: "about-us",
@@ -202,7 +202,6 @@ class AdvancedImageCache {
   }
 
   async initialize(): Promise<void> {
-
     if (typeof window === "undefined") {
       return;
     }
@@ -223,7 +222,7 @@ class AdvancedImageCache {
   }
 
   private loadFromMemory(): void {
-    HERO_ASSETS.forEach((asset) => {
+    CRITICAL_ASSETS.forEach((asset) => {
       const cached = this.getFromLocalStorage(asset.path);
       if (cached) {
         this.memoryCache.set(asset.path, cached);
@@ -233,16 +232,16 @@ class AdvancedImageCache {
   }
 
   private async preloadCriticalAssets(): Promise<void> {
-    const criticalImages = HERO_ASSETS.filter(
+    const criticalImages = CRITICAL_ASSETS.filter(
       (asset) => asset.priority === "critical" && asset.type === "image"
     );
-    const criticalVideos = HERO_ASSETS.filter(
+    const criticalVideos = CRITICAL_ASSETS.filter(
       (asset) => asset.priority === "critical" && asset.type === "video"
     );
-    const highPriorityAssets = HERO_ASSETS.filter(
+    const highPriorityAssets = CRITICAL_ASSETS.filter(
       (asset) => asset.priority === "high"
     );
-    const normalAssets = HERO_ASSETS.filter(
+    const normalAssets = CRITICAL_ASSETS.filter(
       (asset) => asset.priority === "normal"
     );
 
@@ -348,7 +347,6 @@ class AdvancedImageCache {
     path: string,
     priority: "critical" | "high" | "normal"
   ): Promise<void> {
-
     return new Promise((resolve) => {
       if (this.abortController?.signal.aborted) {
         resolve();
@@ -682,7 +680,7 @@ class AdvancedImageCache {
 
   // imagePreloader.ts
   async preloadPageAssets(pageName: string): Promise<void> {
-    const pageAssets = HERO_ASSETS.filter((a) => a.page === pageName);
+    const pageAssets = CRITICAL_ASSETS.filter((a) => a.page === pageName);
     if (pageAssets.length === 0) return;
 
     const loadOne = (a: HeroAsset) =>
@@ -717,7 +715,9 @@ class AdvancedImageCache {
     let totalSize = 0;
 
     try {
-      const videoAssets = HERO_ASSETS.filter((asset) => asset.type === "video");
+      const videoAssets = CRITICAL_ASSETS.filter(
+        (asset) => asset.type === "video"
+      );
 
       for (const asset of videoAssets) {
         const cacheKey = this.CACHE_PREFIX + btoa(asset.path);

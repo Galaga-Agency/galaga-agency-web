@@ -14,20 +14,6 @@ export const HeroTitleAnimation = () => {
 
   return (
     <div className="relative w-full h-screen flex flex-col items-center justify-center z-20">
-      <div className="hero-logo-js absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] opacity-0">
-        <Image
-          src="/assets/img/logos/logo-full-white.webp"
-          alt="Galaga Agency"
-          className="w-[90vw] md:w-[50vw] lg:w-[35vw] xl:w-[30vw] h-auto opacity-95 drop-shadow-2xl"
-          width={600}
-          height={600}
-          style={{
-            transformStyle: "preserve-3d",
-            backfaceVisibility: "hidden",
-          }}
-        />
-      </div>
-
       <div className="hero-content relative z-40 w-full min-h-screen flex flex-col items-center justify-center pt-0 overflow-hidden">
         <div className="flex flex-col items-center justify-center w-full px-4">
           <div className="relative">

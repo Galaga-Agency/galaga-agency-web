@@ -16,42 +16,37 @@ export default function LoadingWrapper({ children }: LoadingWrapperProps) {
   const loadingRef = useRef<HTMLDivElement>(null);
   const transitionStarted = useRef(false);
 
-  // Set global app ready state on body
   useEffect(() => {
-    document.body.setAttribute('data-app-ready', isAppReady.toString());
+    document.body.setAttribute("data-app-ready", isAppReady.toString());
   }, [isAppReady]);
 
-  // Initialize transition animation when ready
   useEffect(() => {
     if (isAppReady && !isLoading && !transitionStarted.current) {
       transitionStarted.current = true;
-      
+
       if (contentRef.current && loadingRef.current) {
-        const cleanup = initLoadingToContentTransition({
+        initLoadingToContentTransition({
           loadingElement: loadingRef.current,
           contentElement: contentRef.current,
           onComplete: () => {
             setShowLoading(false);
-          }
+          },
         });
-
-        return cleanup;
       }
     }
   }, [isAppReady, isLoading]);
 
   return (
     <>
-      <div 
+      <div
         ref={contentRef}
-        style={{ 
-          opacity: 0,
-          pointerEvents: isLoading ? 'none' : 'auto'
+        style={{
+          visibility: showLoading ? "hidden" : "visible",
         }}
       >
         {children}
       </div>
-      
+
       {showLoading && (
         <div ref={loadingRef}>
           <LoadingScreen progress={loadingProgress} />
