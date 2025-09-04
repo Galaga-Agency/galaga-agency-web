@@ -33,72 +33,79 @@ export function useVideoCache(
 
   // --- Refs for stability & guards ---
   const abortControllerRef = useRef<AbortController | null>(null);
-  const startedRef = useRef(false); // prevent duplicate preload
-  const isLoadingRef = useRef(false); // read current loading w/o re-render loops
+  const startedRef = useRef(false); // avoid duplicate preload per URL
+  const isLoadingRef = useRef(false);
   const mountedRef = useRef(false);
   const currentBlobUrlRef = useRef<string | null>(null);
   const videoUrlRef = useRef(videoUrl);
 
-  // Keep refs up to date
+  // callback refs to avoid function-identity churn
+  const onProgressRef = useRef(onProgress);
+  const onCachedRef = useRef(onCached);
+  const onErrorRef = useRef(onError);
+
   useEffect(() => {
     videoUrlRef.current = videoUrl;
   }, [videoUrl]);
   useEffect(() => {
     isLoadingRef.current = isLoading;
   }, [isLoading]);
+  useEffect(() => {
+    onProgressRef.current = onProgress;
+  }, [onProgress]);
+  useEffect(() => {
+    onCachedRef.current = onCached;
+  }, [onCached]);
+  useEffect(() => {
+    onErrorRef.current = onError;
+  }, [onError]);
 
   // ---- Stable cacheVideo (identity never changes) ----
   const cacheVideo = useCallback(async () => {
     const url = videoUrlRef.current;
     if (!url) return;
-    if (isLoadingRef.current) return; // already loading
+    if (isLoadingRef.current) return;
     if (!mountedRef.current) return;
 
     setIsLoading(true);
     setError(null);
     setProgress(0);
 
-    // Cancel any previous request
     if (abortControllerRef.current) abortControllerRef.current.abort();
     const ac = new AbortController();
     abortControllerRef.current = ac;
 
     try {
-      const cachedUrlOrOriginal = await videoCacheManager.cacheVideo(
+      const resultUrl = await videoCacheManager.cacheVideo(
         url,
         (progressValue) => {
-          // Don't spam setState with identical values
+          // emit progress at most when it changes (integer)
           setProgress((prev) => {
             const next = Math.max(0, Math.min(100, Math.floor(progressValue)));
+            if (next !== prev) onProgressRef.current?.(progressValue);
             return next === prev ? prev : next;
           });
-          onProgress?.(progressValue);
         }
       );
 
       if (!ac.signal.aborted) {
-        // If we are switching to a new blob URL, revoke prior one to avoid GPU/memory leak
         setCachedUrl((prev) => {
-          if (
-            prev &&
-            prev.startsWith("blob:") &&
-            prev !== cachedUrlOrOriginal
-          ) {
+          if (prev && prev.startsWith("blob:") && prev !== resultUrl) {
             try {
               URL.revokeObjectURL(prev);
             } catch {}
           }
-          return cachedUrlOrOriginal;
+          // avoid redundant state set
+          return prev === resultUrl ? prev : resultUrl;
         });
-        onCached?.();
+        onCachedRef.current?.();
       }
     } catch (err) {
       if (!ac.signal.aborted) {
         const e =
           err instanceof Error ? err : new Error("Failed to cache video");
         setError(e);
-        onError?.(e);
-        // Fail-open: use original URL
+        onErrorRef.current?.(e);
         setCachedUrl((prev) => {
           if (prev && prev.startsWith("blob:")) {
             try {
@@ -114,9 +121,9 @@ export function useVideoCache(
         setProgress(100);
       }
     }
-  }, [onCached, onError, onProgress]); // these are usually stable; ok if they change
+  }, []); // ← no deps; uses refs
 
-  // Initialize / check cache once per (videoUrl, preloadOnMount)
+  // mark mounted
   useEffect(() => {
     mountedRef.current = true;
     return () => {
@@ -124,6 +131,7 @@ export function useVideoCache(
     };
   }, []);
 
+  // Check existing cache once per (videoUrl, preloadOnMount)
   useEffect(() => {
     if (!videoUrl) return;
 
@@ -134,13 +142,10 @@ export function useVideoCache(
       try {
         const videoId = btoa(videoUrl).replace(/[^a-zA-Z0-9]/g, "");
         const cached = await videoCacheManager.getCachedVideo(videoId);
-
         if (cancelled) return;
 
         if (cached) {
-          // Create blob URL ONCE for this cached blob
           const newBlobUrl = URL.createObjectURL(cached.data);
-
           setCachedUrl((prev) => {
             if (prev && prev.startsWith("blob:")) {
               try {
@@ -156,21 +161,20 @@ export function useVideoCache(
 
         if (preloadOnMount && !startedRef.current) {
           startedRef.current = true;
-          await cacheVideo();
+          await cacheVideo(); // stable function; not in deps
         } else {
-          // No preload: just point to the network URL
+          // no preload: just point to network URL (avoid redundant set)
           setCachedUrl((prev) => {
             if (prev && prev.startsWith("blob:")) {
               try {
                 URL.revokeObjectURL(prev);
               } catch {}
             }
-            return videoUrl;
+            return prev === videoUrl ? prev : videoUrl;
           });
         }
       } catch (err) {
         console.error("Error checking cached video:", err);
-        // Fall back to original URL; don't loop
         setCachedUrl((prev) => {
           if (prev && prev.startsWith("blob:")) {
             try {
@@ -185,9 +189,8 @@ export function useVideoCache(
     return () => {
       cancelled = true;
     };
-  }, [videoUrl, preloadOnMount, cacheVideo]);
+  }, [videoUrl, preloadOnMount]); // ← NOTE: no cacheVideo here
 
-  // Exposed helpers (stable enough)
   const clearVideoCache = useCallback(async () => {
     try {
       await videoCacheManager.clearCache();
@@ -215,16 +218,16 @@ export function useVideoCache(
     }
   }, []);
 
-  // Cleanup on unmount / URL change
+  // Abort fetch on unmount
   useEffect(() => {
     return () => {
       if (abortControllerRef.current) abortControllerRef.current.abort();
     };
   }, []);
 
+  // Revoke current blob URL on unmount
   useEffect(() => {
     return () => {
-      // Revoke the current blob URL when unmounting/changing
       const prev = currentBlobUrlRef.current;
       if (prev && prev.startsWith("blob:")) {
         try {
@@ -239,7 +242,7 @@ export function useVideoCache(
     isLoading,
     progress,
     error,
-    cacheVideo,
+    cacheVideo, // stable
     clearVideoCache,
     getCacheInfo,
   };
