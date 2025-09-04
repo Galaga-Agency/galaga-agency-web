@@ -55,6 +55,9 @@ export default function TermsConditionsCTASection() {
           <div className="stagger-bounce-in-up opacity-0">
             <PrimaryButton
               href={getLocalizedRoute("contacto", language)}
+              bubbleTransition={true}
+              bubbleColor="var(--color-teal)"
+              transitionDuration={0.8}
               className="legal-cta-primary px-8 py-4 w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-3">
@@ -73,6 +76,9 @@ export default function TermsConditionsCTASection() {
           <div className="stagger-bounce-in-up opacity-0">
             <SecondaryButton
               href={getLocalizedRoute("privacy-policy", language)}
+              bubbleTransition={true}
+              bubbleColor="var(--color-teal)"
+              transitionDuration={0.8}
               className="legal-cta-secondary px-8 py-4 w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-3">

@@ -16,6 +16,7 @@ import { use } from "react";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 interface ServiceDetailsPageProps {
   params: Promise<{
@@ -35,6 +36,7 @@ export default function MarketingInmersivoPage({
       initEntranceAnimations,
       initAlternateBlocksAnimations,
       init3DCardAnimations,
+      finishPageTransition,
     ],
     delay: 100,
   });

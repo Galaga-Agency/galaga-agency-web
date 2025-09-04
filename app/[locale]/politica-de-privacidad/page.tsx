@@ -8,6 +8,7 @@ import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import PrivacyPolicyHeroSection from "@/components/pages/privacy-policy-page/PrivacyPolicyHeroSection";
 import PrivacyPolicyContentSection from "@/components/pages/privacy-policy-page/PrivacyPolicyContentSection";
 import PrivacyPolicyCTASection from "@/components/pages/privacy-policy-page/PrivacyPolicyCTASection";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function PrivacyPolicyPage() {
   const { t, language } = useTranslation();
@@ -24,7 +25,7 @@ export default function PrivacyPolicyPage() {
   ];
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations],
+    animations: [initEntranceAnimations, finishPageTransition],
     delay: 100,
   });
 

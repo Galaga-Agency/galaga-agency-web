@@ -8,6 +8,7 @@ import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function ContactPage() {
   const { t, language } = useTranslation();
@@ -25,7 +26,10 @@ export default function ContactPage() {
   ];
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations, init3DCardAnimations],
+    animations: [
+      initEntranceAnimations,
+      init3DCardAnimations,
+      finishPageTransition],
     delay: 100,
   });
 

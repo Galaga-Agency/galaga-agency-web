@@ -8,6 +8,7 @@ import CTASection from "@/components/pages/homepage/CTASection";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function CaseStudiesPage() {
   const { t, language } = useTranslation();
@@ -23,10 +24,10 @@ export default function CaseStudiesPage() {
     },
   ];
 
-    useGSAPAnimations({
-      animations: [initEntranceAnimations],
-      delay: 100,
-    });
+  useGSAPAnimations({
+    animations: [initEntranceAnimations, finishPageTransition],
+    delay: 100,
+  });
 
   return (
     <>

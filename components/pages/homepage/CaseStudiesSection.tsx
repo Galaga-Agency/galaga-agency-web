@@ -224,10 +224,20 @@ export default function CaseStudiesSection() {
               {t("portfolio.cta.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <PrimaryButton href="/casos-de-exito">
+              <PrimaryButton
+                href="/casos-de-exito"
+                bubbleTransition={true}
+                bubbleColor="var(--color-teal)"
+                transitionDuration={0.8}
+              >
                 {t("portfolio.cta.viewAll")}
               </PrimaryButton>
-              <SecondaryButton href="/contacto">
+              <SecondaryButton
+                bubbleTransition={true}
+                bubbleColor="var(--color-teal)"
+                transitionDuration={0.8}
+                href="/contacto"
+              >
                 {t("portfolio.cta.startProject")}
               </SecondaryButton>
             </div>

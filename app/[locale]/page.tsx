@@ -17,6 +17,7 @@ import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-bloc
 import { initVideoPlayerAnimation } from "@/utils/animations/video-player-animations";
 import { parallaxItems } from "@/data/hero-parallax-items";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -38,6 +39,7 @@ export default function HomePage() {
       initBoucingBubblesAnimation,
       init3DCardAnimations,
       initCarouselAnimation,
+      finishPageTransition,
     ],
     delay: 100,
   });

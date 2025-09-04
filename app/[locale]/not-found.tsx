@@ -154,12 +154,18 @@ export default function NotFound() {
                     <PrimaryButton
                       href={getLocalizedRoute("/", language)}
                       className="px-7 py-3 w-full"
+                      bubbleTransition={true}
+                      bubbleColor="var(--color-teal)"
+                      transitionDuration={0.8}
                     >
                       {t("not-found.go-home")}
                     </PrimaryButton>
                     <SecondaryButton
                       href={getLocalizedRoute("contact", language)}
                       className="px-7 py-3 w-full"
+                      bubbleTransition={true}
+                      bubbleColor="var(--color-teal)"
+                      transitionDuration={0.8}
                     >
                       {t("not-found.contact")}
                     </SecondaryButton>

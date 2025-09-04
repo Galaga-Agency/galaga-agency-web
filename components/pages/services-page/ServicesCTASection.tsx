@@ -42,6 +42,9 @@ export default function ServiceCTASection({
         <div className="stagger-bounce-in-up opacity-0 flex flex-col gap-4 md:flex-row justify-center">
           <PrimaryButton
             href={getLocalizedRoute("contacto", language)}
+            bubbleTransition={true}
+            bubbleColor="var(--color-teal)"
+            transitionDuration={0.8}
             className="px-8 py-4 w-full md:w-auto transform transition-all duration-300 hover:scale-105"
           >
             <span className="flex items-center justify-center gap-3">
@@ -60,6 +63,9 @@ export default function ServiceCTASection({
 
           <SecondaryButton
             href={getLocalizedRoute("casos-de-exito", language)}
+            bubbleTransition={true}
+            bubbleColor="var(--color-teal)"
+            transitionDuration={0.8}
             className="px-8 py-4 w-full md:w-auto transform transition-all duration-300 hover:scale-105"
           >
             <span className="flex items-center justify-center gap-3">

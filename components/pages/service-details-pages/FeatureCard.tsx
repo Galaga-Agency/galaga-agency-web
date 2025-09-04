@@ -228,6 +228,9 @@ export default function FeatureCard({
                   />
                   <SecondaryButton
                     href={getLocalizedRoute("/contacto", language)}
+                    bubbleTransition={true}
+                    bubbleColor="var(--color-teal)"
+                    transitionDuration={0.8}
                     borderColor="teal"
                     size="md"
                     className="relative z-10"

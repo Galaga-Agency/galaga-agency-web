@@ -11,6 +11,7 @@ import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 interface ProyectoDetallePageProps {
   params: Promise<{
@@ -55,7 +56,10 @@ export default function ProyectoDetallePage({
   ];
 
       useGSAPAnimations({
-        animations: [initEntranceAnimations, initAlternateBlocksAnimations],
+        animations: [
+          initEntranceAnimations,
+          initAlternateBlocksAnimations,
+          finishPageTransition],
         delay: 100,
       });
 

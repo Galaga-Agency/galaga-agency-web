@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useDeviceDetect } from "@/hooks/useDeviceDetect";
@@ -46,7 +47,14 @@ export const HeroTitleAnimation = () => {
             </div>
 
             <div className="hero-cta-buttons opacity-0 translate-y-4 flex-col md:flex-row gap-4 pt-8 md:pt-12 justify-center items-center hidden md:flex">
-              <PrimaryButton href={servicesLink} bgColor="white" size="lg">
+              <PrimaryButton
+                href={servicesLink}
+                bgColor="white"
+                size="lg"
+                bubbleTransition={true}
+                bubbleColor="var(--color-teal)"
+                transitionDuration={0.8}
+              >
                 {t("homepage.hero-section.cta.services")}
               </PrimaryButton>
 
@@ -55,6 +63,7 @@ export const HeroTitleAnimation = () => {
                 borderColor="white"
                 size="lg"
                 external
+                bubbleTransition={false}
               >
                 {t("homepage.hero-section.cta.scheduleCall")}
               </SecondaryButton>

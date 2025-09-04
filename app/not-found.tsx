@@ -149,11 +149,20 @@ export default function NotFound() {
                     data-3d-data
                     className="opacity-0 pt-4 flex flex-col sm:flex-row items-center justify-center gap-3"
                   >
-                    <PrimaryButton href="/es" className="px-7 py-3 w-full">
+                    <PrimaryButton
+                      href="/es"
+                      bubbleTransition={true}
+                      bubbleColor="var(--color-teal)"
+                      transitionDuration={0.8}
+                      className="px-7 py-3 w-full"
+                    >
                       Ir al inicio
                     </PrimaryButton>
                     <SecondaryButton
                       href="/es/contacto"
+                      bubbleTransition={true}
+                      bubbleColor="var(--color-teal)"
+                      transitionDuration={0.8}
                       className="px-7 py-3 w-full"
                     >
                       Contacto

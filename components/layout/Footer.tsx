@@ -5,7 +5,6 @@ import { useTranslation } from "@/hooks/useTranslation";
 import PrimaryButton from "../ui/PrimaryButton";
 import { services } from "@/data/services";
 import SocialIcons from "../SocialIcons";
-import SecondaryButton from "../ui/SecondaryButton";
 import { getLocalizedRoute } from "@/utils/navigation";
 
 export default function Footer() {
@@ -46,6 +45,9 @@ export default function Footer() {
                 </p>
                 <PrimaryButton
                   href={getLocalizedRoute("contacto", language)}
+                  bubbleTransition={true}
+                  bubbleColor="var(--color-teal)"
+                  transitionDuration={0.8}
                   className="w-full"
                 >
                   {t("footer.getInTouch")}

@@ -11,6 +11,7 @@ import AboutCTASection from "@/components/pages/about-us-page/AboutCTASection";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function AboutPage() {
   const { t, language } = useTranslation();
@@ -30,7 +31,8 @@ export default function AboutPage() {
     useGSAPAnimations({
       animations: [
         initEntranceAnimations,
-        initAlternateBlocksAnimations
+        initAlternateBlocksAnimations,
+        finishPageTransition
       ],
       delay: 100,
     });

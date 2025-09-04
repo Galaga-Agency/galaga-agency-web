@@ -11,6 +11,7 @@ import TechnologyStackSection from "@/components/pages/services-page/TechnologyS
 import ServiceCTASection from "@/components/pages/services-page/ServicesCTASection";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function ServicesPage() {
   const { t, language } = useTranslation();
@@ -28,7 +29,10 @@ export default function ServicesPage() {
   ];
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations, init3DCardAnimations],
+    animations: [
+      initEntranceAnimations,
+      init3DCardAnimations,
+      finishPageTransition],
     delay: 100,
   });
 

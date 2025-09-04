@@ -274,6 +274,9 @@ export default function Navbar() {
                   <PrimaryButton
                     href={getLocalizedRoute("contacto", currentLang)}
                     size="md"
+                    bubbleTransition={true}
+                    bubbleColor="var(--color-teal)"
+                    transitionDuration={0.8}
                   >
                     {t(ctaButtonKey)}
                   </PrimaryButton>
@@ -282,6 +285,9 @@ export default function Navbar() {
                     href={getLocalizedRoute("contacto", currentLang)}
                     size="md"
                     className="text-white/80 hover:text-white hover:border-white"
+                    bubbleTransition={true}
+                    bubbleColor="var(--color-teal)"
+                    transitionDuration={0.8}
                   >
                     {t(ctaButtonKey)}
                   </SecondaryButton>

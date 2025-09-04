@@ -8,6 +8,7 @@ import ServiceCTASection from "@/components/pages/service-details-pages/ServiceC
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import GrantsManagementHeroSection from "@/components/pages/service-details-pages/grants-management-page/GrantsManagementHeroSection";
 import { use } from "react";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 interface ServiceDetailsPageProps {
   params: Promise<{
@@ -22,7 +23,7 @@ export default function GrantsManagementPage({
   const { serviceSlug } = use(params);
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations],
+    animations: [initEntranceAnimations, finishPageTransition],
     delay: 100,
   });
 

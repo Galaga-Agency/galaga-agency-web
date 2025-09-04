@@ -33,12 +33,18 @@ export default function AboutCTASection() {
             <span className="fade-in-up-rotate opacity-0 block text-azul-profundo pb-2">
               {t("about-page.cta-section.line1")}
             </span>
-            <span className="fade-in-up-rotate opacity-0 block bg-gradient-to-r from-teal to-turquesa bg-clip-text text-transparent pb-4" style={{ animationDelay: '0.2s' }}>
+            <span
+              className="fade-in-up-rotate opacity-0 block bg-gradient-to-r from-teal to-turquesa bg-clip-text text-transparent pb-4"
+              style={{ animationDelay: "0.2s" }}
+            >
               {t("about-page.cta-section.line2")}
             </span>
           </h2>
 
-          <p className="fade-in-up opacity-0 cta-subtitle text-lg lg:text-xl text-negro font-light leading-relaxed px-4" style={{ animationDelay: '0.4s' }}>
+          <p
+            className="fade-in-up opacity-0 cta-subtitle text-lg lg:text-xl text-negro font-light leading-relaxed px-4"
+            style={{ animationDelay: "0.4s" }}
+          >
             {t("about-page.cta-section.subtitle")}
           </p>
         </div>
@@ -48,6 +54,9 @@ export default function AboutCTASection() {
           <div className="stagger-bounce-in-up opacity-0">
             <PrimaryButton
               href="/servicios"
+              bubbleTransition={true}
+              bubbleColor="var(--color-teal)"
+              transitionDuration={0.8}
               className="about-cta-primary px-8 py-4 w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-3">
@@ -66,6 +75,9 @@ export default function AboutCTASection() {
           <div className="stagger-bounce-in-up opacity-0">
             <SecondaryButton
               href="/contacto"
+              bubbleTransition={true}
+              bubbleColor="var(--color-teal)"
+              transitionDuration={0.8}
               className="about-cta-secondary px-8 py-4 w-full md:w-auto"
             >
               <span className="flex items-center justify-center gap-3">
@@ -76,7 +88,10 @@ export default function AboutCTASection() {
         </div>
 
         {/* Contact info with subtle animation */}
-        <div className="fade-in-up-rotate opacity-0 text-center pt-16 lg:pt-20" style={{ animationDelay: '0.8s' }}>
+        <div
+          className="fade-in-up-rotate opacity-0 text-center pt-16 lg:pt-20"
+          style={{ animationDelay: "0.8s" }}
+        >
           <p className="text-negro text-lg font-light pb-4">
             {t("about-page.cta-section.directContact")}
           </p>

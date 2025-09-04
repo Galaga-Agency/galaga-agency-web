@@ -8,6 +8,7 @@ import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import TermsConditionsHeroSection from "@/components/pages/terms-conditions-page/TermsConditionsHeroSection";
 import TermsConditionsContentSection from "@/components/pages/terms-conditions-page/TermsConditionsContentSection";
 import TermsConditionsCTASection from "@/components/pages/terms-conditions-page/TermsConditionsCTASection";
+import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function TermsConditionsPage() {
   const { t, language } = useTranslation();
@@ -24,7 +25,7 @@ export default function TermsConditionsPage() {
   ];
 
   useGSAPAnimations({
-    animations: [initEntranceAnimations],
+    animations: [initEntranceAnimations, finishPageTransition],
     delay: 100,
   });
 

@@ -26,14 +26,23 @@ export default function CTASection() {
             </span>
           </h2>
 
-          <p className="fade-in-up cta-subtitle text-lg lg:text-xl text-negro font-light leading-relaxed px-4" style={{ animationDelay: '0.2s' }}>
+          <p
+            className="fade-in-up cta-subtitle text-lg lg:text-xl text-negro font-light leading-relaxed px-4"
+            style={{ animationDelay: "0.2s" }}
+          >
             {t("homepage-cta.massive.subtitle")}
           </p>
         </div>
 
-        <div className="fade-in-up cta-card-buttons flex flex-col gap-4 md:flex-row justify-center" style={{ animationDelay: '0.4s' }}>
+        <div
+          className="fade-in-up cta-card-buttons flex flex-col gap-4 md:flex-row justify-center"
+          style={{ animationDelay: "0.4s" }}
+        >
           <PrimaryButton
             href="/contacto"
+            bubbleTransition={true}
+            bubbleColor="var(--color-teal)"
+            transitionDuration={0.8}
             className="cta-primary-button px-8 py-4 w-full md:w-auto transform transition-all duration-300 hover:scale-105"
           >
             <span className="flex items-center justify-center gap-3">
@@ -50,6 +59,9 @@ export default function CTASection() {
 
           <SecondaryButton
             href="/sobre-nosotros"
+            bubbleTransition={true}
+            bubbleColor="var(--color-teal)"
+            transitionDuration={0.8}
             className="cta-secondary-button px-8 py-4 w-full md:w-auto transform transition-all duration-300 hover:scale-105"
           >
             <span className="flex items-center justify-center gap-3">
@@ -59,7 +71,10 @@ export default function CTASection() {
         </div>
 
         {/* Simple contact info */}
-        <div className="opacity-0 fade-in-up-rotate text-center pt-16 lg:pt-20" style={{ animationDelay: '0.6s' }}>
+        <div
+          className="opacity-0 fade-in-up-rotate text-center pt-16 lg:pt-20"
+          style={{ animationDelay: "0.6s" }}
+        >
           <p className="text-negro text-lg font-light pb-4">
             {t("homepage-cta.directContact")}
           </p>
