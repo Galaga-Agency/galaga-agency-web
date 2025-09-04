@@ -1,4 +1,3 @@
-// hooks/useCookies.ts
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';

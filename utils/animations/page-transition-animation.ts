@@ -22,27 +22,43 @@ export interface TransitionOptions {
   onComplete?: () => void;
 }
 
-/** Create (or reuse) the overlay element */
+/** Create (or reuse) the overlay element with 3 concentric layers */
 function getOrCreateOverlay(color: string) {
   let overlay = document.querySelector<HTMLElement>(".page-transition-overlay");
   if (!overlay) {
     overlay = document.createElement("div");
     overlay.className = "page-transition-overlay";
     overlay.style.cssText = `
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 9999;
-      pointer-events: none; /* never block */
-      background: ${color};
-      will-change: clip-path;
-      contain: layout paint style; /* isolate for perf */
+      position: fixed; inset: 0;
+      width: 100vw; height: 100vh;
+      z-index: 9999; pointer-events: none;
+      will-change: clip-path; contain: layout paint style;
+      background: transparent;
     `;
+
+    // Build 3 concentric layers (outer → inner)
+    for (let i = 0; i < 3; i++) {
+      const layer = document.createElement("div");
+      layer.className = `bubble-layer bubble-layer-${i + 1}`;
+      const shade = `color-mix(in oklab, ${color} ${85 - i * 15}%, black)`;
+      layer.style.cssText = `
+        position:absolute; inset:0;
+        background:${shade};
+        will-change: clip-path;
+        pointer-events:none;
+      `;
+      overlay.appendChild(layer);
+    }
     document.body.appendChild(overlay);
   } else {
-    overlay.style.background = color;
+    // Update colors if overlay already exists
+    const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
+    layers.forEach((layer, i) => {
+      const shade = `color-mix(in oklab, ${color} ${85 - i * 15}%, black)`;
+      layer.style.background = shade;
+    });
   }
+
   overlay.setAttribute("aria-hidden", "true");
   overlay.style.willChange = "clip-path";
   return overlay;
@@ -52,27 +68,23 @@ function getOrCreateOverlay(color: string) {
 function installSingleton(overlay: HTMLElement) {
   const hardCleanup = () => {
     try {
-      // Clear any pending timeout
       if (window.__bubbleTransition?.autoKillId) {
         window.clearTimeout(window.__bubbleTransition.autoKillId);
       }
-      // Kill all tweens/timelines on the overlay
       gsap.killTweensOf(overlay);
+      overlay.querySelectorAll("*").forEach((el) => gsap.killTweensOf(el));
       window.__bubbleTransition?.tl?.kill();
 
-      // Clear styles to release compositor resources
       gsap.set(overlay, {
         clearProps: "clipPath,webkitClipPath,willChange,pointerEvents",
       });
 
-      // Remove element
       if (overlay.parentNode) overlay.remove();
     } finally {
       window.__bubbleTransition = undefined;
     }
   };
 
-  // If an older transition is still “active”, nuke it first
   if (window.__bubbleTransition?.active) {
     window.__bubbleTransition.hardCleanup();
   }
@@ -84,8 +96,9 @@ function installSingleton(overlay: HTMLElement) {
   };
 }
 
-function computeRadius() {
-  return Math.ceil(Math.hypot(window.innerWidth, window.innerHeight) * 1.2);
+function computeRadii() {
+  const R = Math.ceil(Math.hypot(window.innerWidth, window.innerHeight) * 1.2);
+  return [R, Math.round(R * 0.66), Math.round(R * 0.33)];
 }
 
 /** EXPAND: call before navigation */
@@ -103,41 +116,60 @@ export function initPageTransition({
   const overlay = getOrCreateOverlay(color);
   installSingleton(overlay);
 
-  // Persist for the destination page
   overlay.dataset.clickX = String(clickX);
   overlay.dataset.clickY = String(clickY);
   overlay.dataset.color = color;
   overlay.dataset.startedAt = String(performance.now());
 
-  // Reset any existing tweens on this element before starting a new one
-  gsap.killTweensOf(overlay);
+  const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
+  const [R0, R1, R2] = computeRadii();
 
-  gsap.set(overlay, {
-    clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-    webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-    pointerEvents: "none",
-  });
+  layers.forEach((l) =>
+    gsap.set(l, {
+      clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+      webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+      pointerEvents: "none",
+    })
+  );
 
   const tl = gsap.timeline({
     onComplete: () => {
       onComplete?.();
-      // keep overlay in DOM for the exit phase
     },
   });
 
-  tl.to(overlay, {
-    clipPath: `circle(${computeRadius()}px at ${clickX}px ${clickY}px)`,
-    webkitClipPath: `circle(${computeRadius()}px at ${clickX}px ${clickY}px)`,
+  // outer → mid → inner with stagger
+  tl.to(layers[0], {
+    clipPath: `circle(${R0}px at ${clickX}px ${clickY}px)`,
+    webkitClipPath: `circle(${R0}px at ${clickX}px ${clickY}px)`,
     duration,
     ease: "power2.out",
-  });
+  })
+    .to(
+      layers[1],
+      {
+        clipPath: `circle(${R1}px at ${clickX}px ${clickY}px)`,
+        webkitClipPath: `circle(${R1}px at ${clickX}px ${clickY}px)`,
+        duration: duration * 0.92,
+        ease: "power2.out",
+      },
+      0.06
+    )
+    .to(
+      layers[2],
+      {
+        clipPath: `circle(${R2}px at ${clickX}px ${clickY}px)`,
+        webkitClipPath: `circle(${R2}px at ${clickX}px ${clickY}px)`,
+        duration: duration * 0.86,
+        ease: "power2.out",
+      },
+      0.12
+    );
 
-  // store timeline on the singleton
   if (window.__bubbleTransition) {
     window.__bubbleTransition.tl = tl;
   }
 
-  // Fail-safe auto cleanup (e.g., hot reloads, aborted nav)
   window.clearTimeout((window.__bubbleTransition as any)?.autoKillId);
   const autoKillId = window.setTimeout(() => {
     window.__bubbleTransition?.hardCleanup();
@@ -152,7 +184,7 @@ export function initPageTransition({
   };
 }
 
-/** SHRINK: call once on the destination page (e.g., at the start of your page-level useGSAP). */
+/** SHRINK: call once on the destination page */
 export function finishPageTransition(exitDuration = 0.8) {
   if (typeof window === "undefined") return;
 
@@ -161,8 +193,8 @@ export function finishPageTransition(exitDuration = 0.8) {
     document.querySelector<HTMLElement>(".page-transition-overlay");
   if (!overlay) return;
 
-  // Prevent double-running and kill any in-flight tweens first
-  gsap.killTweensOf(overlay);
+  const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
+  layers.forEach((l) => gsap.killTweensOf(l));
   window.clearTimeout(window.__bubbleTransition?.autoKillId);
 
   const clickX =
@@ -170,7 +202,9 @@ export function finishPageTransition(exitDuration = 0.8) {
   const clickY =
     Number(overlay.dataset.clickY) || Math.round(window.innerHeight / 2);
 
-  gsap.set(overlay, { pointerEvents: "none", willChange: "clip-path" });
+  layers.forEach((l) =>
+    gsap.set(l, { pointerEvents: "none", willChange: "clip-path" })
+  );
 
   const tl = gsap.timeline({
     onComplete: () => {
@@ -178,12 +212,33 @@ export function finishPageTransition(exitDuration = 0.8) {
     },
   });
 
-  tl.to(overlay, {
+  // inner → mid → outer reverse stagger
+  tl.to(layers[2], {
     clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
     webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-    duration: exitDuration,
+    duration: exitDuration * 0.85,
     ease: "power2.inOut",
-  });
+  })
+    .to(
+      layers[1],
+      {
+        clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+        webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+        duration: exitDuration * 0.9,
+        ease: "power2.inOut",
+      },
+      0.05
+    )
+    .to(
+      layers[0],
+      {
+        clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+        webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+        duration: exitDuration,
+        ease: "power2.inOut",
+      },
+      0.1
+    );
 
   if (window.__bubbleTransition) {
     window.__bubbleTransition.tl = tl;
