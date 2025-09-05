@@ -18,7 +18,7 @@ interface UseAppLoadingReturn {
   cachedVideoUrl: string | null;
 }
 
-const HERO_VIDEO_URL = "/assets/videos/galaga-presentation.mp4";
+const HERO_VIDEO_URL = "/assets/videos/galaga-compressed.mp4";
 
 // Global singleton to prevent multiple initializations
 let globalHasInitialized = false;
@@ -34,9 +34,13 @@ export function useAppLoading(): UseAppLoadingReturn {
   });
 
   const [isLoading, setIsLoading] = useState(!globalHasInitialized);
-  const [loadingProgress, setLoadingProgress] = useState(globalHasInitialized ? 100 : 0);
+  const [loadingProgress, setLoadingProgress] = useState(
+    globalHasInitialized ? 100 : 0
+  );
   const [isAppReady, setIsAppReady] = useState(globalIsAppReady);
-  const [cachedVideoUrl, setCachedVideoUrl] = useState<string | null>(globalCachedVideoUrl);
+  const [cachedVideoUrl, setCachedVideoUrl] = useState<string | null>(
+    globalCachedVideoUrl
+  );
 
   const progressTween = useRef<gsap.core.Tween | null>(null);
   const currentProgress = useRef(globalHasInitialized ? 100 : 0);
@@ -180,7 +184,7 @@ export function useAppLoading(): UseAppLoadingReturn {
     const loadCriticalAssets = async () => {
       try {
         await assetCache.initialize();
-        
+
         const criticalAssets = CRITICAL_ASSETS.filter(
           (a) => a.priority === "critical"
         );
@@ -196,15 +200,17 @@ export function useAppLoading(): UseAppLoadingReturn {
         }
 
         const loadPromises = criticalAssets.map((asset) =>
-          assetCache.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize).catch((err) => {
-            console.warn(`Failed to preload ${asset.path}:`, err);
-          })
+          assetCache
+            .cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize)
+            .catch((err) => {
+              console.warn(`Failed to preload ${asset.path}:`, err);
+            })
         );
 
         await Promise.all(loadPromises);
 
         let videoGateTriggered = false;
-        
+
         try {
           const videoUrl = await assetCache.cacheAsset(
             HERO_VIDEO_URL,
@@ -239,7 +245,7 @@ export function useAppLoading(): UseAppLoadingReturn {
           console.warn("Video caching failed, using original URL:", videoError);
           setCachedVideoUrl(HERO_VIDEO_URL);
           globalCachedVideoUrl = HERO_VIDEO_URL;
-          
+
           if (!videoGateTriggered) {
             setLoadingState((prev) => {
               if (prev.assets) return prev;
@@ -249,7 +255,6 @@ export function useAppLoading(): UseAppLoadingReturn {
             });
           }
         }
-
       } catch (err) {
         console.error("Critical asset loading failed:", err);
         setCachedVideoUrl(HERO_VIDEO_URL);
@@ -305,7 +310,7 @@ export function useAppLoading(): UseAppLoadingReturn {
         updateProgress(newState);
         return newState;
       });
-      
+
       if (!cachedVideoUrl) {
         setCachedVideoUrl(HERO_VIDEO_URL);
         globalCachedVideoUrl = HERO_VIDEO_URL;

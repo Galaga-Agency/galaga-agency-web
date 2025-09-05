@@ -67,7 +67,7 @@ export const CRITICAL_ASSETS: HeroAsset[] = [
     type: "image",
   },
   {
-    path: "/assets/videos/galaga-presentation.mp4",
+    path: "/assets/videos/galaga-compressed.mp4",
     page: "home",
     priority: "high",
     format: "mp4",

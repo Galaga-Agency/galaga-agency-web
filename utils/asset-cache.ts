@@ -65,7 +65,7 @@ export const CRITICAL_ASSETS: AssetDefinition[] = [
     type: "image",
   },
   {
-    path: "/assets/videos/galaga-presentation.mp4",
+    path: "/assets/videos/galaga-compressed.mp4",
     page: "home",
     priority: "high",
     format: "mp4",
@@ -216,9 +216,11 @@ class UnifiedAssetCache {
 
       request.onupgradeneeded = (event) => {
         const db = (event.target as IDBOpenDBRequest).result;
-        
+
         if (!db.objectStoreNames.contains(this.ASSETS_STORE_NAME)) {
-          const store = db.createObjectStore(this.ASSETS_STORE_NAME, { keyPath: "path" });
+          const store = db.createObjectStore(this.ASSETS_STORE_NAME, {
+            keyPath: "path",
+          });
           store.createIndex("timestamp", "timestamp");
           store.createIndex("type", "type");
           store.createIndex("priority", "priority");
@@ -230,11 +232,12 @@ class UnifiedAssetCache {
   private clearLegacyCache(): void {
     try {
       const keys = Object.keys(localStorage);
-      const legacyKeys = keys.filter(key => 
-        key.startsWith("galaga_asset_") || key.startsWith("galaga_img_")
+      const legacyKeys = keys.filter(
+        (key) =>
+          key.startsWith("galaga_asset_") || key.startsWith("galaga_img_")
       );
-      
-      legacyKeys.forEach(key => localStorage.removeItem(key));
+
+      legacyKeys.forEach((key) => localStorage.removeItem(key));
       if (legacyKeys.length > 0) {
         console.log(`Cleared ${legacyKeys.length} legacy cache entries`);
       }
@@ -266,12 +269,13 @@ class UnifiedAssetCache {
 
     try {
       const assets = await this.getAllAssets();
-      assets.forEach(asset => {
+      assets.forEach((asset) => {
         if (this.isAssetValid(asset)) {
-          const url = asset.type === "image" 
-            ? asset.data as string 
-            : URL.createObjectURL(asset.data as Blob);
-          
+          const url =
+            asset.type === "image"
+              ? (asset.data as string)
+              : URL.createObjectURL(asset.data as Blob);
+
           this.memoryCache.set(asset.path, url);
           this.statusCache.set(asset.path, "loaded");
         }
@@ -285,7 +289,10 @@ class UnifiedAssetCache {
     if (!this.db) await this.initDatabase();
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction([this.ASSETS_STORE_NAME], "readonly");
+      const transaction = this.db!.transaction(
+        [this.ASSETS_STORE_NAME],
+        "readonly"
+      );
       const store = transaction.objectStore(this.ASSETS_STORE_NAME);
       const request = store.getAll();
 
@@ -298,7 +305,10 @@ class UnifiedAssetCache {
     if (!this.db) await this.initDatabase();
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction([this.ASSETS_STORE_NAME], "readwrite");
+      const transaction = this.db!.transaction(
+        [this.ASSETS_STORE_NAME],
+        "readwrite"
+      );
       const store = transaction.objectStore(this.ASSETS_STORE_NAME);
       const request = store.put(asset);
 
@@ -311,7 +321,10 @@ class UnifiedAssetCache {
     if (!this.db) await this.initDatabase();
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction([this.ASSETS_STORE_NAME], "readonly");
+      const transaction = this.db!.transaction(
+        [this.ASSETS_STORE_NAME],
+        "readonly"
+      );
       const store = transaction.objectStore(this.ASSETS_STORE_NAME);
       const request = store.get(path);
 
@@ -354,18 +367,20 @@ class UnifiedAssetCache {
 
     const cached = await this.getCachedAsset(path);
     if (cached) {
-      const url = type === "image" 
-        ? cached.data as string 
-        : URL.createObjectURL(cached.data as Blob);
-      
+      const url =
+        type === "image"
+          ? (cached.data as string)
+          : URL.createObjectURL(cached.data as Blob);
+
       this.memoryCache.set(path, url);
       this.statusCache.set(path, "loaded");
       return url;
     }
 
-    const loadPromise = type === "image" 
-      ? this.loadAndCacheImage(path, priority)
-      : this.loadAndCacheVideo(path, priority, maxSize, onProgress);
+    const loadPromise =
+      type === "image"
+        ? this.loadAndCacheImage(path, priority)
+        : this.loadAndCacheVideo(path, priority, maxSize, onProgress);
 
     this.loadingPromises.set(path, loadPromise);
 
@@ -378,7 +393,10 @@ class UnifiedAssetCache {
     }
   }
 
-  private async loadAndCacheImage(path: string, priority: "critical" | "high" | "normal"): Promise<void> {
+  private async loadAndCacheImage(
+    path: string,
+    priority: "critical" | "high" | "normal"
+  ): Promise<void> {
     return new Promise((resolve) => {
       if (this.abortController?.signal.aborted) {
         resolve();
@@ -388,7 +406,8 @@ class UnifiedAssetCache {
       const img = new Image();
       this.statusCache.set(path, "loading");
 
-      const timeout = priority === "critical" ? 15000 : priority === "high" ? 10000 : 8000;
+      const timeout =
+        priority === "critical" ? 15000 : priority === "high" ? 10000 : 8000;
       const timeoutId = setTimeout(() => {
         this.statusCache.set(path, "error");
         resolve();
@@ -440,18 +459,18 @@ class UnifiedAssetCache {
   }
 
   private async storeImageAsset(
-    path: string, 
-    img: HTMLImageElement, 
+    path: string,
+    img: HTMLImageElement,
     priority: "critical" | "high" | "normal"
   ): Promise<void> {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     if (!ctx) throw new Error("Cannot get canvas context");
-    
+
     canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
     ctx.drawImage(img, 0, 0);
-    
+
     const blob = await new Promise<Blob>((resolve, reject) => {
       canvas.toBlob(
         (b) => (b ? resolve(b) : reject(new Error("Failed toBlob"))),
@@ -468,7 +487,7 @@ class UnifiedAssetCache {
       timestamp: Date.now(),
       size: blob.size,
       type: "image",
-      priority
+      priority,
     };
 
     await this.storeAsset(asset);
@@ -522,22 +541,21 @@ class UnifiedAssetCache {
       }
 
       const videoBlob = new Blob(chunks as any, { type: "video/mp4" });
-      
+
       const asset: CachedAsset = {
         path,
         data: videoBlob,
         timestamp: Date.now(),
         size: videoBlob.size,
         type: "video",
-        priority
+        priority,
       };
 
       await this.storeAsset(asset);
-      
+
       const blobUrl = URL.createObjectURL(videoBlob);
       this.memoryCache.set(path, blobUrl);
       this.statusCache.set(path, "loaded");
-
     } catch (error) {
       this.statusCache.set(path, "error");
       console.error(`Failed to cache video ${path}:`, error);
@@ -570,15 +588,18 @@ class UnifiedAssetCache {
     try {
       const cached = await this.getCachedAsset(path);
       if (cached) {
-        const url = cached.type === "image" 
-          ? cached.data as string 
-          : URL.createObjectURL(cached.data as Blob);
-        
+        const url =
+          cached.type === "image"
+            ? (cached.data as string)
+            : URL.createObjectURL(cached.data as Blob);
+
         this.memoryCache.set(path, url);
         this.statusCache.set(path, "loaded");
-        
+
         // Trigger a re-render by dispatching a custom event
-        window.dispatchEvent(new CustomEvent('assetCached', { detail: { path, url } }));
+        window.dispatchEvent(
+          new CustomEvent("assetCached", { detail: { path, url } })
+        );
       }
     } catch (error) {
       console.warn(`Failed to load asset ${path} from database:`, error);
@@ -617,22 +638,39 @@ class UnifiedAssetCache {
   }
 
   private async preloadCriticalAssets(): Promise<void> {
-    const criticalAssets = CRITICAL_ASSETS.filter(asset => asset.priority === "critical");
-    const highPriorityAssets = CRITICAL_ASSETS.filter(asset => asset.priority === "high");
-    const normalAssets = CRITICAL_ASSETS.filter(asset => asset.priority === "normal");
+    const criticalAssets = CRITICAL_ASSETS.filter(
+      (asset) => asset.priority === "critical"
+    );
+    const highPriorityAssets = CRITICAL_ASSETS.filter(
+      (asset) => asset.priority === "high"
+    );
+    const normalAssets = CRITICAL_ASSETS.filter(
+      (asset) => asset.priority === "normal"
+    );
 
     try {
       await Promise.all(
-        criticalAssets.map(asset => this.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize))
+        criticalAssets.map((asset) =>
+          this.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize)
+        )
       );
 
       Promise.all(
-        highPriorityAssets.map(asset => this.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize))
+        highPriorityAssets.map((asset) =>
+          this.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize)
+        )
       ).catch(console.warn);
 
       setTimeout(() => {
         Promise.all(
-          normalAssets.map(asset => this.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize))
+          normalAssets.map((asset) =>
+            this.cacheAsset(
+              asset.path,
+              asset.type,
+              asset.priority,
+              asset.maxSize
+            )
+          )
         ).catch(console.warn);
       }, 2000);
     } catch (error) {
@@ -644,7 +682,10 @@ class UnifiedAssetCache {
     if (!this.db) await this.initDatabase();
 
     return new Promise((resolve, reject) => {
-      const transaction = this.db!.transaction([this.ASSETS_STORE_NAME], "readwrite");
+      const transaction = this.db!.transaction(
+        [this.ASSETS_STORE_NAME],
+        "readwrite"
+      );
       const store = transaction.objectStore(this.ASSETS_STORE_NAME);
       const request = store.delete(path);
 
@@ -662,12 +703,12 @@ class UnifiedAssetCache {
 
     try {
       const assets = await this.getAllAssets();
-      const expired = assets.filter(asset => !this.isAssetValid(asset));
-      
+      const expired = assets.filter((asset) => !this.isAssetValid(asset));
+
       for (const asset of expired) {
         await this.removeAsset(asset.path);
       }
-      
+
       if (expired.length > 0) {
         console.log(`Cleaned up ${expired.length} expired assets`);
       }
@@ -704,9 +745,12 @@ class UnifiedAssetCache {
     if (!this.db) throw new Error("Failed to initialize database");
 
     try {
-      const transaction = this.db.transaction([this.ASSETS_STORE_NAME], "readwrite");
+      const transaction = this.db.transaction(
+        [this.ASSETS_STORE_NAME],
+        "readwrite"
+      );
       const store = transaction.objectStore(this.ASSETS_STORE_NAME);
-      
+
       return new Promise((resolve, reject) => {
         const clearRequest = store.clear();
         clearRequest.onerror = () => reject(clearRequest.error);
@@ -728,9 +772,16 @@ class UnifiedAssetCache {
 export const assetCache = UnifiedAssetCache.getInstance();
 
 export const initializeAssetCache = () => assetCache.initialize();
-export const getCachedAsset = (path: string) => assetCache.getCachedAssetUrl(path);
+export const getCachedAsset = (path: string) =>
+  assetCache.getCachedAssetUrl(path);
 export const isAssetReady = (path: string) => assetCache.isAssetReady(path);
-export const preloadPageAssets = (page: string) => assetCache.preloadPageAssets(page);
-export const cacheAsset = (path: string, type: "image" | "video", priority?: "critical" | "high" | "normal", maxSize?: number, onProgress?: (progress: number) => void) => 
-  assetCache.cacheAsset(path, type, priority, maxSize, onProgress);
+export const preloadPageAssets = (page: string) =>
+  assetCache.preloadPageAssets(page);
+export const cacheAsset = (
+  path: string,
+  type: "image" | "video",
+  priority?: "critical" | "high" | "normal",
+  maxSize?: number,
+  onProgress?: (progress: number) => void
+) => assetCache.cacheAsset(path, type, priority, maxSize, onProgress);
 export const clearCache = () => assetCache.clearAllCache();

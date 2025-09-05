@@ -18,7 +18,7 @@ interface UseAppLoadingReturn {
   cachedVideoUrl: string | null;
 }
 
-const HERO_VIDEO_URL = "/assets/videos/galaga-presentation.mp4";
+const HERO_VIDEO_URL = "/assets/videos/galaga-compressed.mp4";
 
 export function useAppLoading(): UseAppLoadingReturn {
   const [loadingState, setLoadingState] = useState<LoadingState>({
@@ -149,7 +149,7 @@ export function useAppLoading(): UseAppLoadingReturn {
     const loadCriticalAssets = async () => {
       try {
         await assetCache.initialize();
-        
+
         const criticalAssets = CRITICAL_ASSETS.filter(
           (a) => a.priority === "critical"
         );
@@ -166,16 +166,18 @@ export function useAppLoading(): UseAppLoadingReturn {
 
         // Load critical assets
         const loadPromises = criticalAssets.map((asset) =>
-          assetCache.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize).catch((err) => {
-            console.warn(`Failed to preload ${asset.path}:`, err);
-          })
+          assetCache
+            .cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize)
+            .catch((err) => {
+              console.warn(`Failed to preload ${asset.path}:`, err);
+            })
         );
 
         await Promise.all(loadPromises);
 
         // Load hero video with early gate flip at 10% progress
         let videoGateTriggered = false;
-        
+
         try {
           const videoUrl = await assetCache.cacheAsset(
             HERO_VIDEO_URL,
@@ -208,7 +210,7 @@ export function useAppLoading(): UseAppLoadingReturn {
         } catch (videoError) {
           console.warn("Video caching failed, using original URL:", videoError);
           setCachedVideoUrl(HERO_VIDEO_URL);
-          
+
           if (!videoGateTriggered) {
             setLoadingState((prev) => {
               if (prev.assets) return prev;
@@ -218,7 +220,6 @@ export function useAppLoading(): UseAppLoadingReturn {
             });
           }
         }
-
       } catch (err) {
         console.error("Critical asset loading failed:", err);
         setCachedVideoUrl(HERO_VIDEO_URL);
@@ -269,7 +270,7 @@ export function useAppLoading(): UseAppLoadingReturn {
         updateProgress(newState);
         return newState;
       });
-      
+
       if (!cachedVideoUrl) {
         setCachedVideoUrl(HERO_VIDEO_URL);
       }
@@ -324,10 +325,13 @@ export function useCachedAsset(mediaPath: string) {
       }
     };
 
-    window.addEventListener('assetCached', handleAssetCached as EventListener);
+    window.addEventListener("assetCached", handleAssetCached as EventListener);
 
     return () => {
-      window.removeEventListener('assetCached', handleAssetCached as EventListener);
+      window.removeEventListener(
+        "assetCached",
+        handleAssetCached as EventListener
+      );
     };
   }, [mediaPath]);
 
@@ -367,7 +371,7 @@ export function usePageAssets(pageName: string) {
 
   const preloadAssets = useCallback(async () => {
     if (isLoading || isLoaded) return;
-    
+
     setIsLoading(true);
     try {
       await assetCache.preloadPageAssets(pageName);

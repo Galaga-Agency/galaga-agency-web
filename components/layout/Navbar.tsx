@@ -16,7 +16,6 @@ import LanguageSelector from "@/components/LanguageSelector";
 import HamburgerToggle from "@/components/HamburgerToggle";
 import useDeviceDetect from "@/hooks/useDeviceDetect";
 import SecondaryButton from "../ui/SecondaryButton";
-import Image from "next/image";
 import { initMobilePortal } from "@/utils/animations/mobile-portal";
 import {
   FiChevronDown,
@@ -325,19 +324,8 @@ export default function Navbar() {
             <div className="portal-glow absolute inset-0 opacity-0 pointer-events-none" />
             <div className="portal-sweep absolute inset-0 opacity-0 pointer-events-none" />
 
-            {/* Header */}
-            <div className="portal-header flex items-center justify-between px-5 md:px-6 pt-6 pb-2">
-              <Image
-                src="/assets/img/logos/logo-mobile-white.webp"
-                alt="Galaga Logo"
-                width={148}
-                height={32}
-                priority
-              />
-            </div>
-
-            {/* Navigation */}
-            <nav className="mt-6 md:mt-8 px-5 md:px-6">
+            {/* Navigation - moved to top with padding */}
+            <nav className="pt-28 px-5 md:px-6">
               <ul className="portal-nav flex flex-col gap-3 md:gap-4 text-lg font-semibold">
                 {localizedNavItems.map((item) => {
                   const isServicesItem =

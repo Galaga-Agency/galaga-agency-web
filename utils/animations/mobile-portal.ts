@@ -7,21 +7,18 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
 
   const layer = document.querySelector<HTMLElement>(".portal-layer");
   const surface = document.querySelector<HTMLElement>(".portal-surface");
-  const header = document.querySelector<HTMLElement>(".portal-header");
   const items = document.querySelectorAll<HTMLElement>(".portal-nav li");
   const extras = document.querySelectorAll<HTMLElement>(".portal-extras > *");
 
-  if (!layer || !surface || !header || !items.length || !extras.length) {
+  if (!layer || !surface || !items.length || !extras.length) {
     return () => {};
   }
-
-  const headerChildren = Array.from(header.children) as HTMLElement[];
 
   const computeRadius = () =>
     Math.ceil(Math.hypot(window.innerWidth, window.innerHeight) * 1.2);
 
   // Initial state
-  gsap.set([...headerChildren, ...Array.from(items), ...Array.from(extras)], {
+  gsap.set([...Array.from(items), ...Array.from(extras)], {
     autoAlpha: 0,
     y: 30,
   });
@@ -47,19 +44,6 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
     duration: 0.6,
     ease: "power2.out",
   });
-
-  // Header in
-  tl.to(
-    headerChildren,
-    {
-      y: 0,
-      autoAlpha: 1,
-      stagger: 0.05,
-      duration: 0.4,
-      ease: "power2.out",
-    },
-    "-=0.3"
-  );
 
   // Items in
   tl.to(
@@ -107,7 +91,6 @@ export function initMobilePortal({ isOpen }: { isOpen: boolean }) {
     tl.kill();
     gsap.killTweensOf(layer);
     gsap.killTweensOf([
-      ...headerChildren,
       ...Array.from(items),
       ...Array.from(extras),
     ]);

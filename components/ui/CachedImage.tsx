@@ -11,6 +11,8 @@ interface CachedImageProps {
   sizes?: string;
   quality?: number;
   priority?: boolean;
+  width?: number;
+  height?: number;
   onLoad?: () => void;
   onError?: () => void;
 }
@@ -22,6 +24,8 @@ const CachedImage: React.FC<CachedImageProps> = ({
   sizes = "100vw",
   quality = 90,
   priority = false,
+  width,
+  height,
   onLoad,
   onError,
 }) => {
@@ -52,11 +56,13 @@ const CachedImage: React.FC<CachedImageProps> = ({
           />
         </div>
       )}
-      
+             
       <Image
         src={cachedSrc}
         alt={alt}
-        fill
+        fill={!width && !height}
+        width={width}
+        height={height}
         priority={priority || isFromCache}
         sizes={sizes}
         quality={quality}

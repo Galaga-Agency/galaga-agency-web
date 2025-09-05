@@ -28,7 +28,7 @@ export default function HamburgerToggle({ isOpen, onClick, isScrolled }: Hamburg
     <button
       ref={hamburgerRef}
       onClick={onClick}
-      className={`fixed top-4 right-4 w-10 h-10 flex items-center justify-center rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 z-[1002] hamburger-btn xl:hidden ${
+      className={`fixed top-4 right-4 w-10 h-10 flex items-center justify-center rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 z-[10000] hamburger-btn xl:hidden ${
         isScrolled && !isOpen
           ? "bg-white border border-hielo/30"
           : "bg-white/20 backdrop-blur-sm border border-white/20"

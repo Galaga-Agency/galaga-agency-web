@@ -1,4 +1,4 @@
-# GALAGA AGENCY WEB 
+# GALAGA AGENCY WEB
 
 # Table of Contents
 
@@ -8,30 +8,28 @@
 - [EmailJS Access](#emailjs-access)
 
 # Tech stack:
+
 - Next.JS 15
 - Tailwind CSS v4 (be careful, it's v4, which means new syntaxis, no more config file, all in global.css)
 - Typescript
 - Famer Motion (only used in the homepage hero animation, I couldn´t get things to work nicely with gsap only foir this specific use-case)
 - GSAP
 
-Internationalization (i18n)
-=========================================
+# Internationalization (i18n)
 
 This documentation explains the translation system implemented in our Next.js application, providing bilingual support for Spanish (es) and English (en).
 
-Overview
---------
+## Overview
 
 Our i18n system is built with:
 
--   **Framework**: Next.js 15 with App Router
--   **Languages**: Spanish (primary) and English
--   **Structure**: File-based routing with locale segments
--   **Translation Files**: JSON-based translations stored in `/locales`
--   **State Management**: React Context for translation state
+- **Framework**: Next.js 15 with App Router
+- **Languages**: Spanish (primary) and English
+- **Structure**: File-based routing with locale segments
+- **Translation Files**: JSON-based translations stored in `/locales`
+- **State Management**: React Context for translation state
 
-File Structure
---------------
+## File Structure
 
 ```
 app/
@@ -55,8 +53,7 @@ utils/
 └── routeTranslations.ts  # Route mapping configuration
 ```
 
-Translation Files Structure
----------------------------
+## Translation Files Structure
 
 Both `en.json` and `es.json` follow identical structure organized by page and section:
 
@@ -96,8 +93,7 @@ json
 3.  **Identical key structure** - Both language files mirror each other exactly
 4.  **Reusable blocks** - Common elements like `portfolio` and `featured-projects`
 
-Route Configuration
--------------------
+## Route Configuration
 
 ### Route Translations (`utils/routeTranslations.ts`)
 
@@ -141,20 +137,19 @@ export type Language = (typeof locales)[number];
 
 ### URL Structure
 
--   **Spanish**: `/es/sobre-nosotros`, `/es/servicios`, `/es/casos-de-exito`
--   **English**: `/en/about-us`, `/en/services`, `/en/use-cases`
--   **Root redirect**: `/` defaults to `/es` (Spanish)
+- **Spanish**: `/es/sobre-nosotros`, `/es/servicios`, `/es/casos-de-exito`
+- **English**: `/en/about-us`, `/en/services`, `/en/use-cases`
+- **Root redirect**: `/` defaults to `/es` (Spanish)
 
-Translation Hook (`useTranslation`)
------------------------------------
+## Translation Hook (`useTranslation`)
 
 ### Core Features
 
--   **Context-based**: Uses React Context for global state
--   **Automatic loading**: Dynamically imports translation files
--   **URL synchronization**: Language state syncs with URL locale
--   **Persistence**: Saves language preference to localStorage
--   **Route translation**: Handles URL changes when switching languages
+- **Context-based**: Uses React Context for global state
+- **Automatic loading**: Dynamically imports translation files
+- **URL synchronization**: Language state syncs with URL locale
+- **Persistence**: Saves language preference to localStorage
+- **Route translation**: Handles URL changes when switching languages
 
 ### Hook API
 
@@ -181,12 +176,11 @@ toggleLanguage();
 
 The `t()` function supports dot notation for nested keys:
 
--   `t('nav.home')` → accesses `nav.home` in translation file
--   `t('homepage.hero-section.title')` → accesses nested structure
--   Returns the key itself if translation not found (fallback)
+- `t('nav.home')` → accesses `nav.home` in translation file
+- `t('homepage.hero-section.title')` → accesses nested structure
+- Returns the key itself if translation not found (fallback)
 
-Implementation in Components
-----------------------------
+## Implementation in Components
 
 ### Layout Setup (`app/[locale]/layout.tsx`)
 
@@ -234,8 +228,7 @@ export default function MyComponent() {
 }
 ```
 
-Language Switching Logic
-------------------------
+## Language Switching Logic
 
 ### URL-Based Language Detection
 
@@ -261,8 +254,7 @@ Current: /en/services (English)
 Switch to Spanish: /es/servicios (Spanish)
 ```
 
-Best Practices
---------------
+## Best Practices
 
 ### Adding New Translations
 
@@ -280,26 +272,25 @@ Best Practices
 
 ### Translation Key Naming
 
--   Use kebab-case for consistency: `hero-section`, `about-section`
--   Group by page and section: `homepage.hero-section.title`
--   Keep keys descriptive but concise
--   Maintain alphabetical order when possible
+- Use kebab-case for consistency: `hero-section`, `about-section`
+- Group by page and section: `homepage.hero-section.title`
+- Keep keys descriptive but concise
+- Maintain alphabetical order when possible
 
 This system provides a robust, scalable solution for bilingual content management while maintaining clean URLs and seamless user experience across language switches.
 
-
 <br><br><br><br><br><br>
 
------------------------------------------------------------------------------------------------------------
+---
 
 # EmailJS Access
 
 Usuario: thomas@galagaagency.com
-Contraseña: Galaga2024*
+Contraseña: Galaga2024\*
 
 <br><br><br><br><br><br>
 
------------------------------------------------------------------------------------------------------------
+---
 
 # Caching System
 
@@ -308,6 +299,7 @@ A comprehensive caching solution for images (localStorage) and videos (IndexedDB
 ## Overview
 
 The caching system consists of two main parts:
+
 - **Image Caching**: Uses localStorage with WebP compression for images
 - **Video Caching**: Uses IndexedDB for large video files (100MB+)
 
@@ -341,7 +333,7 @@ export const HERO_ASSETS: HeroAsset[] = [
   {
     path: "/assets/img/logos/logo-full-white.webp",
     page: "home",
-    priority: "critical",  // critical | high | normal
+    priority: "critical", // critical | high | normal
     format: "webp",
     type: "image",
   },
@@ -365,16 +357,16 @@ export const HERO_ASSETS: HeroAsset[] = [
 await imageCache.initialize();
 
 // Preload specific images
-await imageCache.preloadImage('/path/to/image.jpg', 'high');
+await imageCache.preloadImage("/path/to/image.jpg", "high");
 
 // Get cached image URL
-const cachedUrl = imageCache.getCachedImageUrl('/path/to/image.jpg');
+const cachedUrl = imageCache.getCachedImageUrl("/path/to/image.jpg");
 
 // Check if ready
-const isReady = imageCache.isImageReady('/path/to/image.jpg');
+const isReady = imageCache.isImageReady("/path/to/image.jpg");
 
 // Preload page-specific assets
-await imageCache.preloadPageAssets('home');
+await imageCache.preloadPageAssets("home");
 ```
 
 ## Video Caching System
@@ -385,8 +377,8 @@ IndexedDB-based caching for large video files:
 
 ```typescript
 class VideoCacheManager {
-  private dbName = 'galaga-video-cache';
-  private storeName = 'videos';
+  private dbName = "galaga-video-cache";
+  private storeName = "videos";
   // Handles 100MB+ files with no localStorage size limits
 }
 ```
@@ -403,18 +395,18 @@ class VideoCacheManager {
 
 ```typescript
 const {
-  cachedUrl,           // Blob URL or null
-  isLoading,          // Cache loading state  
-  progress,           // Download progress (0-100)
-  error,              // Cache errors
-  cacheVideo,         // Manual cache trigger
-  clearVideoCache,    // Clear specific video
-  getCacheInfo        // Cache statistics
+  cachedUrl, // Blob URL or null
+  isLoading, // Cache loading state
+  progress, // Download progress (0-100)
+  error, // Cache errors
+  cacheVideo, // Manual cache trigger
+  clearVideoCache, // Clear specific video
+  getCacheInfo, // Cache statistics
 } = useVideoCache(videoUrl, {
   preloadOnMount: true,
   onProgress: (progress) => console.log(`${progress}%`),
-  onCached: () => console.log('Video cached!'),
-  onError: (error) => console.error('Cache failed:', error)
+  onCached: () => console.log("Video cached!"),
+  onError: (error) => console.error("Cache failed:", error),
 });
 ```
 
@@ -426,10 +418,10 @@ The `useAppLoading` hook orchestrates all caching and initialization processes w
 
 ```typescript
 const {
-  isLoading,          // Global loading state
-  loadingProgress,    // Combined progress (0-100)
-  isAppReady,         // App ready state
-  cachedVideoUrl      // Hero video cache URL
+  isLoading, // Global loading state
+  loadingProgress, // Combined progress (0-100)
+  isAppReady, // App ready state
+  cachedVideoUrl, // Hero video cache URL
 } = useAppLoading();
 ```
 
@@ -439,15 +431,16 @@ The hook manages 5 concurrent loading states:
 
 ```typescript
 interface LoadingState {
-  document: boolean;     // DOM ready state
-  images: boolean;       // Critical image preloading
-  translations: boolean; // i18n initialization  
-  gsap: boolean;         // Animation library check
-  video: boolean;        // Hero video caching (IndexedDB)
+  document: boolean; // DOM ready state
+  images: boolean; // Critical image preloading
+  translations: boolean; // i18n initialization
+  gsap: boolean; // Animation library check
+  video: boolean; // Hero video caching (IndexedDB)
 }
 ```
 
 **Loading Flow**:
+
 1. **Loading Screen Appears**: User sees animated loading component
 2. **Parallel Execution**: All 5 processes run simultaneously
 3. **Progress Updates**: Real-time progress calculation with GSAP smooth animations
@@ -457,20 +450,22 @@ interface LoadingState {
 ### Critical Integration Points
 
 **Loading Component Integration**:
+
 ```typescript
 // LoadingWrapper.tsx
 const { isLoading, loadingProgress, isAppReady } = useAppLoading();
 
 // Shows loading screen until all caching is complete
-{showLoading && <LoadingScreen progress={loadingProgress} />}
+{
+  showLoading && <LoadingScreen progress={loadingProgress} />;
+}
 
 // Main app content hidden until ready
-<div style={{ opacity: isAppReady ? 1 : 0 }}>
-  {children}
-</div>
+<div style={{ opacity: isAppReady ? 1 : 0 }}>{children}</div>;
 ```
 
 **Progress Calculation**:
+
 ```typescript
 // Real-time progress from all loading states
 const completed = Object.values(loadingState).filter(Boolean).length;
@@ -480,13 +475,14 @@ const targetProgress = Math.floor((completed / 5) * 100);
 gsap.to(currentProgress, {
   current: targetProgress,
   duration: 0.8,
-  ease: "power2.out"
+  ease: "power2.out",
 });
 ```
 
 **State Management**:
+
 - Each loading process updates its specific state when complete
-- Progress bar smoothly animates to reflect completion percentage  
+- Progress bar smoothly animates to reflect completion percentage
 - App remains uninteractive until `isAppReady: true`
 - Prevents premature user interaction during asset loading
 
@@ -495,22 +491,23 @@ gsap.to(currentProgress, {
 ### CachedVideo Component
 
 ```typescript
-import CachedVideo from '@/components/ui/CachedVideo';
+import CachedVideo from "@/components/ui/CachedVideo";
 
 <CachedVideo
-  src="/assets/videos/galaga-presentation.mp4"
+  src="/assets/videos/galaga-compressed.mp4"
   autoPlay
   muted
   loop
   playsInline
   className="w-full h-full object-cover"
-  onLoad={() => console.log('Video loaded')}
-  onError={() => console.log('Video failed')}
+  onLoad={() => console.log("Video loaded")}
+  onError={() => console.log("Video failed")}
   fallbackSrc="/assets/videos/fallback.mp4"
-/>
+/>;
 ```
 
 **Key Features**:
+
 - Auto-detects cached videos via `useVideoCache`
 - Fallback support for failed loads
 - Loading states with cache indicators
@@ -521,11 +518,11 @@ import CachedVideo from '@/components/ui/CachedVideo';
 Debug component for cache management (dev only):
 
 ```typescript
-import VideoCacheManager from '@/components/dev/VideoCacheManager';
+import VideoCacheManager from "@/components/dev/VideoCacheManager";
 
 // Shows in development:
 // - Cache statistics
-// - Individual video management  
+// - Individual video management
 // - Clear cache functionality
 // - Storage usage info
 ```
@@ -537,14 +534,14 @@ import VideoCacheManager from '@/components/dev/VideoCacheManager';
 ```
 Critical Assets (blocking)
 ├── Logo images
-├── Hero backgrounds  
+├── Hero backgrounds
 ├── Above-fold content
 │
 High Priority (non-blocking)
 ├── Service images
 ├── Feature graphics
 ├── Interactive elements
-│  
+│
 Normal Priority (lazy)
 └── Below-fold content
 ```
@@ -569,7 +566,7 @@ Other Videos (on-demand)
 ### Automatic Cleanup
 
 - **Expiration**: 7-day cache lifetime
-- **Size Management**: LRU eviction when approaching limits  
+- **Size Management**: LRU eviction when approaching limits
 - **Invalid Entries**: Auto-removal of corrupted cache data
 - **Memory Cleanup**: Blob URL revocation to prevent leaks
 
@@ -590,12 +587,14 @@ console.log(`${info.videoCount} videos, ${formatSize(info.totalSize)}`);
 ## Performance Benefits
 
 ### First Visit
+
 - Critical images: Preloaded during loading screen
 - Hero video: Cached during loading (background download)
 - Progressive loading: Critical → High → Normal priority
 
 ### Subsequent Visits
-- Images: Instant load from localStorage (WebP compressed)  
+
+- Images: Instant load from localStorage (WebP compressed)
 - Hero video: Instant load from IndexedDB (no network request)
 - App ready: ~80% faster load times
 
@@ -609,7 +608,7 @@ console.log(`${info.videoCount} videos, ${formatSize(info.totalSize)}`);
 ## Browser Support
 
 - **localStorage**: All modern browsers
-- **IndexedDB**: All modern browsers  
+- **IndexedDB**: All modern browsers
 - **WebP**: 95%+ browser support
 - **Blob URLs**: Universal support
 - **Service Worker**: Optional enhancement (not required)
@@ -617,8 +616,9 @@ console.log(`${info.videoCount} videos, ${formatSize(info.totalSize)}`);
 ## Error Handling
 
 The system gracefully handles:
+
 - Storage quota exceeded
-- Network failures  
+- Network failures
 - Corrupted cache data
 - Unsupported file formats
 - IndexedDB unavailable
