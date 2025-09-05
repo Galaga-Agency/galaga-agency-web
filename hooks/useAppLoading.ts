@@ -20,6 +20,11 @@ interface UseAppLoadingReturn {
 
 const HERO_VIDEO_URL = "/assets/videos/galaga-presentation.mp4";
 
+// Global singleton to prevent multiple initializations
+let globalHasInitialized = false;
+let globalIsAppReady = false;
+let globalCachedVideoUrl: string | null = null;
+
 export function useAppLoading(): UseAppLoadingReturn {
   const [loadingState, setLoadingState] = useState<LoadingState>({
     document: false,
@@ -28,17 +33,35 @@ export function useAppLoading(): UseAppLoadingReturn {
     gsap: false,
   });
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadingProgress, setLoadingProgress] = useState(0);
-  const [isAppReady, setIsAppReady] = useState(false);
-  const [cachedVideoUrl, setCachedVideoUrl] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(!globalHasInitialized);
+  const [loadingProgress, setLoadingProgress] = useState(globalHasInitialized ? 100 : 0);
+  const [isAppReady, setIsAppReady] = useState(globalIsAppReady);
+  const [cachedVideoUrl, setCachedVideoUrl] = useState<string | null>(globalCachedVideoUrl);
 
   const progressTween = useRef<gsap.core.Tween | null>(null);
-  const currentProgress = useRef(0);
+  const currentProgress = useRef(globalHasInitialized ? 100 : 0);
   const scrollLocked = useRef(false);
-  const hasLoadedOnce = useRef(false);
+  const hasLoadedOnce = useRef(globalHasInitialized);
+
+  // If already initialized globally, return ready state immediately
+  useEffect(() => {
+    if (globalHasInitialized) {
+      setIsLoading(false);
+      setLoadingProgress(100);
+      setIsAppReady(true);
+      setLoadingState({
+        document: true,
+        assets: true,
+        translations: true,
+        gsap: true,
+      });
+      return;
+    }
+  }, []);
 
   const updateProgress = useCallback((state: LoadingState) => {
+    if (globalHasInitialized) return;
+
     const completed = Object.values(state).filter(Boolean).length;
     const total = Object.keys(state).length;
     const targetProgress = Math.floor((completed / total) * 100);
@@ -58,6 +81,8 @@ export function useAppLoading(): UseAppLoadingReturn {
         if (targetProgress === 100) {
           setTimeout(() => {
             setIsLoading(false);
+            globalHasInitialized = true;
+            globalIsAppReady = true;
             if (scrollLocked.current) {
               document.documentElement.style.overflow = "";
               scrollLocked.current = false;
@@ -74,7 +99,7 @@ export function useAppLoading(): UseAppLoadingReturn {
 
   // Lock scroll while loading
   useEffect(() => {
-    if (isLoading && !scrollLocked.current) {
+    if (isLoading && !scrollLocked.current && !globalHasInitialized) {
       document.documentElement.style.overflow = "hidden";
       scrollLocked.current = true;
     }
@@ -82,6 +107,8 @@ export function useAppLoading(): UseAppLoadingReturn {
 
   // Document ready gate
   useEffect(() => {
+    if (globalHasInitialized) return;
+
     const checkDocument = () => {
       if (document.readyState === "complete") {
         setLoadingState((prev) => {
@@ -104,6 +131,8 @@ export function useAppLoading(): UseAppLoadingReturn {
 
   // GSAP gate
   useEffect(() => {
+    if (globalHasInitialized) return;
+
     const checkGSAP = () => {
       if (
         typeof window !== "undefined" &&
@@ -144,8 +173,10 @@ export function useAppLoading(): UseAppLoadingReturn {
     };
   }, [updateProgress]);
 
-  // Assets gate (unified critical assets + hero video)
+  // Assets gate
   useEffect(() => {
+    if (globalHasInitialized) return;
+
     const loadCriticalAssets = async () => {
       try {
         await assetCache.initialize();
@@ -164,7 +195,6 @@ export function useAppLoading(): UseAppLoadingReturn {
           return;
         }
 
-        // Load critical assets
         const loadPromises = criticalAssets.map((asset) =>
           assetCache.cacheAsset(asset.path, asset.type, asset.priority, asset.maxSize).catch((err) => {
             console.warn(`Failed to preload ${asset.path}:`, err);
@@ -173,7 +203,6 @@ export function useAppLoading(): UseAppLoadingReturn {
 
         await Promise.all(loadPromises);
 
-        // Load hero video with early gate flip at 10% progress
         let videoGateTriggered = false;
         
         try {
@@ -196,6 +225,7 @@ export function useAppLoading(): UseAppLoadingReturn {
           );
 
           setCachedVideoUrl(videoUrl);
+          globalCachedVideoUrl = videoUrl;
 
           if (!videoGateTriggered) {
             setLoadingState((prev) => {
@@ -208,6 +238,7 @@ export function useAppLoading(): UseAppLoadingReturn {
         } catch (videoError) {
           console.warn("Video caching failed, using original URL:", videoError);
           setCachedVideoUrl(HERO_VIDEO_URL);
+          globalCachedVideoUrl = HERO_VIDEO_URL;
           
           if (!videoGateTriggered) {
             setLoadingState((prev) => {
@@ -222,6 +253,7 @@ export function useAppLoading(): UseAppLoadingReturn {
       } catch (err) {
         console.error("Critical asset loading failed:", err);
         setCachedVideoUrl(HERO_VIDEO_URL);
+        globalCachedVideoUrl = HERO_VIDEO_URL;
         setLoadingState((prev) => {
           if (prev.assets) return prev;
           const newState = { ...prev, assets: true };
@@ -234,8 +266,10 @@ export function useAppLoading(): UseAppLoadingReturn {
     loadCriticalAssets();
   }, [updateProgress]);
 
-  // Translations gate (lightweight check)
+  // Translations gate
   useEffect(() => {
+    if (globalHasInitialized) return;
+
     const checkTranslations = () => {
       try {
         const hasTranslationContext = typeof window !== "undefined";
@@ -262,6 +296,8 @@ export function useAppLoading(): UseAppLoadingReturn {
 
   // Safety net for slow assets
   useEffect(() => {
+    if (globalHasInitialized) return;
+
     const timer = setTimeout(() => {
       setLoadingState((prev) => {
         if (prev.assets) return prev;
@@ -272,6 +308,7 @@ export function useAppLoading(): UseAppLoadingReturn {
       
       if (!cachedVideoUrl) {
         setCachedVideoUrl(HERO_VIDEO_URL);
+        globalCachedVideoUrl = HERO_VIDEO_URL;
       }
     }, 2500);
     return () => clearTimeout(timer);
@@ -286,9 +323,9 @@ export function useAppLoading(): UseAppLoadingReturn {
   }, []);
 
   return {
-    isLoading: hasLoadedOnce.current ? false : isLoading,
-    loadingProgress,
-    isAppReady: hasLoadedOnce.current ? true : isAppReady,
-    cachedVideoUrl,
+    isLoading: globalHasInitialized ? false : isLoading,
+    loadingProgress: globalHasInitialized ? 100 : loadingProgress,
+    isAppReady: globalHasInitialized ? true : isAppReady,
+    cachedVideoUrl: globalCachedVideoUrl || cachedVideoUrl,
   };
 }

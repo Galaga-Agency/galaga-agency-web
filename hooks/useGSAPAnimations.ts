@@ -29,12 +29,13 @@ export const useGSAPAnimations = ({
 
   // Track global app ready state
   useEffect(() => {
-    if (isAppReady) {
+    if (isAppReady && !globalAppHasBeenReady) {
       globalAppHasBeenReady = true;
     }
   }, [isAppReady]);
 
   useGSAP(() => {
+    // Once the app has been ready once, always run animations on route changes
     const shouldRun = globalAppHasBeenReady || isAppReady;
     if (!shouldRun) return;
 

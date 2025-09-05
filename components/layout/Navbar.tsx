@@ -93,7 +93,7 @@ export default function Navbar() {
       />
       <nav
         ref={navRef}
-        className={`fixed top-0 inset-x-0 z-[100] transition-all duration-300 ${
+        className={`fixed top-0 inset-x-0 z-[9999] transition-all duration-300 ${
           isScrolled
             ? "bg-blanco/95 backdrop-blur-md border-b border-hielo"
             : "bg-transparent"

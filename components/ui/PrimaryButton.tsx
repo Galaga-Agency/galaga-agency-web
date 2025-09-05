@@ -46,9 +46,9 @@ export default function PrimaryButton({
   });
 
   const sizeStyles = {
-    sm: "px-6 py-2 text-sm",
-    md: "px-8 py-3 text-lg",
-    lg: "px-12 py-5 text-xl",
+    sm: "px-6 py-2 !text-sm",
+    md: "px-8 py-3 !text-lg",
+    lg: "px-12 py-5 !text-xl",
   };
 
   const colorStyles =
@@ -68,7 +68,7 @@ export default function PrimaryButton({
   const baseStyles = `
     ${sizeStyles[size]}
     ${colorStyles}
-    font-bold
+    !font-bold
     rounded-lg
     cursor-pointer
     shadow-md

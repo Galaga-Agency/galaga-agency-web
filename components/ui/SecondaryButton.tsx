@@ -48,9 +48,9 @@ export default function SecondaryButton({
   });
 
   const sizeStyles = {
-    sm: "px-6 py-2 text-sm",
-    md: "px-8 py-3 text-lg",
-    lg: "px-12 py-5 text-xl",
+    sm: "px-6 py-2 !text-sm",
+    md: "px-8 py-3 !text-lg",
+    lg: "px-12 py-5 !text-xl",
   };
 
   // Conditional styles based on borderColor prop
@@ -85,7 +85,7 @@ export default function SecondaryButton({
   const baseStyles = `
     ${sizeStyles[size]}
     ${colorStyles}
-    font-bold
+    !font-bold
     rounded-xl
     bg-transparent
     border-2
