@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 interface Logo3DProps {
   className?: string;
@@ -11,6 +12,7 @@ interface Logo3DProps {
 export const Logo3D: React.FC<Logo3DProps> = ({ className = "" }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
   const frameRef = useRef<number | null>(null);
   const logoRef = useRef<THREE.Group | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
@@ -22,75 +24,99 @@ export const Logo3D: React.FC<Logo3DProps> = ({ className = "" }) => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
 
+    // Scene & camera
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
+    camera.position.z = 5;
+    cameraRef.current = camera;
+
+    // Renderer
     const renderer = new THREE.WebGLRenderer({
-      canvas: canvas,
+      canvas,
       antialias: true,
       alpha: true,
     });
-
-    rendererRef.current = renderer;
-    cameraRef.current = camera;
-
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.35; // tweak 1.2–1.6 to make it brighter
     renderer.setClearColor(0x000000, 0);
+    rendererRef.current = renderer;
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
+    // Environment for nice speculars
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
+    scene.environment = envRT.texture;
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    directionalLight.position.set(2, 2, 5);
-    scene.add(directionalLight);
+    // Lights
+    const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.35);
+    scene.add(hemi);
 
-    const loader = new GLTFLoader();
-    loader.load("/assets/models/galaga-logo.glb", (gltf) => {
-      const model = gltf.scene;
+    const key = new THREE.DirectionalLight(0xffffff, 1.6);
+    key.position.set(3, 4, 6);
+    scene.add(key);
 
-      const whiteMaterial = new THREE.MeshPhongMaterial({
-        color: 0xffffff,
-        shininess: 500,
-      });
+    const fill = new THREE.DirectionalLight(0xffffff, 0.8);
+    fill.position.set(-4, 1, 3);
+    scene.add(fill);
 
-      model.traverse((child) => {
-        if (child instanceof THREE.Mesh) {
-          child.material = whiteMaterial;
-        }
-      });
+    const rim = new THREE.PointLight(0xffffff, 1.25, 20);
+    rim.position.set(0, 0, -4);
+    scene.add(rim);
 
-      const box = new THREE.Box3().setFromObject(model);
-      const center = box.getCenter(new THREE.Vector3());
-      model.position.sub(center);
-
-      const boxSize = box.getSize(new THREE.Vector3());
-      const maxDim = Math.max(boxSize.x, boxSize.y, boxSize.z);
-      model.scale.setScalar(3 / maxDim);
-
-      scene.add(model);
-      logoRef.current = model;
+    // White material
+    const whiteMat = new THREE.MeshStandardMaterial({
+      color: 0xffffff,
+      roughness: 0.22,
+      metalness: 0.9,
+      envMapIntensity: 1.0,
+      transparent: true,
+      opacity: 0.95,
     });
 
-    camera.position.z = 5;
+    // Load model
+    const loader = new GLTFLoader();
+    loader.load(
+      "/assets/models/galaga-logo.glb",
+      (gltf) => {
+        const model = gltf.scene;
 
-    // Resize function
+        model.traverse((child) => {
+          if ((child as THREE.Mesh).isMesh) {
+            (child as THREE.Mesh).material = whiteMat;
+          }
+        });
+
+        // Center & scale
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
+
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        model.scale.setScalar(3 / maxDim);
+
+        scene.add(model);
+        logoRef.current = model;
+      },
+      undefined,
+      (err) => console.error("Failed to load GLB:", err)
+    );
+
+    // Resize handling → keep it square
     const handleResize = () => {
       if (!container || !renderer || !camera) return;
-
-      const containerRect = container.getBoundingClientRect();
-      const width = containerRect.width;
-      const height = containerRect.height;
-
-      renderer.setSize(width, height);
-      camera.aspect = width / height;
+      const rect = container.getBoundingClientRect();
+      const s = Math.max(1, Math.floor(Math.min(rect.width, rect.height))); // square size
+      renderer.setSize(s, s, false);
+      camera.aspect = 1; // force square projection
       camera.updateProjectionMatrix();
     };
 
-    // Initial resize
     handleResize();
-
-    // Add resize listener
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(container);
 
+    // Animate
     const animate = () => {
       frameRef.current = requestAnimationFrame(animate);
 
@@ -102,11 +128,27 @@ export const Logo3D: React.FC<Logo3DProps> = ({ className = "" }) => {
     };
     animate();
 
+    // Cleanup
     return () => {
-      if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current);
-      }
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
       resizeObserver.disconnect();
+
+      scene.traverse((obj) => {
+        if ((obj as THREE.Mesh).isMesh) {
+          const mesh = obj as THREE.Mesh;
+          if (mesh.geometry) mesh.geometry.dispose();
+          if (Array.isArray(mesh.material)) {
+            mesh.material.forEach((m) => m.dispose && m.dispose());
+          } else {
+            (mesh.material as THREE.Material).dispose?.();
+          }
+        }
+      });
+
+      envRT.texture.dispose();
+      envRT.dispose?.();
+      pmrem.dispose();
+
       renderer.dispose();
     };
   }, []);
@@ -117,19 +159,18 @@ export const Logo3D: React.FC<Logo3DProps> = ({ className = "" }) => {
       className={className}
       style={{
         width: "100%",
-        height: "100%",
+        aspectRatio: "1 / 1",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: "3.5rem",
       }}
     >
       <canvas
         ref={canvasRef}
         style={{
           display: "block",
-          width: "100%",
-          height: "100%",
+          width: "90%",
+          height: "90%",
         }}
       />
     </div>

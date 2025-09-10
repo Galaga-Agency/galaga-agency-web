@@ -75,7 +75,16 @@ export const initVideoPlayerAnimation = () => {
         const p = gsap.utils.clamp(0, 1, self.progress);
         const curW = startW + (targetW - startW) * p;
         const curH = startH + (targetH - startH) * p;
-        gsap.set(card, { width: curW, height: curH });
+
+        // Add mobile constraints to prevent viewport breaking
+        const { isMobile, isTablet } = deviceStore.getSnapshot();
+        if (isMobile || isTablet) {
+          const safeW = Math.min(curW, window.innerWidth * 0.95);
+          const safeH = Math.min(curH, window.innerHeight * 0.6);
+          gsap.set(card, { width: safeW, height: safeH });
+        } else {
+          gsap.set(card, { width: curW, height: curH });
+        }
 
         if (videoEl.paused) {
           try {
