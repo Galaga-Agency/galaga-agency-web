@@ -22,7 +22,7 @@ export interface TransitionOptions {
   onComplete?: () => void;
 }
 
-/** Create (or reuse) the overlay element with 5 concentric layers */
+/** Create (or reuse) the overlay element with simple gradient layers */
 function getOrCreateOverlay(color: string) {
   let overlay = document.querySelector<HTMLElement>(".page-transition-overlay");
   if (!overlay) {
@@ -36,47 +36,58 @@ function getOrCreateOverlay(color: string) {
       background: transparent;
     `;
 
-    // Build 5 concentric layers (outer → inner)
-    for (let i = 0; i < 5; i++) {
+    // Build 3 simple gradient layers
+    for (let i = 0; i < 3; i++) {
       const layer = document.createElement("div");
       layer.className = `bubble-layer bubble-layer-${i + 1}`;
-      
-      let layerColor: string;
+
+      let layerBackground: string;
       if (i === 0) {
-        // First layer: white
-        layerColor = "var(--color-blanco)";
+        // Layer 1: White to color
+        layerBackground = `linear-gradient(90deg, var(--color-blanco) 0%, ${color} 100%)`;
       } else if (i === 1) {
-        // Second layer: teal
-        layerColor = "var(--color-teal)";
+        // Layer 2: Color to darker
+        layerBackground = `linear-gradient(45deg, ${color} 0%, color-mix(in oklch, ${color} 70%, black) 100%)`;
       } else {
-        // Remaining layers: varying shades of the provided color
-        const shade = `color-mix(in oklab, ${color} ${85 - (i - 2) * 15}%, black)`;
-        layerColor = shade;
+        // Layer 3: Dark gradient
+        layerBackground = `linear-gradient(135deg, color-mix(in oklch, ${color} 70%, black) 0%, color-mix(in oklch, ${color} 40%, black) 100%)`;
       }
-      
+
       layer.style.cssText = `
-        position:absolute; inset:0;
-        background:${layerColor};
+        position: absolute; inset: 0;
+        background: ${layerBackground};
         will-change: clip-path;
-        pointer-events:none;
+        pointer-events: none;
       `;
       overlay.appendChild(layer);
     }
     document.body.appendChild(overlay);
   } else {
-    // Update colors if overlay already exists
+    // Update gradients if overlay already exists
     const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
+    const gradients = [
+      `linear-gradient(135deg, 
+        var(--color-blanco) 0%, 
+        color-mix(in oklch, var(--color-blanco) 95%, ${color}) 30%, 
+        color-mix(in oklch, var(--color-blanco) 85%, ${color}) 70%, 
+        color-mix(in oklch, var(--color-blanco) 70%, ${color}) 100%
+      )`,
+      `linear-gradient(45deg, 
+        color-mix(in oklch, ${color} 90%, white) 0%, 
+        ${color} 40%, 
+        color-mix(in oklch, ${color} 85%, var(--color-teal)) 70%, 
+        color-mix(in oklch, ${color} 80%, black) 100%
+      )`,
+      `linear-gradient(90deg, 
+        color-mix(in oklch, ${color} 70%, var(--color-azul-profundo)) 0%, 
+        color-mix(in oklch, ${color} 60%, black) 30%, 
+        color-mix(in oklch, ${color} 50%, var(--color-violeta)) 70%, 
+        color-mix(in oklch, ${color} 40%, black) 100%
+      )`,
+    ];
+
     layers.forEach((layer, i) => {
-      let layerColor: string;
-      if (i === 0) {
-        layerColor = "var(--color-blanco)";
-      } else if (i === 1) {
-        layerColor = "var(--color-teal)";
-      } else {
-        const shade = `color-mix(in oklab, ${color} ${85 - (i - 2) * 15}%, black)`;
-        layerColor = shade;
-      }
-      layer.style.background = layerColor;
+      layer.style.background = gradients[i];
     });
   }
 
@@ -119,13 +130,7 @@ function installSingleton(overlay: HTMLElement) {
 
 function computeRadii() {
   const R = Math.ceil(Math.hypot(window.innerWidth, window.innerHeight) * 1.2);
-  return [
-    R, 
-    Math.round(R * 0.8), 
-    Math.round(R * 0.6), 
-    Math.round(R * 0.4), 
-    Math.round(R * 0.2)
-  ];
+  return [R, Math.round(R * 0.75), Math.round(R * 0.5)];
 }
 
 /** EXPAND: call before navigation */
@@ -149,7 +154,7 @@ export function initPageTransition({
   overlay.dataset.startedAt = String(performance.now());
 
   const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
-  const [R0, R1, R2, R3, R4] = computeRadii();
+  const [R0, R1, R2] = computeRadii();
 
   layers.forEach((l) =>
     gsap.set(l, {
@@ -165,7 +170,7 @@ export function initPageTransition({
     },
   });
 
-  // 5 layers with stagger: white → teal → color variations
+  // Simple gradient expansion
   tl.to(layers[0], {
     clipPath: `circle(${R0}px at ${clickX}px ${clickY}px)`,
     webkitClipPath: `circle(${R0}px at ${clickX}px ${clickY}px)`,
@@ -177,40 +182,20 @@ export function initPageTransition({
       {
         clipPath: `circle(${R1}px at ${clickX}px ${clickY}px)`,
         webkitClipPath: `circle(${R1}px at ${clickX}px ${clickY}px)`,
-        duration: duration * 0.95,
+        duration: duration * 0.8,
         ease: "power2.out",
       },
-      0.04
+      0.1
     )
     .to(
       layers[2],
       {
         clipPath: `circle(${R2}px at ${clickX}px ${clickY}px)`,
         webkitClipPath: `circle(${R2}px at ${clickX}px ${clickY}px)`,
-        duration: duration * 0.9,
+        duration: duration * 0.6,
         ease: "power2.out",
       },
-      0.08
-    )
-    .to(
-      layers[3],
-      {
-        clipPath: `circle(${R3}px at ${clickX}px ${clickY}px)`,
-        webkitClipPath: `circle(${R3}px at ${clickX}px ${clickY}px)`,
-        duration: duration * 0.85,
-        ease: "power2.out",
-      },
-      0.12
-    )
-    .to(
-      layers[4],
-      {
-        clipPath: `circle(${R4}px at ${clickX}px ${clickY}px)`,
-        webkitClipPath: `circle(${R4}px at ${clickX}px ${clickY}px)`,
-        duration: duration * 0.8,
-        ease: "power2.out",
-      },
-      0.16
+      0.2
     );
 
   if (window.__bubbleTransition) {
@@ -259,42 +244,22 @@ export function finishPageTransition(exitDuration = 0.8) {
     },
   });
 
-  // 5 layers reverse stagger: innermost → outermost
-  tl.to(layers[4], {
+  // Reverse gradient stagger
+  tl.to(layers[2], {
     clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
     webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-    duration: exitDuration * 0.8,
+    duration: exitDuration * 0.6,
     ease: "power2.inOut",
   })
-    .to(
-      layers[3],
-      {
-        clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        duration: exitDuration * 0.85,
-        ease: "power2.inOut",
-      },
-      0.04
-    )
-    .to(
-      layers[2],
-      {
-        clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        duration: exitDuration * 0.9,
-        ease: "power2.inOut",
-      },
-      0.08
-    )
     .to(
       layers[1],
       {
         clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
         webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        duration: exitDuration * 0.95,
+        duration: exitDuration * 0.8,
         ease: "power2.inOut",
       },
-      0.12
+      0.1
     )
     .to(
       layers[0],
@@ -304,7 +269,7 @@ export function finishPageTransition(exitDuration = 0.8) {
         duration: exitDuration,
         ease: "power2.inOut",
       },
-      0.16
+      0.2
     );
 
   if (window.__bubbleTransition) {
