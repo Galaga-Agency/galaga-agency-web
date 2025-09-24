@@ -9,6 +9,7 @@
     "language": "Idioma",
     "privacy-policy": "Política de Privacidad",
     "terms-conditions": "Términos y Condiciones",
+    "legal-notice": "Aviso Legal",
     "location": "Ubicación"
   },
   "footer": {
@@ -24,6 +25,7 @@
     "allRightsReserved": "Todos los derechos reservados",
     "privacy": "Política de Privacidad",
     "terms": "Términos y Condiciones",
+    "avisoLegal": "Aviso Legal",
     "followUs": "Síguenos",
     "cta": {
       "title": "¿Listo para transformar tu negocio?",
@@ -416,11 +418,14 @@
         "title": "¡Mensaje Enviado Correctamente!",
         "description": "Gracias por contactarnos. Hemos recibido tu mensaje y te responderemos lo antes posible con los próximos pasos para tu proyecto."
       },
+      "privacyText": "Acepto la",
+      "privacyLink": "Política de Privacidad",
       "validation": {
         "nameRequired": "El nombre completo es obligatorio",
         "emailRequired": "El correo electrónico es obligatorio",
         "emailInvalid": "Por favor, introduce una dirección de correo válida",
-        "messageRequired": "Los detalles del proyecto son obligatorios"
+        "messageRequired": "Los detalles del proyecto son obligatorios",
+        "privacyRequired": "Debe aceptar la política de privacidad"
       }
     }
   },
@@ -1220,6 +1225,23 @@
       "title": "¿Usaremos Sus Datos para Otros Fines?",
       "description": "Nuestra política es no usar sus datos para otras finalidades distintas a las que le hemos explicado. Si, no obstante, necesitásemos usar sus datos para actividades distintas, siempre le solicitaremos previamente su permiso a través de opciones claras que le permitirán decidir al respecto."
     },
+    "cookies-usage": {
+      "title": "Uso de Cookies y Tecnologías Similares",
+      "description1": "Nuestro sitio web utiliza cookies estrictamente necesarias para el funcionamiento básico, cookies analíticas para comprender el uso del sitio (Google Analytics), y cookies de marketing (Facebook Pixel) únicamente con su consentimiento explícito previo.",
+      "description2": "Puede gestionar sus preferencias de cookies en cualquier momento a través del banner de cookies que aparece en su primera visita, o contactándonos directamente en info@galagaagency.com.",
+      "types": "Cookies necesarias: idioma, sesión. Cookies analíticas: Google Analytics (solo con consentimiento). Cookies de marketing: Facebook Pixel (solo con consentimiento)."
+    },
+    "contact-form-data": {
+      "title": "Datos del Formulario de Contacto",
+      "what": "Cuando utiliza nuestro formulario de contacto, recopilamos: nombre completo, correo electrónico, empresa (opcional), teléfono (opcional), servicio de interés y detalles de su proyecto.",
+      "why": "Estos datos se utilizan exclusivamente para responder a su consulta, evaluar sus necesidades y establecer una relación comercial únicamente si usted lo desea.",
+      "retention": "Conservamos estos datos durante 24 meses desde el último contacto, o hasta que solicite su eliminación, lo que ocurra primero.",
+      "legal-basis": "Base legal: Consentimiento explícito otorgado mediante checkbox (Art. 6.1.a RGPD) y ejecución de medidas precontractuales a petición del interesado (Art. 6.1.b RGPD)."
+    },
+    "language-preference": {
+      "title": "Preferencia de Idioma",
+      "description": "Almacenamos su preferencia de idioma (español o inglés) en su navegador local para mejorar su experiencia de usuario. Esta información no se vincula a datos personales identificables y se almacena únicamente en su dispositivo."
+    },
     "contact": {
       "title": "¿Necesita Más Información?",
       "description": "Si tiene alguna pregunta sobre nuestra política de privacidad o el tratamiento de sus datos personales, no dude en contactarnos:"
@@ -1332,18 +1354,48 @@
       "description": "Para consultas sobre estos términos, puede contactarnos: info@galagaagency.com"
     }
   },
+  "legal-notice": {
+    "hero": {
+      "eyebrow": "Información Legal",
+      "aviso": "Aviso",
+      "legal": "Legal",
+      "subtitle": "Información legal obligatoria sobre Team Galaga SL"
+    },
+    "intro": {
+      "title": "Información Legal",
+      "description": "De conformidad con la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE)"
+    },
+    "company-info": {
+      "title": "Datos de la Empresa",
+      "company": "Denominación social: Team Galaga SL",
+      "cif": "CIF: B-42.833.244",
+      "address": "Domicilio social: C/ Málaga, 10 - 35200 Telde, Las Palmas, España",
+      "email": "Email de contacto: info@galagaagency.com",
+      "website": "Sitio web: galagaagency.com"
+    },
+    "activity": {
+      "title": "Objeto Social",
+      "description": "Servicios de consultoría empresarial, desarrollo tecnológico, marketing digital, experiencias inmersivas y formación especializada."
+    },
+    "registration": {
+      "title": "Datos Registrales",
+      "description": "Inscrita en el Registro Mercantil de Las Palmas. Tomo 2450, Folio 49, Hoja GC-61234, Inscripción 1ª."
+    }
+  },
   "legal-pages": {
     "cta-section": {
       "line1": "¿Necesitas",
       "line2": "Ayuda?",
       "subtitle": {
         "terms": "Estamos aquí para responder tus preguntas y ayudarte con cualquier consulta sobre nuestros términos.",
-        "privacy": "Estamos aquí para responder tus preguntas y ayudarte con cualquier consulta sobre nuestra política de privacidad."
+        "privacy": "Estamos aquí para responder tus preguntas y ayudarte con cualquier consulta sobre nuestra política de privacidad.",
+        "legal": "Estamos aquí para responder tus preguntas y ayudarte con cualquier consulta sobre nuestra información legal."
       },
       "primaryButton": "Contactar",
       "secondaryButton": {
         "terms": "Ver Política de Privacidad",
-        "privacy": "Ver Términos y Condiciones"
+        "privacy": "Ver Términos y Condiciones",
+        "legal": "Ver Política de Privacidad"
       },
       "directContact": "Contacto directo"
     }

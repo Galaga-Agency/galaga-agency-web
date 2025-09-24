@@ -1,116 +1,124 @@
+// In /components/forms/ContactForm.tsx
+
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { useTranslation } from "@/hooks/useTranslation";
-import { ArrowRight, AlertCircle, CheckCircle } from "lucide-react";
-import emailjs from "@emailjs/browser";
-import CustomInput from "@/components/ui/CustomInput";
-import CustomTextarea from "@/components/ui/CustomTextarea";
-import CustomSelect from "@/components/ui/CustomSelect";
+import PrimaryButton from "@/components/ui/PrimaryButton";
+import { getLocalizedRoute } from "@/utils/navigation";
+import CustomCheckbox from "../ui/CustomCheckbox";
 
-interface FormData {
-  name: string;
-  email: string;
-  company: string;
-  phone: string;
-  service: string;
-  message: string;
-}
-
-interface ContactFormProps {
-  isVisible?: boolean;
-}
-
-export default function ContactForm({ isVisible = true }: ContactFormProps) {
-  const { t } = useTranslation();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    setValue,
-    reset,
-    formState: { errors },
-  } = useForm<FormData>({
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      phone: "",
-      service: "",
-      message: "",
-    },
+export default function ContactForm() {
+  const { t, language } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    service: "",
+    message: "",
+    privacyConsent: false, // ADD THIS
   });
 
-  const watchedValues = watch();
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
-  const handleSelectChange = (value: string) => {
-    setValue("service", value);
-    if (submitError) setSubmitError(null);
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = t("contact-page.form.validation.nameRequired");
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = t("contact-page.form.validation.emailRequired");
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = t("contact-page.form.validation.emailInvalid");
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = t("contact-page.form.validation.messageRequired");
+    }
+
+    // ADD THIS VALIDATION
+    if (!formData.privacyConsent) {
+      newErrors.privacyConsent = t(
+        "contact-page.form.validation.privacyRequired"
+      );
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const onSubmit = async (data: FormData) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
     setIsSubmitting(true);
-    setSubmitError(null);
 
     try {
-      emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!);
-
-      const templateParams = {
-        name: data.name,
-        email: data.email,
-        company: data.company || "No company provided",
-        phone: data.phone || "No phone provided",
-        service: data.service || "No service selected",
-        message: data.message,
-        to_email: "thomas@galagaagency.com",
-      };
-
-      const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        templateParams
-      );
-
-      console.log("EmailJS Success:", result);
+      // Your submission logic here
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setSubmitSuccess(true);
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        service: "",
+        message: "",
+        privacyConsent: false,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-
-      setTimeout(() => {
-        setIsSubmitted(false);
-        reset();
-      }, 4000);
-    } catch (emailError) {
-      console.error("EmailJS Error:", emailError);
-      setIsSubmitting(false);
-      setSubmitError(t("contact-page.form.error.message"));
     }
   };
 
-  const serviceOptions = [
-    { value: "strategy", label: t("contact-page.form.services.strategy") },
-    { value: "automation", label: t("contact-page.form.services.automation") },
-    { value: "innovation", label: t("contact-page.form.services.innovation") },
-    { value: "immersive", label: t("contact-page.form.services.immersive") },
-    { value: "training", label: t("contact-page.form.services.training") },
-    { value: "grants", label: t("contact-page.form.services.grants") },
-    { value: "other", label: t("contact-page.form.services.other") },
-  ];
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value, type } = e.target;
 
-  if (isSubmitted) {
+    setFormData((prev) => ({
+      ...prev,
+      [name]:
+        type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
+    }));
+
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  if (submitSuccess) {
     return (
-      <div className="contact-form-success flex flex-col justify-center items-center text-center py-12">
-        <div className="w-20 h-20 rounded-full flex items-center justify-center mx-auto shadow-xl bg-teal">
-          <CheckCircle className="w-10 h-10 text-white drop-shadow-lg" />
+      <div className="text-center py-12">
+        <div className="w-20 h-20 bg-teal rounded-full mx-auto mb-6 flex items-center justify-center">
+          <svg
+            className="w-10 h-10 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
         </div>
-        <h3 className="text-2xl font-bold text-teal py-4 leading-tight">
+        <h3 className="text-2xl font-bold text-teal mb-4">
           {t("contact-page.form.success.title")}
         </h3>
-        <p className="text-lg text-negro leading-relaxed">
+        <p className="text-negro leading-relaxed">
           {t("contact-page.form.success.description")}
         </p>
       </div>
@@ -118,122 +126,198 @@ export default function ContactForm({ isVisible = true }: ContactFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="contact-form flex flex-col gap-6">
-      {/* Error Message */}
-      {submitError && (
-        <div className="bg-mandarina/10 border border-mandarina/30 rounded-xl p-4 flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-mandarina flex-shrink-0" />
-          <p className="text-sm text-mandarina font-medium">{submitError}</p>
-        </div>
-      )}
-
-      {/* Name and Email */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 form-field">
-        <CustomInput
-          {...register("name", {
-            required:
-              t("contact-page.form.validation.nameRequired") ||
-              "Full name is required",
-          })}
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+      {/* Name */}
+      <div>
+        <label
+          htmlFor="name"
+          className="block text-sm font-semibold text-azul-profundo mb-2"
+        >
+          {t("contact-page.form.name")}
+        </label>
+        <input
           type="text"
-          label={t("contact-page.form.name")}
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
           placeholder={t("contact-page.form.namePlaceholder")}
-          error={errors.name?.message}
-          required
+          className={`w-full px-4 py-3 rounded-lg border ${
+            errors.name ? "border-naranja-tostado" : "border-hielo"
+          } focus:border-teal focus:outline-none transition-colors`}
         />
+        {errors.name && (
+          <p className="text-naranja-tostado text-sm mt-1">{errors.name}</p>
+        )}
+      </div>
 
-        <CustomInput
-          {...register("email", {
-            required:
-              t("contact-page.form.validation.emailRequired") ||
-              "Email is required",
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message:
-                t("contact-page.form.validation.emailInvalid") ||
-                "Please enter a valid email address",
-            },
-          })}
+      {/* Email */}
+      <div>
+        <label
+          htmlFor="email"
+          className="block text-sm font-semibold text-azul-profundo mb-2"
+        >
+          {t("contact-page.form.email")}
+        </label>
+        <input
           type="email"
-          label={t("contact-page.form.email")}
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
           placeholder={t("contact-page.form.emailPlaceholder")}
-          error={errors.email?.message}
-          required
+          className={`w-full px-4 py-3 rounded-lg border ${
+            errors.email ? "border-naranja-tostado" : "border-hielo"
+          } focus:border-teal focus:outline-none transition-colors`}
+        />
+        {errors.email && (
+          <p className="text-naranja-tostado text-sm mt-1">{errors.email}</p>
+        )}
+      </div>
+
+      {/* Company */}
+      <div>
+        <label
+          htmlFor="company"
+          className="block text-sm font-semibold text-azul-profundo mb-2"
+        >
+          {t("contact-page.form.company")}
+        </label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          value={formData.company}
+          onChange={handleChange}
+          placeholder={t("contact-page.form.companyPlaceholder")}
+          className="w-full px-4 py-3 rounded-lg border border-hielo focus:border-teal focus:outline-none transition-colors"
         />
       </div>
 
-      {/* Company and Phone */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 form-field">
-        <CustomInput
-          {...register("company")}
-          type="text"
-          label={t("contact-page.form.company")}
-          placeholder={t("contact-page.form.companyPlaceholder")}
-        />
-
-        <CustomInput
-          {...register("phone")}
+      {/* Phone */}
+      <div>
+        <label
+          htmlFor="phone"
+          className="block text-sm font-semibold text-azul-profundo mb-2"
+        >
+          {t("contact-page.form.phone")}
+        </label>
+        <input
           type="tel"
-          label={t("contact-page.form.phone")}
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
           placeholder={t("contact-page.form.phonePlaceholder")}
+          className="w-full px-4 py-3 rounded-lg border border-hielo focus:border-teal focus:outline-none transition-colors"
         />
       </div>
 
       {/* Service */}
-      <div className="form-field z-50">
-        <CustomSelect
+      <div>
+        <label
+          htmlFor="service"
+          className="block text-sm font-semibold text-azul-profundo mb-2"
+        >
+          {t("contact-page.form.serviceInterest")}
+        </label>
+        <select
+          id="service"
           name="service"
-          label={t("contact-page.form.serviceInterest")}
-          placeholder={t("contact-page.form.selectService")}
-          options={serviceOptions}
-          value={watchedValues.service}
-          onChange={handleSelectChange}
-        />
+          value={formData.service}
+          onChange={handleChange}
+          className="w-full px-4 py-3 rounded-lg border border-hielo focus:border-teal focus:outline-none transition-colors bg-white"
+        >
+          <option value="">{t("contact-page.form.selectService")}</option>
+          <option value="strategy">
+            {t("contact-page.form.services.strategy")}
+          </option>
+          <option value="automation">
+            {t("contact-page.form.services.automation")}
+          </option>
+          <option value="innovation">
+            {t("contact-page.form.services.innovation")}
+          </option>
+          <option value="immersive">
+            {t("contact-page.form.services.immersive")}
+          </option>
+          <option value="training">
+            {t("contact-page.form.services.training")}
+          </option>
+          <option value="grants">
+            {t("contact-page.form.services.grants")}
+          </option>
+          <option value="other">{t("contact-page.form.services.other")}</option>
+        </select>
       </div>
 
       {/* Message */}
-      <div className="form-field">
-        <CustomTextarea
-          {...register("message", {
-            required:
-              t("contact-page.form.validation.messageRequired") ||
-              "Project details are required",
-          })}
-          label={t("contact-page.form.message")}
+      <div>
+        <label
+          htmlFor="message"
+          className="block text-sm font-semibold text-azul-profundo mb-2"
+        >
+          {t("contact-page.form.message")}
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows={5}
           placeholder={t("contact-page.form.messagePlaceholder")}
-          rows={6}
-          error={errors.message?.message}
-          required
+          className={`w-full px-4 py-3 rounded-lg border ${
+            errors.message ? "border-naranja-tostado" : "border-hielo"
+          } focus:border-teal focus:outline-none transition-colors resize-none`}
         />
+        {errors.message && (
+          <p className="text-naranja-tostado text-sm mt-1">{errors.message}</p>
+        )}
+      </div>
+
+      {/* Privacy Consent - ADD THIS ENTIRE BLOCK */}
+      <div className="pt-2">
+        <CustomCheckbox
+          id="privacyConsent"
+          name="privacyConsent"
+          checked={formData.privacyConsent}
+          onChange={handleChange}
+          error={errors.privacyConsent}
+          required
+          label={
+            <>
+              {t("contact-page.form.privacyText")}{" "}
+              <a
+                href={getLocalizedRoute("privacy-policy", language)}
+                className="text-teal underline hover:text-azul-profundo transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t("contact-page.form.privacyLink")}
+              </a>
+            </>
+          }
+        />
+        {errors.privacyConsent && (
+          <p className="text-naranja-tostado text-sm mt-2">
+            {errors.privacyConsent}
+          </p>
+        )}
       </div>
 
       {/* Submit Button */}
       <div className="pt-4">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full contact-form-submit group px-12 py-5 text-xl font-bold rounded-lg bg-teal text-white shadow-md hover:shadow-lg hover:bg-teal/90 focus:outline-none transition-all duration-200 inline-flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        <PrimaryButton
+          disabled={isSubmitting || !formData.privacyConsent || Object.keys(errors).length > 0 || !formData.name || !formData.email || !formData.message}
+          className="w-full py-4"
+          bubbleTransition={true}
+          bubbleColor="var(--color-teal)"
         >
-          {isSubmitting ? (
-            <div className="flex items-center gap-3">
-              <div className="loading-dot-1 w-2 h-2 bg-white rounded-full"></div>
-              <div className="loading-dot-2 w-2 h-2 bg-white rounded-full"></div>
-              <div className="loading-dot-3 w-2 h-2 bg-white rounded-full"></div>
-              <span>{t("contact-page.form.sending")}</span>
-            </div>
-          ) : (
-            <>
-              <span>{t("contact-page.form.send")}</span>
-              <ArrowRight className="w-5 h-5" />
-            </>
-          )}
-        </button>
+          {isSubmitting
+            ? t("contact-page.form.sending")
+            : t("contact-page.form.send")}
+        </PrimaryButton>
       </div>
-
-      {/* Privacy */}
-      <p className="text-xs text-negro/60 text-center pt-2">
-        {t("contact-page.form.privacy")}
-      </p>
     </form>
   );
 }

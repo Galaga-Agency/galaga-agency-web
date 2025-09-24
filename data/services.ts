@@ -104,6 +104,6 @@ export const services: Service[] = [
     theme: "teal",
     size: "large",
     slug: "services-section.grants-management.slug",
-    hasRedirection: true,
+    hasRedirection: false,
   },
 ];

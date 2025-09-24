@@ -120,7 +120,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden xl:flex items-center justify-center flex-1">
+            <div className="hidden xl:flex items-center justify-center flex-1 max-w-screen">
               <ul className="flex items-center gap-1 navbar-links">
                 {localizedNavItems.map((item, index) => {
                   const isServicesItem =
@@ -298,7 +298,7 @@ export default function Navbar() {
       </nav>
       {/* === MOBILE MENU PORTAL ==================================== */}
       <div
-        className="xl:hidden fixed inset-0 z-[998] pointer-events-none"
+        className="xl:hidden fixed inset-0 z-[998] pointer-events-none max-w-screen"
         aria-hidden={!isOpen}
       >
         {/* Backdrop */}
@@ -320,7 +320,6 @@ export default function Navbar() {
           }}
         >
           <div className="portal-surface absolute inset-0 text-white bg-gradient-to-br from-azul-profundo via-slate-800 to-teal overflow-auto">
-            {/* WOW overlays */}
             <div className="portal-glow absolute inset-0 opacity-0 pointer-events-none" />
             <div className="portal-sweep absolute inset-0 opacity-0 pointer-events-none" />
 
@@ -461,7 +460,7 @@ export default function Navbar() {
 
             {/* Extras */}
             <div className="portal-extras py-6 md:mt-8 px-5 md:px-6 flex flex-col gap-4">
-              <div className="h-full flex flex-col justify-center gap-3 md:gap-4 flex-1 pt-4 pb-12">
+              <div className="h-full flex flex-col md:flex-row justify-center md:justify-around gap-3 md:gap-4 flex-1 pt-4 pb-12">
                 {/* Email */}
                 <a
                   href="mailto:info@galagaagency.com"
@@ -508,7 +507,7 @@ export default function Navbar() {
                 />
 
                 <div
-                  className="container bottom-6 inset-x-0 relative rounded-2xl p-6 border overflow-hidden backdrop-blur-xl"
+                  className="container bottom-6  inset-x-0 relative rounded-2xl p-6 border overflow-hidden backdrop-blur-xl"
                   style={{
                     background: `
                       linear-gradient(135deg, 
@@ -608,7 +607,7 @@ export default function Navbar() {
                     </PrimaryButton>
 
                     {/* Legal */}
-                    <div className="flex justify-between items-center gap-6 text-white/60 text-md pt-6">
+                    <div className="flex flex-col justify-between items-center gap-6 text-white/60 text-md pt-6">
                       <Link
                         href={
                           currentLang === "es"
@@ -620,7 +619,6 @@ export default function Navbar() {
                       >
                         {t("footer.privacy")}
                       </Link>
-                      <span>•</span>
                       <Link
                         href={
                           currentLang === "es"
@@ -631,6 +629,17 @@ export default function Navbar() {
                         className="hover:text-white transition text-center"
                       >
                         {t("footer.terms")}
+                      </Link>
+                      <Link
+                        href={
+                          currentLang === "es"
+                            ? "/es/aviso-legal"
+                            : "/en/legal-notice"
+                        }
+                        onClick={closeMenu}
+                        className="hover:text-white transition text-center"
+                      >
+                        {t("footer.avisoLegal")}
                       </Link>
                     </div>
                   </div>

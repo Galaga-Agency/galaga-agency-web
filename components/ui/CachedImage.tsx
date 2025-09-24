@@ -7,6 +7,7 @@ import { useCachedAsset } from "@/hooks/useCachedAssets";
 interface CachedImageProps {
   src: string;
   alt: string;
+  fill?: boolean;
   className?: string;
   sizes?: string;
   quality?: number;
@@ -20,6 +21,7 @@ interface CachedImageProps {
 const CachedImage: React.FC<CachedImageProps> = ({
   src,
   alt,
+  fill,
   className = "",
   sizes = "100vw",
   quality = 90,

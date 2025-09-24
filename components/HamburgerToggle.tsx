@@ -38,17 +38,17 @@ export default function HamburgerToggle({ isOpen, onClick, isScrolled }: Hamburg
       <div className="relative w-6 h-5 hamburger-icon">
         <span
           className={`hamburger-line hamburger-line-1 absolute left-0 top-0 w-full h-0.5 rounded-full transition-colors duration-200 ${
-            isScrolled && !isOpen ? "bg-teal" : "bg-white"
+            isScrolled ? "bg-teal" : "bg-white"
           }`}
         ></span>
         <span
           className={`hamburger-line hamburger-line-2 absolute left-0 top-2 w-full h-0.5 rounded-full transition-colors duration-200 ${
-            isScrolled && !isOpen ? "bg-teal" : "bg-white"
+            isScrolled ? "bg-teal" : "bg-white"
           }`}
         ></span>
         <span
           className={`hamburger-line hamburger-line-3 absolute left-0 top-4 w-full h-0.5 rounded-full transition-colors duration-200 ${
-            isScrolled && !isOpen ? "bg-teal" : "bg-white"
+            isScrolled ? "bg-teal" : "bg-white"
           }`}
         ></span>
       </div>

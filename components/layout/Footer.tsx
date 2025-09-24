@@ -44,7 +44,7 @@ export default function Footer() {
                   {t("footer.cta.description")}
                 </p>
                 <PrimaryButton
-                  href={getLocalizedRoute("contacto", language)}
+                  href={getLocalizedRoute("contact", language)}
                   bubbleTransition={true}
                   bubbleColor="var(--color-teal)"
                   transitionDuration={0.8}
@@ -79,7 +79,7 @@ export default function Footer() {
                   {services.map((service, index) => {
                     const translatedSlug = t(service.slug);
                     const serviceUrl = getLocalizedRoute(
-                      `servicios/${translatedSlug}`,
+                      `services/${translatedSlug}`,
                       language
                     );
 
@@ -147,7 +147,9 @@ export default function Footer() {
                       </svg>
                     </div>
                     <div className="pl-4">
-                      <p className="text-sm text-gray-400">Location</p>
+                      <p className="text-sm text-gray-400">
+                        {t("nav.location")}
+                      </p>
                       <p className="font-medium text-base md:text-lg">
                         {t("footer.location")}
                       </p>
@@ -168,11 +170,15 @@ export default function Footer() {
               </p>
               <div className="flex items-center gap-6 md:gap-8">
                 <Link
-                  href={
-                    language === "es"
-                      ? "/es/politica-de-privacidad"
-                      : "/en/privacy-policy"
-                  }
+                  href={getLocalizedRoute("legal-notice", language)}
+                  className="group hover:text-white transition-colors duration-300 text-sm md:text-base"
+                >
+                  <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">
+                    {t("nav.legal-notice")}
+                  </span>
+                </Link>
+                <Link
+                  href={getLocalizedRoute("privacy-policy", language)}
                   className="group hover:text-white transition-colors duration-300 text-sm md:text-base"
                 >
                   <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">
@@ -180,11 +186,7 @@ export default function Footer() {
                   </span>
                 </Link>
                 <Link
-                  href={
-                    language === "es"
-                      ? "/es/terminos-y-condiciones"
-                      : "/en/terms-and-conditions"
-                  }
+                  href={getLocalizedRoute("terms-and-conditions", language)}
                   className="group hover:text-white transition-colors duration-300 text-sm md:text-base"
                 >
                   <span className="relative inline-block after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-teal-400 after:transition-all after:duration-300 group-hover:after:w-full">

@@ -36,34 +36,29 @@ function getOrCreateOverlay(color: string) {
       background: transparent;
     `;
 
-    // Build 3 simple gradient layers
     for (let i = 0; i < 3; i++) {
       const layer = document.createElement("div");
       layer.className = `bubble-layer bubble-layer-${i + 1}`;
 
       let layerBackground: string;
       if (i === 0) {
-        // Layer 1: White to color
         layerBackground = `linear-gradient(90deg, var(--color-blanco) 0%, ${color} 100%)`;
       } else if (i === 1) {
-        // Layer 2: Color to darker
         layerBackground = `linear-gradient(45deg, ${color} 0%, color-mix(in oklch, ${color} 70%, black) 100%)`;
       } else {
-        // Layer 3: Dark gradient
         layerBackground = `linear-gradient(135deg, color-mix(in oklch, ${color} 70%, black) 0%, color-mix(in oklch, ${color} 40%, black) 100%)`;
       }
 
       layer.style.cssText = `
         position: absolute; inset: 0;
         background: ${layerBackground};
-        will-change: clip-path;
+        will-change: clip-path, opacity;
         pointer-events: none;
       `;
       overlay.appendChild(layer);
     }
     document.body.appendChild(overlay);
   } else {
-    // Update gradients if overlay already exists
     const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
     const gradients = [
       `linear-gradient(135deg, 
@@ -92,7 +87,7 @@ function getOrCreateOverlay(color: string) {
   }
 
   overlay.setAttribute("aria-hidden", "true");
-  overlay.style.willChange = "clip-path";
+  overlay.style.willChange = "clip-path, opacity";
   return overlay;
 }
 
@@ -107,9 +102,8 @@ function installSingleton(overlay: HTMLElement) {
       overlay.querySelectorAll("*").forEach((el) => gsap.killTweensOf(el));
       window.__bubbleTransition?.tl?.kill();
 
-      gsap.set(overlay, {
-        clearProps: "clipPath,webkitClipPath,willChange,pointerEvents",
-      });
+      gsap.set(overlay, { clearProps: "all" });
+      gsap.set(overlay.querySelectorAll("*"), { clearProps: "all" });
 
       if (overlay.parentNode) overlay.remove();
     } finally {
@@ -160,6 +154,7 @@ export function initPageTransition({
     gsap.set(l, {
       clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
       webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
+      opacity: 1,
       pointerEvents: "none",
     })
   );
@@ -170,7 +165,6 @@ export function initPageTransition({
     },
   });
 
-  // Simple gradient expansion
   tl.to(layers[0], {
     clipPath: `circle(${R0}px at ${clickX}px ${clickY}px)`,
     webkitClipPath: `circle(${R0}px at ${clickX}px ${clickY}px)`,
@@ -217,7 +211,7 @@ export function initPageTransition({
 }
 
 /** SHRINK: call once on the destination page */
-export function finishPageTransition(exitDuration = 0.8) {
+export function finishPageTransition(exitDuration = 0.6) {
   if (typeof window === "undefined") return;
 
   const overlay =
@@ -226,7 +220,9 @@ export function finishPageTransition(exitDuration = 0.8) {
   if (!overlay) return;
 
   const layers = overlay.querySelectorAll<HTMLElement>(".bubble-layer");
+
   layers.forEach((l) => gsap.killTweensOf(l));
+  gsap.killTweensOf(overlay);
   window.clearTimeout(window.__bubbleTransition?.autoKillId);
 
   const clickX =
@@ -235,7 +231,11 @@ export function finishPageTransition(exitDuration = 0.8) {
     Number(overlay.dataset.clickY) || Math.round(window.innerHeight / 2);
 
   layers.forEach((l) =>
-    gsap.set(l, { pointerEvents: "none", willChange: "clip-path" })
+    gsap.set(l, {
+      pointerEvents: "none",
+      willChange: "clip-path, opacity",
+      opacity: 1,
+    })
   );
 
   const tl = gsap.timeline({
@@ -244,32 +244,34 @@ export function finishPageTransition(exitDuration = 0.8) {
     },
   });
 
-  // Reverse gradient stagger
   tl.to(layers[2], {
     clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
     webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-    duration: exitDuration * 0.6,
-    ease: "power2.inOut",
+    opacity: 0,
+    duration: exitDuration * 0.5,
+    ease: "power2.in",
   })
     .to(
       layers[1],
       {
         clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
         webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        duration: exitDuration * 0.8,
-        ease: "power2.inOut",
+        opacity: 0,
+        duration: exitDuration * 0.65,
+        ease: "power2.in",
       },
-      0.1
+      0.05
     )
     .to(
       layers[0],
       {
         clipPath: `circle(0px at ${clickX}px ${clickY}px)`,
         webkitClipPath: `circle(0px at ${clickX}px ${clickY}px)`,
-        duration: exitDuration,
-        ease: "power2.inOut",
+        opacity: 0,
+        duration: exitDuration * 0.8,
+        ease: "power2.in",
       },
-      0.2
+      0.1
     );
 
   if (window.__bubbleTransition) {

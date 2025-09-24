@@ -9,6 +9,7 @@
     "language": "Language",
     "privacy-policy": "Política de Privacidad",
     "terms-conditions": "Términos y Condiciones",
+    "legal-notice": "Legal Notice",
     "location": "Location"
   },
   "footer": {
@@ -24,6 +25,7 @@
     "allRightsReserved": "All rights reserved",
     "privacy": "Privacy Policy",
     "terms": "Terms & Conditions",
+    "avisoLegal": "Legal Notice",
     "followUs": "Follow us",
     "cta": {
       "title": "Ready to transform your business?",
@@ -32,7 +34,7 @@
       "learnMore": "View all services"
     }
   },
-    "loading": "Loading Data",
+  "loading": "Loading Data",
   "not-found": {
     "kicker": "Error 404",
     "title": "Page not found",
@@ -416,11 +418,14 @@
         "title": "Message Sent Successfully!",
         "description": "Thank you for reaching out. We've received your message and will get back to you as soon as possible with next steps for your project."
       },
+      "privacyText": "I accept the",
+      "privacyLink": "Privacy Policy",
       "validation": {
         "nameRequired": "Full name is required",
         "emailRequired": "Email is required",
         "emailInvalid": "Please enter a valid email address",
-        "messageRequired": "A message is required"
+        "messageRequired": "A message is required",
+        "privacyRequired": "You must accept the privacy policy"
       }
     }
   },
@@ -1216,6 +1221,23 @@
       "title": "Will We Use Your Data for Other Purposes?",
       "description": "Our policy is not to use your data for purposes other than those we have explained to you. However, if we need to use your data for different activities, we will always request your permission in advance through clear options that will allow you to decide about it."
     },
+    "cookies-usage": {
+      "title": "Use of Cookies and Similar Technologies",
+      "description1": "Our website uses strictly necessary cookies for basic functionality, analytics cookies to understand site usage (Google Analytics), and marketing cookies (Facebook Pixel) only with your prior explicit consent.",
+      "description2": "You can manage your cookie preferences at any time through the cookie banner that appears on your first visit, or by contacting us directly at info@galagaagency.com.",
+      "types": "Necessary cookies: language, session. Analytics cookies: Google Analytics (with consent only). Marketing cookies: Facebook Pixel (with consent only)."
+    },
+    "contact-form-data": {
+      "title": "Contact Form Data",
+      "what": "When you use our contact form, we collect: full name, email address, company (optional), phone (optional), service of interest, and project details.",
+      "why": "This data is used exclusively to respond to your inquiry, evaluate your needs, and establish a business relationship only if you wish.",
+      "retention": "We retain this data for 24 months from last contact, or until you request deletion, whichever comes first.",
+      "legal-basis": "Legal basis: Explicit consent given via checkbox (Art. 6.1.a GDPR) and execution of pre-contractual measures at the request of the data subject (Art. 6.1.b GDPR)."
+    },
+    "language-preference": {
+      "title": "Language Preference",
+      "description": "We store your language preference (Spanish or English) in your browser locally to improve your user experience. This information is not linked to personally identifiable data and is stored only on your device."
+    },
     "contact": {
       "title": "Need More Information?",
       "description": "If you have any questions about our privacy policy or the processing of your personal data, please do not hesitate to contact us:"
@@ -1328,18 +1350,48 @@
       "description": "For inquiries about these terms, you can contact us:"
     }
   },
+  "legal-notice": {
+    "hero": {
+      "eyebrow": "Legal Information",
+      "aviso": "Legal",
+      "legal": "Notice",
+      "subtitle": "Mandatory legal information about Team Galaga SL"
+    },
+    "intro": {
+      "title": "Legal Information",
+      "description": "In accordance with Law 34/2002 of July 11, on Information Society Services and Electronic Commerce (LSSI-CE)"
+    },
+    "company-info": {
+      "title": "Company Information",
+      "company": "Company name: Team Galaga SL",
+      "cif": "Tax ID: B-42.833.244",
+      "address": "Registered office: C/ Málaga, 10 - 35200 Telde, Las Palmas, Spain",
+      "email": "Contact email: info@galagaagency.com",
+      "website": "Website: galagaagency.com"
+    },
+    "activity": {
+      "title": "Business Purpose",
+      "description": "Business consulting services, technological development, digital marketing, immersive experiences and specialized training."
+    },
+    "registration": {
+      "title": "Registration Data",
+      "description": "Registered in the Commercial Registry of Las Palmas. Volume 2450, Page 49, Sheet GC-61234."
+    }
+  },
   "legal-pages": {
     "cta-section": {
       "line1": "Need",
       "line2": "Help?",
       "subtitle": {
         "terms": "We're here to answer your questions and help you with any inquiries about our terms.",
-        "privacy": "We're here to answer your questions and help you with any inquiries about our privacy policy."
+        "privacy": "We're here to answer your questions and help you with any inquiries about our privacy policy.",
+        "legal": "We're here to answer your questions and help you with any inquiries about our legal information."
       },
       "primaryButton": "Contact Us",
       "secondaryButton": {
         "terms": "View Privacy Policy",
-        "privacy": "View Terms & Conditions"
+        "privacy": "View Terms & Conditions",
+        "legal": "View Privacy Policy"
       },
       "directContact": "Direct contact"
     }

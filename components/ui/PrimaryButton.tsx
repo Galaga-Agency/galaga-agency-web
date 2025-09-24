@@ -11,6 +11,7 @@ interface BaseButtonProps {
   bubbleTransition?: boolean;
   bubbleColor?: string;
   transitionDuration?: number;
+  type?: "button" | "submit" | "reset";
 }
 
 interface LinkButtonProps extends BaseButtonProps {
@@ -20,7 +21,7 @@ interface LinkButtonProps extends BaseButtonProps {
 }
 
 interface ActionButtonProps extends BaseButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
   href?: never;
   external?: never;
 }
@@ -36,6 +37,7 @@ export default function PrimaryButton({
   bubbleTransition = false,
   bubbleColor,
   transitionDuration = 0.8,
+  type = "button",
   ...props
 }: PrimaryButtonProps) {
   const { navigateWithBubble } = useBubbleTransition({
@@ -88,7 +90,6 @@ export default function PrimaryButton({
 
   const combinedClassName = `${baseStyles} ${className}`;
 
-  // Handle click with bubble transition for internal links
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     if ("href" in props && props.href && !props.external && bubbleTransition) {
       navigateWithBubble(props.href, event);
@@ -100,9 +101,7 @@ export default function PrimaryButton({
     }
   };
 
-  // Type guard to check if it's a link button
   if ("href" in props && props.href) {
-    // Check if it's an external link that should open in new tab
     if (props.external) {
       return (
         <a
@@ -117,10 +116,10 @@ export default function PrimaryButton({
       );
     }
 
-    // Internal link - use bubble transition if enabled, otherwise Next.js Link
     if (bubbleTransition) {
       return (
         <button
+          type={type}
           onClick={handleClick}
           disabled={disabled}
           className={combinedClassName}
@@ -141,9 +140,9 @@ export default function PrimaryButton({
     );
   }
 
-  // Otherwise it's an action button
   return (
     <button
+      type={type}
       onClick={(props as ActionButtonProps).onClick}
       disabled={disabled}
       className={combinedClassName}

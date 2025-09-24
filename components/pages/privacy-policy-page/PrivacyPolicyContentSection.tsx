@@ -99,6 +99,24 @@ export default function PrivacyPolicyContentSection() {
       bubble: "bg-purple-gradient",
       glow: "violeta",
     },
+    {
+      icon: FileText,
+      key: "cookies-usage",
+      bubble: "bg-teal-gradient",
+      glow: "teal",
+    },
+    {
+      icon: Phone,
+      key: "contact-form-data",
+      bubble: "bg-orange-gradient",
+      glow: "mandarina",
+    },
+    {
+      icon: Globe,
+      key: "language-preference",
+      bubble: "bg-skyblue-gradient",
+      glow: "teal",
+    },
   ];
 
   const glowColor = (k: string) =>
@@ -148,10 +166,8 @@ export default function PrivacyPolicyContentSection() {
                 className="w-full"
               >
                 <CardBody className="w-full rounded-2xl md:rounded-3xl overflow-visible">
-                  {/* Back bevel (fixed depth via CardBackFrame) */}
                   <CardBackFrame className="absolute -inset-1 rounded-2xl md:rounded-3xl bg-gradient-to-br from-white to-hielo/70 border border-hielo/50" />
 
-                  {/* Ambient glow (fixed depth via CardGlow) */}
                   <CardGlow className="absolute inset-0 rounded-2xl md:rounded-3xl pointer-events-none">
                     <div
                       className="absolute inset-0 rounded-2xl md:rounded-3xl"
@@ -164,9 +180,7 @@ export default function PrivacyPolicyContentSection() {
                     />
                   </CardGlow>
 
-                  {/* Surface + content (parallax/scale handled internally) */}
                   <CardContentLayer className="relative w-full rounded-2xl md:rounded-3xl glass-effect border border-hielo/40 shadow-xl overflow-hidden">
-                    {/* Header */}
                     <div className="flex items-center gap-4 p-6 border-b border-hielo/40">
                       <CardImageLayer className="w-14 h-14">
                         <div
@@ -183,7 +197,6 @@ export default function PrivacyPolicyContentSection() {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="p-6 flex flex-col gap-4 leading-relaxed">
                       {section.hasCompanyInfo && (
                         <div className="p-4 rounded-lg border-l-4 border-teal bg-hielo/30">
@@ -236,27 +249,59 @@ export default function PrivacyPolicyContentSection() {
                         </div>
                       )}
 
-                      {!section.hasCompanyInfo && !section.hasComplaintInfo && (
-                        <>
-                          {[
-                            "description1",
-                            "description2",
-                            "description3",
-                            "description",
-                          ].map((desc) => {
-                            const content = t(
-                              `privacy-policy.${section.key}.${desc}`
-                            );
-                            if (
-                              !content ||
-                              content ===
-                                `privacy-policy.${section.key}.${desc}`
-                            )
-                              return null;
-                            return <p key={desc}>{content}</p>;
-                          })}
-                        </>
+                      {section.key === "contact-form-data" && (
+                        <div className="flex flex-col gap-3">
+                          <p className="text-azul-profundo font-semibold">
+                            {t("privacy-policy.contact-form-data.what")}
+                          </p>
+                          <p>{t("privacy-policy.contact-form-data.why")}</p>
+                          <p>
+                            {t("privacy-policy.contact-form-data.retention")}
+                          </p>
+                          <p className="text-sm text-negro/80">
+                            {t("privacy-policy.contact-form-data.legal-basis")}
+                          </p>
+                        </div>
                       )}
+
+                      {section.key === "cookies-usage" && (
+                        <div className="flex flex-col gap-3">
+                          <p>
+                            {t("privacy-policy.cookies-usage.description1")}
+                          </p>
+                          <p>
+                            {t("privacy-policy.cookies-usage.description2")}
+                          </p>
+                          <p className="text-sm text-azul-profundo font-semibold">
+                            {t("privacy-policy.cookies-usage.types")}
+                          </p>
+                        </div>
+                      )}
+
+                      {!section.hasCompanyInfo &&
+                        !section.hasComplaintInfo &&
+                        section.key !== "contact-form-data" &&
+                        section.key !== "cookies-usage" && (
+                          <>
+                            {[
+                              "description1",
+                              "description2",
+                              "description3",
+                              "description",
+                            ].map((desc) => {
+                              const content = t(
+                                `privacy-policy.${section.key}.${desc}`
+                              );
+                              if (
+                                !content ||
+                                content ===
+                                  `privacy-policy.${section.key}.${desc}`
+                              )
+                                return null;
+                              return <p key={desc}>{content}</p>;
+                            })}
+                          </>
+                        )}
 
                       {section.key === "who-we-are" && (
                         <p className="text-azul-profundo">
