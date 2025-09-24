@@ -13,7 +13,6 @@ import { finishPageTransition } from "@/utils/animations/page-transition-animati
 export default function ContactPage() {
   const { t, language } = useTranslation();
 
-  // Breadcrumb navigation
   const breadcrumbs = [
     {
       name: t("nav.home"),
@@ -29,7 +28,8 @@ export default function ContactPage() {
     animations: [
       initEntranceAnimations,
       init3DCardAnimations,
-      finishPageTransition],
+      finishPageTransition,
+    ],
     delay: 100,
   });
 

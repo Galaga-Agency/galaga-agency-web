@@ -1,103 +1,96 @@
+// Case Studies Hero - Updated
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useDeviceDetect } from "@/hooks/useDeviceDetect";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import {
+  useScrollIndicator,
+  useMousePosition,
+} from "@/hooks/useHeroInteractions";
+import { animateHero3DElement } from "@/utils/animations/hero-animations";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
-import CachedImage from "@/components/ui/CachedImage";
+import { Target3D } from "@/components/3D/Target3D";
 
 export default function CaseStudiesHeroSection() {
   const { t } = useTranslation();
-  const { isTouchDevice } = useDeviceDetect();
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const showScrollIndicator = useScrollIndicator();
+  const mousePosition = useMousePosition();
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let hasScrolled = false;
-    let scrollTimeout: NodeJS.Timeout;
-
-    const handleScroll = () => {
-      if (!hasScrolled && window.scrollY > 50) {
-        hasScrolled = true;
-        setShowScrollIndicator(false);
-      }
-
-      if (hasScrolled && window.scrollY <= 10) {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          hasScrolled = false;
-          setShowScrollIndicator(true);
-        }, 1000);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(scrollTimeout);
-    };
+    animateHero3DElement({ elementRef: targetRef as any});
   }, []);
 
   return (
-    <section className="case-studies-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image layer */}
-      <div className="absolute inset-0">
-        <CachedImage
-          src="/assets/img/casos-de-exito/hero.png"
-          alt="Case Studies Hero Background"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
+    <section className="case-studies-hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-azul-profundo">
+      <div
+        className="absolute inset-0 opacity-50 transition-all duration-700 ease-out"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at ${mousePosition.x}% ${
+            mousePosition.y
+          }%, rgba(76,188,197,0.9) 0%, transparent 50%),
+            radial-gradient(circle at ${100 - mousePosition.x}% ${
+            100 - mousePosition.y
+          }%, rgba(18,28,48,0.7) 0%, transparent 60%)
+          `,
+        }}
+      />
+
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)
+          `,
+          backgroundSize: "60px 60px",
+          transform: `translate(${mousePosition.x * 0.02}px, ${
+            mousePosition.y * 0.02
+          }px)`,
+        }}
+      />
+
+      <div className="absolute top-20 left-20 w-32 h-32 bg-turquesa/30 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute bottom-32 right-32 w-40 h-40 bg-azul-profundo/40 rounded-full blur-3xl animate-float-slower" />
+
+      <div
+        ref={targetRef}
+        className="absolute left-1/2 pointer-events-none"
+        style={{
+          width: "300px",
+          height: "300px",
+          zIndex: 1,
+        }}
+      >
+        <Target3D />
       </div>
 
-      {/* Gradient overlay that blends with the image */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, rgba(18, 28, 48, 0.85) 0%, rgba(23, 97, 97, 0.75) 50%, rgba(76, 188, 197, 0.65) 100%)",
-        }}
-      />
-
-      {/* Additional gradient for depth */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(18, 28, 48, 0.3) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.4) 100%)",
-        }}
-      />
-
       <div className="container relative z-20 w-full py-20">
-        <div className="case-studies-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
-          {/* Eyebrow */}
+        <div className="case-studies-hero-content w-full flex flex-col justify-center items-center text-center min-h-[70vh]">
           <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
-            <span className="hero-eyebrow text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg opacity-0">
+            <span className="hero-eyebrow text-blanco font-bold tracking-widest uppercase text-sm md:text-base opacity-0">
               {t("case-studies-page.hero-section.eyebrow")}
             </span>
           </div>
 
-          {/* Main Headline */}
-          <div className="text-center pb-8 md:pb-12 w-full">
-            <h1 className="hero-title text-blanco leading-[0.9] tracking-tight drop-shadow-2xl px-4 text-center">
-              <span className="block pb-2 md:pb-4">
-                <span className="hero-word-1 drop-shadow-xl opacity-0">
+          <div className="pb-8 md:pb-12 w-full">
+            <h1 className="hero-title text-blanco leading-[0.85] tracking-tighter px-4">
+              <span className="block pb-4">
+                <span className="hero-word-1 inline-block opacity-0">
                   {t("case-studies-page.hero-section.innovacion")}
                 </span>
               </span>
               <span className="block">
-                <span className="hero-word-2 drop-shadow-xl opacity-0">
+                <span className="hero-word-2 inline-block opacity-0">
                   {t("case-studies-page.hero-section.conImpacto")}
                 </span>
               </span>
             </h1>
           </div>
 
-          {/* Subtitle */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0">
+            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco/90 leading-relaxed font-light opacity-0">
               {t("case-studies-page.hero-section.subtitle")}
             </p>
           </div>

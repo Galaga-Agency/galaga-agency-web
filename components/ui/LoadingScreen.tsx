@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { Logo3D } from "../Logo3D";
+import { Logo3D } from "../3D/Logo3D";
 import { initLoadingAnimation } from "@/utils/animations/loading-animations";
 import { gsap } from "gsap";
 

@@ -33,32 +33,23 @@ const CachedImage: React.FC<CachedImageProps> = ({
 }) => {
   const { src: cachedSrc, isFromCache } = useCachedAsset(src);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [imageError, setImageError] = useState(false);
 
   const handleLoad = () => {
     setImageLoaded(true);
     onLoad?.();
   };
 
-  const handleError = () => {
-    setImageError(true);
-    onError?.();
-  };
-
-  const showLogo = !imageLoaded || imageError;
-
   return (
     <>
-      {showLogo && (
-        <div className="absolute inset-0 flex items-center justify-center bg-azul-profundo/10" style={{ zIndex: 10 }}>
-          <img
-            src="/assets/img/logos/logo-full-white.webp"
-            alt="Galaga Logo"
-            className="w-auto h-auto max-w-[200px] max-h-[120px] opacity-80"
-          />
-        </div>
+      {!imageLoaded && (
+        <div
+          className="absolute inset-0 bg-hielo/20 backdrop-blur-xl"
+          style={{
+            backgroundImage: `linear-gradient(45deg, rgba(76,188,197,0.1) 0%, rgba(18,28,48,0.1) 100%)`,
+          }}
+        />
       )}
-             
+
       <Image
         src={cachedSrc}
         alt={alt}
@@ -68,9 +59,13 @@ const CachedImage: React.FC<CachedImageProps> = ({
         priority={priority || isFromCache}
         sizes={sizes}
         quality={quality}
-        className={`${className} ${isFromCache ? "from-cache" : "from-network"} ${showLogo ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
+        className={`${className} ${
+          isFromCache ? "from-cache" : "from-network"
+        } ${
+          imageLoaded ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-135 rotate-15"
+        } transition-all duration-700 ease-out`}
         onLoad={handleLoad}
-        onError={handleError}
+        onError={onError}
       />
     </>
   );

@@ -21,7 +21,7 @@ interface LinkButtonProps extends BaseButtonProps {
 }
 
 interface ActionButtonProps extends BaseButtonProps {
-  onClick?: () => void;
+  onClick?: any;
   href?: never;
   external?: never;
 }

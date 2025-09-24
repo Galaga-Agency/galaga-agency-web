@@ -6,7 +6,7 @@ export const initBoucingBubblesAnimation = () => {
   const bubbles = document.querySelectorAll(".bubble-1, .bubble-2, .bubble-3");
 
   // Set initial state - completely hidden
-  gsap.set(bubbles, { y: 200, opacity: 0 });
+  gsap.set(bubbles, { y: 100, opacity: 0 });
 
   const triggers: ScrollTrigger[] = [];
 
@@ -26,7 +26,7 @@ export const initBoucingBubblesAnimation = () => {
       },
       onLeaveBack: () => {
         gsap.to(bubble, {
-          y: 300,
+          y: 100,
           opacity: 0,
           duration: 1,
           ease: "power2.in",
