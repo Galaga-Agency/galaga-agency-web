@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { Building, Briefcase } from "lucide-react";
+import { Building, Briefcase, FileText } from "lucide-react";
 import {
   CardContainer,
   CardBody,
@@ -27,10 +27,20 @@ export default function LegalNoticeContentSection() {
       bubble: "bg-orange-gradient",
       glow: "mandarina",
     },
+    {
+      icon: FileText,
+      key: "registration",
+      bubble: "bg-purple-gradient",
+      glow: "violeta",
+    },
   ];
 
   const glowColor = (k: string) =>
-    k === "teal" ? "rgba(76,188,197,0.22)" : "rgba(238,111,69,0.22)";
+    k === "teal"
+      ? "rgba(76,188,197,0.22)"
+      : k === "mandarina"
+      ? "rgba(238,111,69,0.22)"
+      : "rgba(78,58,115,0.22)";
 
   return (
     <section className="section bg-white">
@@ -47,7 +57,8 @@ export default function LegalNoticeContentSection() {
         <div className="flex flex-col gap-12">
           {sections.map((section, i) => {
             const Icon = section.icon;
-            const offset = i === 0 ? "md:ml-16" : "md:mr-14";
+            const offset =
+              i === 0 ? "md:ml-16" : i === 1 ? "md:mr-14" : "md:ml-20";
 
             return (
               <CardContainer
