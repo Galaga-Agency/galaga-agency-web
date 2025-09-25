@@ -7,13 +7,14 @@ import CaseStudiesGridSection from "@/components/pages/portfolio-page/CaseStudie
 import CTASection from "@/components/pages/homepage/CTASection";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
+import { animateHero3D } from "@/utils/animations/3D-models-animations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
 
 export default function CaseStudiesPage() {
   const { t, language } = useTranslation();
 
-  // Breadcrumb navigation
   const breadcrumbs = [
     {
       name: t("nav.home"),
@@ -25,10 +26,15 @@ export default function CaseStudiesPage() {
     },
   ];
 
-    useGSAPAnimations({
-      animations: [initEntranceAnimations, finishPageTransition],
-      delay: 100,
-    });
+  useGSAPAnimations({
+    animations: [
+      initHeroGridAnimation,
+      animateHero3D,
+      initEntranceAnimations,
+      finishPageTransition,
+    ],
+    delay: 100,
+  });
 
   return (
     <>

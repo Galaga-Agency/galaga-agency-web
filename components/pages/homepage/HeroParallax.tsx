@@ -5,6 +5,7 @@ import { HeroImageCard } from "./HeroImageCard";
 import { HeroTitleAnimation } from "./HeroTitleAnimation";
 import { HeroVideoCard } from "./HeroVideoCard ";
 import Image from "next/image";
+import GridBackground from "@/components/ui/GridBackground";
 
 export const HeroParallax = ({
   parallaxItems,
@@ -56,6 +57,7 @@ export const HeroParallax = ({
           "linear-gradient(135deg, var(--color-azul-profundo) 0%, var(--color-teal) 50%, var(--color-negro) 100%)",
       }}
     >
+      <GridBackground />
       <div
         className="hero-logo-js fixed z-[100] opacity-0 pointer-events-none"
         style={{

@@ -13,11 +13,12 @@ import MarketingInmersivoResultsSection from "@/components/pages/service-details
 import ServiceCTASection from "@/components/pages/service-details-pages/ServiceCTASection";
 import MarketingInmersivoCollaborationSection from "@/components/pages/service-details-pages/marketing-inmersivo-page/MarketingInmersivoCollaborationSection";
 import { use } from "react";
-import { init } from "next/dist/compiled/webpack/webpack";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
+import { animateHero3DGrow } from "@/utils/animations/3D-models-animations";
 
 interface ServiceDetailsPageProps {
   params: Promise<{
@@ -33,6 +34,8 @@ export default function MarketingInmersivoPage({
 
   useGSAPAnimations({
     animations: [
+      initHeroGridAnimation,
+      animateHero3DGrow,
       initHorizontalScrollAnimation,
       initEntranceAnimations,
       initAlternateBlocksAnimations,

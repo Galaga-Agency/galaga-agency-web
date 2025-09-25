@@ -1,27 +1,24 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useEffect, useRef } from "react";
 import {
   useScrollIndicator,
   useMousePosition,
 } from "@/hooks/useHeroInteractions";
-import { animateHero3DElement } from "@/utils/animations/hero-animations";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
+import GridBackground from "@/components/ui/GridBackground";
 import { Logo3D } from "@/components/3D/Logo3D";
 
 export default function ContactHeroSection() {
   const { t } = useTranslation();
   const showScrollIndicator = useScrollIndicator();
   const mousePosition = useMousePosition();
-  const logoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    animateHero3DElement({ elementRef: logoRef as any });
-  }, []);
 
   return (
-    <section className="contact-hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-teal">
+    <section
+      className="contact-hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-teal"
+      style={{ perspective: "1000px" }}
+    >
       <div
         className="absolute inset-0 opacity-50 transition-all duration-700 ease-out"
         style={{
@@ -36,25 +33,13 @@ export default function ContactHeroSection() {
         }}
       />
 
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)
-          `,
-          backgroundSize: "60px 60px",
-          transform: `translate(${mousePosition.x * 0.02}px, ${
-            mousePosition.y * 0.02
-          }px)`,
-        }}
-      />
+      <GridBackground/>
 
       <div className="absolute top-20 left-20 w-32 h-32 bg-turquesa/30 rounded-full blur-3xl animate-float-slow" />
       <div className="absolute bottom-32 right-32 w-40 h-40 bg-azul-profundo/40 rounded-full blur-3xl animate-float-slower" />
 
       <div
-        ref={logoRef}
+        data-animate="hero-3d-element"
         className="absolute left-1/2 pointer-events-none"
         style={{
           width: "300px",

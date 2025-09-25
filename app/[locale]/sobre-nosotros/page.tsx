@@ -6,9 +6,11 @@ import AboutHeroSection from "@/components/pages/about-us-page/AboutHeroSection"
 import AboutStorySection from "@/components/pages/about-us-page/AboutStorySection";
 import AboutApproachSection from "@/components/pages/about-us-page/AboutApproachSection";
 import AboutClientsSection from "@/components/pages/about-us-page/AboutClientsSection";
-import { getLocalizedRoute } from "@/utils/navigation";
 import AboutCTASection from "@/components/pages/about-us-page/AboutCTASection";
+import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
+import { animateHero3D } from "@/utils/animations/3D-models-animations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
@@ -16,7 +18,7 @@ import { finishPageTransition } from "@/utils/animations/page-transition-animati
 export default function AboutPage() {
   const { t, language } = useTranslation();
 
-  // Breadcrumb navigation
+  // Breadcrumbs
   const breadcrumbs = [
     {
       name: t("nav.home"),
@@ -24,18 +26,20 @@ export default function AboutPage() {
     },
     {
       name: t("nav.about"),
-      href: getLocalizedRoute("sobre-nosotros", language),
+      href: getLocalizedRoute("about-us", language),
     },
   ];
 
-    useGSAPAnimations({
-      animations: [
-        initEntranceAnimations,
-        initAlternateBlocksAnimations,
-        finishPageTransition
-      ],
-      delay: 100,
-    });
+  useGSAPAnimations({
+    animations: [
+      initHeroGridAnimation, 
+      animateHero3D,
+      initEntranceAnimations, 
+      initAlternateBlocksAnimations, 
+      finishPageTransition, 
+    ],
+    delay: 100,
+  });
 
   return (
     <>

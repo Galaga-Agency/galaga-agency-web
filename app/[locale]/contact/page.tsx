@@ -6,6 +6,8 @@ import ContactHeroSection from "@/components/pages/contact-page/ContactHeroSecti
 import ContactFormSection from "@/components/pages/contact-page/ContactFormSection";
 import { getLocalizedRoute } from "@/utils/navigation";
 import { useGSAPAnimations } from "@/hooks/useGSAPAnimations";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
+import { animateHero3D } from "@/utils/animations/3D-models-animations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
@@ -26,6 +28,8 @@ export default function ContactPage() {
 
   useGSAPAnimations({
     animations: [
+      initHeroGridAnimation,
+      animateHero3D,
       initEntranceAnimations,
       init3DCardAnimations,
       finishPageTransition,

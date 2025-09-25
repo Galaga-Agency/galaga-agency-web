@@ -1,73 +1,86 @@
 "use client";
 
 import { useTranslation } from "@/hooks/useTranslation";
-import { useDeviceDetect } from "@/hooks/useDeviceDetect";
+import {
+  useScrollIndicator,
+  useMousePosition,
+} from "@/hooks/useHeroInteractions";
 import ScrollIndicator from "@/components/ui/ScrollIndicator";
-import CachedImage from "@/components/ui/CachedImage";
+import GridBackground from "@/components/ui/GridBackground";
+import { VRHeadset3D } from "@/components/3D/VRHeadset3D";
 
 export default function MarketingInmersivoHeroSection() {
   const { t } = useTranslation();
-  const { isTouchDevice } = useDeviceDetect();
+  const showScrollIndicator = useScrollIndicator();
+  const mousePosition = useMousePosition();
 
   return (
-    <section className="immersive-marketing-hero-section bg-gradient-to-br from-azul-profundo via-teal to-negro relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image layer */}
-      <div className="absolute inset-0">
-        <CachedImage
-          src="/assets/img/servicios/gaming.png"
-          alt="Immersive Marketing Hero Background"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-      </div>
-
-      {/* Gradient overlay that blends with the image */}
+    <section
+      className="immersive-marketing-hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-teal"
+      style={{ perspective: "1000px" }}
+    >
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 opacity-50 transition-all duration-700 ease-out"
         style={{
-          background:
-            "linear-gradient(135deg, rgba(18, 28, 48, 0.85) 0%, rgba(23, 97, 97, 0.75) 50%, rgba(76, 188, 197, 0.65) 100%)",
+          backgroundImage: `
+            radial-gradient(circle at ${mousePosition.x}% ${
+            mousePosition.y
+          }%, rgba(76,188,197,0.9) 0%, transparent 50%),
+            radial-gradient(circle at ${100 - mousePosition.x}% ${
+            100 - mousePosition.y
+          }%, rgba(18,28,48,0.7) 0%, transparent 60%)
+          `,
         }}
       />
 
-      {/* Additional gradient for depth */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(18, 28, 48, 0.3) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.4) 100%)",
-        }}
-      />
+      <GridBackground />
+
+      <div className="absolute top-20 left-20 w-32 h-32 bg-turquesa/30 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute bottom-32 right-32 w-40 h-40 bg-azul-profundo/40 rounded-full blur-3xl animate-float-slower" />
 
       <div className="container relative z-20 w-full py-20">
-        <div className="immersive-marketing-hero-content w-full flex flex-col justify-center items-center min-h-[70vh]">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 pb-8 md:pb-12">
-            <span className="text-blanco font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
+        <div className="immersive-marketing-hero-content w-full flex flex-col justify-center items-start text-center min-h-[70vh]">
+          <div className="flex items-center gap-3 pl-2 pb-8 md:pb-12">
+            <span className="hero-eyebrow text-blanco font-bold tracking-widest uppercase text-sm md:text-base opacity-0 fade-in-down">
               {t(
                 "service-details-pages.immersive-marketing.hero-section.eyebrow"
               )}
             </span>
           </div>
 
-          {/* Main Headline */}
-          <div className="text-center pb-8 md:pb-12 w-full">
-            <h1 className="hero-title text-blanco leading-[0.9] tracking-tight drop-shadow-2xl px-4 text-center">
-              <span className="block">
-                <span className="hero-word-1 drop-shadow-xl opacity-0 translate-y-24">
-                  {t(
-                    "service-details-pages.immersive-marketing.hero-section.title"
-                  )}
+          {/* Main content block: title + VR model */}
+          <div className="flex flex-col lg:flex-row items-center justify-center pb-8 md:pb-12 w-full">
+            {/* Title */}
+            <div className="text-center lg:text-left">
+              <h1 className="hero-title text-blanco leading-[0.85] tracking-tighter">
+                <span className="block">
+                  <span className="hero-word-1 w-fit opacity-0">
+                    {t(
+                      "service-details-pages.immersive-marketing.hero-section.title"
+                    )}
+                  </span>
                 </span>
-              </span>
-            </h1>
+              </h1>
+            </div>
+
+            {/* VR Model */}
+            <div className="flex-shrink-0">
+              <div
+                data-animate="hero-3d-grow"
+                className="relative pointer-events-none"
+                style={{
+                  width: "400px",
+                  height: "400px",
+                }}
+              >
+                <VRHeadset3D />
+              </div>
+            </div>
           </div>
 
-          {/* Subtitle */}
+          {/* Subtitle below the main block */}
           <div className="text-center pb-12 md:pb-16 w-full px-4">
-            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco leading-relaxed font-light drop-shadow-xl opacity-0 translate-y-12">
+            <p className="hero-subtitle text-lg md:text-2xl lg:text-3xl text-blanco/90 leading-relaxed font-light opacity-0">
               {t(
                 "service-details-pages.immersive-marketing.hero-section.subtitle"
               )}
@@ -76,7 +89,13 @@ export default function MarketingInmersivoHeroSection() {
         </div>
       </div>
 
-      <ScrollIndicator className="hero-scroll-indicator absolute bottom-16 left-1/2 opacity-0 z-50 transform -translate-x-1/2" />
+      <div
+        className={`hero-scroll-indicator absolute bottom-16 left-1/2 z-50 transform -translate-x-1/2 transition-all duration-600 ${
+          showScrollIndicator ? "opacity-100" : "opacity-0 translate-y-5"
+        }`}
+      >
+        <ScrollIndicator />
+      </div>
     </section>
   );
 }

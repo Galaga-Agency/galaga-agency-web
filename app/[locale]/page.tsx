@@ -18,6 +18,7 @@ import { initVideoPlayerAnimation } from "@/utils/animations/video-player-animat
 import { parallaxItems } from "@/data/hero-parallax-items";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -31,6 +32,7 @@ export default function HomePage() {
 
   useGSAPAnimations({
     animations: [
+      initHeroGridAnimation,
       initHeroScrollAnimation,
       initHeroTitleAnimation,
       initVideoPlayerAnimation,

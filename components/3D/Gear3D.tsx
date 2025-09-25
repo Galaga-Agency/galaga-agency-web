@@ -1,8 +1,8 @@
-// /components/3D/Gear3D.tsx
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 export function Gear3D() {
@@ -11,7 +11,6 @@ export function Gear3D() {
   const frameRef = useRef<number | null>(null);
   const gearRef = useRef<THREE.Group | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
@@ -19,10 +18,12 @@ export function Gear3D() {
     const canvas = canvasRef.current;
     const container = containerRef.current;
 
+    // Scene & camera - pull back further to avoid truncation
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
-    camera.position.z = 5;
+    const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 1000); // Wider FOV
+    camera.position.z = 8; // Further back
 
+    // Renderer (matching your Logo3D setup exactly)
     const renderer = new THREE.WebGLRenderer({
       canvas,
       antialias: true,
@@ -34,10 +35,12 @@ export function Gear3D() {
     renderer.setClearColor(0x000000, 0);
     rendererRef.current = renderer;
 
+    // Environment (same as Logo3D)
     const pmrem = new THREE.PMREMGenerator(renderer);
     const envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
     scene.environment = envRT.texture;
 
+    // Lights (same as Logo3D)
     const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.35);
     scene.add(hemi);
 
@@ -53,6 +56,7 @@ export function Gear3D() {
     rim.position.set(0, 0, -4);
     scene.add(rim);
 
+    // White material (same as Logo3D)
     const whiteMat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       roughness: 0.22,
@@ -62,74 +66,37 @@ export function Gear3D() {
       opacity: 0.95,
     });
 
-    const gearGroup = new THREE.Group();
+    // Load your 3D gear model
+    const loader = new GLTFLoader();
+    loader.load(
+      "/assets/models/single-gear-3D.glb",
+      (gltf) => {
+        const model = gltf.scene;
 
-    const innerRadius = 0.8;
-    const outerRadius = 1.5;
-    const depth = 0.3;
-    const teethCount = 12;
+        // Apply your material to all meshes
+        model.traverse((child) => {
+          if ((child as THREE.Mesh).isMesh) {
+            (child as THREE.Mesh).material = whiteMat;
+          }
+        });
 
-    const shape = new THREE.Shape();
-    for (let i = 0; i < teethCount; i++) {
-      const angle1 = (i / teethCount) * Math.PI * 2;
-      const angle2 = ((i + 0.4) / teethCount) * Math.PI * 2;
-      const angle3 = ((i + 0.6) / teethCount) * Math.PI * 2;
-      const angle4 = ((i + 1) / teethCount) * Math.PI * 2;
+        // Center & scale (same as Logo3D)
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        model.position.sub(center);
 
-      if (i === 0) {
-        shape.moveTo(
-          Math.cos(angle1) * outerRadius,
-          Math.sin(angle1) * outerRadius
-        );
-      } else {
-        shape.lineTo(
-          Math.cos(angle1) * outerRadius,
-          Math.sin(angle1) * outerRadius
-        );
-      }
-      shape.lineTo(
-        Math.cos(angle2) * outerRadius,
-        Math.sin(angle2) * outerRadius
-      );
-      shape.lineTo(
-        Math.cos(angle3) * innerRadius,
-        Math.sin(angle3) * innerRadius
-      );
-      shape.lineTo(
-        Math.cos(angle4) * innerRadius,
-        Math.sin(angle4) * innerRadius
-      );
-    }
-    shape.closePath();
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+        model.scale.setScalar(2.5 / maxDim); // Slightly smaller scale
 
-    const extrudeSettings = {
-      steps: 1,
-      depth: depth,
-      bevelEnabled: true,
-      bevelThickness: 0.05,
-      bevelSize: 0.05,
-      bevelSegments: 3,
-    };
-
-    const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
-    geometry.center();
-    const gear = new THREE.Mesh(geometry, whiteMat);
-
-    const centerHoleGeometry = new THREE.CylinderGeometry(
-      0.3,
-      0.3,
-      depth + 0.2,
-      32
+        scene.add(model);
+        gearRef.current = model;
+      },
+      undefined,
+      (err) => console.error("Failed to load gear GLB:", err)
     );
-    const centerHole = new THREE.Mesh(centerHoleGeometry, whiteMat.clone());
-    centerHole.rotation.x = Math.PI / 2;
 
-    gearGroup.add(gear);
-    gearGroup.add(centerHole);
-
-    scene.add(gearGroup);
-    gearRef.current = gearGroup;
-
+    // Resize handling (same as Logo3D)
     const handleResize = () => {
       if (!container || !renderer) return;
       const rect = container.getBoundingClientRect();
@@ -143,36 +110,22 @@ export function Gear3D() {
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(container);
 
-    const handleMouseMove = (event: MouseEvent) => {
-      mouseRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseRef.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
+    // Animate (same rotation style as Logo3D)
     const animate = () => {
       frameRef.current = requestAnimationFrame(animate);
 
       if (gearRef.current) {
-        gearRef.current.rotation.z += 0.01;
-
-        const targetRotationX = mouseRef.current.y * 0.3;
-        const targetRotationY = mouseRef.current.x * 0.3;
-
-        gearRef.current.rotation.x +=
-          (targetRotationX - gearRef.current.rotation.x) * 0.05;
-        gearRef.current.rotation.y +=
-          (targetRotationY - gearRef.current.rotation.y) * 0.05;
+        gearRef.current.rotation.y -= 0.02;
       }
 
       renderer.render(scene, camera);
     };
     animate();
 
+    // Cleanup (same as Logo3D)
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
       resizeObserver.disconnect();
-      window.removeEventListener("mousemove", handleMouseMove);
 
       scene.traverse((obj) => {
         if ((obj as THREE.Mesh).isMesh) {
@@ -208,8 +161,8 @@ export function Gear3D() {
         ref={canvasRef}
         style={{
           display: "block",
-          width: "100%",
-          height: "100%",
+          width: "90%",
+          height: "90%",
         }}
       />
     </div>

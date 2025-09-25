@@ -53,7 +53,7 @@ export const HeroImageCard = ({
         x: translate,
         opacity: cardOpacity,
       }}
-      className="w-92 h-72 shrink-0"
+      className="w-92 h-72 shrink-0 bg-teal"
     >
       <div
         className="relative w-full h-full [perspective:2000px] cursor-pointer group"
@@ -87,7 +87,7 @@ export const HeroImageCard = ({
 
           {/* Video or Image */}
           <div
-            className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.7)]"
+            className="absolute inset-0 rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.7)] bg-teal"
             style={{
               transform: "translateZ(100px) rotateX(8deg)",
               transformStyle: "preserve-3d",
@@ -103,11 +103,11 @@ export const HeroImageCard = ({
                   src="/assets/img/logos/logo-full-white.webp"
                   alt="Company Logo"
                   style={{
-                    maxWidth: '150px',
-                    maxHeight: '90px',
-                    width: 'auto',
-                    height: 'auto',
-                    opacity: 0.8
+                    maxWidth: "150px",
+                    maxHeight: "90px",
+                    width: "auto",
+                    height: "auto",
+                    opacity: 0.8,
                   }}
                 />
               </div>
@@ -117,7 +117,9 @@ export const HeroImageCard = ({
               <video
                 ref={videoRef}
                 src={item.video}
-                className={`video-element absolute inset-0 w-full h-full ${showFallback ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
+                className={`video-element absolute inset-0 w-full h-full ${
+                  showFallback ? "opacity-0" : "opacity-100"
+                } transition-opacity duration-500`}
                 muted
                 loop
                 playsInline
@@ -141,7 +143,9 @@ export const HeroImageCard = ({
               <img
                 src={item.image}
                 alt={item.title}
-                className={`absolute inset-0 w-full h-full object-cover ${showFallback ? "opacity-0" : "opacity-100"} transition-opacity duration-500`}
+                className={`absolute inset-0 w-full h-full object-cover ${
+                  showFallback ? "opacity-0" : "opacity-100"
+                } transition-opacity duration-500`}
                 onLoad={() => setImageLoaded(true)}
                 onError={() => setHasError(true)}
               />

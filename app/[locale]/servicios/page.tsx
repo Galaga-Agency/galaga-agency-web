@@ -9,6 +9,8 @@ import ServicesProcessSection from "@/components/pages/services-page/ServicesPro
 import { getLocalizedRoute } from "@/utils/navigation";
 import TechnologyStackSection from "@/components/pages/services-page/TechnologyStackSection";
 import ServiceCTASection from "@/components/pages/services-page/ServicesCTASection";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
+import { animateHero3D } from "@/utils/animations/3D-models-animations";
 import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
@@ -30,9 +32,12 @@ export default function ServicesPage() {
 
   useGSAPAnimations({
     animations: [
+      initHeroGridAnimation,
+      animateHero3D,
       initEntranceAnimations,
       init3DCardAnimations,
-      finishPageTransition],
+      finishPageTransition,
+    ],
     delay: 100,
   });
 

@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 import * as THREE from "three";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 
 export function Target3D() {
@@ -10,7 +11,7 @@ export function Target3D() {
   const frameRef = useRef<number | null>(null);
   const targetRef = useRef<THREE.Group | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
+  const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
 
   useEffect(() => {
     if (!canvasRef.current || !containerRef.current) return;
@@ -18,10 +19,13 @@ export function Target3D() {
     const canvas = canvasRef.current;
     const container = containerRef.current;
 
+    // Scene & camera
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
     camera.position.z = 5;
+    cameraRef.current = camera;
 
+    // Renderer
     const renderer = new THREE.WebGLRenderer({
       canvas,
       antialias: true,
@@ -33,10 +37,12 @@ export function Target3D() {
     renderer.setClearColor(0x000000, 0);
     rendererRef.current = renderer;
 
+    // Environment for nice speculars
     const pmrem = new THREE.PMREMGenerator(renderer);
     const envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
     scene.environment = envRT.texture;
 
+    // Lights
     const hemi = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.35);
     scene.add(hemi);
 
@@ -52,6 +58,7 @@ export function Target3D() {
     rim.position.set(0, 0, -4);
     scene.add(rim);
 
+    // White material
     const whiteMat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       roughness: 0.22,
@@ -61,31 +68,44 @@ export function Target3D() {
       opacity: 0.95,
     });
 
-    const targetGroup = new THREE.Group();
+    // Load model
+    const loader = new GLTFLoader();
+    loader.load(
+      "/assets/models/target-3D.glb",
+      (gltf) => {
+        const model = gltf.scene;
 
-    const ringCount = 3;
-    for (let i = 0; i < ringCount; i++) {
-      const geometry = new THREE.TorusGeometry(1.5 - i * 0.45, 0.15, 8, 64);
-      const ring = new THREE.Mesh(geometry, whiteMat.clone());
-      ring.position.z = i * 0.2;
-      targetGroup.add(ring);
-    }
+        model.traverse((child) => {
+          if ((child as THREE.Mesh).isMesh) {
+            (child as THREE.Mesh).material = whiteMat;
+          }
+        });
 
-    const centerGeometry = new THREE.CylinderGeometry(0.2, 0.2, 0.1, 32);
-    const centerCylinder = new THREE.Mesh(centerGeometry, whiteMat.clone());
-    centerCylinder.rotation.x = Math.PI / 2;
-    centerCylinder.position.z = ringCount * 0.2;
-    targetGroup.add(centerCylinder);
+        // Center & scale with proper centering
+        const box = new THREE.Box3().setFromObject(model);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
 
-    scene.add(targetGroup);
-    targetRef.current = targetGroup;
+        // Force center the model properly
+        model.position.set(-center.x, -center.y, -center.z);
 
+        const maxDim = Math.max(size.x, size.y, size.z);
+        model.scale.setScalar(3 / maxDim);
+
+        scene.add(model);
+        targetRef.current = model;
+      },
+      undefined,
+      (err) => console.error("Failed to load GLB:", err)
+    );
+
+    // Resize handling → keep it square
     const handleResize = () => {
-      if (!container || !renderer) return;
+      if (!container || !renderer || !camera) return;
       const rect = container.getBoundingClientRect();
-      const s = Math.max(1, Math.floor(Math.min(rect.width, rect.height)));
+      const s = Math.max(1, Math.floor(Math.min(rect.width, rect.height))); // square size
       renderer.setSize(s, s, false);
-      camera.aspect = 1;
+      camera.aspect = 1; // force square projection
       camera.updateProjectionMatrix();
     };
 
@@ -93,43 +113,22 @@ export function Target3D() {
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(container);
 
-    const handleMouseMove = (event: MouseEvent) => {
-      mouseRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseRef.current.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
+    // Animate
     const animate = () => {
       frameRef.current = requestAnimationFrame(animate);
 
       if (targetRef.current) {
-        targetRef.current.children.forEach((child, index) => {
-          if (
-            child instanceof THREE.Mesh &&
-            child.geometry instanceof THREE.TorusGeometry
-          ) {
-            child.rotation.z += 0.008 * (index % 2 === 0 ? 1 : -1);
-          }
-        });
-
-        const targetRotationX = mouseRef.current.y * 0.3;
-        const targetRotationY = mouseRef.current.x * 0.3;
-
-        targetRef.current.rotation.x +=
-          (targetRotationX - targetRef.current.rotation.x) * 0.05;
-        targetRef.current.rotation.y +=
-          (targetRotationY - targetRef.current.rotation.y) * 0.05;
+        targetRef.current.rotation.y -= 0.02;
       }
 
       renderer.render(scene, camera);
     };
     animate();
 
+    // Cleanup
     return () => {
       if (frameRef.current) cancelAnimationFrame(frameRef.current);
       resizeObserver.disconnect();
-      window.removeEventListener("mousemove", handleMouseMove);
 
       scene.traverse((obj) => {
         if ((obj as THREE.Mesh).isMesh) {
@@ -146,6 +145,7 @@ export function Target3D() {
       envRT.texture.dispose();
       envRT.dispose?.();
       pmrem.dispose();
+
       renderer.dispose();
     };
   }, []);
@@ -165,8 +165,8 @@ export function Target3D() {
         ref={canvasRef}
         style={{
           display: "block",
-          width: "100%",
-          height: "100%",
+          width: "90%",
+          height: "90%",
         }}
       />
     </div>

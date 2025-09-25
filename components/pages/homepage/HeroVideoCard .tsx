@@ -16,7 +16,7 @@ export const HeroVideoCard = () => {
       <div className="absolute -inset-4 bg-gradient-to-br from-azul-profundo via-teal to-negro rounded-3xl shadow-2xl border-2 border-turquesa/30" />
 
       <div
-        className="video-content absolute inset-0 overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-3xl"
+        className="video-content absolute inset-0 overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-3xl bg-teal"
         style={{
           backfaceVisibility: "hidden",
           transform: "translate3d(0, 0, 0)",
@@ -31,7 +31,7 @@ export const HeroVideoCard = () => {
         </div>
 
         <video
-          className="video-element absolute inset-0 w-full h-full"
+          className="video-element absolute inset-0 w-full h-full bg-gradient-to-br from-azul-profundo via-teal to-negro"
           src="/assets/videos/galaga-compressed.mp4"
           muted
           loop

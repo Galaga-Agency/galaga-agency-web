@@ -17,6 +17,8 @@ import { initEntranceAnimations } from "@/utils/animations/entrance-animations";
 import { initAlternateBlocksAnimations } from "@/utils/animations/alternate-blocks-animations";
 import { init3DCardAnimations } from "@/utils/animations/3D-card-animations";
 import { finishPageTransition } from "@/utils/animations/page-transition-animation";
+import { initHeroGridAnimation } from "@/utils/animations/grid-animations";
+import { animateHero3DGrow } from "@/utils/animations/3D-models-animations";
 
 interface ServiceDetailsPageProps {
   params: Promise<{
@@ -32,6 +34,8 @@ export default function MarketingInmersivoPage({
 
   useGSAPAnimations({
     animations: [
+      initHeroGridAnimation,
+      animateHero3DGrow,
       initHorizontalScrollAnimation,
       initEntranceAnimations,
       initAlternateBlocksAnimations,
@@ -48,11 +52,11 @@ export default function MarketingInmersivoPage({
       href: getLocalizedRoute("", language),
     },
     {
-      name: t("nav.services"),
+      name: t("nav.servicios"),
       href: getLocalizedRoute("servicios", language),
     },
     {
-      name: t("services.immersive-marketing.title"),
+      name: t("servicios.immersive-marketing.title"),
       href: getLocalizedRoute(`servicios/${serviceSlug}`, language),
     },
   ];
