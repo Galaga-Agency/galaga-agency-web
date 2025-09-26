@@ -641,3 +641,65 @@ h6 {
 .animate-fade-in-down {
   animation: fade-in-down 0.8s ease-out 0.2s forwards;
 }
+
+.floating-3d-model {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotateY(5deg);
+  }
+}
+
+/* Enhanced Process Section Animations - Add to your global.css */
+
+@keyframes process-glow-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateX(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+@keyframes process-data-flow-left {
+  0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.4; }
+  50% { transform: translateX(20px) scaleX(1.5); opacity: 0.8; }
+}
+
+@keyframes process-data-flow-right {
+  0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.4; }
+  50% { transform: translateX(-20px) scaleX(1.3); opacity: 0.7; }
+}
+
+@keyframes process-data-flow-left-slow {
+  0%, 100% { transform: translateX(0) scaleX(1); opacity: 0.3; }
+  50% { transform: translateX(15px) scaleX(1.2); opacity: 0.6; }
+}
+
+.process-glow-pulse {
+  animation: process-glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-scan-line {
+  animation: scan-line 2s ease-in-out;
+}
+
+.process-data-flow-left {
+  animation: process-data-flow-left 3s ease-in-out infinite;
+}
+
+.process-data-flow-right {
+  animation: process-data-flow-right 2.5s ease-in-out infinite;
+}
+
+.process-data-flow-left-slow {
+  animation: process-data-flow-left-slow 3.5s ease-in-out infinite;
+}
